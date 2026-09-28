@@ -71,12 +71,12 @@ const QUARTERLY_LIVE = false;
    Marketing copy. None of these limits are enforced by the backend today - see
    the note in the PR: the subscription only records a plan and an expiry. ── */
 const BENEFITS = [
-  { icon: XIcon,     tint: "#fff0f4", color: "#fe2c55", title: "Ad-Free Experience", desc: "Enjoy uninterrupted watching." },
-  { icon: Crown,     tint: "#fff0f4", color: "#fe2c55", title: "Exclusive Badges",   desc: "Stand out with premium badges." },
-  { icon: Video,     tint: "#fff0f4", color: "#fe2c55", title: "HD Uploads",         desc: "Upload in up to 4K quality." },
-  { icon: BarChart3, tint: "#fff0f4", color: "#fe2c55", title: "Advanced Analytics", desc: "Deep insights into your performance." },
-  { icon: Gauge,     tint: "#fff0f4", color: "#fe2c55", title: "Higher Upload Limits", desc: "Upload longer videos and more often." },
-  { icon: Palette,   tint: "#fff0f4", color: "#fe2c55", title: "Profile Themes",     desc: "Unlock premium profile themes." },
+  { icon: XIcon,     tint: "#fff3ec", color: "#fd4605", title: "Ad-Free Experience", desc: "Enjoy uninterrupted watching." },
+  { icon: Crown,     tint: "#fff3ec", color: "#fd4605", title: "Exclusive Badges",   desc: "Stand out with premium badges." },
+  { icon: Video,     tint: "#fff3ec", color: "#fd4605", title: "HD Uploads",         desc: "Upload in up to 4K quality." },
+  { icon: BarChart3, tint: "#fff3ec", color: "#fd4605", title: "Advanced Analytics", desc: "Deep insights into your performance." },
+  { icon: Gauge,     tint: "#fff3ec", color: "#fd4605", title: "Higher Upload Limits", desc: "Upload longer videos and more often." },
+  { icon: Palette,   tint: "#fff3ec", color: "#fd4605", title: "Profile Themes",     desc: "Unlock premium profile themes." },
   { icon: Coins,     tint: "#fffbeb", color: "#f59e0b", title: "Bonus Coins",        desc: "Receive 200 coins monthly." },
 ];
 
@@ -135,7 +135,7 @@ function StripeSubPaymentForm({ orderId, plan, onSuccess, onCancel }: {
       <button
         type="submit"
         disabled={!stripe || paying}
-        className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#fe2c55] py-3 text-[13px] font-black text-white transition hover:bg-[#e0193f] disabled:opacity-50"
+        className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#fd4605] py-3 text-[13px] font-black text-white transition hover:bg-[#e03e04] disabled:opacity-50"
       >
         <Lock className="h-3.5 w-3.5" />
         {paying ? "Processing…" : `Subscribe - ${plan === "annual" ? "Yearly" : "Monthly"}`}
@@ -444,10 +444,10 @@ export function StudioPremiumPage() {
                 )}
 
                 {/* Hero */}
-                <div className="relative overflow-hidden rounded-[20px] border border-[#fde2e8] bg-gradient-to-br from-[#fff5f7] via-[#fff8fa] to-[#ffeef3] p-7">
+                <div className="relative overflow-hidden rounded-[20px] border border-[#fde2e8] bg-gradient-to-br from-[#fff6f1] via-[#fff8fa] to-[#ffeef3] p-7">
                   <div className="relative z-10 max-w-lg">
                     <h2 className="flex items-center gap-2 text-[30px] font-black leading-tight tracking-tight text-[#111827]">
-                      Teezer <span className="text-[#fe2c55]">Premium</span>
+                      Teezer <span className="text-[#fd4605]">Premium</span>
                       <Sparkles className="h-5 w-5 text-[#fbbf24]" />
                     </h2>
                     <p className="mt-2 text-[13px] leading-relaxed text-[#6b7280]">
@@ -458,13 +458,13 @@ export function StudioPremiumPage() {
                   {/* Decorative crown - purely ornamental, hidden from a11y tree */}
                   <div aria-hidden className="pointer-events-none absolute right-6 top-1/2 hidden -translate-y-1/2 md:block">
                     <div className="relative flex h-28 w-28 items-center justify-center rounded-full bg-gradient-to-br from-[#ffd7e2] to-[#ffb3c8]">
-                      <Crown className="h-14 w-14 text-[#fe2c55]" strokeWidth={1.6} />
+                      <Crown className="h-14 w-14 text-[#fd4605]" strokeWidth={1.6} />
                     </div>
                     <span className="absolute -left-10 top-2 flex h-9 w-9 items-center justify-center rounded-xl bg-white shadow-sm">
                       <BadgeCheck className="h-4 w-4 text-[#f59e0b]" />
                     </span>
                     <span className="absolute -left-14 bottom-4 flex h-9 w-9 items-center justify-center rounded-xl bg-white shadow-sm">
-                      <Sparkles className="h-4 w-4 text-[#fe2c55]" />
+                      <Sparkles className="h-4 w-4 text-[#fd4605]" />
                     </span>
                     <span className="absolute -right-6 top-6 flex h-9 w-9 items-center justify-center rounded-xl bg-white shadow-sm">
                       <Rocket className="h-4 w-4 text-[#f59e0b]" />
@@ -563,7 +563,7 @@ export function StudioPremiumPage() {
                                 onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); void applyCoupon(); } }}
                                 placeholder="Coupon code"
                                 maxLength={32}
-                                className="min-w-0 flex-1 rounded-[10px] border border-[#e5e7eb] bg-[#fafafa] px-3 py-2 text-[13px] font-bold uppercase tracking-[0.08em] text-[#111827] outline-none transition placeholder:font-normal placeholder:tracking-normal placeholder:text-[#c9c5d0] focus:border-[#fe2c55] focus:bg-white"
+                                className="min-w-0 flex-1 rounded-[10px] border border-[#e5e7eb] bg-[#fafafa] px-3 py-2 text-[13px] font-bold uppercase tracking-[0.08em] text-[#111827] outline-none transition placeholder:font-normal placeholder:tracking-normal placeholder:text-[#c9c5d0] focus:border-[#fd4605] focus:bg-white"
                               />
                               <button
                                 type="button"
@@ -623,7 +623,7 @@ export function StudioPremiumPage() {
                               className={cn(
                                 "flex w-full items-center gap-3 rounded-[12px] border px-3 py-3 text-left transition",
                                 payMethod === m.id
-                                  ? "border-[#fe2c55] bg-[#fff5f7]"
+                                  ? "border-[#fd4605] bg-[#fff6f1]"
                                   : "border-[#e5e7eb] bg-white hover:border-[#fca5a5]",
                                 !canCheckout && "cursor-not-allowed opacity-50",
                               )}
@@ -631,10 +631,10 @@ export function StudioPremiumPage() {
                               <span
                                 className={cn(
                                   "flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition",
-                                  payMethod === m.id ? "border-[#fe2c55]" : "border-[#d1d5db]",
+                                  payMethod === m.id ? "border-[#fd4605]" : "border-[#d1d5db]",
                                 )}
                               >
-                                {payMethod === m.id && <span className="h-2 w-2 rounded-full bg-[#fe2c55]" />}
+                                {payMethod === m.id && <span className="h-2 w-2 rounded-full bg-[#fd4605]" />}
                               </span>
                               <span className="min-w-0">
                                 <span className="block truncate text-[12.5px] font-bold text-[#374151]">{m.label}</span>
@@ -806,7 +806,7 @@ export function StudioPremiumPage() {
                         <span>Feature</span>
                         <span className="flex items-center gap-6">
                           <span>Free</span>
-                          <span className="flex items-center gap-1 text-[#fe2c55]">
+                          <span className="flex items-center gap-1 text-[#fd4605]">
                             <Crown className="h-3 w-3" /> Premium
                           </span>
                         </span>
@@ -849,12 +849,12 @@ export function StudioPremiumPage() {
                               // eslint-disable-next-line @next/next/no-img-element
                               <img src={user.avatar} alt="" className="h-full w-full object-cover" />
                             ) : (
-                              <div className="flex h-full w-full items-center justify-center bg-[#fe2c55] text-[20px] font-black text-white">
+                              <div className="flex h-full w-full items-center justify-center bg-[#fd4605] text-[20px] font-black text-white">
                                 {(user?.name ?? user?.username ?? "U").charAt(0).toUpperCase()}
                               </div>
                             )}
                           </div>
-                          <span className="absolute -bottom-0.5 -right-0.5 flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-[#fe2c55]">
+                          <span className="absolute -bottom-0.5 -right-0.5 flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-[#fd4605]">
                             <Crown className="h-3 w-3 text-white" />
                           </span>
                         </div>
@@ -864,7 +864,7 @@ export function StudioPremiumPage() {
                           {user?.is_verified && <BadgeCheck className="h-3.5 w-3.5 text-[#2563eb]" />}
                         </p>
 
-                        <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-[#fff0f4] px-2.5 py-0.5 text-[10.5px] font-black text-[#fe2c55]">
+                        <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-[#fff3ec] px-2.5 py-0.5 text-[10.5px] font-black text-[#fd4605]">
                           <Crown className="h-3 w-3" /> Premium
                         </span>
 
@@ -878,7 +878,7 @@ export function StudioPremiumPage() {
 
                     <button
                       type="button"
-                      className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-[10px] bg-[#fff0f4] py-2.5 text-[12px] font-black text-[#fe2c55] transition hover:bg-[#ffe3ec]"
+                      className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-[10px] bg-[#fff3ec] py-2.5 text-[12px] font-black text-[#fd4605] transition hover:bg-[#ffe3ec]"
                     >
                       <Palette className="h-3.5 w-3.5" /> Custom Theme &amp; Badge
                     </button>
@@ -978,13 +978,13 @@ function PlanCard({
       className={cn(
         "relative flex flex-col rounded-[16px] border p-5 text-left transition",
         selected
-          ? "border-[#fe2c55] bg-white shadow-[0_0_0_2px_#fe2c55]"
+          ? "border-[#fd4605] bg-white shadow-[0_0_0_2px_#fd4605]"
           : "border-[#e5e7eb] bg-white hover:border-[#fca5a5]",
         disabled && "opacity-70",
       )}
     >
       {badge && (
-        <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-[#fe2c55] px-2.5 py-0.5 text-[9px] font-black tracking-wide text-white">
+        <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-[#fd4605] px-2.5 py-0.5 text-[9px] font-black tracking-wide text-white">
           {badge}
         </span>
       )}
@@ -994,10 +994,10 @@ function PlanCard({
         <span
           className={cn(
             "flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2",
-            selected ? "border-[#fe2c55]" : "border-[#d1d5db]",
+            selected ? "border-[#fd4605]" : "border-[#d1d5db]",
           )}
         >
-          {selected && <span className="h-2 w-2 rounded-full bg-[#fe2c55]" />}
+          {selected && <span className="h-2 w-2 rounded-full bg-[#fd4605]" />}
         </span>
       </div>
 
@@ -1020,7 +1020,7 @@ function PlanCard({
           {disabled ? (disabledNote ?? "Not available here") : note}
         </span>
         {typeof savePct === "number" && savePct > 0 && !disabled && (
-          <span className="shrink-0 rounded-full bg-[#fff0f4] px-2 py-0.5 text-[10px] font-black text-[#fe2c55]">
+          <span className="shrink-0 rounded-full bg-[#fff3ec] px-2 py-0.5 text-[10px] font-black text-[#fd4605]">
             Save {savePct}%
           </span>
         )}
@@ -1041,13 +1041,13 @@ function Line({ label, value, valueClass }: { label: string; value: string; valu
 function Cell({ value, premium }: { value: boolean | string; premium?: boolean }) {
   if (typeof value === "string") {
     return (
-      <span className={cn("text-[11px] font-black", premium ? "text-[#fe2c55]" : "text-[#9ca3af]")}>
+      <span className={cn("text-[11px] font-black", premium ? "text-[#fd4605]" : "text-[#9ca3af]")}>
         {value}
       </span>
     );
   }
   return value
-    ? <Check className="h-3.5 w-3.5 text-[#fe2c55]" strokeWidth={3} />
+    ? <Check className="h-3.5 w-3.5 text-[#fd4605]" strokeWidth={3} />
     : <XIcon className="h-3.5 w-3.5 text-[#d1d5db]" strokeWidth={3} />;
 }
 
@@ -1071,7 +1071,7 @@ function UpgradeButton({ loading, onClick, label }: { loading: boolean; onClick:
     <button
       onClick={onClick}
       disabled={loading}
-      className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#fe2c55] py-3 text-[13px] font-black text-white transition hover:bg-[#e0193f] disabled:opacity-60"
+      className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#fd4605] py-3 text-[13px] font-black text-white transition hover:bg-[#e03e04] disabled:opacity-60"
     >
       <Crown className="h-4 w-4" />
       {loading ? "Loading…" : label}

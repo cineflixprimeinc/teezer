@@ -343,7 +343,7 @@ function SectionHeader({n,title,sub}:{n:number;title:string;sub:string}) {
   return (
     <div className="mb-4">
       <div className="flex items-center gap-2">
-        <div className="grid h-5 w-5 place-items-center rounded-full bg-[#fe2c55] text-[10px] font-extrabold text-white">{n}</div>
+        <div className="grid h-5 w-5 place-items-center rounded-full bg-[#fd4605] text-[10px] font-extrabold text-white">{n}</div>
         <p className="text-[13px] font-bold text-[#111827]">{title}</p>
       </div>
       <p className="mt-0.5 pl-7 text-[11px] text-[#9ca3af]">{sub}</p>
@@ -380,17 +380,17 @@ function CountriesMultiPicker({value,onChange}:{value:string[];onChange:(v:strin
       {/* Trigger */}
       <div onClick={()=>setOpen(true)}
         className={cn("flex min-h-[38px] cursor-pointer flex-wrap items-center gap-1 rounded-xl border px-2.5 py-1.5 transition",
-          open?"border-[#fe2c55] ring-2 ring-[#fe2c55]/15":"border-[#e5e7eb] hover:border-[#fe2c55]/50")}>
+          open?"border-[#fd4605] ring-2 ring-[#fd4605]/15":"border-[#e5e7eb] hover:border-[#fd4605]/50")}>
         {value.length===0&&!open&&(
           <span className="flex items-center gap-1.5 text-[12px] text-[#9ca3af]"><span className="text-[15px]">🌍</span>Select countries</span>
         )}
         {value.map(name=>{
           const c=COUNTRIES.find(x=>x.name===name);
           return (
-            <span key={name} className="inline-flex items-center gap-1 rounded-full bg-[#fff0f4] px-2 py-0.5 text-[11px] font-semibold text-[#fe2c55]">
+            <span key={name} className="inline-flex items-center gap-1 rounded-full bg-[#fff3ec] px-2 py-0.5 text-[11px] font-semibold text-[#fd4605]">
               {c?.flag} {name}
               <button type="button" onMouseDown={e=>{e.stopPropagation();toggle(name);}}
-                className="ml-0.5 grid h-3.5 w-3.5 place-items-center rounded-full hover:bg-[#fe2c55]/20">
+                className="ml-0.5 grid h-3.5 w-3.5 place-items-center rounded-full hover:bg-[#fd4605]/20">
                 <X className="h-2.5 w-2.5"/>
               </button>
             </span>
@@ -409,7 +409,7 @@ function CountriesMultiPicker({value,onChange}:{value:string[];onChange:(v:strin
                 placeholder="Search country…"
                 className="bg-transparent text-[12px] text-[#111827] outline-none placeholder:text-[#9ca3af]" style={{width:140}}/>
             </div>
-            <span className={cn("text-[11px] font-semibold",value.length>=3?"text-[#fe2c55]":"text-[#9ca3af]")}>{value.length}/3</span>
+            <span className={cn("text-[11px] font-semibold",value.length>=3?"text-[#fd4605]":"text-[#9ca3af]")}>{value.length}/3</span>
           </div>
           <div className="max-h-[200px] overflow-y-auto">
             {filtered.length===0
@@ -418,10 +418,10 @@ function CountriesMultiPicker({value,onChange}:{value:string[];onChange:(v:strin
                 const sel=value.includes(c.name);
                 return (
                   <button key={c.code} type="button" onClick={()=>toggle(c.name)}
-                    className={cn("flex w-full items-center gap-2.5 px-3 py-2 text-left transition hover:bg-[#fff5f7]",sel&&"bg-[#fff0f4]")}>
+                    className={cn("flex w-full items-center gap-2.5 px-3 py-2 text-left transition hover:bg-[#fff6f1]",sel&&"bg-[#fff3ec]")}>
                     <span className="text-[15px]">{c.flag}</span>
-                    <span className={cn("flex-1 text-[12px] font-medium",sel?"text-[#fe2c55]":"text-[#374151]")}>{c.name}</span>
-                    <div className={cn("grid h-4 w-4 place-items-center rounded border-2 transition",sel?"border-[#fe2c55] bg-[#fe2c55]":"border-[#d1d5db]")}>
+                    <span className={cn("flex-1 text-[12px] font-medium",sel?"text-[#fd4605]":"text-[#374151]")}>{c.name}</span>
+                    <div className={cn("grid h-4 w-4 place-items-center rounded border-2 transition",sel?"border-[#fd4605] bg-[#fd4605]":"border-[#d1d5db]")}>
                       {sel&&<Check className="h-2.5 w-2.5 text-white" strokeWidth={3}/>}
                     </div>
                   </button>
@@ -457,10 +457,10 @@ function AgeRangesMultiPicker({value,onChange}:{value:string[];onChange:(v:strin
         {value.map(v=>{
           const a=AGE_RANGES.find(x=>x.value===v);
           return (
-            <span key={v} className="inline-flex items-center gap-1 rounded-full bg-[#fff0f4] px-2 py-0.5 text-[11px] font-semibold text-[#fe2c55]">
+            <span key={v} className="inline-flex items-center gap-1 rounded-full bg-[#fff3ec] px-2 py-0.5 text-[11px] font-semibold text-[#fd4605]">
               {a?.label??v}
               <button type="button" onMouseDown={e=>{e.stopPropagation();toggle(v);}}
-                className="ml-0.5 grid h-3.5 w-3.5 place-items-center rounded-full hover:bg-[#fe2c55]/20">
+                className="ml-0.5 grid h-3.5 w-3.5 place-items-center rounded-full hover:bg-[#fd4605]/20">
                 <X className="h-2.5 w-2.5"/>
               </button>
             </span>
@@ -472,10 +472,10 @@ function AgeRangesMultiPicker({value,onChange}:{value:string[];onChange:(v:strin
     <div ref={ref} className="relative">
       <div onClick={()=>setOpen(o=>!o)}
         className={cn("flex min-h-[38px] cursor-pointer items-center justify-between gap-1 rounded-xl border px-2.5 py-1.5 transition",
-          open?"border-[#fe2c55] ring-2 ring-[#fe2c55]/15":"border-[#e5e7eb] hover:border-[#fe2c55]/50")}>
+          open?"border-[#fd4605] ring-2 ring-[#fd4605]/15":"border-[#e5e7eb] hover:border-[#fd4605]/50")}>
         <div className="flex-1 min-w-0">{displayLabel}</div>
         <div className="flex shrink-0 items-center gap-1.5">
-          <span className={cn("text-[10px] font-semibold",value.length>=3?"text-[#fe2c55]":"text-[#9ca3af]")}>{value.length}/3</span>
+          <span className={cn("text-[10px] font-semibold",value.length>=3?"text-[#fd4605]":"text-[#9ca3af]")}>{value.length}/3</span>
           <ChevronDown className={cn("h-3.5 w-3.5 text-[#9ca3af] transition-transform",open&&"rotate-180")}/>
         </div>
       </div>
@@ -486,12 +486,12 @@ function AgeRangesMultiPicker({value,onChange}:{value:string[];onChange:(v:strin
             const sel=value.includes(a.value);
             return (
               <button key={a.value} type="button" onClick={()=>toggle(a.value)}
-                className={cn("flex w-full items-center gap-3 px-3 py-2.5 transition hover:bg-[#fff5f7]",sel&&"bg-[#fff0f4]")}>
-                <div className={cn("grid h-4 w-4 shrink-0 place-items-center rounded border-2 transition",sel?"border-[#fe2c55] bg-[#fe2c55]":"border-[#d1d5db]")}>
+                className={cn("flex w-full items-center gap-3 px-3 py-2.5 transition hover:bg-[#fff6f1]",sel&&"bg-[#fff3ec]")}>
+                <div className={cn("grid h-4 w-4 shrink-0 place-items-center rounded border-2 transition",sel?"border-[#fd4605] bg-[#fd4605]":"border-[#d1d5db]")}>
                   {sel&&<Check className="h-2.5 w-2.5 text-white" strokeWidth={3}/>}
                 </div>
                 <div className="flex-1 text-left">
-                  <p className={cn("text-[12px] font-bold",sel?"text-[#fe2c55]":"text-[#374151]")}>{a.label}</p>
+                  <p className={cn("text-[12px] font-bold",sel?"text-[#fd4605]":"text-[#374151]")}>{a.label}</p>
                   <p className="text-[10px] text-[#9ca3af]">{a.sub}</p>
                 </div>
               </button>
@@ -533,15 +533,15 @@ function InterestsPicker({value,onChange}:{value:string[];onChange:(v:string[])=
       {/* Trigger box */}
       <div onClick={()=>setOpen(true)}
         className={cn("flex min-h-[40px] cursor-text flex-wrap items-center gap-1.5 rounded-xl border px-2.5 py-2 transition",
-          open?"border-[#fe2c55] ring-2 ring-[#fe2c55]/15":"border-[#e5e7eb] hover:border-[#fe2c55]/50")}>
+          open?"border-[#fd4605] ring-2 ring-[#fd4605]/15":"border-[#e5e7eb] hover:border-[#fd4605]/50")}>
         {value.map(tag=>{
           const Icon=INTEREST_ICON[tag]??HelpCircle;
           return (
-            <span key={tag} className="inline-flex items-center gap-1 rounded-full bg-[#fff0f4] px-2 py-1 text-[11px] font-semibold text-[#fe2c55]">
+            <span key={tag} className="inline-flex items-center gap-1 rounded-full bg-[#fff3ec] px-2 py-1 text-[11px] font-semibold text-[#fd4605]">
               <Icon className="h-3 w-3" />
               {tag}
               <button type="button" onMouseDown={e=>{e.stopPropagation();toggle(tag);}}
-                className="ml-0.5 grid h-3.5 w-3.5 place-items-center rounded-full hover:bg-[#fe2c55]/20 transition">
+                className="ml-0.5 grid h-3.5 w-3.5 place-items-center rounded-full hover:bg-[#fd4605]/20 transition">
                 <X className="h-2.5 w-2.5" />
               </button>
             </span>
@@ -567,7 +567,7 @@ function InterestsPicker({value,onChange}:{value:string[];onChange:(v:string[])=
             <p className="text-[11px] font-semibold text-[#6b7280]">{value.length}/10 selected</p>
             {value.length>0&&(
               <button type="button" onClick={()=>onChange([])}
-                className="text-[11px] font-semibold text-[#fe2c55] hover:underline">Clear all</button>
+                className="text-[11px] font-semibold text-[#fd4605] hover:underline">Clear all</button>
             )}
           </div>
 
@@ -580,7 +580,7 @@ function InterestsPicker({value,onChange}:{value:string[];onChange:(v:string[])=
                 return (
                   <button key={cat.label} type="button" onClick={()=>setActiveCategory(cat.label)}
                     className={cn("flex shrink-0 items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold transition",
-                      active?"bg-[#fe2c55] text-white":"border border-[#e5e7eb] bg-white text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55]")}>
+                      active?"bg-[#fd4605] text-white":"border border-[#e5e7eb] bg-white text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605]")}>
                     <Icon className="h-3 w-3" />
                     {cat.label}
                   </button>
@@ -603,8 +603,8 @@ function InterestsPicker({value,onChange}:{value:string[];onChange:(v:string[])=
                         className={cn(
                           "flex items-center gap-1.5 rounded-full border px-2.5 py-1.5 text-[11px] font-semibold transition",
                           sel
-                            ?"border-[#fe2c55] bg-[#fff0f4] text-[#fe2c55]"
-                            :"border-[#e5e7eb] text-[#374151] hover:border-[#fe2c55] hover:bg-[#fff5f7] hover:text-[#fe2c55]",
+                            ?"border-[#fd4605] bg-[#fff3ec] text-[#fd4605]"
+                            :"border-[#e5e7eb] text-[#374151] hover:border-[#fd4605] hover:bg-[#fff6f1] hover:text-[#fd4605]",
                         )}>
                         <Icon className="h-3 w-3" />
                         {i}
@@ -797,12 +797,12 @@ export function StudioPromotePage({videoId}:{videoId:number}) {
                     return (
                       <button key={obj.id} type="button" onClick={()=>setObjective(obj.id)}
                         className={cn("relative flex flex-col items-center gap-1.5 rounded-xl border p-3 text-center transition",
-                          active?"border-[#fe2c55] bg-[#fff5f7]":"border-[#f0f0f0] hover:border-[#fe2c55]/40 hover:bg-[#fafafa]")}>
-                        {active&&<div className="absolute right-2 top-2 grid h-4 w-4 place-items-center rounded-full bg-[#fe2c55]"><Check className="h-2.5 w-2.5 text-white" strokeWidth={3}/></div>}
+                          active?"border-[#fd4605] bg-[#fff6f1]":"border-[#f0f0f0] hover:border-[#fd4605]/40 hover:bg-[#fafafa]")}>
+                        {active&&<div className="absolute right-2 top-2 grid h-4 w-4 place-items-center rounded-full bg-[#fd4605]"><Check className="h-2.5 w-2.5 text-white" strokeWidth={3}/></div>}
                         <div className={cn("grid h-9 w-9 place-items-center rounded-full",active?"bg-[#fee2e2]":"bg-[#f3f4f6]")}>
-                          <Icon className={cn(active?"text-[#fe2c55]":"text-[#9ca3af]")} style={{width:18,height:18}}/>
+                          <Icon className={cn(active?"text-[#fd4605]":"text-[#9ca3af]")} style={{width:18,height:18}}/>
                         </div>
-                        <p className={cn("text-[12px] font-bold leading-tight",active?"text-[#fe2c55]":"text-[#374151]")}>{obj.label}</p>
+                        <p className={cn("text-[12px] font-bold leading-tight",active?"text-[#fd4605]":"text-[#374151]")}>{obj.label}</p>
                         <p className="text-[10px] leading-tight text-[#9ca3af]">{obj.desc}</p>
                       </button>
                     );
@@ -822,7 +822,7 @@ export function StudioPromotePage({videoId}:{videoId:number}) {
                       {(["all","male","female"] as Gender[]).map(g=>(
                         <button key={g} type="button" onClick={()=>setGender(g)}
                           className={cn("flex-1 py-2 text-[11px] font-semibold capitalize transition",
-                            gender===g?"bg-[#fe2c55] text-white":"bg-white text-[#6b7280] hover:bg-[#f8f9fb]")}>
+                            gender===g?"bg-[#fd4605] text-white":"bg-white text-[#6b7280] hover:bg-[#f8f9fb]")}>
                           {g==="all"?"All":g==="male"?"Male":"Female"}
                         </button>
                       ))}
@@ -847,7 +847,7 @@ export function StudioPromotePage({videoId}:{videoId:number}) {
                   <div>
                     <FieldLabel>Daily Budget</FieldLabel>
                     <div className={cn("flex overflow-hidden rounded-xl border transition",
-                      budgetError?"border-red-400":"border-[#e5e7eb] focus-within:border-[#fe2c55] focus-within:ring-2 focus-within:ring-[#fe2c55]/15")}>
+                      budgetError?"border-red-400":"border-[#e5e7eb] focus-within:border-[#fd4605] focus-within:ring-2 focus-within:ring-[#fd4605]/15")}>
                       <span className="border-r border-[#e5e7eb] bg-[#f8f9fb] px-2.5 py-2 text-[12px] font-bold text-[#374151]">USD</span>
                       <input type="number" min="1" step="0.01" value={dailyBudget}
                         onChange={e=>onBudgetChange(e.target.value)}
@@ -871,12 +871,12 @@ export function StudioPromotePage({videoId}:{videoId:number}) {
                   <div>
                     <FieldLabel>Start Date</FieldLabel>
                     <input type="date" value={startDate} min={today} onChange={e=>onStartChange(e.target.value)}
-                      className="w-full rounded-xl border border-[#e5e7eb] px-2.5 py-2 text-[12px] text-[#374151] outline-none focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/15"/>
+                      className="w-full rounded-xl border border-[#e5e7eb] px-2.5 py-2 text-[12px] text-[#374151] outline-none focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/15"/>
                   </div>
                   <div>
                     <FieldLabel>End Date</FieldLabel>
                     <input type="date" value={endDate} min={startDate||today} onChange={e=>setEndDate(e.target.value)}
-                      className="w-full rounded-xl border border-[#e5e7eb] px-2.5 py-2 text-[12px] text-[#374151] outline-none focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/15"/>
+                      className="w-full rounded-xl border border-[#e5e7eb] px-2.5 py-2 text-[12px] text-[#374151] outline-none focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/15"/>
                   </div>
                 </div>
                 {durationDays>0&&(
@@ -891,7 +891,7 @@ export function StudioPromotePage({videoId}:{videoId:number}) {
                 <SectionHeader n={4} title="Estimated Reach" sub="Predicted performance for your campaign." />
                 <div className="grid grid-cols-3 gap-2 mb-3">
                   {([
-                    {icon:Eye,        label:"Impressions",    min:reach.impressionsMin,max:reach.impressionsMax,color:"text-[#fe2c55]",bg:"bg-[#fff0f4]"},
+                    {icon:Eye,        label:"Impressions",    min:reach.impressionsMin,max:reach.impressionsMax,color:"text-[#fd4605]",bg:"bg-[#fff3ec]"},
                     {icon:PlayCircle, label:"Video Views",    min:reach.viewsMin,      max:reach.viewsMax,      color:"text-[#0d9488]",bg:"bg-[#ccfbf1]"},
                     {icon:TrendingUp, label:"Profile Visits", min:reach.visitsMin,     max:reach.visitsMax,     color:"text-[#2563eb]",bg:"bg-[#dbeafe]"},
                   ] as const).map(({icon:Icon,label,min,max,color,bg})=>(
@@ -919,13 +919,13 @@ export function StudioPromotePage({videoId}:{videoId:number}) {
                   return (
                     <button key={pm.id} type="button" onClick={()=>setPayMethod(pm.id)}
                       className={cn("flex items-center gap-2.5 rounded-xl border p-3 text-left transition",
-                        active?"border-[#fe2c55] bg-[#fff5f7]":"border-[#f0f0f0] hover:border-[#fe2c55]/40")}>
+                        active?"border-[#fd4605] bg-[#fff6f1]":"border-[#f0f0f0] hover:border-[#fd4605]/40")}>
                       <div className={cn("grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 transition",
-                        active?"border-[#fe2c55] bg-[#fee2e2]":"border-[#e5e7eb] bg-[#f8f9fb]")}>
-                        {active?<div className="h-3 w-3 rounded-full bg-[#fe2c55]"/>:<Icon className="h-4 w-4 text-[#9ca3af]"/>}
+                        active?"border-[#fd4605] bg-[#fee2e2]":"border-[#e5e7eb] bg-[#f8f9fb]")}>
+                        {active?<div className="h-3 w-3 rounded-full bg-[#fd4605]"/>:<Icon className="h-4 w-4 text-[#9ca3af]"/>}
                       </div>
                       <div className="min-w-0">
-                        <p className={cn("truncate text-[12px] font-bold leading-tight",active?"text-[#fe2c55]":"text-[#374151]")}>{pm.label}</p>
+                        <p className={cn("truncate text-[12px] font-bold leading-tight",active?"text-[#fd4605]":"text-[#374151]")}>{pm.label}</p>
                         <p className="truncate text-[10px] text-[#9ca3af]">{pm.sub}</p>
                       </div>
                     </button>
@@ -970,7 +970,7 @@ export function StudioPromotePage({videoId}:{videoId:number}) {
               </div>
               <div className="mt-3 rounded-xl border border-[#f0f0f0] p-3 text-center">
                 <p className="text-[11px] font-semibold text-[#6b7280]">Estimated Spend</p>
-                <p className="mt-1 text-[22px] font-extrabold text-[#fe2c55]">${totalBudget}</p>
+                <p className="mt-1 text-[22px] font-extrabold text-[#fd4605]">${totalBudget}</p>
                 <p className="text-[10px] text-[#9ca3af]">Total for {durationDays} day{durationDays!==1?"s":""}</p>
               </div>
             </div>
@@ -981,20 +981,20 @@ export function StudioPromotePage({videoId}:{videoId:number}) {
                 </div>
                 <p className="text-[11px] leading-relaxed text-[#6b7280]">
                   Your promotion will be reviewed to ensure it follows our{" "}
-                  <a href="#" className="font-semibold text-[#fe2c55] hover:underline">Community Guidelines</a>
+                  <a href="#" className="font-semibold text-[#fd4605] hover:underline">Community Guidelines</a>
                   {" "}and{" "}
-                  <a href="#" className="font-semibold text-[#fe2c55] hover:underline">Advertising Policies</a>.
+                  <a href="#" className="font-semibold text-[#fd4605] hover:underline">Advertising Policies</a>.
                 </p>
               </div>
             </div>
             <div className="flex gap-2">
               <button type="button" onClick={handleDraft} disabled={createMut.isPending}
-                className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-[#e5e7eb] bg-white py-2.5 text-[13px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:opacity-60">
+                className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-[#e5e7eb] bg-white py-2.5 text-[13px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605] disabled:opacity-60">
                 <Bookmark className="h-3.5 w-3.5"/>Save Draft
               </button>
               <button type="button" onClick={handleCreate} disabled={!canCreate||createMut.isPending}
                 className={cn("flex flex-1 items-center justify-center gap-1.5 rounded-xl py-2.5 text-[13px] font-bold text-white shadow-sm transition",
-                  canCreate?"bg-[#fe2c55] hover:bg-[#e0243d]":"cursor-not-allowed bg-[#c0c4cc]")}>
+                  canCreate?"bg-[#fd4605] hover:bg-[#e03e04]":"cursor-not-allowed bg-[#c0c4cc]")}>
                 {createMut.isPending&&<Loader2 className="h-4 w-4 animate-spin"/>}
                 Create Promotion
               </button>

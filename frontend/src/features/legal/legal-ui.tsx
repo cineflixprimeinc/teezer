@@ -42,7 +42,7 @@ export function LegalShell({
       <header className="sticky top-0 z-10 border-b border-gray-100 bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
           <Link href="/" aria-label="Teezer home">
-            <Image src="/reelsoo-logo.png" alt="Teezer" width={210} height={54} className="h-9 w-auto" priority />
+            <Image src="/teezer-logo.png" alt="Teezer" width={210} height={70} className="h-9 w-auto" priority />
           </Link>
           <Suspense fallback={null}>
             <BackToReelsooLink />
@@ -61,9 +61,9 @@ export function LegalShell({
                   <li key={t.id}>
                     <a
                       href={`#${t.id}`}
-                      className="flex items-baseline gap-2 rounded-lg px-2 py-1.5 text-sm font-semibold text-gray-700 hover:bg-[#fff0f4] hover:text-[#fe2c55]"
+                      className="flex items-baseline gap-2 rounded-lg px-2 py-1.5 text-sm font-semibold text-gray-700 hover:bg-[#fff3ec] hover:text-[#fd4605]"
                     >
-                      <span className="text-xs font-bold text-[#fe2c55]">{i + 1}</span>
+                      <span className="text-xs font-bold text-[#fd4605]">{i + 1}</span>
                       <span>{t.label}</span>
                     </a>
                   </li>
@@ -77,7 +77,7 @@ export function LegalShell({
                 {related.map((r) => (
                   <li key={r.href}>
                     <Link href={r.href} className="group block">
-                      <p className="text-sm font-bold text-gray-900 group-hover:text-[#fe2c55]">{r.label} →</p>
+                      <p className="text-sm font-bold text-gray-900 group-hover:text-[#fd4605]">{r.label} →</p>
                       <p className="mt-0.5 text-xs leading-5 text-gray-500">{r.desc}</p>
                     </Link>
                   </li>
@@ -89,7 +89,7 @@ export function LegalShell({
 
         {/* ── Content column ── */}
         <main className="min-w-0 flex-1">
-          <p className="text-sm font-bold uppercase tracking-wider text-[#fe2c55]">{eyebrow}</p>
+          <p className="text-sm font-bold uppercase tracking-wider text-[#fd4605]">{eyebrow}</p>
           <h1 className="mt-2 text-5xl font-extrabold tracking-tight text-gray-900">{title}</h1>
           <p className="mt-4 text-sm text-gray-500">
             Last updated: {lastUpdated} · Effective: {lastUpdated}
@@ -101,7 +101,7 @@ export function LegalShell({
             <ol className="mt-3 grid grid-cols-1 gap-y-2 sm:grid-cols-2 sm:gap-x-8">
               {toc.map((t, i) => (
                 <li key={t.id}>
-                  <a href={`#${t.id}`} className="text-sm font-semibold text-gray-800 hover:text-[#fe2c55]">
+                  <a href={`#${t.id}`} className="text-sm font-semibold text-gray-800 hover:text-[#fd4605]">
                     {i + 1}. {t.label}
                   </a>
                 </li>
@@ -148,7 +148,7 @@ export function LegalShell({
 export function H2({ id, n, children }: { id: string; n: number; children: React.ReactNode }) {
   return (
     <h2 id={id} className="mt-16 flex scroll-mt-24 items-baseline gap-3 text-3xl font-extrabold tracking-tight text-gray-900">
-      <span className="text-[#fe2c55]">{n}.</span>
+      <span className="text-[#fd4605]">{n}.</span>
       <span>{children}</span>
     </h2>
   );
@@ -169,7 +169,7 @@ export function UL({ children }: { children: React.ReactNode }) {
 /** Inline link to a supporting document or section. */
 export function DocLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Link href={href} className="font-semibold text-[#fe2c55] hover:underline">
+    <Link href={href} className="font-semibold text-[#fd4605] hover:underline">
       {children}
     </Link>
   );

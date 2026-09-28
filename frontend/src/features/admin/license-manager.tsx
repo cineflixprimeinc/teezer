@@ -719,7 +719,7 @@ function TabButton({
       className={[
         'inline-flex items-center gap-1.5 border-b-2 px-4 py-2.5 text-[13px] font-semibold transition-colors',
         active
-          ? 'border-[#fe2c55] text-[#fe2c55]'
+          ? 'border-[#fd4605] text-[#fd4605]'
           : 'border-transparent text-[#6b7280] hover:text-[#111827]',
       ].join(' ')}
     >

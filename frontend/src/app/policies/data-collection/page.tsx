@@ -119,7 +119,7 @@ export default function DataCollectionPolicyPage() {
 
       <P>
         Questions about any category above:{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>.
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>.
       </P>
     </LegalShell>
     } />

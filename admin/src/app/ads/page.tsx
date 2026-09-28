@@ -27,7 +27,7 @@ export default function AdsPage() {
 
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {[
-            { label: "Active Campaigns", value: "-", icon: Megaphone,   color: "#fe2c55" },
+            { label: "Active Campaigns", value: "-", icon: Megaphone,   color: "#fd4605" },
             { label: "Pending Review",   value: "-", icon: Clock,       color: "#f59e0b" },
             { label: "Ad Revenue",       value: "-", icon: DollarSign,  color: "#10b981" },
             { label: "Impressions",      value: "-", icon: BarChart3,   color: "#3b82f6" },
@@ -49,7 +49,7 @@ export default function AdsPage() {
         {/* Ad placements */}
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2"><Target className="h-4 w-4 text-[#fe2c55]" />Ad Placements</CardTitle>
+            <CardTitle className="flex items-center gap-2"><Target className="h-4 w-4 text-[#fd4605]" />Ad Placements</CardTitle>
           </CardHeader>
           <CardBody>
             <div className="grid gap-2 sm:grid-cols-2">

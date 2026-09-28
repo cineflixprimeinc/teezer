@@ -23,7 +23,7 @@
           </p>
 
           <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-            <td style="border-radius:12px;background:#fe2c55;">
+            <td style="border-radius:12px;background:#fd4605;">
               <a href="{{ $url }}" style="display:inline-block;padding:14px 26px;font-size:15px;font-weight:700;color:#ffffff;text-decoration:none;border-radius:12px;">{{ $cta }}</a>
             </td>
           </tr></table>

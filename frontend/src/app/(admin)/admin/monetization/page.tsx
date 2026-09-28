@@ -61,7 +61,7 @@ function MoneyCard({ label, value, sub, pct, icon, emphasis }: {
     <div className="rounded-2xl border border-[#e8eaed] bg-white p-4 shadow-sm">
       <div className="flex items-start justify-between gap-2">
         <div className="flex min-w-0 items-center gap-2">
-          <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-xl ${emphasis ? "bg-[#fff0f4] text-[#fe2c55]" : "bg-[#f4f5f7] text-[#6b7280]"}`}>
+          <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-xl ${emphasis ? "bg-[#fff3ec] text-[#fd4605]" : "bg-[#f4f5f7] text-[#6b7280]"}`}>
             {icon}
           </span>
           <p className="truncate text-[11px] text-[#9ca3af]">{label}</p>
@@ -74,7 +74,7 @@ function MoneyCard({ label, value, sub, pct, icon, emphasis }: {
           </span>
         )}
       </div>
-      <p className={`mt-2 text-[23px] font-black leading-tight tabular-nums ${emphasis ? "text-[#fe2c55]" : "text-[#111827]"}`}>{value}</p>
+      <p className={`mt-2 text-[23px] font-black leading-tight tabular-nums ${emphasis ? "text-[#fd4605]" : "text-[#111827]"}`}>{value}</p>
       {sub && <p className="mt-0.5 text-[10.5px] text-[#9ca3af]">{sub}</p>}
     </div>
   );
@@ -92,7 +92,7 @@ function BarList({ rows, empty }: { rows: { label: string; value: number; sub?: 
             <span className="shrink-0 text-[11.5px] font-bold tabular-nums text-[#111827]">{money(r.value)}</span>
           </div>
           <div className="h-1.5 overflow-hidden rounded-full bg-[#f3f4f6]">
-            <div className="h-full rounded-full bg-[#fe2c55] transition-all" style={{ width: `${(r.value / max) * 100}%` }} />
+            <div className="h-full rounded-full bg-[#fd4605] transition-all" style={{ width: `${(r.value / max) * 100}%` }} />
           </div>
           {r.sub && <p className="mt-0.5 text-[10.5px] text-[#9ca3af]">{r.sub}</p>}
         </div>
@@ -118,7 +118,7 @@ export default function MonetizationPage() {
     chart:   { type: "area" as const, toolbar: { show: false }, zoom: { enabled: false }, fontFamily: "inherit", stacked: false },
     dataLabels: { enabled: false },
     stroke:  { curve: "smooth" as const, width: [2.5, 2] },
-    colors:  ["#fe2c55", "#9ca3af"],
+    colors:  ["#fd4605", "#9ca3af"],
     fill: { type: "gradient", gradient: { shadeIntensity: 1, opacityFrom: 0.25, opacityTo: 0.02, stops: [0, 100] } },
     grid:    { borderColor: "#f3f4f6", strokeDashArray: 4, padding: { left: 8, right: 8 } },
     legend:  { position: "top" as const, horizontalAlign: "right" as const, fontSize: "11px", markers: { radius: 6 } },
@@ -145,7 +145,7 @@ export default function MonetizationPage() {
         {/* ── Header ── */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3.5">
-            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#fff0f4] text-[#fe2c55]">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#fff3ec] text-[#fd4605]">
               <CircleDollarSign className="h-[22px] w-[22px]" />
             </span>
             <div>
@@ -173,8 +173,8 @@ export default function MonetizationPage() {
 
         {/* ── Waiting on a human ── */}
         {needsAttention && (
-          <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-[#ffd9e2] bg-[#fff0f4] px-4 py-3">
-            <AlertTriangle className="h-4 w-4 shrink-0 text-[#fe2c55]" />
+          <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-[#ffd9e2] bg-[#fff3ec] px-4 py-3">
+            <AlertTriangle className="h-4 w-4 shrink-0 text-[#fd4605]" />
             <p className="text-[12.5px] text-[#7a1229]">
               {(attention?.pending_payouts ?? 0) > 0 && (
                 <><span className="font-bold tabular-nums">{attention?.pending_payouts}</span> payout request{attention?.pending_payouts === 1 ? "" : "s"} awaiting review</>
@@ -359,7 +359,7 @@ export default function MonetizationPage() {
                                   </span>}
                               <div className="min-w-0">
                                 <Link href={`/admin/users/${c.id}`}
-                                  className="block truncate text-[12.5px] font-semibold text-[#111827] hover:text-[#fe2c55]">
+                                  className="block truncate text-[12.5px] font-semibold text-[#111827] hover:text-[#fd4605]">
                                   {c.name || c.username}
                                 </Link>
                                 <p className="truncate text-[10.5px] text-[#9ca3af]">@{c.username}</p>
@@ -371,7 +371,7 @@ export default function MonetizationPage() {
                           <td className="px-5 py-3 text-right text-[12.5px] tabular-nums text-[#9ca3af]">{money(c.pending)}</td>
                           <td className="px-5 py-3 text-right">
                             <Link href={`/admin/users/${c.id}`}
-                              className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-[#fe2c55] hover:underline">
+                              className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-[#fd4605] hover:underline">
                               View <ArrowUpRight className="h-3 w-3" />
                             </Link>
                           </td>
@@ -398,8 +398,8 @@ export default function MonetizationPage() {
               { href: "/admin/verification",        icon: TrendingUp, label: "Monetization Eligibility", desc: "Verification and eligibility rules" },
             ].map(({ href, icon: Icon, label, desc }) => (
               <Link key={href} href={href}
-                className="group flex items-start gap-3 rounded-2xl border border-[#e8eaed] bg-white p-4 shadow-sm transition-colors hover:border-[#fe2c55]/40">
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#f4f5f7] text-[#6b7280] transition-colors group-hover:bg-[#fff0f4] group-hover:text-[#fe2c55]">
+                className="group flex items-start gap-3 rounded-2xl border border-[#e8eaed] bg-white p-4 shadow-sm transition-colors hover:border-[#fd4605]/40">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#f4f5f7] text-[#6b7280] transition-colors group-hover:bg-[#fff3ec] group-hover:text-[#fd4605]">
                   <Icon className="h-[18px] w-[18px]" />
                 </span>
                 <div className="min-w-0">

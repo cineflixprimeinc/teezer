@@ -96,13 +96,13 @@ function TagPeopleField({
 
   return (
     <div ref={wrapRef}
-      className="relative flex min-h-[44px] flex-wrap items-center gap-1.5 rounded-xl border border-[#e5e7eb] px-2.5 py-2 pr-9 transition focus-within:border-[#fe2c55]">
+      className="relative flex min-h-[44px] flex-wrap items-center gap-1.5 rounded-xl border border-[#e5e7eb] px-2.5 py-2 pr-9 transition focus-within:border-[#fd4605]">
       {value.map(u => (
         <span key={u.id}
-          className="inline-flex items-center gap-0.5 rounded-full border border-[#fecdd3] bg-[#fff0f4] px-2.5 py-0.5 text-[12px] font-medium text-[#fe2c55]">
+          className="inline-flex items-center gap-0.5 rounded-full border border-[#fecdd3] bg-[#fff3ec] px-2.5 py-0.5 text-[12px] font-medium text-[#fd4605]">
           @{u.username}
           <button type="button" onClick={() => remove(u.id)}
-            className="ml-0.5 grid h-3.5 w-3.5 place-items-center text-[#fe2c55]/60 hover:text-[#fe2c55]">
+            className="ml-0.5 grid h-3.5 w-3.5 place-items-center text-[#fd4605]/60 hover:text-[#fd4605]">
             <X className="h-2.5 w-2.5" />
           </button>
         </span>
@@ -329,10 +329,10 @@ function PortalDropdown({
                   onClick={e => { e.stopPropagation(); onChange(opt.value); setOpen(false); setQ(""); }}
                   className={cn(
                     "flex w-full items-center gap-2 px-4 py-2 text-[13px] transition hover:bg-[#f8f9fb]",
-                    active ? "bg-[#fff0f4] font-semibold text-[#fe2c55]" : "text-[#374151]",
+                    active ? "bg-[#fff3ec] font-semibold text-[#fd4605]" : "text-[#374151]",
                   )}>
                   {active
-                    ? <Check className="h-3.5 w-3.5 flex-shrink-0 text-[#fe2c55]" />
+                    ? <Check className="h-3.5 w-3.5 flex-shrink-0 text-[#fd4605]" />
                     : Icon
                       ? <Icon className="h-3.5 w-3.5 flex-shrink-0 text-[#6b7280]" />
                       : <span className="w-3.5 flex-shrink-0" />}
@@ -482,7 +482,7 @@ function VideoPreviewPlayer({
             onTouchEnd={() => { seekingRef.current = false; }}
           >
             <div className="relative h-[3px] w-full overflow-visible rounded-full bg-white/30 transition-all duration-100 group-hover:h-1">
-              <div className="h-full rounded-full bg-[#fe2c55]" style={{ width: `${pct}%` }} />
+              <div className="h-full rounded-full bg-[#fd4605]" style={{ width: `${pct}%` }} />
               <div className="absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow"
                 style={{ left: `${pct}%` }} />
             </div>
@@ -515,7 +515,7 @@ function VideoPreviewPlayer({
                     type="range" min={0} max={1} step={0.05}
                     value={muted ? 0 : volume}
                     onChange={e => changeVolume(parseFloat(e.target.value))}
-                    style={{ writingMode: "vertical-lr", direction: "rtl", width: 4, height: 64, accentColor: "#fe2c55", cursor: "pointer" }}
+                    style={{ writingMode: "vertical-lr", direction: "rtl", width: 4, height: 64, accentColor: "#fd4605", cursor: "pointer" }}
                   />
                 </div>
               )}
@@ -544,7 +544,7 @@ function Toggle({ checked, onChange, disabled }: {
       onClick={() => onChange(!checked)}
       className={cn(
         "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer items-center rounded-full transition-colors",
-        checked ? "bg-[#fe2c55]" : "bg-[#d1d5db]",
+        checked ? "bg-[#fd4605]" : "bg-[#d1d5db]",
         disabled && "cursor-not-allowed opacity-50",
       )}>
       <span className={cn(
@@ -849,7 +849,7 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
               <div className="text-center">
                 <p className="text-[15px] font-semibold text-[#374151]">Video not found.</p>
                 <button type="button" onClick={() => router.push("/studio/content")}
-                  className="mt-3 text-[13px] text-[#fe2c55] hover:underline">
+                  className="mt-3 text-[13px] text-[#fd4605] hover:underline">
                   Back to Content
                 </button>
               </div>
@@ -944,7 +944,7 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
                   </p>
                   <div className="mt-3 flex gap-3">
                     {/* Current selected thumb - portrait 9:16 */}
-                    <div className="relative w-[80px] flex-shrink-0 overflow-hidden rounded-xl border-2 border-[#fe2c55]"
+                    <div className="relative w-[80px] flex-shrink-0 overflow-hidden rounded-xl border-2 border-[#fd4605]"
                       style={{ aspectRatio: "9/16" }}>
                       {currentThumb
                         // eslint-disable-next-line @next/next/no-img-element
@@ -952,13 +952,13 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
                         : <div className="flex h-full w-full items-center justify-center bg-[#f3f4f6]">
                             <Video className="h-5 w-5 text-[#d1d5db]" />
                           </div>}
-                      <div className="absolute right-1.5 top-1.5 grid h-5 w-5 place-items-center rounded-full bg-[#fe2c55] shadow">
+                      <div className="absolute right-1.5 top-1.5 grid h-5 w-5 place-items-center rounded-full bg-[#fd4605] shadow">
                         <Check className="h-3 w-3 text-white" strokeWidth={3} />
                       </div>
                     </div>
                     {/* Upload new - portrait 9:16 to match thumb */}
                     <button type="button" onClick={() => thumbInputRef.current?.click()}
-                      className="flex w-[80px] flex-shrink-0 flex-col items-center justify-center gap-1 rounded-xl border-2 border-dashed border-[#e5e7eb] transition hover:border-[#fe2c55] hover:bg-[#fff8f9]"
+                      className="flex w-[80px] flex-shrink-0 flex-col items-center justify-center gap-1 rounded-xl border-2 border-dashed border-[#e5e7eb] transition hover:border-[#fd4605] hover:bg-[#fff8f9]"
                       style={{ aspectRatio: "9/16" }}>
                       <Upload className="h-5 w-5 text-[#9ca3af]" />
                       <span className="text-[11px] font-semibold text-[#374151]">Upload New</span>
@@ -991,7 +991,7 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
                         rows={6}
                         onChange={e => patch({ caption: e.target.value })}
                         placeholder="Write a caption for your post…"
-                        className="w-full resize-none rounded-xl border border-[#e5e7eb] px-3 py-2.5 text-[13px] text-[#111827] outline-none transition focus:border-[#fe2c55] placeholder:text-[#c0c4cc]"
+                        className="w-full resize-none rounded-xl border border-[#e5e7eb] px-3 py-2.5 text-[13px] text-[#111827] outline-none transition focus:border-[#fd4605] placeholder:text-[#c0c4cc]"
                       />
                       <p className="mt-0.5 text-right text-[11px] text-[#9ca3af]">
                         {form.caption.length} / 300
@@ -1004,7 +1004,7 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
                       {/* Category */}
                       <div>
                         <label className="mb-1.5 block text-[13px] font-bold text-[#111827]">
-                          Category <span className="text-[#fe2c55]">*</span>
+                          Category <span className="text-[#fd4605]">*</span>
                         </label>
                         {(() => {
                           const SelIcon = form.category ? CATEGORY_ICONS[form.category] : null;
@@ -1017,7 +1017,7 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
                               trigger={
                                 <div className={cn(
                                   "flex items-center justify-between rounded-xl border px-3 py-2.5 text-[13px] transition",
-                                  errors.category ? "border-red-400" : "border-[#e5e7eb] hover:border-[#fe2c55]",
+                                  errors.category ? "border-red-400" : "border-[#e5e7eb] hover:border-[#fd4605]",
                                 )}>
                                   <span className="flex items-center gap-2 min-w-0">
                                     {SelIcon && <SelIcon className="h-4 w-4 flex-shrink-0 text-[#6b7280]" />}
@@ -1038,7 +1038,7 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
                       <div>
                         <label className="mb-1.5 block text-[13px] font-bold text-[#111827]">Location</label>
                         <div ref={locWrapRef} className="relative">
-                          <div className="flex items-center rounded-xl border border-[#e5e7eb] transition focus-within:border-[#fe2c55]">
+                          <div className="flex items-center rounded-xl border border-[#e5e7eb] transition focus-within:border-[#fd4605]">
                             <MapPin className="ml-3 h-4 w-4 flex-shrink-0 text-[#9ca3af]" />
                             <input
                               value={form.location}
@@ -1071,7 +1071,7 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
                                 <button key={`${r.formatted}-${i}`} type="button"
                                   onClick={() => pickLocation(r.formatted)}
                                   className="flex w-full items-start gap-2 px-3 py-2 text-left transition hover:bg-[#fff0f3]">
-                                  <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#fe2c55]" />
+                                  <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#fd4605]" />
                                   <span className="text-[12px] leading-snug text-[#111827]">{r.formatted}</span>
                                 </button>
                               ))}
@@ -1088,7 +1088,7 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
                           options={LANGUAGES.map(l => ({ value: l.code, label: l.label }))}
                           onChange={v => patch({ language: v })}
                           trigger={
-                            <div className="flex items-center justify-between rounded-xl border border-[#e5e7eb] px-3 py-2.5 text-[13px] text-[#111827] transition hover:border-[#fe2c55]">
+                            <div className="flex items-center justify-between rounded-xl border border-[#e5e7eb] px-3 py-2.5 text-[13px] text-[#111827] transition hover:border-[#fd4605]">
                               <span>{langLabel}</span>
                               <ChevronDown className="ml-2 h-4 w-4 flex-shrink-0 text-[#9ca3af]" />
                             </div>
@@ -1115,7 +1115,7 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
                   {/* ─── Row 3: Hashtags ─── */}
                   <div className="mb-4">
                     <label className="mb-1.5 block text-[13px] font-bold text-[#111827]">Hashtags</label>
-                    <div className="relative flex min-h-[44px] flex-wrap items-center gap-1.5 rounded-xl border border-[#e5e7eb] px-2.5 py-2 pr-9 transition focus-within:border-[#fe2c55]">
+                    <div className="relative flex min-h-[44px] flex-wrap items-center gap-1.5 rounded-xl border border-[#e5e7eb] px-2.5 py-2 pr-9 transition focus-within:border-[#fd4605]">
                       {form.hashtags.map(tag => (
                         <span key={tag}
                           className="inline-flex items-center gap-1 rounded-full border border-[#e5e7eb] bg-white px-2.5 py-0.5 text-[12px] font-medium text-[#374151]">
@@ -1164,19 +1164,19 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
                             className={cn(
                               "flex flex-col gap-1.5 rounded-xl border p-3 text-left transition",
                               active
-                                ? "border-[#fe2c55] bg-[#fff8f9]"
-                                : "border-[#e5e7eb] hover:border-[#fe2c55]/40",
+                                ? "border-[#fd4605] bg-[#fff8f9]"
+                                : "border-[#e5e7eb] hover:border-[#fd4605]/40",
                             )}>
                             <div className="flex items-center gap-2">
                               {/* Radio indicator */}
                               <div className={cn(
                                 "flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full border-2",
-                                active ? "border-[#fe2c55]" : "border-[#d1d5db]",
+                                active ? "border-[#fd4605]" : "border-[#d1d5db]",
                               )}>
-                                {active && <div className="h-2 w-2 rounded-full bg-[#fe2c55]" />}
+                                {active && <div className="h-2 w-2 rounded-full bg-[#fd4605]" />}
                               </div>
-                              <Icon className={cn("h-4 w-4 flex-shrink-0", active ? "text-[#fe2c55]" : "text-[#6b7280]")} />
-                              <span className={cn("text-[12px] font-bold", active ? "text-[#fe2c55]" : "text-[#111827]")}>
+                              <Icon className={cn("h-4 w-4 flex-shrink-0", active ? "text-[#fd4605]" : "text-[#6b7280]")} />
+                              <span className={cn("text-[12px] font-bold", active ? "text-[#fd4605]" : "text-[#111827]")}>
                                 {label}
                               </span>
                             </div>
@@ -1258,7 +1258,7 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
                       {(form.scheduled || form.status === "scheduled") && (
                         <div className="mt-4 flex gap-2">
                           {/* Date */}
-                          <div className="flex flex-1 items-center gap-2 rounded-xl border border-[#e5e7eb] px-3 py-2.5 transition focus-within:border-[#fe2c55]">
+                          <div className="flex flex-1 items-center gap-2 rounded-xl border border-[#e5e7eb] px-3 py-2.5 transition focus-within:border-[#fd4605]">
                             <CalendarDays className="h-4 w-4 flex-shrink-0 text-[#9ca3af]" />
                             <input
                               type="date"
@@ -1272,7 +1272,7 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
                           {/* Time */}
                           <div ref={timeRef} className="relative w-[130px]">
                             <button type="button" onClick={() => setTimeOpen(o => !o)}
-                              className="flex w-full items-center gap-2 rounded-xl border border-[#e5e7eb] px-3 py-2.5 text-[12px] text-[#374151] transition hover:border-[#fe2c55]">
+                              className="flex w-full items-center gap-2 rounded-xl border border-[#e5e7eb] px-3 py-2.5 text-[12px] text-[#374151] transition hover:border-[#fd4605]">
                               <Clock className="h-4 w-4 flex-shrink-0 text-[#9ca3af]" />
                               <span className="flex-1 text-left">{form.scheduleTime}</span>
                               <ChevronDown className={cn("h-3.5 w-3.5 text-[#9ca3af] transition-transform", timeOpen && "rotate-180")} />
@@ -1285,7 +1285,7 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
                                     className={cn(
                                       "flex w-full items-center px-3 py-2 text-[12px] transition hover:bg-[#f8f9fb]",
                                       t === form.scheduleTime
-                                        ? "bg-[#fff0f4] font-semibold text-[#fe2c55]"
+                                        ? "bg-[#fff3ec] font-semibold text-[#fd4605]"
                                         : "text-[#374151]",
                                     )}>
                                     {t}
@@ -1310,11 +1310,11 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
         {/* ═══════════════════ FIXED BOTTOM BAR ═══════════════════ */}
         <div className="flex flex-shrink-0 items-center justify-end gap-3 border-t border-[#f0f0f0] bg-white px-6 py-4">
           <button type="button" onClick={() => router.push("/studio/content")} disabled={saving}
-            className="rounded-xl border border-[#e5e7eb] px-7 py-2.5 text-[13px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:opacity-50">
+            className="rounded-xl border border-[#e5e7eb] px-7 py-2.5 text-[13px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605] disabled:opacity-50">
             Cancel
           </button>
           <button type="button" onClick={() => saveMut.mutate()} disabled={saving || loading}
-            className="flex items-center gap-2 rounded-xl bg-[#fe2c55] px-7 py-2.5 text-[13px] font-bold text-white shadow-sm transition hover:bg-[#e0243d] disabled:opacity-50">
+            className="flex items-center gap-2 rounded-xl bg-[#fd4605] px-7 py-2.5 text-[13px] font-bold text-white shadow-sm transition hover:bg-[#e03e04] disabled:opacity-50">
             <Save className="h-4 w-4" />
             {saving ? "Saving…" : "Save Changes"}
           </button>

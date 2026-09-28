@@ -23,7 +23,7 @@ export function BestTimeCard() {
             className="flex-1 rounded-sm"
             style={{
               height: `${h}%`,
-              background: i === PEAK_INDEX ? "#fe2c55" : "#fde0e6",
+              background: i === PEAK_INDEX ? "#fd4605" : "#fde0e6",
             }}
           />
         ))}
@@ -34,7 +34,7 @@ export function BestTimeCard() {
 
       <button
         type="button"
-        className="mt-2.5 flex w-full items-center justify-center gap-1.5 rounded-md border border-[#eeeeee] bg-white py-1.5 text-[10px] font-semibold text-black hover:border-[#fe2c55] hover:text-[#fe2c55]"
+        className="mt-2.5 flex w-full items-center justify-center gap-1.5 rounded-md border border-[#eeeeee] bg-white py-1.5 text-[10px] font-semibold text-black hover:border-[#fd4605] hover:text-[#fd4605]"
       >
         <BarChart3 className="h-3 w-3" />
         See full analytics

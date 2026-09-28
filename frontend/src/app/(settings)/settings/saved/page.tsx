@@ -100,7 +100,7 @@ export default function SavedVideosPage() {
         <SettingsCard>
           <CardHeader n={2} title="Collections" />
           <ChevronRow
-            icon={FolderOpen} iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+            icon={FolderOpen} iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
             title="All Collections" desc="Browse all your video collections"
             badge={<span className="rounded-full bg-[#fee2e2] px-2 py-0.5 text-[11px] font-bold text-[#dc2626]">-</span>}
           />
@@ -128,20 +128,20 @@ export default function SavedVideosPage() {
                 onClick={() => setPrivacy(value)}
                 className={`flex w-full items-center gap-3 rounded-[12px] border px-3.5 py-3 text-left transition ${
                   privacy === value
-                    ? "border-[#fe2c55] bg-[#fff0f4]"
+                    ? "border-[#fd4605] bg-[#fff3ec]"
                     : "border-[#f0f1f5] bg-white hover:bg-[#fafbfc]"
                 }`}
               >
                 <span className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-[8px] ${
                   privacy === value ? "bg-[#fce7ec]" : "bg-[#f8f9fb]"
                 }`}>
-                  <Icon className={`h-4 w-4 ${privacy === value ? "text-[#fe2c55]" : "text-[#6b7280]"}`} />
+                  <Icon className={`h-4 w-4 ${privacy === value ? "text-[#fd4605]" : "text-[#6b7280]"}`} />
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className={`text-[13px] font-bold ${privacy === value ? "text-[#fe2c55]" : "text-[#111827]"}`}>{label}</p>
+                  <p className={`text-[13px] font-bold ${privacy === value ? "text-[#fd4605]" : "text-[#111827]"}`}>{label}</p>
                   <p className="text-[11px] text-[#9ca3af]">{desc}</p>
                 </div>
-                {privacy === value && <Check className="h-4 w-4 flex-shrink-0 text-[#fe2c55]" />}
+                {privacy === value && <Check className="h-4 w-4 flex-shrink-0 text-[#fd4605]" />}
               </button>
             ))}
           </div>
@@ -155,7 +155,7 @@ export default function SavedVideosPage() {
               className={`flex w-full items-center justify-center gap-2 rounded-[10px] py-2.5 text-[13px] font-bold transition disabled:opacity-60 ${
                 saved
                   ? "bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]"
-                  : "bg-[#fe2c55] text-white hover:bg-[#e0193f]"
+                  : "bg-[#fd4605] text-white hover:bg-[#e03e04]"
               }`}
             >
               {saving ? (

@@ -43,7 +43,7 @@ export default function NotificationsPage() {
 
           {/* Compose card */}
           <Card>
-            <CardHeader><CardTitle className="flex items-center gap-2"><Bell className="h-4 w-4 text-[#fe2c55]" />Compose Notification</CardTitle></CardHeader>
+            <CardHeader><CardTitle className="flex items-center gap-2"><Bell className="h-4 w-4 text-[#fd4605]" />Compose Notification</CardTitle></CardHeader>
             <CardBody className="space-y-4">
               <div>
                 <label className="text-[12px] font-medium text-[#374151] mb-1.5 block">Title *</label>
@@ -55,7 +55,7 @@ export default function NotificationsPage() {
                 <label className="text-[12px] font-medium text-[#374151] mb-1.5 block">Message *</label>
                 <textarea value={body} onChange={(e) => setBody(e.target.value)}
                   placeholder="Write your notification message..." rows={4} maxLength={500}
-                  className="w-full rounded-xl border border-[#e8eaed] p-3 text-[13px] text-[#374151] outline-none focus:border-[#fe2c55] resize-none transition-colors"
+                  className="w-full rounded-xl border border-[#e8eaed] p-3 text-[13px] text-[#374151] outline-none focus:border-[#fd4605] resize-none transition-colors"
                 />
                 <p className="text-[11px] text-[#9ca3af] mt-1">{body.length}/500 chars</p>
               </div>
@@ -67,10 +67,10 @@ export default function NotificationsPage() {
                     return (
                       <button key={t.value} onClick={() => setTarget(t.value)}
                         className={`flex items-center gap-3 rounded-xl border p-3 text-left transition-colors
-                          ${target === t.value ? "border-[#fe2c55] bg-[#fff0f4]" : "border-[#e8eaed] hover:border-[#fe2c55]/30"}`}>
-                        <Icon className={`h-4 w-4 shrink-0 ${target === t.value ? "text-[#fe2c55]" : "text-[#6b7280]"}`} />
+                          ${target === t.value ? "border-[#fd4605] bg-[#fff3ec]" : "border-[#e8eaed] hover:border-[#fd4605]/30"}`}>
+                        <Icon className={`h-4 w-4 shrink-0 ${target === t.value ? "text-[#fd4605]" : "text-[#6b7280]"}`} />
                         <div>
-                          <p className={`text-[13px] font-semibold ${target === t.value ? "text-[#fe2c55]" : "text-[#111827]"}`}>{t.label}</p>
+                          <p className={`text-[13px] font-semibold ${target === t.value ? "text-[#fd4605]" : "text-[#111827]"}`}>{t.label}</p>
                           <p className="text-[11px] text-[#9ca3af]">{t.desc}</p>
                         </div>
                       </button>
@@ -94,7 +94,7 @@ export default function NotificationsPage() {
             <CardBody>
               <div className="rounded-2xl border border-[#e8eaed] bg-[#f9fafb] p-4">
                 <div className="flex items-start gap-3">
-                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#fe2c55]">
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#fd4605]">
                     <Bell className="h-5 w-5 text-white" />
                   </div>
                   <div className="min-w-0 flex-1">

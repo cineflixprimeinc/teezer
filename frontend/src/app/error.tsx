@@ -61,7 +61,7 @@ export default function Error({
   return (
     <div className="flex min-h-[60vh] w-full flex-col items-center justify-center px-6 text-center">
       <div className="grid h-16 w-16 place-items-center rounded-full bg-[#fff0f3]">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fd4605" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
           <line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" />
         </svg>
@@ -74,7 +74,7 @@ export default function Error({
         <button
           type="button"
           onClick={() => reset()}
-          className="inline-flex h-11 items-center gap-2 rounded-full bg-[#fe2c55] px-6 text-sm font-bold text-white shadow-sm hover:bg-[#e0193f]"
+          className="inline-flex h-11 items-center gap-2 rounded-full bg-[#fd4605] px-6 text-sm font-bold text-white shadow-sm hover:bg-[#e03e04]"
         >
           Try again
         </button>

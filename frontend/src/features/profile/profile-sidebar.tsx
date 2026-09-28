@@ -141,7 +141,7 @@ function SocialLinksCard({ user }: { user: ReelsooUser }) {
               href={href}
               target={href ? "_blank" : undefined}
               rel="noopener noreferrer"
-              className="flex h-[40px] cursor-pointer items-center gap-2 rounded-[10px] border border-[#eeeeee] bg-white px-2.5 transition hover:border-[#fe2c55] hover:bg-[#fff8f9]"
+              className="flex h-[40px] cursor-pointer items-center gap-2 rounded-[10px] border border-[#eeeeee] bg-white px-2.5 transition hover:border-[#fd4605] hover:bg-[#fff8f9]"
             >
               <SocialBrandIcon keyName={p.key} bg={p.bg} />
               <span className="truncate text-[11.5px] font-semibold text-[#111827]">
@@ -160,7 +160,7 @@ function SocialLinksCard({ user }: { user: ReelsooUser }) {
    ══════════════════════════════════════════════════════════════════════ */
 
 const INITIAL_COLORS = [
-  "#fe2c55","#7c3aed","#2563eb","#059669","#d97706",
+  "#fd4605","#7c3aed","#2563eb","#059669","#d97706",
 ];
 
 function SuggestedCreatorRow({
@@ -241,8 +241,8 @@ function SuggestedCreatorRow({
         className={cn(
           "flex-shrink-0 rounded-[8px] border px-2.5 py-1 text-[11px] font-bold transition disabled:opacity-60",
           following
-            ? "border-[#eeeeee] text-[#9aa1ad] hover:border-[#fe2c55] hover:text-[#fe2c55]"
-            : "border-[#fe2c55]/30 bg-white text-[#fe2c55] hover:bg-[#fff0f4]",
+            ? "border-[#eeeeee] text-[#9aa1ad] hover:border-[#fd4605] hover:text-[#fd4605]"
+            : "border-[#fd4605]/30 bg-white text-[#fd4605] hover:bg-[#fff3ec]",
         )}
       >
         {following ? "Following" : "Follow"}
@@ -283,7 +283,7 @@ function SuggestedCreatorsCard() {
     <div className="rounded-2xl border border-[#eeeeee] bg-white p-4 shadow-sm">
       <div className="mb-1 flex items-center justify-between">
         <p className="text-[13px] font-bold text-[#111827]">Suggested Creators</p>
-        <Link href="/explore" className="text-[11px] font-semibold text-[#fe2c55] transition hover:underline">
+        <Link href="/explore" className="text-[11px] font-semibold text-[#fd4605] transition hover:underline">
           See all
         </Link>
       </div>
@@ -318,7 +318,7 @@ function RecentActivityCard({ user }: { user: ReelsooUser }) {
       );
     }
     return (
-      <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#fe2c55] text-[11px] font-bold text-white">
+      <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#fd4605] text-[11px] font-bold text-white">
         {initial}
       </div>
     );
@@ -343,7 +343,7 @@ function RecentActivityCard({ user }: { user: ReelsooUser }) {
               </div>
             )}
             {item.milestone && (
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-[#fff0f4] to-[#fce4ea] text-[18px]">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-[#fff3ec] to-[#fde7dc] text-[18px]">
                 🎉
               </div>
             )}

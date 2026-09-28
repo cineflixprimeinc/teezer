@@ -82,7 +82,7 @@ export default function HatefulBehaviorPolicyPage() {
       <P>
         Report the specific video, comment, sound or profile - this routes it to review with the exact content
         attached. For patterns that span multiple accounts or need more context, email{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>.
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>.
       </P>
     </LegalShell>
     } />

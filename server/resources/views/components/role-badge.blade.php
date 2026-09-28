@@ -2,7 +2,7 @@
 
 @php
     $map = [
-        'admin'   => 'bg-[#fe2c55]/20 text-[#fe2c55]',
+        'admin'   => 'bg-[#fd4605]/20 text-[#fd4605]',
         'creator' => 'bg-purple-500/20 text-purple-400',
         'user'    => 'bg-gray-500/20 text-gray-400',
     ];

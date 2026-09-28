@@ -19,10 +19,10 @@ type CreateItem = {
 };
 
 const items: CreateItem[] = [
-  { label: "Upload Video",     href: "/upload",            Icon: Video,      iconColor: "#fe2c55", iconBg: "#fff0f3" },
+  { label: "Upload Video",     href: "/upload",            Icon: Video,      iconColor: "#fd4605", iconBg: "#fff0f3" },
   { label: "Go Live",          href: "/live/create",       Icon: Radio,      iconColor: "#8b5cf6", iconBg: "#f5f0ff" },
   { label: "Create Story",     href: "/stories/create",    Icon: PlusCircle, iconColor: "#1d8cff", iconBg: "#e7f1ff" },
-  { label: "Start Audio Room", href: "/audio-room/create", Icon: Headphones, iconColor: "#fe2c55", iconBg: "#fff0f3" },
+  { label: "Start Audio Room", href: "/audio-room/create", Icon: Headphones, iconColor: "#fd4605", iconBg: "#fff0f3" },
   { label: "Create PK Battle", href: "/pk-battle/create",  Icon: Swords,     iconColor: "#f97316", iconBg: "#fff7ed" },
 ];
 
@@ -64,16 +64,16 @@ export function CreateDropdown() {
         onClick={() => setOpen((o) => !o)}
         className="flex h-[44px] items-center gap-2 rounded-2xl px-5 text-white transition active:scale-[0.97]"
         style={{
-          background: "linear-gradient(135deg, #ff3b6e 0%, #fe2c55 60%, #e8194a 100%)",
-          boxShadow: "0 4px 18px rgba(254,44,85,0.40), 0 1px 4px rgba(254,44,85,0.20)",
+          background: "linear-gradient(135deg, #ff3b6e 0%, #fd4605 60%, #e8194a 100%)",
+          boxShadow: "0 4px 18px rgba(253,70,5,0.40), 0 1px 4px rgba(253,70,5,0.20)",
         }}
         onMouseEnter={(e) => {
           (e.currentTarget as HTMLButtonElement).style.boxShadow =
-            "0 6px 24px rgba(254,44,85,0.55), 0 2px 6px rgba(254,44,85,0.25)";
+            "0 6px 24px rgba(253,70,5,0.55), 0 2px 6px rgba(253,70,5,0.25)";
         }}
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLButtonElement).style.boxShadow =
-            "0 4px 18px rgba(254,44,85,0.40), 0 1px 4px rgba(254,44,85,0.20)";
+            "0 4px 18px rgba(253,70,5,0.40), 0 1px 4px rgba(253,70,5,0.20)";
         }}
       >
         <Plus className="h-[18px] w-[18px] flex-shrink-0 text-white" strokeWidth={2.8} />

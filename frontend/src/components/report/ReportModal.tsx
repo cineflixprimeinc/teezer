@@ -122,8 +122,8 @@ export function ReportModal({ entityType, entityId, onClose, onSubmitted }: Repo
               <ChevronLeft className="h-4 w-4" />
             </button>
           ) : (
-            <span className="grid h-7 w-7 flex-shrink-0 place-items-center rounded-full bg-[#fff0f4]">
-              <Flag className="h-3.5 w-3.5 text-[#fe2c55]" />
+            <span className="grid h-7 w-7 flex-shrink-0 place-items-center rounded-full bg-[#fff3ec]">
+              <Flag className="h-3.5 w-3.5 text-[#fd4605]" />
             </span>
           )}
           <div className="flex-1 min-w-0">
@@ -167,8 +167,8 @@ export function ReportModal({ entityType, entityId, onClose, onSubmitted }: Repo
         {/* Step 2: details + evidence */}
         {step === "details" && (
           <div className="p-4">
-            <div className="mb-3 rounded-xl bg-[#fff0f4] px-3 py-2">
-              <p className="text-[11px] font-bold uppercase tracking-wide text-[#fe2c55]">Reason selected</p>
+            <div className="mb-3 rounded-xl bg-[#fff3ec] px-3 py-2">
+              <p className="text-[11px] font-bold uppercase tracking-wide text-[#fd4605]">Reason selected</p>
               <p className="text-[13px] font-semibold text-black">{selectedReason?.label}</p>
             </div>
 
@@ -182,7 +182,7 @@ export function ReportModal({ entityType, entityId, onClose, onSubmitted }: Repo
                   onChange={(e) => setDetails(e.target.value.slice(0, 500))}
                   placeholder="What happened? Anything you tell us helps our review team."
                   rows={3}
-                  className="w-full resize-none rounded-lg border border-[#eeeeee] bg-white p-2 text-[12px] text-black outline-none focus:border-[#fe2c55]"
+                  className="w-full resize-none rounded-lg border border-[#eeeeee] bg-white p-2 text-[12px] text-black outline-none focus:border-[#fd4605]"
                 />
                 <p className="mt-0.5 text-right text-[10px] text-[#9ca3af]">{details.length}/500</p>
               </div>
@@ -219,7 +219,7 @@ export function ReportModal({ entityType, entityId, onClose, onSubmitted }: Repo
                   <button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
-                    className="grid h-16 w-16 flex-shrink-0 place-items-center rounded-lg border border-dashed border-[#cccccc] text-[#9ca3af] hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                    className="grid h-16 w-16 flex-shrink-0 place-items-center rounded-lg border border-dashed border-[#cccccc] text-[#9ca3af] hover:border-[#fd4605] hover:text-[#fd4605]"
                   >
                     <ImagePlus className="h-5 w-5" />
                   </button>
@@ -231,7 +231,7 @@ export function ReportModal({ entityType, entityId, onClose, onSubmitted }: Repo
               <button
                 type="button"
                 onClick={onClose}
-                className="h-9 rounded-lg border border-[#eeeeee] bg-white px-3 text-[12px] font-semibold text-black hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                className="h-9 rounded-lg border border-[#eeeeee] bg-white px-3 text-[12px] font-semibold text-black hover:border-[#fd4605] hover:text-[#fd4605]"
               >
                 Cancel
               </button>
@@ -239,7 +239,7 @@ export function ReportModal({ entityType, entityId, onClose, onSubmitted }: Repo
                 type="button"
                 disabled={submitting}
                 onClick={submit}
-                className="flex h-9 items-center gap-1.5 rounded-lg bg-[#fe2c55] px-4 text-[12px] font-bold text-white shadow-sm disabled:cursor-not-allowed disabled:opacity-60"
+                className="flex h-9 items-center gap-1.5 rounded-lg bg-[#fd4605] px-4 text-[12px] font-bold text-white shadow-sm disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {submitting && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
                 {submitting ? "Submitting…" : "Submit report"}
@@ -257,7 +257,7 @@ export function ReportModal({ entityType, entityId, onClose, onSubmitted }: Repo
             <button
               type="button"
               onClick={onClose}
-              className="mt-3 h-9 rounded-lg bg-[#fe2c55] px-5 text-[12px] font-bold text-white shadow-sm"
+              className="mt-3 h-9 rounded-lg bg-[#fd4605] px-5 text-[12px] font-bold text-white shadow-sm"
             >
               Done
             </button>

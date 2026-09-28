@@ -77,7 +77,7 @@ export function AccountPage() {
                 className="h-16 w-16 rounded-full object-cover"
               />
             ) : (
-              <span className="grid h-16 w-16 place-items-center rounded-full bg-[#fff0f4] text-[20px] font-extrabold text-[#fe2c55]">
+              <span className="grid h-16 w-16 place-items-center rounded-full bg-[#fff3ec] text-[20px] font-extrabold text-[#fd4605]">
                 {user ? initials(user.name) : "?"}
               </span>
             )}
@@ -143,7 +143,7 @@ export function AccountPage() {
                   className="h-10 w-10 rounded-full object-cover"
                 />
               ) : (
-                <span className="grid h-10 w-10 place-items-center rounded-full bg-[#fff0f4] text-[13px] font-extrabold text-[#fe2c55]">
+                <span className="grid h-10 w-10 place-items-center rounded-full bg-[#fff3ec] text-[13px] font-extrabold text-[#fd4605]">
                   {user ? initials(user.name) : "?"}
                 </span>
               )}
@@ -154,7 +154,7 @@ export function AccountPage() {
                 </p>
               </div>
             </div>
-            <span className="rounded-full bg-[#fff0f4] px-2.5 py-0.5 text-[11px] font-bold text-[#fe2c55]">
+            <span className="rounded-full bg-[#fff3ec] px-2.5 py-0.5 text-[11px] font-bold text-[#fd4605]">
               Owner
             </span>
           </div>

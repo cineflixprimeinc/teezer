@@ -78,7 +78,7 @@ function Avatar({ src, name, size = 36 }: { src?: string | null; name?: string |
   return src
     // eslint-disable-next-line @next/next/no-img-element
     ? <img src={src} alt={name ?? ""} className="flex-shrink-0 rounded-full object-cover" style={{ width: size, height: size }} />
-    : <div className="grid flex-shrink-0 place-items-center rounded-full bg-[#fe2c55] font-bold text-white"
+    : <div className="grid flex-shrink-0 place-items-center rounded-full bg-[#fd4605] font-bold text-white"
         style={{ width: size, height: size, fontSize: size * 0.4 }}>{initials}</div>;
 }
 
@@ -91,7 +91,7 @@ function StatCard({ icon: Icon, iconBg, iconColor, label, value, sub, subColor, 
     <button type="button" onClick={onClick}
       className={cn(
         "flex min-w-0 flex-1 flex-col gap-2 rounded-2xl border bg-white px-4 py-3 text-left transition",
-        active ? "border-[#fe2c55] ring-1 ring-[#fe2c55]" : "border-[#f0f0f0] hover:border-[#e5e7eb] hover:shadow-sm",
+        active ? "border-[#fd4605] ring-1 ring-[#fd4605]" : "border-[#f0f0f0] hover:border-[#e5e7eb] hover:shadow-sm",
       )}>
       <div className="flex items-center gap-2">
         <div className={cn("grid h-7 w-7 flex-shrink-0 place-items-center rounded-lg", iconBg)}>
@@ -122,7 +122,7 @@ function Dropdown<T extends string>({ value, options, onChange, icon: Icon, widt
   return (
     <div ref={ref} className="relative flex-shrink-0">
       <button type="button" onClick={() => setOpen(o => !o)}
-        className="flex items-center gap-2 rounded-xl border border-[#e5e7eb] bg-white px-3.5 py-2.5 text-[13px] font-semibold text-[#374151] transition hover:border-[#fe2c55]">
+        className="flex items-center gap-2 rounded-xl border border-[#e5e7eb] bg-white px-3.5 py-2.5 text-[13px] font-semibold text-[#374151] transition hover:border-[#fd4605]">
         {Icon && <Icon className="h-4 w-4 text-[#9ca3af]" />}
         <span className="whitespace-nowrap">{current?.label}</span>
         <ChevronDown className={cn("h-3.5 w-3.5 text-[#9ca3af] transition-transform", open && "rotate-180")} />
@@ -133,7 +133,7 @@ function Dropdown<T extends string>({ value, options, onChange, icon: Icon, widt
           {options.map(o => (
             <button key={o.value} type="button" onClick={() => { onChange(o.value); setOpen(false); }}
               className={cn("flex w-full items-center px-3.5 py-2.5 text-left text-[13px] transition",
-                o.value === value ? "bg-[#fff0f4] font-semibold text-[#fe2c55]" : "text-[#374151] hover:bg-[#f8f9fb]")}>
+                o.value === value ? "bg-[#fff3ec] font-semibold text-[#fd4605]" : "text-[#374151] hover:bg-[#f8f9fb]")}>
               {o.label}
             </button>
           ))}
@@ -151,7 +151,7 @@ function IconAction({ icon: Icon, label, onClick, active, color }: {
     <button type="button" title={label}
       onClick={(e) => { e.stopPropagation(); onClick(e); }}
       className={cn("grid h-7 w-7 place-items-center rounded-lg transition hover:bg-[#f3f4f6]",
-        active ? "text-[#fe2c55]" : color ?? "text-[#9ca3af] hover:text-[#374151]")}>
+        active ? "text-[#fd4605]" : color ?? "text-[#9ca3af] hover:text-[#374151]")}>
       <Icon className="h-3.5 w-3.5" />
     </button>
   );
@@ -319,7 +319,7 @@ export function StudioCommentsPage() {
                 <div className="relative min-w-[200px] flex-1">
                   <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#9ca3af]" />
                   <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search comments..."
-                    className="w-full rounded-xl border border-[#e5e7eb] bg-white py-2.5 pl-9 pr-8 text-[13px] outline-none transition focus:border-[#fe2c55]" />
+                    className="w-full rounded-xl border border-[#e5e7eb] bg-white py-2.5 pl-9 pr-8 text-[13px] outline-none transition focus:border-[#fd4605]" />
                   {search && (
                     <button type="button" onClick={() => setSearch("")}
                       className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9ca3af] hover:text-[#374151]"><X className="h-3.5 w-3.5" /></button>
@@ -359,7 +359,7 @@ export function StudioCommentsPage() {
                   ]} onChange={setTime} />
 
                 <button type="button" title="Refresh" onClick={refreshAll}
-                  className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl border border-[#e5e7eb] bg-white text-[#6b7280] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+                  className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl border border-[#e5e7eb] bg-white text-[#6b7280] transition hover:border-[#fd4605] hover:text-[#fd4605]">
                   <RefreshCw className={cn("h-4 w-4", listQ.isFetching && "animate-spin")} />
                 </button>
 
@@ -367,9 +367,9 @@ export function StudioCommentsPage() {
                 <div ref={bulkRef} className="relative flex-shrink-0">
                   <button type="button" onClick={() => setBulkOpen(o => !o)}
                     className={cn("flex items-center gap-2 rounded-xl border bg-white px-3.5 py-2.5 text-[13px] font-semibold transition",
-                      selectedIds.size > 0 ? "border-[#fe2c55] text-[#fe2c55]" : "border-[#e5e7eb] text-[#374151] hover:border-[#fe2c55]")}>
+                      selectedIds.size > 0 ? "border-[#fd4605] text-[#fd4605]" : "border-[#e5e7eb] text-[#374151] hover:border-[#fd4605]")}>
                     Bulk Actions
-                    {selectedIds.size > 0 && <span className="grid h-5 min-w-[20px] place-items-center rounded-full bg-[#fe2c55] px-1 text-[10px] font-bold text-white">{selectedIds.size}</span>}
+                    {selectedIds.size > 0 && <span className="grid h-5 min-w-[20px] place-items-center rounded-full bg-[#fd4605] px-1 text-[10px] font-bold text-white">{selectedIds.size}</span>}
                     <ChevronDown className={cn("h-3.5 w-3.5 text-[#9ca3af] transition-transform", bulkOpen && "rotate-180")} />
                   </button>
                   {bulkOpen && (
@@ -398,7 +398,7 @@ export function StudioCommentsPage() {
                 {/* Header */}
                 <div className="flex items-center gap-3 border-b border-[#f0f0f0] bg-[#fafafa] px-4 py-2.5 text-[10px] font-bold uppercase tracking-wide text-[#9ca3af]">
                   <input type="checkbox" checked={allSelected} onChange={toggleAll}
-                    className="h-4 w-4 cursor-pointer rounded border-[#d1d5db] accent-[#fe2c55]" />
+                    className="h-4 w-4 cursor-pointer rounded border-[#d1d5db] accent-[#fd4605]" />
                   <div className="w-[150px] flex-shrink-0">Commenter</div>
                   <div className="min-w-0 flex-1">Comment</div>
                   <div className="hidden w-[150px] flex-shrink-0 lg:block">Content</div>
@@ -449,7 +449,7 @@ export function StudioCommentsPage() {
                           ? <span key={`e${i}`} className="grid h-8 w-8 place-items-center text-[#9ca3af]">…</span>
                           : <button key={p} type="button" onClick={() => setPage(p)}
                               className={cn("grid h-8 min-w-8 place-items-center rounded-lg px-2 text-[13px] font-semibold transition",
-                                p === page ? "bg-[#fe2c55] text-white" : "border border-[#e5e7eb] bg-white text-[#374151] hover:border-[#fe2c55]")}>{p}</button>)}
+                                p === page ? "bg-[#fd4605] text-white" : "border border-[#e5e7eb] bg-white text-[#374151] hover:border-[#fd4605]")}>{p}</button>)}
                         <PagBtn icon={ChevronRight} disabled={page === meta.last_page} onClick={() => setPage(p => Math.min(meta.last_page, p + 1))} />
                         <PagBtn icon={ChevronsRight} disabled={page === meta.last_page} onClick={() => setPage(meta.last_page)} />
                       </div>
@@ -478,7 +478,7 @@ export function StudioCommentsPage() {
 function PagBtn({ icon: Icon, disabled, onClick }: { icon: React.ElementType; disabled: boolean; onClick: () => void }) {
   return (
     <button type="button" onClick={onClick} disabled={disabled}
-      className="grid h-8 w-8 place-items-center rounded-lg border border-[#e5e7eb] bg-white text-[#374151] transition hover:border-[#fe2c55] disabled:opacity-40">
+      className="grid h-8 w-8 place-items-center rounded-lg border border-[#e5e7eb] bg-white text-[#374151] transition hover:border-[#fd4605] disabled:opacity-40">
       <Icon className="h-4 w-4" />
     </button>
   );
@@ -492,9 +492,9 @@ function CommentRow({ c, selected, active, onToggle, onOpen, onAction, busy }: {
   return (
     <div onClick={onOpen}
       className={cn("flex cursor-pointer items-center gap-3 border-b border-[#f5f5f5] px-4 py-3.5 transition hover:bg-[#fafafa]",
-        active && "bg-[#fff8f9]", selected && "bg-[#fff0f4]")}>
+        active && "bg-[#fff8f9]", selected && "bg-[#fff3ec]")}>
       <input type="checkbox" checked={selected} onClick={e => e.stopPropagation()} onChange={onToggle}
-        className="h-4 w-4 cursor-pointer rounded border-[#d1d5db] accent-[#fe2c55]" />
+        className="h-4 w-4 cursor-pointer rounded border-[#d1d5db] accent-[#fd4605]" />
 
       {/* Commenter */}
       <div className="flex w-[150px] flex-shrink-0 items-center gap-2">
@@ -510,7 +510,7 @@ function CommentRow({ c, selected, active, onToggle, onOpen, onAction, busy }: {
         <p className="line-clamp-2 text-[13px] leading-snug text-[#374151]">{c.body || (c.gif_url ? "[GIF]" : "")}</p>
         {(c.is_pinned || c.is_hidden) && (
           <div className="mt-1 flex gap-1.5">
-            {c.is_pinned && <span className="inline-flex items-center gap-0.5 rounded bg-[#fff0f4] px-1.5 py-0.5 text-[9px] font-bold text-[#fe2c55]"><Pin className="h-2.5 w-2.5" />Pinned</span>}
+            {c.is_pinned && <span className="inline-flex items-center gap-0.5 rounded bg-[#fff3ec] px-1.5 py-0.5 text-[9px] font-bold text-[#fd4605]"><Pin className="h-2.5 w-2.5" />Pinned</span>}
             {c.is_hidden && <span className="inline-flex items-center gap-0.5 rounded bg-[#f3f4f6] px-1.5 py-0.5 text-[9px] font-bold text-[#6b7280]"><EyeOff className="h-2.5 w-2.5" />Hidden</span>}
           </div>
         )}
@@ -525,7 +525,7 @@ function CommentRow({ c, selected, active, onToggle, onOpen, onAction, busy }: {
             : <div className="grid h-full w-full place-items-center">{c.video?.media_type?.startsWith("image") ? <ImageIcon className="h-4 w-4 text-[#d1d5db]" /> : <Video className="h-4 w-4 text-[#d1d5db]" />}</div>}
         </div>
         <Link href={`/videos/${c.video?.id}`} target="_blank" onClick={e => e.stopPropagation()}
-          className="truncate text-[12px] font-semibold text-[#374151] hover:text-[#fe2c55]">{c.video?.title}</Link>
+          className="truncate text-[12px] font-semibold text-[#374151] hover:text-[#fd4605]">{c.video?.title}</Link>
       </div>
 
       {/* Posted */}
@@ -656,12 +656,12 @@ function DetailPanel({ comment, creatorName, creatorAvatar, onClose, onAction, b
   const u = comment.user;
 
   const TOOLS = [
-    { icon: Reply, label: "Reply", color: "text-[#fe2c55]", onClick: () => (document.getElementById("studio-reply-box") as HTMLTextAreaElement)?.focus() },
-    { icon: Pin, label: comment.is_pinned ? "Unpin" : "Pin", color: comment.is_pinned ? "text-[#fe2c55]" : "text-[#374151]",
+    { icon: Reply, label: "Reply", color: "text-[#fd4605]", onClick: () => (document.getElementById("studio-reply-box") as HTMLTextAreaElement)?.focus() },
+    { icon: Pin, label: comment.is_pinned ? "Unpin" : "Pin", color: comment.is_pinned ? "text-[#fd4605]" : "text-[#374151]",
       onClick: () => onAction(() => comment.is_pinned ? svc.unpin(comment.id) : svc.pin(comment.id), comment.is_pinned ? "Unpinned." : "Pinned.") },
-    { icon: EyeOff, label: comment.is_hidden ? "Unhide" : "Hide", color: comment.is_hidden ? "text-[#fe2c55]" : "text-[#374151]",
+    { icon: EyeOff, label: comment.is_hidden ? "Unhide" : "Hide", color: comment.is_hidden ? "text-[#fd4605]" : "text-[#374151]",
       onClick: () => onAction(() => comment.is_hidden ? svc.unhide(comment.id) : svc.hide(comment.id), comment.is_hidden ? "Restored." : "Hidden.") },
-    { icon: Flag, label: comment.is_spam ? "Not Spam" : "Mark as Spam", color: comment.is_spam ? "text-[#fe2c55]" : "text-[#374151]",
+    { icon: Flag, label: comment.is_spam ? "Not Spam" : "Mark as Spam", color: comment.is_spam ? "text-[#fd4605]" : "text-[#374151]",
       onClick: () => onAction(() => comment.is_spam ? svc.unspam(comment.id) : svc.spam(comment.id), comment.is_spam ? "Removed from spam." : "Marked as spam.") },
     { icon: Ban, label: "Restrict User", color: "text-[#374151]", onClick: () => onAction(() => svc.restrict(comment.id), "User restricted.") },
     { icon: Trash2, label: "Delete", color: "text-red-500", onClick: () => { if (confirm("Delete this comment?")) onAction(() => svc.remove(comment.id), "Deleted."); } },
@@ -686,10 +686,10 @@ function DetailPanel({ comment, creatorName, creatorAvatar, onClose, onAction, b
       <div className="border-b border-[#f0f0f0] p-4">
         <p className="text-[14px] leading-relaxed text-[#111827]">{comment.body || (comment.gif_url ? "[GIF]" : "")}</p>
         <p className="mt-2 text-[12px] text-[#9ca3af]">
-          {relTime(comment.created_at)} · on <Link href={`/videos/${comment.video?.id}`} target="_blank" className="font-semibold text-[#fe2c55] hover:underline">{comment.video?.title}</Link>
+          {relTime(comment.created_at)} · on <Link href={`/videos/${comment.video?.id}`} target="_blank" className="font-semibold text-[#fd4605] hover:underline">{comment.video?.title}</Link>
         </p>
         <div className="mt-3 flex items-center gap-4">
-          <span className="flex items-center gap-1 text-[13px] font-semibold text-[#fe2c55]"><Heart className="h-4 w-4 fill-[#fe2c55]" />{fmt(comment.love_count)}</span>
+          <span className="flex items-center gap-1 text-[13px] font-semibold text-[#fd4605]"><Heart className="h-4 w-4 fill-[#fd4605]" />{fmt(comment.love_count)}</span>
           <span className="flex items-center gap-1 text-[13px] text-[#6b7280]"><MessageCircle className="h-4 w-4" />{fmt(comment.reply_count)}</span>
           <span className="ml-auto"><StatusPill status={comment.status} /></span>
         </div>
@@ -710,7 +710,7 @@ function DetailPanel({ comment, creatorName, creatorAvatar, onClose, onAction, b
                 <div className="min-w-0 flex-1 rounded-xl bg-[#f8f9fb] px-3 py-2">
                   <div className="flex items-center gap-1.5">
                     <span className="truncate text-[12px] font-bold text-[#111827]">{r.user?.name ?? r.user?.username}</span>
-                    {r.is_author && <span className="rounded bg-[#fff0f4] px-1 py-0.5 text-[9px] font-bold text-[#fe2c55]">Creator</span>}
+                    {r.is_author && <span className="rounded bg-[#fff3ec] px-1 py-0.5 text-[9px] font-bold text-[#fd4605]">Creator</span>}
                   </div>
                   <p className="mt-0.5 text-[12px] leading-snug text-[#374151]">{r.body}</p>
                   <div className="mt-1 flex items-center gap-2 text-[10px] text-[#9ca3af]">
@@ -730,7 +730,7 @@ function DetailPanel({ comment, creatorName, creatorAvatar, onClose, onAction, b
           <p className="text-[13px] font-bold text-[#111827]">Quick Reply</p>
           <div ref={savedRef} className="relative">
             <button type="button" onClick={() => setSavedOpen(o => !o)}
-              className="flex items-center gap-1 rounded-lg border border-[#e5e7eb] px-2 py-1 text-[11px] font-semibold text-[#6b7280] hover:border-[#fe2c55]">
+              className="flex items-center gap-1 rounded-lg border border-[#e5e7eb] px-2 py-1 text-[11px] font-semibold text-[#6b7280] hover:border-[#fd4605]">
               Use a saved reply <ChevronDown className="h-3 w-3" />
             </button>
             {savedOpen && (
@@ -745,7 +745,7 @@ function DetailPanel({ comment, creatorName, creatorAvatar, onClose, onAction, b
         </div>
         <textarea id="studio-reply-box" value={reply} onChange={e => setReply(e.target.value.slice(0, 500))}
           placeholder="Write a reply..." rows={3}
-          className="w-full resize-none rounded-xl border border-[#e5e7eb] px-3 py-2.5 text-[13px] outline-none transition focus:border-[#fe2c55]" />
+          className="w-full resize-none rounded-xl border border-[#e5e7eb] px-3 py-2.5 text-[13px] outline-none transition focus:border-[#fd4605]" />
         <div className="mt-2 flex items-center justify-between">
           <div className="flex items-center gap-1 text-[#9ca3af]">
             <button type="button" className="grid h-7 w-7 place-items-center rounded-lg hover:bg-[#f3f4f6]" title="Emoji"><Smile className="h-4 w-4" /></button>
@@ -754,7 +754,7 @@ function DetailPanel({ comment, creatorName, creatorAvatar, onClose, onAction, b
           </div>
           <button type="button" disabled={!reply.trim() || replyMut.isPending}
             onClick={() => replyMut.mutate(reply.trim())}
-            className="flex items-center gap-1.5 rounded-xl bg-[#fe2c55] px-4 py-2 text-[13px] font-bold text-white transition hover:bg-[#e0243d] disabled:opacity-50">
+            className="flex items-center gap-1.5 rounded-xl bg-[#fd4605] px-4 py-2 text-[13px] font-bold text-white transition hover:bg-[#e03e04] disabled:opacity-50">
             <Send className="h-3.5 w-3.5" />{replyMut.isPending ? "Sending…" : "Reply"}
           </button>
         </div>
@@ -779,9 +779,9 @@ function DetailPanel({ comment, creatorName, creatorAvatar, onClose, onAction, b
         <p className="mb-2 text-[13px] font-bold text-[#111827]">Notes</p>
         <div className="flex items-end gap-2">
           <textarea value={note} onChange={e => setNote(e.target.value.slice(0, 1000))} placeholder="Add a note..." rows={2}
-            className="w-full resize-none rounded-xl border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none transition focus:border-[#fe2c55]" />
+            className="w-full resize-none rounded-xl border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none transition focus:border-[#fd4605]" />
           <button type="button" disabled={noteMut.isPending || note === (comment.note ?? "")} onClick={() => noteMut.mutate(note)}
-            className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-xl bg-[#fe2c55] text-white transition hover:bg-[#e0243d] disabled:opacity-40" title="Save note">
+            className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-xl bg-[#fd4605] text-white transition hover:bg-[#e03e04] disabled:opacity-40" title="Save note">
             <Send className="h-4 w-4" />
           </button>
         </div>

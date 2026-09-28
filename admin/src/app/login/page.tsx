@@ -99,7 +99,7 @@ function LoginContent() {
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#0a1628]">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
       </div>
     );
   }
@@ -109,7 +109,7 @@ function LoginContent() {
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="mb-8 flex flex-col items-center text-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fe2c55] text-white text-2xl font-black shadow-lg shadow-[#fe2c55]/30">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fd4605] text-white text-2xl font-black shadow-lg shadow-[#fd4605]/30">
             R
           </div>
           <h1 className="mt-5 text-2xl font-bold text-white">Admin Panel</h1>
@@ -136,7 +136,7 @@ function LoginContent() {
           ) : (
             <form onSubmit={submitCode} className="space-y-4">
               <div className="flex flex-col items-center text-center">
-                <ShieldCheck className="h-8 w-8 text-[#fe2c55]" />
+                <ShieldCheck className="h-8 w-8 text-[#fd4605]" />
                 <p className="mt-2 text-sm font-semibold text-white">Two-factor verification</p>
                 <p className="mt-1 text-xs text-slate-400">
                   {useRecovery
@@ -183,7 +183,7 @@ export default function LoginPage() {
   return (
     <Suspense fallback={
       <div className="flex min-h-screen items-center justify-center bg-[#0a1628]">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
       </div>
     }>
       <LoginContent />

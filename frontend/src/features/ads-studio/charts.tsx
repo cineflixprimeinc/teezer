@@ -133,7 +133,7 @@ export function StatusDonut({
 
 /* ── Revenue / bar chart (Reports) ─────────────────────────────────────── */
 export function BarChart({
-  categories, data, color = "#fe2c55", height = 260, money = false,
+  categories, data, color = "#fd4605", height = 260, money = false,
 }: { categories: string[]; data: number[]; color?: string; height?: number; money?: boolean }) {
   const mounted = useMounted();
 

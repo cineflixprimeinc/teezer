@@ -97,7 +97,7 @@ export function MonetizationPrograms() {
               <div
                 className={cn(
                   "grid h-7 w-7 flex-shrink-0 place-items-center rounded-lg",
-                  p.status === "active" ? "bg-[#f0fdf4] text-[#16a34a]" : "bg-[#fff0f4] text-[#fe2c55]",
+                  p.status === "active" ? "bg-[#f0fdf4] text-[#16a34a]" : "bg-[#fff3ec] text-[#fd4605]",
                 )}
               >
                 {p.status === "active" ? <Check className="h-3.5 w-3.5" /> : <Award className="h-3.5 w-3.5" />}
@@ -118,7 +118,7 @@ export function MonetizationPrograms() {
                 <span className="hidden w-16 flex-shrink-0 sm:block">
                   <span className="block h-1 overflow-hidden rounded-full bg-[#f3f4f6]">
                     <span
-                      className="block h-full rounded-full bg-[#fe2c55]"
+                      className="block h-full rounded-full bg-[#fd4605]"
                       style={{ width: `${p.percent}%` }}
                     />
                   </span>
@@ -165,7 +165,7 @@ function ProgramCriteriaModal({
 
       <div className="relative flex max-h-[90vh] w-full max-w-[460px] flex-col overflow-hidden rounded-t-2xl bg-white shadow-xl sm:rounded-2xl">
         <div className="flex items-start gap-3 border-b border-[#f0f1f4] px-5 py-4">
-          <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl bg-[#fff0f4] text-[#fe2c55]">
+          <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl bg-[#fff3ec] text-[#fd4605]">
             <Award className="h-5 w-5" />
           </div>
           <div className="min-w-0 flex-1">
@@ -191,10 +191,10 @@ function ProgramCriteriaModal({
                 <span className="text-[11px] font-semibold text-[#374151]">
                   {program.met_count} of {program.total_count} requirements met
                 </span>
-                <span className="text-[11px] font-bold tabular-nums text-[#fe2c55]">{program.percent}%</span>
+                <span className="text-[11px] font-bold tabular-nums text-[#fd4605]">{program.percent}%</span>
               </div>
               <span className="block h-1.5 overflow-hidden rounded-full bg-[#f3f4f6]">
-                <span className="block h-full rounded-full bg-[#fe2c55] transition-all" style={{ width: `${program.percent}%` }} />
+                <span className="block h-full rounded-full bg-[#fd4605] transition-all" style={{ width: `${program.percent}%` }} />
               </span>
             </div>
           )}
@@ -230,7 +230,7 @@ function ProgramCriteriaModal({
               <ul className="flex flex-col gap-1.5">
                 {program.unlocks.map((u) => (
                   <li key={u} className="flex items-start gap-2 text-[11.5px] text-[#374151]">
-                    <Sparkles className="mt-0.5 h-3 w-3 flex-shrink-0 text-[#fe2c55]" />
+                    <Sparkles className="mt-0.5 h-3 w-3 flex-shrink-0 text-[#fd4605]" />
                     {u}
                   </li>
                 ))}
@@ -270,7 +270,7 @@ function ProgramCriteriaModal({
             rather than offering a web button that cannot complete the journey. */}
         <div className="border-t border-[#f0f1f4] bg-[#fafbfc] px-5 py-4">
           <div className="flex items-start gap-2.5">
-            <Smartphone className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#fe2c55]" />
+            <Smartphone className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#fd4605]" />
             <div>
               <p className="text-[12px] font-semibold text-[#111827]">
                 Open the Teezer app for the full programme
@@ -318,7 +318,7 @@ function Requirement({ req }: { req: ProgramRequirement }) {
         {req.sub && <p className="mt-0.5 text-[10.5px] text-[#9ca3af]">{req.sub}</p>}
 
         {!req.met && req.action && (
-          <p className="mt-0.5 text-[10.5px] text-[#fe2c55]">{req.action}</p>
+          <p className="mt-0.5 text-[10.5px] text-[#fd4605]">{req.action}</p>
         )}
       </div>
     </div>

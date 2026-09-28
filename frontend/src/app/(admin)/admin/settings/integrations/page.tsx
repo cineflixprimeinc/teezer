@@ -106,7 +106,7 @@ export default function IntegrationsPage() {
         {/* ── Header ─────────────────────────────────────────────────── */}
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="flex items-start gap-3">
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#fe2c55]/10 text-[#fe2c55]">
+            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#fd4605]/10 text-[#fd4605]">
               <Plug size={20} />
             </div>
             <div>
@@ -464,9 +464,9 @@ function FieldInput({
           onChange={(e) => onChange(e.target.value)}
           spellCheck={false}
           autoComplete="off"
-          className={`h-10 w-full rounded-[10px] border bg-white px-3 text-[13px] text-[#111827] outline-none transition placeholder:text-[#9ca3af] focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10 ${
+          className={`h-10 w-full rounded-[10px] border bg-white px-3 text-[13px] text-[#111827] outline-none transition placeholder:text-[#9ca3af] focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10 ${
             meta.secret ? "pr-10 font-mono" : ""
-          } ${value ? "border-[#fe2c55]/60" : "border-[#e8eaed]"}`}
+          } ${value ? "border-[#fd4605]/60" : "border-[#e8eaed]"}`}
         />
         {meta.secret && (
           <button
@@ -534,7 +534,7 @@ function Switch({ on, busy, onChange }: { on: boolean; busy?: boolean; onChange:
       disabled={busy}
       onClick={() => onChange(!on)}
       className={`relative inline-flex h-7 w-[52px] shrink-0 items-center rounded-full transition-colors disabled:opacity-60 ${
-        on ? "bg-[#fe2c55]" : "bg-[#d5d8dd]"
+        on ? "bg-[#fd4605]" : "bg-[#d5d8dd]"
       }`}
     >
       <span

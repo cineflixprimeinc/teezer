@@ -96,7 +96,7 @@ export default function DataSharingPolicyPage() {
       </UL>
       <P>
         Questions:{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>.
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>.
       </P>
     </LegalShell>
     } />

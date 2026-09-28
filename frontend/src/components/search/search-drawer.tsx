@@ -79,7 +79,7 @@ function Avatar({ src, name, size = 36 }: { src: string | null; name: string; si
   }
   return (
     <div
-      className="rounded-full grid place-items-center font-bold text-white bg-[#fe2c55] flex-shrink-0 text-sm"
+      className="rounded-full grid place-items-center font-bold text-white bg-[#fd4605] flex-shrink-0 text-sm"
       style={{ width: size, height: size }}
     >
       {(name?.[0] ?? "?").toUpperCase()}
@@ -110,7 +110,7 @@ function Skeleton() {
 function SectionLabel({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <div className="flex items-center gap-1.5 px-4 pt-3 pb-1">
-      <span className="text-[#fe2c55]">{icon}</span>
+      <span className="text-[#fd4605]">{icon}</span>
       <span className="text-[11px] font-bold uppercase tracking-wide text-[#6b7280]">{label}</span>
     </div>
   );
@@ -384,12 +384,12 @@ export function SearchDrawer({ open, onClose }: { open: boolean; onClose: () => 
               className={cn(
                 "h-[42px] w-full rounded-full border bg-[#f8f9fb] pl-10 pr-9 text-[14px] text-[#111827]",
                 "placeholder:text-[#9ca3af] outline-none transition-colors",
-                "border-[#e5e7eb] focus:border-[#fe2c55] focus:bg-white",
+                "border-[#e5e7eb] focus:border-[#fd4605] focus:bg-white",
                 "[appearance:textfield] [&::-webkit-search-cancel-button]:hidden",
               )}
             />
             {loading && (
-              <Loader2 className="absolute right-3.5 top-1/2 -translate-y-1/2 h-4 w-4 animate-spin text-[#fe2c55] pointer-events-none" />
+              <Loader2 className="absolute right-3.5 top-1/2 -translate-y-1/2 h-4 w-4 animate-spin text-[#fd4605] pointer-events-none" />
             )}
             {query && !loading && (
               <button
@@ -415,7 +415,7 @@ export function SearchDrawer({ open, onClose }: { open: boolean; onClose: () => 
                 className={cn(
                   "flex-shrink-0 rounded-full px-3.5 py-1.5 text-[13px] font-semibold transition-colors",
                   tab === t.id
-                    ? "bg-[#fe2c55] text-white"
+                    ? "bg-[#fd4605] text-white"
                     : "bg-[#f3f4f6] text-[#374151] hover:bg-[#e5e7eb]",
                 )}
               >
@@ -519,7 +519,7 @@ export function SearchDrawer({ open, onClose }: { open: boolean; onClose: () => 
                 <button
                   type="button"
                   onClick={() => commitSearch(query)}
-                  className="flex w-full items-center justify-center gap-1.5 rounded-xl py-2 text-[13px] font-semibold text-[#fe2c55] hover:bg-[#fff0f4] transition-colors"
+                  className="flex w-full items-center justify-center gap-1.5 rounded-xl py-2 text-[13px] font-semibold text-[#fd4605] hover:bg-[#fff3ec] transition-colors"
                 >
                   <Search className="h-3.5 w-3.5" />
                   View all results for &ldquo;{query}&rdquo;
@@ -540,7 +540,7 @@ export function SearchDrawer({ open, onClose }: { open: boolean; onClose: () => 
                     <button
                       type="button"
                       onClick={clearAll}
-                      className="text-[12px] font-semibold text-[#fe2c55] hover:underline"
+                      className="text-[12px] font-semibold text-[#fd4605] hover:underline"
                     >
                       Clear all
                     </button>
@@ -586,7 +586,7 @@ export function SearchDrawer({ open, onClose }: { open: boolean; onClose: () => 
                       key={tag}
                       type="button"
                       onClick={() => commitSearch(tag)}
-                      className="rounded-full border border-[#e5e7eb] bg-white px-3.5 py-1.5 text-[13px] font-medium text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55] transition-colors"
+                      className="rounded-full border border-[#e5e7eb] bg-white px-3.5 py-1.5 text-[13px] font-medium text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605] transition-colors"
                     >
                       {tag}
                     </button>

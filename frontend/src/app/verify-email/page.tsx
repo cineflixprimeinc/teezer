@@ -76,7 +76,7 @@ function VerifyEmailContent() {
         boxShadow: "0 4px 32px rgba(0,0,0,0.10)",
       }}>
         {/* Logo */}
-        <p style={{ margin: "0 0 32px", fontSize: 22, fontWeight: 800, color: "#fe2c55" }}>
+        <p style={{ margin: "0 0 32px", fontSize: 22, fontWeight: 800, color: "#fd4605" }}>
           &#9654; Teezer
         </p>
 
@@ -84,7 +84,7 @@ function VerifyEmailContent() {
         {state === "loading" && (
           <>
             <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
-            <Loader2 size={48} color="#fe2c55" style={{ margin: "0 auto 16px", animation: "spin 0.75s linear infinite", display: "block" }} />
+            <Loader2 size={48} color="#fd4605" style={{ margin: "0 auto 16px", animation: "spin 0.75s linear infinite", display: "block" }} />
             <p style={{ fontSize: 18, fontWeight: 700, color: "#111827", margin: "0 0 8px" }}>Verifying your email…</p>
             <p style={{ fontSize: 14, color: "#6b7280", margin: 0 }}>Please wait a moment.</p>
           </>
@@ -121,7 +121,7 @@ function VerifyEmailContent() {
         {/* Already verified - auto-redirect to login */}
         {state === "already_verified" && (
           <>
-            <CheckCircle2 size={56} color="#fe2c55" style={{ margin: "0 auto 16px", display: "block" }} />
+            <CheckCircle2 size={56} color="#fd4605" style={{ margin: "0 auto 16px", display: "block" }} />
             <p style={{ fontSize: 20, fontWeight: 800, color: "#111827", margin: "0 0 8px" }}>Already Verified!</p>
             <p style={{ fontSize: 14, color: "#6b7280", margin: "0 0 32px", lineHeight: 1.6 }}>
               <strong>{email}</strong> is already verified. Redirecting you to login…
@@ -153,7 +153,7 @@ function VerifyEmailContent() {
 const btnStyle: React.CSSProperties = {
   width: "100%", height: 52,
   borderRadius: 9999, border: "none",
-  background: "#fe2c55", color: "#fff",
+  background: "#fd4605", color: "#fff",
   fontSize: 15, fontWeight: 700,
   cursor: "pointer", transition: "background 150ms",
   display: "flex", alignItems: "center", justifyContent: "center", gap: 8,

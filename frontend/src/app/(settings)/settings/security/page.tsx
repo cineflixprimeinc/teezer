@@ -77,13 +77,13 @@ function TwoFactorModal({ enabled, onClose, onChanged }: {
         <div className="px-6 py-5">
           {step === "intro" && (
             <div className="text-center">
-              <Smartphone className="mx-auto h-10 w-10 text-[#fe2c55]" />
+              <Smartphone className="mx-auto h-10 w-10 text-[#fd4605]" />
               <p className="mt-3 text-[14px] font-semibold text-[#111827]">Add an extra layer of security</p>
               <p className="mx-auto mt-1 max-w-xs text-[12.5px] text-[#6b7280]">
                 Use Google Authenticator, Authy, or 1Password to generate a 6-digit code each time you sign in.
               </p>
               <button onClick={begin} disabled={busy}
-                className="mt-5 inline-flex items-center gap-2 rounded-[10px] bg-[#fe2c55] px-5 py-2.5 text-[13px] font-bold text-white hover:bg-[#e0193f] disabled:opacity-60">
+                className="mt-5 inline-flex items-center gap-2 rounded-[10px] bg-[#fd4605] px-5 py-2.5 text-[13px] font-bold text-white hover:bg-[#e03e04] disabled:opacity-60">
                 {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <ShieldCheck className="h-4 w-4" />} Begin Setup
               </button>
             </div>
@@ -102,9 +102,9 @@ function TwoFactorModal({ enabled, onClose, onChanged }: {
               <p className="mt-4 text-[13px] font-semibold text-[#111827]">2. Enter the 6-digit code</p>
               <div className="mt-2 flex gap-2">
                 <input value={code} onChange={(e) => setCode(e.target.value)} inputMode="numeric" placeholder="123456"
-                  className="h-[42px] flex-1 rounded-[10px] border border-[#e5e7eb] bg-white px-3 text-center text-[15px] tracking-[0.3em] outline-none focus:border-[#fe2c55]" />
+                  className="h-[42px] flex-1 rounded-[10px] border border-[#e5e7eb] bg-white px-3 text-center text-[15px] tracking-[0.3em] outline-none focus:border-[#fd4605]" />
                 <button onClick={confirm} disabled={busy || code.trim().length < 6}
-                  className="rounded-[10px] bg-[#fe2c55] px-5 text-[13px] font-bold text-white hover:bg-[#e0193f] disabled:opacity-50">
+                  className="rounded-[10px] bg-[#fd4605] px-5 text-[13px] font-bold text-white hover:bg-[#e03e04] disabled:opacity-50">
                   {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : "Verify"}
                 </button>
               </div>
@@ -122,7 +122,7 @@ function TwoFactorModal({ enabled, onClose, onChanged }: {
               <button onClick={copyCodes} className="mt-3 inline-flex items-center gap-2 rounded-[10px] border border-[#e5e7eb] px-3 py-2 text-[12.5px] font-semibold text-[#111827] hover:bg-[#f9fafb]">
                 {copied ? <Check className="h-4 w-4 text-[#10b981]" /> : <Copy className="h-4 w-4" />} {copied ? "Copied" : "Copy codes"}
               </button>
-              <button onClick={onClose} className="mt-4 w-full rounded-[10px] bg-[#fe2c55] py-2.5 text-[13px] font-bold text-white hover:bg-[#e0193f]">
+              <button onClick={onClose} className="mt-4 w-full rounded-[10px] bg-[#fd4605] py-2.5 text-[13px] font-bold text-white hover:bg-[#e03e04]">
                 Done
               </button>
             </div>
@@ -137,7 +137,7 @@ function TwoFactorModal({ enabled, onClose, onChanged }: {
               <p className="mt-4 text-[13px] font-semibold text-[#111827]">Turn off 2FA</p>
               <p className="mt-1 text-[12px] text-[#6b7280]">Confirm your password to disable two-factor authentication.</p>
               <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Current password"
-                className="mt-3 w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2.5 text-[13px] outline-none focus:border-[#fe2c55]" />
+                className="mt-3 w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2.5 text-[13px] outline-none focus:border-[#fd4605]" />
               <button onClick={disable} disabled={busy || !password}
                 className="mt-3 w-full rounded-[10px] bg-[#ef4444] py-2.5 text-[13px] font-bold text-white hover:bg-[#dc2626] disabled:opacity-50">
                 {busy ? <Loader2 className="mx-auto h-4 w-4 animate-spin" /> : "Disable 2FA"}
@@ -197,7 +197,7 @@ function Toggle({ on, onChange, disabled }: { on: boolean; onChange: (v: boolean
   return (
     <button type="button" role="switch" aria-checked={on} disabled={disabled}
       onClick={() => onChange(!on)}
-      className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none disabled:opacity-40 ${on ? "bg-[#fe2c55]" : "bg-[#d1d5db]"}`}>
+      className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none disabled:opacity-40 ${on ? "bg-[#fd4605]" : "bg-[#d1d5db]"}`}>
       <span className={`inline-block h-4 w-4 transform rounded-full bg-white shadow-md transition-transform duration-200 ${on ? "translate-x-5" : "translate-x-0.5"}`} />
     </button>
   );
@@ -240,8 +240,8 @@ function ChangePasswordModal({ onClose }: { onClose: () => void }) {
       <div className="w-full max-w-md rounded-2xl bg-white shadow-2xl">
         <div className="flex items-center justify-between border-b border-[#f3f4f6] px-6 py-4">
           <div className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-[#fff0f4]">
-              <Lock className="h-4.5 w-4.5 text-[#fe2c55]" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-[#fff3ec]">
+              <Lock className="h-4.5 w-4.5 text-[#fd4605]" />
             </div>
             <div>
               <p className="text-[15px] font-bold text-[#111827]">Change Password</p>
@@ -260,7 +260,7 @@ function ChangePasswordModal({ onClose }: { onClose: () => void }) {
             <div className="relative">
               <input type={showC ? "text" : "password"} value={current} onChange={(e) => setCurrent(e.target.value)}
                 placeholder="Enter current password"
-                className="w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3.5 py-2.5 pr-10 text-[13px] text-[#111827] placeholder-[#9ca3af] outline-none focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10" />
+                className="w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3.5 py-2.5 pr-10 text-[13px] text-[#111827] placeholder-[#9ca3af] outline-none focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10" />
               <button type="button" onClick={() => setShowC(v => !v)}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9ca3af] hover:text-[#374151]">
                 {showC ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -273,7 +273,7 @@ function ChangePasswordModal({ onClose }: { onClose: () => void }) {
             <div className="relative">
               <input type={showN ? "text" : "password"} value={next} onChange={(e) => setNext(e.target.value)}
                 placeholder="At least 8 characters"
-                className="w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3.5 py-2.5 pr-10 text-[13px] text-[#111827] placeholder-[#9ca3af] outline-none focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10" />
+                className="w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3.5 py-2.5 pr-10 text-[13px] text-[#111827] placeholder-[#9ca3af] outline-none focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10" />
               <button type="button" onClick={() => setShowN(v => !v)}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9ca3af] hover:text-[#374151]">
                 {showN ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -293,7 +293,7 @@ function ChangePasswordModal({ onClose }: { onClose: () => void }) {
             <label className="mb-1.5 block text-[12px] font-semibold text-[#374151]">Confirm New Password</label>
             <input type="password" value={confirm} onChange={(e) => setConfirm(e.target.value)}
               placeholder="Re-enter new password"
-              className={`w-full rounded-[10px] border px-3.5 py-2.5 text-[13px] text-[#111827] placeholder-[#9ca3af] outline-none focus:ring-2 focus:ring-[#fe2c55]/10 ${confirm && confirm !== next ? "border-[#ef4444] focus:border-[#ef4444]" : "border-[#e5e7eb] focus:border-[#fe2c55]"}`} />
+              className={`w-full rounded-[10px] border px-3.5 py-2.5 text-[13px] text-[#111827] placeholder-[#9ca3af] outline-none focus:ring-2 focus:ring-[#fd4605]/10 ${confirm && confirm !== next ? "border-[#ef4444] focus:border-[#ef4444]" : "border-[#e5e7eb] focus:border-[#fd4605]"}`} />
             {confirm && confirm !== next && <p className="mt-1 text-[11px] text-[#ef4444]">Passwords do not match</p>}
           </div>
         </div>
@@ -303,7 +303,7 @@ function ChangePasswordModal({ onClose }: { onClose: () => void }) {
             Cancel
           </button>
           <button onClick={submit} disabled={saving}
-            className="flex flex-1 items-center justify-center gap-2 rounded-[10px] bg-[#fe2c55] py-2.5 text-[13px] font-bold text-white hover:bg-[#e0193f] disabled:opacity-60">
+            className="flex flex-1 items-center justify-center gap-2 rounded-[10px] bg-[#fd4605] py-2.5 text-[13px] font-bold text-white hover:bg-[#e03e04] disabled:opacity-60">
             {saving && <Loader2 className="h-4 w-4 animate-spin" />}
             {saving ? "Saving…" : "Update Password"}
           </button>
@@ -423,15 +423,15 @@ function Row({
 function ShieldIllustration() {
   return (
     <svg viewBox="0 0 120 120" fill="none" className="h-24 w-24" aria-hidden="true">
-      <circle cx="60" cy="60" r="58" fill="#fff0f4" />
-      <path d="M60 20 L88 33 L88 60 Q88 82 60 98 Q32 82 32 60 L32 33 Z" fill="#fe2c55" opacity=".15"/>
-      <path d="M60 26 L84 37 L84 60 Q84 79 60 93 Q36 79 36 60 L36 37 Z" fill="#fe2c55" opacity=".3"/>
-      <path d="M60 32 L80 41 L80 60 Q80 76 60 88 Q40 76 40 60 L40 41 Z" fill="#fe2c55"/>
+      <circle cx="60" cy="60" r="58" fill="#fff3ec" />
+      <path d="M60 20 L88 33 L88 60 Q88 82 60 98 Q32 82 32 60 L32 33 Z" fill="#fd4605" opacity=".15"/>
+      <path d="M60 26 L84 37 L84 60 Q84 79 60 93 Q36 79 36 60 L36 37 Z" fill="#fd4605" opacity=".3"/>
+      <path d="M60 32 L80 41 L80 60 Q80 76 60 88 Q40 76 40 60 L40 41 Z" fill="#fd4605"/>
       <path d="M51 60 L57 66 L70 53" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
       {/* Sparkles */}
       <g opacity=".55">
-        <line x1="98" y1="30" x2="98" y2="38" stroke="#fe2c55" strokeWidth="2.5" strokeLinecap="round"/>
-        <line x1="94" y1="34" x2="102" y2="34" stroke="#fe2c55" strokeWidth="2.5" strokeLinecap="round"/>
+        <line x1="98" y1="30" x2="98" y2="38" stroke="#fd4605" strokeWidth="2.5" strokeLinecap="round"/>
+        <line x1="94" y1="34" x2="102" y2="34" stroke="#fd4605" strokeWidth="2.5" strokeLinecap="round"/>
       </g>
       <g opacity=".4">
         <line x1="20" y1="78" x2="20" y2="84" stroke="#ffa0b4" strokeWidth="2" strokeLinecap="round"/>
@@ -469,16 +469,16 @@ function SecurityBestPracticesModal({
       <div className="relative flex w-full max-w-[540px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
 
         {/* ── Header ── */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-white to-[#fff5f7] px-6 pt-6 pb-4">
+        <div className="relative overflow-hidden bg-gradient-to-br from-white to-[#fff6f1] px-6 pt-6 pb-4">
           {/* Shield hero */}
           <div className="absolute right-4 top-4 opacity-90">
             <div className="relative">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#fce4ea]">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#fe2c55]">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#fde7dc]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#fd4605]">
                   <Check className="h-5 w-5 text-white" strokeWidth={3} />
                 </div>
               </div>
-              <span className="absolute -right-1 -top-1 text-[#fe2c55] text-lg font-bold leading-none">+</span>
+              <span className="absolute -right-1 -top-1 text-[#fd4605] text-lg font-bold leading-none">+</span>
               <span className="absolute -bottom-0.5 -left-1 text-[#fca5a5] text-sm font-bold leading-none">+</span>
             </div>
           </div>
@@ -499,10 +499,10 @@ function SecurityBestPracticesModal({
           <div className="grid grid-cols-2 gap-3">
 
             {/* 1. Password Safety */}
-            <div className="rounded-xl bg-[#fff5f7] p-4 border border-[#fce4ea]">
+            <div className="rounded-xl bg-[#fff6f1] p-4 border border-[#fde7dc]">
               <div className="flex items-center gap-2 mb-2.5">
-                <div className="flex h-7 w-7 items-center justify-center rounded-[8px] bg-[#fce4ea]">
-                  <Lock className="h-3.5 w-3.5 text-[#fe2c55]" />
+                <div className="flex h-7 w-7 items-center justify-center rounded-[8px] bg-[#fde7dc]">
+                  <Lock className="h-3.5 w-3.5 text-[#fd4605]" />
                 </div>
                 <p className="text-[13px] font-bold text-[#111827]">1. Password Safety</p>
               </div>
@@ -513,7 +513,7 @@ function SecurityBestPracticesModal({
                   "Avoid using personal information or common words.",
                 ].map((t) => (
                   <li key={t} className="flex items-start gap-1.5">
-                    <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#fe2c55]" />
+                    <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#fd4605]" />
                     <p className="text-[11.5px] text-[#374151] leading-snug">{t}</p>
                   </li>
                 ))}
@@ -533,7 +533,7 @@ function SecurityBestPracticesModal({
               </p>
               <button
                 onClick={() => { onClose(); router.push("/settings/security"); }}
-                className="mt-3 w-full rounded-[10px] border-2 border-[#fe2c55] py-2 text-[12px] font-bold text-[#fe2c55] transition hover:bg-[#fff0f4]"
+                className="mt-3 w-full rounded-[10px] border-2 border-[#fd4605] py-2 text-[12px] font-bold text-[#fd4605] transition hover:bg-[#fff3ec]"
               >
                 Set Up 2FA
               </button>
@@ -632,7 +632,7 @@ function SecurityBestPracticesModal({
             href="https://help.teezer.live"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-[12px] font-semibold text-[#fe2c55] hover:underline"
+            className="flex items-center gap-1.5 text-[12px] font-semibold text-[#fd4605] hover:underline"
           >
             <ExternalLink className="h-3.5 w-3.5" /> Visit Help Center
           </a>
@@ -645,7 +645,7 @@ function SecurityBestPracticesModal({
             </button>
             <button
               onClick={() => { onClose(); router.push("/settings/security"); }}
-              className="rounded-[10px] bg-[#fe2c55] px-5 py-2 text-[13px] font-bold text-white shadow-[0_4px_12px_rgba(254,44,85,0.25)] transition hover:bg-[#e0193f]"
+              className="rounded-[10px] bg-[#fd4605] px-5 py-2 text-[13px] font-bold text-white shadow-[0_4px_12px_rgba(253,70,5,0.25)] transition hover:bg-[#e03e04]"
             >
               Go to Security Settings
             </button>
@@ -735,7 +735,7 @@ export default function SecurityPage() {
   if (loading) {
     return (
       <div className="flex h-64 items-center justify-center">
-        <Loader2 className="h-7 w-7 animate-spin text-[#fe2c55]" />
+        <Loader2 className="h-7 w-7 animate-spin text-[#fd4605]" />
       </div>
     );
   }
@@ -761,11 +761,11 @@ export default function SecurityPage() {
 
             {/* Account Security */}
             <SectionCard title="Account Security" desc="Keep your account safe with these security settings.">
-              <Row icon={Lock} iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+              <Row icon={Lock} iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
                 title="Password" desc={pwdDesc}
                 onClick={() => setShowChangePwd(true)}
                 right={
-                  <span className="flex items-center gap-1.5 rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-1.5 text-[12px] font-semibold text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55] transition">
+                  <span className="flex items-center gap-1.5 rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-1.5 text-[12px] font-semibold text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605] transition">
                     Change Password <ChevronRight className="h-3.5 w-3.5" />
                   </span>
                 }
@@ -784,7 +784,7 @@ export default function SecurityPage() {
                 desc={alertSaving ? "Saving…" : "Get notified about new logins to your account"}
                 right={
                   alertSaving
-                    ? <Loader2 className="h-4.5 w-4.5 animate-spin text-[#fe2c55]" />
+                    ? <Loader2 className="h-4.5 w-4.5 animate-spin text-[#fd4605]" />
                     : <Toggle on={overview?.login_alerts ?? true} onChange={handleLoginAlerts} />
                 }
               />
@@ -838,7 +838,7 @@ export default function SecurityPage() {
               {sessions.filter(s => !s.is_current).length > 0 && (
                 <div className="border-t border-[#f3f4f6] px-6 py-3">
                   <button onClick={handleRevokeAll} disabled={revoking === -1}
-                    className="flex items-center gap-1.5 text-[12px] font-semibold text-[#fe2c55] hover:underline disabled:opacity-50">
+                    className="flex items-center gap-1.5 text-[12px] font-semibold text-[#fd4605] hover:underline disabled:opacity-50">
                     {revoking === -1 ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <LogOut className="h-3.5 w-3.5" />}
                     Log out of all other devices
                   </button>
@@ -866,7 +866,7 @@ export default function SecurityPage() {
                 desc={overview?.phone ? maskPhone(overview.phone) : "Not set"}
                 right={overview?.phone
                   ? <><Badge label="Verified" color="green" /><ChevronRight className="h-4 w-4 text-[#d1d5db]" /></>
-                  : <><span className="rounded-[10px] border border-[#e5e7eb] px-3 py-1 text-[12px] font-semibold text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55] transition cursor-pointer">Set Up</span><ChevronRight className="h-4 w-4 text-[#d1d5db]" /></>
+                  : <><span className="rounded-[10px] border border-[#e5e7eb] px-3 py-1 text-[12px] font-semibold text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605] transition cursor-pointer">Set Up</span><ChevronRight className="h-4 w-4 text-[#d1d5db]" /></>
                 }
                 last
               />
@@ -893,7 +893,7 @@ export default function SecurityPage() {
                   <button
                     type="button"
                     onClick={() => setShowBestPractices(true)}
-                    className="mt-3 inline-flex items-center gap-1.5 rounded-[10px] border border-[#fe2c55]/30 bg-[#fff0f4] px-4 py-2 text-[12px] font-bold text-[#fe2c55] transition hover:bg-[#fce4ea]"
+                    className="mt-3 inline-flex items-center gap-1.5 rounded-[10px] border border-[#fd4605]/30 bg-[#fff3ec] px-4 py-2 text-[12px] font-bold text-[#fd4605] transition hover:bg-[#fde7dc]"
                   >
                     Learn More About Security <ExternalLink className="h-3.5 w-3.5" />
                   </button>
@@ -928,9 +928,9 @@ export default function SecurityPage() {
             {/* Help footer */}
             <p className="text-left text-[12px] text-[#9ca3af]">
               Need help?{" "}
-              <a href="/help" className="font-semibold text-[#fe2c55] hover:underline">Visit our Help Center</a>
+              <a href="/help" className="font-semibold text-[#fd4605] hover:underline">Visit our Help Center</a>
               {" "}or contact{" "}
-              <a href="mailto:support@teezer.live" className="font-semibold text-[#fe2c55] hover:underline">
+              <a href="mailto:support@teezer.live" className="font-semibold text-[#fd4605] hover:underline">
                 support@teezer.live <ExternalLink className="inline h-3 w-3" />
               </a>
             </p>

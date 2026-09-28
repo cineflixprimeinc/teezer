@@ -88,17 +88,17 @@ export function VideoDropzone({
           className={cn(
             "flex flex-1 w-full cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed bg-white text-center transition",
             dragOver
-              ? "border-[#fe2c55] bg-[#fff0f3]"
-              : "border-[#fe2c55]/40 hover:border-[#fe2c55] hover:bg-[#fff7f9]",
+              ? "border-[#fd4605] bg-[#fff0f3]"
+              : "border-[#fd4605]/40 hover:border-[#fd4605] hover:bg-[#fff7f9]",
           )}
         >
           <div className="grid h-12 w-12 place-items-center rounded-full bg-[#fff0f3]">
-            <UploadCloud className="h-6 w-6 text-[#fe2c55]" />
+            <UploadCloud className="h-6 w-6 text-[#fd4605]" />
           </div>
           <p className="mt-2.5 text-sm font-bold text-black">Upload your video</p>
           <p className="mt-0.5 text-xs leading-snug text-[#5f6675]">
             Drag & drop your video here, or{" "}
-            <span className="text-[#fe2c55] font-semibold">browse</span>
+            <span className="text-[#fd4605] font-semibold">browse</span>
           </p>
           <p className="mt-2 text-[10px] text-[#9aa1ad]">
             MP4, MOV, WebM or AVI &bull; Max 3GB &bull; Up to 60s
@@ -112,7 +112,7 @@ export function VideoDropzone({
         </label>
 
         {/* Carousel upload option */}
-        <label className="flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border border-dashed border-[#fe2c55]/30 bg-white py-2.5 text-[11px] font-semibold text-[#fe2c55] transition hover:border-[#fe2c55] hover:bg-[#fff7f9] flex-shrink-0">
+        <label className="flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border border-dashed border-[#fd4605]/30 bg-white py-2.5 text-[11px] font-semibold text-[#fd4605] transition hover:border-[#fd4605] hover:bg-[#fff7f9] flex-shrink-0">
           <Images className="h-4 w-4" />
           Upload photo carousel (up to {MAX_CAROUSEL_IMAGES} images)
           <input
@@ -140,7 +140,7 @@ export function VideoDropzone({
     const safeIdx = Math.max(0, idx);
 
     return (
-      <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl border-2 border-dashed border-[#fe2c55]/40 bg-white p-3">
+      <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl border-2 border-dashed border-[#fd4605]/40 bg-white p-3">
         <div className="relative min-h-0 flex-1 overflow-hidden rounded-xl bg-[#f8f9fb]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -196,7 +196,7 @@ export function VideoDropzone({
               onClick={() => setCarouselIdx(i)}
               className={cn(
                 "relative h-11 w-11 flex-shrink-0 overflow-hidden rounded-lg border-2 transition",
-                i === safeIdx ? "border-[#fe2c55]" : "border-transparent opacity-60 hover:opacity-100",
+                i === safeIdx ? "border-[#fd4605]" : "border-transparent opacity-60 hover:opacity-100",
               )}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -207,7 +207,7 @@ export function VideoDropzone({
 
         {/* File info */}
         <div className="mt-1.5 flex-shrink-0 flex items-center gap-1.5 text-[10px] text-[#5f6675]">
-          <Images className="h-3 w-3 text-[#fe2c55]" />
+          <Images className="h-3 w-3 text-[#fd4605]" />
           <span className="font-semibold text-black">{files.length} images</span>
           <span>·</span>
           <span>{fmtMB(totalBytes)} total</span>
@@ -216,7 +216,7 @@ export function VideoDropzone({
         {uploading && (
           <div className="mt-2 flex-shrink-0">
             <div className="h-1 overflow-hidden rounded-full bg-[#fde0e6]">
-              <div className="h-full rounded-full bg-[#fe2c55] transition-[width]" style={{ width: `${progress}%` }} />
+              <div className="h-full rounded-full bg-[#fd4605] transition-[width]" style={{ width: `${progress}%` }} />
             </div>
             <div className="mt-1 flex items-center justify-between text-[10px] text-[#5f6675]">
               <span>Uploading… {progress}%</span>
@@ -236,7 +236,7 @@ export function VideoDropzone({
   /* ── Single image preview ─────────────────────────────────────────── */
   if (isImage && previewUrl) {
     return (
-      <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl border-2 border-dashed border-[#fe2c55]/40 bg-white p-3">
+      <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl border-2 border-dashed border-[#fd4605]/40 bg-white p-3">
         <div className="relative min-h-0 flex-1 overflow-hidden rounded-xl bg-[#f8f9fb]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={previewUrl} alt="Preview" className="h-full w-full object-contain" />
@@ -259,7 +259,7 @@ export function VideoDropzone({
         {uploading && (
           <div className="mt-2">
             <div className="h-1 overflow-hidden rounded-full bg-[#fde0e6]">
-              <div className="h-full rounded-full bg-[#fe2c55] transition-[width]" style={{ width: `${progress}%` }} />
+              <div className="h-full rounded-full bg-[#fd4605] transition-[width]" style={{ width: `${progress}%` }} />
             </div>
             <div className="mt-1 flex items-center justify-between text-[10px] text-[#5f6675]">
               <span>Uploading… {progress}%</span>
@@ -276,7 +276,7 @@ export function VideoDropzone({
 
   /* ── Video preview ────────────────────────────────────────────────── */
   return (
-    <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl border-2 border-dashed border-[#fe2c55]/40 bg-white p-3">
+    <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl border-2 border-dashed border-[#fd4605]/40 bg-white p-3">
       <div
         className="relative mx-auto h-full w-auto overflow-hidden rounded-xl bg-black"
         style={{ aspectRatio: "9 / 16" }}
@@ -324,7 +324,7 @@ export function VideoDropzone({
       {uploading && (
         <div className="mt-2">
           <div className="h-1 overflow-hidden rounded-full bg-[#fde0e6]">
-            <div className="h-full rounded-full bg-[#fe2c55] transition-[width]" style={{ width: `${progress}%` }} />
+            <div className="h-full rounded-full bg-[#fd4605] transition-[width]" style={{ width: `${progress}%` }} />
           </div>
           <div className="mt-1 flex items-center justify-between text-[10px] text-[#5f6675]">
             <span>Uploading… {progress}%</span>

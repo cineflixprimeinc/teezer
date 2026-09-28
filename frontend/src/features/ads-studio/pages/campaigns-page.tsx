@@ -145,7 +145,7 @@ export function CampaignsPage() {
               label="Total campaigns" value={full(campaigns.length)} />
             <StatTile icon={PlayCircle} iconBg="bg-[#dcfce7]" iconColor="text-[#16a34a]"
               label="Active" value={full(activeCount)} />
-            <StatTile icon={DollarSign} iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+            <StatTile icon={DollarSign} iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
               label="Total spent" value={money(data?.summary.total_spent_cents, currency)} />
             <StatTile icon={Target} iconBg="bg-[#fef3c7]" iconColor="text-[#d97706]"
               label="Opportunity score" value={`${data?.summary.opportunity_score ?? 0}/100`} />
@@ -165,7 +165,7 @@ export function CampaignsPage() {
               className={
                 "rounded-full px-4 py-1.5 text-[13px] font-semibold transition " +
                 (on
-                  ? "bg-[#fe2c55] text-white"
+                  ? "bg-[#fd4605] text-white"
                   : "border border-[#eef0f3] bg-white text-[#6b7280] hover:bg-[#f9fafb]")
               }
             >

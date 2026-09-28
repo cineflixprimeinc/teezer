@@ -66,7 +66,7 @@ export function BestTimeToPostCard() {
       },
     },
     /* Highlight best-hour bar; others get soft pink */
-    colors: bars.map(({ hour }) => hour === bestHour ? "#fe2c55" : "#fecdd3"),
+    colors: bars.map(({ hour }) => hour === bestHour ? "#fd4605" : "#fecdd3"),
     dataLabels: { enabled: false },
     legend:     { show: false },
     states: {
@@ -119,8 +119,8 @@ export function BestTimeToPostCard() {
 
       {/* Header */}
       <div className="flex items-center gap-1.5">
-        <div className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[#fff0f4]">
-          <BarChart2 className="h-3 w-3 text-[#fe2c55]" />
+        <div className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[#fff3ec]">
+          <BarChart2 className="h-3 w-3 text-[#fd4605]" />
         </div>
         <p className="flex-1 text-[12px] font-bold leading-none text-black">Best time to post</p>
         <span title={display.hasEnoughData ? "Based on your past post performance" : "Based on general audience activity - post more to get personalised data"}>
@@ -141,7 +141,7 @@ export function BestTimeToPostCard() {
       ) : (
         <p className="mt-1.5 text-[15px] font-bold leading-none text-black">
           {display.bestDay},{" "}
-          <span className="text-[#fe2c55]">{display.bestTime}</span>
+          <span className="text-[#fd4605]">{display.bestTime}</span>
         </p>
       )}
 
@@ -166,7 +166,7 @@ export function BestTimeToPostCard() {
       <button
         type="button"
         onClick={() => router.push("/studio/analytics")}
-        className="mt-2 flex w-full items-center justify-center gap-1.5 rounded-[10px] border border-[#e5e7eb] bg-white py-1.5 text-[11px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+        className="mt-2 flex w-full items-center justify-center gap-1.5 rounded-[10px] border border-[#e5e7eb] bg-white py-1.5 text-[11px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]"
       >
         <BarChart2 className="h-3 w-3" />
         See full analytics

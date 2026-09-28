@@ -13,7 +13,7 @@ import { VerifiedBadge } from "@/components/ui/verified-badge";
 /* ── Avatar gradient fallback ─────────────────────────────────────── */
 const GRADS = [
   "linear-gradient(135deg,#cc2b5e,#753a88)",
-  "linear-gradient(135deg,#fe2c55,#c02040)",
+  "linear-gradient(135deg,#fd4605,#b83203)",
   "linear-gradient(135deg,#667eea,#764ba2)",
   "linear-gradient(135deg,#2193b0,#6dd5ed)",
   "linear-gradient(135deg,#f77f00,#d62828)",
@@ -157,7 +157,7 @@ export function SuggestedAccountsSection({
           <span className="text-[14px] font-bold text-[#111827]">Suggested accounts</span>
           <Info className="h-3.5 w-3.5 text-[#9aa1ad]" />
         </div>
-        <button className="text-[12px] font-semibold text-[#fe2c55] transition hover:underline">
+        <button className="text-[12px] font-semibold text-[#fd4605] transition hover:underline">
           View all
         </button>
       </div>
@@ -169,7 +169,7 @@ export function SuggestedAccountsSection({
             type="button"
             onClick={() => scroll("left")}
             aria-label="Scroll suggestions left"
-            className="absolute -left-2 top-[50%] z-10 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-[#e5e7eb] bg-white text-[#5f6675] shadow-sm transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+            className="absolute -left-2 top-[50%] z-10 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-[#e5e7eb] bg-white text-[#5f6675] shadow-sm transition hover:border-[#fd4605] hover:text-[#fd4605]"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
@@ -223,7 +223,7 @@ export function SuggestedAccountsSection({
                     "w-full rounded-full py-1.5 text-[11px] font-bold transition",
                     followed
                       ? "cursor-default bg-[#f3f4f6] text-[#5f6675]"
-                      : "bg-[#fe2c55] text-white hover:bg-[#e02449]",
+                      : "bg-[#fd4605] text-white hover:bg-[#e03e04]",
                     loading && "cursor-wait opacity-60",
                   )}
                 >
@@ -239,7 +239,7 @@ export function SuggestedAccountsSection({
             type="button"
             onClick={() => scroll("right")}
             aria-label="Scroll suggestions right"
-            className="absolute -right-2 top-[50%] z-10 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-[#e5e7eb] bg-white text-[#5f6675] shadow-sm transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+            className="absolute -right-2 top-[50%] z-10 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-[#e5e7eb] bg-white text-[#5f6675] shadow-sm transition hover:border-[#fd4605] hover:text-[#fd4605]"
           >
             <ChevronRight className="h-4 w-4" />
           </button>

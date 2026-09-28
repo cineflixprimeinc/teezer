@@ -49,7 +49,7 @@ export default function HashtagsPage() {
             {hashtags.slice(0, 10).map((h) => (
               <div key={h.id}
                 className="flex items-center gap-1.5 rounded-full border border-[#e8eaed] bg-white px-3 py-1.5">
-                <Hash className="h-3 w-3 text-[#fe2c55]" />
+                <Hash className="h-3 w-3 text-[#fd4605]" />
                 <span className="text-[12px] font-semibold text-[#111827]">{h.name}</span>
                 <span className="text-[11px] text-[#9ca3af]">{formatCompact(h.videos_count)}</span>
               </div>
@@ -91,8 +91,8 @@ export default function HashtagsPage() {
                         <Td><span className="text-[13px] font-bold text-[#9ca3af]">{(page - 1) * 30 + i + 1}</span></Td>
                         <Td>
                           <div className="flex items-center gap-2">
-                            <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#fe2c55]/10">
-                              <Hash className="h-3.5 w-3.5 text-[#fe2c55]" />
+                            <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#fd4605]/10">
+                              <Hash className="h-3.5 w-3.5 text-[#fd4605]" />
                             </div>
                             <span className="text-[14px] font-semibold text-[#111827]">#{h.name}</span>
                           </div>

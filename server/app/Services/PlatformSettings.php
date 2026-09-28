@@ -62,7 +62,7 @@ class PlatformSettings
             ],
             'og_image_url' => [
                 'type'    => 'string',
-                'default' => '/reelsoo-logo.png',
+                'default' => '/teezer-logo.png',
                 'label'   => 'Social share image',
                 'help'    => 'Shown when a link is shared. Absolute URL, or a path relative to the site.',
             ],

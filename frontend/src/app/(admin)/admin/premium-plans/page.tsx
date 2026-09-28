@@ -66,7 +66,7 @@ type Stats = {
 
 const PLAN_ICON: Record<string, React.ElementType> = { starter: Rocket, pro: Zap, studio: Layers };
 const PLAN_TINT: Record<string, string> = {
-  starter: "bg-[#ffe9ef] text-[#fe2c55]",
+  starter: "bg-[#ffe9ef] text-[#fd4605]",
   pro: "bg-[#f3e8ff] text-[#7c3aed]",
   studio: "bg-[#17151b] text-white",
 };
@@ -78,7 +78,7 @@ const money = (n: number) =>
   "$" + n.toLocaleString(undefined, { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
 
 const input =
-  "w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2 text-[13px] text-[#111827] outline-none transition focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10";
+  "w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2 text-[13px] text-[#111827] outline-none transition focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10";
 const label = "block text-[11px] font-bold uppercase tracking-wide text-[#8A8592]";
 const hint = "mt-1 block text-[10.5px] font-normal normal-case leading-snug text-[#9ca3af]";
 
@@ -213,7 +213,7 @@ function PlanRow({ plan, subs, revenue }: { plan: Plan; subs: number; revenue: n
               <div className="flex flex-wrap items-center gap-1.5">
                 <span className="text-[14px] font-black text-[#111827]">{plan.name}</span>
                 {plan.is_popular && (
-                  <span className="rounded-[6px] bg-[#ffe9ef] px-1.5 py-[2px] text-[9.5px] font-black text-[#fe2c55]">
+                  <span className="rounded-[6px] bg-[#ffe9ef] px-1.5 py-[2px] text-[9.5px] font-black text-[#fd4605]">
                     {plan.badge_label ?? "MOST POPULAR"}
                   </span>
                 )}
@@ -301,7 +301,7 @@ function PlanRow({ plan, subs, revenue }: { plan: Plan; subs: number; revenue: n
             onClick={() => toggle.mutate(!plan.is_enabled)}
             disabled={toggle.isPending}
             aria-label={plan.is_enabled ? "Hide plan" : "Show plan"}
-            className={`relative h-[22px] w-[40px] rounded-full transition ${plan.is_enabled ? "bg-[#fe2c55]" : "bg-[#d9d6dd]"} disabled:opacity-60`}
+            className={`relative h-[22px] w-[40px] rounded-full transition ${plan.is_enabled ? "bg-[#fd4605]" : "bg-[#d9d6dd]"} disabled:opacity-60`}
           >
             <span className={`absolute top-[3px] h-4 w-4 rounded-full bg-white transition-all ${plan.is_enabled ? "left-[21px]" : "left-[3px]"}`} />
           </button>
@@ -369,7 +369,7 @@ function PlanRow({ plan, subs, revenue }: { plan: Plan; subs: number; revenue: n
                 </label>
               </div>
               <label className="mt-3 flex cursor-pointer items-start gap-2.5 rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2.5">
-                <input type="checkbox" className="mt-[2px] h-4 w-4 accent-[#fe2c55]"
+                <input type="checkbox" className="mt-[2px] h-4 w-4 accent-[#fd4605]"
                        checked={f.separate}
                        onChange={(e) => setF({ ...f, separate: e.target.checked })} />
                 <span className="text-[12px] leading-snug text-[#111827]">
@@ -447,7 +447,7 @@ function PlanRow({ plan, subs, revenue }: { plan: Plan; subs: number; revenue: n
                 ["is_default", "Pre-selected when the page opens"],
               ] as const).map(([k, text]) => (
                 <label key={k} className="flex cursor-pointer items-center gap-2 text-[12px] font-semibold text-[#111827]">
-                  <input type="checkbox" className="h-4 w-4 accent-[#fe2c55]"
+                  <input type="checkbox" className="h-4 w-4 accent-[#fd4605]"
                          checked={f[k] as boolean}
                          onChange={(e) => setF({ ...f, [k]: e.target.checked })} />
                   {text}
@@ -457,7 +457,7 @@ function PlanRow({ plan, subs, revenue }: { plan: Plan; subs: number; revenue: n
 
             <div className="mt-5 flex items-center gap-3">
               <button onClick={() => save.mutate()} disabled={save.isPending}
-                      className="rounded-[10px] bg-[#fe2c55] px-5 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e0243d] disabled:opacity-60">
+                      className="rounded-[10px] bg-[#fd4605] px-5 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e03e04] disabled:opacity-60">
                 {save.isPending ? "Saving…" : "Save changes"}
               </button>
               <button onClick={() => setOpen(false)}
@@ -516,7 +516,7 @@ export default function PremiumPlansPage() {
 
         {/* Counted, not illustrative. Zeros here are real. */}
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-          <Stat icon={Calendar} tint="bg-[#ffe9ef] text-[#fe2c55]" label="Total plans"
+          <Stat icon={Calendar} tint="bg-[#ffe9ef] text-[#fd4605]" label="Total plans"
                 value={String(stats?.total_plans ?? plans.length)} hint={`${stats?.live_plans ?? 0} active`} />
           <Stat icon={Users} tint="bg-[#eef2ff] text-[#4338ca]" label="Active subscribers"
                 value={(stats?.active_subscribers ?? 0).toLocaleString()}
@@ -546,7 +546,7 @@ export default function PremiumPlansPage() {
               <div className="relative">
                 <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#9ca3af]" />
                 <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search plans…"
-                       className="w-[190px] rounded-[10px] border border-[#e5e7eb] py-2 pl-8 pr-3 text-[12.5px] outline-none focus:border-[#fe2c55]" />
+                       className="w-[190px] rounded-[10px] border border-[#e5e7eb] py-2 pl-8 pr-3 text-[12.5px] outline-none focus:border-[#fd4605]" />
               </div>
             </div>
           </div>
@@ -649,7 +649,7 @@ export default function PremiumPlansPage() {
                     <span className="text-[#8A8592]">{c.count.toLocaleString()}</span>
                   </div>
                   <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-[#f1eff3]">
-                    <div className="h-full rounded-full bg-[#fe2c55]"
+                    <div className="h-full rounded-full bg-[#fd4605]"
                          style={{ width: `${(c.count / topCountryMax) * 100}%` }} />
                   </div>
                 </div>

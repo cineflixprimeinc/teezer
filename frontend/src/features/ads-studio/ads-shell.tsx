@@ -22,7 +22,7 @@ function StudioMark() {
   return (
     <Link href="/ads-manager" className="flex items-center px-1">
       <Image
-        src="/reelsoostudioadslogo.png"
+        src="/teezer-logo.png"
         alt="Teezer Ads"
         width={700}
         height={140}
@@ -51,7 +51,7 @@ function Avatar({ src, name, size = 34 }: { src?: string | null; name?: string; 
   }
   return (
     <span
-      className="grid place-items-center rounded-full bg-[#fe2c55] font-bold text-white"
+      className="grid place-items-center rounded-full bg-[#fd4605] font-bold text-white"
       style={{ width: size, height: size, fontSize: size * 0.42 }}
     >
       {initial}
@@ -128,7 +128,7 @@ function TopbarMenus() {
             <button
               type="button"
               onClick={async () => { await logout(); window.location.href = "/"; }}
-              className="flex w-full items-center gap-2 border-t border-[#f1f3f5] px-4 py-2.5 text-left text-[13px] font-semibold text-[#e11d48] hover:bg-[#fff0f4]"
+              className="flex w-full items-center gap-2 border-t border-[#f1f3f5] px-4 py-2.5 text-left text-[13px] font-semibold text-[#e11d48] hover:bg-[#fff3ec]"
             >
               <LogOut className="h-4 w-4" /> Log out
             </button>
@@ -172,14 +172,14 @@ function Sidebar({ pathname }: { pathname: string }) {
               className={cn(
                 "group flex items-center gap-3 rounded-[10px] px-3 py-2.5 text-[14px] font-semibold transition",
                 active
-                  ? "bg-[#fff0f4] text-[#fe2c55]"
+                  ? "bg-[#fff3ec] text-[#fd4605]"
                   : "text-[#374151] hover:bg-[#f8f9fb]",
               )}
             >
-              <Icon className={cn("h-[18px] w-[18px] flex-shrink-0", active ? "text-[#fe2c55]" : "text-[#6b7280]")} />
+              <Icon className={cn("h-[18px] w-[18px] flex-shrink-0", active ? "text-[#fd4605]" : "text-[#6b7280]")} />
               <span className="flex-1">{item.label}</span>
               {item.group && (
-                <ChevronRight className={cn("h-4 w-4", active ? "text-[#fe2c55]" : "text-[#c9ced6]")} />
+                <ChevronRight className={cn("h-4 w-4", active ? "text-[#fd4605]" : "text-[#c9ced6]")} />
               )}
             </Link>
           );
@@ -218,7 +218,7 @@ function MobileNav({ pathname }: { pathname: string }) {
             href={item.href}
             className={cn(
               "flex-shrink-0 rounded-full px-3 py-1.5 text-[12px] font-semibold transition",
-              active ? "bg-[#fff0f4] text-[#fe2c55]" : "text-[#6b7280] hover:bg-[#f8f9fb]",
+              active ? "bg-[#fff3ec] text-[#fd4605]" : "text-[#6b7280] hover:bg-[#f8f9fb]",
             )}
           >
             {item.label}
@@ -250,7 +250,7 @@ export function AdsShell({ children }: { children: React.ReactNode }) {
   if (!authReady) {
     return (
       <div className="grid min-h-screen place-items-center bg-[#f8f9fb]">
-        <div className="h-8 w-8 animate-spin rounded-full border-[3px] border-[#fe2c55] border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-[3px] border-[#fd4605] border-t-transparent" />
       </div>
     );
   }
@@ -260,7 +260,7 @@ export function AdsShell({ children }: { children: React.ReactNode }) {
   if (grantState === "loading") {
     return (
       <div className="grid min-h-screen place-items-center bg-[#f4f5f7]">
-        <div className="h-8 w-8 animate-spin rounded-full border-[3px] border-[#fe2c55] border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-[3px] border-[#fd4605] border-t-transparent" />
       </div>
     );
   }
@@ -286,7 +286,7 @@ export function AdsShell({ children }: { children: React.ReactNode }) {
                   <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#9ca3af]" />
                   <input
                     placeholder="Search campaigns…"
-                    className="h-9 w-[220px] rounded-full border border-[#e5e7eb] bg-[#f8f9fb] pl-9 pr-3 text-[13px] outline-none transition focus:border-[#fe2c55] focus:bg-white"
+                    className="h-9 w-[220px] rounded-full border border-[#e5e7eb] bg-[#f8f9fb] pl-9 pr-3 text-[13px] outline-none transition focus:border-[#fd4605] focus:bg-white"
                   />
                 </div>
                 <TopbarMenus />

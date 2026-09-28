@@ -66,8 +66,8 @@ function ArticleModal({ article, onClose }: { article: Article; onClose: () => v
       <div className="w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl">
         <div className="flex items-start justify-between gap-4 border-b border-gray-100 px-6 py-5">
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#fff0f4]">
-              <FileText className="h-5 w-5 text-[#fe2c55]" />
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#fff3ec]">
+              <FileText className="h-5 w-5 text-[#fd4605]" />
             </span>
             <h3 className="text-lg font-extrabold text-gray-900">{article.title}</h3>
           </div>
@@ -77,7 +77,7 @@ function ArticleModal({ article, onClose }: { article: Article; onClose: () => v
         </div>
         <div className="max-h-[60vh] overflow-y-auto px-6 py-5">
           <p className="whitespace-pre-line text-[14px] leading-7 text-gray-700">{article.body}</p>
-          <a href={SUPPORT_MAIL} className="mt-6 flex items-center justify-center gap-2 rounded-xl bg-[#fff0f4] py-3 text-[13px] font-bold text-[#fe2c55] transition hover:bg-[#ffe0e9]">
+          <a href={SUPPORT_MAIL} className="mt-6 flex items-center justify-center gap-2 rounded-xl bg-[#fff3ec] py-3 text-[13px] font-bold text-[#fd4605] transition hover:bg-[#ffe0e9]">
             <MessageCircle className="h-4 w-4" /> Still need help? Contact support
           </a>
         </div>
@@ -103,19 +103,19 @@ export default function HelpCenterPage() {
       <header className="sticky top-0 z-40 border-b border-gray-100 bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
           <a href="https://teezer.live" aria-label="Teezer home">
-            <Image src="/reelsoo-logo.png" alt="Teezer" width={210} height={54} className="h-8 w-auto" priority />
+            <Image src="/teezer-logo.png" alt="Teezer" width={210} height={54} className="h-8 w-auto" priority />
           </a>
           <nav className="hidden items-center gap-8 md:flex">
             {[["Home", "https://teezer.live"], ["Features", "https://teezer.live"], ["Pricing", "https://teezer.live"], ["Blog", "https://teezer.live"]].map(([l, h]) => (
               <a key={l} href={h} className="text-sm font-semibold text-gray-600 hover:text-gray-900">{l}</a>
             ))}
-            <span className="text-sm font-bold text-[#fe2c55]">Help</span>
+            <span className="text-sm font-bold text-[#fd4605]">Help</span>
           </nav>
           <div className="flex items-center gap-4">
             <span className="hidden items-center gap-1.5 text-sm font-semibold text-gray-600 sm:flex">
               <Globe className="h-4 w-4" /> English
             </span>
-            <a href="https://teezer.live" className="flex items-center gap-1.5 rounded-full bg-[#fe2c55] px-5 py-2 text-sm font-bold text-white hover:bg-[#e0243d]">
+            <a href="https://teezer.live" className="flex items-center gap-1.5 rounded-full bg-[#fd4605] px-5 py-2 text-sm font-bold text-white hover:bg-[#e03e04]">
               Go to App <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -123,17 +123,17 @@ export default function HelpCenterPage() {
       </header>
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#fff5f7] to-white px-5 pb-16 pt-14">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#fff6f1] to-white px-5 pb-16 pt-14">
         {/* Soft decorative blobs */}
         <div className="pointer-events-none absolute -left-20 top-10 h-56 w-56 rounded-full bg-[#ffe0e9] opacity-50 blur-2xl" />
         <div className="pointer-events-none absolute -right-16 top-24 h-64 w-64 rounded-full bg-[#ffe8ef] opacity-60 blur-2xl" />
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fff0f4] px-4 py-1.5 text-xs font-bold text-[#fe2c55]">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fff3ec] px-4 py-1.5 text-xs font-bold text-[#fd4605]">
             <MessageCircle className="h-3.5 w-3.5" /> Help Center
           </span>
           <h1 className="mt-5 text-5xl font-extrabold tracking-tight text-gray-900 sm:text-6xl">
-            How can we <span className="text-[#fe2c55]">help</span> you?
+            How can we <span className="text-[#fd4605]">help</span> you?
           </h1>
           <p className="mx-auto mt-4 max-w-md text-[15px] text-gray-500">
             Find answers, tips and guides to help you make the most of Teezer.
@@ -147,7 +147,7 @@ export default function HelpCenterPage() {
               placeholder="Search for articles, topics or keywords..."
               className="flex-1 bg-transparent px-4 text-[15px] text-gray-900 placeholder:text-gray-400 outline-none"
             />
-            <button className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#fe2c55] text-white hover:bg-[#e0243d]" aria-label="Search">
+            <button className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#fd4605] text-white hover:bg-[#e03e04]" aria-label="Search">
               <Search className="h-5 w-5" />
             </button>
           </div>
@@ -156,7 +156,7 @@ export default function HelpCenterPage() {
           <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
             <span className="text-[13px] font-bold text-gray-700">Popular searches:</span>
             {POPULAR_SEARCHES.map((s) => (
-              <button key={s} onClick={() => setQuery(s)} className="rounded-full border border-gray-200 bg-white px-3 py-1 text-[12px] font-medium text-gray-600 hover:border-[#fe2c55] hover:text-[#fe2c55]">
+              <button key={s} onClick={() => setQuery(s)} className="rounded-full border border-gray-200 bg-white px-3 py-1 text-[12px] font-medium text-gray-600 hover:border-[#fd4605] hover:text-[#fd4605]">
                 {s}
               </button>
             ))}
@@ -169,7 +169,7 @@ export default function HelpCenterPage() {
                 <p className="px-5 py-4 text-[13px] text-gray-400">No articles found for &ldquo;{query}&rdquo;.</p>
               ) : results.map((a, i) => (
                 <button key={a.id} onClick={() => setOpen(a)} className={`flex w-full items-center gap-3 px-5 py-3.5 text-left hover:bg-[#fff8f9] ${i < results.length - 1 ? "border-b border-gray-100" : ""}`}>
-                  <FileText className="h-4 w-4 flex-shrink-0 text-[#fe2c55]" />
+                  <FileText className="h-4 w-4 flex-shrink-0 text-[#fd4605]" />
                   <span className="flex-1 text-[14px] font-semibold text-gray-800">{a.title}</span>
                   <ChevronRight className="h-4 w-4 text-gray-300" />
                 </button>
@@ -181,13 +181,13 @@ export default function HelpCenterPage() {
         {/* Chat illustration (approximated) */}
         <div className="pointer-events-none absolute right-6 top-16 hidden lg:block">
           <div className="relative">
-            <div className="flex h-40 w-40 items-center justify-center rounded-[36px] bg-white shadow-[0_20px_60px_rgba(254,44,85,0.18)]">
-              <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-[#fe2c55] shadow-lg">
+            <div className="flex h-40 w-40 items-center justify-center rounded-[36px] bg-white shadow-[0_20px_60px_rgba(253,70,5,0.18)]">
+              <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-[#fd4605] shadow-lg">
                 <MessageCircle className="h-11 w-11 text-white" fill="white" strokeWidth={0} />
-                <span className="absolute flex gap-1"><span className="h-1.5 w-1.5 rounded-full bg-[#fe2c55]" /><span className="h-1.5 w-1.5 rounded-full bg-[#fe2c55]" /><span className="h-1.5 w-1.5 rounded-full bg-[#fe2c55]" /></span>
+                <span className="absolute flex gap-1"><span className="h-1.5 w-1.5 rounded-full bg-[#fd4605]" /><span className="h-1.5 w-1.5 rounded-full bg-[#fd4605]" /><span className="h-1.5 w-1.5 rounded-full bg-[#fd4605]" /></span>
               </div>
             </div>
-            <div className="absolute -bottom-3 -right-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#fe2c55] shadow-lg">
+            <div className="absolute -bottom-3 -right-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#fd4605] shadow-lg">
               <Search className="h-6 w-6 text-white" />
             </div>
           </div>
@@ -198,7 +198,7 @@ export default function HelpCenterPage() {
       <section className="mx-auto max-w-6xl px-5 py-6">
         <div className="mb-10 text-center">
           <h2 className="text-3xl font-extrabold text-gray-900">Browse Help Topics</h2>
-          <div className="mx-auto mt-3 h-1 w-12 rounded-full bg-[#fe2c55]" />
+          <div className="mx-auto mt-3 h-1 w-12 rounded-full bg-[#fd4605]" />
         </div>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -208,15 +208,15 @@ export default function HelpCenterPage() {
               <button
                 key={t.key}
                 onClick={() => setOpen(TOPIC_ARTICLES[t.key])}
-                className="group relative flex flex-col rounded-3xl border border-gray-100 bg-white p-6 text-left shadow-[0_2px_16px_rgba(0,0,0,0.04)] transition-all hover:-translate-y-1 hover:border-[#fe2c55]/30 hover:shadow-[0_12px_36px_rgba(254,44,85,0.12)]"
+                className="group relative flex flex-col rounded-3xl border border-gray-100 bg-white p-6 text-left shadow-[0_2px_16px_rgba(0,0,0,0.04)] transition-all hover:-translate-y-1 hover:border-[#fd4605]/30 hover:shadow-[0_12px_36px_rgba(253,70,5,0.12)]"
               >
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fff0f4]">
-                  <Icon className="h-6 w-6 text-[#fe2c55]" />
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fff3ec]">
+                  <Icon className="h-6 w-6 text-[#fd4605]" />
                 </span>
                 <h3 className="mt-5 text-lg font-extrabold text-gray-900">{t.title}</h3>
                 <p className="mt-2 max-w-[85%] text-[13px] leading-relaxed text-gray-500">{t.desc}</p>
-                <span className="absolute bottom-6 right-6 flex h-9 w-9 items-center justify-center rounded-full bg-[#fff0f4] transition-colors group-hover:bg-[#fe2c55]">
-                  <ArrowRight className="h-4 w-4 text-[#fe2c55] transition-colors group-hover:text-white" />
+                <span className="absolute bottom-6 right-6 flex h-9 w-9 items-center justify-center rounded-full bg-[#fff3ec] transition-colors group-hover:bg-[#fd4605]">
+                  <ArrowRight className="h-4 w-4 text-[#fd4605] transition-colors group-hover:text-white" />
                 </span>
               </button>
             );
@@ -232,37 +232,37 @@ export default function HelpCenterPage() {
           <div className="mt-4">
             {ARTICLES.map((a, i) => (
               <button key={a.id} onClick={() => setOpen(a)} className={`flex w-full items-center gap-3 py-3.5 text-left ${i < ARTICLES.length - 1 ? "border-b border-gray-100" : ""}`}>
-                <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#fff0f4]">
-                  <FileText className="h-4 w-4 text-[#fe2c55]" />
+                <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#fff3ec]">
+                  <FileText className="h-4 w-4 text-[#fd4605]" />
                 </span>
-                <span className="flex-1 text-[14px] font-semibold text-gray-800 hover:text-[#fe2c55]">{a.title}</span>
-                <ChevronRight className="h-4 w-4 text-[#fe2c55]" />
+                <span className="flex-1 text-[14px] font-semibold text-gray-800 hover:text-[#fd4605]">{a.title}</span>
+                <ChevronRight className="h-4 w-4 text-[#fd4605]" />
               </button>
             ))}
           </div>
-          <a href={SUPPORT_MAIL} className="mt-4 inline-flex items-center gap-1 text-[13px] font-bold text-[#fe2c55] hover:underline">
+          <a href={SUPPORT_MAIL} className="mt-4 inline-flex items-center gap-1 text-[13px] font-bold text-[#fd4605] hover:underline">
             View all articles <ChevronRight className="h-3.5 w-3.5" />
           </a>
         </div>
 
         {/* Still need help */}
-        <div className="rounded-3xl bg-[#fff5f7] p-6">
+        <div className="rounded-3xl bg-[#fff6f1] p-6">
           <h3 className="text-xl font-extrabold text-gray-900">Still need help?</h3>
           <p className="mt-1 text-[13px] leading-relaxed text-gray-500">Our support team is here for you. Choose the best way to reach us.</p>
 
           <a href={SUPPORT_MAIL} className="mt-5 flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm transition hover:shadow-md">
-            <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#fe2c55]">
+            <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#fd4605]">
               <Mail className="h-5 w-5 text-white" />
             </span>
             <span className="flex-1">
               <span className="block text-[14px] font-extrabold text-gray-900">Contact Support</span>
               <span className="block text-[12px] text-gray-500">Send us an email and we&apos;ll get back to you.</span>
             </span>
-            <ChevronRight className="h-5 w-5 text-[#fe2c55]" />
+            <ChevronRight className="h-5 w-5 text-[#fd4605]" />
           </a>
 
           <a href={SUPPORT_MAIL} className="mt-3 flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm transition hover:shadow-md">
-            <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#fe2c55]">
+            <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#fd4605]">
               <MessageCircle className="h-5 w-5 text-white" />
             </span>
             <span className="flex-1">
@@ -274,16 +274,16 @@ export default function HelpCenterPage() {
               </span>
               <span className="block text-[12px] text-gray-500">Chat with our support team in real time.</span>
             </span>
-            <ChevronRight className="h-5 w-5 text-[#fe2c55]" />
+            <ChevronRight className="h-5 w-5 text-[#fd4605]" />
           </a>
         </div>
       </section>
 
       {/* ── Newsletter ── */}
       <section className="mx-auto max-w-6xl px-5 py-6">
-        <div className="flex flex-col items-center gap-6 rounded-3xl bg-[#fff5f7] p-8 md:flex-row md:justify-between">
+        <div className="flex flex-col items-center gap-6 rounded-3xl bg-[#fff6f1] p-8 md:flex-row md:justify-between">
           <div className="flex items-center gap-5">
-            <span className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-[#fe2c55] shadow-lg">
+            <span className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-[#fd4605] shadow-lg">
               <Mail className="h-7 w-7 text-white" />
             </span>
             <div>
@@ -296,7 +296,7 @@ export default function HelpCenterPage() {
             className="flex w-full max-w-md items-center gap-2 rounded-2xl bg-white p-2 shadow-sm"
           >
             <input type="email" required placeholder="Enter your email" className="flex-1 bg-transparent px-3 text-[14px] text-gray-900 placeholder:text-gray-400 outline-none" />
-            <button type="submit" className="flex-shrink-0 rounded-xl bg-[#fe2c55] px-6 py-2.5 text-[14px] font-bold text-white hover:bg-[#e0243d]">Subscribe</button>
+            <button type="submit" className="flex-shrink-0 rounded-xl bg-[#fd4605] px-6 py-2.5 text-[14px] font-bold text-white hover:bg-[#e03e04]">Subscribe</button>
           </form>
         </div>
       </section>
@@ -305,7 +305,7 @@ export default function HelpCenterPage() {
       <footer className="mt-6 border-t border-gray-100 bg-white">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-5 py-8 sm:flex-row sm:justify-between">
           <a href="https://teezer.live" aria-label="Teezer home">
-            <Image src="/reelsoo-logo.png" alt="Teezer" width={200} height={52} className="h-7 w-auto" />
+            <Image src="/teezer-logo.png" alt="Teezer" width={200} height={52} className="h-7 w-auto" />
           </a>
           <nav className="flex flex-wrap items-center justify-center gap-6">
             {["Home", "Features", "Pricing", "Blog", "Help"].map((l) => (
@@ -314,7 +314,7 @@ export default function HelpCenterPage() {
           </nav>
           <div className="flex items-center gap-4">
             {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
-              <a key={i} href="https://teezer.live" className="text-gray-900 hover:text-[#fe2c55]" aria-label="Teezer social"><Icon className="h-5 w-5" /></a>
+              <a key={i} href="https://teezer.live" className="text-gray-900 hover:text-[#fd4605]" aria-label="Teezer social"><Icon className="h-5 w-5" /></a>
             ))}
           </div>
         </div>

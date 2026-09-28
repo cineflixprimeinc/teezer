@@ -333,7 +333,7 @@ export function VideoSharePanel({ videoId, open, onClose, onSharesUpdated, onSha
                   display: "flex", alignItems: "center", gap: 5,
                   padding: "8px 16px", borderRadius: 10,
                   border: "none",
-                  background: copied ? "#dcfce7" : "#fe2c55",
+                  background: copied ? "#dcfce7" : "#fd4605",
                   color: copied ? "#16a34a" : "white",
                   fontSize: 12, fontWeight: 700,
                   cursor: "pointer", flexShrink: 0,
@@ -341,10 +341,10 @@ export function VideoSharePanel({ videoId, open, onClose, onSharesUpdated, onSha
                   whiteSpace: "nowrap",
                 }}
                 onMouseEnter={(e) => {
-                  if (!copied) (e.currentTarget as HTMLElement).style.background = "#e0193f";
+                  if (!copied) (e.currentTarget as HTMLElement).style.background = "#e03e04";
                 }}
                 onMouseLeave={(e) => {
-                  if (!copied) (e.currentTarget as HTMLElement).style.background = "#fe2c55";
+                  if (!copied) (e.currentTarget as HTMLElement).style.background = "#fd4605";
                 }}
               >
                 {copied ? <><Check size={13} /> Copied!</> : <><Copy size={13} /> Copy link</>}
@@ -371,15 +371,15 @@ export function VideoSharePanel({ videoId, open, onClose, onSharesUpdated, onSha
                 transition: "background 150ms",
                 textAlign: "left",
               }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#fff0f4")}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#fff3ec")}
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "transparent")}
             >
               {/* Icon */}
               <div style={{
                 width: 44, height: 44, borderRadius: "50%", flexShrink: 0,
-                background: "linear-gradient(135deg, #fe2c55 0%, #ff6b6b 50%, #ffa500 100%)",
+                background: "linear-gradient(135deg, #fd4605 0%, #ff6b6b 50%, #ffa500 100%)",
                 display: "grid", placeItems: "center",
-                boxShadow: "0 3px 10px rgba(254,44,85,0.35)",
+                boxShadow: "0 3px 10px rgba(253,70,5,0.35)",
               }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
                   <circle cx="12" cy="12" r="10" />

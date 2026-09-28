@@ -153,7 +153,7 @@ export default function MonetizationTermsPage() {
         We may modify eligibility, rates, fees, or features, or discontinue monetization, with reasonable notice where
         practicable. Material changes are communicated through Teezer Studio and, where significant, by the notification
         method in our <DocLink href="/terms">Terms of Service</DocLink>. Billing and payout questions:{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>.
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>.
       </P>
     </LegalShell>
     } />

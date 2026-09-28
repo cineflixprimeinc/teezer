@@ -47,7 +47,7 @@ function fmtTime(s: number): string {
 
 
 function colorFor(seed?: string | number | null): string {
-  const palette = ["#fe2c55", "#1d8cff", "#a855f7", "#10b981", "#f97316", "#0ea5e9", "#8b5cf6", "#ef4444"];
+  const palette = ["#fd4605", "#1d8cff", "#a855f7", "#10b981", "#f97316", "#0ea5e9", "#8b5cf6", "#ef4444"];
   const s = String(seed ?? "x");
   let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
   return palette[Math.abs(h) % palette.length];
@@ -564,7 +564,7 @@ function FeedError({ message, onRetry }: { message: string; onRetry: () => void 
       <button
         type="button"
         onClick={onRetry}
-        className="mt-5 inline-flex h-11 items-center rounded-full bg-[#fe2c55] px-5 text-sm font-bold text-white hover:bg-[#e0193f]"
+        className="mt-5 inline-flex h-11 items-center rounded-full bg-[#fd4605] px-5 text-sm font-bold text-white hover:bg-[#e03e04]"
       >
         Try again
       </button>
@@ -582,7 +582,7 @@ function FeedEmpty({ mode, onEmpty }: { mode: "home" | "following" | "explore"; 
     return (
       <div className="grid w-full max-w-md place-items-center px-6 text-center">
         <div className="grid h-16 w-16 place-items-center rounded-full bg-[#fff0f3]">
-          <Sparkles className="h-7 w-7 text-[#fe2c55]" />
+          <Sparkles className="h-7 w-7 text-[#fd4605]" />
         </div>
         <h2 className="mt-4 text-xl font-bold text-black">No videos yet</h2>
         <p className="mt-2 text-sm text-[#5f6675]">
@@ -590,7 +590,7 @@ function FeedEmpty({ mode, onEmpty }: { mode: "home" | "following" | "explore"; 
         </p>
         <Link
           href="/"
-          className="mt-5 inline-flex h-11 items-center gap-2 rounded-full bg-[#fe2c55] px-5 text-sm font-bold text-white shadow-sm hover:bg-[#e0193f]"
+          className="mt-5 inline-flex h-11 items-center gap-2 rounded-full bg-[#fd4605] px-5 text-sm font-bold text-white shadow-sm hover:bg-[#e03e04]"
         >
           Discover creators
         </Link>
@@ -602,7 +602,7 @@ function FeedEmpty({ mode, onEmpty }: { mode: "home" | "following" | "explore"; 
     return (
       <div className="grid w-full max-w-md place-items-center px-6 text-center">
         <div className="grid h-16 w-16 place-items-center rounded-full bg-[#fff0f3]">
-          <Sparkles className="h-7 w-7 text-[#fe2c55]" />
+          <Sparkles className="h-7 w-7 text-[#fd4605]" />
         </div>
         <h2 className="mt-4 text-xl font-bold text-black">Welcome to Teezer</h2>
         <p className="mt-2 text-sm text-[#5f6675]">
@@ -612,7 +612,7 @@ function FeedEmpty({ mode, onEmpty }: { mode: "home" | "following" | "explore"; 
           <button
             type="button"
             onClick={() => openAuthModal("login")}
-            className="inline-flex h-11 items-center gap-2 rounded-full bg-[#fe2c55] px-6 text-sm font-bold text-white shadow-sm hover:bg-[#e0193f]"
+            className="inline-flex h-11 items-center gap-2 rounded-full bg-[#fd4605] px-6 text-sm font-bold text-white shadow-sm hover:bg-[#e03e04]"
           >
             Log in
           </button>
@@ -631,7 +631,7 @@ function FeedEmpty({ mode, onEmpty }: { mode: "home" | "following" | "explore"; 
   return (
     <div className="grid w-full max-w-md place-items-center px-6 text-center">
       <div className="grid h-16 w-16 place-items-center rounded-full bg-[#fff0f3]">
-        <Sparkles className="h-7 w-7 text-[#fe2c55]" />
+        <Sparkles className="h-7 w-7 text-[#fd4605]" />
       </div>
       <h2 className="mt-4 text-xl font-bold text-black">It&apos;s quiet here</h2>
       <p className="mt-2 text-sm text-[#5f6675]">
@@ -639,7 +639,7 @@ function FeedEmpty({ mode, onEmpty }: { mode: "home" | "following" | "explore"; 
       </p>
       <Link
         href="/upload"
-        className="mt-5 inline-flex h-11 items-center gap-2 rounded-full bg-[#fe2c55] px-5 text-sm font-bold text-white shadow-sm hover:bg-[#e0193f]"
+        className="mt-5 inline-flex h-11 items-center gap-2 rounded-full bg-[#fd4605] px-5 text-sm font-bold text-white shadow-sm hover:bg-[#e03e04]"
       >
         <UploadIcon className="h-4 w-4" />
         Upload your first video
@@ -1485,15 +1485,15 @@ const VideoSlide = memo(function VideoSlide({
                 onClick={(e) => e.stopPropagation()}
                 onMouseDown={(e) => e.stopPropagation()}
                 style={{
-                  background: `linear-gradient(to right, #fe2c55 ${(muted ? 0 : volume) * 100}%, rgba(255,255,255,0.35) ${(muted ? 0 : volume) * 100}%)`,
+                  background: `linear-gradient(to right, #fd4605 ${(muted ? 0 : volume) * 100}%, rgba(255,255,255,0.35) ${(muted ? 0 : volume) * 100}%)`,
                 }}
                 className={cn(
                   "h-[3px] w-full cursor-pointer appearance-none rounded-full",
                   "[&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-[13px] [&::-webkit-slider-thumb]:w-[13px]",
-                  "[&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#fe2c55] [&::-webkit-slider-thumb]:cursor-pointer",
+                  "[&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#fd4605] [&::-webkit-slider-thumb]:cursor-pointer",
                   "[&::-webkit-slider-thumb]:shadow-[0_0_0_2px_rgba(255,255,255,0.9)]",
                   "[&::-moz-range-thumb]:h-[13px] [&::-moz-range-thumb]:w-[13px] [&::-moz-range-thumb]:rounded-full",
-                  "[&::-moz-range-thumb]:bg-[#fe2c55] [&::-moz-range-thumb]:border-none",
+                  "[&::-moz-range-thumb]:bg-[#fd4605] [&::-moz-range-thumb]:border-none",
                   "[&::-moz-range-thumb]:shadow-[0_0_0_2px_rgba(255,255,255,0.9)]",
                 )}
               />
@@ -1856,7 +1856,7 @@ const VideoSlide = memo(function VideoSlide({
           <div className="relative h-0.5 w-full overflow-visible rounded-full bg-white/25 group-hover:h-1 transition-all duration-150">
             {/* Filled */}
             <div
-              className="absolute inset-y-0 left-0 rounded-full bg-[#fe2c55]"
+              className="absolute inset-y-0 left-0 rounded-full bg-[#fd4605]"
               style={{ width: `${progressPct}%` }}
             />
             {/* Thumb */}
@@ -2015,7 +2015,7 @@ function VideoActions({
       </div>
 
       <ActionBtn
-        icon={<AnimatedHeart filled={liked} className={cn("h-[23px] w-[23px]", liked && "fill-[#fe2c55] text-[#fe2c55]")} />}
+        icon={<AnimatedHeart filled={liked} className={cn("h-[23px] w-[23px]", liked && "fill-[#fd4605] text-[#fd4605]")} />}
         label={formatCompact(likeCount)}
         onClick={onLikeClick}
       />

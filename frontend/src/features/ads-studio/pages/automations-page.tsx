@@ -17,7 +17,7 @@ type Template = {
 
 const TEMPLATES: Template[] = [
   {
-    icon: PauseCircle, iconBg: "bg-[#fff0f4]", iconColor: "text-[#fe2c55]",
+    icon: PauseCircle, iconBg: "bg-[#fff3ec]", iconColor: "text-[#fd4605]",
     title: "Pause low-performing ads",
     desc: "Pause ads whose cost per result exceeds a threshold.",
   },

@@ -44,11 +44,11 @@ function HeartBurst({ heart, onDone }: { heart: HeartItem; onDone: () => void })
       }
     >
       <Heart
-        className="h-20 w-20 fill-[#fe2c55] text-[#fe2c55]"
+        className="h-20 w-20 fill-[#fd4605] text-[#fd4605]"
         strokeWidth={0}
         style={{
           filter:
-            "drop-shadow(0 0 18px rgba(254,44,85,0.80)) drop-shadow(0 2px 8px rgba(0,0,0,0.50))",
+            "drop-shadow(0 0 18px rgba(253,70,5,0.80)) drop-shadow(0 2px 8px rgba(0,0,0,0.50))",
         }}
       />
     </span>

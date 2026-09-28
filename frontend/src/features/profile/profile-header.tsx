@@ -92,7 +92,7 @@ function AvatarImage({ user }: { user: ReelsooUser; size: number }) {
 }
 
 /* ── Suggested accounts pill button ─────────────────────────────────── */
-const FALLBACK_COLORS = ["#fe2c55", "#0984e3", "#6c5ce7", "#00b894", "#e17055"];
+const FALLBACK_COLORS = ["#fd4605", "#0984e3", "#6c5ce7", "#00b894", "#e17055"];
 function avatarColor(username: string) {
   let h = 0;
   for (const c of username) h = (h * 31 + c.charCodeAt(0)) & 0xffffffff;
@@ -122,7 +122,7 @@ function SuggestedAccountsButton({ open, onToggle }: { open: boolean; onToggle: 
       type="button"
       onClick={onToggle}
       aria-expanded={open}
-      className="flex h-10 items-center gap-2 rounded-[10px] border border-[#e5e7eb] bg-white px-3 text-[13px] font-semibold text-[#111827] transition hover:border-[#fe2c55]"
+      className="flex h-10 items-center gap-2 rounded-[10px] border border-[#e5e7eb] bg-white px-3 text-[13px] font-semibold text-[#111827] transition hover:border-[#fd4605]"
       title="Suggested accounts"
     >
       <span className="flex items-center">
@@ -156,7 +156,7 @@ function SuggestedAccountsButton({ open, onToggle }: { open: boolean; onToggle: 
         )}
       </span>
       {open
-        ? <ChevronUp   className="h-3.5 w-3.5 text-[#fe2c55]" />
+        ? <ChevronUp   className="h-3.5 w-3.5 text-[#fd4605]" />
         : <ChevronDown className="h-3.5 w-3.5 text-[#5f6675]" />}
     </button>
   );
@@ -390,7 +390,7 @@ export function ProfileHeader({ user, isOwnProfile, isSuggestedOpen, onToggleSug
                         key={s.key}
                         type="button"
                         onClick={s.onClick}
-                        className="flex cursor-pointer flex-col items-center justify-center gap-0.5 px-5 transition first:pl-0 last:pr-0 hover:text-[#fe2c55] [&_span:first-child]:hover:text-[#fe2c55]"
+                        className="flex cursor-pointer flex-col items-center justify-center gap-0.5 px-5 transition first:pl-0 last:pr-0 hover:text-[#fd4605] [&_span:first-child]:hover:text-[#fd4605]"
                       >
                         {inner}
                       </button>
@@ -415,7 +415,7 @@ export function ProfileHeader({ user, isOwnProfile, isSuggestedOpen, onToggleSug
             {isOwnProfile ? (
               <Link
                 href="/settings/account"
-                className="flex h-10 min-w-[130px] items-center justify-center gap-2 rounded-[10px] border border-[#e5e7eb] bg-white px-5 text-[13px] font-bold text-[#111827] transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                className="flex h-10 min-w-[130px] items-center justify-center gap-2 rounded-[10px] border border-[#e5e7eb] bg-white px-5 text-[13px] font-bold text-[#111827] transition hover:border-[#fd4605] hover:text-[#fd4605]"
               >
                 <Edit3 className="h-[15px] w-[15px]" />
                 Edit Profile
@@ -438,14 +438,14 @@ export function ProfileHeader({ user, isOwnProfile, isSuggestedOpen, onToggleSug
                   if (!isAuthenticated) { openAuthModal("login"); return; }
                   router.push(`/messages?userId=${user.id}&un=${user.username}`);
                 }}
-                className="flex h-10 items-center gap-2 rounded-[10px] border border-[#e5e7eb] bg-white px-4 text-[13px] font-semibold text-[#111827] transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                className="flex h-10 items-center gap-2 rounded-[10px] border border-[#e5e7eb] bg-white px-4 text-[13px] font-semibold text-[#111827] transition hover:border-[#fd4605] hover:text-[#fd4605]"
               >
                 <MessageCircle className="h-[15px] w-[15px]" />
                 Message
               </button>
             )}
 
-            <button className="flex h-10 items-center gap-2 rounded-[10px] border border-[#e5e7eb] bg-white px-4 text-[13px] font-semibold text-[#111827] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+            <button className="flex h-10 items-center gap-2 rounded-[10px] border border-[#e5e7eb] bg-white px-4 text-[13px] font-semibold text-[#111827] transition hover:border-[#fd4605] hover:text-[#fd4605]">
               <Share2 className="h-[15px] w-[15px]" />
               Share Profile
             </button>
@@ -460,7 +460,7 @@ export function ProfileHeader({ user, isOwnProfile, isSuggestedOpen, onToggleSug
                 setMoreTriggerRect(rect);
                 setMoreOpen((o) => !o);
               }}
-              className="flex h-10 w-10 items-center justify-center rounded-[10px] border border-[#e5e7eb] bg-white text-[#5f6675] transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+              className="flex h-10 w-10 items-center justify-center rounded-[10px] border border-[#e5e7eb] bg-white text-[#5f6675] transition hover:border-[#fd4605] hover:text-[#fd4605]"
             >
               <MoreHorizontal className="h-[18px] w-[18px]" />
             </button>
@@ -485,7 +485,7 @@ export function ProfileHeader({ user, isOwnProfile, isSuggestedOpen, onToggleSug
                   rel="noopener noreferrer"
                   title={SOCIAL_LABELS[key]}
                   aria-label={SOCIAL_LABELS[key]}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e5e7eb] bg-white text-[#111827] transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e5e7eb] bg-white text-[#111827] transition hover:border-[#fd4605] hover:text-[#fd4605]"
                 >
                   {SOCIAL_ICONS[key]}
                 </a>

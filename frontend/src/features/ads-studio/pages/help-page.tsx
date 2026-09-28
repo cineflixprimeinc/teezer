@@ -18,7 +18,7 @@ type Category = {
 
 const CATEGORIES: Category[] = [
   {
-    icon: Rocket, iconBg: "bg-[#fff0f4]", iconColor: "text-[#fe2c55]", title: "Getting started",
+    icon: Rocket, iconBg: "bg-[#fff3ec]", iconColor: "text-[#fd4605]", title: "Getting started",
     articles: ["Create your first campaign", "Understand the Ads Manager layout", "Add a payment method"],
   },
   {
@@ -113,7 +113,7 @@ export function HelpPage() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search help articles and FAQs…"
-          className="w-full rounded-2xl border border-[#eef0f3] bg-white py-3.5 pl-11 pr-4 text-[14px] text-[#111827] outline-none transition placeholder:text-[#9ca3af] focus:border-[#fe2c55]"
+          className="w-full rounded-2xl border border-[#eef0f3] bg-white py-3.5 pl-11 pr-4 text-[14px] text-[#111827] outline-none transition placeholder:text-[#9ca3af] focus:border-[#fd4605]"
         />
       </div>
 
@@ -130,7 +130,7 @@ export function HelpPage() {
             <ul className="mt-4 space-y-2.5">
               {c.articles.map((a) => (
                 <li key={a}>
-                  <a href="#" className="text-[13px] text-[#6b7280] transition hover:text-[#fe2c55]">
+                  <a href="#" className="text-[13px] text-[#6b7280] transition hover:text-[#fd4605]">
                     {a}
                   </a>
                 </li>
@@ -186,8 +186,8 @@ export function HelpPage() {
       <Card className="p-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3.5">
-            <span className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full bg-[#fff0f4]">
-              <LifeBuoy className="h-[22px] w-[22px] text-[#fe2c55]" />
+            <span className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full bg-[#fff3ec]">
+              <LifeBuoy className="h-[22px] w-[22px] text-[#fd4605]" />
             </span>
             <div>
               <p className="text-[15px] font-bold text-[#111827]">Still need help?</p>

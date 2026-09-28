@@ -39,7 +39,7 @@ export function RequireAdmin({ children }: { children: React.ReactNode }) {
   if (!checked || isLoading || !isAuthenticated || !isAdmin()) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#0f172a]">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
       </div>
     );
   }

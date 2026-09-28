@@ -109,7 +109,7 @@ function ShareModal({
               "flex shrink-0 items-center gap-1.5 rounded-lg px-3.5 py-2 text-[12px] font-bold transition-all",
               copied
                 ? "bg-[#ecfdf5] text-[#059669]"
-                : "bg-[#fe2c55] text-white hover:bg-[#e0264b]",
+                : "bg-[#fd4605] text-white hover:bg-[#e03e04]",
             )}
           >
             {copied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
@@ -163,7 +163,7 @@ function EmbedModal({ open, onClose, trackId, title }: { open: boolean; onClose:
               "mt-3 flex w-full items-center justify-center gap-2 rounded-xl py-2.5 text-[13px] font-bold transition-all",
               copied
                 ? "bg-[#ecfdf5] text-[#059669]"
-                : "bg-[#fe2c55] text-white hover:bg-[#e0264b]",
+                : "bg-[#fd4605] text-white hover:bg-[#e03e04]",
             )}
           >
             {copied ? <><Check className="h-4 w-4" /> Copied!</> : <><Copy className="h-4 w-4" /> Copy embed code</>}
@@ -230,15 +230,15 @@ function ReportModal({ open, onClose }: { open: boolean; onClose: () => void }) 
                   className={cn(
                     "flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-[13px] font-medium text-left transition-colors",
                     selected === r
-                      ? "border-[#fe2c55] bg-[#fff0f3] text-[#fe2c55]"
+                      ? "border-[#fd4605] bg-[#fff0f3] text-[#fd4605]"
                       : "border-[#e5e7eb] text-[#374151] hover:border-[#d1d5db] hover:bg-[#f9fafb]",
                   )}
                 >
                   <span className={cn(
                     "grid h-4 w-4 shrink-0 place-items-center rounded-full border-2",
-                    selected === r ? "border-[#fe2c55]" : "border-[#d1d5db]",
+                    selected === r ? "border-[#fd4605]" : "border-[#d1d5db]",
                   )}>
-                    {selected === r && <span className="h-2 w-2 rounded-full bg-[#fe2c55]" />}
+                    {selected === r && <span className="h-2 w-2 rounded-full bg-[#fd4605]" />}
                   </span>
                   {r}
                 </button>
@@ -248,7 +248,7 @@ function ReportModal({ open, onClose }: { open: boolean; onClose: () => void }) 
               type="button"
               onClick={submit}
               disabled={!selected}
-              className="mt-4 flex w-full items-center justify-center rounded-xl bg-[#fe2c55] py-2.5 text-[13px] font-bold text-white transition-colors hover:bg-[#e0264b] disabled:opacity-40 disabled:cursor-not-allowed"
+              className="mt-4 flex w-full items-center justify-center rounded-xl bg-[#fd4605] py-2.5 text-[13px] font-bold text-white transition-colors hover:bg-[#e03e04] disabled:opacity-40 disabled:cursor-not-allowed"
             >
               Submit report
             </button>
@@ -298,7 +298,7 @@ function TrackCover({ coverUrl, title, audioUrl }: {
         // eslint-disable-next-line @next/next/no-img-element
         <img src={coverUrl} alt={title} className="h-full w-full object-cover" />
       ) : (
-        <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-[#fe2c55] to-[#7c3aed]">
+        <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-[#fd4605] to-[#7c3aed]">
           <Music2 className="h-16 w-16 text-white/80" />
         </div>
       )}
@@ -344,7 +344,7 @@ function VideoCard({ video, showOriginal }: { video: ReelsooVideo; showOriginal?
               // eslint-disable-next-line @next/next/no-img-element
               <img src={video.user.avatar} alt={username} className="h-4 w-4 shrink-0 rounded-full object-cover ring-1 ring-white/30" />
             ) : (
-              <div className="h-4 w-4 shrink-0 rounded-full bg-[#fe2c55] grid place-items-center ring-1 ring-white/30">
+              <div className="h-4 w-4 shrink-0 rounded-full bg-[#fd4605] grid place-items-center ring-1 ring-white/30">
                 <span className="text-[6px] font-bold text-white">{avatarLetter}</span>
               </div>
             )}
@@ -576,7 +576,7 @@ export function SoundDetailPage({ id }: { id: number }) {
     track.uploader ? (
       <Link
         href={`/profile/${track.uploader.username}`}
-        className="inline-flex items-center gap-1 text-[14px] font-semibold text-[#374151] hover:underline hover:text-[#fe2c55] transition-colors"
+        className="inline-flex items-center gap-1 text-[14px] font-semibold text-[#374151] hover:underline hover:text-[#fd4605] transition-colors"
       >
         {track.artist_name}
         {track.uploader.is_verified && <VerifiedBadge size={14} />}
@@ -652,7 +652,7 @@ export function SoundDetailPage({ id }: { id: number }) {
                         className="flex w-full items-center gap-3 px-4 py-3 text-[13px] font-medium text-[#374151] hover:bg-[#f9fafb] transition-colors"
                       >
                         {saved
-                          ? <><BookmarkCheck className="h-4 w-4 text-[#fe2c55]" /> Unsave track</>
+                          ? <><BookmarkCheck className="h-4 w-4 text-[#fd4605]" /> Unsave track</>
                           : <><Bookmark      className="h-4 w-4" />               Save track</>}
                       </button>
 
@@ -670,7 +670,7 @@ export function SoundDetailPage({ id }: { id: number }) {
                       <button
                         type="button"
                         onClick={() => { setReportOpen(true); setMenuOpen(false); }}
-                        className="flex w-full items-center gap-3 px-4 py-3 text-[13px] font-medium text-[#fe2c55] hover:bg-[#fff0f3] transition-colors border-t border-[#f3f4f6]"
+                        className="flex w-full items-center gap-3 px-4 py-3 text-[13px] font-medium text-[#fd4605] hover:bg-[#fff0f3] transition-colors border-t border-[#f3f4f6]"
                       >
                         <Flag className="h-4 w-4" />
                         Report
@@ -683,7 +683,7 @@ export function SoundDetailPage({ id }: { id: number }) {
               {/* Artist / original badge */}
               <div className="mt-2 flex flex-wrap items-center gap-2">
                 {track.source_type === "original" && (
-                  <span className="inline-flex items-center rounded-md bg-[#fff0f3] px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-[#fe2c55]">
+                  <span className="inline-flex items-center rounded-md bg-[#fff0f3] px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-[#fd4605]">
                     Original Track
                   </span>
                 )}
@@ -706,7 +706,7 @@ export function SoundDetailPage({ id }: { id: number }) {
                 <button
                   type="button"
                   onClick={handleUseSound}
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#fe2c55] px-4 py-2.5 text-[13px] font-bold text-white shadow-sm transition-colors hover:bg-[#e0264b] active:scale-[0.97]"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#fd4605] px-4 py-2.5 text-[13px] font-bold text-white shadow-sm transition-colors hover:bg-[#e03e04] active:scale-[0.97]"
                 >
                   <Music2 className="h-3.5 w-3.5" strokeWidth={2.5} />
                   Use this sound
@@ -718,7 +718,7 @@ export function SoundDetailPage({ id }: { id: number }) {
                   className={cn(
                     "inline-flex items-center gap-1.5 rounded-xl border px-4 py-2.5 text-[13px] font-bold transition-all active:scale-[0.97]",
                     saved
-                      ? "border-[#fe2c55] bg-[#fff0f3] text-[#fe2c55]"
+                      ? "border-[#fd4605] bg-[#fff0f3] text-[#fd4605]"
                       : "border-[#e5e7eb] bg-white text-[#374151] hover:border-[#d1d5db] hover:bg-[#f9fafb]",
                   )}
                   aria-label={saved ? "Unsave" : "Save"}
@@ -742,7 +742,7 @@ export function SoundDetailPage({ id }: { id: number }) {
                 className={cn(
                   "relative px-4 py-3 text-[14px] font-semibold transition-colors",
                   sort === tab.value
-                    ? "text-[#fe2c55] after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-[#fe2c55] after:content-['']"
+                    ? "text-[#fd4605] after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:rounded-full after:bg-[#fd4605] after:content-['']"
                     : "text-[#9ca3af] hover:text-[#374151]",
                 )}
               >
@@ -765,7 +765,7 @@ export function SoundDetailPage({ id }: { id: number }) {
                 <button
                   type="button"
                   onClick={handleUseSound}
-                  className="mt-1 inline-flex items-center gap-2 rounded-xl bg-[#fe2c55] px-5 py-2.5 text-[13px] font-bold text-white hover:bg-[#e0264b] transition-colors"
+                  className="mt-1 inline-flex items-center gap-2 rounded-xl bg-[#fd4605] px-5 py-2.5 text-[13px] font-bold text-white hover:bg-[#e03e04] transition-colors"
                 >
                   <Music2 className="h-3.5 w-3.5" strokeWidth={2.5} />
                   Use this sound
@@ -793,7 +793,7 @@ export function SoundDetailPage({ id }: { id: number }) {
                     >
                       {loadingMore ? (
                         <>
-                          <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+                          <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
                           Loading…
                         </>
                       ) : "Load more"}

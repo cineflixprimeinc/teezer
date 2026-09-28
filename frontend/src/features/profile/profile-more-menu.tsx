@@ -138,11 +138,11 @@ export function ProfileMoreMenu({ triggerRect, open, onClose, username, isOwnPro
           type="button"
           onClick={onClick}
           className={`flex w-full items-center gap-2.5 rounded-[10px] px-3 py-2 text-left text-[13px] font-medium transition hover:bg-[#f8f9fb] ${
-            danger ? "text-[#fe2c55]" : "text-black"
+            danger ? "text-[#fd4605]" : "text-black"
           }`}
         >
           <Icon
-            className={`h-4 w-4 flex-shrink-0 ${danger ? "text-[#fe2c55]" : "text-[#5f6675]"}`}
+            className={`h-4 w-4 flex-shrink-0 ${danger ? "text-[#fd4605]" : "text-[#5f6675]"}`}
           />
           {label}
         </button>

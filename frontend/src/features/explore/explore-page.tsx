@@ -197,7 +197,7 @@ function SectionHeader({ title, href = "#", showViewAll = true }: { title: strin
     <div className="mb-3 flex items-center justify-between">
       <h2 className="text-[15px] font-extrabold text-[#111827] sm:text-[16px]">{title}</h2>
       {showViewAll && (
-        <Link href={href} className="text-[12px] font-semibold text-[#fe2c55] hover:underline">View all</Link>
+        <Link href={href} className="text-[12px] font-semibold text-[#fd4605] hover:underline">View all</Link>
       )}
     </div>
   );
@@ -437,7 +437,7 @@ export function ExplorePage() {
               {/* Left arrow - #D1D5DB icon color */}
               <button type="button"
                 onClick={() => categoryScrollRef.current?.scrollBy({ left: -250, behavior: "smooth" })}
-                className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-[#e5e7eb] bg-white transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-[#e5e7eb] bg-white transition hover:border-[#fd4605] hover:text-[#fd4605]"
                 style={{ color: "#D1D5DB" }}>
                 <ChevronLeft className="h-4 w-4" />
               </button>
@@ -449,8 +449,8 @@ export function ExplorePage() {
                     className={cn(
                       "flex flex-shrink-0 items-center gap-1.5 rounded-full border px-4 py-[7px] text-[13px] font-semibold transition-colors",
                       activeCategory === cat.id
-                        ? "border-[#fe2c55]/25 bg-[#fff0f4] text-[#fe2c55]"
-                        : "border-[#e5e7eb] bg-white text-[#111827] hover:border-[#fe2c55]/30 hover:text-[#fe2c55]",
+                        ? "border-[#fd4605]/25 bg-[#fff3ec] text-[#fd4605]"
+                        : "border-[#e5e7eb] bg-white text-[#111827] hover:border-[#fd4605]/30 hover:text-[#fd4605]",
                     )}>
                     <span className="text-[14px] leading-none">{cat.emoji}</span>
                     {cat.label}
@@ -461,7 +461,7 @@ export function ExplorePage() {
               {/* Right arrow - #D1D5DB icon color */}
               <button type="button"
                 onClick={() => categoryScrollRef.current?.scrollBy({ left: 250, behavior: "smooth" })}
-                className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-[#e5e7eb] bg-white transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-[#e5e7eb] bg-white transition hover:border-[#fd4605] hover:text-[#fd4605]"
                 style={{ color: "#D1D5DB" }}>
                 <ChevronRight className="h-4 w-4" />
               </button>
@@ -479,14 +479,14 @@ export function ExplorePage() {
               <div className="pointer-events-none absolute bottom-0 right-[8%] w-[120px] sm:w-[160px] opacity-30"
                 style={{ height: "100%", background: `radial-gradient(ellipse at 50% 100%,${slide.accent}44 0%,transparent 70%)` }} />
               <div className="relative flex flex-col justify-center px-6 py-8 sm:px-8 sm:py-10" style={{ minHeight: 220 }}>
-                <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.15em] text-[#fe2c55]">{slide.label}</p>
+                <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.15em] text-[#fd4605]">{slide.label}</p>
                 <h1 className="mb-2 text-[22px] font-black leading-tight text-white sm:text-[26px]">{slide.title}</h1>
                 <p className="mb-4 max-w-[260px] text-[13px] leading-relaxed text-white/80">
                   {slide.sub.split("\n").map((line, i) => (
                     <span key={i}>{line}{i < slide.sub.split("\n").length - 1 && <br />}</span>
                   ))}
                 </p>
-                <button className="w-fit rounded-full bg-[#fe2c55] px-5 py-2 text-[13px] font-bold text-white shadow-lg transition hover:-translate-y-px hover:bg-[#e02449] active:scale-95">
+                <button className="w-fit rounded-full bg-[#fd4605] px-5 py-2 text-[13px] font-bold text-white shadow-lg transition hover:-translate-y-px hover:bg-[#e03e04] active:scale-95">
                   {slide.cta}
                 </button>
                 <div className="mt-3.5 flex items-center gap-2">
@@ -516,7 +516,7 @@ export function ExplorePage() {
             <div className="mb-5">
               <SectionHeader title="Explore Videos" showViewAll={false} />
               {loading ? (
-                <div className="flex justify-center py-8"><Loader2 className="h-6 w-6 animate-spin text-[#fe2c55]" /></div>
+                <div className="flex justify-center py-8"><Loader2 className="h-6 w-6 animate-spin text-[#fd4605]" /></div>
               ) : exploreVideos.length === 0 ? (
                 <SectionEmpty icon={Clapperboard} text={activeCategory === "trending" ? "No videos available right now" : `No ${activeCategory} videos found`} />
               ) : (
@@ -533,7 +533,7 @@ export function ExplorePage() {
               <div className="rounded-[18px] border border-[#eeeeee] bg-white p-4 shadow-sm">
                 <SectionHeader title="Trending Creators" href="/explore?tab=creators" />
                 {loading ? (
-                  <div className="flex justify-center py-6"><Loader2 className="h-5 w-5 animate-spin text-[#fe2c55]" /></div>
+                  <div className="flex justify-center py-6"><Loader2 className="h-5 w-5 animate-spin text-[#fd4605]" /></div>
                 ) : trendingCreators.length === 0 ? (
                   <SectionEmpty icon={Users} text="No trending creators yet" />
                 ) : (
@@ -556,7 +556,7 @@ export function ExplorePage() {
                           <button onClick={() => handleFollow(c.username, following)} disabled={loadingBtn}
                             className={cn(
                               "rounded-full border px-3 py-0.5 text-[10px] font-bold transition active:scale-95 disabled:opacity-60",
-                              following ? "border-[#fe2c55]/30 bg-[#fff0f4] text-[#fe2c55]" : "border-[#fe2c55] text-[#fe2c55] hover:bg-[#fff0f4]",
+                              following ? "border-[#fd4605]/30 bg-[#fff3ec] text-[#fd4605]" : "border-[#fd4605] text-[#fd4605] hover:bg-[#fff3ec]",
                             )}>
                             {loadingBtn ? <Loader2 className="h-3 w-3 animate-spin" /> : following ? "Following" : "Follow"}
                           </button>
@@ -571,7 +571,7 @@ export function ExplorePage() {
               <div className="rounded-[18px] border border-[#eeeeee] bg-white p-4 shadow-sm">
                 <SectionHeader title="Popular Hashtags" href="/explore?tab=hashtags" />
                 {loading ? (
-                  <div className="flex justify-center py-6"><Loader2 className="h-5 w-5 animate-spin text-[#fe2c55]" /></div>
+                  <div className="flex justify-center py-6"><Loader2 className="h-5 w-5 animate-spin text-[#fd4605]" /></div>
                 ) : popularHashtags.length === 0 ? (
                   <SectionEmpty icon={Hash} text="No hashtags found yet" />
                 ) : (
@@ -579,8 +579,8 @@ export function ExplorePage() {
                     {popularHashtags.map((h) => (
                       <Link key={h.tag} href={`/explore?q=${h.tag}`}
                         className="flex items-center gap-2.5 rounded-[10px] px-2 py-[9px] transition-colors hover:bg-[#f8f9fb]">
-                        <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#fff0f4]">
-                          <TrendingUp className="h-[15px] w-[15px] text-[#fe2c55]" />
+                        <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#fff3ec]">
+                          <TrendingUp className="h-[15px] w-[15px] text-[#fd4605]" />
                         </div>
                         <span className="flex-1 text-[13px] font-semibold text-[#111827]">#{h.tag}</span>
                         <span className="text-[12px] text-[#5f6675]">{h.posts} posts</span>
@@ -600,10 +600,10 @@ export function ExplorePage() {
             <div className="rounded-[18px] border border-[#eeeeee] bg-white p-4 shadow-sm">
               <div className="mb-3 flex items-center justify-between">
                 <h3 className="text-[14px] font-extrabold text-[#111827]">Live Now</h3>
-                <Link href="/live" className="text-[12px] font-semibold text-[#fe2c55] hover:underline">View all</Link>
+                <Link href="/live" className="text-[12px] font-semibold text-[#fd4605] hover:underline">View all</Link>
               </div>
               {loading ? (
-                <div className="flex justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-[#fe2c55]" /></div>
+                <div className="flex justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-[#fd4605]" /></div>
               ) : liveItems.length === 0 ? (
                 <SectionEmpty icon={Radio} text="No live streams right now" />
               ) : null}
@@ -624,10 +624,10 @@ export function ExplorePage() {
             <div className="rounded-[18px] border border-[#eeeeee] bg-white p-4 shadow-sm">
               <div className="mb-3 flex items-center justify-between">
                 <h3 className="text-[14px] font-extrabold text-[#111827]">Suggested Creators</h3>
-                <Link href="/explore?tab=creators" className="text-[12px] font-semibold text-[#fe2c55] hover:underline">View all</Link>
+                <Link href="/explore?tab=creators" className="text-[12px] font-semibold text-[#fd4605] hover:underline">View all</Link>
               </div>
               {loading ? (
-                <div className="flex justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-[#fe2c55]" /></div>
+                <div className="flex justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-[#fd4605]" /></div>
               ) : suggestedCreators.length === 0 ? (
                 <SectionEmpty icon={UserPlus} text="No suggestions right now" />
               ) : (
@@ -651,7 +651,7 @@ export function ExplorePage() {
                         <button onClick={() => handleFollow(c.username, following)} disabled={loadingBtn}
                           className={cn(
                             "flex-shrink-0 rounded-full border px-3 py-1 text-[11px] font-bold transition active:scale-95 disabled:opacity-60",
-                            following ? "border-[#fe2c55]/30 bg-[#fff0f4] text-[#fe2c55]" : "border-[#fe2c55] text-[#fe2c55] hover:bg-[#fff0f4]",
+                            following ? "border-[#fd4605]/30 bg-[#fff3ec] text-[#fd4605]" : "border-[#fd4605] text-[#fd4605] hover:bg-[#fff3ec]",
                           )}>
                           {loadingBtn ? <Loader2 className="h-3 w-3 animate-spin" /> : following ? "Following" : "Follow"}
                         </button>
@@ -668,7 +668,7 @@ export function ExplorePage() {
                 <h3 className="text-[14px] font-extrabold text-[#111827]">Popular Audio</h3>
               </div>
               {loading ? (
-                <div className="flex justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-[#fe2c55]" /></div>
+                <div className="flex justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-[#fd4605]" /></div>
               ) : popularAudio.length === 0 ? (
                 <SectionEmpty icon={Music2} text="No audio data available yet" />
               ) : (
@@ -701,7 +701,7 @@ export function ExplorePage() {
         <div className="mx-auto w-full max-w-[1320px] px-4 pb-10 pt-2 sm:px-6">
           <SectionHeader title="Trending User Videos" showViewAll={false} />
           {loading ? (
-            <div className="flex justify-center py-10"><Loader2 className="h-8 w-8 animate-spin text-[#fe2c55]" /></div>
+            <div className="flex justify-center py-10"><Loader2 className="h-8 w-8 animate-spin text-[#fd4605]" /></div>
           ) : trendingUserVideos.length === 0 ? (
             <SectionEmpty icon={Clapperboard} text={activeCategory === "trending" ? "No trending videos available yet" : `No ${activeCategory} videos found`} />
           ) : (
@@ -736,12 +736,12 @@ function TrendingNowCard({
       <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-1.5 min-w-0">
           {isGlobal
-            ? <Globe className="h-3.5 w-3.5 flex-shrink-0 text-[#fe2c55]" />
-            : <MapPin className="h-3.5 w-3.5 flex-shrink-0 text-[#fe2c55]" />
+            ? <Globe className="h-3.5 w-3.5 flex-shrink-0 text-[#fd4605]" />
+            : <MapPin className="h-3.5 w-3.5 flex-shrink-0 text-[#fd4605]" />
           }
           <h3 className="truncate text-[14px] font-extrabold text-[#111827]">{title}</h3>
         </div>
-        <Link href="/trending" className="flex-shrink-0 text-[12px] font-semibold text-[#fe2c55] hover:underline">
+        <Link href="/trending" className="flex-shrink-0 text-[12px] font-semibold text-[#fd4605] hover:underline">
           See all
         </Link>
       </div>
@@ -766,7 +766,7 @@ function TrendingNowCard({
               <div key={item.hashtag} className="relative rounded-[10px] transition-colors hover:bg-[#f8f9fb]">
                 <Link href={`/hashtag/${encodeURIComponent(clean)}`} className="block px-2 py-[9px] pr-8">
                   <div className="flex items-center gap-1.5">
-                    <TrendingUp className="h-3.5 w-3.5 flex-shrink-0 text-[#fe2c55]" />
+                    <TrendingUp className="h-3.5 w-3.5 flex-shrink-0 text-[#fd4605]" />
                     <span className="flex-1 truncate text-[13px] font-semibold text-[#111827]">
                       {item.hashtag}
                     </span>

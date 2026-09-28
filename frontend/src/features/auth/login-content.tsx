@@ -97,7 +97,7 @@ function Field({
             width: "100%",
             height: 46,
             borderRadius: 9999,
-            border: `1.5px solid ${error ? "#fe2c55" : "#e5e7eb"}`,
+            border: `1.5px solid ${error ? "#fd4605" : "#e5e7eb"}`,
             background: "#fff",
             padding: right ? "0 42px 0 38px" : "0 14px 0 38px",
             fontSize: 14,
@@ -118,7 +118,7 @@ function Field({
           </span>
         )}
       </div>
-      {error && <p style={{ marginTop: 3, paddingLeft: 14, fontSize: 11, color: "#fe2c55" }}>{error}</p>}
+      {error && <p style={{ marginTop: 3, paddingLeft: 14, fontSize: 11, color: "#fd4605" }}>{error}</p>}
     </div>
   );
 }
@@ -529,9 +529,9 @@ export function LoginContent({ startView = "options", embedded = false }: { star
           <Script src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"
             strategy="afterInteractive" onLoad={initAppleSignIn} />
         )}
-        <SocialButton icon={<QrCode size={20} color="#fe2c55" />}  label="Use QR code"
+        <SocialButton icon={<QrCode size={20} color="#fd4605" />}  label="Use QR code"
           onClick={startQrLogin} />
-        <SocialButton icon={<User  size={18} color="#fe2c55" />}   label="Use phone or email"
+        <SocialButton icon={<User  size={18} color="#fd4605" />}   label="Use phone or email"
           onClick={() => switchView("email")} />
         <SocialButton icon={<GoogleIcon />}   label="Continue with Google"
           onClick={startGoogleLogin} />
@@ -596,7 +596,7 @@ export function LoginContent({ startView = "options", embedded = false }: { star
                   onClick={startQrLogin}
                   style={{
                     marginTop: 2, background: "none", border: "none", cursor: "pointer",
-                    fontSize: 12.5, fontWeight: 700, color: "#fe2c55", padding: 0,
+                    fontSize: 12.5, fontWeight: 700, color: "#fd4605", padding: 0,
                   }}
                 >
                   Get a new code
@@ -643,7 +643,7 @@ export function LoginContent({ startView = "options", embedded = false }: { star
               style={{
                 marginTop: 4,
                 background: "none", border: "none", cursor: "pointer",
-                fontSize: 13, fontWeight: 600, color: "#fe2c55",
+                fontSize: 13, fontWeight: 600, color: "#fd4605",
                 padding: 0, transition: "opacity 150ms",
               }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = "0.7"; }}
@@ -675,17 +675,17 @@ export function LoginContent({ startView = "options", embedded = false }: { star
               style={{
                 width: "100%", height: 46,
                 borderRadius: 9999, border: "none",
-                background: fpLoading || !fpEmail.trim() || rateLimit ? "#f87a96" : "#fe2c55",
+                background: fpLoading || !fpEmail.trim() || rateLimit ? "#f87a96" : "#fd4605",
                 color: "#fff", fontSize: 14, fontWeight: 700,
                 cursor: fpLoading || !fpEmail.trim() || rateLimit ? "not-allowed" : "pointer",
                 transition: "background 150ms",
                 display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
               }}
               onMouseEnter={(e) => {
-                if (!fpLoading && fpEmail.trim() && !rateLimit) (e.currentTarget as HTMLElement).style.background = "#e0193f";
+                if (!fpLoading && fpEmail.trim() && !rateLimit) (e.currentTarget as HTMLElement).style.background = "#e03e04";
               }}
               onMouseLeave={(e) => {
-                if (!fpLoading && fpEmail.trim() && !rateLimit) (e.currentTarget as HTMLElement).style.background = "#fe2c55";
+                if (!fpLoading && fpEmail.trim() && !rateLimit) (e.currentTarget as HTMLElement).style.background = "#fd4605";
               }}
             >
               {rateLimit ? `Try again in ${formatCountdown(rateLimit.retryAfter)}` : fpLoading ? <><Spinner /> Sending…</> : "Send reset link"}
@@ -712,7 +712,7 @@ export function LoginContent({ startView = "options", embedded = false }: { star
           <ArrowLeft size={14} /> Back
         </button>
         <div style={{ textAlign: "center", marginBottom: 14 }}>
-          <QrCode size={28} style={{ color: "#fe2c55" }} />
+          <QrCode size={28} style={{ color: "#fd4605" }} />
           <p style={{ marginTop: 8, fontSize: 15, fontWeight: 700, color: "#111827" }}>Two-factor verification</p>
           <p style={{ marginTop: 4, fontSize: 13, color: "#5f6675" }}>
             {useRecovery
@@ -734,7 +734,7 @@ export function LoginContent({ startView = "options", embedded = false }: { star
             disabled={isLoading || !twoFaCode.trim()}
             style={{
               width: "100%", height: 46, borderRadius: 9999, border: "none",
-              background: isLoading || !twoFaCode.trim() ? "#f87a96" : "#fe2c55",
+              background: isLoading || !twoFaCode.trim() ? "#f87a96" : "#fd4605",
               color: "#fff", fontSize: 14, fontWeight: 700,
               cursor: isLoading || !twoFaCode.trim() ? "not-allowed" : "pointer",
               display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
@@ -808,7 +808,7 @@ export function LoginContent({ startView = "options", embedded = false }: { star
               type="checkbox"
               checked={rememberMe}
               onChange={(e) => setRememberMe(e.target.checked)}
-              style={{ accentColor: "#fe2c55", width: 15, height: 15, cursor: "pointer", flexShrink: 0 }}
+              style={{ accentColor: "#fd4605", width: 15, height: 15, cursor: "pointer", flexShrink: 0 }}
             />
             Remember me
           </label>
@@ -817,7 +817,7 @@ export function LoginContent({ startView = "options", embedded = false }: { star
             onClick={() => switchView("forgot")}
             style={{
               background: "none", border: "none", cursor: "pointer",
-              fontSize: 12, fontWeight: 600, color: "#fe2c55",
+              fontSize: 12, fontWeight: 600, color: "#fd4605",
               padding: 0, transition: "opacity 150ms",
             }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = "0.7"; }}
@@ -832,7 +832,7 @@ export function LoginContent({ startView = "options", embedded = false }: { star
           <div>
             <Turnstile onToken={setTsToken} />
             {errors.captcha && (
-              <p style={{ marginTop: 4, fontSize: 11, color: "#fe2c55", textAlign: "center" }}>{errors.captcha}</p>
+              <p style={{ marginTop: 4, fontSize: 11, color: "#fd4605", textAlign: "center" }}>{errors.captcha}</p>
             )}
           </div>
         )}
@@ -845,14 +845,14 @@ export function LoginContent({ startView = "options", embedded = false }: { star
               style={{
                 width: "100%", height: 46,
                 borderRadius: 9999, border: "none",
-                background: disabled ? "#f87a96" : "#fe2c55",
+                background: disabled ? "#f87a96" : "#fd4605",
                 color: "#fff", fontSize: 14, fontWeight: 700,
                 cursor: disabled ? "not-allowed" : "pointer",
                 transition: "background 150ms",
                 display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
               }}
-              onMouseEnter={(e) => { if (!disabled) (e.currentTarget as HTMLElement).style.background = "#e0193f"; }}
-              onMouseLeave={(e) => { if (!disabled) (e.currentTarget as HTMLElement).style.background = "#fe2c55"; }}
+              onMouseEnter={(e) => { if (!disabled) (e.currentTarget as HTMLElement).style.background = "#e03e04"; }}
+              onMouseLeave={(e) => { if (!disabled) (e.currentTarget as HTMLElement).style.background = "#fd4605"; }}
             >
               {rateLimit ? `Try again in ${formatCountdown(rateLimit.retryAfter)}` : loginRestriction ? "Login unavailable in your country" : isLoading ? <><Spinner /> Logging in…</> : "Log In"}
             </button>

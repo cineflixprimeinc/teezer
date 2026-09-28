@@ -106,7 +106,7 @@ export default function AgeSuitabilityPage() {
       <P>
         If you believe a child has an account below our minimum age, or you have a concern about content involving
         your child, email us at{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>{" "}
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>{" "}
         with the profile link or content URL if you have it. We treat these as a priority. If a child is in immediate
         danger, contact your local emergency services first.
       </P>
@@ -114,7 +114,7 @@ export default function AgeSuitabilityPage() {
       <H2 id="contact" n={7}>Questions</H2>
       <P>
         For anything about this page or how we rate the app, contact{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>{" "}
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>{" "}
         with the subject line &quot;Age Suitability&quot;.
       </P>
     </LegalShell>

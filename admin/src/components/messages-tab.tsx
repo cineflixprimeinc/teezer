@@ -61,7 +61,7 @@ function Av({ url, name, size = 8, ring = false, online = false }:
       {url
         ? <img src={url} className={`w-${size} h-${size} ${ring ? 'ring-2 ring-white' : ''} rounded-full object-cover`}
             onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-        : <div className={`w-${size} h-${size} ${ring ? 'ring-2 ring-white' : ''} rounded-full bg-[#fe2c55]/10 flex items-center justify-center text-[#fe2c55] font-bold text-xs`}>
+        : <div className={`w-${size} h-${size} ${ring ? 'ring-2 ring-white' : ''} rounded-full bg-[#fd4605]/10 flex items-center justify-center text-[#fd4605] font-bold text-xs`}>
             {(name ?? '?')[0].toUpperCase()}
           </div>
       }
@@ -161,10 +161,10 @@ function RestrictionRow({
       <div className="flex items-center justify-between px-3 py-2.5 gap-2">
         <div className="flex items-center gap-2 min-w-0 flex-1">
           <div className={`w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${
-            enabled ? 'bg-[#fe2c55]/12' : isPending ? 'bg-blue-100' : 'bg-[#f3f4f6]'
+            enabled ? 'bg-[#fd4605]/12' : isPending ? 'bg-blue-100' : 'bg-[#f3f4f6]'
           }`}>
             <Icon className={`w-3 h-3 transition-colors ${
-              enabled ? 'text-[#fe2c55]' : isPending ? 'text-blue-500' : 'text-[#9ca3af]'
+              enabled ? 'text-[#fd4605]' : isPending ? 'text-blue-500' : 'text-[#9ca3af]'
             }`} />
           </div>
           <span className={`text-[11px] font-semibold truncate transition-colors ${
@@ -176,7 +176,7 @@ function RestrictionRow({
 
         <div className="flex items-center gap-2 flex-shrink-0">
           <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full transition-all ${
-            enabled ? 'bg-[#fe2c55] text-white'
+            enabled ? 'bg-[#fd4605] text-white'
             : step === 'pick-user' ? 'bg-purple-500 text-white'
             : step === 'pick-time' ? 'bg-blue-500 text-white'
             : 'bg-[#f3f4f6] text-[#bbb]'
@@ -187,7 +187,7 @@ function RestrictionRow({
           {enabled && (
             <button onClick={() => setShowEditPicker(p => !p)} title="Edit expiry"
               className={`w-6 h-6 rounded-lg flex items-center justify-center transition-all ${
-                showEditPicker ? 'bg-[#fe2c55]/10 text-[#fe2c55]' : 'text-[#c0c0c0] hover:text-[#fe2c55] hover:bg-[#fe2c55]/5'
+                showEditPicker ? 'bg-[#fd4605]/10 text-[#fd4605]' : 'text-[#c0c0c0] hover:text-[#fd4605] hover:bg-[#fd4605]/5'
               }`}>
               <Calendar className="w-3 h-3" />
             </button>
@@ -197,7 +197,7 @@ function RestrictionRow({
             onClick={handleToggleClick}
             disabled={disabled || isPending}
             className={`relative inline-flex w-11 h-[22px] rounded-full transition-colors duration-200 focus:outline-none disabled:opacity-40 flex-shrink-0 ${
-              enabled ? 'bg-[#fe2c55]' : isPending ? 'bg-blue-400' : 'bg-[#d1d5db]'
+              enabled ? 'bg-[#fd4605]' : isPending ? 'bg-blue-400' : 'bg-[#d1d5db]'
             }`}
           >
             <span className={`inline-block w-[18px] h-[18px] bg-white rounded-full shadow-md transform transition-transform duration-200 mt-[2px] ${
@@ -219,7 +219,7 @@ function RestrictionRow({
                 className="w-full flex items-center gap-2.5 bg-white border border-[#e8eaed] hover:border-purple-300 hover:bg-purple-50 rounded-xl px-3 py-2 transition-all group">
                 {u.avatar
                   ? <img src={u.avatar} className="w-7 h-7 rounded-full object-cover flex-shrink-0" />
-                  : <div className="w-7 h-7 rounded-full bg-[#fe2c55]/10 flex items-center justify-center flex-shrink-0 text-[#fe2c55] font-bold text-[10px]">
+                  : <div className="w-7 h-7 rounded-full bg-[#fd4605]/10 flex items-center justify-center flex-shrink-0 text-[#fd4605] font-bold text-[10px]">
                       {u.username[0].toUpperCase()}
                     </div>
                 }
@@ -244,7 +244,7 @@ function RestrictionRow({
             <div className="flex items-center gap-2 mb-2.5 bg-white border border-blue-100 rounded-xl px-2.5 py-1.5">
               {targetUser.avatar
                 ? <img src={targetUser.avatar} className="w-5 h-5 rounded-full object-cover flex-shrink-0" />
-                : <div className="w-5 h-5 rounded-full bg-[#fe2c55]/10 flex items-center justify-center flex-shrink-0 text-[#fe2c55] font-bold text-[9px]">
+                : <div className="w-5 h-5 rounded-full bg-[#fd4605]/10 flex items-center justify-center flex-shrink-0 text-[#fd4605] font-bold text-[9px]">
                     {targetUser.username[0].toUpperCase()}
                   </div>
               }
@@ -268,7 +268,7 @@ function RestrictionRow({
           <p className="text-[9px] text-blue-400 mb-2">Leave blank to restrict indefinitely.</p>
           <div className="flex gap-1.5">
             <button onClick={handleApply}
-              className="flex-1 text-[10px] font-bold bg-[#fe2c55] text-white rounded-xl py-1.5 hover:bg-[#e0264d] active:scale-95 transition-all shadow-sm">
+              className="flex-1 text-[10px] font-bold bg-[#fd4605] text-white rounded-xl py-1.5 hover:bg-[#e0264d] active:scale-95 transition-all shadow-sm">
               Turn On
             </button>
             <button onClick={handleCancel}
@@ -288,11 +288,11 @@ function RestrictionRow({
               type="datetime-local"
               value={expiresAt ?? ''}
               onChange={e => onChangeExpiry(e.target.value || null)}
-              className="flex-1 text-[10px] bg-white border border-[#e8eaed] rounded-xl px-2.5 py-1.5 text-[#111827] outline-none focus:border-[#fe2c55]/50 min-w-0 transition-all"
+              className="flex-1 text-[10px] bg-white border border-[#e8eaed] rounded-xl px-2.5 py-1.5 text-[#111827] outline-none focus:border-[#fd4605]/50 min-w-0 transition-all"
             />
             {expiresAt && (
               <button onClick={() => onChangeExpiry(null)}
-                className="text-[9px] font-semibold text-white bg-[#9ca3af] hover:bg-[#fe2c55] px-2.5 py-1.5 rounded-xl transition-colors flex-shrink-0">
+                className="text-[9px] font-semibold text-white bg-[#9ca3af] hover:bg-[#fd4605] px-2.5 py-1.5 rounded-xl transition-colors flex-shrink-0">
                 Clear
               </button>
             )}
@@ -303,9 +303,9 @@ function RestrictionRow({
       {/* ── Expiry summary when ON, picker closed ───────────────────────────── */}
       {enabled && !showEditPicker && (
         <div className="px-3 pb-2 flex items-center gap-1.5 border-t border-[#fde8e8] pt-2">
-          <Clock className="w-2.5 h-2.5 text-[#fe2c55]/40 flex-shrink-0" />
+          <Clock className="w-2.5 h-2.5 text-[#fd4605]/40 flex-shrink-0" />
           {expiresAt
-            ? <span className="text-[9px] text-[#fe2c55]/70 font-medium">
+            ? <span className="text-[9px] text-[#fd4605]/70 font-medium">
                 Expires {new Date(expiresAt).toLocaleDateString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
               </span>
             : <span className="text-[9px] text-[#9ca3af]">Indefinite · tap 🗓 to add expiry</span>
@@ -458,14 +458,14 @@ export default function MessagesTab({ userId }: { userId: number }) {
             <div className="flex items-center justify-between mb-2.5">
               <p className="text-[12px] font-bold text-[#111827]">Conversations</p>
               <button onClick={() => qc.invalidateQueries({ queryKey: ['admin-convs', userId] })}
-                className="p-1 text-[#9ca3af] hover:text-[#fe2c55] transition-colors rounded-lg hover:bg-[#f3f4f6]">
+                className="p-1 text-[#9ca3af] hover:text-[#fd4605] transition-colors rounded-lg hover:bg-[#f3f4f6]">
                 <RefreshCw className="w-3 h-3" />
               </button>
             </div>
             <div className="relative">
               <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3 h-3 text-[#9ca3af]" />
               <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search users..."
-                className="w-full pl-7 pr-3 py-1.5 text-[11px] bg-[#f3f4f6] border border-transparent rounded-lg text-[#111827] placeholder:text-[#9ca3af] outline-none focus:border-[#fe2c55]/30 focus:bg-white transition-all" />
+                className="w-full pl-7 pr-3 py-1.5 text-[11px] bg-[#f3f4f6] border border-transparent rounded-lg text-[#111827] placeholder:text-[#9ca3af] outline-none focus:border-[#fd4605]/30 focus:bg-white transition-all" />
             </div>
           </div>
 
@@ -481,7 +481,7 @@ export default function MessagesTab({ userId }: { userId: number }) {
               <button key={f.id} onClick={() => setFilter(f.id)}
                 className={`flex-shrink-0 text-[9px] px-2.5 py-1 rounded-full font-semibold capitalize transition-all whitespace-nowrap ${
                   filter === f.id
-                    ? 'bg-[#fe2c55] text-white shadow-sm'
+                    ? 'bg-[#fd4605] text-white shadow-sm'
                     : 'bg-white text-[#9ca3af] border border-[#e8eaed] hover:text-[#111827] hover:border-gray-300'
                 }`}>
                 {f.label}
@@ -493,7 +493,7 @@ export default function MessagesTab({ userId }: { userId: number }) {
           <div className="flex-1 overflow-y-auto">
             {convLoading && (
               <div className="flex flex-col items-center gap-2 py-10">
-                <div className="w-5 h-5 border-2 border-[#fe2c55] border-t-transparent rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-[#fd4605] border-t-transparent rounded-full animate-spin" />
                 <p className="text-[10px] text-[#9ca3af]">Loading…</p>
               </div>
             )}
@@ -514,7 +514,7 @@ export default function MessagesTab({ userId }: { userId: number }) {
               return (
                 <button key={conv.id} onClick={() => setSelectedId(conv.id)}
                   className={`w-full text-left px-3 py-2.5 border-b border-[#f3f4f6] transition-all ${
-                    sel ? 'bg-[#fe2c55]/5 border-l-[3px] border-l-[#fe2c55]' : 'hover:bg-white'
+                    sel ? 'bg-[#fd4605]/5 border-l-[3px] border-l-[#fd4605]' : 'hover:bg-white'
                   }`}>
                   <div className="flex items-start gap-2.5">
                     {/* Stacked avatars */}
@@ -550,8 +550,8 @@ export default function MessagesTab({ userId }: { userId: number }) {
         <div className="flex-1 flex flex-col min-w-0">
           {!selectedId ? (
             <div className="flex-1 flex items-center justify-center flex-col gap-4">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-[#fe2c55]/10 to-[#fe2c55]/5 flex items-center justify-center">
-                <MessageSquare className="w-9 h-9 text-[#fe2c55]/30" />
+              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-[#fd4605]/10 to-[#fd4605]/5 flex items-center justify-center">
+                <MessageSquare className="w-9 h-9 text-[#fd4605]/30" />
               </div>
               <div className="text-center">
                 <p className="text-[14px] font-semibold text-[#111827]">Select a conversation</p>
@@ -613,7 +613,7 @@ export default function MessagesTab({ userId }: { userId: number }) {
 
                 {msgLoading && (
                   <div className="flex justify-center py-10">
-                    <div className="w-6 h-6 border-2 border-[#fe2c55] border-t-transparent rounded-full animate-spin" />
+                    <div className="w-6 h-6 border-2 border-[#fd4605] border-t-transparent rounded-full animate-spin" />
                   </div>
                 )}
                 {!msgLoading && messages.length === 0 && (
@@ -655,14 +655,14 @@ export default function MessagesTab({ userId }: { userId: number }) {
                           )}
                           {/* Video */}
                           {!msg.deleted_for_everyone && msg.message_type === 'video' && (
-                            <div className={`rounded-2xl flex items-center gap-2 px-3 py-2.5 shadow-sm ${isMine ? 'bg-[#fe2c55]/10' : 'bg-white border border-[#e8eaed]'}`}>
+                            <div className={`rounded-2xl flex items-center gap-2 px-3 py-2.5 shadow-sm ${isMine ? 'bg-[#fd4605]/10' : 'bg-white border border-[#e8eaed]'}`}>
                               <Video className="w-4 h-4 text-[#9ca3af]" />
                               <span className="text-[11px] text-[#6b7280]">Video message</span>
                             </div>
                           )}
                           {/* Voice */}
                           {!msg.deleted_for_everyone && (msg.message_type === 'voice' || msg.message_type === 'audio') && (
-                            <div className={`rounded-2xl flex items-center gap-2 px-3 py-2 shadow-sm ${isMine ? 'bg-[#fe2c55]/10' : 'bg-white border border-[#e8eaed]'}`}>
+                            <div className={`rounded-2xl flex items-center gap-2 px-3 py-2 shadow-sm ${isMine ? 'bg-[#fd4605]/10' : 'bg-white border border-[#e8eaed]'}`}>
                               <Mic className="w-3.5 h-3.5 text-[#9ca3af]" />
                               <span className="text-[11px] text-[#6b7280]">Voice message</span>
                             </div>
@@ -675,7 +675,7 @@ export default function MessagesTab({ userId }: { userId: number }) {
                                 : msg.flagged_by_admin
                                 ? 'bg-red-50 border border-red-200 text-[#111827]'
                                 : isMine
-                                ? 'bg-[#fe2c55]/10 text-[#111827]'
+                                ? 'bg-[#fd4605]/10 text-[#111827]'
                                 : 'bg-white text-[#111827] border border-[#e8eaed]'
                             }`}>
                               {msg.deleted_for_everyone ? '🗑 Deleted by admin' : msg.body}
@@ -723,7 +723,7 @@ export default function MessagesTab({ userId }: { userId: number }) {
             {(['controls', 'media', 'activity'] as const).map(t => (
               <button key={t} onClick={() => setRightTab(t)}
                 className={`flex-1 text-[10px] py-2.5 font-bold capitalize transition-colors ${
-                  rightTab === t ? 'text-[#fe2c55] border-b-2 border-[#fe2c55]' : 'text-[#9ca3af] hover:text-[#111827]'
+                  rightTab === t ? 'text-[#fd4605] border-b-2 border-[#fd4605]' : 'text-[#9ca3af] hover:text-[#111827]'
                 }`}>
                 {t}
               </button>
@@ -768,7 +768,7 @@ export default function MessagesTab({ userId }: { userId: number }) {
                       onBlur={() => { if (adminNote !== (selectedConv.admin_note ?? '')) settingsMut.mutate({ admin_note: adminNote }); }}
                       placeholder="Private note for this conversation…"
                       rows={2}
-                      className="w-full text-[11px] bg-white border border-[#e8eaed] rounded-xl px-3 py-2 text-[#111827] placeholder:text-[#c1c7cd] outline-none focus:border-[#fe2c55]/40 resize-none"
+                      className="w-full text-[11px] bg-white border border-[#e8eaed] rounded-xl px-3 py-2 text-[#111827] placeholder:text-[#c1c7cd] outline-none focus:border-[#fd4605]/40 resize-none"
                     />
                   </div>
 

@@ -335,7 +335,7 @@ export default function ActivateLicenseForm() {
       <button
         type="submit"
         disabled={submitting || !canSubmit}
-        className="group mt-1 inline-flex items-center justify-center gap-2 rounded-xl bg-[#fe2c55] px-5 py-3.5 text-[15px] font-semibold text-white shadow-sm transition-all hover:bg-[#e81d47] disabled:cursor-not-allowed disabled:bg-[#e5e7eb] disabled:text-[#9ca3af] disabled:shadow-none"
+        className="group mt-1 inline-flex items-center justify-center gap-2 rounded-xl bg-[#fd4605] px-5 py-3.5 text-[15px] font-semibold text-white shadow-sm transition-all hover:bg-[#e81d47] disabled:cursor-not-allowed disabled:bg-[#e5e7eb] disabled:text-[#9ca3af] disabled:shadow-none"
       >
         {submitting ? (
           <>
@@ -366,7 +366,7 @@ function inputClass(error?: string) {
     'placeholder:text-[#c3c7d1] transition-shadow focus:outline-none focus:ring-4',
     error
       ? 'border-[#f87171] focus:border-[#ef4444] focus:ring-[#fee2e2]'
-      : 'border-[#d8dbe3] focus:border-[#fe2c55] focus:ring-[#ffe4ea]',
+      : 'border-[#d8dbe3] focus:border-[#fd4605] focus:ring-[#ffe4ea]',
   ].join(' ');
 }
 

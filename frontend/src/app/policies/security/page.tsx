@@ -96,7 +96,7 @@ export default function SecurityPolicyPage() {
       <H2 id="report" n={8}>Reporting a Vulnerability</H2>
       <P>
         If you believe you&apos;ve found a security vulnerability, please report it responsibly to{" "}
-        <a href={`mailto:${CONTACT_EMAIL}?subject=Security%20Vulnerability`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>{" "}
+        <a href={`mailto:${CONTACT_EMAIL}?subject=Security%20Vulnerability`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>{" "}
         with the subject line &quot;Security Vulnerability&quot; and enough detail to reproduce it. Please give us a
         reasonable opportunity to investigate and remediate before any public disclosure, and do not access, modify or
         delete data that isn&apos;t yours while testing. If you believe your own account has been compromised, change

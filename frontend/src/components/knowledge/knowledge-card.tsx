@@ -208,7 +208,7 @@ export function KnowledgeCard({
           href={article.article_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-[#fe2c55] hover:underline"
+          className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-[#fd4605] hover:underline"
         >
           Read More
           <ExternalLink className="h-3.5 w-3.5" />
@@ -252,7 +252,7 @@ function InlineKnowledge({
             href={article.article_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 inline-flex items-center gap-1 text-[13px] font-medium text-[#fe2c55] hover:underline"
+            className="mt-2 inline-flex items-center gap-1 text-[13px] font-medium text-[#fd4605] hover:underline"
           >
             Read full article
             <ExternalLink className="h-3 w-3" />

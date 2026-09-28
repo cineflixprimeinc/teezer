@@ -41,7 +41,7 @@ function UserAvatar({ user, size }: { user: ReelsooUser | null; size: number }) 
   }
   return (
     <div
-      className="flex-shrink-0 rounded-full grid place-items-center font-bold text-white bg-[#fe2c55]"
+      className="flex-shrink-0 rounded-full grid place-items-center font-bold text-white bg-[#fd4605]"
       style={{ width: size, height: size, fontSize }}
     >
       {initial}
@@ -135,7 +135,7 @@ export function UserAvatarDropdown() {
       <Button
         variant="outline"
         onClick={() => openAuthModal("login")}
-        className="h-9 rounded-[22px] px-5 text-sm font-semibold border-[#e5e7eb] bg-white text-black hover:border-[#fe2c55] hover:bg-white whitespace-nowrap"
+        className="h-9 rounded-[22px] px-5 text-sm font-semibold border-[#e5e7eb] bg-white text-black hover:border-[#fd4605] hover:bg-white whitespace-nowrap"
       >
         Login / Signup
       </Button>
@@ -179,7 +179,7 @@ export function UserAvatarDropdown() {
                 value={addLogin}
                 onChange={e => { setAddLogin(e.target.value); setAddError(""); }}
                 placeholder="Email or username"
-                className="mb-2 w-full rounded-xl border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fe2c55]"
+                className="mb-2 w-full rounded-xl border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fd4605]"
               />
               <input
                 type="password"
@@ -187,13 +187,13 @@ export function UserAvatarDropdown() {
                 onChange={e => { setAddPassword(e.target.value); setAddError(""); }}
                 placeholder="Password"
                 onKeyDown={e => e.key === "Enter" && handleAddAccount()}
-                className="mb-2 w-full rounded-xl border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fe2c55]"
+                className="mb-2 w-full rounded-xl border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fd4605]"
               />
               {addError && <p className="mb-2 text-[12px] text-red-500">{addError}</p>}
               <button
                 onClick={handleAddAccount}
                 disabled={addLoading}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#fe2c55] py-2 text-[13px] font-bold text-white transition hover:bg-[#e0243d] disabled:opacity-60"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#fd4605] py-2 text-[13px] font-bold text-white transition hover:bg-[#e03e04] disabled:opacity-60"
               >
                 {addLoading && <Loader2 className="h-4 w-4 animate-spin" />}
                 {addLoading ? "Signing in…" : "Sign In & Save"}
@@ -294,7 +294,7 @@ export function UserAvatarDropdown() {
 
               <button
                 onClick={() => { logout(); setOpen(false); }}
-                className="flex h-10 w-full items-center gap-2.5 rounded-[10px] px-3 text-sm font-semibold text-[#fe2c55] hover:bg-[#fff0f3] transition-colors"
+                className="flex h-10 w-full items-center gap-2.5 rounded-[10px] px-3 text-sm font-semibold text-[#fd4605] hover:bg-[#fff0f3] transition-colors"
               >
                 <LogOut className="h-4 w-4 flex-shrink-0" />
                 Logout

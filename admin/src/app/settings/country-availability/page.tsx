@@ -482,7 +482,7 @@ export default function CountryAvailabilityPage() {
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           <StatCard label="Total Countries" value={stats?.total ?? 0} sub={`Out of ${stats?.total ?? 0} countries`} icon={Globe} color="#6366f1" />
           <StatCard label="Allowed Countries" value={stats?.allowed ?? 0} sub="Allowed for signup" icon={CheckCircle2} color="#10b981" />
-          <StatCard label="Restricted Countries" value={stats?.restricted ?? 0} sub="Blocked from signup" icon={Lock} color="#fe2c55" />
+          <StatCard label="Restricted Countries" value={stats?.restricted ?? 0} sub="Blocked from signup" icon={Lock} color="#fd4605" />
           <StatCard label="Existing Users" value={stats?.existingUsers ?? 0} sub="From allowed countries" icon={Users} color="#6366f1" />
         </div>
 

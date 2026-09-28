@@ -121,7 +121,7 @@ const GRADS = [
   "linear-gradient(135deg,#f77f00,#d62828)",
   "linear-gradient(135deg,#134e5e,#71b280)",
   "linear-gradient(135deg,#667eea,#764ba2)",
-  "linear-gradient(135deg,#fe2c55,#c02040)",
+  "linear-gradient(135deg,#fd4605,#b83203)",
   "linear-gradient(135deg,#2193b0,#6dd5ed)",
 ];
 function grad(s: string) {
@@ -267,7 +267,7 @@ function NotifRow({
       <div className="relative flex-shrink-0">
         {isAdminMsg
           ? (
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#fe2c55] to-[#ff7c9b] shadow-sm">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#fd4605] to-[#ff8a55] shadow-sm">
               <Shield className="h-5 w-5 text-white" />
             </div>
           )
@@ -286,7 +286,7 @@ function NotifRow({
       {/* Content */}
       <div className="min-w-0 flex-1">
         {isAdminMsg && (
-          <p className="text-[11px] font-semibold text-[#fe2c55] mb-0.5 flex items-center gap-1">
+          <p className="text-[11px] font-semibold text-[#fd4605] mb-0.5 flex items-center gap-1">
             <Shield className="h-2.5 w-2.5" /> Teezer
           </p>
         )}
@@ -300,7 +300,7 @@ function NotifRow({
           <div className="mt-2 flex gap-2" onClick={e => e.stopPropagation()}>
             <button
               onClick={() => onApprove?.(n.id)}
-              className="rounded-full bg-[#fe2c55] px-4 py-1.5 text-[12px] font-bold text-white transition hover:bg-[#e02449]">
+              className="rounded-full bg-[#fd4605] px-4 py-1.5 text-[12px] font-bold text-white transition hover:bg-[#e03e04]">
               Approve
             </button>
             <button
@@ -326,7 +326,7 @@ function NotifRow({
           <button onClick={e => { e.stopPropagation(); onMarkRead(n.id); }}
             className={cn("mt-2 rounded-full px-4 py-1.5 text-[12px] font-bold transition",
               n.actionVariant === "primary"
-                ? "bg-[#fe2c55] text-white hover:bg-[#e02449]"
+                ? "bg-[#fd4605] text-white hover:bg-[#e03e04]"
                 : "border border-[#e5e7eb] text-[#111827] hover:bg-[#f8f9fb]")}>
             {n.actionLabel}
           </button>
@@ -353,7 +353,7 @@ function NotifRow({
             <img src={n.thumbnail} alt="" className="h-full w-full object-cover" />
           </div>
         )}
-        {!n.is_read && <span className="h-2 w-2 rounded-full bg-[#fe2c55]" />}
+        {!n.is_read && <span className="h-2 w-2 rounded-full bg-[#fd4605]" />}
         <DotMenu onMark={() => onMarkRead(n.id)} onHide={() => onHide(n.id)} />
       </div>
     </div>
@@ -558,7 +558,7 @@ export function NotificationDropdown({
         <div className="flex items-center gap-2">
           {unreadCount > 0 && (
             <button onClick={markAllRead}
-              className="text-[13px] font-semibold text-[#fe2c55] transition hover:opacity-75">
+              className="text-[13px] font-semibold text-[#fd4605] transition hover:opacity-75">
               Mark all as read
             </button>
           )}
@@ -580,8 +580,8 @@ export function NotificationDropdown({
             className={cn(
               "flex flex-shrink-0 items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12.5px] font-semibold transition",
               activeTab === tab.id
-                ? "bg-[#fe2c55] text-white"
-                : "border border-[#e5e7eb] text-[#5f6675] hover:border-[#fe2c55] hover:text-[#fe2c55]",
+                ? "bg-[#fd4605] text-white"
+                : "border border-[#e5e7eb] text-[#5f6675] hover:border-[#fd4605] hover:text-[#fd4605]",
             )}>
             <tab.Icon className="h-3.5 w-3.5 flex-shrink-0" />
             {tab.label}
@@ -595,7 +595,7 @@ export function NotificationDropdown({
 
         {loading ? (
           <div className="flex items-center justify-center py-16">
-            <div className="h-7 w-7 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+            <div className="h-7 w-7 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
           </div>
         ) : filtered.length === 0 ? (
           <div className="flex flex-col items-center gap-2 py-16 text-center">
@@ -641,9 +641,9 @@ export function NotificationDropdown({
       {/* ── Show more ── */}
       <div className="flex-shrink-0 border-t border-[#eeeeee] py-2">
         <button onClick={loadMore} disabled={loadingMore}
-          className="flex w-full items-center justify-center gap-2 py-2.5 text-[13px] font-semibold text-[#5f6675] transition hover:text-[#fe2c55] disabled:opacity-50">
+          className="flex w-full items-center justify-center gap-2 py-2.5 text-[13px] font-semibold text-[#5f6675] transition hover:text-[#fd4605] disabled:opacity-50">
           {loadingMore
-            ? <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+            ? <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
             : <><ChevronDown className="h-4 w-4" />Show older notifications</>
           }
         </button>

@@ -34,7 +34,7 @@ export function Toggle({
       className={cn(
         "relative shrink-0 rounded-full transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50",
         w, h,
-        checked ? "bg-[#fe2c55]" : "bg-[#d1d5db]",
+        checked ? "bg-[#fd4605]" : "bg-[#d1d5db]",
       )}
     >
       <span

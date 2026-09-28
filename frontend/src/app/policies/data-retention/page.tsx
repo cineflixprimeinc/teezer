@@ -92,7 +92,7 @@ export default function DataRetentionPolicyPage() {
         Go to Settings → Account and choose to delete your account; you may be asked to confirm with your password.
         If you want a copy of your data first, use &quot;Download your data&quot; - see our{" "}
         <DocLink href="/policies/your-rights">Your Rights &amp; Controls</DocLink> policy. Questions:{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>.
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>.
       </P>
     </LegalShell>
     } />

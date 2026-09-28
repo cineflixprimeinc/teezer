@@ -35,7 +35,7 @@ type Plan = { id: number; key: string; name: string };
 const PAGE_SIZE = 8;
 
 const input =
-  "w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3.5 py-2.5 text-[13px] text-[#111827] outline-none transition placeholder:text-[#c9c5d0] focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10";
+  "w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3.5 py-2.5 text-[13px] text-[#111827] outline-none transition placeholder:text-[#c9c5d0] focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10";
 const label = "mb-1.5 block text-[12px] font-semibold text-[#374151]";
 const hint = "mt-1.5 block text-[11px] leading-snug text-[#9ca3af]";
 
@@ -187,7 +187,7 @@ export default function CouponsPage() {
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <nav className="flex items-center gap-1.5 text-[11.5px] text-[#8A8592]">
-              <Link href="/premium-plans" className="hover:text-[#fe2c55]">Subscription Plans</Link>
+              <Link href="/premium-plans" className="hover:text-[#fd4605]">Subscription Plans</Link>
               <Crumb size={12} />
               <span className="font-semibold text-[#111827]">Coupons &amp; Offers</span>
             </nav>
@@ -207,7 +207,7 @@ export default function CouponsPage() {
             </a>
             <button
               onClick={() => { setEditing(null); setForm(blank); }}
-              className="flex items-center gap-1.5 rounded-[10px] bg-[#fe2c55] px-5 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e0243d]"
+              className="flex items-center gap-1.5 rounded-[10px] bg-[#fd4605] px-5 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e03e04]"
             >
               <Plus size={15} /> Create Coupon
             </button>
@@ -244,7 +244,7 @@ export default function CouponsPage() {
                          className={`${input} py-2 pl-9`} />
                 </div>
                 <select value={status} onChange={(e) => { setStatus(e.target.value); setPage(1); }}
-                        className="rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12.5px] text-[#374151] outline-none focus:border-[#fe2c55]">
+                        className="rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12.5px] text-[#374151] outline-none focus:border-[#fd4605]">
                   <option value="">All Status</option>
                   <option value="active">Active</option>
                   <option value="inactive">Inactive</option>
@@ -252,13 +252,13 @@ export default function CouponsPage() {
                   <option value="exhausted">Fully used</option>
                 </select>
                 <select value={type} onChange={(e) => { setType(e.target.value); setPage(1); }}
-                        className="rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12.5px] text-[#374151] outline-none focus:border-[#fe2c55]">
+                        className="rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12.5px] text-[#374151] outline-none focus:border-[#fd4605]">
                   <option value="">All Types</option>
                   <option value="percentage">Percentage</option>
                   <option value="fixed">Fixed Amount</option>
                 </select>
                 <select value={planKey} onChange={(e) => { setPlanKey(e.target.value); setPage(1); }}
-                        className="rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12.5px] text-[#374151] outline-none focus:border-[#fe2c55]">
+                        className="rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12.5px] text-[#374151] outline-none focus:border-[#fd4605]">
                   <option value="">Select Plan</option>
                   {(plans ?? []).map((p) => <option key={p.id} value={p.key}>{p.name}</option>)}
                 </select>
@@ -291,7 +291,7 @@ export default function CouponsPage() {
                     {pageRows.map((c) => (
                       <tr key={c.id} className="border-b border-[#f4f2f5] last:border-0 hover:bg-[#fcfbfd]">
                         <td className="px-4 py-3">
-                          <span className="font-mono text-[12.5px] font-bold text-[#fe2c55]">{c.code}</span>
+                          <span className="font-mono text-[12.5px] font-bold text-[#fd4605]">{c.code}</span>
                         </td>
                         <td className="px-4 py-3 text-[12.5px] text-[#111827]">{c.name}</td>
                         <td className="px-4 py-3">
@@ -366,7 +366,7 @@ export default function CouponsPage() {
                   {Array.from({ length: pageCount }, (_, i) => i + 1).slice(0, 6).map((n) => (
                     <button key={n} onClick={() => setPage(n)}
                             className={`h-8 min-w-8 rounded-[8px] px-2 text-[12px] font-bold transition ${
-                              n === page ? "bg-[#fe2c55] text-white" : "border border-[#e5e7eb] text-[#6b7280] hover:bg-[#fafafa]"
+                              n === page ? "bg-[#fd4605] text-white" : "border border-[#e5e7eb] text-[#6b7280] hover:bg-[#fafafa]"
                             }`}>
                       {n}
                     </button>
@@ -394,14 +394,14 @@ export default function CouponsPage() {
 
             <div className="mt-4 space-y-3.5">
               <div>
-                <span className={label}>Coupon Code <span className="text-[#fe2c55]">*</span></span>
+                <span className={label}>Coupon Code <span className="text-[#fd4605]">*</span></span>
                 <input className={`${input} font-mono uppercase`} placeholder="SAVE20" maxLength={32}
                        value={form.code} onChange={(e) => setF("code", e.target.value.toUpperCase())} />
                 <span className={hint}>4–32 characters, letters and numbers.</span>
               </div>
 
               <div>
-                <span className={label}>Offer Name <span className="text-[#fe2c55]">*</span></span>
+                <span className={label}>Offer Name <span className="text-[#fd4605]">*</span></span>
                 <input className={input} placeholder="20% OFF Special" maxLength={120}
                        value={form.name} onChange={(e) => setF("name", e.target.value)} />
                 <span className={hint}>Shown to admins.</span>
@@ -416,7 +416,7 @@ export default function CouponsPage() {
               </div>
 
               <div>
-                <span className={label}>Discount Value <span className="text-[#fe2c55]">*</span></span>
+                <span className={label}>Discount Value <span className="text-[#fd4605]">*</span></span>
                 <div className="relative">
                   <input className={`${input} pr-9`} inputMode="decimal" placeholder="20"
                          value={form.value} onChange={(e) => setF("value", e.target.value)} />
@@ -443,7 +443,7 @@ export default function CouponsPage() {
                                 ? form.applicable_plans.filter((k: string) => k !== p.key)
                                 : [...form.applicable_plans, p.key])}
                               className={`rounded-[8px] border px-2.5 py-1.5 text-[11.5px] font-bold transition ${
-                                on ? "border-[#fe2c55] bg-[#ffe9ef] text-[#fe2c55]" : "border-[#e5e7eb] bg-white text-[#6b7280] hover:bg-[#fafafa]"
+                                on ? "border-[#fd4605] bg-[#ffe9ef] text-[#fd4605]" : "border-[#e5e7eb] bg-white text-[#6b7280] hover:bg-[#fafafa]"
                               }`}>
                         {p.name}
                       </button>
@@ -472,7 +472,7 @@ export default function CouponsPage() {
                          value={form.no_expiry ? "" : form.valid_until}
                          onChange={(e) => setF("valid_until", e.target.value)} />
                   <label className="flex flex-none cursor-pointer items-center gap-1.5">
-                    <input type="checkbox" className="h-[15px] w-[15px] accent-[#fe2c55]"
+                    <input type="checkbox" className="h-[15px] w-[15px] accent-[#fd4605]"
                            checked={form.no_expiry} onChange={(e) => setF("no_expiry", e.target.checked)} />
                     <span className="whitespace-nowrap text-[11.5px] text-[#374151]">No Expiry</span>
                   </label>
@@ -493,7 +493,7 @@ export default function CouponsPage() {
             </div>
 
             <button onClick={() => save.mutate()} disabled={save.isPending}
-                    className="mt-5 w-full rounded-[10px] bg-[#fe2c55] py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e0243d] disabled:opacity-60">
+                    className="mt-5 w-full rounded-[10px] bg-[#fd4605] py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e03e04] disabled:opacity-60">
               {save.isPending ? "Saving…" : editing ? "Save Changes" : "Create Coupon"}
             </button>
             <button onClick={() => { setForm(blank); setEditing(null); setErr(null); }}

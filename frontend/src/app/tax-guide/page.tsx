@@ -186,7 +186,7 @@ export default function TaxGuidePage() {
 
       <P>
         Questions about the tax process on Teezer:{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>. For
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>. For
         personal tax advice, please consult a qualified professional.
       </P>
     </LegalShell>

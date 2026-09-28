@@ -63,7 +63,7 @@ function Avatar({ src, name, size = 36 }: { src: string | null; name: string; si
   }
   return (
     <div
-      className="rounded-full grid place-items-center font-bold text-white bg-[#fe2c55] flex-shrink-0 text-sm"
+      className="rounded-full grid place-items-center font-bold text-white bg-[#fd4605] flex-shrink-0 text-sm"
       style={{ width: size, height: size }}
     >
       {initial}
@@ -82,7 +82,7 @@ function formatCount(n: number): string {
 function SectionLabel({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <div className="flex items-center gap-1.5 px-3 pt-2.5 pb-1">
-      <span className="text-[#fe2c55]">{icon}</span>
+      <span className="text-[#fd4605]">{icon}</span>
       <span className="text-[11px] font-bold uppercase tracking-wide text-[#5f6675]">{label}</span>
     </div>
   );
@@ -92,7 +92,7 @@ function SectionLabel({ icon, label }: { icon: React.ReactNode; label: string })
 
 function UserRow({ item, active }: { item: SearchUser; active: boolean }) {
   return (
-    <div className={cn("flex items-center gap-2.5 px-3 py-2 cursor-pointer transition-colors", active ? "bg-[#fff0f4]" : "hover:bg-[#f8f9fb]")}>
+    <div className={cn("flex items-center gap-2.5 px-3 py-2 cursor-pointer transition-colors", active ? "bg-[#fff3ec]" : "hover:bg-[#f8f9fb]")}>
       <Avatar src={item.avatar} name={item.name} size={36} />
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-1">
@@ -110,7 +110,7 @@ function UserRow({ item, active }: { item: SearchUser; active: boolean }) {
 function VideoRow({ item, active }: { item: SearchVideo; active: boolean }) {
   const text = item.caption || item.title || "Untitled video";
   return (
-    <div className={cn("flex items-center gap-2.5 px-3 py-2 cursor-pointer transition-colors", active ? "bg-[#fff0f4]" : "hover:bg-[#f8f9fb]")}>
+    <div className={cn("flex items-center gap-2.5 px-3 py-2 cursor-pointer transition-colors", active ? "bg-[#fff3ec]" : "hover:bg-[#f8f9fb]")}>
       {item.thumbnail_url ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
@@ -135,7 +135,7 @@ function VideoRow({ item, active }: { item: SearchVideo; active: boolean }) {
 
 function HashtagRow({ item, active }: { item: SearchHashtag; active: boolean }) {
   return (
-    <div className={cn("flex items-center gap-2.5 px-3 py-2 cursor-pointer transition-colors", active ? "bg-[#fff0f4]" : "hover:bg-[#f8f9fb]")}>
+    <div className={cn("flex items-center gap-2.5 px-3 py-2 cursor-pointer transition-colors", active ? "bg-[#fff3ec]" : "hover:bg-[#f8f9fb]")}>
       <div className="h-9 w-9 rounded-full bg-[#f8f9fb] grid place-items-center flex-shrink-0 border border-[#eeeeee]">
         <Hash className="h-4 w-4 text-[#111827]" />
       </div>
@@ -149,7 +149,7 @@ function HashtagRow({ item, active }: { item: SearchHashtag; active: boolean }) 
 
 function SoundRow({ item, active }: { item: SearchSound; active: boolean }) {
   return (
-    <div className={cn("flex items-center gap-2.5 px-3 py-2 cursor-pointer transition-colors", active ? "bg-[#fff0f4]" : "hover:bg-[#f8f9fb]")}>
+    <div className={cn("flex items-center gap-2.5 px-3 py-2 cursor-pointer transition-colors", active ? "bg-[#fff3ec]" : "hover:bg-[#f8f9fb]")}>
       {item.cover_image ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
@@ -293,7 +293,7 @@ export function SearchDropdown() {
       <div className="relative">
         <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#5f6675] pointer-events-none" />
         {isLoading && (
-          <Loader2 className="absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 animate-spin text-[#fe2c55] pointer-events-none" />
+          <Loader2 className="absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 animate-spin text-[#fd4605] pointer-events-none" />
         )}
         <input
           ref={inputRef}
@@ -307,7 +307,7 @@ export function SearchDropdown() {
           className={cn(
             "h-[42px] w-full rounded-full border bg-white pl-11 pr-10 text-[14px] text-black placeholder:text-[#5f6675]",
             "outline-none transition-colors",
-            "border-[#e5e7eb] focus:border-[#fe2c55]",
+            "border-[#e5e7eb] focus:border-[#fd4605]",
             "[appearance:textfield] [&::-webkit-search-cancel-button]:hidden",
           )}
         />
@@ -412,7 +412,7 @@ export function SearchDropdown() {
                     router.push(`/explore?q=${encodeURIComponent(query.trim())}`);
                     closeDropdown();
                   }}
-                  className="flex w-full items-center justify-center gap-1.5 rounded-xl py-1.5 text-[13px] font-semibold text-[#fe2c55] hover:bg-[#fff0f4] transition-colors"
+                  className="flex w-full items-center justify-center gap-1.5 rounded-xl py-1.5 text-[13px] font-semibold text-[#fd4605] hover:bg-[#fff3ec] transition-colors"
                 >
                   <Search className="h-3.5 w-3.5" />
                   View all results for &ldquo;{query}&rdquo;

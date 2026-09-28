@@ -46,7 +46,7 @@ function fmtRelative(iso: string): string {
   return new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 }
 function avatarColor(seed?: string | number | null): string {
-  const p = ["#fe2c55","#1d8cff","#a855f7","#10b981","#f97316","#8b5cf6"];
+  const p = ["#fd4605","#1d8cff","#a855f7","#10b981","#f97316","#8b5cf6"];
   const s = String(seed ?? "x"); let h = 0;
   for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
   return p[Math.abs(h) % p.length];
@@ -99,7 +99,7 @@ function FloatingMenu({ items, onClose }: { items: MenuItemDef[]; onClose: () =>
             <span className="text-xs text-white/50 font-medium">{item.value}</span>
           )}
           {item.toggle && (
-            <span className={cn("h-4 w-7 rounded-full transition", item.checked ? "bg-[#fe2c55]" : "bg-white/20")}>
+            <span className={cn("h-4 w-7 rounded-full transition", item.checked ? "bg-[#fd4605]" : "bg-white/20")}>
               <span className={cn("block h-4 w-4 rounded-full bg-white shadow transition-transform",
                 item.checked ? "translate-x-3" : "translate-x-0")} />
             </span>
@@ -154,7 +154,7 @@ function QualityPanel({
             onClick={e => { e.stopPropagation(); if (available) onSelect(key); }}
             className={cn(
               "flex w-full items-center justify-between px-4 py-2.5 text-sm transition",
-              active    ? "text-[#fe2c55]"              :
+              active    ? "text-[#fd4605]"              :
               available ? "text-white hover:bg-white/10" :
                           "cursor-not-allowed text-white/25",
             )}>
@@ -264,8 +264,8 @@ function EmbedModal({ videoId, onClose }: { videoId: number; onClose: () => void
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[#f0f0f0] px-5 py-4">
           <div className="flex items-center gap-2">
-            <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#fff0f4]">
-              <Code2 className="h-4 w-4 text-[#fe2c55]" />
+            <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#fff3ec]">
+              <Code2 className="h-4 w-4 text-[#fd4605]" />
             </div>
             <p className="text-[15px] font-bold text-[#111827]">Embed Video</p>
           </div>
@@ -282,7 +282,7 @@ function EmbedModal({ videoId, onClose }: { videoId: number; onClose: () => void
               {EMBED_SIZES.map((s, i) => (
                 <button key={s.label} onClick={() => setSizeIdx(i)}
                   className={cn("flex-1 rounded-xl border py-2 text-[12px] font-semibold transition",
-                    sizeIdx === i ? "border-[#fe2c55] bg-[#fff0f4] text-[#fe2c55]" : "border-[#e5e7eb] text-[#374151] hover:border-[#fe2c55]")}>
+                    sizeIdx === i ? "border-[#fd4605] bg-[#fff3ec] text-[#fd4605]" : "border-[#e5e7eb] text-[#374151] hover:border-[#fd4605]")}>
                   {s.label}
                   {!isCustom && i === sizeIdx && s.w > 0 && (
                     <span className="block text-[9px] font-medium text-[#9ca3af]">{s.w}×{s.h}</span>
@@ -295,12 +295,12 @@ function EmbedModal({ videoId, onClose }: { videoId: number; onClose: () => void
                 <div className="flex-1">
                   <label className="mb-1 block text-[10.5px] text-[#9ca3af]">Width (px)</label>
                   <input type="number" value={customW} min={200} max={1200} onChange={e => setCustomW(Number(e.target.value))}
-                    className="w-full rounded-xl border border-[#e5e7eb] px-3 py-2 text-[13px] font-bold outline-none focus:border-[#fe2c55]" />
+                    className="w-full rounded-xl border border-[#e5e7eb] px-3 py-2 text-[13px] font-bold outline-none focus:border-[#fd4605]" />
                 </div>
                 <div className="flex-1">
                   <label className="mb-1 block text-[10.5px] text-[#9ca3af]">Height (px)</label>
                   <input type="number" value={customH} min={300} max={2000} onChange={e => setCustomH(Number(e.target.value))}
-                    className="w-full rounded-xl border border-[#e5e7eb] px-3 py-2 text-[13px] font-bold outline-none focus:border-[#fe2c55]" />
+                    className="w-full rounded-xl border border-[#e5e7eb] px-3 py-2 text-[13px] font-bold outline-none focus:border-[#fd4605]" />
                 </div>
               </div>
             )}
@@ -317,7 +317,7 @@ function EmbedModal({ videoId, onClose }: { videoId: number; onClose: () => void
                 <div key={label} className="flex items-center justify-between rounded-xl border border-[#f0f0f0] px-4 py-2.5">
                   <span className="text-[13px] text-[#374151]">{label}</span>
                   <button type="button" onClick={() => set(!val)}
-                    className={cn("relative inline-flex h-5 w-9 items-center rounded-full transition", val ? "bg-[#fe2c55]" : "bg-[#e5e7eb]")}>
+                    className={cn("relative inline-flex h-5 w-9 items-center rounded-full transition", val ? "bg-[#fd4605]" : "bg-[#e5e7eb]")}>
                     <span className={cn("inline-block h-4 w-4 transform rounded-full bg-white shadow transition", val ? "translate-x-[18px]" : "translate-x-[2px]")} />
                   </button>
                 </div>
@@ -332,7 +332,7 @@ function EmbedModal({ videoId, onClose }: { videoId: number; onClose: () => void
               <pre className="overflow-x-auto px-4 py-3 text-[11px] leading-relaxed text-[#374151] whitespace-pre">{iframeCode}</pre>
               <button onClick={copy}
                 className={cn("absolute right-2 top-2 flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-[10.5px] font-bold transition",
-                  copied ? "bg-[#dcfce7] text-[#16a34a]" : "bg-white border border-[#e5e7eb] text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55]")}>
+                  copied ? "bg-[#dcfce7] text-[#16a34a]" : "bg-white border border-[#e5e7eb] text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605]")}>
                 {copied ? <><Check className="h-3 w-3" /> Copied!</> : <><Copy className="h-3 w-3" /> Copy</>}
               </button>
             </div>
@@ -351,7 +351,7 @@ function EmbedModal({ videoId, onClose }: { videoId: number; onClose: () => void
             Close
           </button>
           <button onClick={copy}
-            className="flex-1 rounded-xl bg-[#fe2c55] py-2.5 text-[13px] font-bold text-white hover:bg-[#e02449] transition flex items-center justify-center gap-1.5">
+            className="flex-1 rounded-xl bg-[#fd4605] py-2.5 text-[13px] font-bold text-white hover:bg-[#e03e04] transition flex items-center justify-center gap-1.5">
             {copied ? <><Check className="h-4 w-4" /> Copied!</> : <><Copy className="h-4 w-4" /> Copy embed code</>}
           </button>
         </div>
@@ -395,8 +395,8 @@ function PrivacyModal({ video, onClose, onSaved }: { video: ReelsooVideo; onClos
         <div className="space-y-3">
           <p className="text-xs font-bold uppercase tracking-wide text-[#9ca3af]">Visibility</p>
           {([["public","Public","Anyone can watch"], ["private","Private","Only you"], ["unlisted","Unlisted","Anyone with the link"]] as const).map(([v, l, h]) => (
-            <label key={v} className="flex cursor-pointer items-center gap-3 rounded-xl border border-[#f0f0f0] px-4 py-3 hover:border-[#fe2c55] transition">
-              <input type="radio" name="visibility" value={v} checked={visibility === v} onChange={() => setVisibility(v)} className="accent-[#fe2c55]" />
+            <label key={v} className="flex cursor-pointer items-center gap-3 rounded-xl border border-[#f0f0f0] px-4 py-3 hover:border-[#fd4605] transition">
+              <input type="radio" name="visibility" value={v} checked={visibility === v} onChange={() => setVisibility(v)} className="accent-[#fd4605]" />
               <div>
                 <p className="text-sm font-semibold text-[#111827]">{l}</p>
                 <p className="text-xs text-[#9ca3af]">{h}</p>
@@ -413,7 +413,7 @@ function PrivacyModal({ video, onClose, onSaved }: { video: ReelsooVideo; onClos
             <div key={label} className="flex items-center justify-between rounded-xl border border-[#f0f0f0] px-4 py-3">
               <span className="text-sm text-[#111827]">{label}</span>
               <button type="button" role="switch" aria-checked={val} onClick={() => set(!val)}
-                className={cn("relative inline-flex h-5 w-9 items-center rounded-full transition", val ? "bg-[#fe2c55]" : "bg-[#e5e7eb]")}>
+                className={cn("relative inline-flex h-5 w-9 items-center rounded-full transition", val ? "bg-[#fd4605]" : "bg-[#e5e7eb]")}>
                 <span className={cn("inline-block h-4 w-4 transform rounded-full bg-white shadow transition", val ? "translate-x-[18px]" : "translate-x-[2px]")} />
               </button>
             </div>
@@ -426,7 +426,7 @@ function PrivacyModal({ video, onClose, onSaved }: { video: ReelsooVideo; onClos
             Cancel
           </button>
           <button onClick={save} disabled={saving}
-            className="flex-1 rounded-full bg-[#fe2c55] py-2.5 text-sm font-bold text-white hover:bg-[#e02449] transition disabled:opacity-50">
+            className="flex-1 rounded-full bg-[#fd4605] py-2.5 text-sm font-bold text-white hover:bg-[#e03e04] transition disabled:opacity-50">
             {saving ? "Saving…" : "Save"}
           </button>
         </div>
@@ -1411,7 +1411,7 @@ export function VideoDetailPage({ id }: { id: string }) {
                       </div>
                     )}
                     <div className="relative h-[3px] w-full overflow-visible rounded-full bg-white/25 transition-all duration-100 group-hover:h-[5px]">
-                      <div className="absolute inset-y-0 left-0 rounded-full bg-[#fe2c55]"
+                      <div className="absolute inset-y-0 left-0 rounded-full bg-[#fd4605]"
                         style={{ width: duration ? `${(current / duration) * 100}%` : "0%" }} />
                       <div
                         className={cn(
@@ -1539,7 +1539,7 @@ export function VideoDetailPage({ id }: { id: string }) {
                               onChange={(e) => { e.stopPropagation(); changeVolume(Number(e.target.value)); }}
                               onClick={(e) => e.stopPropagation()}
                               onMouseDown={(e) => e.stopPropagation()}
-                              className="absolute cursor-pointer accent-[#fe2c55]"
+                              className="absolute cursor-pointer accent-[#fd4605]"
                               style={{ width: 80, height: 4, left: "50%", top: "50%", transform: "translate(-50%, -50%) rotate(-90deg)" }}
                             />
                           </div>
@@ -1625,7 +1625,7 @@ export function VideoDetailPage({ id }: { id: string }) {
               <div className="mt-2 flex flex-wrap gap-1.5">
                 {hashtags.map((h) => (
                   <Link key={h} href={`/explore?q=${h}`}
-                    className="text-xs font-semibold text-[#fe2c55] hover:underline">
+                    className="text-xs font-semibold text-[#fd4605] hover:underline">
                     #{h}
                   </Link>
                 ))}
@@ -1709,7 +1709,7 @@ export function VideoDetailPage({ id }: { id: string }) {
 
           {/* ── Action buttons ── */}
           <div className="flex items-center border-b border-[#f0f0f0] px-3 py-2 gap-1">
-            <ActionBtn icon={<AnimatedHeart size={16} filled={liked} className={cn("h-4 w-4", liked && "fill-[#fe2c55] text-[#fe2c55]")} />}
+            <ActionBtn icon={<AnimatedHeart size={16} filled={liked} className={cn("h-4 w-4", liked && "fill-[#fd4605] text-[#fd4605]")} />}
               count={likeCt} active={liked} onClick={toggleLike} label="Like" />
             <ActionBtn icon={<MessageCircle className="h-4 w-4" />}
               count={commentCt}
@@ -1729,7 +1729,7 @@ export function VideoDetailPage({ id }: { id: string }) {
             </svg>
             <span className="flex-1 truncate text-[11px] text-[#6b7280]">{videoUrl}</span>
             <button onClick={copyLink}
-              className="flex items-center gap-1 rounded-[8px] bg-[#fe2c55] px-3 py-1.5 text-[11px] font-bold text-white hover:bg-[#e02449] transition">
+              className="flex items-center gap-1 rounded-[8px] bg-[#fd4605] px-3 py-1.5 text-[11px] font-bold text-white hover:bg-[#e03e04] transition">
               <Copy className="h-3 w-3" /> Copy link
             </button>
           </div>
@@ -1741,7 +1741,7 @@ export function VideoDetailPage({ id }: { id: string }) {
               className={cn(
                 "flex-1 px-4 py-2 text-center text-xs font-bold transition",
                 activeTab === "comments"
-                  ? "border-b-2 border-[#fe2c55] text-[#111827]"
+                  ? "border-b-2 border-[#fd4605] text-[#111827]"
                   : "text-[#6b7280] hover:text-[#111827]",
               )}>
               Comments ({formatCompact(commentCt)})
@@ -1751,7 +1751,7 @@ export function VideoDetailPage({ id }: { id: string }) {
               className={cn(
                 "flex-1 px-4 py-2 text-center text-xs font-bold transition",
                 activeTab === "creator-videos"
-                  ? "border-b-2 border-[#fe2c55] text-[#111827]"
+                  ? "border-b-2 border-[#fd4605] text-[#111827]"
                   : "text-[#6b7280] hover:text-[#111827]",
               )}>
               Creator Videos
@@ -1773,7 +1773,7 @@ export function VideoDetailPage({ id }: { id: string }) {
             <div className="flex-1 overflow-y-auto px-3 py-2">
               {creatorVideosQ.isLoading && (
                 <div className="flex justify-center py-6">
-                  <div className="h-5 w-5 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+                  <div className="h-5 w-5 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
                 </div>
               )}
               {!creatorVideosQ.isLoading && (!creatorVideosQ.data?.data?.length) && (
@@ -1799,7 +1799,7 @@ export function VideoDetailPage({ id }: { id: string }) {
                       onClick={() => openCreatorVideo(cv.id)}
                       className={cn(
                         "relative aspect-[9/14] overflow-hidden rounded-xl bg-[#111] text-left transition hover:opacity-90",
-                        isCurrentVideo && "ring-2 ring-[#fe2c55]",
+                        isCurrentVideo && "ring-2 ring-[#fd4605]",
                       )}>
                       {thumbUrl ? (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -1810,7 +1810,7 @@ export function VideoDetailPage({ id }: { id: string }) {
                         <video src={`${cv.video_url}#t=0.1`}
                           className="h-full w-full object-cover" muted playsInline preload="metadata" />
                       ) : (
-                        <div className="h-full w-full bg-gradient-to-br from-[#fe2c55]/40 to-[#111]" />
+                        <div className="h-full w-full bg-gradient-to-br from-[#fd4605]/40 to-[#111]" />
                       )}
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70" />
                       {dur && (
@@ -1819,7 +1819,7 @@ export function VideoDetailPage({ id }: { id: string }) {
                         </span>
                       )}
                       {isCurrentVideo && (
-                        <span className="absolute left-1.5 top-1.5 rounded-full bg-[#fe2c55] px-2 py-0.5 text-[9px] font-bold text-white">
+                        <span className="absolute left-1.5 top-1.5 rounded-full bg-[#fd4605] px-2 py-0.5 text-[9px] font-bold text-white">
                           Playing
                         </span>
                       )}
@@ -1850,7 +1850,7 @@ function ActionBtn({
   return (
     <button onClick={onClick} aria-label={label} title={label}
       className={cn("flex flex-1 flex-col items-center gap-0.5 rounded-xl py-2 text-[10px] font-semibold transition hover:bg-[#f8f9fb]",
-        active ? "text-[#fe2c55]" : "text-[#6b7280]")}>
+        active ? "text-[#fd4605]" : "text-[#6b7280]")}>
       {icon}
       {count !== undefined && count > 0 && <span>{formatCompact(count)}</span>}
     </button>

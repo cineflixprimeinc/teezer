@@ -238,7 +238,7 @@ function RecommendationSettingsSection() {
   return (
     <div className="mb-6 rounded-[12px] border border-[#e5e7eb] bg-white p-5 space-y-4">
       <div className="flex items-center gap-2 mb-2">
-        <Sparkles className="h-4 w-4 text-[#fe2c55]" />
+        <Sparkles className="h-4 w-4 text-[#fd4605]" />
         <h3 className="text-[14px] font-semibold text-[#111827]">Profile Suggestion Algorithm</h3>
       </div>
       <p className="text-[12px] text-[#6b7280]">
@@ -260,7 +260,7 @@ function RecommendationSettingsSection() {
               </div>
               <button
                 onClick={() => save(key, current === "1" ? "0" : "1", "boolean")}
-                className={`relative h-5 w-9 rounded-full transition-colors ${current === "1" ? "bg-[#fe2c55]" : "bg-[#d1d5db]"}`}
+                className={`relative h-5 w-9 rounded-full transition-colors ${current === "1" ? "bg-[#fd4605]" : "bg-[#d1d5db]"}`}
               >
                 <span className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform ${current === "1" ? "translate-x-4" : "translate-x-0.5"}`} />
               </button>
@@ -289,7 +289,7 @@ function RecommendationSettingsSection() {
                 onBlur={(e) => {
                   if (e.target.value !== current) save(key, e.target.value, "string");
                 }}
-                className="h-8 w-20 rounded-[8px] border border-[#e8eaed] px-2.5 text-[12px] outline-none focus:border-[#fe2c55] text-right"
+                className="h-8 w-20 rounded-[8px] border border-[#e8eaed] px-2.5 text-[12px] outline-none focus:border-[#fd4605] text-right"
               />
             </div>
           );
@@ -313,7 +313,7 @@ function RecommendationSettingsSection() {
               type="text"
               defaultValue={get(key, def)}
               onBlur={(e) => { if (e.target.value !== get(key, def)) save(key, e.target.value); }}
-              className="h-8 w-24 rounded-[8px] border border-[#e8eaed] px-2.5 text-[12px] outline-none focus:border-[#fe2c55] text-right"
+              className="h-8 w-24 rounded-[8px] border border-[#e8eaed] px-2.5 text-[12px] outline-none focus:border-[#fd4605] text-right"
             />
           </div>
         ))}
@@ -360,7 +360,7 @@ function SettingRow({ setting }: { setting: Setting }) {
       <div className="flex shrink-0 items-center gap-2.5">
         {isBoolean ? (
           <>
-            <span className={`text-[11px] font-bold uppercase tracking-wide ${on ? "text-[#fe2c55]" : "text-[#9ca3af]"}`}>
+            <span className={`text-[11px] font-bold uppercase tracking-wide ${on ? "text-[#fd4605]" : "text-[#9ca3af]"}`}>
               {on ? "On" : "Off"}
             </span>
             <button
@@ -377,7 +377,7 @@ function SettingRow({ setting }: { setting: Setting }) {
                   // the server refused must not keep claiming it succeeded.
                   .catch(() => { setVal(on ? "1" : "0"); toast.error("Couldn't save that change"); });
               }}
-              className={`relative h-[26px] w-[46px] shrink-0 rounded-full transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fe2c55]/30 ${on ? "bg-[#fe2c55]" : "bg-[#d1d5db]"}`}
+              className={`relative h-[26px] w-[46px] shrink-0 rounded-full transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fd4605]/30 ${on ? "bg-[#fd4605]" : "bg-[#d1d5db]"}`}
             >
               <span className={`absolute top-[3px] h-5 w-5 rounded-full bg-white shadow-sm transition-all duration-200 ${on ? "left-[23px]" : "left-[3px]"}`} />
             </button>
@@ -391,7 +391,7 @@ function SettingRow({ setting }: { setting: Setting }) {
                 if (e.key === "Enter" && isDirty) save.mutate();
                 if (e.key === "Escape") { setVal(setting.value ?? ""); setEditing(false); }
               }}
-              className="h-9 w-56 rounded-[10px] border border-[#e5e7eb] px-3 text-[12.5px] outline-none transition focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/15"
+              className="h-9 w-56 rounded-[10px] border border-[#e5e7eb] px-3 text-[12.5px] outline-none transition focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/15"
               autoFocus
             />
             <Button size="sm" variant="primary" disabled={save.isPending || !isDirty} onClick={() => save.mutate()}>
@@ -414,7 +414,7 @@ function SettingRow({ setting }: { setting: Setting }) {
             <button
               type="button"
               onClick={() => setEditing(true)}
-              className="rounded-[8px] border border-[#e5e7eb] px-2.5 py-1.5 text-[12px] font-semibold text-[#6b7280] transition-colors hover:border-[#fe2c55]/40 hover:bg-[#fff0f4] hover:text-[#fe2c55]"
+              className="rounded-[8px] border border-[#e5e7eb] px-2.5 py-1.5 text-[12px] font-semibold text-[#6b7280] transition-colors hover:border-[#fd4605]/40 hover:bg-[#fff3ec] hover:text-[#fd4605]"
             >
               Edit
             </button>
@@ -448,7 +448,7 @@ export default function SettingsPage() {
         {/* Header */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3.5">
-            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#fff0f4] text-[#fe2c55]">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#fff3ec] text-[#fd4605]">
               <Settings className="h-[22px] w-[22px]" />
             </span>
             <div>
@@ -464,8 +464,8 @@ export default function SettingsPage() {
         {/* Website & SEO gets a card of its own: it is the settings group most
             often reached, and the only one with a dedicated screen. */}
         <Link href="/admin/settings/website"
-          className="flex items-center gap-3.5 rounded-[12px] border border-[#e5e7eb] bg-white p-4 transition-colors hover:border-[#fe2c55]/40 hover:bg-[#fff8fa]">
-          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#fff0f4] text-[#fe2c55]">
+          className="flex items-center gap-3.5 rounded-[12px] border border-[#e5e7eb] bg-white p-4 transition-colors hover:border-[#fd4605]/40 hover:bg-[#fff8fa]">
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#fff3ec] text-[#fd4605]">
             <Globe className="h-5 w-5" />
           </span>
           <span className="min-w-0 flex-1">
@@ -494,10 +494,10 @@ export default function SettingsPage() {
                 if (g === "site") {
                   return (
                     <Link key={g} href="/admin/settings/website"
-                      className="group flex w-full items-center gap-2.5 rounded-[10px] px-3 py-2.5 text-left text-[13px] font-semibold text-[#374151] transition-colors hover:bg-[#fff0f4] hover:text-[#fe2c55]">
-                      <Globe className="h-4 w-4 shrink-0 text-[#9ca3af] transition-colors group-hover:text-[#fe2c55]" />
+                      className="group flex w-full items-center gap-2.5 rounded-[10px] px-3 py-2.5 text-left text-[13px] font-semibold text-[#374151] transition-colors hover:bg-[#fff3ec] hover:text-[#fd4605]">
+                      <Globe className="h-4 w-4 shrink-0 text-[#9ca3af] transition-colors group-hover:text-[#fd4605]" />
                       <span className="truncate">Website &amp; SEO</span>
-                      <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-[#d1d5db] transition-colors group-hover:text-[#fe2c55]" />
+                      <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-[#d1d5db] transition-colors group-hover:text-[#fd4605]" />
                     </Link>
                   );
                 }
@@ -507,15 +507,15 @@ export default function SettingsPage() {
                   <button key={g}
                     onClick={() => setActiveGroup(g)}
                     className={`relative flex w-full items-center gap-2.5 rounded-[10px] px-3 py-2.5 text-left text-[13px] font-semibold transition-colors
-                      ${active ? "bg-[#fff0f4] text-[#fe2c55]" : "text-[#374151] hover:bg-[#f7f8fa]"}`}>
+                      ${active ? "bg-[#fff3ec] text-[#fd4605]" : "text-[#374151] hover:bg-[#f7f8fa]"}`}>
                     {/* A rail on the active row, so the selection reads at a
                         glance instead of only as a faint tint. */}
-                    {active && <span className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r-full bg-[#fe2c55]" />}
-                    <Settings className={`h-4 w-4 shrink-0 ${active ? "text-[#fe2c55]" : "text-[#9ca3af]"}`} />
+                    {active && <span className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r-full bg-[#fd4605]" />}
+                    <Settings className={`h-4 w-4 shrink-0 ${active ? "text-[#fd4605]" : "text-[#9ca3af]"}`} />
                     <span className="truncate">{label}</span>
                     {count !== undefined && g !== "all" && (
                       <span className={`ml-auto rounded-full px-1.5 py-0.5 text-[10.5px] font-bold tabular-nums
-                        ${active ? "bg-[#fe2c55]/12 text-[#fe2c55]" : "bg-[#f3f4f6] text-[#9ca3af]"}`}>
+                        ${active ? "bg-[#fd4605]/12 text-[#fd4605]" : "bg-[#f3f4f6] text-[#9ca3af]"}`}>
                         {count}
                       </span>
                     )}

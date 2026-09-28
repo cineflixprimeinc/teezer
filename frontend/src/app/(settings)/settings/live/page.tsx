@@ -28,7 +28,7 @@ export default function LiveSettingsPage() {
         {/* Card 1 */}
         <SettingsCard>
           <CardHeader n={1} title="Live Control" />
-          <ChevronRow icon={Settings}      iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+          <ChevronRow icon={Settings}      iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
             title="Start Live Settings"    desc="Configure title, thumbnail and schedule before going live" />
           <SettingsRow icon={MessageSquare} iconBg="bg-[#eff6ff]" iconColor="text-[#3b82f6]"
             title="Who Can Comment in Live" desc="Control who can send comments during your live"
@@ -46,7 +46,7 @@ export default function LiveSettingsPage() {
           <SettingsRow icon={Gift}  iconBg="bg-[#fff7ed]" iconColor="text-[#f97316]"
             title="Live Gifts"      desc="Allow viewers to send virtual gifts during your live"
             right={<Toggle on={liveGifts} onChange={setLiveGifts} />} />
-          <ChevronRow icon={Ban}    iconBg="bg-[#fff0f4]" iconColor="text-[#dc2626]"
+          <ChevronRow icon={Ban}    iconBg="bg-[#fff3ec]" iconColor="text-[#dc2626]"
             title="Blocked Words in Live" desc="Filter specific words in your live chat" />
           <ChevronRow icon={Sliders} iconBg="bg-[#fffbeb]" iconColor="text-[#f59e0b]"
             title="Live Audience Settings" desc="Manage age restrictions and audience filters" />

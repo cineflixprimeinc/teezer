@@ -45,7 +45,7 @@ export function LoginPage() {
       title="Welcome Back"
       subtitle="Log in to continue watching and creating reels."
       footer={
-        <>Do not have an account? <Link href="/register" className="font-bold text-[#fe2c55]">Register</Link></>
+        <>Do not have an account? <Link href="/register" className="font-bold text-[#fd4605]">Register</Link></>
       }
     >
       <LoginContent />
@@ -59,7 +59,7 @@ export function RegisterPage() {
       title="Create Account"
       subtitle="Join Teezer and start sharing your moments."
       footer={
-        <>Already have an account? <Link href="/login" className="font-bold text-[#fe2c55]">Log in</Link></>
+        <>Already have an account? <Link href="/login" className="font-bold text-[#fd4605]">Log in</Link></>
       }
     >
       <SignupContent />
@@ -125,7 +125,7 @@ function ResetPasswordForm() {
     <AuthFrame
       title="Choose new password"
       subtitle="Enter your new password below."
-      footer={done ? <Link href="/login" className="font-bold text-[#fe2c55]">Go to Login</Link> : undefined}
+      footer={done ? <Link href="/login" className="font-bold text-[#fd4605]">Go to Login</Link> : undefined}
     >
       <form onSubmit={submit} className="space-y-4">
         <Input name="token" defaultValue={params.get("token") ?? ""} placeholder="Reset token" required />

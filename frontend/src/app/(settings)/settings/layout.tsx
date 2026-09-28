@@ -13,7 +13,7 @@ import {
 import { RequireAuth } from "@/components/layout/protected-route";
 import { useAuthStore } from "@/store/auth.store";
 
-const BRAND = "#fe2c55";
+const BRAND = "#fd4605";
 
 /* ── Sidebar navigation structure ────────────────────────────────────────── */
 const SIDEBAR_GROUPS = [
@@ -33,10 +33,10 @@ const SIDEBAR_GROUPS = [
   {
     id: "account",
     items: [
-      { href: "/settings/account",             label: "Account Settings",       icon: UserCog,       iconBg: "bg-[#fff0f4]", iconColor: "text-[#fe2c55]"  },
+      { href: "/settings/account",             label: "Account Settings",       icon: UserCog,       iconBg: "bg-[#fff3ec]", iconColor: "text-[#fd4605]"  },
       { href: "/settings/security",            label: "Login & Security",       icon: ShieldCheck,   iconBg: "bg-[#dcfce7]", iconColor: "text-[#16a34a]"  },
       { href: "/settings/privacy",             label: "Privacy & Safety",       icon: Lock,          iconBg: "bg-[#ede9fe]", iconColor: "text-[#7c3aed]"  },
-      { href: "/settings/follow-requests",    label: "Follow Requests",        icon: UserPlus,      iconBg: "bg-[#fff0f4]", iconColor: "text-[#fe2c55]"  },
+      { href: "/settings/follow-requests",    label: "Follow Requests",        icon: UserPlus,      iconBg: "bg-[#fff3ec]", iconColor: "text-[#fd4605]"  },
       { href: "/settings/restrictions",      label: "My Restrictions",        icon: ShieldAlert,   iconBg: "bg-[#fff7ed]", iconColor: "text-[#d97706]"  },
       { href: "/settings/notifications",       label: "Notifications",          icon: BellRing,      iconBg: "bg-[#fef9c3]", iconColor: "text-[#ca8a04]"  },
       { href: "/settings/content-preferences", label: "Content Preferences",    icon: Gauge,         iconBg: "bg-[#ccfbf1]", iconColor: "text-[#0d9488]"  },
@@ -106,11 +106,11 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
                 <img
                   src={avatar}
                   alt={displayName}
-                  className="h-10 w-10 rounded-full object-cover ring-2 ring-transparent transition-all group-hover:ring-[#fe2c55]"
+                  className="h-10 w-10 rounded-full object-cover ring-2 ring-transparent transition-all group-hover:ring-[#fd4605]"
                 />
               ) : (
                 <div
-                  className="flex h-10 w-10 items-center justify-center rounded-full text-[14px] font-bold text-white ring-2 ring-transparent transition-all group-hover:ring-[#fe2c55]"
+                  className="flex h-10 w-10 items-center justify-center rounded-full text-[14px] font-bold text-white ring-2 ring-transparent transition-all group-hover:ring-[#fd4605]"
                   style={{ background: BRAND }}
                 >
                   {initial}
@@ -119,7 +119,7 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
               <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-[#22c55e]" />
             </div>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-[13px] font-bold text-[#111827] group-hover:text-[#fe2c55] transition-colors">
+              <p className="truncate text-[13px] font-bold text-[#111827] group-hover:text-[#fd4605] transition-colors">
                 {displayName}
               </p>
               <p className="truncate text-[11px] text-[#9ca3af]">@{username}</p>
@@ -146,7 +146,7 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
                         href={item.href}
                         className={`flex h-[38px] items-center gap-2.5 rounded-[12px] px-2.5 text-[13px] font-semibold transition-colors ${
                           active
-                            ? "bg-[#fff1f4] text-[#fe2c55]"
+                            ? "bg-[#fff1f4] text-[#fd4605]"
                             : "text-[#334155] hover:bg-[#f8fafc]"
                         }`}
                       >

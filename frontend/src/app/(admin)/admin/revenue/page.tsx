@@ -24,7 +24,7 @@ export default function RevenuePage() {
             { label: "Total Revenue",   value: "-", icon: CircleDollarSign, color: "#10b981" },
             { label: "This Month",      value: "-", icon: DollarSign,       color: "#3b82f6" },
             { label: "Ad Revenue",      value: "-", icon: BarChart3,        color: "#8b5cf6" },
-            { label: "Gift Revenue",    value: "-", icon: TrendingUp,       color: "#fe2c55" },
+            { label: "Gift Revenue",    value: "-", icon: TrendingUp,       color: "#fd4605" },
           ].map(({ label, value, icon: Icon, color }) => (
             <Card key={label} className="p-5">
               <div className="flex items-start justify-between">
@@ -55,7 +55,7 @@ export default function RevenuePage() {
             <CardHeader><CardTitle>Revenue Breakdown</CardTitle></CardHeader>
             <CardBody className="space-y-3">
               {[
-                { label: "Coin Sales",      pct: 45, color: "#fe2c55" },
+                { label: "Coin Sales",      pct: 45, color: "#fd4605" },
                 { label: "Gift Revenue",    pct: 28, color: "#f59e0b" },
                 { label: "Subscriptions",   pct: 17, color: "#3b82f6" },
                 { label: "Ads Revenue",     pct: 10, color: "#8b5cf6" },

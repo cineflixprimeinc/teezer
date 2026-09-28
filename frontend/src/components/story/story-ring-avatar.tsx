@@ -14,7 +14,7 @@ const GRAD_POOL = [
   "linear-gradient(135deg,#2193b0,#6dd5ed)",
   "linear-gradient(135deg,#ee0979,#ff6a00)",
   "linear-gradient(135deg,#6a3093,#a044ff)",
-  "linear-gradient(135deg,#fe2c55,#c02040)",
+  "linear-gradient(135deg,#fd4605,#b83203)",
   "linear-gradient(135deg,#667eea,#764ba2)",
 ];
 function hashGrad(s: string) {

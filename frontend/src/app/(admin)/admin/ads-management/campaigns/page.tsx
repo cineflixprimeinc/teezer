@@ -68,7 +68,7 @@ function created(iso: string | null) {
 }
 function Avatar({ name, src }: { name: string; src: string | null }) {
   if (src) return <img src={src} alt={name} className="w-8 h-8 rounded-full object-cover shrink-0" />;
-  return <div className="w-8 h-8 rounded-full grid place-items-center bg-[#fe2c55] text-white text-[13px] font-bold shrink-0">{name[0]?.toUpperCase()}</div>;
+  return <div className="w-8 h-8 rounded-full grid place-items-center bg-[#fd4605] text-white text-[13px] font-bold shrink-0">{name[0]?.toUpperCase()}</div>;
 }
 function Growth({ g }: { g: number }) {
   if (g === 0) return <span className="text-[11px] text-[#9ca3af]">No change</span>;
@@ -118,7 +118,7 @@ export default function AdsCampaignsPage() {
   });
 
   const tiles = [
-    { label: "Total Campaigns", value: adNum(sum?.total.value ?? 0), g: sum?.total.growth, icon: <Megaphone size={20} />, tint: "#ffe4ec", color: "#fe2c55" },
+    { label: "Total Campaigns", value: adNum(sum?.total.value ?? 0), g: sum?.total.growth, icon: <Megaphone size={20} />, tint: "#ffe4ec", color: "#fd4605" },
     { label: "Active Campaigns", value: adNum(sum?.active.value ?? 0), g: sum?.active.growth, icon: <PlayCircle size={20} />, tint: "#dcfce7", color: "#16a34a" },
     { label: "Draft Campaigns", value: adNum(sum?.draft.value ?? 0), g: sum?.draft.growth, icon: <PencilLine size={20} />, tint: "#fef3c7", color: "#d97706" },
     { label: "Completed Campaigns", value: adNum(sum?.completed.value ?? 0), g: sum?.completed.growth, icon: <CheckCircle2 size={20} />, tint: "#ede9fe", color: "#7c3aed" },
@@ -138,7 +138,7 @@ export default function AdsCampaignsPage() {
           </div>
           <div className="flex items-center gap-2">
             <button className="flex items-center gap-1.5 border border-[#e8eaed] rounded-lg px-3 py-2 text-[12px] font-medium text-[#374151] hover:bg-[#f8f9fb]"><Download size={14} /> Export</button>
-            <button onClick={() => toast.info("Campaigns are created by advertisers in the Studio app.")} className="flex items-center gap-1.5 bg-[#fe2c55] text-white rounded-lg px-3.5 py-2 text-[12px] font-semibold hover:bg-[#e0243d]"><Plus size={15} /> New Campaign</button>
+            <button onClick={() => toast.info("Campaigns are created by advertisers in the Studio app.")} className="flex items-center gap-1.5 bg-[#fd4605] text-white rounded-lg px-3.5 py-2 text-[12px] font-semibold hover:bg-[#e03e04]"><Plus size={15} /> New Campaign</button>
           </div>
         </div>
 
@@ -161,7 +161,7 @@ export default function AdsCampaignsPage() {
           <div className="flex flex-wrap items-center gap-2 p-4 border-b border-[#eef0f3]">
             <div className="relative">
               <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#9ca3af]" />
-              <input value={search} onChange={(e) => { setSearch(e.target.value); setPage(1); }} placeholder="Search by campaign name…" className="h-9 w-[230px] rounded-lg border border-[#e8eaed] bg-white pl-8 pr-3 text-[13px] outline-none focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10" />
+              <input value={search} onChange={(e) => { setSearch(e.target.value); setPage(1); }} placeholder="Search by campaign name…" className="h-9 w-[230px] rounded-lg border border-[#e8eaed] bg-white pl-8 pr-3 text-[13px] outline-none focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10" />
             </div>
             <select value={status} onChange={(e) => { setStatus(e.target.value); setPage(1); }} className="h-9 rounded-lg border border-[#e8eaed] bg-white px-3 text-[13px] text-[#374151]">
               {STATUSES.map((s) => <option key={s} value={s}>{s === "all" ? "All Statuses" : (STATUS[s]?.label ?? s.replace(/_/g, " "))}</option>)}
@@ -203,8 +203,8 @@ export default function AdsCampaignsPage() {
                             {r.preview.thumbnail_url ? <img src={r.preview.thumbnail_url} alt="" className="w-full h-full object-cover" /> : <Rows3 size={18} className="text-[#4b5563]" />}
                           </div>
                           <div className="min-w-0">
-                            <button onClick={() => router.push(`/admin/ads-management/campaigns/${r.id}`)} className="font-bold text-[13.5px] text-[#111827] leading-tight truncate max-w-[160px] text-left hover:text-[#fe2c55]">{r.name}</button>
-                            <div className="text-[11px] font-semibold text-[#fe2c55]">{r.ad_id}</div>
+                            <button onClick={() => router.push(`/admin/ads-management/campaigns/${r.id}`)} className="font-bold text-[13.5px] text-[#111827] leading-tight truncate max-w-[160px] text-left hover:text-[#fd4605]">{r.name}</button>
+                            <div className="text-[11px] font-semibold text-[#fd4605]">{r.ad_id}</div>
                             <div className="text-[11px] text-[#9ca3af]">ID: {r.cam_id} • {r.ad_groups} Ad Group{r.ad_groups !== 1 ? "s" : ""} • {r.ads} Ad{r.ads !== 1 ? "s" : ""}</div>
                           </div>
                         </div>
@@ -283,7 +283,7 @@ export default function AdsCampaignsPage() {
                 <button disabled={data.meta.current_page <= 1} onClick={() => setPage((p) => p - 1)} className="w-8 h-8 grid place-items-center rounded-lg border border-[#e8eaed] text-[#6b7280] disabled:opacity-40 hover:bg-[#f8f9fb]">‹</button>
                 {pages.map((p, i) => p === "…"
                   ? <span key={`e${i}`} className="w-8 text-center text-[#9ca3af]">…</span>
-                  : <button key={p} onClick={() => setPage(p as number)} className={`w-8 h-8 grid place-items-center rounded-lg text-[12px] font-semibold ${p === data.meta.current_page ? "bg-[#fe2c55] text-white" : "border border-[#e8eaed] text-[#374151] hover:bg-[#f8f9fb]"}`}>{p}</button>)}
+                  : <button key={p} onClick={() => setPage(p as number)} className={`w-8 h-8 grid place-items-center rounded-lg text-[12px] font-semibold ${p === data.meta.current_page ? "bg-[#fd4605] text-white" : "border border-[#e8eaed] text-[#374151] hover:bg-[#f8f9fb]"}`}>{p}</button>)}
                 <button disabled={data.meta.current_page >= data.meta.last_page} onClick={() => setPage((p) => p + 1)} className="w-8 h-8 grid place-items-center rounded-lg border border-[#e8eaed] text-[#6b7280] disabled:opacity-40 hover:bg-[#f8f9fb]">›</button>
               </div>
             </div>

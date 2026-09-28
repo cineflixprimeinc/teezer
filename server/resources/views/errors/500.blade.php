@@ -6,9 +6,9 @@
     <title>500 – Server Error | Teezer</title>
     <style>
         body { background: #0a0a0a; color: #fff; font-family: system-ui, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; text-align: center; }
-        .code { font-size: 5rem; font-weight: 700; color: #fe2c55; line-height: 1; }
+        .code { font-size: 5rem; font-weight: 700; color: #fd4605; line-height: 1; }
         .msg  { font-size: 1.25rem; color: #9ca3af; margin-top: .5rem; }
-        .back { display: inline-block; margin-top: 2rem; padding: .75rem 1.5rem; background: #fe2c55; color: #fff; border-radius: .5rem; text-decoration: none; font-size: .875rem; }
+        .back { display: inline-block; margin-top: 2rem; padding: .75rem 1.5rem; background: #fd4605; color: #fff; border-radius: .5rem; text-decoration: none; font-size: .875rem; }
     </style>
 </head>
 <body>

@@ -190,7 +190,7 @@ function Toggle({ checked, onChange, disabled }: { checked:boolean; onChange:(v:
   return (
     <button type="button" role="switch" aria-checked={checked} disabled={disabled}
       onClick={() => onChange(!checked)}
-      className={cn("relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition", checked?"bg-[#fe2c55]":"bg-[#e5e7eb]")}>
+      className={cn("relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition", checked?"bg-[#fd4605]":"bg-[#e5e7eb]")}>
       <span className={cn("inline-block h-4 w-4 rounded-full bg-white shadow transition-transform", checked?"translate-x-[18px]":"translate-x-[2px]")} />
     </button>
   );
@@ -399,7 +399,7 @@ function MobilePreviewCard({
           {/* Live badge on the camera, as the design has it */}
           <div className="relative">
             <Video className="h-3.5 w-3.5 text-white"/>
-            <span className="absolute -right-0.5 -top-0.5 h-1.5 w-1.5 rounded-full bg-[#fe2c55] ring-[1.5px] ring-black/60"/>
+            <span className="absolute -right-0.5 -top-0.5 h-1.5 w-1.5 rounded-full bg-[#fd4605] ring-[1.5px] ring-black/60"/>
           </div>
           <div className="flex items-center gap-2.5">
             <span className="text-[9px] text-white/55">Nepal</span>
@@ -430,13 +430,13 @@ function MobilePreviewCard({
           {/* Avatar. The fallback is the brand mark on pink, as the design
               shows, rather than a grey person glyph. */}
           <div className="relative mb-2">
-            <div className="grid h-9 w-9 place-items-center overflow-hidden rounded-full bg-[#fe2c55] shadow-[0_0_14px_rgba(254,44,85,0.55)]">
+            <div className="grid h-9 w-9 place-items-center overflow-hidden rounded-full bg-[#fd4605] shadow-[0_0_14px_rgba(253,70,5,0.55)]">
               {avatar
                 // eslint-disable-next-line @next/next/no-img-element
                 ? <img src={avatar} alt={username} className="h-full w-full object-cover"/>
                 : <span className="text-[15px] font-black italic leading-none text-white">R</span>}
             </div>
-            <div className="absolute -bottom-1.5 left-1/2 grid h-4 w-4 -translate-x-1/2 place-items-center rounded-full bg-[#fe2c55] ring-2 ring-[#161618]">
+            <div className="absolute -bottom-1.5 left-1/2 grid h-4 w-4 -translate-x-1/2 place-items-center rounded-full bg-[#fd4605] ring-2 ring-[#161618]">
               <Plus className="h-2.5 w-2.5 text-white"/>
             </div>
           </div>
@@ -480,7 +480,7 @@ function MobilePreviewCard({
               onTouchEnd={()=>{isSeekingRef.current=false;}}
             >
               <div className="relative h-[3px] w-full overflow-visible rounded-full bg-white/30 transition-all duration-150 group-hover:h-1">
-                <div className="h-full rounded-full bg-[#fe2c55]" style={{width:`${progressPct}%`}}/>
+                <div className="h-full rounded-full bg-[#fd4605]" style={{width:`${progressPct}%`}}/>
                 <div className="absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow"
                   style={{left:`${progressPct}%`}}/>
               </div>
@@ -548,12 +548,12 @@ function MobilePreviewCard({
             <span className="text-[5.5px] text-white/55">Spaces</span>
           </div>
           {/* The create pill glows in the design - it is the one lit control */}
-          <div className="flex h-6 w-10 items-center justify-center rounded-[9px] bg-[#fe2c55] shadow-[0_0_12px_rgba(254,44,85,0.6)]">
+          <div className="flex h-6 w-10 items-center justify-center rounded-[9px] bg-[#fd4605] shadow-[0_0_12px_rgba(253,70,5,0.6)]">
             <Plus className="h-4 w-4 text-white"/>
           </div>
           <div className="relative flex flex-col items-center gap-0.5">
             <MessageCircle className="h-3.5 w-3.5 text-white/55"/>
-            <span className="absolute -top-1 left-1/2 ml-1 rounded-full bg-[#fe2c55] px-1 text-[5px] font-bold leading-[9px] text-white">12</span>
+            <span className="absolute -top-1 left-1/2 ml-1 rounded-full bg-[#fd4605] px-1 text-[5px] font-bold leading-[9px] text-white">12</span>
             <span className="text-[5.5px] text-white/55">Inbox</span>
           </div>
           <div className="flex flex-col items-center gap-0.5">
@@ -609,7 +609,7 @@ function PrivacyCard({ form, onChange, disabled, mediaType }: PrivacyProps) {
         ] as const).map(([val,label,sub,Icon])=>(
           <button key={val} type="button" disabled={disabled} onClick={()=>setWatchMode(val)}
             className={cn("flex flex-col items-center gap-0.5 rounded-xl border py-2 text-center transition",
-              mode===val?"border-[#fe2c55] bg-[#fff0f4] text-[#fe2c55]":"border-[#eeeeee] text-[#5f6675] hover:border-[#fe2c55]/40")}>
+              mode===val?"border-[#fd4605] bg-[#fff3ec] text-[#fd4605]":"border-[#eeeeee] text-[#5f6675] hover:border-[#fd4605]/40")}>
             <Icon className="h-3.5 w-3.5"/>
             <span className="text-[10px] font-bold">{label}</span>
             <span className="text-[8px] leading-none opacity-70">{sub}</span>
@@ -660,11 +660,11 @@ function PrivacyCard({ form, onChange, disabled, mediaType }: PrivacyProps) {
               checked={form.rightsConfirmed}
               onChange={e => onChange({ rightsConfirmed: e.target.checked })}
               disabled={disabled}
-              className="mt-0.5 h-3.5 w-3.5 shrink-0 accent-[#fe2c55]"
+              className="mt-0.5 h-3.5 w-3.5 shrink-0 accent-[#fd4605]"
             />
             <span className="flex items-start gap-2 text-[11px] font-medium text-[#374151]">
               <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#9aa1ad]" />
-              I confirm I own this content or have permission to post it. <span className="text-[#fe2c55]">Required.</span>
+              I confirm I own this content or have permission to post it. <span className="text-[#fd4605]">Required.</span>
             </span>
           </label>
         </div>
@@ -762,7 +762,7 @@ function UploadRestrictedScreen({ info, fallbackUntil }: { info?: RestrictionInf
           </p>
           <button
             onClick={() => router.push("/")}
-            className="inline-flex items-center gap-2 rounded-2xl bg-[#fe2c55] px-6 py-2.5 text-[13px] font-bold text-white hover:bg-[#e02249] transition-colors"
+            className="inline-flex items-center gap-2 rounded-2xl bg-[#fd4605] px-6 py-2.5 text-[13px] font-bold text-white hover:bg-[#e03e04] transition-colors"
           >
             Back to Feed
           </button>
@@ -922,7 +922,7 @@ function TagPeopleField({
           />
         </div>
         {value.length > 0 && (
-          <span className="shrink-0 text-[11px] font-semibold text-[#fe2c55]">{value.length} tagged</span>
+          <span className="shrink-0 text-[11px] font-semibold text-[#fd4605]">{value.length} tagged</span>
         )}
         <ChevronRight className="h-3.5 w-3.5 shrink-0 text-[#c0c4cc]" />
         {dropdown}
@@ -1874,7 +1874,7 @@ export function UploadPage() {
                   "flex items-center gap-1 rounded-[8px] border px-2 py-1 text-[11px] font-semibold transition-colors",
                   copyrightStatus === "clean"     && "border-[#16a34a] bg-[#dcfce7] text-[#16a34a]",
                   copyrightStatus === "flagged"   && "border-[#dc2626] bg-[#fee2e2] text-[#dc2626]",
-                  copyrightStatus === "unchecked" && "border-[#fecdd3] bg-[#fff5f7] text-[#fe2c55]",
+                  copyrightStatus === "unchecked" && "border-[#fecdd3] bg-[#fff6f1] text-[#fd4605]",
                 )}>
                   <Copyright className="h-3 w-3 shrink-0" />
                   Copyright check
@@ -1885,7 +1885,7 @@ export function UploadPage() {
             {/* ── Media type tabs (compact horizontal row) ── */}
             <div className="shrink-0 flex gap-2">
               {([
-                { key: "video" as const, label: "Video", Icon: Video,  color: "#fe2c55", lightBg: "#fff5f7", border: "#fecdd3" },
+                { key: "video" as const, label: "Video", Icon: Video,  color: "#fd4605", lightBg: "#fff6f1", border: "#fecdd3" },
                 { key: "photo" as const, label: "Photo", Icon: Images, color: "#22c55e", lightBg: "#f0fdf4", border: "#bbf7d0" },
               ]).map(({ key, label, Icon, color, lightBg, border }) => {
                 const active = activeUploadTab === key;
@@ -1913,15 +1913,15 @@ export function UploadPage() {
                 onClick={()=>singleRef.current?.click()}
                 className={cn(
                   "shrink-0 flex cursor-pointer flex-col items-center justify-center gap-2 rounded-[18px] border-2 border-dashed py-6 text-center transition select-none",
-                  dragOver ? "border-[#fe2c55] bg-[#fff5f7]" : "border-[#d1d5db] hover:border-[#fe2c55]/60 hover:bg-[#fffbfc]",
+                  dragOver ? "border-[#fd4605] bg-[#fff6f1]" : "border-[#d1d5db] hover:border-[#fd4605]/60 hover:bg-[#fffbfc]",
                 )}
               >
-                <div style={{ width: 48, height: 48, borderRadius: "50%", background: "#fff0f4", display: "grid", placeItems: "center" }}>
-                  <UploadCloud style={{ width: 22, height: 22, color: "#fe2c55" }} />
+                <div style={{ width: 48, height: 48, borderRadius: "50%", background: "#fff3ec", display: "grid", placeItems: "center" }}>
+                  <UploadCloud style={{ width: 22, height: 22, color: "#fd4605" }} />
                 </div>
                 <p style={{ fontSize: 14, fontWeight: 700, color: "#111827", margin: 0 }}>Drag &amp; drop your video here</p>
                 <button type="button" onClick={e=>{e.stopPropagation();singleRef.current?.click();}}
-                  style={{ background: "#fe2c55", borderRadius: 999, padding: "8px 26px", border: "none", color: "white", fontSize: 13, fontWeight: 700, cursor: "pointer", boxShadow: "0 4px 14px rgba(254,44,85,0.35)" }}>
+                  style={{ background: "#fd4605", borderRadius: 999, padding: "8px 26px", border: "none", color: "white", fontSize: 13, fontWeight: 700, cursor: "pointer", boxShadow: "0 4px 14px rgba(253,70,5,0.35)" }}>
                   Choose video
                 </button>
                 <p style={{ fontSize: 10, color: "#9aa1ad", margin: 0 }}>MP4, MOV or WebM &bull; Max 500 MB &bull; Up to 10 minutes</p>
@@ -1939,7 +1939,7 @@ export function UploadPage() {
                       <span className="text-[11px] font-bold text-[#374151]">{progress}%</span>
                     </div>
                     <div className="h-1 overflow-hidden rounded-full bg-[#e5e7eb]">
-                      <div className="h-full rounded-full bg-[#fe2c55] transition-[width]" style={{width:`${progress}%`}}/>
+                      <div className="h-full rounded-full bg-[#fd4605] transition-[width]" style={{width:`${progress}%`}}/>
                     </div>
                   </div>
                 )}
@@ -1952,7 +1952,7 @@ export function UploadPage() {
                       {files.length > 0 ? `${files.length} photo${files.length > 1 ? "s" : ""}` : `up to ${MAX_CAROUSEL_IMAGES} photos`}
                     </span>
                     {files.length > 1 && (
-                      <span className="rounded-full bg-[#fff0f3] px-2 py-0.5 text-[11px] font-semibold tabular-nums text-[#F92853]">
+                      <span className="rounded-full bg-[#fff0f3] px-2 py-0.5 text-[11px] font-semibold tabular-nums text-[#FE5A1F]">
                         {selectedPhotoIndex + 1}/{files.length}
                       </span>
                     )}
@@ -1979,7 +1979,7 @@ export function UploadPage() {
                     {files.length > 3 && (
                       <button type="button"
                         onClick={() => stripRef.current?.scrollBy({ left: -200, behavior: "smooth" })}
-                        className="absolute -left-3 top-1/2 z-10 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full border border-[#e5e7eb] bg-white shadow-sm text-[#374151] hover:text-[#F92853] transition cursor-pointer">
+                        className="absolute -left-3 top-1/2 z-10 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full border border-[#e5e7eb] bg-white shadow-sm text-[#374151] hover:text-[#FE5A1F] transition cursor-pointer">
                         <ChevronLeft className="h-4 w-4" />
                       </button>
                     )}
@@ -2015,7 +2015,7 @@ export function UploadPage() {
                           <div className={cn(
                             "h-[90px] w-[90px] overflow-hidden rounded-[12px] transition",
                             selectedPhotoIndex === i
-                              ? "ring-2 ring-[#F92853] ring-offset-1"
+                              ? "ring-2 ring-[#FE5A1F] ring-offset-1"
                               : "ring-1 ring-[#e5e7eb]"
                           )}>
                             <img src={url} alt={`Photo ${i + 1}`} className="h-full w-full object-cover"
@@ -2049,7 +2049,7 @@ export function UploadPage() {
                       {files.length < MAX_CAROUSEL_IMAGES && (
                         <button type="button"
                           onClick={() => files.length === 0 ? multiRef.current?.click() : appendRef.current?.click()}
-                          className="flex h-[90px] w-[78px] shrink-0 flex-col items-center justify-center gap-1.5 rounded-[12px] border-2 border-dashed border-[#e5e7eb] text-[#9aa1ad] transition hover:border-[#F92853] hover:text-[#F92853] cursor-pointer">
+                          className="flex h-[90px] w-[78px] shrink-0 flex-col items-center justify-center gap-1.5 rounded-[12px] border-2 border-dashed border-[#e5e7eb] text-[#9aa1ad] transition hover:border-[#FE5A1F] hover:text-[#FE5A1F] cursor-pointer">
                           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f3f4f6]">
                             <Plus className="h-4 w-4" />
                           </div>
@@ -2062,7 +2062,7 @@ export function UploadPage() {
                     {files.length > 3 && (
                       <button type="button"
                         onClick={() => stripRef.current?.scrollBy({ left: 200, behavior: "smooth" })}
-                        className="absolute -right-3 top-1/2 z-10 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full border border-[#e5e7eb] bg-white shadow-sm text-[#374151] hover:text-[#F92853] transition cursor-pointer">
+                        className="absolute -right-3 top-1/2 z-10 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full border border-[#e5e7eb] bg-white shadow-sm text-[#374151] hover:text-[#FE5A1F] transition cursor-pointer">
                         <ChevronRight className="h-4 w-4" />
                       </button>
                     )}
@@ -2077,7 +2077,7 @@ export function UploadPage() {
                       {customCoverFile ? "Custom cover selected - will appear in feed and profile." : "Choose the photo people see first in the feed and on your profile."}
                     </p>
                     <div className="flex items-center gap-3">
-                      <div className="h-[56px] w-[56px] shrink-0 overflow-hidden rounded-[10px] shadow-sm ring-2 ring-[#F92853]/20">
+                      <div className="h-[56px] w-[56px] shrink-0 overflow-hidden rounded-[10px] shadow-sm ring-2 ring-[#FE5A1F]/20">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={customCoverUrl ?? (previewUrls[Math.min(photoCoverIdx, previewUrls.length - 1)] ?? previewUrls[0])}
@@ -2088,7 +2088,7 @@ export function UploadPage() {
                       </div>
                       <button type="button" disabled={uploading}
                         onClick={() => setShowCoverPicker(v => !v)}
-                        className="flex items-center gap-1.5 rounded-[10px] border border-[#F92853] px-4 py-2 text-[12px] font-semibold text-[#F92853] transition hover:bg-[#fff5f7] disabled:opacity-40 cursor-pointer">
+                        className="flex items-center gap-1.5 rounded-[10px] border border-[#FE5A1F] px-4 py-2 text-[12px] font-semibold text-[#FE5A1F] transition hover:bg-[#fff6f1] disabled:opacity-40 cursor-pointer">
                         <Pencil className="h-3.5 w-3.5" />
                         Edit cover
                       </button>
@@ -2110,13 +2110,13 @@ export function UploadPage() {
                                 }}
                                 className={cn(
                                   "relative h-[72px] w-[58px] shrink-0 overflow-hidden rounded-[8px] border-2 transition cursor-pointer",
-                                  isSel ? "border-[#F92853]" : "border-transparent hover:border-[#d1d5db]"
+                                  isSel ? "border-[#FE5A1F]" : "border-transparent hover:border-[#d1d5db]"
                                 )}>
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img src={url} alt={`Photo ${idx + 1}`} className="h-full w-full object-cover" style={getPhotoStyle(idx)} />
                                 {isSel && (
                                   <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                                    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F92853]">
+                                    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FE5A1F]">
                                       <Check className="h-3 w-3 text-white" />
                                     </div>
                                   </div>
@@ -2131,7 +2131,7 @@ export function UploadPage() {
                             onClick={() => coverInputRef.current?.click()}
                             className={cn(
                               "flex h-[72px] w-[58px] shrink-0 flex-col items-center justify-center gap-1 rounded-[8px] border-2 border-dashed transition cursor-pointer overflow-hidden",
-                              customCoverFile ? "border-[#F92853]" : "border-[#e5e7eb] text-[#9aa1ad] hover:border-[#F92853] hover:text-[#F92853]"
+                              customCoverFile ? "border-[#FE5A1F]" : "border-[#e5e7eb] text-[#9aa1ad] hover:border-[#FE5A1F] hover:text-[#FE5A1F]"
                             )}>
                             {customCoverFile && customCoverUrl ? (
                               // eslint-disable-next-line @next/next/no-img-element
@@ -2157,7 +2157,7 @@ export function UploadPage() {
                             </button>
                           ) : <span />}
                           <button type="button" onClick={() => setShowCoverPicker(false)}
-                            className="text-[11px] font-semibold text-[#F92853] hover:underline cursor-pointer">
+                            className="text-[11px] font-semibold text-[#FE5A1F] hover:underline cursor-pointer">
                             Done
                           </button>
                         </div>
@@ -2208,10 +2208,10 @@ export function UploadPage() {
                           className={cn(
                             "flex flex-col items-center gap-1.5 rounded-[10px] border py-2.5 transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed",
                             isActive && !isRotate
-                              ? "border-[#F92853] bg-[#fff5f7]"
+                              ? "border-[#FE5A1F] bg-[#fff6f1]"
                               : "border-[#e5e7eb] bg-white hover:border-[#d1d5db] hover:bg-[#f8f9fb]"
                           )}>
-                          <Icon className={cn("h-[18px] w-[18px]", isActive && !isRotate ? "text-[#F92853]" : "text-[#374151]")} />
+                          <Icon className={cn("h-[18px] w-[18px]", isActive && !isRotate ? "text-[#FE5A1F]" : "text-[#374151]")} />
                           <span className="text-[8.5px] font-medium leading-none text-[#6b7280]">{label}</span>
                         </button>
                       );
@@ -2231,13 +2231,13 @@ export function UploadPage() {
                               className="flex shrink-0 flex-col items-center gap-1 cursor-pointer">
                               <div className={cn(
                                 "h-[54px] w-[54px] overflow-hidden rounded-[8px] border-2 transition",
-                                isSelected ? "border-[#F92853]" : "border-transparent"
+                                isSelected ? "border-[#FE5A1F]" : "border-transparent"
                               )}>
                                 <img src={previewUrls[selectedPhotoIndex]} alt={name}
                                   className="h-full w-full object-cover"
                                   style={{ filter: css || undefined }} />
                               </div>
-                              <span className={cn("text-[9px] font-medium", isSelected ? "text-[#F92853]" : "text-[#374151]")}>{name}</span>
+                              <span className={cn("text-[9px] font-medium", isSelected ? "text-[#FE5A1F]" : "text-[#374151]")}>{name}</span>
                             </button>
                           );
                         })}
@@ -2269,8 +2269,8 @@ export function UploadPage() {
                                   },
                                 }));
                               }}
-                              style={{ background: `linear-gradient(to right,#fe2c55 ${(val/200)*100}%,#e5e7eb ${(val/200)*100}%)` }}
-                              className="w-full h-[4px] cursor-pointer appearance-none rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-[14px] [&::-webkit-slider-thumb]:w-[14px] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#fe2c55] [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:h-[14px] [&::-moz-range-thumb]:w-[14px] [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-[#fe2c55] [&::-moz-range-thumb]:border-none"
+                              style={{ background: `linear-gradient(to right,#fd4605 ${(val/200)*100}%,#e5e7eb ${(val/200)*100}%)` }}
+                              className="w-full h-[4px] cursor-pointer appearance-none rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-[14px] [&::-webkit-slider-thumb]:w-[14px] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#fd4605] [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:h-[14px] [&::-moz-range-thumb]:w-[14px] [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-[#fd4605] [&::-moz-range-thumb]:border-none"
                             />
                           </div>
                         );
@@ -2285,7 +2285,7 @@ export function UploadPage() {
                       <div className="flex flex-wrap gap-2">
                         {(["Original", "1:1", "4:5", "9:16", "16:9"] as const).map(ratio => (
                           <button key={ratio} type="button"
-                            className="rounded-[8px] border border-[#e5e7eb] bg-white px-3 py-1.5 text-[12px] font-medium text-[#374151] transition hover:border-[#F92853] hover:text-[#F92853] cursor-pointer">
+                            className="rounded-[8px] border border-[#e5e7eb] bg-white px-3 py-1.5 text-[12px] font-medium text-[#374151] transition hover:border-[#FE5A1F] hover:text-[#FE5A1F] cursor-pointer">
                             {ratio}
                           </button>
                         ))}
@@ -2349,7 +2349,7 @@ export function UploadPage() {
                   </button>
                 </div>
                 <div className="mt-2.5 h-1 overflow-hidden rounded-full bg-[#e5e7eb]">
-                  <div className="h-full rounded-full bg-[#fe2c55] transition-[width]" style={{width:`${uploading?progress:100}%`}}/>
+                  <div className="h-full rounded-full bg-[#fd4605] transition-[width]" style={{width:`${uploading?progress:100}%`}}/>
                 </div>
               </div>
             )}
@@ -2380,9 +2380,9 @@ export function UploadPage() {
                   }}
                   disabled={uploading} rows={activeUploadTab === "photo" ? 3 : 4}
                   placeholder="Tell your story..."
-                  className="block w-full resize-none rounded-[14px] border border-[#e5e7eb] bg-[#f8f9fb] px-4 py-3 pr-10 text-[13px] text-[#111827] outline-none transition placeholder:text-[#c0c4cc] focus:border-[#fe2c55] focus:bg-white"
+                  className="block w-full resize-none rounded-[14px] border border-[#e5e7eb] bg-[#f8f9fb] px-4 py-3 pr-10 text-[13px] text-[#111827] outline-none transition placeholder:text-[#c0c4cc] focus:border-[#fd4605] focus:bg-white"
                 />
-                <button type="button" className="absolute bottom-3 right-3.5 text-[#c0c4cc] hover:text-[#fe2c55] transition">
+                <button type="button" className="absolute bottom-3 right-3.5 text-[#c0c4cc] hover:text-[#fd4605] transition">
                   <Smile className="h-4 w-4"/>
                 </button>
               </div>
@@ -2418,7 +2418,7 @@ export function UploadPage() {
                     />
                   </div>
                   {form.hashtags.length > 0 && (
-                    <span className="shrink-0 text-[11px] font-semibold text-[#fe2c55]">{form.hashtags.length} hashtags</span>
+                    <span className="shrink-0 text-[11px] font-semibold text-[#fd4605]">{form.hashtags.length} hashtags</span>
                   )}
                   <ChevronRight className="h-3.5 w-3.5 shrink-0 text-[#c0c4cc]" />
                 </div>
@@ -2434,13 +2434,13 @@ export function UploadPage() {
                     <Hash className="h-3.5 w-3.5 text-[#111827]" />
                     Hashtags
                   </label>
-                  <div className="relative flex min-h-[42px] flex-wrap items-center gap-1 rounded-[12px] border border-[#e5e7eb] bg-[#f8f9fb] px-2.5 py-1.5 pr-8 transition focus-within:border-[#fe2c55] focus-within:bg-white">
+                  <div className="relative flex min-h-[42px] flex-wrap items-center gap-1 rounded-[12px] border border-[#e5e7eb] bg-[#f8f9fb] px-2.5 py-1.5 pr-8 transition focus-within:border-[#fd4605] focus-within:bg-white">
                     {form.hashtags.map(tag=>(
-                      <span key={tag} className="inline-flex items-center gap-0.5 rounded-full border border-[#fecdd3] bg-[#fff0f4] px-2 py-0.5 text-[11px] font-medium text-[#fe2c55]">
+                      <span key={tag} className="inline-flex items-center gap-0.5 rounded-full border border-[#fecdd3] bg-[#fff3ec] px-2 py-0.5 text-[11px] font-medium text-[#fd4605]">
                         #{tag}
                         <button type="button" disabled={uploading}
                           onClick={()=>patchForm({hashtags:form.hashtags.filter(t=>t!==tag)})}
-                          className="ml-0.5 grid h-3 w-3 place-items-center text-[#fe2c55]/60 hover:text-[#fe2c55]">
+                          className="ml-0.5 grid h-3 w-3 place-items-center text-[#fd4605]/60 hover:text-[#fd4605]">
                           <X className="h-2 w-2"/>
                         </button>
                       </span>
@@ -2455,7 +2455,7 @@ export function UploadPage() {
                       className="min-w-[60px] flex-1 bg-transparent py-0.5 text-[12px] text-[#111827] outline-none placeholder:text-[#c0c4cc]"
                     />
                     <button type="button" onClick={()=>addHashtag(hashDraft)} disabled={uploading}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 text-[#c0c4cc] hover:text-[#fe2c55] transition">
+                      className="absolute right-2 top-1/2 -translate-y-1/2 text-[#c0c4cc] hover:text-[#fd4605] transition">
                       <Hash className="h-3.5 w-3.5"/>
                     </button>
                   </div>
@@ -2496,7 +2496,7 @@ export function UploadPage() {
                         <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-[8px] cursor-pointer group" onClick={toggleMusicPreview}>
                           {selectedMusic.cover_url
                             ? <img src={selectedMusic.cover_url} alt={selectedMusic.title} className="h-full w-full object-cover" />
-                            : <div className="absolute inset-0 bg-gradient-to-br from-[#fe2c55] to-[#6d0020] flex items-center justify-center"><Music className="h-4 w-4 text-white/70" /></div>}
+                            : <div className="absolute inset-0 bg-gradient-to-br from-[#fd4605] to-[#6d0020] flex items-center justify-center"><Music className="h-4 w-4 text-white/70" /></div>}
                           <div className="absolute inset-0 flex items-center justify-center bg-black/40 transition-opacity">
                             {previewPlaying ? <Pause className="h-3 w-3 fill-white text-white" /> : <Play className="h-3 w-3 fill-white text-white ml-px" />}
                           </div>
@@ -2510,7 +2510,7 @@ export function UploadPage() {
                         </div>
                         <button type="button" disabled={uploading}
                           onClick={() => setShowMusicModal(true)}
-                          className="shrink-0 rounded-full border border-[#e5e7eb] px-3 py-1.5 text-[12px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55] cursor-pointer">
+                          className="shrink-0 rounded-full border border-[#e5e7eb] px-3 py-1.5 text-[12px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605] cursor-pointer">
                           Change music
                         </button>
                         <button type="button" disabled={uploading}
@@ -2569,7 +2569,7 @@ export function UploadPage() {
                         <div className="relative h-7 w-7 shrink-0 overflow-hidden rounded-[6px] cursor-pointer group" onClick={toggleMusicPreview}>
                           {selectedMusic.cover_url
                             ? <img src={selectedMusic.cover_url} alt={selectedMusic.title} className="h-full w-full object-cover" />
-                            : <div className="absolute inset-0 bg-gradient-to-br from-[#fe2c55] to-[#6d0020] flex items-center justify-center"><Music className="h-3 w-3 text-white/70" /></div>}
+                            : <div className="absolute inset-0 bg-gradient-to-br from-[#fd4605] to-[#6d0020] flex items-center justify-center"><Music className="h-3 w-3 text-white/70" /></div>}
                           <div className="absolute inset-0 flex items-center justify-center bg-black/40 transition-opacity">
                             {previewPlaying ? <Pause className="h-2.5 w-2.5 fill-white text-white" /> : <Play className="h-2.5 w-2.5 fill-white text-white ml-px" />}
                           </div>
@@ -2580,7 +2580,7 @@ export function UploadPage() {
                         </div>
                         <button type="button" disabled={uploading}
                           onClick={() => setShowMusicModal(true)}
-                          className="shrink-0 whitespace-nowrap rounded-full border border-[#e5e7eb] px-2 py-1 text-[10px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+                          className="shrink-0 whitespace-nowrap rounded-full border border-[#e5e7eb] px-2 py-1 text-[10px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]">
                           Change
                         </button>
                         <button type="button" disabled={uploading}
@@ -2633,7 +2633,7 @@ export function UploadPage() {
                       <button key={`${r.formatted}-${i}`} type="button"
                         onClick={() => pickMediaLocation(r.formatted)}
                         className="flex w-full items-start gap-2 px-3 py-2 text-left transition hover:bg-[#fff0f3]">
-                        <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#fe2c55]" />
+                        <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#fd4605]" />
                         <span className="text-[12px] leading-snug text-[#111827]">{r.formatted}</span>
                       </button>
                     ))}
@@ -2671,13 +2671,13 @@ export function UploadPage() {
                 "[&::-webkit-slider-thumb]:h-[14px]",
                 "[&::-webkit-slider-thumb]:w-[14px]",
                 "[&::-webkit-slider-thumb]:rounded-full",
-                "[&::-webkit-slider-thumb]:bg-[#fe2c55]",
+                "[&::-webkit-slider-thumb]:bg-[#fd4605]",
                 "[&::-webkit-slider-thumb]:shadow-[0_0_0_2px_white,0_1px_4px_rgba(0,0,0,0.18)]",
                 "[&::-webkit-slider-thumb]:cursor-pointer",
                 "[&::-moz-range-thumb]:h-[14px]",
                 "[&::-moz-range-thumb]:w-[14px]",
                 "[&::-moz-range-thumb]:rounded-full",
-                "[&::-moz-range-thumb]:bg-[#fe2c55]",
+                "[&::-moz-range-thumb]:bg-[#fd4605]",
                 "[&::-moz-range-thumb]:border-none",
                 "[&::-moz-range-thumb]:shadow-[0_0_0_2px_white,0_1px_4px_rgba(0,0,0,0.18)]",
                 "disabled:opacity-40 disabled:cursor-not-allowed",
@@ -2702,7 +2702,7 @@ export function UploadPage() {
                             value={origVal}
                             onChange={e => { const v = Math.max(0, Math.min(100, Number(e.target.value))); setOriginalMuted(false); setOriginalAudioVol(v); }}
                             disabled={uploading}
-                            style={{ background: `linear-gradient(to right,#fe2c55 ${origVal}%,#e5e7eb ${origVal}%)` }}
+                            style={{ background: `linear-gradient(to right,#fd4605 ${origVal}%,#e5e7eb ${origVal}%)` }}
                             className={cn("flex-1", sliderCls)}
                           />
                           <span className="w-8 shrink-0 text-right text-[11px] font-semibold tabular-nums text-[#374151]">
@@ -2724,7 +2724,7 @@ export function UploadPage() {
                             value={musicVal}
                             onChange={e => { const v = Math.max(0, Math.min(100, Number(e.target.value))); setMusicMuted(false); setMusicVol(v); }}
                             disabled={uploading}
-                            style={{ background: `linear-gradient(to right,#fe2c55 ${musicVal}%,#e5e7eb ${musicVal}%)` }}
+                            style={{ background: `linear-gradient(to right,#fd4605 ${musicVal}%,#e5e7eb ${musicVal}%)` }}
                             className={cn("flex-1", sliderCls)}
                           />
                           <span className="w-8 shrink-0 text-right text-[11px] font-semibold tabular-nums text-[#374151]">
@@ -2815,7 +2815,7 @@ export function UploadPage() {
               <button type="button"
                 onClick={()=>void submit("draft")}
                 disabled={!hasMedia||contentBlocksActions}
-                className="flex flex-1 items-center justify-center gap-2 rounded-[12px] border border-[#e0e0e0] bg-white py-3.5 text-[14px] font-semibold text-black transition hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:cursor-not-allowed disabled:opacity-50">
+                className="flex flex-1 items-center justify-center gap-2 rounded-[12px] border border-[#e0e0e0] bg-white py-3.5 text-[14px] font-semibold text-black transition hover:border-[#fd4605] hover:text-[#fd4605] disabled:cursor-not-allowed disabled:opacity-50">
                 <Bookmark className="h-4 w-4"/>
                 Save as draft
               </button>
@@ -2825,7 +2825,7 @@ export function UploadPage() {
                 // scan passed - the pre-publish content check is gone.
                 disabled={contentStatus !== "passed" || uploading}
                 className={cn("flex flex-1 items-center justify-center gap-2 rounded-[12px] py-3.5 text-[14px] font-bold text-white shadow-md transition",
-                  requiredComplete&&!uploading?"bg-[#fe2c55] hover:bg-[#e0243d] shadow-[#fe2c55]/20":"cursor-not-allowed bg-[#c0c4cc]")}>
+                  requiredComplete&&!uploading?"bg-[#fd4605] hover:bg-[#e03e04] shadow-[#fd4605]/20":"cursor-not-allowed bg-[#c0c4cc]")}>
                 <Send className="h-4 w-4"/>
                 {uploading?`Posting… ${progress}%`:"Post Now"}
               </button>
@@ -2851,8 +2851,8 @@ export function UploadPage() {
           onClick={() => { setActiveUploadTab(switchPrompt.revertTab); setSwitchPrompt(null); }}>
           <div className="w-full max-w-[340px] rounded-[18px] bg-white p-5 shadow-2xl" onClick={e => e.stopPropagation()}>
             <div className="mb-3 flex items-center gap-2.5">
-              <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#fff0f4]">
-                <AlertTriangle className="h-4.5 w-4.5 text-[#fe2c55]" />
+              <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#fff3ec]">
+                <AlertTriangle className="h-4.5 w-4.5 text-[#fd4605]" />
               </div>
               <p className="text-[15px] font-bold text-[#111827]">{switchPrompt.title}</p>
             </div>
@@ -2867,7 +2867,7 @@ export function UploadPage() {
               </button>
               <button type="button"
                 onClick={() => switchPrompt.onConfirm()}
-                className="flex-1 rounded-[12px] bg-[#fe2c55] py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e02249]">
+                className="flex-1 rounded-[12px] bg-[#fd4605] py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e03e04]">
                 {switchPrompt.confirmLabel}
               </button>
             </div>

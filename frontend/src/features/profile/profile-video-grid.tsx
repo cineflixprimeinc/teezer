@@ -81,10 +81,10 @@ function ReelsEmptyIllustration() {
       <ellipse cx="100" cy="104" rx="70" ry="50" fill="#fee2e8" />
 
       {/* Drop shadow */}
-      <ellipse cx="100" cy="153" rx="50" ry="8" fill="#fe2c55" fillOpacity="0.15" />
+      <ellipse cx="100" cy="153" rx="50" ry="8" fill="#fd4605" fillOpacity="0.15" />
 
       {/* Card body */}
-      <rect x="40" y="48" width="120" height="96" rx="16" fill="#fe2c55" />
+      <rect x="40" y="48" width="120" height="96" rx="16" fill="#fd4605" />
 
       {/* Clapperboard top section */}
       <rect x="40" y="48" width="120" height="32" rx="16" fill="#d11642" />
@@ -104,14 +104,14 @@ function ReelsEmptyIllustration() {
       {/* White play circle */}
       <circle cx="100" cy="108" r="23" fill="white" />
       {/* Red play triangle */}
-      <path d="M94 99 L94 117 L112 108 Z" fill="#fe2c55" />
+      <path d="M94 99 L94 117 L112 108 Z" fill="#fd4605" />
 
       {/* Sparkle - top left */}
       <g transform="translate(24,42)">
-        <line x1="0" y1="-7" x2="0" y2="7" stroke="#fe2c55" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.55" />
-        <line x1="-7" y1="0" x2="7" y2="0" stroke="#fe2c55" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.55" />
-        <line x1="-5" y1="-5" x2="5" y2="5" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.3" />
-        <line x1="5" y1="-5" x2="-5" y2="5" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.3" />
+        <line x1="0" y1="-7" x2="0" y2="7" stroke="#fd4605" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.55" />
+        <line x1="-7" y1="0" x2="7" y2="0" stroke="#fd4605" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.55" />
+        <line x1="-5" y1="-5" x2="5" y2="5" stroke="#fd4605" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.3" />
+        <line x1="5" y1="-5" x2="-5" y2="5" stroke="#fd4605" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.3" />
       </g>
 
       {/* Sparkle - top right */}
@@ -124,13 +124,13 @@ function ReelsEmptyIllustration() {
 
       {/* Sparkle - right small */}
       <g transform="translate(176,76)">
-        <line x1="0" y1="-5" x2="0" y2="5" stroke="#fe2c55" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.4" />
-        <line x1="-5" y1="0" x2="5" y2="0" stroke="#fe2c55" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.4" />
+        <line x1="0" y1="-5" x2="0" y2="5" stroke="#fd4605" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.4" />
+        <line x1="-5" y1="0" x2="5" y2="0" stroke="#fd4605" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.4" />
       </g>
 
       {/* Dot accents */}
       <circle cx="22" cy="76" r="5" fill="#ffd6e0" />
-      <circle cx="178" cy="110" r="4" fill="#fe2c55" fillOpacity="0.25" />
+      <circle cx="178" cy="110" r="4" fill="#fd4605" fillOpacity="0.25" />
       <circle cx="32" cy="122" r="4" fill="#ffc7d2" fillOpacity="0.7" />
     </svg>
   );
@@ -151,13 +151,13 @@ function DraftsEmptyIcon() {
       <ellipse cx="110" cy="110" rx="60" ry="42" fill="#fee2e8" opacity="0.5" />
 
       {/* Drop shadow */}
-      <ellipse cx="110" cy="162" rx="55" ry="10" fill="#fe2c55" fillOpacity="0.12" />
+      <ellipse cx="110" cy="162" rx="55" ry="10" fill="#fd4605" fillOpacity="0.12" />
 
       {/* Back draft paper card (offset left) */}
       <rect x="35" y="62" width="95" height="72" rx="10" fill="#ffc7d2" opacity="0.6" />
 
       {/* Main clapperboard card */}
-      <rect x="55" y="48" width="115" height="88" rx="12" fill="#fe2c55" />
+      <rect x="55" y="48" width="115" height="88" rx="12" fill="#fd4605" />
 
       {/* Clapperboard top bar (darker) */}
       <rect x="55" y="48" width="115" height="28" rx="12" fill="#e01d47" />
@@ -176,12 +176,12 @@ function DraftsEmptyIcon() {
       {/* White play circle */}
       <circle cx="112" cy="105" r="20" fill="white" />
       {/* Red play triangle */}
-      <path d="M107 99 L107 111 L122 105 Z" fill="#fe2c55" />
+      <path d="M107 99 L107 111 L122 105 Z" fill="#fd4605" />
 
       {/* Pencil icon (front, bottom right) */}
       <g transform="translate(145, 125)">
         {/* Pencil body */}
-        <rect x="0" y="0" width="28" height="6" rx="3" fill="#fe2c55" />
+        <rect x="0" y="0" width="28" height="6" rx="3" fill="#fd4605" />
         {/* Pencil point */}
         <path d="M 28 3 L 36 0 L 36 6 Z" fill="#f59e0b" />
         {/* Pencil top metal band */}
@@ -190,10 +190,10 @@ function DraftsEmptyIcon() {
 
       {/* Sparkle - top left */}
       <g transform="translate(26, 48)">
-        <line x1="0" y1="-6" x2="0" y2="6" stroke="#fe2c55" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
-        <line x1="-6" y1="0" x2="6" y2="0" stroke="#fe2c55" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
-        <line x1="-4" y1="-4" x2="4" y2="4" stroke="#fe2c55" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
-        <line x1="4" y1="-4" x2="-4" y2="4" stroke="#fe2c55" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
+        <line x1="0" y1="-6" x2="0" y2="6" stroke="#fd4605" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
+        <line x1="-6" y1="0" x2="6" y2="0" stroke="#fd4605" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
+        <line x1="-4" y1="-4" x2="4" y2="4" stroke="#fd4605" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
+        <line x1="4" y1="-4" x2="-4" y2="4" stroke="#fd4605" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
       </g>
 
       {/* Sparkle - top right */}
@@ -206,13 +206,13 @@ function DraftsEmptyIcon() {
 
       {/* Small sparkle - right side */}
       <g transform="translate(190, 85)">
-        <line x1="0" y1="-4" x2="0" y2="4" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
-        <line x1="-4" y1="0" x2="4" y2="0" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
+        <line x1="0" y1="-4" x2="0" y2="4" stroke="#fd4605" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
+        <line x1="-4" y1="0" x2="4" y2="0" stroke="#fd4605" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
       </g>
 
       {/* Decorative dots */}
       <circle cx="18" cy="80" r="4" fill="#ffd6e0" opacity="0.7" />
-      <circle cx="195" cy="125" r="3.5" fill="#fe2c55" fillOpacity="0.2" />
+      <circle cx="195" cy="125" r="3.5" fill="#fd4605" fillOpacity="0.2" />
       <circle cx="30" cy="135" r="3" fill="#ffc7d2" fillOpacity="0.6" />
     </svg>
   );
@@ -225,13 +225,13 @@ function LikedEmptyIcon() {
       className="w-[140px] sm:w-[190px]" aria-hidden="true">
       <ellipse cx="110" cy="106" rx="74" ry="54" fill="#fff1f4" />
       <ellipse cx="110" cy="106" rx="56" ry="42" fill="#fee2e8" opacity="0.55" />
-      <ellipse cx="110" cy="160" rx="52" ry="9" fill="#fe2c55" fillOpacity="0.13" />
+      <ellipse cx="110" cy="160" rx="52" ry="9" fill="#fd4605" fillOpacity="0.13" />
       {/* Card shadow layer */}
       <rect x="46" y="42" width="130" height="108" rx="20" fill="#fee2e8" opacity="0.45" />
       {/* White card */}
       <rect x="42" y="37" width="130" height="108" rx="20" fill="white" />
       {/* Large pink heart */}
-      <path d="M107 123 C82 108 60 93 60 70 C60 53 74 44 87 44 C96 44 105 50 107 59 C109 50 118 44 127 44 C140 44 154 53 154 70 C154 93 132 108 107 123 Z" fill="#fe2c55" />
+      <path d="M107 123 C82 108 60 93 60 70 C60 53 74 44 87 44 C96 44 105 50 107 59 C109 50 118 44 127 44 C140 44 154 53 154 70 C154 93 132 108 107 123 Z" fill="#fd4605" />
       {/* Highlight */}
       <path d="M87 48 C93 48 102 53 106 62 C104 54 98 48 91 47 Z" fill="white" fillOpacity="0.28" />
       {/* Small floating heart */}
@@ -239,10 +239,10 @@ function LikedEmptyIcon() {
         <path d="M20 36 C20 36 1 24 1 13 C1 6 7 2 13 2 C17 2 20 5 21 8 C22 5 25 2 29 2 C35 2 41 6 41 13 C41 24 22 36 20 36 Z" fill="#ffa0b4" />
       </g>
       <g transform="translate(28,46)">
-        <line x1="0" y1="-6" x2="0" y2="6" stroke="#fe2c55" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
-        <line x1="-6" y1="0" x2="6" y2="0" stroke="#fe2c55" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
-        <line x1="-4" y1="-4" x2="4" y2="4" stroke="#fe2c55" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
-        <line x1="4" y1="-4" x2="-4" y2="4" stroke="#fe2c55" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
+        <line x1="0" y1="-6" x2="0" y2="6" stroke="#fd4605" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
+        <line x1="-6" y1="0" x2="6" y2="0" stroke="#fd4605" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
+        <line x1="-4" y1="-4" x2="4" y2="4" stroke="#fd4605" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
+        <line x1="4" y1="-4" x2="-4" y2="4" stroke="#fd4605" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
       </g>
       <g transform="translate(188,35)">
         <line x1="0" y1="-7" x2="0" y2="7" stroke="#ffa0b4" strokeWidth="2.8" strokeLinecap="round" strokeOpacity="0.7" />
@@ -251,11 +251,11 @@ function LikedEmptyIcon() {
         <line x1="4" y1="-4" x2="-4" y2="4" stroke="#ffa0b4" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.4" />
       </g>
       <g transform="translate(193,88)">
-        <line x1="0" y1="-4" x2="0" y2="4" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
-        <line x1="-4" y1="0" x2="4" y2="0" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
+        <line x1="0" y1="-4" x2="0" y2="4" stroke="#fd4605" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
+        <line x1="-4" y1="0" x2="4" y2="0" stroke="#fd4605" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
       </g>
       <circle cx="20" cy="80" r="4.5" fill="#ffd6e0" opacity="0.75" />
-      <circle cx="196" cy="124" r="3.5" fill="#fe2c55" fillOpacity="0.22" />
+      <circle cx="196" cy="124" r="3.5" fill="#fd4605" fillOpacity="0.22" />
       <circle cx="32" cy="140" r="3" fill="#ffc7d2" fillOpacity="0.65" />
     </svg>
   );
@@ -268,26 +268,26 @@ function PlaylistsEmptyIcon() {
       className="w-[140px] sm:w-[190px]" aria-hidden="true">
       <ellipse cx="110" cy="106" rx="74" ry="54" fill="#fff1f4" />
       <ellipse cx="110" cy="106" rx="56" ry="42" fill="#fee2e8" opacity="0.55" />
-      <ellipse cx="110" cy="160" rx="52" ry="9" fill="#fe2c55" fillOpacity="0.13" />
+      <ellipse cx="110" cy="160" rx="52" ry="9" fill="#fd4605" fillOpacity="0.13" />
       <rect x="46" y="42" width="130" height="108" rx="20" fill="#fee2e8" opacity="0.45" />
       <rect x="42" y="37" width="130" height="108" rx="20" fill="white" />
       {/* List row 1 */}
-      <circle cx="66" cy="74" r="7" fill="#fe2c55" />
-      <rect x="82" y="69" width="72" height="10" rx="5" fill="#fe2c55" opacity="0.85" />
+      <circle cx="66" cy="74" r="7" fill="#fd4605" />
+      <rect x="82" y="69" width="72" height="10" rx="5" fill="#fd4605" opacity="0.85" />
       {/* List row 2 */}
-      <circle cx="66" cy="96" r="7" fill="#fe2c55" opacity="0.65" />
-      <rect x="82" y="91" width="56" height="10" rx="5" fill="#fe2c55" opacity="0.6" />
+      <circle cx="66" cy="96" r="7" fill="#fd4605" opacity="0.65" />
+      <rect x="82" y="91" width="56" height="10" rx="5" fill="#fd4605" opacity="0.6" />
       {/* List row 3 */}
-      <circle cx="66" cy="118" r="7" fill="#fe2c55" opacity="0.45" />
-      <rect x="82" y="113" width="42" height="10" rx="5" fill="#fe2c55" opacity="0.42" />
+      <circle cx="66" cy="118" r="7" fill="#fd4605" opacity="0.45" />
+      <rect x="82" y="113" width="42" height="10" rx="5" fill="#fd4605" opacity="0.42" />
       {/* Play badge - overlaps bottom-right corner */}
-      <circle cx="158" cy="140" r="21" fill="#fe2c55" />
+      <circle cx="158" cy="140" r="21" fill="#fd4605" />
       <path d="M152 131 L152 149 L169 140 Z" fill="white" />
       <g transform="translate(28,46)">
-        <line x1="0" y1="-6" x2="0" y2="6" stroke="#fe2c55" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
-        <line x1="-6" y1="0" x2="6" y2="0" stroke="#fe2c55" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
-        <line x1="-4" y1="-4" x2="4" y2="4" stroke="#fe2c55" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
-        <line x1="4" y1="-4" x2="-4" y2="4" stroke="#fe2c55" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
+        <line x1="0" y1="-6" x2="0" y2="6" stroke="#fd4605" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
+        <line x1="-6" y1="0" x2="6" y2="0" stroke="#fd4605" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
+        <line x1="-4" y1="-4" x2="4" y2="4" stroke="#fd4605" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
+        <line x1="4" y1="-4" x2="-4" y2="4" stroke="#fd4605" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
       </g>
       <g transform="translate(188,35)">
         <line x1="0" y1="-7" x2="0" y2="7" stroke="#ffa0b4" strokeWidth="2.8" strokeLinecap="round" strokeOpacity="0.7" />
@@ -296,8 +296,8 @@ function PlaylistsEmptyIcon() {
         <line x1="4" y1="-4" x2="-4" y2="4" stroke="#ffa0b4" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.4" />
       </g>
       <g transform="translate(28,146)">
-        <line x1="0" y1="-4" x2="0" y2="4" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
-        <line x1="-4" y1="0" x2="4" y2="0" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
+        <line x1="0" y1="-4" x2="0" y2="4" stroke="#fd4605" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
+        <line x1="-4" y1="0" x2="4" y2="0" stroke="#fd4605" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
       </g>
       <circle cx="20" cy="80" r="4.5" fill="#ffd6e0" opacity="0.75" />
       <circle cx="32" cy="136" r="3" fill="#ffc7d2" fillOpacity="0.65" />
@@ -312,9 +312,9 @@ function TaggedEmptyIcon() {
       className="w-[140px] sm:w-[190px]" aria-hidden="true">
       <ellipse cx="110" cy="96" rx="72" ry="56" fill="#fff1f4" />
       <ellipse cx="110" cy="96" rx="55" ry="42" fill="#fee2e8" opacity="0.55" />
-      <ellipse cx="110" cy="160" rx="52" ry="9" fill="#fe2c55" fillOpacity="0.13" />
+      <ellipse cx="110" cy="160" rx="52" ry="9" fill="#fd4605" fillOpacity="0.13" />
       {/* Diamond / tag shape */}
-      <polygon points="110,22 182,90 110,158 38,90" fill="#fe2c55" />
+      <polygon points="110,22 182,90 110,158 38,90" fill="#fd4605" />
       {/* Inner lighter layer for depth */}
       <polygon points="110,34 170,90 110,146 50,90" fill="#e91e4d" opacity="0.2" />
       {/* Tag hole */}
@@ -323,10 +323,10 @@ function TaggedEmptyIcon() {
       {/* White play triangle */}
       <path d="M102 83 L102 99 L119 91 Z" fill="white" />
       <g transform="translate(26,48)">
-        <line x1="0" y1="-6" x2="0" y2="6" stroke="#fe2c55" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.55" />
-        <line x1="-6" y1="0" x2="6" y2="0" stroke="#fe2c55" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.55" />
-        <line x1="-4" y1="-4" x2="4" y2="4" stroke="#fe2c55" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.28" />
-        <line x1="4" y1="-4" x2="-4" y2="4" stroke="#fe2c55" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.28" />
+        <line x1="0" y1="-6" x2="0" y2="6" stroke="#fd4605" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.55" />
+        <line x1="-6" y1="0" x2="6" y2="0" stroke="#fd4605" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.55" />
+        <line x1="-4" y1="-4" x2="4" y2="4" stroke="#fd4605" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.28" />
+        <line x1="4" y1="-4" x2="-4" y2="4" stroke="#fd4605" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.28" />
       </g>
       <g transform="translate(190,35)">
         <line x1="0" y1="-7" x2="0" y2="7" stroke="#ffa0b4" strokeWidth="2.8" strokeLinecap="round" strokeOpacity="0.7" />
@@ -335,11 +335,11 @@ function TaggedEmptyIcon() {
         <line x1="4" y1="-4" x2="-4" y2="4" stroke="#ffa0b4" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.38" />
       </g>
       <g transform="translate(192,88)">
-        <line x1="0" y1="-4" x2="0" y2="4" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
-        <line x1="-4" y1="0" x2="4" y2="0" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
+        <line x1="0" y1="-4" x2="0" y2="4" stroke="#fd4605" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
+        <line x1="-4" y1="0" x2="4" y2="0" stroke="#fd4605" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
       </g>
       <circle cx="18" cy="82" r="4" fill="#ffd6e0" opacity="0.7" />
-      <circle cx="194" cy="120" r="3.5" fill="#fe2c55" fillOpacity="0.2" />
+      <circle cx="194" cy="120" r="3.5" fill="#fd4605" fillOpacity="0.2" />
       <circle cx="30" cy="138" r="3" fill="#ffc7d2" fillOpacity="0.6" />
     </svg>
   );
@@ -352,9 +352,9 @@ function SavedEmptyIcon() {
       className="w-[140px] sm:w-[190px]" aria-hidden="true">
       <ellipse cx="110" cy="100" rx="68" ry="52" fill="#fff1f4" />
       <ellipse cx="110" cy="100" rx="52" ry="40" fill="#fee2e8" opacity="0.55" />
-      <ellipse cx="110" cy="160" rx="50" ry="9" fill="#fe2c55" fillOpacity="0.13" />
+      <ellipse cx="110" cy="160" rx="50" ry="9" fill="#fd4605" fillOpacity="0.13" />
       {/* Bookmark shape */}
-      <path d="M84 28 Q76 28 76 36 L76 152 L110 128 L144 152 L144 36 Q144 28 136 28 Z" fill="#fe2c55" />
+      <path d="M84 28 Q76 28 76 36 L76 152 L110 128 L144 152 L144 36 Q144 28 136 28 Z" fill="#fd4605" />
       {/* Top highlight band */}
       <path d="M84 28 Q76 28 76 36 L76 58 L144 58 L144 36 Q144 28 136 28 Z" fill="white" fillOpacity="0.12" />
       {/* White decorative lines */}
@@ -362,10 +362,10 @@ function SavedEmptyIcon() {
       <line x1="92" y1="66" x2="128" y2="66" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeOpacity="0.35" />
       <line x1="92" y1="82" x2="120" y2="82" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeOpacity="0.25" />
       <g transform="translate(28,44)">
-        <line x1="0" y1="-6" x2="0" y2="6" stroke="#fe2c55" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
-        <line x1="-6" y1="0" x2="6" y2="0" stroke="#fe2c55" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
-        <line x1="-4" y1="-4" x2="4" y2="4" stroke="#fe2c55" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
-        <line x1="4" y1="-4" x2="-4" y2="4" stroke="#fe2c55" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
+        <line x1="0" y1="-6" x2="0" y2="6" stroke="#fd4605" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
+        <line x1="-6" y1="0" x2="6" y2="0" stroke="#fd4605" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.6" />
+        <line x1="-4" y1="-4" x2="4" y2="4" stroke="#fd4605" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
+        <line x1="4" y1="-4" x2="-4" y2="4" stroke="#fd4605" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
       </g>
       <g transform="translate(186,34)">
         <line x1="0" y1="-7" x2="0" y2="7" stroke="#ffa0b4" strokeWidth="2.8" strokeLinecap="round" strokeOpacity="0.7" />
@@ -374,11 +374,11 @@ function SavedEmptyIcon() {
         <line x1="4" y1="-4" x2="-4" y2="4" stroke="#ffa0b4" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.4" />
       </g>
       <g transform="translate(192,82)">
-        <line x1="0" y1="-4" x2="0" y2="4" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
-        <line x1="-4" y1="0" x2="4" y2="0" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
+        <line x1="0" y1="-4" x2="0" y2="4" stroke="#fd4605" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
+        <line x1="-4" y1="0" x2="4" y2="0" stroke="#fd4605" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.4" />
       </g>
       <circle cx="20" cy="78" r="4" fill="#ffd6e0" opacity="0.7" />
-      <circle cx="196" cy="118" r="3.5" fill="#fe2c55" fillOpacity="0.22" />
+      <circle cx="196" cy="118" r="3.5" fill="#fd4605" fillOpacity="0.22" />
       <circle cx="34" cy="142" r="3" fill="#ffc7d2" fillOpacity="0.6" />
     </svg>
   );
@@ -405,8 +405,8 @@ export function ProfileVideoGrid({ items, loading, tab, isOwnProfile, username, 
   if (tab === "saved" && savedBlocked) {
     return (
       <div className="flex flex-col items-center justify-center px-5 py-14 text-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#fff0f4] mb-4">
-          <Bookmark className="h-7 w-7 text-[#fe2c55]" />
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#fff3ec] mb-4">
+          <Bookmark className="h-7 w-7 text-[#fd4605]" />
         </div>
         <p className="text-[18px] font-bold text-[#111827]">Saved list is private</p>
         <p className="mt-1.5 text-[13px] text-[#6b7280]">{savedBlockedMsg ?? "This user's saved videos are not visible."}</p>
@@ -420,8 +420,8 @@ export function ProfileVideoGrid({ items, loading, tab, isOwnProfile, username, 
     return (
       <div className="flex flex-col items-center justify-center px-5 py-14 text-center">
         <div className="relative mb-4">
-          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#fff0f4] to-[#fce4ea]">
-            <Heart className="h-9 w-9 text-[#fe2c55]" />
+          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#fff3ec] to-[#fde7dc]">
+            <Heart className="h-9 w-9 text-[#fd4605]" />
           </div>
           {/* Lock overlay badge */}
           <div className="absolute -bottom-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-[#374151]">
@@ -476,7 +476,7 @@ export function ProfileVideoGrid({ items, loading, tab, isOwnProfile, username, 
         {isOwnProfile && (
           <Link
             href="/upload"
-            className="mt-5 inline-flex items-center gap-2 rounded-[10px] bg-[#fe2c55] px-7 py-3 text-[14px] font-bold text-white shadow-[0_8px_20px_rgba(254,44,85,0.22)] transition hover:bg-[#e02449] hover:-translate-y-px active:scale-95"
+            className="mt-5 inline-flex items-center gap-2 rounded-[10px] bg-[#fd4605] px-7 py-3 text-[14px] font-bold text-white shadow-[0_8px_20px_rgba(253,70,5,0.22)] transition hover:bg-[#e03e04] hover:-translate-y-px active:scale-95"
           >
             Upload reel
           </Link>
@@ -495,7 +495,7 @@ export function ProfileVideoGrid({ items, loading, tab, isOwnProfile, username, 
         {isOwnProfile && (
           <Link
             href="/upload?draft=true"
-            className="mt-5 inline-flex items-center gap-2 rounded-[10px] bg-[#fe2c55] px-7 py-3 text-[14px] font-bold text-white shadow-[0_8px_20px_rgba(254,44,85,0.22)] transition hover:bg-[#e02449] hover:-translate-y-px active:scale-95"
+            className="mt-5 inline-flex items-center gap-2 rounded-[10px] bg-[#fd4605] px-7 py-3 text-[14px] font-bold text-white shadow-[0_8px_20px_rgba(253,70,5,0.22)] transition hover:bg-[#e03e04] hover:-translate-y-px active:scale-95"
           >
             Create draft
           </Link>
@@ -563,7 +563,7 @@ function DummyVideoCard({ card }: { card: DummyCard }) {
 
       {/* Pinned badge - top-left */}
       {card.pinned && (
-        <span className="absolute left-1.5 top-1.5 rounded-md bg-[#fe2c55] px-1.5 py-[3px] text-[10px] font-bold text-white shadow">
+        <span className="absolute left-1.5 top-1.5 rounded-md bg-[#fd4605] px-1.5 py-[3px] text-[10px] font-bold text-white shadow">
           Pinned
         </span>
       )}
@@ -664,7 +664,7 @@ function RealVideoCard({
 
       {/* Pinned badge */}
       {pinned && (
-        <span className="absolute left-1.5 top-1.5 rounded-md bg-[#fe2c55] px-1.5 py-[3px] text-[10px] font-bold text-white shadow">
+        <span className="absolute left-1.5 top-1.5 rounded-md bg-[#fd4605] px-1.5 py-[3px] text-[10px] font-bold text-white shadow">
           Pinned
         </span>
       )}

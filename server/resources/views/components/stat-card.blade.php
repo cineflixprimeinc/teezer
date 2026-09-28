@@ -2,7 +2,7 @@
 
 @php
     $colors = [
-        'pink'  => 'text-[#fe2c55]',
+        'pink'  => 'text-[#fd4605]',
         'green' => 'text-green-400',
         'blue'  => 'text-blue-400',
         'amber' => 'text-amber-400',

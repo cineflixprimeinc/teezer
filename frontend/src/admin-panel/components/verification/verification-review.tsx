@@ -115,7 +115,7 @@ function ReasonPicker({
               onClick={() => onChange(active ? "" : p)}
               className={`rounded-full border px-2.5 py-1 text-left text-[11.5px] font-medium transition ${
                 active
-                  ? "border-[#fe2c55] bg-[#fff5f7] text-[#fe2c55]"
+                  ? "border-[#fd4605] bg-[#fff6f1] text-[#fd4605]"
                   : "border-[#e8eaed] text-[#6b7280] hover:border-[#d5d8dd] hover:bg-[#fbfbfc]"
               }`}
             >
@@ -134,7 +134,7 @@ function ReasonPicker({
         rows={3}
         maxLength={500}
         placeholder={placeholder}
-        className="w-full rounded-[10px] border border-[#e8eaed] p-3 text-[13px] outline-none focus:border-[#fe2c55]"
+        className="w-full rounded-[10px] border border-[#e8eaed] p-3 text-[13px] outline-none focus:border-[#fd4605]"
       />
       <p className="mt-1 text-right text-[11px] text-[#9ca3af]">{value.length}/500</p>
     </div>
@@ -409,7 +409,7 @@ export function VerificationReview({
               </button>
               <button
                 onClick={() => { setFormError(""); setApproving(latest); }}
-                className="inline-flex items-center gap-1.5 rounded-xl bg-[#fe2c55] px-4 py-2 text-[13px] font-semibold text-white shadow-sm transition hover:bg-[#e0243d]"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-[#fd4605] px-4 py-2 text-[13px] font-semibold text-white shadow-sm transition hover:bg-[#e03e04]"
               >
                 <CheckCircle2 size={14}/> Approve
               </button>
@@ -441,7 +441,7 @@ export function VerificationReview({
               {revoked && (
                 <button
                   onClick={() => { setFormError(""); setMode(latest.is_permanent ? "permanent" : "subscription"); setApproving(latest); }}
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-[#fe2c55] px-3.5 py-2 text-[13px] font-semibold text-white shadow-sm transition hover:bg-[#e0243d]"
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-[#fd4605] px-3.5 py-2 text-[13px] font-semibold text-white shadow-sm transition hover:bg-[#e03e04]"
                 >
                   <ShieldCheck size={14}/> Restore badge
                 </button>
@@ -609,7 +609,7 @@ export function VerificationReview({
                       {d.url && (
                         <a href={d.url} target="_blank" rel="noopener noreferrer"
                            onClick={(e) => e.stopPropagation()}
-                           className="text-[#c9ccd1] transition hover:text-[#fe2c55]">
+                           className="text-[#c9ccd1] transition hover:text-[#fd4605]">
                           <ExternalLink size={12}/>
                         </a>
                       )}
@@ -817,16 +817,16 @@ export function VerificationReview({
                 onClick={() => setMode(key)}
                 className={`flex w-full items-start gap-3 rounded-xl border p-3 text-left transition ${
                   active
-                    ? "border-[#fe2c55] bg-[#fff5f7]"
+                    ? "border-[#fd4605] bg-[#fff6f1]"
                     : "border-[#e8eaed] hover:border-[#d5d8dd] hover:bg-[#fbfbfc]"
                 }`}
               >
                 <span className={`mt-0.5 grid h-4 w-4 flex-shrink-0 place-items-center rounded-full border-2 ${
-                  active ? "border-[#fe2c55]" : "border-[#d1d5db]"
+                  active ? "border-[#fd4605]" : "border-[#d1d5db]"
                 }`}>
-                  {active && <span className="h-1.5 w-1.5 rounded-full bg-[#fe2c55]"/>}
+                  {active && <span className="h-1.5 w-1.5 rounded-full bg-[#fd4605]"/>}
                 </span>
-                <Icon size={14} className={`mt-0.5 flex-shrink-0 ${active ? "text-[#fe2c55]" : "text-[#9ca3af]"}`}/>
+                <Icon size={14} className={`mt-0.5 flex-shrink-0 ${active ? "text-[#fd4605]" : "text-[#9ca3af]"}`}/>
                 <span className="min-w-0">
                   <span className="block text-[12.5px] font-bold text-[#111827]">{title}</span>
                   <span className="mt-0.5 block text-[11.5px] leading-relaxed text-[#6b7280]">{body}</span>

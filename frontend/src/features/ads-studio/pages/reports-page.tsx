@@ -115,7 +115,7 @@ export function ReportsPage() {
           Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} className="h-[128px]" />)
         ) : (
           <>
-            <StatTile icon={CircleDollarSign} iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+            <StatTile icon={CircleDollarSign} iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
               label="Spend" value={money(s?.spend_cents.value, currency)}
               compareLabel={compareLabel} {...tile(s?.spend_cents)} />
             <StatTile icon={Eye} iconBg="bg-[#ede9fe]" iconColor="text-[#7c3aed]"

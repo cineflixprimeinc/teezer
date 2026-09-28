@@ -29,7 +29,7 @@ const TITLES: Record<PostKind, string> = {
 };
 
 function avatarColor(seed: string): string {
-  const palette = ["#fe2c55", "#1d8cff", "#a855f7", "#10b981", "#f97316", "#8b5cf6"];
+  const palette = ["#fd4605", "#1d8cff", "#a855f7", "#10b981", "#f97316", "#8b5cf6"];
   let h = 0;
   for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) | 0;
   return palette[Math.abs(h) % palette.length];

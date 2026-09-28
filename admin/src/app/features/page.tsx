@@ -87,7 +87,7 @@ export default function FeaturesPage() {
             <Card key={group}>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-[#fe2c55]" /> {group}
+                  <Zap className="h-4 w-4 text-[#fd4605]" /> {group}
                 </CardTitle>
               </CardHeader>
               <CardBody className="p-0">
@@ -108,7 +108,7 @@ export default function FeaturesPage() {
                           disabled={toggle.isPending}
                           onClick={() => toggle.mutate({ key, enabled: !enabled })}
                           className={`relative h-6 w-11 rounded-full transition-colors disabled:opacity-60
-                            ${enabled ? "bg-[#fe2c55]" : "bg-[#d1d5db]"}`}
+                            ${enabled ? "bg-[#fd4605]" : "bg-[#d1d5db]"}`}
                         >
                           <span className={`absolute top-1 h-4 w-4 rounded-full bg-white shadow transition-transform
                             ${enabled ? "translate-x-6" : "translate-x-1"}`} />

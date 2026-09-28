@@ -111,7 +111,7 @@ export function FollowersModal({
                 className={cn(
                   "flex items-center gap-1.5 border-b-[2.5px] px-3 py-3 text-[13px] font-semibold transition-colors",
                   active
-                    ? "border-[#fe2c55] text-[#fe2c55]"
+                    ? "border-[#fd4605] text-[#fd4605]"
                     : "border-transparent text-[#5f6675] hover:text-black",
                 )}
               >
@@ -131,7 +131,7 @@ export function FollowersModal({
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={`Search ${tab}`}
-                className="h-9 w-full rounded-[10px] border border-[#eeeeee] bg-white pl-9 pr-3 text-[13px] outline-none transition focus:border-[#fe2c55]"
+                className="h-9 w-full rounded-[10px] border border-[#eeeeee] bg-white pl-9 pr-3 text-[13px] outline-none transition focus:border-[#fd4605]"
               />
             </div>
           </div>
@@ -179,7 +179,7 @@ function FollowRow({ user, onNavigate }: { user: ReelsooUser; onNavigate: () => 
           // eslint-disable-next-line @next/next/no-img-element
           <img src={user.avatar} alt={user.name} className="h-10 w-10 flex-shrink-0 rounded-full object-cover" />
         ) : (
-          <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#fe2c55] text-[13px] font-bold text-white">
+          <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#fd4605] text-[13px] font-bold text-white">
             {initial}
           </div>
         )}
@@ -294,7 +294,7 @@ function SuggestedList({
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={s.avatar} alt={s.display_name} className="h-11 w-11 rounded-full object-cover" />
               ) : (
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#fe2c55] text-[14px] font-bold text-white">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#fd4605] text-[14px] font-bold text-white">
                   {initial}
                 </div>
               )}
@@ -332,7 +332,7 @@ function SuggestedList({
                   "rounded-full px-4 py-1.5 text-[12px] font-bold transition active:scale-[0.97]",
                   followed
                     ? "bg-[#f3f4f6] text-[#5f6675] cursor-default"
-                    : "bg-[#fe2c55] text-white hover:bg-[#e02449]",
+                    : "bg-[#fd4605] text-white hover:bg-[#e03e04]",
                   loading && "cursor-wait opacity-60",
                 )}
               >

@@ -173,8 +173,8 @@ function SearchDropdown({
         onClick={() => open ? setOpen(false) : openMenu()}
         className={`flex h-9 min-w-[150px] items-center gap-2 rounded-[10px] border px-3 text-[13px] font-semibold transition-all disabled:pointer-events-none disabled:opacity-40 ${
           open
-            ? "border-[#fe2c55] bg-[#fff0f4] text-[#fe2c55] shadow-[0_0_0_3px_rgba(254,44,85,0.10)]"
-            : "border-[#e5e7eb] bg-white text-[#374151] hover:border-[#fe2c55] hover:bg-[#fff8f9] hover:text-[#fe2c55]"
+            ? "border-[#fd4605] bg-[#fff3ec] text-[#fd4605] shadow-[0_0_0_3px_rgba(253,70,5,0.10)]"
+            : "border-[#e5e7eb] bg-white text-[#374151] hover:border-[#fd4605] hover:bg-[#fff8f9] hover:text-[#fd4605]"
         }`}
       >
         {renderTrigger
@@ -183,7 +183,7 @@ function SearchDropdown({
             <>
               {selected?.prefix && <span className="text-base leading-none">{selected.prefix}</span>}
               <span className="flex-1 text-left truncate">{selected?.label ?? value}</span>
-              <ChevronDown className={`h-3.5 w-3.5 flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180 text-[#fe2c55]" : "text-[#9ca3af]"}`} />
+              <ChevronDown className={`h-3.5 w-3.5 flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180 text-[#fd4605]" : "text-[#9ca3af]"}`} />
             </>
           )
         }
@@ -225,14 +225,14 @@ function SearchDropdown({
                   type="button"
                   onClick={() => { onChange(item.value); setOpen(false); setQuery(""); }}
                   className={`flex w-full items-center gap-3 px-3.5 py-2.5 text-left transition-colors ${
-                    active ? "bg-[#fff0f4]" : "hover:bg-[#f8f9fb]"
+                    active ? "bg-[#fff3ec]" : "hover:bg-[#f8f9fb]"
                   }`}
                 >
                   {item.prefix && (
                     <span className="text-[18px] leading-none flex-shrink-0">{item.prefix}</span>
                   )}
                   <div className="min-w-0 flex-1">
-                    <p className={`text-[13px] font-semibold leading-tight ${active ? "text-[#fe2c55]" : "text-[#111827]"}`}>
+                    <p className={`text-[13px] font-semibold leading-tight ${active ? "text-[#fd4605]" : "text-[#111827]"}`}>
                       {item.label}
                     </p>
                     {item.sublabel && (
@@ -240,7 +240,7 @@ function SearchDropdown({
                     )}
                   </div>
                   {active && (
-                    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#fe2c55]">
+                    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#fd4605]">
                       <Check className="h-3 w-3 text-white" strokeWidth={3} />
                     </div>
                   )}
@@ -262,7 +262,7 @@ function Toggle({ on, onChange, disabled }: { on: boolean; onChange: (v: boolean
   return (
     <button type="button" role="switch" aria-checked={on} disabled={disabled}
       onClick={() => onChange(!on)}
-      className={`relative inline-flex h-[26px] w-12 flex-shrink-0 items-center rounded-full border-2 border-transparent transition-colors duration-200 disabled:opacity-40 ${on ? "bg-[#fe2c55]" : "bg-[#d1d5db]"}`}>
+      className={`relative inline-flex h-[26px] w-12 flex-shrink-0 items-center rounded-full border-2 border-transparent transition-colors duration-200 disabled:opacity-40 ${on ? "bg-[#fd4605]" : "bg-[#d1d5db]"}`}>
       <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow-md transition-transform duration-200 ${on ? "translate-x-[22px]" : "translate-x-0.5"}`} />
     </button>
   );
@@ -304,7 +304,7 @@ function Card({ n, title, children, className = "" }: {
   return (
     <div className={`overflow-hidden rounded-2xl border border-[#f0f1f5] bg-white shadow-sm ${className}`}>
       <div className="flex items-center gap-2.5 border-b border-[#f3f4f6] px-5 py-4">
-        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#fe2c55] text-[11px] font-black text-white">{n}</span>
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#fd4605] text-[11px] font-black text-white">{n}</span>
         <p className="text-[12px] font-bold uppercase tracking-widest text-[#374151]">{title}</p>
       </div>
       {children}
@@ -408,17 +408,17 @@ function WordListModal({
             onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); add(); } }}
             placeholder={placeholder}
             maxLength={100}
-            className="flex-1 rounded-[10px] border border-[#e5e7eb] px-3 py-2.5 text-[13px] text-[#111827] outline-none placeholder-[#9ca3af] transition focus:border-[#fe2c55] focus:shadow-[0_0_0_3px_rgba(254,44,85,0.10)]"
+            className="flex-1 rounded-[10px] border border-[#e5e7eb] px-3 py-2.5 text-[13px] text-[#111827] outline-none placeholder-[#9ca3af] transition focus:border-[#fd4605] focus:shadow-[0_0_0_3px_rgba(253,70,5,0.10)]"
           />
           <button onClick={add} disabled={!input.trim() || adding}
-            className="flex flex-shrink-0 items-center gap-1.5 rounded-[10px] bg-[#fe2c55] px-4 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e0193f] disabled:opacity-40">
+            className="flex flex-shrink-0 items-center gap-1.5 rounded-[10px] bg-[#fd4605] px-4 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e03e04] disabled:opacity-40">
             {adding ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" strokeWidth={3} />} Add
           </button>
         </div>
 
         <div className="min-h-[128px] flex-1 overflow-y-auto px-5 pb-4">
           {loading ? (
-            <div className="flex h-32 items-center justify-center"><Loader2 className="h-6 w-6 animate-spin text-[#fe2c55]" /></div>
+            <div className="flex h-32 items-center justify-center"><Loader2 className="h-6 w-6 animate-spin text-[#fd4605]" /></div>
           ) : words.length === 0 ? (
             <div className="flex h-32 flex-col items-center justify-center text-center">
               <Icon className={`mb-2 h-7 w-7 ${iconColor} opacity-40`} />
@@ -578,7 +578,7 @@ export default function ContentPreferencesPage() {
 
   if (loading) return (
     <div className="flex h-64 items-center justify-center">
-      <Loader2 className="h-7 w-7 animate-spin text-[#fe2c55]" />
+      <Loader2 className="h-7 w-7 animate-spin text-[#fd4605]" />
     </div>
   );
 
@@ -617,11 +617,11 @@ export default function ContentPreferencesPage() {
 
             {/* ── 1 Feed Preferences ── */}
             <Card n={1} title="Feed Preferences">
-              <Row icon={Sparkles} iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+              <Row icon={Sparkles} iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
                 title="Choose Interests" desc="Select topics you want to see more of"
                 right={
                   <Link href="/settings/account"
-                    className="flex items-center gap-1.5 rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-1.5 text-[12px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+                    className="flex items-center gap-1.5 rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-1.5 text-[12px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]">
                     Manage <ChevronRight className="h-3.5 w-3.5" />
                   </Link>
                 }
@@ -639,7 +639,7 @@ export default function ContentPreferencesPage() {
                     renderTrigger={(sel, open) => (
                       <>
                         <span className="flex-1 text-left text-[13px] font-semibold">{sel?.label ?? prefs.preferred_language}</span>
-                        <ChevronDown className={`h-3.5 w-3.5 flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180 text-[#fe2c55]" : "text-[#9ca3af]"}`} />
+                        <ChevronDown className={`h-3.5 w-3.5 flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180 text-[#fd4605]" : "text-[#9ca3af]"}`} />
                       </>
                     )}
                   />
@@ -659,7 +659,7 @@ export default function ContentPreferencesPage() {
                       <>
                         {selCountry && <span className="text-[18px] leading-none">{selCountry.flag}</span>}
                         <span className="flex-1 text-left text-[13px] font-semibold truncate max-w-[90px]">{selCountry?.name ?? prefs.preferred_country}</span>
-                        <ChevronDown className={`h-3.5 w-3.5 flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180 text-[#fe2c55]" : "text-[#9ca3af]"}`} />
+                        <ChevronDown className={`h-3.5 w-3.5 flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180 text-[#fd4605]" : "text-[#9ca3af]"}`} />
                       </>
                     )}
                   />
@@ -691,21 +691,21 @@ export default function ContentPreferencesPage() {
 
             {/* ── 2 Content Control ── */}
             <Card n={2} title="Content Control">
-              <Row icon={ShieldAlert} iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+              <Row icon={ShieldAlert} iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
                 title="Sensitive Content Filter" desc="Filter potentially sensitive content"
                 right={<Toggle on={prefs.sensitive_content_filter} onChange={set("sensitive_content_filter")} />} />
               <Row icon={Tag}        iconBg="bg-[#f5f3ff]" iconColor="text-[#7c3aed]"
                 title="Keyword Filters" desc="Block content with specific keywords"
                 onClick={() => setActiveModal("keyword")}
-                right={<span className="flex items-center gap-1.5 rounded-[10px] border border-[#e5e7eb] px-3 py-1.5 text-[12px] font-semibold text-[#374151] cursor-pointer hover:border-[#fe2c55] hover:text-[#fe2c55] transition">Manage <ChevronRight className="h-3.5 w-3.5" /></span>} />
+                right={<span className="flex items-center gap-1.5 rounded-[10px] border border-[#e5e7eb] px-3 py-1.5 text-[12px] font-semibold text-[#374151] cursor-pointer hover:border-[#fd4605] hover:text-[#fd4605] transition">Manage <ChevronRight className="h-3.5 w-3.5" /></span>} />
               <Row icon={Hash}       iconBg="bg-[#fffbeb]" iconColor="text-[#f59e0b]"
                 title="Hashtag Filters" desc="Block content with specific hashtags"
                 onClick={() => setActiveModal("hashtag")}
-                right={<span className="flex items-center gap-1.5 rounded-[10px] border border-[#e5e7eb] px-3 py-1.5 text-[12px] font-semibold text-[#374151] cursor-pointer hover:border-[#fe2c55] hover:text-[#fe2c55] transition">Manage <ChevronRight className="h-3.5 w-3.5" /></span>} />
+                right={<span className="flex items-center gap-1.5 rounded-[10px] border border-[#e5e7eb] px-3 py-1.5 text-[12px] font-semibold text-[#374151] cursor-pointer hover:border-[#fd4605] hover:text-[#fd4605] transition">Manage <ChevronRight className="h-3.5 w-3.5" /></span>} />
               <Row icon={ThumbsDown} iconBg="bg-[#fff7ed]" iconColor="text-[#f97316]"
                 title="Not Interested Keywords" desc="Topics you want to see less of"
                 onClick={() => setActiveModal("not_interested")}
-                right={<span className="flex items-center gap-1.5 rounded-[10px] border border-[#e5e7eb] px-3 py-1.5 text-[12px] font-semibold text-[#374151] cursor-pointer hover:border-[#fe2c55] hover:text-[#fe2c55] transition">Manage <ChevronRight className="h-3.5 w-3.5" /></span>} />
+                right={<span className="flex items-center gap-1.5 rounded-[10px] border border-[#e5e7eb] px-3 py-1.5 text-[12px] font-semibold text-[#374151] cursor-pointer hover:border-[#fd4605] hover:text-[#fd4605] transition">Manage <ChevronRight className="h-3.5 w-3.5" /></span>} />
               <Row icon={Play}       iconBg="bg-[#f0fdf4]" iconColor="text-[#16a34a]"
                 title="Autoplay Videos" desc="Videos play automatically as you scroll"
                 right={<Toggle on={prefs.autoplay_videos} onChange={set("autoplay_videos")} />} />
@@ -788,7 +788,7 @@ export default function ContentPreferencesPage() {
                 <p className="text-[12px] font-medium text-[#f59e0b]">You have unsaved changes</p>
               )}
               <button type="button" onClick={save} disabled={!isDirty || saving}
-                className="flex items-center gap-2 rounded-[10px] bg-[#fe2c55] px-6 py-2.5 text-[13px] font-bold text-white shadow-[0_4px_14px_rgba(254,44,85,0.25)] transition hover:bg-[#e0193f] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none">
+                className="flex items-center gap-2 rounded-[10px] bg-[#fd4605] px-6 py-2.5 text-[13px] font-bold text-white shadow-[0_4px_14px_rgba(253,70,5,0.25)] transition hover:bg-[#e03e04] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none">
                 {saving
                   ? <><Loader2 className="h-4 w-4 animate-spin" /> Saving…</>
                   : <><Check className="h-4 w-4" strokeWidth={3} /> Save Changes</>

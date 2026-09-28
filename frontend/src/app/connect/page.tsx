@@ -56,7 +56,7 @@ function ConnectInner() {
     <main className="grid min-h-screen place-items-center bg-[#f8f9fb] px-4 py-10">
       <div className="w-full max-w-md rounded-2xl border border-[#eef0f3] bg-white p-8 shadow-[0_10px_40px_rgba(15,23,42,0.08)]">
         <div className="mb-6 flex flex-col items-center text-center">
-          <Image src="/reelsoostudioadslogo.png" alt="Teezer Ads" width={700} height={140} priority unoptimized className="h-8 w-auto" />
+          <Image src="/teezer-logo.png" alt="Teezer Ads" width={700} height={140} priority unoptimized className="h-8 w-auto" />
           <h1 className="mt-6 text-[20px] font-extrabold tracking-tight text-[#111827]">
             Sign in to continue to Teezer Ads
           </h1>
@@ -65,12 +65,12 @@ function ConnectInner() {
 
         {!authReady || redirecting ? (
           <div className="flex flex-col items-center gap-3 py-6">
-            <div className="h-8 w-8 animate-spin rounded-full border-[3px] border-[#fe2c55] border-t-transparent" />
+            <div className="h-8 w-8 animate-spin rounded-full border-[3px] border-[#fd4605] border-t-transparent" />
             <p className="text-[13px] text-[#6b7280]">{redirecting ? "Redirecting…" : "Loading…"}</p>
           </div>
         ) : isAuthenticated ? (
           <div className="flex flex-col items-center gap-3 py-6">
-            <div className="h-8 w-8 animate-spin rounded-full border-[3px] border-[#fe2c55] border-t-transparent" />
+            <div className="h-8 w-8 animate-spin rounded-full border-[3px] border-[#fd4605] border-t-transparent" />
             <p className="text-[13px] text-[#6b7280]">Connecting your account…</p>
           </div>
         ) : (

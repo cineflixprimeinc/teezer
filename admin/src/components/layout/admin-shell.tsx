@@ -224,7 +224,7 @@ const NAV_GROUPS: NavGroup[] = [
 function AdminAvatar({ name, size = 32 }: { name: string; size?: number }) {
   return (
     <div
-      className="flex-shrink-0 rounded-full bg-[#fe2c55]/10 grid place-items-center font-bold text-[#fe2c55]"
+      className="flex-shrink-0 rounded-full bg-[#fd4605]/10 grid place-items-center font-bold text-[#fd4605]"
       style={{ width: size, height: size, fontSize: Math.round(size * 0.38) }}
     >
       {(name?.[0] ?? "A").toUpperCase()}
@@ -269,12 +269,12 @@ function Sidebar({ mobile = false, onClose }: { mobile?: boolean; onClose?: () =
       {/* Logo */}
       <div className="flex h-[var(--topbar-h,64px)] shrink-0 items-center justify-between px-5 border-b border-[#e8eaed]">
         <div className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-[#fe2c55] text-white font-black text-sm">
+          <div className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-[#fd4605] text-white font-black text-sm">
             R
           </div>
           <div>
             <p className="text-[13px] font-bold text-[#111827] leading-none">Teezer</p>
-            <p className="text-[10px] text-[#fe2c55] font-semibold tracking-widest leading-none mt-0.5">ADMIN</p>
+            <p className="text-[10px] text-[#fd4605] font-semibold tracking-widest leading-none mt-0.5">ADMIN</p>
           </div>
         </div>
         {mobile && (
@@ -306,11 +306,11 @@ function Sidebar({ mobile = false, onClose }: { mobile?: boolean; onClose?: () =
                       className={cn(
                         "w-full flex items-center gap-3 rounded-[10px] px-3 py-2 text-[13px] font-medium transition-colors",
                         active
-                          ? "bg-[#fff0f4] text-[#fe2c55]"
+                          ? "bg-[#fff3ec] text-[#fd4605]"
                           : "text-[#374151] hover:bg-[#f4f5f7] hover:text-[#111827]",
                       )}
                     >
-                      <Icon className={cn("h-[16px] w-[16px] shrink-0", active ? "text-[#fe2c55]" : "text-[#6b7280]")} />
+                      <Icon className={cn("h-[16px] w-[16px] shrink-0", active ? "text-[#fd4605]" : "text-[#6b7280]")} />
                       <span className="flex-1 truncate text-left">{item.label}</span>
                       <ChevronRight className={cn("h-3.5 w-3.5 shrink-0 transition-transform text-[#9ca3af]", expanded_ && "rotate-90")} />
                     </button>
@@ -327,11 +327,11 @@ function Sidebar({ mobile = false, onClose }: { mobile?: boolean; onClose?: () =
                               className={cn(
                                 "flex items-center gap-2.5 rounded-[8px] px-3 py-1.5 text-[12px] font-medium transition-colors",
                                 childActive
-                                  ? "bg-[#fff0f4] text-[#fe2c55]"
+                                  ? "bg-[#fff3ec] text-[#fd4605]"
                                   : "text-[#6b7280] hover:bg-[#f4f5f7] hover:text-[#111827]",
                               )}
                             >
-                              <ChildIcon className={cn("h-[14px] w-[14px] shrink-0", childActive ? "text-[#fe2c55]" : "text-[#9ca3af]")} />
+                              <ChildIcon className={cn("h-[14px] w-[14px] shrink-0", childActive ? "text-[#fd4605]" : "text-[#9ca3af]")} />
                               <span className="truncate">{child.label}</span>
                             </Link>
                           );
@@ -350,14 +350,14 @@ function Sidebar({ mobile = false, onClose }: { mobile?: boolean; onClose?: () =
                   className={cn(
                     "flex items-center gap-3 rounded-[10px] px-3 py-2 text-[13px] font-medium transition-colors",
                     active
-                      ? "bg-[#fff0f4] text-[#fe2c55]"
+                      ? "bg-[#fff3ec] text-[#fd4605]"
                       : "text-[#374151] hover:bg-[#f4f5f7] hover:text-[#111827]",
                   )}
                 >
-                  <Icon className={cn("h-[16px] w-[16px] shrink-0", active ? "text-[#fe2c55]" : "text-[#6b7280]")} />
+                  <Icon className={cn("h-[16px] w-[16px] shrink-0", active ? "text-[#fd4605]" : "text-[#6b7280]")} />
                   <span className="flex-1 truncate">{item.label}</span>
                   {item.badge ? (
-                    <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-[#fe2c55] px-1.5 text-[10px] font-bold text-white">
+                    <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-[#fd4605] px-1.5 text-[10px] font-bold text-white">
                       {item.badge}
                     </span>
                   ) : null}
@@ -422,7 +422,7 @@ function Header({
           <input
             type="search"
             placeholder="Search users, videos, hashtags..."
-            className="h-9 w-full rounded-full border border-[#e8eaed] bg-[#f4f5f7] pl-9 pr-4 text-[13px] text-[#111827] placeholder:text-[#9ca3af] outline-none focus:border-[#fe2c55] focus:bg-white transition-colors"
+            className="h-9 w-full rounded-full border border-[#e8eaed] bg-[#f4f5f7] pl-9 pr-4 text-[13px] text-[#111827] placeholder:text-[#9ca3af] outline-none focus:border-[#fd4605] focus:bg-white transition-colors"
           />
         </div>
       </div>
@@ -436,7 +436,7 @@ function Header({
         >
           <Bell className="h-5 w-5" />
           {unreadNotifs > 0 && (
-            <span className="absolute right-1 top-1 grid h-4 min-w-[16px] place-items-center rounded-full bg-[#fe2c55] px-0.5 text-[9px] font-bold text-white">
+            <span className="absolute right-1 top-1 grid h-4 min-w-[16px] place-items-center rounded-full bg-[#fd4605] px-0.5 text-[9px] font-bold text-white">
               {unreadNotifs > 99 ? "99+" : unreadNotifs}
             </span>
           )}

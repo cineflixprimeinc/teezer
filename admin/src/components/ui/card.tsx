@@ -26,7 +26,7 @@ export function CardBody({ className, ...props }: HTMLAttributes<HTMLDivElement>
 
 // Legacy StatCard kept for compatibility - redesigned for light theme
 export function StatCard({
-  label, value, sub, trend, icon: Icon, color = "#fe2c55",
+  label, value, sub, trend, icon: Icon, color = "#fd4605",
 }: {
   label: string;
   value: string | number;

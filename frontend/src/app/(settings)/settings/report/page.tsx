@@ -10,7 +10,7 @@ import {
 } from "@/features/settings/settings-ui";
 
 const ISSUE_TYPES = [
-  { id: "bug",     icon: Bug,        bg: "bg-[#fff0f4]", color: "text-[#fe2c55]", label: "Bug / App Crash",    desc: "Something broke or isn't working" },
+  { id: "bug",     icon: Bug,        bg: "bg-[#fff3ec]", color: "text-[#fd4605]", label: "Bug / App Crash",    desc: "Something broke or isn't working" },
   { id: "account", icon: User,       bg: "bg-[#eff6ff]", color: "text-[#3b82f6]", label: "Account Issue",      desc: "Login, access or profile problem" },
   { id: "payment", icon: CreditCard, bg: "bg-[#f0fdf4]", color: "text-[#16a34a]", label: "Payment Issue",      desc: "Billing, coins, wallet problem" },
   { id: "video",   icon: Video,      bg: "bg-[#f5f3ff]", color: "text-[#7c3aed]", label: "Video / Content",    desc: "Problem with a video or content" },
@@ -44,7 +44,7 @@ export default function ReportPage() {
               {ISSUE_TYPES.map(({ id, icon: Icon, bg, color, label, desc }) => (
                 <button key={id} onClick={() => setSelected(id)}
                   className={`w-full flex items-center gap-3 rounded-[14px] border-2 p-3 text-left transition ${
-                    selected === id ? "border-[#fe2c55] bg-[#fff0f4]" : "border-[#e8eaf0] bg-white hover:border-[#fe2c55]/40"
+                    selected === id ? "border-[#fd4605] bg-[#fff3ec]" : "border-[#e8eaf0] bg-white hover:border-[#fd4605]/40"
                   }`}>
                   <span className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[10px] ${bg}`}>
                     <Icon className={`h-4 w-4 ${color}`} />
@@ -54,7 +54,7 @@ export default function ReportPage() {
                     <p className="text-[11px] text-[#9ca3af]">{desc}</p>
                   </div>
                   <span className={`h-4 w-4 flex-shrink-0 rounded-full border-2 transition ${
-                    selected === id ? "border-[#fe2c55] bg-[#fe2c55]" : "border-[#d1d5db]"
+                    selected === id ? "border-[#fd4605] bg-[#fd4605]" : "border-[#d1d5db]"
                   }`} />
                 </button>
               ))}
@@ -70,7 +70,7 @@ export default function ReportPage() {
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Please describe what happened in detail. Include steps to reproduce if possible…"
                 rows={6}
-                className="w-full resize-none rounded-[12px] border border-[#e8eaf0] bg-[#fafbfc] px-4 py-3 text-[13px] font-medium text-[#111827] placeholder:text-[#9ca3af] outline-none focus:border-[#fe2c55] transition"
+                className="w-full resize-none rounded-[12px] border border-[#e8eaf0] bg-[#fafbfc] px-4 py-3 text-[13px] font-medium text-[#111827] placeholder:text-[#9ca3af] outline-none focus:border-[#fd4605] transition"
               />
               {!selected && description.length === 0 && (
                 <div className="flex items-center gap-2 rounded-[10px] bg-[#fffbeb] border border-[#fde68a] px-3 py-2">
@@ -82,7 +82,7 @@ export default function ReportPage() {
 
             <div className="border-t border-[#f0f1f5] px-5 py-3">
               <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-[#9ca3af]">Attachments (Optional)</p>
-              <button className="flex w-full items-center justify-center gap-2 rounded-[12px] border-2 border-dashed border-[#e8eaf0] bg-[#fafbfc] py-4 text-[13px] font-semibold text-[#6b7280] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+              <button className="flex w-full items-center justify-center gap-2 rounded-[12px] border-2 border-dashed border-[#e8eaf0] bg-[#fafbfc] py-4 text-[13px] font-semibold text-[#6b7280] transition hover:border-[#fd4605] hover:text-[#fd4605]">
                 <ImagePlus className="h-5 w-5" />
                 Upload Screenshot
               </button>
@@ -92,7 +92,7 @@ export default function ReportPage() {
               <button
                 onClick={() => { if (selected && description.trim()) setSubmitted(true); }}
                 className="flex w-full items-center justify-center gap-2 rounded-[12px] py-3 text-[13px] font-bold text-white transition hover:opacity-90 disabled:opacity-50"
-                style={{ background: "#fe2c55" }}
+                style={{ background: "#fd4605" }}
                 disabled={!selected || !description.trim()}>
                 <Send className="h-4 w-4" />
                 Submit Report

@@ -140,7 +140,7 @@ export function AuthModal() {
           {/* Logo - smaller at compact mode */}
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 14 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/reelsoo-logo.png" alt="Teezer" style={{ height: 32, width: "auto" }} />
+            <img src="/teezer-logo.png" alt="Teezer" style={{ height: 32, width: "auto" }} />
           </div>
 
           {/* Title */}
@@ -194,7 +194,7 @@ export function AuthModal() {
               cursor: "pointer",
               fontSize: 13,
               fontWeight: 700,
-              color: "#fe2c55",
+              color: "#fd4605",
               padding: 0,
               transition: "opacity 150ms",
             }}

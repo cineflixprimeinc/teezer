@@ -108,7 +108,7 @@ export function StudioSettingsPageFull() {
       <div className="flex min-w-0 flex-1 flex-col">
         {/* Top bar */}
         <div className="flex h-16 items-center gap-3 border-b border-[#f0f0f0] bg-white px-6">
-          <Settings className="h-5 w-5 text-[#fe2c55]" />
+          <Settings className="h-5 w-5 text-[#fd4605]" />
           <h1 className="text-[18px] font-extrabold text-[#111827]">Backend Settings</h1>
         </div>
 
@@ -124,7 +124,7 @@ export function StudioSettingsPageFull() {
                   className={cn(
                     "flex-1 rounded-lg py-2 text-[13px] font-semibold transition",
                     activeTab === tab
-                      ? "bg-[#fe2c55] text-white shadow-sm"
+                      ? "bg-[#fd4605] text-white shadow-sm"
                       : "text-[#6b7280] hover:bg-[#f8f9fb]"
                   )}
                 >
@@ -154,7 +154,7 @@ export function StudioSettingsPageFull() {
                         "flex items-center gap-2 rounded-lg px-4 py-2 text-[12px] font-semibold transition",
                         testing
                           ? "cursor-not-allowed bg-[#f3f4f6] text-[#9ca3af]"
-                          : "bg-[#fe2c55] text-white hover:bg-[#e0243d]"
+                          : "bg-[#fd4605] text-white hover:bg-[#e03e04]"
                       )}
                     >
                       {testing ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
@@ -203,8 +203,8 @@ export function StudioSettingsPageFull() {
                 {/* API health quick links */}
                 <div className="rounded-2xl border border-[#f0f0f0] bg-white p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="grid h-10 w-10 place-items-center rounded-full bg-[#fff0f4]">
-                      <Server className="h-5 w-5 text-[#fe2c55]" />
+                    <div className="grid h-10 w-10 place-items-center rounded-full bg-[#fff3ec]">
+                      <Server className="h-5 w-5 text-[#fd4605]" />
                     </div>
                     <div>
                       <h3 className="text-[15px] font-extrabold text-[#111827]">API Health</h3>
@@ -221,7 +221,7 @@ export function StudioSettingsPageFull() {
                         href={apiUrl(path.replace(/^\/api\/v1/, ""))}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-between rounded-xl border border-[#f0f0f0] px-4 py-3 text-[13px] transition hover:border-[#fe2c55] hover:bg-[#fff5f5]"
+                        className="flex items-center justify-between rounded-xl border border-[#f0f0f0] px-4 py-3 text-[13px] transition hover:border-[#fd4605] hover:bg-[#fff5f5]"
                       >
                         <span className="font-semibold text-[#374151]">{label}</span>
                         <span className="font-mono text-[11px] text-[#9ca3af]">{path}</span>
@@ -282,8 +282,8 @@ export function StudioSettingsPageFull() {
             {activeTab === "Environment" && (
               <div className="rounded-2xl border border-[#f0f0f0] bg-white p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="grid h-10 w-10 place-items-center rounded-full bg-[#fff0f4]">
-                    <Globe className="h-5 w-5 text-[#fe2c55]" />
+                  <div className="grid h-10 w-10 place-items-center rounded-full bg-[#fff3ec]">
+                    <Globe className="h-5 w-5 text-[#fd4605]" />
                   </div>
                   <div>
                     <h3 className="text-[15px] font-extrabold text-[#111827]">Frontend Environment</h3>

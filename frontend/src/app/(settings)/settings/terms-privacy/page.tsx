@@ -38,7 +38,7 @@ export default function TermsPrivacyPage() {
           <SettingsRow icon={Download} iconBg="bg-[#f0fdf4]" iconColor="text-[#16a34a]"
             title="Download My Data"   desc="Export a copy of your Teezer data"
             right={<Btn label="Download" />} />
-          <SettingsRow icon={Trash2}   iconBg="bg-[#fff0f4]" iconColor="text-[#dc2626]"
+          <SettingsRow icon={Trash2}   iconBg="bg-[#fff3ec]" iconColor="text-[#dc2626]"
             title="Delete My Data"     desc="Permanently delete all data associated with your account"
             right={<Btn label="Delete" variant="danger" />} last />
         </SettingsCard>

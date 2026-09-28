@@ -41,7 +41,7 @@ export function BrandIcon({ provider, size = 22 }: { provider: ProviderKey; size
   return (
     <svg viewBox="0 0 24 24" style={s} aria-hidden>
       <path fill="#25F4EE" d="M20.6 7.4v3.1a8.2 8.2 0 0 1-4.2-1.2v5.8a6.3 6.3 0 1 1-6.3-6.3c.3 0 .6 0 .9.05v3.2a2.9 2.9 0 1 0 2 2.75V2h3.15a4.8 4.8 0 0 0 .1 1z" transform="translate(-1.2 .9)" />
-      <path fill="#FE2C55" d="M20.6 7.4v3.1a8.2 8.2 0 0 1-4.2-1.2v5.8a6.3 6.3 0 1 1-6.3-6.3c.3 0 .6 0 .9.05v3.2a2.9 2.9 0 1 0 2 2.75V2h3.15a4.8 4.8 0 0 0 4.55 4.4z" transform="translate(1.2 -.9)" />
+      <path fill="#FD4605" d="M20.6 7.4v3.1a8.2 8.2 0 0 1-4.2-1.2v5.8a6.3 6.3 0 1 1-6.3-6.3c.3 0 .6 0 .9.05v3.2a2.9 2.9 0 1 0 2 2.75V2h3.15a4.8 4.8 0 0 0 4.55 4.4z" transform="translate(1.2 -.9)" />
       <path fill="#ffffff" d="M20.6 7.4v3.1a8.2 8.2 0 0 1-4.2-1.2v5.8a6.3 6.3 0 1 1-6.3-6.3c.3 0 .6 0 .9.05v3.2a2.9 2.9 0 1 0 2 2.75V2h3.15a4.8 4.8 0 0 0 4.55 4.4z" />
     </svg>
   );

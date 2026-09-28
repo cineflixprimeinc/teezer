@@ -81,7 +81,7 @@ export default function MinorSafetyPolicyPage() {
         If you see content that endangers a minor, report it immediately using the report option on the video,
         account or message - these reports are prioritized ahead of standard review queues. If a child is in
         immediate danger, contact local emergency services first. You can also reach our safety team directly at{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>{" "}
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>{" "}
         with the subject line &quot;Minor Safety&quot;.
       </P>
 

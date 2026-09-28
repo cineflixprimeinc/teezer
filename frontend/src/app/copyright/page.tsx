@@ -115,7 +115,7 @@ export default function CopyrightPolicyPage() {
       <H2 id="contact" n={8}>Contact</H2>
       <P>
         Copyright questions, notices and counter-notices:{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>{" "}
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>{" "}
         (subject line &quot;Copyright&quot;).
       </P>
     </LegalShell>

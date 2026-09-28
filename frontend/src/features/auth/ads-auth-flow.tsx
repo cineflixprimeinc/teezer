@@ -37,7 +37,7 @@ function Card({ children }: { children: React.ReactNode }) {
 function Brand() {
   return (
     <div className="mb-5 flex justify-center">
-      <Image src="/reelsoostudioadslogo.png" alt="Teezer Ads" width={700} height={140} priority unoptimized className="h-8 w-auto" />
+      <Image src="/teezer-logo.png" alt="Teezer Ads" width={700} height={140} priority unoptimized className="h-8 w-auto" />
     </div>
   );
 }
@@ -124,7 +124,7 @@ export function AdsAuthFlow({
       <Card>
         <Brand />
         <div className="flex flex-col items-center gap-3 py-6">
-          <div className="h-8 w-8 animate-spin rounded-full border-[3px] border-[#fe2c55] border-t-transparent" />
+          <div className="h-8 w-8 animate-spin rounded-full border-[3px] border-[#fd4605] border-t-transparent" />
           <p className="text-[13px] text-[#6b7280]">Checking your Teezer session…</p>
         </div>
       </Card>
@@ -146,7 +146,7 @@ export function AdsAuthFlow({
         <LoginContent startView="email" embedded />
         <p className="mt-4 text-center text-[12px] text-[#9ca3af]">
           Don&apos;t have a Teezer account?{" "}
-          <a href={CREATE_ACCOUNT_URL} target="_blank" rel="noreferrer" className="font-bold text-[#fe2c55]">Create one</a>
+          <a href={CREATE_ACCOUNT_URL} target="_blank" rel="noreferrer" className="font-bold text-[#fd4605]">Create one</a>
         </p>
       </Card>
     );
@@ -162,10 +162,10 @@ export function AdsAuthFlow({
       </p>
 
       <div className="mt-4 flex items-start gap-2 rounded-xl border border-[#eef0f3] bg-[#f8f9fb] px-3 py-2.5">
-        <Info className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#fe2c55]" />
+        <Info className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#fd4605]" />
         <p className="text-[12px] leading-relaxed text-[#6b7280]">
           You need a Teezer account to log in.{" "}
-          <a href={CREATE_ACCOUNT_URL} target="_blank" rel="noreferrer" className="font-semibold text-[#fe2c55]">Create one on teezer.live</a>{" "}
+          <a href={CREATE_ACCOUNT_URL} target="_blank" rel="noreferrer" className="font-semibold text-[#fd4605]">Create one on teezer.live</a>{" "}
           if you don&apos;t have one yet.
         </p>
       </div>
@@ -175,17 +175,17 @@ export function AdsAuthFlow({
           type="button"
           onClick={continueWithReelsoo}
           disabled={busy}
-          className="flex h-12 w-full items-center justify-center gap-2.5 rounded-full border border-[#e5e7eb] bg-white text-[14px] font-bold text-[#111827] transition hover:border-[#fe2c55] hover:bg-[#fff8fa] disabled:opacity-60"
+          className="flex h-12 w-full items-center justify-center gap-2.5 rounded-full border border-[#e5e7eb] bg-white text-[14px] font-bold text-[#111827] transition hover:border-[#fd4605] hover:bg-[#fff8fa] disabled:opacity-60"
         >
-          <Image src="/reelsooadslogilogos.png" alt="Teezer" width={48} height={48} unoptimized className="h-6 w-6 object-contain" />
+          <Image src="/teezer-logo.png" alt="Teezer" width={48} height={48} unoptimized className="h-6 w-6 object-contain" />
           {busy ? "Connecting…" : "Continue with Teezer"}
         </button>
         <button
           type="button"
           onClick={() => setPhase("email")}
-          className="flex h-12 w-full items-center justify-center gap-2.5 rounded-full border border-[#e5e7eb] bg-white text-[14px] font-bold text-[#111827] transition hover:border-[#fe2c55] hover:bg-[#fff8fa]"
+          className="flex h-12 w-full items-center justify-center gap-2.5 rounded-full border border-[#e5e7eb] bg-white text-[14px] font-bold text-[#111827] transition hover:border-[#fd4605] hover:bg-[#fff8fa]"
         >
-          <Mail className="h-[19px] w-[19px] text-[#fe2c55]" />
+          <Mail className="h-[19px] w-[19px] text-[#fd4605]" />
           Continue with Email
         </button>
       </div>

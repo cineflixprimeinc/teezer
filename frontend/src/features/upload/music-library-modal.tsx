@@ -32,7 +32,7 @@ const DURATION_OPTIONS = ["All", "Short (< 1 min)", "Medium (1-3 min)", "Long (>
 const SORT_OPTIONS     = ["Most popular", "Most recent", "Trending", "A-Z"];
 
 const MOOD_COLORS: Record<string, string> = {
-  "Epic / Dramatic": "bg-[#fff0f4] text-[#fe2c55] border-[#ffd4dc]",
+  "Epic / Dramatic": "bg-[#fff3ec] text-[#fd4605] border-[#ffdccc]",
   "Romantic":        "bg-[#fdf2f8] text-[#ec4899] border-[#f9a8d4]",
   "Motivational":    "bg-[#fff7ed] text-[#f97316] border-[#fdba74]",
   "Chill":           "bg-[#ecfdf5] text-[#10b981] border-[#6ee7b7]",
@@ -91,7 +91,7 @@ function FilterDropdown({ label, options, value, onChange }: {
   return (
     <div ref={ref} className="relative">
       <button type="button" onClick={() => setOpen(o => !o)}
-        className="flex items-center gap-1.5 rounded-xl border border-[#e5e7eb] bg-white px-3 py-2 text-[12px] font-medium text-[#374151] hover:border-[#fe2c55]/50 transition-colors whitespace-nowrap">
+        className="flex items-center gap-1.5 rounded-xl border border-[#e5e7eb] bg-white px-3 py-2 text-[12px] font-medium text-[#374151] hover:border-[#fd4605]/50 transition-colors whitespace-nowrap">
         {display}
         <ChevronDown className={cn("h-3.5 w-3.5 text-[#9ca3af] transition-transform", open && "rotate-180")} />
       </button>
@@ -100,7 +100,7 @@ function FilterDropdown({ label, options, value, onChange }: {
           {options.map(opt => (
             <button key={opt} type="button" onClick={() => { onChange(opt); setOpen(false); }}
               className={cn("block w-full px-3 py-2 text-left text-[12px] transition-colors hover:bg-[#f9fafb]",
-                value === opt ? "font-bold text-[#fe2c55]" : "text-[#374151]")}>
+                value === opt ? "font-bold text-[#fd4605]" : "text-[#374151]")}>
               {opt}
             </button>
           ))}
@@ -313,8 +313,8 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
 
         {/* Header */}
         <div className="flex shrink-0 items-center gap-3 border-b border-[#f0f0f0] px-6 py-4">
-          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#fff0f4]">
-            <Music className="h-5 w-5 text-[#fe2c55]" />
+          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#fff3ec]">
+            <Music className="h-5 w-5 text-[#fd4605]" />
           </div>
           <div className="min-w-0 flex-1">
             <h2 className="text-[16px] font-bold text-[#111827]">Music Library</h2>
@@ -328,7 +328,7 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
 
         {/* Search */}
         <div className="shrink-0 border-b border-[#f0f0f0] px-6 py-3">
-          <div className="flex items-center gap-2.5 rounded-xl border border-[#e5e7eb] bg-[#f9fafb] px-3.5 py-2.5 focus-within:border-[#fe2c55] focus-within:bg-white transition-colors">
+          <div className="flex items-center gap-2.5 rounded-xl border border-[#e5e7eb] bg-[#f9fafb] px-3.5 py-2.5 focus-within:border-[#fd4605] focus-within:bg-white transition-colors">
             <Search className="h-4 w-4 shrink-0 text-[#9ca3af]" />
             <input type="text" value={search} onChange={e => handleSearchChange(e.target.value)}
               placeholder="Search by track, artist, mood or keyword..."
@@ -349,7 +349,7 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
           <FilterDropdown label="Duration" options={DURATION_OPTIONS} value={duration} onChange={v => { setDuration(v); void fetchTracks(1, true); }} />
           <FilterDropdown label={`Sort: ${sort}`} options={SORT_OPTIONS} value={sort} onChange={setSort} />
           <button type="button"
-            className="ml-auto flex items-center gap-1.5 rounded-xl border border-[#e5e7eb] bg-white px-3 py-2 text-[12px] font-medium text-[#374151] hover:border-[#fe2c55]/50 transition-colors">
+            className="ml-auto flex items-center gap-1.5 rounded-xl border border-[#e5e7eb] bg-white px-3 py-2 text-[12px] font-medium text-[#374151] hover:border-[#fd4605]/50 transition-colors">
             <Filter className="h-3.5 w-3.5" /> Filter
           </button>
         </div>
@@ -363,7 +363,7 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
               className={cn(
                 "shrink-0 whitespace-nowrap border-b-2 px-4 py-3 text-[13px] font-semibold transition-colors",
                 tab === t.id
-                  ? "border-[#fe2c55] text-[#fe2c55]"
+                  ? "border-[#fd4605] text-[#fd4605]"
                   : "border-transparent text-[#6b7280] hover:text-[#374151]"
               )}>
               {t.label}
@@ -379,7 +379,7 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
             <div className="border-b border-[#f0f0f0] px-6 py-4">
               <div className="mb-3 flex items-center justify-between">
                 <span className="text-[11px] font-bold uppercase tracking-widest text-[#9ca3af]">Recently used</span>
-                <button type="button" className="text-[11px] font-semibold text-[#fe2c55] hover:underline">View all</button>
+                <button type="button" className="text-[11px] font-semibold text-[#fd4605] hover:underline">View all</button>
               </div>
               <div className="flex gap-3 overflow-x-auto pb-1" style={{ scrollbarWidth: "none" }}>
                 {recentTracks.slice(0, 3).map(track => {
@@ -389,8 +389,8 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
                       className={cn(
                         "group relative flex w-[160px] shrink-0 items-center gap-2.5 rounded-xl border p-2.5 text-left transition-all",
                         isPreviewing
-                          ? "border-[#fe2c55] bg-[#fff0f4]"
-                          : "border-[#e5e7eb] bg-[#f9fafb] hover:border-[#fe2c55]/50 hover:bg-[#fff8f9]"
+                          ? "border-[#fd4605] bg-[#fff3ec]"
+                          : "border-[#e5e7eb] bg-[#f9fafb] hover:border-[#fd4605]/50 hover:bg-[#fff8f9]"
                       )}>
                       <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-lg">
                         <CoverArt url={track.cover_url} title={track.title} />
@@ -430,7 +430,7 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
             {/* Loading */}
             {loading && tracks.length === 0 && (
               <div className="flex items-center justify-center py-16">
-                <Loader2 className="h-6 w-6 animate-spin text-[#fe2c55]" />
+                <Loader2 className="h-6 w-6 animate-spin text-[#fd4605]" />
               </div>
             )}
 
@@ -452,7 +452,7 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
                 <div key={track.id}
                   className={cn(
                     "grid items-center gap-3 border-b border-[#f9fafb] px-6 py-3 transition-colors",
-                    isSelected ? "bg-[#fff0f4]" : "hover:bg-[#fafafa]"
+                    isSelected ? "bg-[#fff3ec]" : "hover:bg-[#fafafa]"
                   )}
                   style={{ gridTemplateColumns: "1fr 140px 120px 70px 96px" }}>
 
@@ -462,8 +462,8 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
                       className={cn(
                         "grid h-8 w-8 shrink-0 place-items-center rounded-full border transition-all active:scale-95",
                         isPreviewing && isPlaying
-                          ? "border-[#fe2c55] bg-[#fe2c55] text-white shadow-md shadow-[#fe2c55]/25"
-                          : "border-[#e5e7eb] text-[#6b7280] hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                          ? "border-[#fd4605] bg-[#fd4605] text-white shadow-md shadow-[#fd4605]/25"
+                          : "border-[#e5e7eb] text-[#6b7280] hover:border-[#fd4605] hover:text-[#fd4605]"
                       )}>
                       {isPreviewing && isPlaying
                         ? <Pause className="h-3.5 w-3.5 fill-current" />
@@ -485,7 +485,7 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
                   <div className="flex items-center justify-end gap-2">
                     <button type="button" onClick={e => handleFav(track.id, e)}
                       className="transition-transform hover:scale-110 active:scale-95">
-                      <Heart className={cn("h-3.5 w-3.5 transition-colors", isFav ? "fill-[#fe2c55] text-[#fe2c55]" : "text-[#d1d5db] hover:text-[#fe2c55]")} />
+                      <Heart className={cn("h-3.5 w-3.5 transition-colors", isFav ? "fill-[#fd4605] text-[#fd4605]" : "text-[#d1d5db] hover:text-[#fd4605]")} />
                     </button>
                     <span className="text-[11px] tabular-nums text-[#6b7280]">{fmtDur(track.duration)}</span>
                   </div>
@@ -493,7 +493,7 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
                   {/* Use sound */}
                   <div className="flex justify-end">
                     <button type="button" onClick={() => handleUse(track)}
-                      className="h-8 rounded-xl bg-[#fe2c55] px-3.5 text-[12px] font-bold text-white shadow-sm hover:bg-[#e0264b] active:scale-[0.97] transition-all">
+                      className="h-8 rounded-xl bg-[#fd4605] px-3.5 text-[12px] font-bold text-white shadow-sm hover:bg-[#e03e04] active:scale-[0.97] transition-all">
                       Use sound
                     </button>
                   </div>
@@ -506,7 +506,7 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
               <div className="flex justify-center py-5">
                 <button type="button" disabled={loading}
                   onClick={() => void fetchTracks(page + 1, false)}
-                  className="flex items-center gap-2 rounded-xl border border-[#e5e7eb] px-5 py-2.5 text-[12px] font-semibold text-[#374151] hover:border-[#fe2c55]/50 transition-colors disabled:opacity-50">
+                  className="flex items-center gap-2 rounded-xl border border-[#e5e7eb] px-5 py-2.5 text-[12px] font-semibold text-[#374151] hover:border-[#fd4605]/50 transition-colors disabled:opacity-50">
                   {loading && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
                   Load more tracks
                 </button>
@@ -532,7 +532,7 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
                       const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
                       a.currentTime = ((e.clientX - rect.left) / rect.width) * previewDur;
                     }}>
-                    <div className="h-full rounded-full bg-[#fe2c55] transition-[width]"
+                    <div className="h-full rounded-full bg-[#fd4605] transition-[width]"
                       style={{ width: `${progressPct}%` }} />
                   </div>
                   <span className="shrink-0 text-[10px] tabular-nums text-[#9ca3af]">
@@ -547,7 +547,7 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
                   <SkipBack className="h-3.5 w-3.5" />
                 </button>
                 <button type="button" onClick={() => togglePreview(previewTrack)}
-                  className="grid h-9 w-9 place-items-center rounded-full bg-[#fe2c55] text-white hover:bg-[#e0264b] transition-colors active:scale-95 shadow-md shadow-[#fe2c55]/25">
+                  className="grid h-9 w-9 place-items-center rounded-full bg-[#fd4605] text-white hover:bg-[#e03e04] transition-colors active:scale-95 shadow-md shadow-[#fd4605]/25">
                   {isPlaying
                     ? <Pause className="h-4 w-4 fill-current" />
                     : <Play className="ml-0.5 h-4 w-4 fill-current" />}
@@ -569,7 +569,7 @@ export function MusicLibraryModal({ onClose, onSelect, currentTrackId }: Props) 
           </button>
           {selected && (
             <button type="button" onClick={() => handleUse(selected)}
-              className="h-9 rounded-xl bg-[#fe2c55] px-5 text-[13px] font-bold text-white shadow-md shadow-[#fe2c55]/25 hover:bg-[#e0264b] active:scale-[0.98] transition-all">
+              className="h-9 rounded-xl bg-[#fd4605] px-5 text-[13px] font-bold text-white shadow-md shadow-[#fd4605]/25 hover:bg-[#e03e04] active:scale-[0.98] transition-all">
               Use selected sound
             </button>
           )}

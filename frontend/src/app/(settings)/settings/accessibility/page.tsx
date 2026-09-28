@@ -77,12 +77,12 @@ function NiceDropdown({
         onClick={() => open ? setOpen(false) : openMenu()}
         className={`flex h-9 min-w-[130px] items-center gap-2 rounded-[10px] border px-3 text-[13px] font-semibold transition-all disabled:pointer-events-none disabled:opacity-40 ${
           open
-            ? "border-[#fe2c55] bg-[#fff0f4] text-[#fe2c55] shadow-[0_0_0_3px_rgba(254,44,85,0.10)]"
-            : "border-[#e5e7eb] bg-white text-[#374151] hover:border-[#fe2c55] hover:bg-[#fff8f9] hover:text-[#fe2c55]"
+            ? "border-[#fd4605] bg-[#fff3ec] text-[#fd4605] shadow-[0_0_0_3px_rgba(253,70,5,0.10)]"
+            : "border-[#e5e7eb] bg-white text-[#374151] hover:border-[#fd4605] hover:bg-[#fff8f9] hover:text-[#fd4605]"
         }`}
       >
         <span className="flex-1 text-left">{sel?.label ?? value}</span>
-        <ChevronDown className={`h-3.5 w-3.5 flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180 text-[#fe2c55]" : "text-[#9ca3af]"}`} />
+        <ChevronDown className={`h-3.5 w-3.5 flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180 text-[#fd4605]" : "text-[#9ca3af]"}`} />
       </button>
 
       {open && typeof window !== "undefined" && createPortal(
@@ -98,14 +98,14 @@ function NiceDropdown({
                 key={opt.value}
                 type="button"
                 onClick={() => { onChange(opt.value); setOpen(false); }}
-                className={`flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-left transition-colors ${active ? "bg-[#fff0f4]" : "hover:bg-[#f8f9fb]"}`}
+                className={`flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-left transition-colors ${active ? "bg-[#fff3ec]" : "hover:bg-[#f8f9fb]"}`}
               >
                 <div className="min-w-0 flex-1">
-                  <p className={`text-[13px] font-semibold leading-tight ${active ? "text-[#fe2c55]" : "text-[#111827]"}`}>{opt.label}</p>
+                  <p className={`text-[13px] font-semibold leading-tight ${active ? "text-[#fd4605]" : "text-[#111827]"}`}>{opt.label}</p>
                   {opt.desc && <p className={`text-[11px] leading-tight ${active ? "text-[#f87185]" : "text-[#9ca3af]"}`}>{opt.desc}</p>}
                 </div>
                 {active && (
-                  <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#fe2c55]">
+                  <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#fd4605]">
                     <Check className="h-3 w-3 text-white" strokeWidth={3} />
                   </div>
                 )}
@@ -124,7 +124,7 @@ function Toggle({ on, onChange, disabled }: { on: boolean; onChange: (v: boolean
   return (
     <button type="button" role="switch" aria-checked={on} disabled={disabled}
       onClick={() => onChange(!on)}
-      className={`relative inline-flex h-[26px] w-12 flex-shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-200 disabled:opacity-40 ${on ? "bg-[#fe2c55]" : "bg-[#d1d5db]"}`}>
+      className={`relative inline-flex h-[26px] w-12 flex-shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-200 disabled:opacity-40 ${on ? "bg-[#fd4605]" : "bg-[#d1d5db]"}`}>
       <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow-md transition-transform duration-200 ${on ? "translate-x-[22px]" : "translate-x-0.5"}`} />
     </button>
   );
@@ -156,7 +156,7 @@ function Card({ n, title, children }: { n: number; title: string; children: Reac
   return (
     <div className="overflow-hidden rounded-2xl border border-[#f0f1f5] bg-white shadow-sm">
       <div className="flex items-center gap-2.5 border-b border-[#f3f4f6] px-5 py-4">
-        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#fe2c55] text-[11px] font-black text-white">{n}</span>
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#fd4605] text-[11px] font-black text-white">{n}</span>
         <p className="text-[12px] font-bold uppercase tracking-widest text-[#374151]">{title}</p>
       </div>
       <div>{children}</div>
@@ -197,7 +197,7 @@ export default function AccessibilitySettingsPage() {
 
   if (loading) return (
     <div className="flex h-64 items-center justify-center">
-      <Loader2 className="h-7 w-7 animate-spin text-[#fe2c55]" />
+      <Loader2 className="h-7 w-7 animate-spin text-[#fd4605]" />
     </div>
   );
 
@@ -230,7 +230,7 @@ export default function AccessibilitySettingsPage() {
 
           {/* ── 2 Motion & Interaction ── */}
           <Card n={2} title="Motion & Interaction">
-            <Row icon={Activity}      iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+            <Row icon={Activity}      iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
               title="Reduce Motion"     desc="Minimize animations and transitions"
               right={<Toggle on={prefs.reduce_motion} onChange={set("reduce_motion")} />} />
             <Row icon={Play}           iconBg="bg-[#f0fdf4]" iconColor="text-[#16a34a]"
@@ -266,7 +266,7 @@ export default function AccessibilitySettingsPage() {
               <p className="text-[11.5px] leading-relaxed text-[#9ca3af]">
                 Teezer follows <span className="font-semibold text-[#374151]">WCAG 2.1 AA</span> guidelines.
                 If you need additional accessibility support, contact us through the{" "}
-                <a href="/settings/help" className="font-semibold text-[#fe2c55] hover:underline">Help Center</a>.
+                <a href="/settings/help" className="font-semibold text-[#fd4605] hover:underline">Help Center</a>.
               </p>
             </div>
           </Card>
@@ -286,7 +286,7 @@ export default function AccessibilitySettingsPage() {
               <p className="text-[12px] font-medium text-[#f59e0b]">You have unsaved changes</p>
             )}
             <button type="button" onClick={save} disabled={!isDirty || saving}
-              className="flex items-center gap-2 rounded-[10px] bg-[#fe2c55] px-6 py-2.5 text-[13px] font-bold text-white shadow-[0_4px_14px_rgba(254,44,85,0.25)] transition hover:bg-[#e0193f] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none">
+              className="flex items-center gap-2 rounded-[10px] bg-[#fd4605] px-6 py-2.5 text-[13px] font-bold text-white shadow-[0_4px_14px_rgba(253,70,5,0.25)] transition hover:bg-[#e03e04] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none">
               {saving
                 ? <><Loader2 className="h-4 w-4 animate-spin" /> Saving…</>
                 : <><Check className="h-4 w-4" strokeWidth={3} /> Save Changes</>

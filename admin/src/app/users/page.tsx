@@ -100,7 +100,7 @@ const FALLBACK_STATS: UserStats = {
 };
 
 /* ── Avatar ──────────────────────────────────────────────────────────────── */
-const PALETTE = ["#3b82f6","#8b5cf6","#f59e0b","#10b981","#fe2c55","#06b6d4","#ec4899","#14b8a6","#f97316","#6366f1"];
+const PALETTE = ["#3b82f6","#8b5cf6","#f59e0b","#10b981","#fd4605","#06b6d4","#ec4899","#14b8a6","#f97316","#6366f1"];
 function Avatar({ name, src, size = 40 }: { name: string; src: string | null; size?: number }) {
   const [err, setErr] = useState(false);
   const initials = (name||"?").split(" ").map((w:string)=>w[0]).join("").slice(0,2).toUpperCase();
@@ -225,8 +225,8 @@ function CalendarMonth({
                 "relative h-8 w-full text-[12px] font-medium transition-colors select-none",
                 selected ? "z-10" : "",
                 inRange && !selected ? "bg-blue-50 text-blue-700" : "",
-                selected ? "bg-[#fe2c55] text-white rounded-lg" : "hover:bg-gray-100 rounded-lg text-gray-700",
-                isToday && !selected ? "font-bold text-[#fe2c55]" : "",
+                selected ? "bg-[#fd4605] text-white rounded-lg" : "hover:bg-gray-100 rounded-lg text-gray-700",
+                isToday && !selected ? "font-bold text-[#fd4605]" : "",
               ].filter(Boolean).join(" ")}>
               {d.getDate()}
             </button>
@@ -335,7 +335,7 @@ function FullCalendarPicker({ value, onChange }: {
                 && isSameDay(range.end,   startOfDay(pe));
               return (
                 <button key={p.label} onClick={() => applyPreset(p)}
-                  className={`text-left px-3 py-1.5 text-[12px] font-medium rounded-lg mx-1 transition-colors ${active ? "bg-[#fe2c55]/10 text-[#fe2c55]" : "text-gray-600 hover:bg-gray-50"}`}>
+                  className={`text-left px-3 py-1.5 text-[12px] font-medium rounded-lg mx-1 transition-colors ${active ? "bg-[#fd4605]/10 text-[#fd4605]" : "text-gray-600 hover:bg-gray-50"}`}>
                   {p.label}
                 </button>
               );
@@ -400,7 +400,7 @@ function FullCalendarPicker({ value, onChange }: {
                   Cancel
                 </button>
                 <button onClick={apply} disabled={!range.start || !range.end}
-                  className="px-4 py-1.5 rounded-xl text-xs font-semibold bg-[#fe2c55] text-white hover:bg-[#e02249] disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                  className="px-4 py-1.5 rounded-xl text-xs font-semibold bg-[#fd4605] text-white hover:bg-[#e03e04] disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
                   Apply
                 </button>
               </div>
@@ -521,7 +521,7 @@ function ConfirmModal({ open, title, message, confirmLabel, danger, loading, onC
         <div className="flex gap-2.5 mt-4 justify-end">
           <button onClick={onCancel} className="px-4 py-2 rounded-xl text-xs font-medium border border-gray-200 text-gray-700 hover:bg-gray-50">Cancel</button>
           <button onClick={onConfirm} disabled={loading}
-            className={`px-4 py-2 rounded-xl text-xs font-semibold text-white disabled:opacity-50 ${danger?"bg-red-500 hover:bg-red-600":"bg-[#fe2c55] hover:bg-[#e02249]"}`}>
+            className={`px-4 py-2 rounded-xl text-xs font-semibold text-white disabled:opacity-50 ${danger?"bg-red-500 hover:bg-red-600":"bg-[#fd4605] hover:bg-[#e03e04]"}`}>
             {loading ? "Loading…" : confirmLabel}
           </button>
         </div>
@@ -561,7 +561,7 @@ function Pager({ page, lastPage, total, perPage, onPage, onPerPage }: {
           <span key={`e${i}`} className="text-xs text-gray-400 px-1">···</span>
         ) : (
           <button key={p} onClick={()=>onPage(p as number)}
-            className={`w-7 h-7 text-xs font-medium rounded-lg transition-colors ${p===page?"bg-[#fe2c55] text-white":"border border-gray-200 text-gray-700 hover:bg-gray-50"}`}>
+            className={`w-7 h-7 text-xs font-medium rounded-lg transition-colors ${p===page?"bg-[#fd4605] text-white":"border border-gray-200 text-gray-700 hover:bg-gray-50"}`}>
             {p}
           </button>
         ))}
@@ -573,7 +573,7 @@ function Pager({ page, lastPage, total, perPage, onPage, onPerPage }: {
           <span className="text-xs text-gray-500 whitespace-nowrap">Rows per page</span>
           <div className="relative">
             <select value={perPage} onChange={e=>onPerPage(Number(e.target.value))}
-              className="appearance-none border border-gray-200 rounded-lg pl-2.5 pr-6 py-1 text-xs text-gray-700 bg-white focus:outline-none focus:ring-1 focus:ring-[#fe2c55] cursor-pointer">
+              className="appearance-none border border-gray-200 rounded-lg pl-2.5 pr-6 py-1 text-xs text-gray-700 bg-white focus:outline-none focus:ring-1 focus:ring-[#fd4605] cursor-pointer">
               {[10,12,25,50,100].map(n=><option key={n} value={n}>{n}</option>)}
             </select>
             <ChevronDown size={10} className="absolute right-1.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"/>
@@ -794,7 +794,7 @@ export default function UsersPage() {
             <div className="flex overflow-x-auto scrollbar-hide px-4 pt-3 border-b border-gray-100">
               {TABS.map(t => (
                 <button key={t.value} onClick={()=>{setTab(t.value);setPage(1);}}
-                  className={`shrink-0 pb-3 mr-6 text-xs font-semibold border-b-2 -mb-px transition-colors whitespace-nowrap ${tab===t.value?"border-[#fe2c55] text-[#fe2c55]":"border-transparent text-gray-400 hover:text-gray-600"}`}>
+                  className={`shrink-0 pb-3 mr-6 text-xs font-semibold border-b-2 -mb-px transition-colors whitespace-nowrap ${tab===t.value?"border-[#fd4605] text-[#fd4605]":"border-transparent text-gray-400 hover:text-gray-600"}`}>
                   {t.label}
                 </button>
               ))}
@@ -802,7 +802,7 @@ export default function UsersPage() {
             <div className="flex flex-wrap gap-2 items-center p-3">
               <div className="relative">
                 <select value={role} onChange={e=>{setRole(e.target.value);setPage(1);}}
-                  className="appearance-none border border-gray-200 rounded-xl pl-3 pr-7 py-2 text-xs text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-[#fe2c55] cursor-pointer">
+                  className="appearance-none border border-gray-200 rounded-xl pl-3 pr-7 py-2 text-xs text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-[#fd4605] cursor-pointer">
                   <option value="">All Roles</option>
                   <option value="user">User</option>
                   <option value="creator">Creator</option>
@@ -812,7 +812,7 @@ export default function UsersPage() {
               </div>
               <div className="relative">
                 <select value={sort} onChange={e=>setSort(e.target.value)}
-                  className="appearance-none border border-gray-200 rounded-xl pl-3 pr-7 py-2 text-xs text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-[#fe2c55] cursor-pointer">
+                  className="appearance-none border border-gray-200 rounded-xl pl-3 pr-7 py-2 text-xs text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-[#fd4605] cursor-pointer">
                   <option value="newest">Newest First</option>
                   <option value="oldest">Oldest First</option>
                   <option value="followers">Most Followers</option>
@@ -824,7 +824,7 @@ export default function UsersPage() {
                 <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"/>
                 <input value={searchInput} onChange={e => setSearchInput(e.target.value)}
                   placeholder="Search name, username, email…"
-                  className="w-full border border-gray-200 rounded-xl pl-8 pr-3 py-2 text-xs text-gray-700 focus:outline-none focus:ring-1 focus:ring-[#fe2c55] placeholder:text-gray-400"/>
+                  className="w-full border border-gray-200 rounded-xl pl-8 pr-3 py-2 text-xs text-gray-700 focus:outline-none focus:ring-1 focus:ring-[#fd4605] placeholder:text-gray-400"/>
                 {searchInput && (
                   <button onClick={() => setSearchInput("")}
                     className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-300 hover:text-gray-500">
@@ -836,10 +836,10 @@ export default function UsersPage() {
               {/* Advanced Filter button + dropdown */}
               <div className="relative" ref={filterRef}>
                 <button onClick={() => setFilterOpen(o => !o)}
-                  className={`flex items-center gap-1.5 border rounded-xl px-3 py-2 text-xs font-medium transition-colors ${activeFilters > 0 ? "border-[#fe2c55] text-[#fe2c55] bg-red-50" : "border-gray-200 text-gray-600 hover:bg-gray-50"}`}>
+                  className={`flex items-center gap-1.5 border rounded-xl px-3 py-2 text-xs font-medium transition-colors ${activeFilters > 0 ? "border-[#fd4605] text-[#fd4605] bg-red-50" : "border-gray-200 text-gray-600 hover:bg-gray-50"}`}>
                   <Filter size={12}/>Filter
                   {activeFilters > 0 && (
-                    <span className="w-4 h-4 rounded-full bg-[#fe2c55] text-white text-[10px] font-bold flex items-center justify-center">{activeFilters}</span>
+                    <span className="w-4 h-4 rounded-full bg-[#fd4605] text-white text-[10px] font-bold flex items-center justify-center">{activeFilters}</span>
                   )}
                 </button>
 
@@ -858,7 +858,7 @@ export default function UsersPage() {
                       <div className="flex flex-wrap gap-1.5">
                         {([["","All"],["verified","Verified"],["pending","Pending"],["unverified","Unverified"]] as [string,string][]).map(([v,l]) => (
                           <button key={v} onClick={() => setVerifFilter(v)}
-                            className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${verifFilter === v ? "bg-[#fe2c55] text-white border-[#fe2c55]" : "border-gray-200 text-gray-600 hover:bg-gray-50"}`}>
+                            className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${verifFilter === v ? "bg-[#fd4605] text-white border-[#fd4605]" : "border-gray-200 text-gray-600 hover:bg-gray-50"}`}>
                             {l}
                           </button>
                         ))}
@@ -871,7 +871,7 @@ export default function UsersPage() {
                       <div className="flex flex-wrap gap-1.5">
                         {([["","Any"],["yes","Has Videos"],["no","No Videos"]] as [string,string][]).map(([v,l]) => (
                           <button key={v} onClick={() => setHasVideos(v)}
-                            className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${hasVideos === v ? "bg-[#fe2c55] text-white border-[#fe2c55]" : "border-gray-200 text-gray-600 hover:bg-gray-50"}`}>
+                            className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${hasVideos === v ? "bg-[#fd4605] text-white border-[#fd4605]" : "border-gray-200 text-gray-600 hover:bg-gray-50"}`}>
                             {l}
                           </button>
                         ))}
@@ -884,7 +884,7 @@ export default function UsersPage() {
                       <div className="relative">
                         <Globe size={12} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"/>
                         <select value={countryFilter} onChange={e => setCountryFilter(e.target.value)}
-                          className="w-full appearance-none border border-gray-200 rounded-xl pl-8 pr-7 py-2 text-xs text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-[#fe2c55]">
+                          className="w-full appearance-none border border-gray-200 rounded-xl pl-8 pr-7 py-2 text-xs text-gray-600 bg-white focus:outline-none focus:ring-1 focus:ring-[#fd4605]">
                           <option value="">All Countries</option>
                           {Object.entries(COUNTRY_NAMES).map(([code, name]) => (
                             <option key={code} value={code}>{COUNTRY_FLAGS[code]} {name}</option>
@@ -895,7 +895,7 @@ export default function UsersPage() {
                     </div>
 
                     <button onClick={() => { setPage(1); setFilterOpen(false); }}
-                      className="w-full py-2 bg-[#fe2c55] text-white rounded-xl text-xs font-semibold hover:bg-[#e02249] transition-colors">
+                      className="w-full py-2 bg-[#fd4605] text-white rounded-xl text-xs font-semibold hover:bg-[#e03e04] transition-colors">
                       Apply Filters
                     </button>
                   </div>
@@ -909,7 +909,7 @@ export default function UsersPage() {
                 {exporting ? "Exporting…" : "Export"}
               </button>
               <button onClick={()=>router.push("/users/new")}
-                className="flex items-center gap-1.5 bg-[#fe2c55] hover:bg-[#e02249] text-white rounded-xl px-4 py-2 text-xs font-semibold transition-colors">
+                className="flex items-center gap-1.5 bg-[#fd4605] hover:bg-[#e03e04] text-white rounded-xl px-4 py-2 text-xs font-semibold transition-colors">
                 <Plus size={13}/>Add User
               </button>
             </div>
@@ -1031,7 +1031,7 @@ export default function UsersPage() {
             <div className="mb-4">
               <div className="flex items-center justify-between mb-2.5">
                 <p className="text-[11px] font-bold text-gray-700">Top Countries</p>
-                <button className="text-[11px] text-[#fe2c55] font-medium hover:underline">View all</button>
+                <button className="text-[11px] text-[#fd4605] font-medium hover:underline">View all</button>
               </div>
               <div className="space-y-2">
                 {(stats.top_countries??FALLBACK_STATS.top_countries!).map(c=>(
@@ -1051,7 +1051,7 @@ export default function UsersPage() {
               <div className="flex items-center justify-between mb-2.5">
                 <p className="text-[11px] font-bold text-gray-700">Top Creators</p>
                 <button onClick={()=>{setRole("creator");setSort("followers");setPage(1);setTab("");}}
-                  className="text-[11px] text-[#fe2c55] font-medium hover:underline">View all</button>
+                  className="text-[11px] text-[#fd4605] font-medium hover:underline">View all</button>
               </div>
               <div className="space-y-2.5">
                 {topCreatorsQ.isLoading ? (
@@ -1073,7 +1073,7 @@ export default function UsersPage() {
                           </div>
                         )}
                       </div>
-                      <span className="text-[12px] text-gray-600 truncate max-w-[90px] group-hover:text-[#fe2c55] transition-colors">@{u.username}</span>
+                      <span className="text-[12px] text-gray-600 truncate max-w-[90px] group-hover:text-[#fd4605] transition-colors">@{u.username}</span>
                     </div>
                     <span className="text-[12px] font-semibold text-gray-900">{fmt(u.followers_count??0)}</span>
                   </div>
@@ -1109,7 +1109,7 @@ export default function UsersPage() {
                           <span className="text-[11px] font-semibold text-gray-800 ml-1">{count}</span>
                         </div>
                         <div className="h-1 bg-gray-100 rounded-full overflow-hidden">
-                          <div className="h-full bg-[#fe2c55] rounded-full transition-all" style={{width:`${pct}%`}}/>
+                          <div className="h-full bg-[#fd4605] rounded-full transition-all" style={{width:`${pct}%`}}/>
                         </div>
                       </div>
                     );
@@ -1129,7 +1129,7 @@ export default function UsersPage() {
             </div>
             <div className="space-y-1">
               {[
-                {label:"Add New User",icon:<UserPlus size={14} className="text-[#fe2c55]"/>,bg:"bg-red-50",    fn:()=>router.push("/users/new")},
+                {label:"Add New User",icon:<UserPlus size={14} className="text-[#fd4605]"/>,bg:"bg-red-50",    fn:()=>router.push("/users/new")},
                 {label:"Import Users",icon:<Upload size={14} className="text-blue-500"/>,   bg:"bg-blue-50",   fn:()=>{}},
                 {label:"Bulk Actions",icon:<Layers size={14} className="text-purple-500"/>, bg:"bg-purple-50", fn:()=>{}},
                 {label:"User Roles",  icon:<Shield size={14} className="text-emerald-500"/>,bg:"bg-emerald-50",fn:()=>router.push("/roles")},

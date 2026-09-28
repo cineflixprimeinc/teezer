@@ -174,7 +174,7 @@ export function RichTextEditor({ value, onChange, placeholder }: Props) {
           list-style: decimal;
         }
         .legal-rte a {
-          color: #fe2c55;
+          color: #fd4605;
           font-weight: 600;
           text-decoration: underline;
         }

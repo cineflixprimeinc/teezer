@@ -211,10 +211,10 @@ function Row({
       onClick={handle}
       className={cn(
         "flex h-11 w-full items-center gap-3 rounded-[10px] px-2.5 text-left text-[14px] font-semibold transition",
-        active ? "bg-[#fff0f4] text-[#fe2c55]" : "text-black hover:bg-[#f8f9fb]",
+        active ? "bg-[#fff3ec] text-[#fd4605]" : "text-black hover:bg-[#f8f9fb]",
       )}
     >
-      <Icon className={cn("h-[18px] w-[18px] flex-shrink-0", active ? "text-[#fe2c55]" : "text-[#1f2937]")} />
+      <Icon className={cn("h-[18px] w-[18px] flex-shrink-0", active ? "text-[#fd4605]" : "text-[#1f2937]")} />
       <span className="flex-1 truncate">{label}</span>
       {value && <span className="text-[12px] font-semibold text-[#5f6675]">{value}</span>}
       {trailing === "chevron" && <ChevronRight className="h-3.5 w-3.5 text-[#9aa1ad]" />}
@@ -224,7 +224,7 @@ function Row({
           aria-checked={toggle}
           className={cn(
             "relative inline-flex h-5 w-9 flex-shrink-0 items-center rounded-full transition",
-            toggle ? "bg-[#fe2c55]" : "bg-[#e5e7eb]",
+            toggle ? "bg-[#fd4605]" : "bg-[#e5e7eb]",
           )}
         >
           <span

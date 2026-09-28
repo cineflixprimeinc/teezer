@@ -95,7 +95,7 @@ export default function EnforcementPolicyPage() {
       <P>
         We make mistakes sometimes. If your content was removed or your account restricted and you believe the
         decision was wrong, contact us at{" "}
-        <a href={`mailto:${CONTACT_EMAIL}?subject=Appeal`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>{" "}
+        <a href={`mailto:${CONTACT_EMAIL}?subject=Appeal`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>{" "}
         with your username and the details of the decision. A moderator who was not involved in the original decision
         reviews the appeal independently, and we tell you the outcome either way. Appeals for zero-tolerance
         violations (the highest severity tier above) are reviewed with the same rigor, but reinstatement in that

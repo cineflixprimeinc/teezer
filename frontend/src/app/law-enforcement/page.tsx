@@ -97,7 +97,7 @@ export default function LawEnforcementPage() {
 
       <H2 id="submitting" n={7}>Submitting a Request</H2>
       <UL>
-        <li>Email requests to <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a> with the subject line &quot;Law Enforcement Request&quot;.</li>
+        <li>Email requests to <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a> with the subject line &quot;Law Enforcement Request&quot;.</li>
         <li>Send from an official government email address, on agency letterhead, identifying the requesting officer, agency, and a means of verification.</li>
         <li>Include the legal process document, the precise account identifiers, the data categories sought and the relevant time range.</li>
         <li>Receipt of a request is not a commitment to disclose; we respond after review, and may seek clarification or narrowing.</li>

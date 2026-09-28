@@ -79,8 +79,8 @@ export function ContactChangeModal({ open, mode, currentValue, onClose, onSaved 
       <div className="w-full max-w-[420px] rounded-[18px] bg-white p-5 shadow-2xl">
         <div className="mb-4 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <span className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-[#fff0f4]">
-              {isEmail ? <Mail className="h-4 w-4 text-[#fe2c55]" /> : <Phone className="h-4 w-4 text-[#fe2c55]" />}
+            <span className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-[#fff3ec]">
+              {isEmail ? <Mail className="h-4 w-4 text-[#fd4605]" /> : <Phone className="h-4 w-4 text-[#fd4605]" />}
             </span>
             <h3 className="text-[15px] font-extrabold text-[#111827]">{title}</h3>
           </div>
@@ -104,7 +104,7 @@ export function ContactChangeModal({ open, mode, currentValue, onClose, onSaved 
               value={value}
               onChange={(e) => setValue(e.target.value)}
               placeholder={ph}
-              className="h-10 rounded-[10px] border border-[#e8eaf0] bg-white px-3 text-[13.5px] text-[#111827] placeholder:text-[#c0c4cc] outline-none transition-colors focus:border-[#fe2c55]"
+              className="h-10 rounded-[10px] border border-[#e8eaf0] bg-white px-3 text-[13.5px] text-[#111827] placeholder:text-[#c0c4cc] outline-none transition-colors focus:border-[#fd4605]"
             />
           </label>
 
@@ -117,7 +117,7 @@ export function ContactChangeModal({ open, mode, currentValue, onClose, onSaved 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
-                className="h-10 w-full rounded-[10px] border border-[#e8eaf0] bg-white pl-9 pr-3 text-[13.5px] text-[#111827] placeholder:text-[#c0c4cc] outline-none transition-colors focus:border-[#fe2c55]"
+                className="h-10 w-full rounded-[10px] border border-[#e8eaf0] bg-white pl-9 pr-3 text-[13.5px] text-[#111827] placeholder:text-[#c0c4cc] outline-none transition-colors focus:border-[#fd4605]"
               />
             </div>
           </label>
@@ -134,7 +134,7 @@ export function ContactChangeModal({ open, mode, currentValue, onClose, onSaved 
           <button
             onClick={submit}
             disabled={busy}
-            className="flex-1 rounded-[10px] bg-[#fe2c55] py-2.5 text-[13px] font-bold text-white transition-colors hover:bg-[#e0193f] disabled:opacity-60"
+            className="flex-1 rounded-[10px] bg-[#fd4605] py-2.5 text-[13px] font-bold text-white transition-colors hover:bg-[#e03e04] disabled:opacity-60"
           >
             {busy ? "Saving…" : "Save"}
           </button>

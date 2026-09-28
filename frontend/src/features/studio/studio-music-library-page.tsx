@@ -20,7 +20,7 @@ import { audioService, AudioTrack } from "@/services/audio.service";
 // ─── Categories ───────────────────────────────────────────────────────────────
 
 const CATEGORIES = [
-  { id: "all",       label: "All",        icon: Music,       color: "#fe2c55" },
+  { id: "all",       label: "All",        icon: Music,       color: "#fd4605" },
   { id: "trending",  label: "Trending",   icon: Flame,       color: "#f97316" },
   { id: "happy",     label: "Happy",      icon: Smile,       color: "#eab308" },
   { id: "chill",     label: "Chill",      icon: Wind,        color: "#22c55e" },
@@ -79,7 +79,7 @@ const MOOD_STYLES: Record<string, { bg: string; text: string }> = {
   "Spiritual":           { bg: "#fdf4ff", text: "#9333ea" },
   "Suspenseful":         { bg: "#fafaf9", text: "#44403c" },
   "Playful / Fun":       { bg: "#fefce8", text: "#d97706" },
-  "Romantic / Love":     { bg: "#fff0f4", text: "#e11d48" },
+  "Romantic / Love":     { bg: "#fff3ec", text: "#e11d48" },
   "Cinematic":           { bg: "#faf5ff", text: "#7c3aed" },
 };
 
@@ -178,7 +178,7 @@ function Sparkline({ usageCount }: { usageCount: number }) {
   const d = coords.map((p, i) => `${i === 0 ? "M" : "L"}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(" ");
   return (
     <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} fill="none" className="shrink-0">
-      <path d={d} stroke="#fe2c55" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d={d} stroke="#fd4605" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -192,7 +192,7 @@ function Waveform({ trackId, isPlaying }: { trackId: number; isPlaying: boolean 
       {bars.map((h, i) => (
         <div key={i} className={cn(
           "rounded-full shrink-0 transition-colors duration-300",
-          isPlaying ? "bg-[#fe2c55]" : "bg-[#e5e7eb] group-hover:bg-[#d1d5db]",
+          isPlaying ? "bg-[#fd4605]" : "bg-[#e5e7eb] group-hover:bg-[#d1d5db]",
         )} style={{ width: 2, height: `${h}%` }} />
       ))}
     </div>
@@ -263,8 +263,8 @@ function Dropdown({ label, value, options, onChange, icon: Icon, searchable }: {
         className={cn(
           "flex items-center gap-1.5 h-9 px-3 rounded-xl border text-[12px] font-medium transition-all whitespace-nowrap",
           active
-            ? "border-[#fe2c55] bg-[#fff0f4] text-[#fe2c55] shadow-sm shadow-[#fe2c55]/10"
-            : "border-[#e8eaed] bg-white text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55]",
+            ? "border-[#fd4605] bg-[#fff3ec] text-[#fd4605] shadow-sm shadow-[#fd4605]/10"
+            : "border-[#e8eaed] bg-white text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605]",
         )}
       >
         {Icon && <Icon className="h-3.5 w-3.5 shrink-0" />}
@@ -283,7 +283,7 @@ function Dropdown({ label, value, options, onChange, icon: Icon, searchable }: {
               <div className="relative">
                 <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3 w-3 text-[#9ca3af] pointer-events-none" />
                 <input ref={inRef} value={query} onChange={e => setQuery(e.target.value)} placeholder="Search…"
-                  className="w-full h-7 pl-7 pr-3 rounded-lg bg-[#f9fafb] border border-[#e8eaed] text-[11px] text-[#111827] outline-none focus:border-[#fe2c55]" />
+                  className="w-full h-7 pl-7 pr-3 rounded-lg bg-[#f9fafb] border border-[#e8eaed] text-[11px] text-[#111827] outline-none focus:border-[#fd4605]" />
               </div>
             </div>
           )}
@@ -293,11 +293,11 @@ function Dropdown({ label, value, options, onChange, icon: Icon, searchable }: {
                 onClick={() => { onChange(""); setOpen(false); setQuery(""); }}
                 className={cn(
                   "w-full text-left px-3 py-2 rounded-xl text-[12px] transition-colors flex items-center justify-between",
-                  !value ? "bg-[#fff0f4] text-[#fe2c55] font-semibold" : "text-[#374151] hover:bg-[#f4f5f7]",
+                  !value ? "bg-[#fff3ec] text-[#fd4605] font-semibold" : "text-[#374151] hover:bg-[#f4f5f7]",
                 )}
               >
                 <span>All</span>
-                {!value && <div className="h-1.5 w-1.5 rounded-full bg-[#fe2c55]" />}
+                {!value && <div className="h-1.5 w-1.5 rounded-full bg-[#fd4605]" />}
               </button>
             )}
             {filtered.map(o => (
@@ -306,11 +306,11 @@ function Dropdown({ label, value, options, onChange, icon: Icon, searchable }: {
                 onClick={() => { onChange(o.value); setOpen(false); setQuery(""); }}
                 className={cn(
                   "w-full text-left px-3 py-2 rounded-xl text-[12px] transition-colors flex items-center justify-between",
-                  value === o.value ? "bg-[#fff0f4] text-[#fe2c55] font-semibold" : "text-[#374151] hover:bg-[#f4f5f7]",
+                  value === o.value ? "bg-[#fff3ec] text-[#fd4605] font-semibold" : "text-[#374151] hover:bg-[#f4f5f7]",
                 )}
               >
                 <span>{o.label}</span>
-                {value === o.value && <div className="h-1.5 w-1.5 rounded-full bg-[#fe2c55]" />}
+                {value === o.value && <div className="h-1.5 w-1.5 rounded-full bg-[#fd4605]" />}
               </button>
             ))}
             {filtered.length === 0 && <p className="text-center py-3 text-[11px] text-[#9ca3af]">No results</p>}
@@ -360,7 +360,7 @@ function CategoryCarousel({ category, onSelect }: {
         onClick={() => scroll("left")}
         className={cn(
           "shrink-0 h-8 w-8 rounded-full border border-[#e8eaed] bg-white grid place-items-center text-[#6b7280] shadow-sm transition-all",
-          canLeft ? "opacity-100 hover:border-[#fe2c55] hover:text-[#fe2c55]" : "opacity-0 pointer-events-none",
+          canLeft ? "opacity-100 hover:border-[#fd4605] hover:text-[#fd4605]" : "opacity-0 pointer-events-none",
         )}
       >
         <ChevronLeft className="h-4 w-4" />
@@ -383,7 +383,7 @@ function CategoryCarousel({ category, onSelect }: {
                 "flex items-center gap-1.5 h-9 px-4 rounded-2xl text-[12px] font-semibold whitespace-nowrap shrink-0 border transition-all",
                 active
                   ? "text-white border-transparent shadow-md"
-                  : "bg-white border-[#e8eaed] text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55] hover:shadow-sm",
+                  : "bg-white border-[#e8eaed] text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605] hover:shadow-sm",
               )}
               style={active ? { background: cat.color, borderColor: cat.color, boxShadow: `0 4px 12px ${cat.color}30` } : {}}
             >
@@ -399,7 +399,7 @@ function CategoryCarousel({ category, onSelect }: {
         onClick={() => scroll("right")}
         className={cn(
           "shrink-0 h-8 w-8 rounded-full border border-[#e8eaed] bg-white grid place-items-center text-[#6b7280] shadow-sm transition-all",
-          canRight ? "opacity-100 hover:border-[#fe2c55] hover:text-[#fe2c55]" : "opacity-0 pointer-events-none",
+          canRight ? "opacity-100 hover:border-[#fd4605] hover:text-[#fd4605]" : "opacity-0 pointer-events-none",
         )}
       >
         <ChevronRight className="h-4 w-4" />
@@ -442,11 +442,11 @@ function TrackDetailsModal({ track, onClose, onPlay, isPlaying }: {
         onClick={e => e.stopPropagation()}
       >
         {/* ── Hero ── */}
-        <div className="relative h-52 bg-gradient-to-br from-[#ffd4dc] to-[#ffecef] overflow-hidden">
+        <div className="relative h-52 bg-gradient-to-br from-[#ffdccc] to-[#fff0e8] overflow-hidden">
           {track.cover_url
             ? <img src={track.cover_url} alt={track.title} className="w-full h-full object-cover" />
             : <div className="w-full h-full flex items-center justify-center">
-                <Music className="h-20 w-20 text-[#fe2c55]/20" />
+                <Music className="h-20 w-20 text-[#fd4605]/20" />
               </div>
           }
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
@@ -462,7 +462,7 @@ function TrackDetailsModal({ track, onClose, onPlay, isPlaying }: {
           {/* Source badge */}
           <div className="absolute top-3 left-3">
             {isReelsoo ? (
-              <span className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#fe2c55]/90 text-white text-[10px] font-bold backdrop-blur-sm">
+              <span className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#fd4605]/90 text-white text-[10px] font-bold backdrop-blur-sm">
                 <Music className="h-2.5 w-2.5" /> Teezer Original
               </span>
             ) : (
@@ -481,7 +481,7 @@ function TrackDetailsModal({ track, onClose, onPlay, isPlaying }: {
               </div>
               <button
                 onClick={e => { e.stopPropagation(); onPlay(); }}
-                className="shrink-0 h-12 w-12 rounded-full bg-[#fe2c55] grid place-items-center shadow-xl shadow-[#fe2c55]/40 hover:bg-[#e0264b] active:scale-95 transition-all"
+                className="shrink-0 h-12 w-12 rounded-full bg-[#fd4605] grid place-items-center shadow-xl shadow-[#fd4605]/40 hover:bg-[#e03e04] active:scale-95 transition-all"
               >
                 {isPlaying
                   ? <Pause className="h-5 w-5 fill-current text-white" />
@@ -501,7 +501,7 @@ function TrackDetailsModal({ track, onClose, onPlay, isPlaying }: {
                 {metaFields.map(({ label, value, icon: Icon }) => (
                   <div key={label} className="bg-[#f9fafb] rounded-2xl p-3 flex items-start gap-2.5">
                     <div className="h-7 w-7 rounded-xl bg-white grid place-items-center shrink-0 shadow-sm border border-[#f0f0f0]">
-                      <Icon className="h-3.5 w-3.5 text-[#fe2c55]" />
+                      <Icon className="h-3.5 w-3.5 text-[#fd4605]" />
                     </div>
                     <div className="min-w-0">
                       <p className="text-[9px] font-bold uppercase tracking-widest text-[#9ca3af] leading-none">{label}</p>
@@ -573,7 +573,7 @@ function TrackDetailsModal({ track, onClose, onPlay, isPlaying }: {
             <div className="flex gap-3 pb-1">
               <button
                 onClick={e => { e.stopPropagation(); onPlay(); }}
-                className="flex-1 h-11 rounded-2xl bg-[#fe2c55] text-white text-[13px] font-bold hover:bg-[#e0264b] active:scale-[0.98] transition-all shadow-md shadow-[#fe2c55]/25 flex items-center justify-center gap-2"
+                className="flex-1 h-11 rounded-2xl bg-[#fd4605] text-white text-[13px] font-bold hover:bg-[#e03e04] active:scale-[0.98] transition-all shadow-md shadow-[#fd4605]/25 flex items-center justify-center gap-2"
               >
                 {isPlaying ? <Pause className="h-4 w-4 fill-current" /> : <Play className="h-4 w-4 fill-current" />}
                 {isPlaying ? "Pause" : "Use sound"}
@@ -627,23 +627,23 @@ function TrackRow({ track, isPlaying, isFavorited, onPlay, onFavorite, onViewDet
       <button onClick={onPlay} className={cn(
         "shrink-0 h-9 w-9 rounded-full grid place-items-center border-2 transition-all",
         isPlaying
-          ? "border-[#fe2c55] bg-[#fe2c55] text-white shadow-sm shadow-[#fe2c55]/30"
-          : "border-[#e8eaed] bg-white text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55]",
+          ? "border-[#fd4605] bg-[#fd4605] text-white shadow-sm shadow-[#fd4605]/30"
+          : "border-[#e8eaed] bg-white text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605]",
       )}>
         {isPlaying ? <Pause className="h-3.5 w-3.5 fill-current" /> : <Play className="h-3.5 w-3.5 fill-current ml-0.5" />}
       </button>
 
-      <div className="h-11 w-11 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#ffd4dc] to-[#ffecef] grid place-items-center">
+      <div className="h-11 w-11 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#ffdccc] to-[#fff0e8] grid place-items-center">
         {track.cover_url
           ? <img src={track.cover_url} alt={track.title} className="h-full w-full object-cover" />
-          : <Music className="h-4 w-4 text-[#fe2c55]" />}
+          : <Music className="h-4 w-4 text-[#fd4605]" />}
       </div>
 
       <div className="min-w-0 w-44 shrink-0">
         <div className="flex items-center gap-1.5">
           <p className="truncate text-[13px] font-semibold text-[#111827]">{track.title}</p>
           {isNew && (
-            <span className="shrink-0 text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-[#fe2c55] text-white leading-none">NEW</span>
+            <span className="shrink-0 text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-[#fd4605] text-white leading-none">NEW</span>
           )}
         </div>
         <p className="truncate text-[11px] text-[#9ca3af] mt-0.5">{track.artist ?? "Unknown Artist"}</p>
@@ -662,11 +662,11 @@ function TrackRow({ track, isPlaying, isFavorited, onPlay, onFavorite, onViewDet
         <p className="text-[12px] font-medium text-[#374151] truncate">{track.artist ?? "-"}</p>
       </div>
 
-      <button onClick={onFavorite} className="shrink-0 p-1.5 rounded-full transition-colors hover:bg-[#fff0f4]">
-        <Heart className={cn("h-4 w-4 transition-colors", isFavorited ? "fill-[#fe2c55] text-[#fe2c55]" : "text-[#d1d5db] hover:text-[#fe2c55]")} />
+      <button onClick={onFavorite} className="shrink-0 p-1.5 rounded-full transition-colors hover:bg-[#fff3ec]">
+        <Heart className={cn("h-4 w-4 transition-colors", isFavorited ? "fill-[#fd4605] text-[#fd4605]" : "text-[#d1d5db] hover:text-[#fd4605]")} />
       </button>
 
-      <button className="shrink-0 h-8 px-4 rounded-xl bg-[#fe2c55] text-white text-[12px] font-semibold hover:bg-[#e0264b] active:scale-95 transition-all whitespace-nowrap">
+      <button className="shrink-0 h-8 px-4 rounded-xl bg-[#fd4605] text-white text-[12px] font-semibold hover:bg-[#e03e04] active:scale-95 transition-all whitespace-nowrap">
         Use sound
       </button>
 
@@ -701,8 +701,8 @@ function TrackRow({ track, isPlaying, isFavorited, onPlay, onFavorite, onViewDet
                 className={cn(
                   "w-full flex items-center gap-2.5 px-4 py-2.5 text-[12.5px] font-medium transition-colors text-left",
                   "highlight" in item && item.highlight
-                    ? "text-[#fe2c55] hover:bg-[#fff0f4]"
-                    : "text-[#374151] hover:bg-[#f9fafb] hover:text-[#fe2c55]",
+                    ? "text-[#fd4605] hover:bg-[#fff3ec]"
+                    : "text-[#374151] hover:bg-[#f9fafb] hover:text-[#fd4605]",
                 )}
               >
                 <span className="text-[#9ca3af] text-[13px] w-4 text-center shrink-0">{item.icon}</span>
@@ -769,7 +769,7 @@ function RightSidebar({ trendingTracks, playingId, onPlay }: {
       <div className="bg-white rounded-2xl border border-[#e8eaed] overflow-hidden">
         <div className="flex items-center justify-between px-4 py-3 border-b border-[#f4f5f7]">
           <p className="text-[13px] font-bold text-[#111827]">Trending Sounds</p>
-          <button className="text-[12px] font-semibold text-[#fe2c55] hover:underline">View all</button>
+          <button className="text-[12px] font-semibold text-[#fd4605] hover:underline">View all</button>
         </div>
         <div className="divide-y divide-[#f9fafb]">
           {trendingTracks.length === 0
@@ -788,7 +788,7 @@ function RightSidebar({ trendingTracks, playingId, onPlay }: {
                 </div>
                 <Sparkline usageCount={track.usage_count + track.id} />
                 <button onClick={() => onPlay(track)}
-                  className="shrink-0 h-7 w-7 rounded-full border border-[#e8eaed] bg-white grid place-items-center text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55] transition-colors">
+                  className="shrink-0 h-7 w-7 rounded-full border border-[#e8eaed] bg-white grid place-items-center text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605] transition-colors">
                   {playingId === track.id ? <Pause className="h-3 w-3 fill-current" /> : <Play className="h-3 w-3 fill-current ml-0.5" />}
                 </button>
               </div>
@@ -798,20 +798,20 @@ function RightSidebar({ trendingTracks, playingId, onPlay }: {
       </div>
 
       {/* Upload Your Originals card */}
-      <div className="rounded-2xl border border-[#ffd4dc] overflow-hidden" style={{ background: "linear-gradient(145deg, #fff8f9 0%, #fff0f4 100%)" }}>
+      <div className="rounded-2xl border border-[#ffdccc] overflow-hidden" style={{ background: "linear-gradient(145deg, #fff8f9 0%, #fff3ec 100%)" }}>
         {/* Decorative waveform header */}
         <div className="relative flex items-center justify-center pt-5 pb-3 px-4">
           {/* Fake waveform bars */}
           <div className="flex items-center gap-[3px] absolute inset-x-4 top-3 opacity-20">
             {[14,22,36,50,42,60,48,30,55,45,28,60,52,38,22,44,58,46,32,55,40,26,48,60,35].map((h, i) => (
-              <div key={i} className="flex-1 rounded-full bg-[#fe2c55]" style={{ height: h }} />
+              <div key={i} className="flex-1 rounded-full bg-[#fd4605]" style={{ height: h }} />
             ))}
           </div>
           {/* Center icon */}
-          <div className="relative z-10 h-14 w-14 rounded-full bg-white shadow-lg shadow-[#fe2c55]/20 grid place-items-center border-2 border-[#ffd4dc]">
+          <div className="relative z-10 h-14 w-14 rounded-full bg-white shadow-lg shadow-[#fd4605]/20 grid place-items-center border-2 border-[#ffdccc]">
             <div className="relative">
-              <Music className="h-6 w-6 text-[#fe2c55]" />
-              <div className="absolute -right-1 -bottom-1 h-5 w-5 rounded-full bg-[#fe2c55] grid place-items-center shadow-sm">
+              <Music className="h-6 w-6 text-[#fd4605]" />
+              <div className="absolute -right-1 -bottom-1 h-5 w-5 rounded-full bg-[#fd4605] grid place-items-center shadow-sm">
                 <svg viewBox="0 0 10 10" className="h-2.5 w-2.5 text-white fill-current">
                   <path d="M5 1v8M2 5l3-3 3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
                 </svg>
@@ -828,7 +828,7 @@ function RightSidebar({ trendingTracks, playingId, onPlay }: {
 
           <button
             onClick={() => window.open("https://music.teezer.live", "_blank")}
-            className="mt-4 w-full h-10 rounded-xl bg-[#fe2c55] text-white text-[13px] font-bold hover:bg-[#e0264b] active:scale-95 transition-all shadow-md shadow-[#fe2c55]/30">
+            className="mt-4 w-full h-10 rounded-xl bg-[#fd4605] text-white text-[13px] font-bold hover:bg-[#e03e04] active:scale-95 transition-all shadow-md shadow-[#fd4605]/30">
             Upload with Teezer
           </button>
 
@@ -867,20 +867,20 @@ function RightSidebar({ trendingTracks, playingId, onPlay }: {
         <div className="bg-white rounded-2xl border border-[#e8eaed] overflow-hidden">
           <div className="flex items-center justify-between px-4 py-3 border-b border-[#f4f5f7]">
             <p className="text-[13px] font-bold text-[#111827]">Recently Used</p>
-            <button className="text-[12px] font-semibold text-[#fe2c55] hover:underline">View all</button>
+            <button className="text-[12px] font-semibold text-[#fd4605] hover:underline">View all</button>
           </div>
           <div className="divide-y divide-[#f9fafb]">
             {trendingTracks.slice(0, 3).map(track => (
               <div key={track.id} className="flex items-center gap-3 px-4 py-3 hover:bg-[#fafafa] transition-colors">
-                <div className="h-9 w-9 shrink-0 rounded-lg overflow-hidden bg-gradient-to-br from-[#ffd4dc] to-[#ffecef] grid place-items-center">
-                  {track.cover_url ? <img src={track.cover_url} alt="" className="h-full w-full object-cover" /> : <Music className="h-3.5 w-3.5 text-[#fe2c55]" />}
+                <div className="h-9 w-9 shrink-0 rounded-lg overflow-hidden bg-gradient-to-br from-[#ffdccc] to-[#fff0e8] grid place-items-center">
+                  {track.cover_url ? <img src={track.cover_url} alt="" className="h-full w-full object-cover" /> : <Music className="h-3.5 w-3.5 text-[#fd4605]" />}
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-[12px] font-semibold text-[#111827]">{track.title}</p>
                   <p className="truncate text-[11px] text-[#9ca3af]">{track.artist ?? "Unknown"} · {fmtDuration(track.duration)}</p>
                 </div>
                 <button onClick={() => onPlay(track)}
-                  className="shrink-0 h-7 w-7 rounded-full border border-[#e8eaed] bg-white grid place-items-center text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55] transition-colors">
+                  className="shrink-0 h-7 w-7 rounded-full border border-[#e8eaed] bg-white grid place-items-center text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605] transition-colors">
                   <Play className="h-3 w-3 fill-current ml-0.5" />
                 </button>
               </div>
@@ -918,17 +918,17 @@ function MiniPlayer({ track, isPlaying, currentTime, duration, onToggle, onSeek,
     <div className="shrink-0 bg-white border-t border-[#e8eaed] shadow-2xl shadow-black/10 px-4 pt-2 pb-3">
       {/* Seek bar */}
       <div className="h-1 w-full rounded-full bg-[#f0f0f0] mb-3 cursor-pointer group relative" onClick={handleBarClick}>
-        <div className="h-full rounded-full bg-[#fe2c55] relative" style={{ width: `${pct}%` }}>
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-[#fe2c55] border-2 border-white shadow scale-0 group-hover:scale-100 transition-transform" />
+        <div className="h-full rounded-full bg-[#fd4605] relative" style={{ width: `${pct}%` }}>
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-[#fd4605] border-2 border-white shadow scale-0 group-hover:scale-100 transition-transform" />
         </div>
       </div>
 
       <div className="flex items-center gap-3">
         {/* Cover + info */}
-        <div className="h-10 w-10 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#ffd4dc] to-[#ffecef] grid place-items-center">
+        <div className="h-10 w-10 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#ffdccc] to-[#fff0e8] grid place-items-center">
           {track.cover_url
             ? <img src={track.cover_url} alt="" className="h-full w-full object-cover" />
-            : <Music className="h-4 w-4 text-[#fe2c55]" />}
+            : <Music className="h-4 w-4 text-[#fd4605]" />}
         </div>
         <div className="min-w-0 w-40 shrink-0">
           <p className="truncate text-[13px] font-semibold text-[#111827]">{track.title}</p>
@@ -942,7 +942,7 @@ function MiniPlayer({ track, isPlaying, currentTime, duration, onToggle, onSeek,
             <SkipBack className="h-4 w-4" />
           </button>
           <button onClick={onToggle}
-            className="h-10 w-10 rounded-full bg-[#fe2c55] grid place-items-center text-white hover:bg-[#e0264b] active:scale-95 transition-all shadow-md shadow-[#fe2c55]/30">
+            className="h-10 w-10 rounded-full bg-[#fd4605] grid place-items-center text-white hover:bg-[#e03e04] active:scale-95 transition-all shadow-md shadow-[#fd4605]/30">
             {isPlaying
               ? <Pause className="h-4 w-4 fill-current" />
               : <Play  className="h-4 w-4 fill-current ml-0.5" />}
@@ -1173,7 +1173,7 @@ export function StudioMusicLibraryPage() {
                   <button key={t.id} onClick={() => setTab(t.id)}
                     className={cn(
                       "px-4 py-2.5 text-[13px] font-semibold border-b-2 -mb-px transition-colors whitespace-nowrap",
-                      tab === t.id ? "border-[#fe2c55] text-[#fe2c55]" : "border-transparent text-[#6b7280] hover:text-[#374151]",
+                      tab === t.id ? "border-[#fd4605] text-[#fd4605]" : "border-transparent text-[#6b7280] hover:text-[#374151]",
                     )}>
                     {t.label}
                   </button>
@@ -1187,7 +1187,7 @@ export function StudioMusicLibraryPage() {
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[#9ca3af] pointer-events-none" />
                   <input type="text" placeholder="Search by track, artist, or keyword..."
                     value={search} onChange={e => setSearch(e.target.value)}
-                    className="h-9 w-full rounded-xl border border-[#e8eaed] bg-white pl-9 pr-3 text-[13px] placeholder:text-[#9ca3af] text-[#111827] outline-none focus:border-[#fe2c55] transition-colors" />
+                    className="h-9 w-full rounded-xl border border-[#e8eaed] bg-white pl-9 pr-3 text-[13px] placeholder:text-[#9ca3af] text-[#111827] outline-none focus:border-[#fd4605] transition-colors" />
                 </div>
 
                 <Dropdown label="Mood"     value={moodFilter}     onChange={setMoodFilter}     options={Object.keys(MOOD_STYLES).map(m => ({ value: m, label: m }))} searchable />
@@ -1198,7 +1198,7 @@ export function StudioMusicLibraryPage() {
                 {activeFilters > 0 && (
                   <button
                     onClick={() => { setMoodFilter(""); setGenreFilter(""); setDurationFilter(""); }}
-                    className="flex items-center gap-1.5 h-9 px-3 rounded-xl bg-[#fff0f4] border border-[#fe2c55] text-[#fe2c55] text-[12px] font-semibold hover:bg-[#ffe0e6] transition-colors whitespace-nowrap"
+                    className="flex items-center gap-1.5 h-9 px-3 rounded-xl bg-[#fff3ec] border border-[#fd4605] text-[#fd4605] text-[12px] font-semibold hover:bg-[#ffe0e6] transition-colors whitespace-nowrap"
                   >
                     <span>{activeFilters} active</span>
                     <span className="text-[10px]">✕</span>
@@ -1208,7 +1208,7 @@ export function StudioMusicLibraryPage() {
                 {/* Refresh button */}
                 <button
                   onClick={() => setRefreshKey(k => k + 1)}
-                  className="shrink-0 ml-auto h-9 w-9 rounded-xl border border-[#e8eaed] bg-white grid place-items-center text-[#6b7280] hover:border-[#fe2c55] hover:text-[#fe2c55] transition-colors"
+                  className="shrink-0 ml-auto h-9 w-9 rounded-xl border border-[#e8eaed] bg-white grid place-items-center text-[#6b7280] hover:border-[#fd4605] hover:text-[#fd4605] transition-colors"
                   title="Refresh"
                 >
                   <RefreshCw className={cn("h-3.5 w-3.5 transition-transform", loading && "animate-spin")} />

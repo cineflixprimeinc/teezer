@@ -63,7 +63,7 @@ function GrowthBadge({ pct, up }: { pct: number; up: boolean }) {
 }
 
 /* ── Sparkline ── */
-function Sparkline({ data, color = "#fe2c55" }: { data: number[]; color?: string }) {
+function Sparkline({ data, color = "#fd4605" }: { data: number[]; color?: string }) {
   const series = useMemo(() => [{ data }], [data]);
   const options = useMemo(() => ({
     chart: { type: "area" as const, toolbar: { show: false }, zoom: { enabled: false }, sparkline: { enabled: true }, animations: { enabled: false } },
@@ -95,7 +95,7 @@ function DonutChart({ series, labels, colors, height = 120, centerLabel }: {
 }
 
 /* ── Area chart (reusable) ── */
-function AreaChart({ data, color = "#fe2c55", height = 130, label = "Value" }: {
+function AreaChart({ data, color = "#fd4605", height = 130, label = "Value" }: {
   data: { label: string; value: number }[]; color?: string; height?: number; label?: string;
 }) {
   const series  = useMemo(() => [{ name: label, data: data.map(d => d.value) }], [data, label]);
@@ -124,7 +124,7 @@ function AreaChart({ data, color = "#fe2c55", height = 130, label = "Value" }: {
 }
 
 /* ── Horizontal bar row ── */
-function HBar({ label, pct, color = "#fe2c55" }: { label: string; pct: number; color?: string }) {
+function HBar({ label, pct, color = "#fd4605" }: { label: string; pct: number; color?: string }) {
   return (
     <div className="flex items-center gap-2">
       <span className="w-28 flex-shrink-0 truncate text-[12px] text-[#374151]">{label}</span>
@@ -158,8 +158,8 @@ function BestTimeGrid({ hours, bestHour }: { hours: { hour: number; label: strin
               return (
                 <div
                   key={`${day}-${h}`}
-                  className={cn("rounded-sm aspect-square", isBest && "ring-1 ring-[#fe2c55]")}
-                  style={{ backgroundColor: `rgba(254,44,85,${opacity})` }}
+                  className={cn("rounded-sm aspect-square", isBest && "ring-1 ring-[#fd4605]")}
+                  style={{ backgroundColor: `rgba(253,70,5,${opacity})` }}
                   title={`${hours[h]?.label}: ${score}%`}
                 />
               );
@@ -244,19 +244,19 @@ export function StudioAnalyticsPage() {
 
   /* ── Summary cards config ── */
   const summaryCards = [
-    { key: "views",              label: "Total Views",        icon: <Eye className="h-4 w-4" />,       iconBg: "#fff1f4", iconColor: "#fe2c55", format: (v: number) => fv(v) },
+    { key: "views",              label: "Total Views",        icon: <Eye className="h-4 w-4" />,       iconBg: "#fff1f4", iconColor: "#fd4605", format: (v: number) => fv(v) },
     { key: "watch_time_hours",   label: "Watch Time",         icon: <Clock className="h-4 w-4" />,      iconBg: "#f0fdf4", iconColor: "#16a34a", format: (v: number) => `${fv(v)}h` },
     { key: "avg_watch_duration", label: "Avg. Watch Duration",icon: <Play className="h-4 w-4" />,       iconBg: "#eff6ff", iconColor: "#2563eb", format: (v: number) => fmtSec(v) },
     { key: "engagement_rate",    label: "Engagement Rate",    icon: <Heart className="h-4 w-4" />,      iconBg: "#fdf4ff", iconColor: "#9333ea", format: (v: number) => `${v}%` },
     { key: "followers_gained",   label: "Followers Gained",   icon: <Users className="h-4 w-4" />,      iconBg: "#fff7ed", iconColor: "#ea580c", format: (v: number) => fv(v) },
     { key: "profile_views",      label: "Profile Visits",     icon: <TrendingUp className="h-4 w-4" />, iconBg: "#f0fdf4", iconColor: "#059669", format: (v: number) => fv(v) },
-    { key: "likes",              label: "Likes",              icon: <Heart className="h-4 w-4" />,      iconBg: "#fff1f4", iconColor: "#fe2c55", format: (v: number) => fv(v) },
+    { key: "likes",              label: "Likes",              icon: <Heart className="h-4 w-4" />,      iconBg: "#fff1f4", iconColor: "#fd4605", format: (v: number) => fv(v) },
     { key: "estimated_rewards",  label: "Estimated Rewards",  icon: <Zap className="h-4 w-4" />,        iconBg: "#fefce8", iconColor: "#ca8a04", format: (v: number) => `$${v.toFixed(2)}` },
   ] as const;
 
   /* ── Chart cards config ── */
   const mainCharts = [
-    { key: "views_over_time",   label: "Views Over Time",    color: "#fe2c55",  total: s?.views.value            ?? 0, totalFmt: fv(s?.views.value ?? 0),             growth: s?.views.growth            },
+    { key: "views_over_time",   label: "Views Over Time",    color: "#fd4605",  total: s?.views.value            ?? 0, totalFmt: fv(s?.views.value ?? 0),             growth: s?.views.growth            },
     { key: "watch_time_growth", label: "Watch Time Growth",  color: "#7c3aed",  total: s?.watch_time_hours.value ?? 0, totalFmt: `${fv(s?.watch_time_hours.value ?? 0)}h`, growth: s?.watch_time_hours.growth },
     { key: "follower_growth",   label: "Follower Growth",    color: "#16a34a",  total: s?.followers_gained.value ?? 0, totalFmt: fv(s?.followers_gained.value ?? 0),  growth: s?.followers_gained.growth },
     { key: "engagement_trend",  label: "Engagement Trend",   color: "#e879f9",  total: s?.engagement_rate.value  ?? 0, totalFmt: `${(s?.engagement_rate.value ?? 0)}%`, growth: s?.engagement_rate.growth },
@@ -298,13 +298,13 @@ export function StudioAnalyticsPage() {
               <div className="flex flex-shrink-0 items-center gap-2">
                 <button
                   onClick={handleExport}
-                  className="flex items-center gap-1.5 rounded-xl border border-[#e5e7eb] bg-white px-3 py-2 text-[12px] font-semibold text-[#374151] shadow-sm hover:border-[#fe2c55] transition"
+                  className="flex items-center gap-1.5 rounded-xl border border-[#e5e7eb] bg-white px-3 py-2 text-[12px] font-semibold text-[#374151] shadow-sm hover:border-[#fd4605] transition"
                 >
                   <Download className="h-3.5 w-3.5" /> Export Report
                 </button>
                 <Link
                   href="/studio/upload"
-                  className="flex items-center gap-1.5 rounded-xl bg-[#fe2c55] px-3 py-2 text-[12px] font-bold text-white shadow-sm hover:bg-[#e0193f] transition"
+                  className="flex items-center gap-1.5 rounded-xl bg-[#fd4605] px-3 py-2 text-[12px] font-bold text-white shadow-sm hover:bg-[#e03e04] transition"
                 >
                   <Upload className="h-3.5 w-3.5" /> Upload New Video
                 </Link>
@@ -391,7 +391,7 @@ export function StudioAnalyticsPage() {
                     <div className="relative">
                       <button
                         onClick={() => setMetricOpen(o => !o)}
-                        className="flex items-center gap-1.5 rounded-xl border border-[#e5e7eb] bg-white px-3 py-1.5 text-[12px] font-semibold text-[#374151] hover:border-[#fe2c55] transition"
+                        className="flex items-center gap-1.5 rounded-xl border border-[#e5e7eb] bg-white px-3 py-1.5 text-[12px] font-semibold text-[#374151] hover:border-[#fd4605] transition"
                       >
                         {METRIC_OPTIONS.find(m => m.value === perfMetric)?.label ?? "Views"}
                         <ChevronDown className={cn("h-3.5 w-3.5 text-[#9ca3af] transition-transform", metricOpen && "rotate-180")} />
@@ -401,7 +401,7 @@ export function StudioAnalyticsPage() {
                           {METRIC_OPTIONS.map(opt => (
                             <button key={opt.value} onClick={() => { setPerfMetric(opt.value); setMetricOpen(false); }}
                               className={cn("flex w-full items-center px-3 py-2 text-left text-[12px] font-medium hover:bg-[#f8f9fb] transition",
-                                perfMetric === opt.value ? "font-bold text-[#fe2c55]" : "text-[#374151]")}>
+                                perfMetric === opt.value ? "font-bold text-[#fd4605]" : "text-[#374151]")}>
                               {opt.label}
                             </button>
                           ))}
@@ -430,7 +430,7 @@ export function StudioAnalyticsPage() {
                       )}
                       <span className="text-[11px] text-[#9ca3af]">vs previous period</span>
                     </div>
-                    <AreaChart data={data?.performance_overview.chart ?? []} color="#fe2c55" height={200}
+                    <AreaChart data={data?.performance_overview.chart ?? []} color="#fd4605" height={200}
                       label={METRIC_OPTIONS.find(m => m.value === perfMetric)?.label ?? "Value"} />
                   </>
                 )}
@@ -439,7 +439,7 @@ export function StudioAnalyticsPage() {
               {/* Top Performing Content */}
               <Card>
                 <CardHeader title="Top Performing Content" right={
-                  <Link href="/studio/content" className="text-[11px] font-semibold text-[#fe2c55] hover:underline">See all →</Link>
+                  <Link href="/studio/content" className="text-[11px] font-semibold text-[#fd4605] hover:underline">See all →</Link>
                 } />
                 {isLoading ? (
                   <div className="space-y-3">{Array.from({ length: 4 }).map((_, i) => (
@@ -528,7 +528,7 @@ export function StudioAnalyticsPage() {
                         <DonutChart
                           series={split.map(g => g.pct)}
                           labels={split.map(g => g.label)}
-                          colors={["#fe2c55", "#1d8cff", "#9ca3af"]}
+                          colors={["#fd4605", "#1d8cff", "#9ca3af"]}
                           centerLabel={`${split[0]?.pct ?? 0}%`}
                           height={110}
                         />
@@ -553,7 +553,7 @@ export function StudioAnalyticsPage() {
                           <span className="text-[11px] font-semibold text-[#374151]">{c.pct.toFixed(1)}%</span>
                         </div>
                       ))}
-                      <button className="mt-1 text-[11px] font-semibold text-[#fe2c55] hover:underline">View all countries →</button>
+                      <button className="mt-1 text-[11px] font-semibold text-[#fd4605] hover:underline">View all countries →</button>
                     </div>
                   )}
                 </Card>
@@ -581,7 +581,7 @@ export function StudioAnalyticsPage() {
                     <DonutChart
                       series={data!.audience.device_platform.map(d => d.pct)}
                       labels={data!.audience.device_platform.map(d => d.device)}
-                      colors={["#fe2c55", "#1d8cff", "#16a34a"]}
+                      colors={["#fd4605", "#1d8cff", "#16a34a"]}
                       centerLabel={`${data!.audience.device_platform[0]?.pct ?? 0}%`}
                       height={110}
                     />
@@ -594,7 +594,7 @@ export function StudioAnalyticsPage() {
                   {isLoading ? <Skeleton className="h-24 w-full" /> : (
                     <>
                       <BestTimeGrid hours={data?.best_time.activityByHour ?? []} bestHour={data?.best_time.bestHour ?? 20} />
-                      <p className="mt-2 text-center text-[11px] font-bold text-[#fe2c55]">
+                      <p className="mt-2 text-center text-[11px] font-bold text-[#fd4605]">
                         Best time: {data?.best_time.bestTime ?? "8:00 PM"}
                       </p>
                     </>
@@ -634,7 +634,7 @@ export function StudioAnalyticsPage() {
               {/* Top Performing Videos table */}
               <Card>
                 <CardHeader title="Top Performing Videos" right={
-                  <Link href="/studio/content" className="text-[11px] font-semibold text-[#fe2c55] hover:underline">See all →</Link>
+                  <Link href="/studio/content" className="text-[11px] font-semibold text-[#fd4605] hover:underline">See all →</Link>
                 } />
                 {isLoading ? (
                   <div className="space-y-2">{Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-8 w-full" />)}</div>
@@ -668,7 +668,7 @@ export function StudioAnalyticsPage() {
               {/* Top Comments */}
               <Card>
                 <CardHeader title="Top Comments" right={
-                  <Link href="/studio/comments" className="text-[11px] font-semibold text-[#fe2c55] hover:underline">See all →</Link>
+                  <Link href="/studio/comments" className="text-[11px] font-semibold text-[#fd4605] hover:underline">See all →</Link>
                 } />
                 {isLoading ? (
                   <div className="space-y-3">{Array.from({ length: 4 }).map((_, i) => (
@@ -730,7 +730,7 @@ export function StudioAnalyticsPage() {
                       };
                       const iconColors: Record<string, string> = {
                         best_posting_hour:  "#ea580c",
-                        highest_retention:  "#fe2c55",
+                        highest_retention:  "#fd4605",
                         top_video:          "#2563eb",
                       };
                       return (
@@ -777,7 +777,7 @@ export function StudioAnalyticsPage() {
                         <span className="w-4 flex-shrink-0 text-[11px] font-bold text-[#9ca3af]">{i + 1}</span>
                         <span className="flex-1 truncate text-[12px] text-[#374151]">{loc.name}</span>
                         <div className="w-24 h-1.5 rounded-full bg-[#f0f0f0] overflow-hidden">
-                          <div className="h-full rounded-full bg-[#fe2c55]" style={{ width: `${Math.min(100, loc.pct)}%` }} />
+                          <div className="h-full rounded-full bg-[#fd4605]" style={{ width: `${Math.min(100, loc.pct)}%` }} />
                         </div>
                         <span className="w-10 flex-shrink-0 text-right text-[11px] font-semibold text-[#374151]">{loc.pct.toFixed(1)}%</span>
                       </div>

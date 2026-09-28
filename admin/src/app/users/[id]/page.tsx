@@ -123,7 +123,7 @@ function Toggle({ value, onChange, disabled }: { value: boolean; onChange: (v: b
   return (
     <button type="button" disabled={disabled} onClick={() => onChange(!value)}
       className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors
-        ${value ? "bg-[#fe2c55]" : "bg-[#d1d5db]"} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}>
+        ${value ? "bg-[#fd4605]" : "bg-[#d1d5db]"} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}>
       <span className={`pointer-events-none h-4 w-4 rounded-full bg-white shadow-md transition-transform ${value ? "translate-x-4" : "translate-x-0"}`} />
     </button>
   );
@@ -146,7 +146,7 @@ function SectionCard({ title, number, children, action }: { title: string; numbe
     <div className="bg-white rounded-2xl border border-[#e8eaed] shadow-sm overflow-hidden">
       <div className="flex items-center justify-between border-b border-[#e8eaed] px-5 py-3.5">
         <h3 className="text-[13px] font-bold text-[#111827]">
-          <span className="text-[#fe2c55] mr-1.5">{number}.</span>{title}
+          <span className="text-[#fd4605] mr-1.5">{number}.</span>{title}
         </h3>
         {action}
       </div>
@@ -163,7 +163,7 @@ function Btn({ children, variant = "outline", size = "sm", disabled, onClick, cl
   const sz   = size === "sm" ? "px-3 py-1.5 text-[12px]" : "px-4 py-2 text-[13px]";
   const cls: Record<string,string> = {
     outline:  "border border-[#e8eaed] text-[#374151] hover:bg-[#f4f5f7]",
-    primary:  "bg-[#fe2c55] text-white hover:bg-[#e02249]",
+    primary:  "bg-[#fd4605] text-white hover:bg-[#e03e04]",
     success:  "bg-emerald-500 text-white hover:bg-emerald-600",
     warning:  "bg-amber-500 text-white hover:bg-amber-600",
     danger:   "bg-red-500 text-white hover:bg-red-600",
@@ -191,7 +191,7 @@ function Modal({ open, title, message, confirmLabel, danger, loading, onCancel, 
         <div className="flex gap-2.5 mt-4 justify-end">
           <button onClick={onCancel} className="px-4 py-2 rounded-xl text-xs font-medium border border-[#e8eaed] text-[#374151] hover:bg-[#f4f5f7]">Cancel</button>
           <button onClick={onConfirm} disabled={loading}
-            className={`px-4 py-2 rounded-xl text-xs font-semibold text-white disabled:opacity-50 ${danger ? "bg-red-500 hover:bg-red-600" : "bg-[#fe2c55] hover:bg-[#e02249]"}`}>
+            className={`px-4 py-2 rounded-xl text-xs font-semibold text-white disabled:opacity-50 ${danger ? "bg-red-500 hover:bg-red-600" : "bg-[#fd4605] hover:bg-[#e03e04]"}`}>
             {loading ? "Loading…" : confirmLabel}
           </button>
         </div>
@@ -227,9 +227,9 @@ function AdminTagPicker({
 
   return (
     <div className="relative">
-      <div className="flex min-h-[36px] flex-wrap items-center gap-1 rounded-[10px] border border-[#e8eaed] bg-white px-2 py-1.5 transition-colors focus-within:border-[#fe2c55]">
+      <div className="flex min-h-[36px] flex-wrap items-center gap-1 rounded-[10px] border border-[#e8eaed] bg-white px-2 py-1.5 transition-colors focus-within:border-[#fd4605]">
         {selected.map(tag => (
-          <span key={tag} className="inline-flex items-center gap-1 rounded-full bg-[#fe2c55] px-2 py-0.5 text-[11px] font-semibold text-white">
+          <span key={tag} className="inline-flex items-center gap-1 rounded-full bg-[#fd4605] px-2 py-0.5 text-[11px] font-semibold text-white">
             {tag}
             <button type="button" onClick={() => onChange(selected.filter(t => t !== tag))} className="opacity-80 hover:opacity-100">
               <X className="h-2.5 w-2.5"/>
@@ -237,7 +237,7 @@ function AdminTagPicker({
           </span>
         ))}
         <button type="button" disabled={atMax} onClick={() => setOpen(o => !o)}
-          className="inline-flex items-center gap-0.5 rounded-full border border-dashed border-[#d1d5db] px-2 py-0.5 text-[11px] text-[#9ca3af] hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:opacity-40">
+          className="inline-flex items-center gap-0.5 rounded-full border border-dashed border-[#d1d5db] px-2 py-0.5 text-[11px] text-[#9ca3af] hover:border-[#fd4605] hover:text-[#fd4605] disabled:opacity-40">
           <Plus className="h-2.5 w-2.5"/>{atMax ? `${max} max` : "Add"}
         </button>
       </div>
@@ -256,7 +256,7 @@ function AdminTagPicker({
               : available.map(tag => (
                 <button key={tag} type="button"
                   onClick={() => { onChange([...selected, tag]); setQuery(""); if (selected.length + 1 >= max) setOpen(false); }}
-                  className="rounded-full border border-[#e8eaed] px-2 py-0.5 text-[11px] text-[#374151] hover:border-[#fe2c55] hover:bg-[#fff1f3] hover:text-[#fe2c55] transition-colors">
+                  className="rounded-full border border-[#e8eaed] px-2 py-0.5 text-[11px] text-[#374151] hover:border-[#fd4605] hover:bg-[#fff1f3] hover:text-[#fd4605] transition-colors">
                   + {tag}
                 </button>
               ))
@@ -311,19 +311,19 @@ function QuickStatsCard({ userId, defaultStats }: { userId: number; defaultStats
             <button key={p.key} onClick={() => setPeriod(p.key)} disabled={isFetching}
               className={`px-2 py-0.5 rounded-md text-[11px] font-semibold transition-all ${
                 period === p.key
-                  ? "bg-[#fe2c55] text-white shadow-sm"
+                  ? "bg-[#fd4605] text-white shadow-sm"
                   : "text-[#9ca3af] hover:text-[#374151] hover:bg-[#f3f4f6]"
               } disabled:opacity-60`}>
               {p.label}
             </button>
           ))}
-          {isFetching && <span className="ml-1 h-3 w-3 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent"/>}
+          {isFetching && <span className="ml-1 h-3 w-3 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent"/>}
         </div>
       </div>
       <div className="px-4 py-2">
         <QuickStatWidget label="Public Views"   total={stats.public_views?.total??0}  pct={stats.public_views?.pct??0}  spark={stats.public_views?.spark??[]}  color="#3b82f6"/>
         <QuickStatWidget label="Interactions"   total={stats.interactions?.total??0}  pct={stats.interactions?.pct??0}  spark={stats.interactions?.spark??[]}  color="#10b981"/>
-        <QuickStatWidget label="Video Views"    total={stats.video_views?.total??0}   pct={stats.video_views?.pct??0}   spark={stats.video_views?.spark??[]}   color="#fe2c55"/>
+        <QuickStatWidget label="Video Views"    total={stats.video_views?.total??0}   pct={stats.video_views?.pct??0}   spark={stats.video_views?.spark??[]}   color="#fd4605"/>
         <QuickStatWidget label="Watch Time (m)" total={stats.watch_time?.total??0}    pct={stats.watch_time?.pct??0}    spark={stats.watch_time?.spark??[]}    color="#f59e0b"/>
       </div>
     </div>
@@ -601,7 +601,7 @@ function ContentRestrictionsSection({ user, qKey }: { user: U360; qKey: string }
                     {/* Calendar toggle button */}
                     <button type="button" title="Set expiry date"
                       onClick={() => updExp(fk, { open: !ex.open })}
-                      className={`p-1 rounded-lg transition-colors ${ex.open ? "text-[#fe2c55] bg-[#fe2c55]/10" : "text-[#9ca3af] hover:text-[#fe2c55] hover:bg-[#f9fafb]"}`}>
+                      className={`p-1 rounded-lg transition-colors ${ex.open ? "text-[#fd4605] bg-[#fd4605]/10" : "text-[#9ca3af] hover:text-[#fd4605] hover:bg-[#f9fafb]"}`}>
                       <Calendar size={12}/>
                     </button>
                     <Toggle value={isOn} onChange={() => tog(fk)}/>
@@ -623,7 +623,7 @@ function ContentRestrictionsSection({ user, qKey }: { user: U360; qKey: string }
                       {([["24h", 1], ["7d", 7], ["30d", 30]] as [string, number][]).map(([lbl, d]) => (
                         <button key={lbl} type="button"
                           onClick={() => updExp(fk, { expires_at: addDaysStr(d) })}
-                          className="px-2 py-0.5 text-[11px] rounded-lg border border-[#e8eaed] bg-white text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55] transition-colors">
+                          className="px-2 py-0.5 text-[11px] rounded-lg border border-[#e8eaed] bg-white text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605] transition-colors">
                           {lbl}
                         </button>
                       ))}
@@ -635,12 +635,12 @@ function ContentRestrictionsSection({ user, qKey }: { user: U360; qKey: string }
                     {/* Date/time picker */}
                     <input type="datetime-local" value={ex.expires_at} min={nowDTL}
                       onChange={e => updExp(fk, { expires_at: e.target.value })}
-                      className="h-8 w-full rounded-lg border border-[#e8eaed] px-2 text-[11px] text-[#111827] outline-none focus:border-[#fe2c55]"/>
+                      className="h-8 w-full rounded-lg border border-[#e8eaed] px-2 text-[11px] text-[#111827] outline-none focus:border-[#fd4605]"/>
                     {/* Reason */}
                     <input type="text" value={ex.reason} maxLength={500}
                       onChange={e => updExp(fk, { reason: e.target.value })}
                       placeholder="Reason (optional)"
-                      className="h-8 w-full rounded-lg border border-[#e8eaed] px-2 text-[11px] text-[#111827] placeholder-[#9ca3af] outline-none focus:border-[#fe2c55]"/>
+                      className="h-8 w-full rounded-lg border border-[#e8eaed] px-2 text-[11px] text-[#111827] placeholder-[#9ca3af] outline-none focus:border-[#fd4605]"/>
                   </div>
                 )}
               </div>
@@ -663,10 +663,10 @@ function ContentRestrictionsSection({ user, qKey }: { user: U360; qKey: string }
                   value={form.daily_upload_limit}
                   onChange={e => setForm(f => ({ ...f, daily_upload_limit: e.target.value }))}
                   placeholder={String(tierDefault)}
-                  className="h-8 w-16 rounded-lg border border-[#e8eaed] px-2 text-[13px] text-center outline-none focus:border-[#fe2c55]"/>
+                  className="h-8 w-16 rounded-lg border border-[#e8eaed] px-2 text-[13px] text-center outline-none focus:border-[#fd4605]"/>
                 {form.daily_upload_limit !== "" && (
                   <button onClick={() => setForm(f => ({ ...f, daily_upload_limit: "" }))}
-                    className="text-[11px] text-[#fe2c55] font-semibold hover:underline whitespace-nowrap">
+                    className="text-[11px] text-[#fd4605] font-semibold hover:underline whitespace-nowrap">
                     Reset
                   </button>
                 )}
@@ -683,15 +683,15 @@ function ContentRestrictionsSection({ user, qKey }: { user: U360; qKey: string }
                   ["Creator Level 7–10",50,  user.role === "creator" && (user.creator_level?.level_number ?? 0) >= 7],
                 ] as [string, number, boolean][]).map(([label, limit, active]) => (
                   <div key={label} className={`flex items-center justify-between rounded-lg px-2 py-1 text-[11px] transition-colors
-                    ${active ? "bg-[#fe2c55]/8 font-bold text-[#fe2c55]" : "text-[#9ca3af]"}`}>
+                    ${active ? "bg-[#fd4605]/8 font-bold text-[#fd4605]" : "text-[#9ca3af]"}`}>
                     <span>{label}</span>
-                    <span className={`font-bold ${active ? "text-[#fe2c55]" : "text-[#374151]"}`}>{limit}/day</span>
+                    <span className={`font-bold ${active ? "text-[#fd4605]" : "text-[#374151]"}`}>{limit}/day</span>
                   </div>
                 ))}
               </div>
               <p className="mt-2 text-[10px] text-[#9ca3af]">
                 Current tier: <span className="font-semibold text-[#374151]">{tierLabel(user)}</span>
-                {" · "}Effective limit: <span className="font-semibold text-[#fe2c55]">{effectiveLimit}/day</span>
+                {" · "}Effective limit: <span className="font-semibold text-[#fd4605]">{effectiveLimit}/day</span>
                 {form.daily_upload_limit !== "" && <span className="ml-1 text-amber-600">(admin override)</span>}
               </p>
             </div>
@@ -705,7 +705,7 @@ function ContentRestrictionsSection({ user, qKey }: { user: U360; qKey: string }
           </SettingRow>
           <div className="py-2.5">
             <p className="text-[13px] font-medium text-[#111827] mb-1 flex items-center gap-1.5">
-              <Calendar size={13} className="text-[#fe2c55]"/>
+              <Calendar size={13} className="text-[#fd4605]"/>
               Upload Suspension Expiry
             </p>
             {(() => {
@@ -733,7 +733,7 @@ function ContentRestrictionsSection({ user, qKey }: { user: U360; qKey: string }
               </span>
               <input type="datetime-local" value={form.upload_suspension_until}
                 onChange={e => setForm(f => ({ ...f, upload_suspension_until: e.target.value }))}
-                className="h-9 w-full rounded-xl border border-[#e8eaed] pl-7 pr-3 text-[12px] text-[#111827] outline-none transition focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10"/>
+                className="h-9 w-full rounded-xl border border-[#e8eaed] pl-7 pr-3 text-[12px] text-[#111827] outline-none transition focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10"/>
             </div>
             {form.upload_suspension_until && (
               <button type="button" onClick={() => setForm(f => ({ ...f, upload_suspension_until: "" }))}
@@ -797,7 +797,7 @@ function ModerationSettingsSection({ user, qKey }: { user: U360; qKey: string })
     onError: () => toast.error("Failed"),
   });
 
-  const SEL_CLS = "h-8 rounded-lg border border-[#e8eaed] px-2 text-[13px] outline-none focus:border-[#fe2c55] bg-white";
+  const SEL_CLS = "h-8 rounded-lg border border-[#e8eaed] px-2 text-[13px] outline-none focus:border-[#fd4605] bg-white";
 
   return (
     <SectionCard title="Moderation Settings & Enforcement" number={2}
@@ -852,7 +852,7 @@ function ModerationSettingsSection({ user, qKey }: { user: U360; qKey: string })
                         else { dt.setDate(dt.getDate() + Math.floor(d)); dt.setHours(23, 59, 0, 0); }
                         setForm(f => ({...f, temporary_suspension_until: toLocalDTL(dt)}));
                       }}
-                      className="px-2 py-0.5 text-[11px] rounded-lg border border-[#e8eaed] bg-white text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55] transition-colors">
+                      className="px-2 py-0.5 text-[11px] rounded-lg border border-[#e8eaed] bg-white text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605] transition-colors">
                       {lbl}
                     </button>
                   ))}
@@ -863,7 +863,7 @@ function ModerationSettingsSection({ user, qKey }: { user: U360; qKey: string })
                 </div>
                 <input type="datetime-local" value={form.temporary_suspension_until} min={toLocalDTL(new Date())}
                   onChange={e => setForm(f => ({...f, temporary_suspension_until: e.target.value}))}
-                  className="h-8 w-full rounded-lg border border-[#e8eaed] px-2 text-[11px] text-[#111827] outline-none focus:border-[#fe2c55]"/>
+                  className="h-8 w-full rounded-lg border border-[#e8eaed] px-2 text-[11px] text-[#111827] outline-none focus:border-[#fd4605]"/>
               </div>
             )}
           </div>
@@ -906,7 +906,7 @@ function ModerationSettingsSection({ user, qKey }: { user: U360; qKey: string })
               <ShieldAlert size={12}/>Add Strike
             </button>
             <button onClick={()=>setModal({type:"suspend",open:true})}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[12px] font-semibold text-white bg-[#fe2c55] hover:bg-[#e02249] transition-colors">
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[12px] font-semibold text-white bg-[#fd4605] hover:bg-[#e03e04] transition-colors">
               <UserX size={12}/>Suspend User
             </button>
             <div className="relative">
@@ -948,7 +948,7 @@ function ModerationSettingsSection({ user, qKey }: { user: U360; qKey: string })
           onConfirm={()=>{const r=reason||`${type} by admin`; if(type==="warn")warn.mutate(r); if(type==="strike")strike.mutate(r); if(type==="suspend")suspend.mutate(r);}}>
           <input value={reason} onChange={e=>setReason(e.target.value)}
             placeholder={`Reason for ${type}…`}
-            className="mt-2 h-9 w-full rounded-[10px] border border-[#e8eaed] px-3 text-[13px] outline-none focus:border-[#fe2c55]"/>
+            className="mt-2 h-9 w-full rounded-[10px] border border-[#e8eaed] px-3 text-[13px] outline-none focus:border-[#fd4605]"/>
           {type==="suspend" && (
             <div className="mt-2 space-y-1.5">
               <p className="text-[11px] text-[#9ca3af]">Suspend until (optional):</p>
@@ -956,7 +956,7 @@ function ModerationSettingsSection({ user, qKey }: { user: U360; qKey: string })
                 {([["24h",1],["7d",7],["30d",30]] as [string,number][]).map(([lbl,d])=>(
                   <button key={lbl} type="button"
                     onClick={()=>{const dt=new Date();dt.setDate(dt.getDate()+d);dt.setHours(23,59,0,0);setSuspendUntil(toLocalDTL(dt));}}
-                    className="px-2 py-0.5 rounded-lg border border-[#e8eaed] text-[11px] text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55] transition-colors">
+                    className="px-2 py-0.5 rounded-lg border border-[#e8eaed] text-[11px] text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605] transition-colors">
                     {lbl}
                   </button>
                 ))}
@@ -967,7 +967,7 @@ function ModerationSettingsSection({ user, qKey }: { user: U360; qKey: string })
               </div>
               <input type="datetime-local" value={suspendUntil} min={toLocalDTL(new Date())}
                 onChange={e=>setSuspendUntil(e.target.value)}
-                className="h-9 w-full rounded-[10px] border border-[#e8eaed] px-3 text-[12px] outline-none focus:border-[#fe2c55]"/>
+                className="h-9 w-full rounded-[10px] border border-[#e8eaed] px-3 text-[12px] outline-none focus:border-[#fd4605]"/>
             </div>
           )}
         </Modal>
@@ -990,7 +990,7 @@ function PermissionsSection({ user, qKey }: { user: U360; qKey: string }) {
       user.permission_settings.download_permission, user.permission_settings.collaboration_permission,
       user.permission_settings.messaging_permission, user.permission_settings.access_level]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const SEL_CLS = "h-8 rounded-lg border border-[#e8eaed] px-2 text-[13px] outline-none focus:border-[#fe2c55] bg-white";
+  const SEL_CLS = "h-8 rounded-lg border border-[#e8eaed] px-2 text-[13px] outline-none focus:border-[#fd4605] bg-white";
 
   const savePerms  = useMutation({ mutationFn: () => adminService.updatePermissions(user.id, perm), onSuccess: () => { toast.success("Permissions saved"); qc.invalidateQueries({ queryKey: [qKey] }); } });
   const changeRole = useMutation({ mutationFn: (r:string) => adminService.promoteUser(user.id, r), onSuccess: () => { toast.success("Role updated"); qc.invalidateQueries({ queryKey: [qKey] }); } });
@@ -1122,7 +1122,7 @@ function SafetySection({ user, qKey }: { user: U360; qKey: string }) {
     onError: () => toast.error("Update failed"),
   });
 
-  const SEL_CLS = "h-8 rounded-lg border border-[#e8eaed] px-2 text-[13px] outline-none focus:border-[#fe2c55] bg-white";
+  const SEL_CLS = "h-8 rounded-lg border border-[#e8eaed] px-2 text-[13px] outline-none focus:border-[#fd4605] bg-white";
   const STATUS_COLORS: Record<string, string> = {
     pending:    "bg-amber-50 text-amber-700 border border-amber-200",
     processing: "bg-blue-50 text-blue-700 border border-blue-200",
@@ -1156,7 +1156,7 @@ function SafetySection({ user, qKey }: { user: U360; qKey: string }) {
           <SettingRow label="Blocked Accounts" sub="Users blocked by this account">
             <div className="flex items-center gap-2">
               <span className="text-[13px] font-bold text-[#111827]">{user.blocked_count ?? 0}</span>
-              <button onClick={()=>setModal("blocked")} className="text-[12px] text-[#fe2c55] font-semibold hover:underline">View</button>
+              <button onClick={()=>setModal("blocked")} className="text-[12px] text-[#fd4605] font-semibold hover:underline">View</button>
             </div>
           </SettingRow>
           <SettingRow label="Hidden Words Filter" sub="Words filtered from comments">
@@ -1164,7 +1164,7 @@ function SafetySection({ user, qKey }: { user: U360; qKey: string }) {
               {(user.hidden_words_count ?? 0) > 0
                 ? <span className="text-[12px] font-semibold text-emerald-600">{user.hidden_words_count} words</span>
                 : <span className="text-[12px] text-[#9ca3af]">None</span>}
-              <button onClick={()=>setModal("hidden_words")} className="text-[12px] text-[#fe2c55] font-semibold hover:underline">Manage</button>
+              <button onClick={()=>setModal("hidden_words")} className="text-[12px] text-[#fd4605] font-semibold hover:underline">Manage</button>
             </div>
           </SettingRow>
         </div>
@@ -1187,7 +1187,7 @@ function SafetySection({ user, qKey }: { user: U360; qKey: string }) {
           <SettingRow label="Data Download Requests" sub="GDPR data export requests">
             <div className="flex items-center gap-2">
               <span className="text-[13px] font-bold text-[#111827]">{user.data_download_requests_count ?? 0}</span>
-              <button onClick={()=>setModal("data_requests")} className="text-[12px] text-[#fe2c55] font-semibold hover:underline">View</button>
+              <button onClick={()=>setModal("data_requests")} className="text-[12px] text-[#fd4605] font-semibold hover:underline">View</button>
             </div>
           </SettingRow>
           <SettingRow label="Delete Account Requests" sub="Pending account deletion requests">
@@ -1195,7 +1195,7 @@ function SafetySection({ user, qKey }: { user: U360; qKey: string }) {
               <span className={`text-[13px] font-bold ${(user.deletion_requests_count ?? 0) > 0 ? "text-red-600" : "text-[#111827]"}`}>
                 {user.deletion_requests_count ?? 0}
               </span>
-              <button onClick={()=>setModal("deletion_requests")} className="text-[12px] text-[#fe2c55] font-semibold hover:underline">View</button>
+              <button onClick={()=>setModal("deletion_requests")} className="text-[12px] text-[#fd4605] font-semibold hover:underline">View</button>
             </div>
           </SettingRow>
         </div>
@@ -1272,7 +1272,7 @@ function SafetySection({ user, qKey }: { user: U360; qKey: string }) {
                   {r.status === "pending" && (
                     <div className="flex gap-1.5">
                       <button onClick={()=>updateData.mutate({rid:r.id,status:"processing"})} disabled={updateData.isPending}
-                        className="flex-1 rounded-lg border border-[#e8eaed] py-1 text-[11px] font-semibold text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55] transition-colors disabled:opacity-50">
+                        className="flex-1 rounded-lg border border-[#e8eaed] py-1 text-[11px] font-semibold text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605] transition-colors disabled:opacity-50">
                         Mark Processing
                       </button>
                       <button onClick={()=>updateData.mutate({rid:r.id,status:"expired"})} disabled={updateData.isPending}
@@ -1311,7 +1311,7 @@ function SafetySection({ user, qKey }: { user: U360; qKey: string }) {
                         Approve
                       </button>
                       <button onClick={()=>updateDeletion.mutate({rid:r.id,status:"rejected"})} disabled={updateDeletion.isPending}
-                        className="flex-1 rounded-lg border border-[#e8eaed] py-1 text-[11px] font-semibold text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55] transition-colors disabled:opacity-50">
+                        className="flex-1 rounded-lg border border-[#e8eaed] py-1 text-[11px] font-semibold text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605] transition-colors disabled:opacity-50">
                         Reject
                       </button>
                     </div>
@@ -1359,7 +1359,7 @@ function TimelineSection({ timeline }: { timeline: U360["timeline"] }) {
                   <td className="px-3 py-3 max-w-[200px] truncate text-[#6b7280]">{t.description}</td>
                   <td className="px-3 py-3 font-mono text-[11px] text-[#9ca3af]">{t.reference}</td>
                   <td className="px-3 py-3">
-                    <button className="text-[#fe2c55] text-[11px] font-semibold hover:underline">View</button>
+                    <button className="text-[#fd4605] text-[11px] font-semibold hover:underline">View</button>
                   </td>
                 </tr>
               ))}
@@ -1400,7 +1400,7 @@ function AdminNotesPanel({ user, qKey }: { user: U360; qKey: string }) {
       <div className="flex items-center justify-between border-b border-[#e8eaed] px-4 py-3">
         <p className="text-[13px] font-bold text-[#111827]">Admin Notes</p>
         <button onClick={() => setAdding(v => !v)}
-          className="flex items-center gap-1 text-[12px] font-semibold text-[#fe2c55] hover:underline">
+          className="flex items-center gap-1 text-[12px] font-semibold text-[#fd4605] hover:underline">
           <Plus size={12}/> Add Note
         </button>
       </div>
@@ -1408,7 +1408,7 @@ function AdminNotesPanel({ user, qKey }: { user: U360; qKey: string }) {
         <div className="p-3 border-b border-[#e8eaed]">
           <textarea value={draft} onChange={e => setDraft(e.target.value)} rows={3}
             placeholder="Write admin note…"
-            className="w-full rounded-xl border border-[#e8eaed] p-2.5 text-[12px] text-[#374151] outline-none focus:border-[#fe2c55] resize-none"/>
+            className="w-full rounded-xl border border-[#e8eaed] p-2.5 text-[12px] text-[#374151] outline-none focus:border-[#fd4605] resize-none"/>
           <div className="mt-2 flex gap-2">
             <Btn variant="primary" disabled={add.isPending || !draft.trim()} onClick={() => add.mutate()}>
               {add.isPending ? "Saving…" : "Save Note"}
@@ -1426,7 +1426,7 @@ function AdminNotesPanel({ user, qKey }: { user: U360; qKey: string }) {
             {editId === n.id ? (
               <div>
                 <textarea value={editText} onChange={e => setEditText(e.target.value)} rows={2}
-                  className="w-full rounded-xl border border-[#e8eaed] p-2 text-[12px] outline-none focus:border-[#fe2c55] resize-none"/>
+                  className="w-full rounded-xl border border-[#e8eaed] p-2 text-[12px] outline-none focus:border-[#fd4605] resize-none"/>
                 <div className="mt-1.5 flex gap-2">
                   <Btn variant="primary"
                     disabled={upd.isPending || !editText.trim()}
@@ -1472,7 +1472,7 @@ function SupportTicketsCard() {
     <div className="bg-white rounded-2xl border border-[#e8eaed] shadow-sm overflow-hidden">
       <div className="flex items-center justify-between border-b border-[#e8eaed] px-4 py-3">
         <p className="text-[13px] font-bold text-[#111827]">Latest Support Tickets</p>
-        <button className="text-[12px] text-[#fe2c55] font-semibold hover:underline">View All</button>
+        <button className="text-[12px] text-[#fd4605] font-semibold hover:underline">View All</button>
       </div>
       <div className="divide-y divide-[#f9fafb]">
         {MOCK_TICKETS.map(t => (
@@ -1662,7 +1662,7 @@ function ContentTab({ user }: { user: U360 }) {
   ];
 
   const STATS = [
-    { icon: <Video size={14}/>,       label: "Total Videos", v: cs.total_videos,    color: "#fe2c55" },
+    { icon: <Video size={14}/>,       label: "Total Videos", v: cs.total_videos,    color: "#fd4605" },
     { icon: <CheckCircle2 size={14}/>,label: "Published",    v: cs.published_videos, color: "#10b981" },
     { icon: <Pause size={14}/>,       label: "Drafts",       v: cs.draft_videos,    color: "#f59e0b" },
     { icon: <Lock size={14}/>,        label: "Private",      v: cs.private_videos,  color: "#6b7280" },
@@ -1697,7 +1697,7 @@ function ContentTab({ user }: { user: U360 }) {
                   key={f.key}
                   onClick={() => { setFilter(f.key); setPage(1); }}
                   className={`px-3 py-1.5 text-[12px] font-semibold rounded-lg transition-colors ${
-                    filter === f.key ? "bg-[#fe2c55] text-white" : "text-[#6b7280] hover:bg-[#f4f5f7]"
+                    filter === f.key ? "bg-[#fd4605] text-white" : "text-[#6b7280] hover:bg-[#f4f5f7]"
                   }`}
                 >
                   {f.label}
@@ -1707,7 +1707,7 @@ function ContentTab({ user }: { user: U360 }) {
             <div className="ml-auto flex items-center gap-2">
               {someSelected && (
                 <>
-                  <span className="text-[12px] font-semibold text-[#fe2c55] bg-[#fff0f3] px-2.5 py-1 rounded-lg border border-[#fecdd3] whitespace-nowrap">
+                  <span className="text-[12px] font-semibold text-[#fd4605] bg-[#fff0f3] px-2.5 py-1 rounded-lg border border-[#fecdd3] whitespace-nowrap">
                     {selectedIds.size} selected
                   </span>
                   <button
@@ -1739,7 +1739,7 @@ function ContentTab({ user }: { user: U360 }) {
               <div className="relative">
                 <Search size={12} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[#9ca3af] pointer-events-none" />
                 <input
-                  className="h-8 w-36 rounded-lg border border-[#e8eaed] bg-[#f9fafb] pl-7 pr-2 text-[12px] focus:outline-none focus:ring-1 focus:ring-[#fe2c55]/30 focus:border-[#fe2c55]"
+                  className="h-8 w-36 rounded-lg border border-[#e8eaed] bg-[#f9fafb] pl-7 pr-2 text-[12px] focus:outline-none focus:ring-1 focus:ring-[#fd4605]/30 focus:border-[#fd4605]"
                   placeholder="Search caption or ID…"
                   value={q}
                   onChange={e => { setQ(e.target.value); setPage(1); }}
@@ -1788,7 +1788,7 @@ function ContentTab({ user }: { user: U360 }) {
                       type="checkbox"
                       checked={allSelected}
                       onChange={e => setSelectedIds(e.target.checked ? new Set(items.map(v => v.id)) : new Set())}
-                      className="h-3.5 w-3.5 rounded accent-[#fe2c55] cursor-pointer"
+                      className="h-3.5 w-3.5 rounded accent-[#fd4605] cursor-pointer"
                     />
                   </th>
                   {["Content","Type","Status","Visibility","Views","Likes","Comments","Shares","Watch Time", filter === "deleted" ? "Deleted On" : "Published On","Actions"].map(h => (
@@ -1814,7 +1814,7 @@ function ContentTab({ user }: { user: U360 }) {
                           if (e.target.checked) next.add(v.id); else next.delete(v.id);
                           setSelectedIds(next);
                         }}
-                        className="h-3.5 w-3.5 rounded accent-[#fe2c55] cursor-pointer"
+                        className="h-3.5 w-3.5 rounded accent-[#fd4605] cursor-pointer"
                       />
                     </td>
                     <td className="px-4 py-2.5">
@@ -1917,7 +1917,7 @@ function ContentTab({ user }: { user: U360 }) {
                           ><Eye size={13}/></a>
                         )}
                         <button className="p-1.5 rounded-lg text-[#9ca3af] hover:text-[#374151] hover:bg-[#f4f5f7]" title="Analytics"><BarChart2 size={13}/></button>
-                        <a href={`/videos/${v.id}/edit`} className="p-1.5 rounded-lg text-[#9ca3af] hover:text-[#fe2c55] hover:bg-[#fff0f3]" title="Edit"><Pencil size={13}/></a>
+                        <a href={`/videos/${v.id}/edit`} className="p-1.5 rounded-lg text-[#9ca3af] hover:text-[#fd4605] hover:bg-[#fff0f3]" title="Edit"><Pencil size={13}/></a>
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
@@ -1945,7 +1945,7 @@ function ContentTab({ user }: { user: U360 }) {
                 <button onClick={() => setPage(p => Math.max(1, p-1))} disabled={page<=1} className="h-7 px-2.5 rounded-lg border border-[#e8eaed] text-[13px] text-[#6b7280] hover:bg-[#f4f5f7] disabled:opacity-40 disabled:cursor-not-allowed">‹</button>
                 {Array.from({ length: Math.min(5, lastPg) }, (_, i) => {
                   const pg = lastPg <= 5 ? i+1 : page <= 3 ? i+1 : page >= lastPg-2 ? lastPg-4+i : page-2+i;
-                  return <button key={pg} onClick={() => setPage(pg)} className={`h-7 w-7 rounded-lg text-[12px] font-semibold transition-colors ${page===pg ? "bg-[#fe2c55] text-white" : "border border-[#e8eaed] text-[#6b7280] hover:bg-[#f4f5f7]"}`}>{pg}</button>;
+                  return <button key={pg} onClick={() => setPage(pg)} className={`h-7 w-7 rounded-lg text-[12px] font-semibold transition-colors ${page===pg ? "bg-[#fd4605] text-white" : "border border-[#e8eaed] text-[#6b7280] hover:bg-[#f4f5f7]"}`}>{pg}</button>;
                 })}
                 {lastPg > 5 && page < lastPg-2 && (
                   <><span className="text-[#9ca3af] text-[12px] px-0.5">…</span><button onClick={() => setPage(lastPg)} className="h-7 w-7 rounded-lg border border-[#e8eaed] text-[12px] font-semibold text-[#6b7280] hover:bg-[#f4f5f7]">{lastPg}</button></>
@@ -1959,7 +1959,7 @@ function ContentTab({ user }: { user: U360 }) {
         {/* Content Insights sidebar */}
         <div className="bg-white rounded-2xl border border-[#e8eaed] shadow-sm overflow-hidden">
           <div className="px-4 py-3.5 border-b border-[#e8eaed] flex items-center gap-2">
-            <TrendingUp size={14} className="text-[#fe2c55]"/>
+            <TrendingUp size={14} className="text-[#fd4605]"/>
             <h3 className="text-[13px] font-bold text-[#111827]">Content Insights</h3>
           </div>
 
@@ -1984,7 +1984,7 @@ function ContentTab({ user }: { user: U360 }) {
             <p className="text-[10px] font-bold text-[#9ca3af] uppercase tracking-wide mb-2">Most Used Category</p>
             {user.categories?.length > 0 ? (
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-[12px] font-semibold bg-[#fff0f3] text-[#fe2c55] px-2.5 py-1 rounded-full">{user.categories[0]}</span>
+                <span className="text-[12px] font-semibold bg-[#fff0f3] text-[#fd4605] px-2.5 py-1 rounded-full">{user.categories[0]}</span>
                 <span className="text-[11px] text-[#9ca3af]">{cs.total_videos} posts (46.8%)</span>
               </div>
             ) : <p className="text-[12px] text-[#9ca3af]">No category set.</p>}
@@ -2295,7 +2295,7 @@ type MonData = {
   recent_activity: { type: string; text: string; at: string | null }[];
 };
 
-const DONUT_COLORS = ["#fe2c55", "#8b5cf6", "#3b82f6", "#16a34a", "#f59e0b", "#ec4899", "#06b6d4"];
+const DONUT_COLORS = ["#fd4605", "#8b5cf6", "#3b82f6", "#16a34a", "#f59e0b", "#ec4899", "#06b6d4"];
 
 function MonetizationTab({ userId }: { userId: number }) {
   const qc = useQueryClient();
@@ -2331,7 +2331,7 @@ function MonetizationTab({ userId }: { userId: number }) {
           <FundStat icon={DollarSign} tint="#16a34a" label="Available Balance" value={usd(s?.available_balance ?? 0)} sub="Ready for payout" />
           <FundStat icon={Clock} tint="#f59e0b" label="Pending Balance" value={usd(s?.pending_balance ?? 0)} sub="Clearing" />
           <FundStat icon={ArrowUpRight} tint="#3b82f6" label="Paid Out" value={usd(s?.paid_out ?? 0)} sub="All time" />
-          <FundStat icon={Receipt} tint="#fe2c55" label="Total Payouts" value={String(s?.total_payouts ?? 0)} sub="Completed" />
+          <FundStat icon={Receipt} tint="#fd4605" label="Total Payouts" value={String(s?.total_payouts ?? 0)} sub="Completed" />
           <FundStat icon={Lock} tint="#6b7280" label="Hold Balance" value={usd(s?.hold_balance ?? 0)} sub="Under review" />
         </div>
 
@@ -2388,7 +2388,7 @@ function MonetizationTab({ userId }: { userId: number }) {
                   <div className="flex items-center justify-between">
                     <span className="text-[13px] font-bold text-[#111827]">{m.label}</span>
                     <div className="flex items-center gap-1">
-                      {m.primary && <span className="rounded-full bg-[#fe2c55]/10 px-2 py-0.5 text-[10px] font-bold text-[#fe2c55]">Primary</span>}
+                      {m.primary && <span className="rounded-full bg-[#fd4605]/10 px-2 py-0.5 text-[10px] font-bold text-[#fd4605]">Primary</span>}
                       <span className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-0.5 text-[10px] font-bold text-green-600"><BadgeCheck className="h-3 w-3" /> Verified</span>
                     </div>
                   </div>
@@ -2415,7 +2415,7 @@ function MonetizationTab({ userId }: { userId: number }) {
                   <p className="text-[10px] uppercase tracking-wide text-[#9ca3af]">Documents</p>
                   <div className="mt-1 flex flex-wrap gap-1.5">
                     {data.tax.documents.length === 0 && <span className="text-[12px] text-[#9ca3af]">None</span>}
-                    {data.tax.documents.map((d) => <a key={d.label} href={d.url ?? undefined} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 rounded-md bg-[#fe2c55]/10 px-2 py-1 text-[10px] font-bold text-[#fe2c55]"><FileText className="h-3 w-3" /> {d.label}</a>)}
+                    {data.tax.documents.map((d) => <a key={d.label} href={d.url ?? undefined} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 rounded-md bg-[#fd4605]/10 px-2 py-1 text-[10px] font-bold text-[#fd4605]"><FileText className="h-3 w-3" /> {d.label}</a>)}
                   </div>
                 </div>
               </>
@@ -2516,10 +2516,10 @@ function MonetizationTab({ userId }: { userId: number }) {
         {/* Admin notes */}
         <div className="rounded-2xl border border-[#e8eaed] bg-white p-5 shadow-sm">
           <h3 className="mb-2 text-[15px] font-bold text-[#111827]">Admin Notes</h3>
-          <textarea value={note} onChange={(e) => setNote(e.target.value.slice(0, 500))} rows={3} placeholder="Add notes about this user's monetization..." className="w-full rounded-lg border border-[#e8eaed] px-3 py-2 text-[13px] outline-none focus:border-[#fe2c55]" />
+          <textarea value={note} onChange={(e) => setNote(e.target.value.slice(0, 500))} rows={3} placeholder="Add notes about this user's monetization..." className="w-full rounded-lg border border-[#e8eaed] px-3 py-2 text-[13px] outline-none focus:border-[#fd4605]" />
           <div className="mt-2 flex items-center justify-between">
             <span className="text-[11px] text-[#9ca3af]">{note.length} / 500</span>
-            <button disabled={noteM.isPending} onClick={() => noteM.mutate()} className="rounded-lg border border-[#fe2c55] px-3 py-1.5 text-[12px] font-semibold text-[#fe2c55] hover:bg-[#fe2c55]/5 disabled:opacity-50">Save Note</button>
+            <button disabled={noteM.isPending} onClick={() => noteM.mutate()} className="rounded-lg border border-[#fd4605] px-3 py-1.5 text-[12px] font-semibold text-[#fd4605] hover:bg-[#fd4605]/5 disabled:opacity-50">Save Note</button>
           </div>
         </div>
 
@@ -2565,7 +2565,7 @@ function SettingToggle({ label, on, onToggle }: { label: string; on: boolean; on
   return (
     <div className="flex items-center justify-between border-b border-[#f3f4f6] py-2">
       <span className="text-[12px] text-[#6b7280]">{label}</span>
-      <button onClick={onToggle} className={`relative h-5 w-9 rounded-full transition-colors ${on ? "bg-[#fe2c55]" : "bg-[#e5e7eb]"}`} aria-pressed={on}>
+      <button onClick={onToggle} className={`relative h-5 w-9 rounded-full transition-colors ${on ? "bg-[#fd4605]" : "bg-[#e5e7eb]"}`} aria-pressed={on}>
         <span className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-all ${on ? "left-[18px]" : "left-0.5"}`} />
       </button>
     </div>
@@ -2681,7 +2681,7 @@ function TaxFormsPanel({ form, history, busy, onSetStatus, onRequest, requesting
             <Send className="h-3.5 w-3.5" /> Request Tax Info
           </button>
           <button disabled={requesting} onClick={() => onRequest("update")}
-            className="inline-flex h-9 items-center gap-1.5 rounded-[10px] bg-[#fe2c55] px-3 text-[12px] font-semibold text-white transition hover:bg-[#e0243d] disabled:opacity-50">
+            className="inline-flex h-9 items-center gap-1.5 rounded-[10px] bg-[#fd4605] px-3 text-[12px] font-semibold text-white transition hover:bg-[#e03e04] disabled:opacity-50">
             <RefreshCw className="h-3.5 w-3.5" /> Request Update
           </button>
         </div>
@@ -2840,7 +2840,7 @@ function DetailRow({ label, value, valueClass }: { label: string; value: string;
 function DocItem({ doc }: { doc: TaxDoc }) {
   return (
     <div className="flex items-center gap-2.5 rounded-lg border border-[#e8eaed] p-2">
-      <div className="grid h-8 w-8 shrink-0 place-items-center rounded bg-[#fe2c55]/10"><FileText className="h-4 w-4 text-[#fe2c55]" /></div>
+      <div className="grid h-8 w-8 shrink-0 place-items-center rounded bg-[#fd4605]/10"><FileText className="h-4 w-4 text-[#fd4605]" /></div>
       <div className="min-w-0 flex-1">
         <p className="truncate text-[12px] font-medium text-[#111827]">{doc.label}</p>
         <p className="truncate text-[10px] text-[#9ca3af]">{doc.name}</p>
@@ -2863,7 +2863,7 @@ function RejectModal({ open, onClose, onConfirm }: { open: boolean; onClose: () 
       <div className="w-full max-w-sm rounded-2xl bg-white p-5 shadow-xl" onClick={(e) => e.stopPropagation()}>
         <h3 className="text-[15px] font-bold text-[#111827]">Reject tax form</h3>
         <p className="mt-1 text-[12px] text-[#9ca3af]">Tell the user why so they can resubmit. This is sent to them.</p>
-        <textarea value={note} onChange={(e) => setNote(e.target.value)} rows={3} placeholder="Reason for rejection…" className="mt-3 w-full rounded-lg border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fe2c55]" />
+        <textarea value={note} onChange={(e) => setNote(e.target.value)} rows={3} placeholder="Reason for rejection…" className="mt-3 w-full rounded-lg border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fd4605]" />
         <div className="mt-3 flex gap-2">
           <button onClick={onClose} className="flex-1 rounded-lg border border-[#e8eaed] py-2 text-[12px] font-semibold text-[#6b7280] hover:bg-[#f4f5f7]">Cancel</button>
           <button onClick={() => onConfirm(note.trim())} className="flex-1 rounded-lg bg-red-600 py-2 text-[12px] font-semibold text-white hover:bg-red-700">Reject Form</button>
@@ -2892,10 +2892,10 @@ function AddFundsModal({ open, userId, onClose, onDone }: { open: boolean; userI
         </div>
         <p className="mt-1 text-[12px] text-[#9ca3af]">Credit the user&apos;s advance balance. Recorded in the ledger.</p>
         <label className="mt-4 block text-[12px] font-semibold text-[#374151]">Amount (USD)</label>
-        <input value={amount} onChange={(e) => setAmount(e.target.value)} type="number" min="0.5" step="0.01" placeholder="100.00" className="mt-1 w-full rounded-lg border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fe2c55]" />
+        <input value={amount} onChange={(e) => setAmount(e.target.value)} type="number" min="0.5" step="0.01" placeholder="100.00" className="mt-1 w-full rounded-lg border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fd4605]" />
         <label className="mt-3 block text-[12px] font-semibold text-[#374151]">Description (optional)</label>
-        <input value={desc} onChange={(e) => setDesc(e.target.value)} placeholder="Manual addition by admin" className="mt-1 w-full rounded-lg border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fe2c55]" />
-        <button disabled={m.isPending || !valid} onClick={() => m.mutate()} className="mt-4 w-full rounded-lg bg-[#fe2c55] py-2.5 text-[13px] font-semibold text-white transition hover:bg-[#e0243d] disabled:opacity-50">{m.isPending ? "Adding…" : "Add Funds"}</button>
+        <input value={desc} onChange={(e) => setDesc(e.target.value)} placeholder="Manual addition by admin" className="mt-1 w-full rounded-lg border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fd4605]" />
+        <button disabled={m.isPending || !valid} onClick={() => m.mutate()} className="mt-4 w-full rounded-lg bg-[#fd4605] py-2.5 text-[13px] font-semibold text-white transition hover:bg-[#e03e04] disabled:opacity-50">{m.isPending ? "Adding…" : "Add Funds"}</button>
       </div>
     </div>
   );
@@ -2971,7 +2971,7 @@ function AdsControlTab({ userId }: { userId: number }) {
         <Megaphone className="h-9 w-9 text-[#d1d5db]" />
         <p className="text-[14px] font-semibold text-[#374151]">No ad account yet</p>
         <p className="text-[12px] text-[#9ca3af]">This user hasn&apos;t advertised. Add advance funds to provision an account.</p>
-        <button onClick={() => setAddOpen(true)} className="mt-1 inline-flex h-9 items-center gap-1.5 rounded-[10px] bg-[#fe2c55] px-4 text-[12px] font-semibold text-white hover:bg-[#e0243d]"><Plus className="h-4 w-4" /> Add Funds</button>
+        <button onClick={() => setAddOpen(true)} className="mt-1 inline-flex h-9 items-center gap-1.5 rounded-[10px] bg-[#fd4605] px-4 text-[12px] font-semibold text-white hover:bg-[#e03e04]"><Plus className="h-4 w-4" /> Add Funds</button>
         <AddFundsModal open={addOpen} userId={userId} onClose={() => setAddOpen(false)} onDone={() => { setAddOpen(false); invalidate(); }} />
       </div>
     );
@@ -2987,10 +2987,10 @@ function AdsControlTab({ userId }: { userId: number }) {
             {/* Account id + badges */}
             <div className="rounded-xl border border-[#e8eaed] p-3">
               <div className="flex items-center gap-2.5">
-                <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#fe2c55]/10"><CreditCard className="h-4 w-4 text-[#fe2c55]" /></div>
+                <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#fd4605]/10"><CreditCard className="h-4 w-4 text-[#fd4605]" /></div>
                 <div className="min-w-0">
                   <p className="text-[10px] uppercase tracking-wide text-[#9ca3af]">Ad Account ID</p>
-                  <button onClick={copyId} className="flex items-center gap-1.5 text-[13px] font-bold text-[#111827] hover:text-[#fe2c55]">
+                  <button onClick={copyId} className="flex items-center gap-1.5 text-[13px] font-bold text-[#111827] hover:text-[#fd4605]">
                     <span className="truncate">{acct.account_number}</span>
                     <Copy className={`h-3.5 w-3.5 ${copied ? "text-green-600" : "text-[#9ca3af]"}`} />
                   </button>
@@ -3005,7 +3005,7 @@ function AdsControlTab({ userId }: { userId: number }) {
             </div>
             {/* Fund stat cards */}
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-              <FundStat icon={Wallet} tint="#fe2c55" label="Available Balance" value={usd(acct.available_balance ?? 0)} sub="Spendable now" />
+              <FundStat icon={Wallet} tint="#fd4605" label="Available Balance" value={usd(acct.available_balance ?? 0)} sub="Spendable now" />
               <FundStat icon={ArrowUpRight} tint="#16a34a" label="Advance Funds" value={usd(acct.advance_funds ?? 0)} sub="Total advanced" />
               <FundStat icon={Gift} tint="#8b5cf6" label="Promotional Credits" value={usd(acct.promotional_credits ?? 0)} sub="Bonus credit" />
               <FundStat icon={TrendingUp} tint="#f59e0b" label="Total Lifetime Spend" value={usd(acct.lifetime_spend ?? 0)} sub="All time" />
@@ -3037,7 +3037,7 @@ function AdsControlTab({ userId }: { userId: number }) {
             <QuickAction icon={Plus} tint="#16a34a" label="Add Funds" onClick={() => setAddOpen(true)} />
             <QuickAction icon={CreditCard} tint="#8b5cf6" label="Payment History" onClick={() => toast.info("Payment history is listed under Recent Transactions.")} />
             <QuickAction icon={FileText} tint="#ef4444" label="View Tax Form" onClick={() => toast.info("Tax form is in the Finance & Tax tab.")} />
-            <QuickAction icon={ExternalLink} tint="#fe2c55" label="Open Ads Manager" onClick={() => window.open("https://ads.teezer.live", "_blank", "noopener,noreferrer")} />
+            <QuickAction icon={ExternalLink} tint="#fd4605" label="Open Ads Manager" onClick={() => window.open("https://ads.teezer.live", "_blank", "noopener,noreferrer")} />
             <QuickAction icon={Activity} tint="#f59e0b" label="View Audit Log" onClick={() => toast.info("Actions are recorded in the Audit Log tab.")} />
             <QuickAction icon={MoreVertical} tint="#6b7280" label="More Actions" onClick={() => toast.info("More actions coming soon.")} />
           </div>
@@ -3076,7 +3076,7 @@ function AdsControlTab({ userId }: { userId: number }) {
         <div className="rounded-2xl border border-[#e8eaed] bg-white p-5 shadow-sm lg:col-span-2">
           <div className="flex items-center justify-between">
             <h3 className="text-[15px] font-bold text-[#111827]">Advance Funds</h3>
-            <button onClick={() => setAddOpen(true)} className="inline-flex h-9 items-center gap-1.5 rounded-[10px] bg-[#fe2c55] px-3 text-[12px] font-semibold text-white hover:bg-[#e0243d]"><Plus className="h-4 w-4" /> Add Funds</button>
+            <button onClick={() => setAddOpen(true)} className="inline-flex h-9 items-center gap-1.5 rounded-[10px] bg-[#fd4605] px-3 text-[12px] font-semibold text-white hover:bg-[#e03e04]"><Plus className="h-4 w-4" /> Add Funds</button>
           </div>
           <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
             <FundStat icon={Wallet} tint="#16a34a" label="Available Funds" value={usd(funds?.available ?? 0)} sub="Ready to spend" />
@@ -3178,9 +3178,9 @@ function SpendChart({ series }: { series: { date: string; amount: number }[] }) 
   return (
     <div className="overflow-hidden rounded-xl border border-[#e8eaed] p-2">
       <svg viewBox={`0 0 ${W} ${H}`} className="h-[150px] w-full" preserveAspectRatio="none">
-        <defs><linearGradient id="spendfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#fe2c55" stopOpacity="0.18" /><stop offset="100%" stopColor="#fe2c55" stopOpacity="0" /></linearGradient></defs>
+        <defs><linearGradient id="spendfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#fd4605" stopOpacity="0.18" /><stop offset="100%" stopColor="#fd4605" stopOpacity="0" /></linearGradient></defs>
         <path d={area} fill="url(#spendfill)" />
-        <path d={line} fill="none" stroke="#fe2c55" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
+        <path d={line} fill="none" stroke="#fd4605" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
       </svg>
     </div>
   );
@@ -3200,7 +3200,7 @@ function TaxInfoPanel({ tax }: { tax?: AdsData["tax"] }) {
         <div className="mt-1 flex flex-wrap gap-1.5">
           {(tax?.documents ?? []).length === 0 && <span className="text-[12px] text-[#9ca3af]">None</span>}
           {(tax?.documents ?? []).map((d) => (
-            <a key={d.label} href={d.url ?? undefined} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 rounded-md bg-[#fe2c55]/10 px-2 py-1 text-[10px] font-bold text-[#fe2c55]">
+            <a key={d.label} href={d.url ?? undefined} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 rounded-md bg-[#fd4605]/10 px-2 py-1 text-[10px] font-bold text-[#fd4605]">
               <FileText className="h-3 w-3" /> {d.label}
             </a>
           ))}
@@ -3221,7 +3221,7 @@ function PolicyPanel({ compliance }: { compliance?: AdsData["compliance"] }) {
       <PolicyRow label="Warning Count" node={<span className="text-[13px] font-bold text-[#111827]">{compliance?.warnings ?? 0}</span>} />
       <PolicyRow label="Strike Count" node={<span className="text-[13px] font-bold text-[#111827]">{compliance?.strikes ?? 0}</span>} />
       <PolicyRow label="Ad Account Status" node={<AdStatusBadge status={compliance?.status ?? "active"} />} />
-      <button onClick={() => toast.info("Policy history view coming soon.")} className="mt-3 w-full rounded-xl border border-[#e8eaed] py-2 text-[12px] font-semibold text-[#fe2c55] hover:bg-[#fe2c55]/5">View Policy History</button>
+      <button onClick={() => toast.info("Policy history view coming soon.")} className="mt-3 w-full rounded-xl border border-[#e8eaed] py-2 text-[12px] font-semibold text-[#fd4605] hover:bg-[#fd4605]/5">View Policy History</button>
     </div>
   );
 }
@@ -3261,14 +3261,14 @@ function AdsTable({ ads, onAd, busy }: { ads: AdRow[]; onAd: (cid: number, actio
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <h3 className="text-[15px] font-bold text-[#111827]">All Advertisements</h3>
         <div className="flex gap-2">
-          <button onClick={() => toast.info("Ads are created by the user from the app.")} className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-[#fe2c55] px-3 text-[12px] font-semibold text-white hover:bg-[#e0243d]"><Plus className="h-3.5 w-3.5" /> Create Ad</button>
+          <button onClick={() => toast.info("Ads are created by the user from the app.")} className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-[#fd4605] px-3 text-[12px] font-semibold text-white hover:bg-[#e03e04]"><Plus className="h-3.5 w-3.5" /> Create Ad</button>
           <button onClick={exportCsv} className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-[#e8eaed] px-3 text-[12px] font-semibold text-[#374151] hover:bg-[#f4f5f7]"><Download className="h-3.5 w-3.5" /> Export</button>
         </div>
       </div>
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <div className="relative min-w-[180px] flex-1">
           <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#9ca3af]" />
-          <input value={q} onChange={(e) => { setQ(e.target.value); setPage(1); }} placeholder="Search ads..." className="h-8 w-full rounded-lg border border-[#e8eaed] pl-8 pr-2 text-[12px] outline-none focus:border-[#fe2c55]" />
+          <input value={q} onChange={(e) => { setQ(e.target.value); setPage(1); }} placeholder="Search ads..." className="h-8 w-full rounded-lg border border-[#e8eaed] pl-8 pr-2 text-[12px] outline-none focus:border-[#fd4605]" />
         </div>
         <select value={status} onChange={(e) => { setStatus(e.target.value); setPage(1); }} className="h-8 rounded-lg border border-[#e8eaed] px-2 text-[12px] text-[#374151]"><option value="">Status</option><option value="active">Active</option><option value="paused">Paused</option><option value="completed">Completed</option><option value="draft">Draft</option></select>
         <select value={platform} onChange={(e) => { setPlatform(e.target.value); setPage(1); }} className="h-8 rounded-lg border border-[#e8eaed] px-2 text-[12px] text-[#374151]"><option value="">Platform</option><option value="App">App</option><option value="App &amp; Web">App &amp; Web</option></select>
@@ -3299,7 +3299,7 @@ function AdsTable({ ads, onAd, busy }: { ads: AdRow[]; onAd: (cid: number, actio
                   <button
                     onClick={() => router.push(`/ads-management/campaigns/${a.campaign_id}`)}
                     title="Open ad details"
-                    className="font-semibold text-[#fe2c55] hover:underline"
+                    className="font-semibold text-[#fd4605] hover:underline"
                   >{a.code}</button>
                 </td>
                 <td className="px-3 py-2.5 font-medium text-[#111827]">{a.name}</td>
@@ -3393,7 +3393,7 @@ function CommentsTab({ user }: { user: U360 }) {
       {/* Stats row */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { icon: <MessageCircle size={16} className="text-[#fe2c55]"/>, label:"Total Comments", value: cs.total_comments, bg:"bg-[#fe2c55]/10" },
+          { icon: <MessageCircle size={16} className="text-[#fd4605]"/>, label:"Total Comments", value: cs.total_comments, bg:"bg-[#fd4605]/10" },
           { icon: <Flag size={16} className="text-amber-500"/>,          label:"Flagged",        value: "-",               bg:"bg-amber-50"    },
           { icon: <AlertTriangle size={16} className="text-red-500"/>,   label:"Reported",       value: "-",               bg:"bg-red-50"      },
         ].map(({ icon, label, value, bg }) => (
@@ -3414,7 +3414,7 @@ function CommentsTab({ user }: { user: U360 }) {
             {(["made","received"] as const).map(m => (
               <button key={m} onClick={() => { setMode(m); setPage(1); }}
                 className={`px-3 py-1.5 text-[12px] font-semibold rounded-lg capitalize transition-colors ${
-                  mode === m ? "bg-[#fe2c55] text-white" : "text-[#6b7280] hover:bg-[#f4f5f7]"
+                  mode === m ? "bg-[#fd4605] text-white" : "text-[#6b7280] hover:bg-[#f4f5f7]"
                 }`}>
                 {m === "made" ? "Comments Made" : "Comments Received"}
               </button>
@@ -3424,7 +3424,7 @@ function CommentsTab({ user }: { user: U360 }) {
             <div className="relative">
               <Search size={12} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[#9ca3af] pointer-events-none"/>
               <input value={q} onChange={e => { setQ(e.target.value); setPage(1); }} placeholder="Search comments…"
-                className="h-8 w-44 rounded-lg border border-[#e8eaed] bg-[#f9fafb] pl-7 pr-2 text-[12px] focus:outline-none focus:ring-1 focus:ring-[#fe2c55]/30 focus:border-[#fe2c55]"/>
+                className="h-8 w-44 rounded-lg border border-[#e8eaed] bg-[#f9fafb] pl-7 pr-2 text-[12px] focus:outline-none focus:ring-1 focus:ring-[#fd4605]/30 focus:border-[#fd4605]"/>
             </div>
             <span className="text-[11px] text-[#9ca3af]">{total} total</span>
           </div>
@@ -3433,7 +3433,7 @@ function CommentsTab({ user }: { user: U360 }) {
         {/* List */}
         {isLoading ? (
           <div className="flex items-center justify-center py-14">
-            <div className="h-6 w-6 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent"/>
+            <div className="h-6 w-6 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent"/>
           </div>
         ) : items.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-14 text-[#9ca3af]">
@@ -3451,7 +3451,7 @@ function CommentsTab({ user }: { user: U360 }) {
                 <div className="shrink-0 mt-0.5">
                   {mode === "made" && c.video_thumbnail
                     ? <img src={c.video_thumbnail} className="h-10 w-14 rounded-lg object-cover bg-[#f3f4f6]" alt=""/>
-                    : <div className="h-9 w-9 rounded-full bg-[#fe2c55]/10 flex items-center justify-center text-[#fe2c55] font-bold text-[13px]">
+                    : <div className="h-9 w-9 rounded-full bg-[#fd4605]/10 flex items-center justify-center text-[#fd4605] font-bold text-[13px]">
                         {(mode === "received" ? c.commenter_username?.[0] : "V")?.toUpperCase() ?? "?"}
                       </div>
                   }
@@ -3586,7 +3586,7 @@ function AuditLogTab({ user }: { user: U360 }) {
       <div className="grid grid-cols-5 gap-3">
         {SEV_CARDS.map(({ key, label, color, bg, border }) => (
           <button key={key} onClick={() => { setSeverity(key); setPage(1); }}
-            className={`rounded-2xl border shadow-sm p-4 text-left transition-all ${severity === key ? "ring-2 ring-[#fe2c55]/40" : ""}`}
+            className={`rounded-2xl border shadow-sm p-4 text-left transition-all ${severity === key ? "ring-2 ring-[#fd4605]/40" : ""}`}
             style={{ background: bg, borderColor: border }}>
             <p className="text-[11px] font-semibold mb-1" style={{ color }}>{label}</p>
             <p className="text-[24px] font-black" style={{ color }}>{COUNTS[key]}</p>
@@ -3598,14 +3598,14 @@ function AuditLogTab({ user }: { user: U360 }) {
         {/* Header */}
         <div className="flex items-center justify-between gap-3 px-4 py-3 border-b border-[#e8eaed]">
           <div className="flex items-center gap-2">
-            <Activity size={14} className="text-[#fe2c55]"/>
+            <Activity size={14} className="text-[#fd4605]"/>
             <p className="text-[13px] font-bold text-[#111827]">Audit Log</p>
             <span className="text-[11px] text-[#9ca3af] bg-[#f3f4f6] px-2 py-0.5 rounded-full">{filtered.length} entries</span>
           </div>
           <div className="relative">
             <Search size={12} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[#9ca3af] pointer-events-none"/>
             <input value={q} onChange={e => { setQ(e.target.value); setPage(1); }} placeholder="Search action, description, admin…"
-              className="h-8 w-56 rounded-lg border border-[#e8eaed] bg-[#f9fafb] pl-7 pr-2 text-[12px] focus:outline-none focus:ring-1 focus:ring-[#fe2c55]/30 focus:border-[#fe2c55]"/>
+              className="h-8 w-56 rounded-lg border border-[#e8eaed] bg-[#f9fafb] pl-7 pr-2 text-[12px] focus:outline-none focus:ring-1 focus:ring-[#fd4605]/30 focus:border-[#fd4605]"/>
           </div>
         </div>
 
@@ -3652,7 +3652,7 @@ function AuditLogTab({ user }: { user: U360 }) {
                       </td>
                       <td className="px-3 py-3">
                         <div className="flex items-center gap-1.5">
-                          <div className="h-5 w-5 rounded-full bg-[#fe2c55]/10 flex items-center justify-center text-[#fe2c55] font-bold text-[9px] shrink-0">
+                          <div className="h-5 w-5 rounded-full bg-[#fd4605]/10 flex items-center justify-center text-[#fd4605] font-bold text-[9px] shrink-0">
                             {(t.admin?.name ?? "S")[0].toUpperCase()}
                           </div>
                           <span className="text-[#374151] font-medium">{t.admin?.name ?? "System"}</span>
@@ -3827,7 +3827,7 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
       <div className="py-24 text-center space-y-2">
         <p className="text-[15px] font-semibold text-[#111827]">Failed to load user profile</p>
         <p className="text-[12px] text-[#9ca3af]">{(error as Error)?.message ?? "An unexpected error occurred."}</p>
-        <button onClick={() => router.push("/users")} className="mt-4 text-[12px] text-[#fe2c55] font-semibold hover:underline">← Back to Users</button>
+        <button onClick={() => router.push("/users")} className="mt-4 text-[12px] text-[#fd4605] font-semibold hover:underline">← Back to Users</button>
       </div>
     </AdminShell>
   );
@@ -3863,11 +3863,11 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
               <div className="flex items-center gap-3.5">
                 <div className="relative shrink-0">
                   <div className="h-[88px] w-[88px] rounded-full p-[3px]"
-                    style={{background:"linear-gradient(135deg,#fe2c55 0%,#ff7c9b 50%,#ff4d6d 100%)"}}>
+                    style={{background:"linear-gradient(135deg,#fd4605 0%,#ff8a55 50%,#ff4d6d 100%)"}}>
                     {u.avatar
                       ? <img src={u.avatar} alt={u.name}
                           className="h-full w-full rounded-full object-cover ring-2 ring-white"/>
-                      : <div className="h-full w-full rounded-full bg-white grid place-items-center text-[32px] font-black text-[#fe2c55]">
+                      : <div className="h-full w-full rounded-full bg-white grid place-items-center text-[32px] font-black text-[#fd4605]">
                           {u.name?.[0]?.toUpperCase()??"U"}
                         </div>
                     }
@@ -3888,8 +3888,8 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
                   <div className="flex flex-wrap items-center gap-1.5">
                     <span className="text-[12.5px] text-[#6b7280]">@{u.username}</span>
                     {u.role === 'creator' && u.creator_level && (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-[#fff0f3] border border-[#ffd6df] px-2 py-0.5 text-[10px] font-bold text-[#fe2c55]">
-                        <Star size={9} fill="#fe2c55" strokeWidth={0}/> {u.creator_level.level_name}
+                      <span className="inline-flex items-center gap-1 rounded-full bg-[#fff0f3] border border-[#ffd6df] px-2 py-0.5 text-[10px] font-bold text-[#fd4605]">
+                        <Star size={9} fill="#fd4605" strokeWidth={0}/> {u.creator_level.level_name}
                       </span>
                     )}
                   </div>
@@ -3905,7 +3905,7 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
               <div className="flex flex-col gap-1 text-[12px] text-[#9ca3af]">
                 {(u.profile?.location || u.selected_country_name) && (
                   <span className="flex items-center gap-1.5">
-                    <MapPin size={12} className="text-[#fe2c55] shrink-0"/>
+                    <MapPin size={12} className="text-[#fd4605] shrink-0"/>
                     <span className="truncate">{u.profile?.location ?? u.selected_country_name}</span>
                   </span>
                 )}
@@ -3923,7 +3923,7 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
 
                 {/* Level */}
                 <div className="px-4 py-4 flex items-center gap-2.5">
-                  <div className="shrink-0 h-9 w-9 rounded-xl bg-[#fe2c55] flex items-center justify-center shadow-sm">
+                  <div className="shrink-0 h-9 w-9 rounded-xl bg-[#fd4605] flex items-center justify-center shadow-sm">
                     <svg width="16" height="16" viewBox="0 0 20 20" fill="white">
                       <path d="M10 1 L19 10 L10 19 L1 10 Z" />
                       <path d="M10 5 L15 10 L10 15 L5 10 Z" fill="rgba(255,255,255,0.35)"/>
@@ -4097,7 +4097,7 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
           {TABS.map(t => (
             <button key={t.key} onClick={() => setTab(t.key)}
               className={`shrink-0 flex items-center gap-1.5 border-b-2 px-4 py-3 text-[12px] font-semibold transition-colors whitespace-nowrap
-                ${tab===t.key?"border-[#fe2c55] text-[#fe2c55]":"border-transparent text-[#6b7280] hover:text-[#111827]"}`}>
+                ${tab===t.key?"border-[#fd4605] text-[#fd4605]":"border-transparent text-[#6b7280] hover:text-[#111827]"}`}>
               {t.icon}{t.label}
             </button>
           ))}
@@ -4136,7 +4136,7 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
                     {k:"Reports Received",v:u.reports_received,c:"#f59e0b"},
                     {k:"Reports Open",    v:u.reports_open,    c:"#ef4444"},
                     {k:"Content Removed", v:u.content_removed, c:"#3b82f6"},
-                    {k:"Policy Violations",v:u.policy_violations,c:"#fe2c55"},
+                    {k:"Policy Violations",v:u.policy_violations,c:"#fd4605"},
                   ].map(({k,v,c})=>(
                     <div key={k} className="rounded-xl bg-[#f9fafb] border border-[#f3f4f6] p-4">
                       <p className="text-[11px] text-[#9ca3af]">{k}</p>
@@ -4170,7 +4170,7 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
                 {[
                   {label:"Reports Received", value:u.reports_received,  color:"#f59e0b"},
                   {label:"Content Removed",  value:u.content_removed,   color:"#3b82f6"},
-                  {label:"Policy Violations",value:u.policy_violations, color:"#fe2c55"},
+                  {label:"Policy Violations",value:u.policy_violations, color:"#fd4605"},
                   {label:"Open Appeals",     value:u.open_appeals,      color:"#10b981"},
                 ].map(({label,value,color})=>(
                   <div key={label} className="flex items-center justify-between">
@@ -4206,14 +4206,14 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
         onConfirm={()=>suspend.mutate(modalReason||"Suspended by admin")}>
         <input value={modalReason} onChange={e=>setModalReason(e.target.value)}
           placeholder="Suspension reason…"
-          className="mt-2 h-9 w-full rounded-[10px] border border-[#e8eaed] px-3 text-[13px] outline-none focus:border-[#fe2c55]"/>
+          className="mt-2 h-9 w-full rounded-[10px] border border-[#e8eaed] px-3 text-[13px] outline-none focus:border-[#fd4605]"/>
         <div className="mt-2 space-y-1.5">
           <p className="text-[11px] text-[#9ca3af]">Suspend until (optional):</p>
           <div className="flex flex-wrap gap-1">
             {([["24h",1],["7d",7],["30d",30]] as [string,number][]).map(([lbl,d])=>(
               <button key={lbl} type="button"
                 onClick={()=>{const dt=new Date();dt.setDate(dt.getDate()+d);dt.setHours(23,59,0,0);setHeaderSuspendUntil(toLocalDTL(dt));}}
-                className="px-2 py-0.5 rounded-lg border border-[#e8eaed] text-[11px] text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55] transition-colors">
+                className="px-2 py-0.5 rounded-lg border border-[#e8eaed] text-[11px] text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605] transition-colors">
                 {lbl}
               </button>
             ))}
@@ -4224,7 +4224,7 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
           </div>
           <input type="datetime-local" value={headerSuspendUntil} min={toLocalDTL(new Date())}
             onChange={e=>setHeaderSuspendUntil(e.target.value)}
-            className="h-9 w-full rounded-[10px] border border-[#e8eaed] px-3 text-[12px] outline-none focus:border-[#fe2c55]"/>
+            className="h-9 w-full rounded-[10px] border border-[#e8eaed] px-3 text-[12px] outline-none focus:border-[#fd4605]"/>
         </div>
       </Modal>
       <Modal open={modal.type==="ban"&&modal.open}
@@ -4234,7 +4234,7 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
         onConfirm={()=>ban.mutate(modalReason||"Banned by admin")}>
         <input value={modalReason} onChange={e=>setModalReason(e.target.value)}
           placeholder="Ban reason…"
-          className="mt-2 h-9 w-full rounded-[10px] border border-[#e8eaed] px-3 text-[13px] outline-none focus:border-[#fe2c55]"/>
+          className="mt-2 h-9 w-full rounded-[10px] border border-[#e8eaed] px-3 text-[13px] outline-none focus:border-[#fd4605]"/>
       </Modal>
       <Modal open={modal.type==="resetpass"&&modal.open}
         title="Reset Password?" message="A new temporary password will be generated and all sessions cleared."
@@ -4255,7 +4255,7 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
         onConfirm={()=>{ if(msgText.trim()) sendMsg.mutate(); }}>
         <textarea value={msgText} onChange={e=>setMsgText(e.target.value)} rows={4}
           placeholder="Type your message to the user…"
-          className="mt-2 w-full rounded-[10px] border border-[#e8eaed] px-3 py-2 text-[13px] outline-none focus:border-[#fe2c55] resize-none"/>
+          className="mt-2 w-full rounded-[10px] border border-[#e8eaed] px-3 py-2 text-[13px] outline-none focus:border-[#fd4605] resize-none"/>
         <p className="mt-1 text-[11px] text-[#9ca3af]">The user will see this as a &quot;System Notification&quot; in their notifications.</p>
       </Modal>
 
@@ -4280,19 +4280,19 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
                     <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-[#e8eaed] bg-[#f3f4f6]">
                       {editAvatarPreview
                         ? <img src={editAvatarPreview} alt="" className="h-full w-full object-cover"/>
-                        : <div className="h-full w-full grid place-items-center text-[28px] font-black text-[#fe2c55]">{(editForm.name||"U")[0]?.toUpperCase()}</div>
+                        : <div className="h-full w-full grid place-items-center text-[28px] font-black text-[#fd4605]">{(editForm.name||"U")[0]?.toUpperCase()}</div>
                       }
                     </div>
                     <button type="button"
                       onClick={()=>editAvatarInputRef.current?.click()}
-                      className="absolute bottom-0 right-0 h-6 w-6 rounded-full bg-[#fe2c55] text-white grid place-items-center shadow-md hover:bg-[#e02249] transition-colors">
+                      className="absolute bottom-0 right-0 h-6 w-6 rounded-full bg-[#fd4605] text-white grid place-items-center shadow-md hover:bg-[#e03e04] transition-colors">
                       <Camera size={11}/>
                     </button>
                   </div>
                   <div>
                     <button type="button"
                       onClick={()=>editAvatarInputRef.current?.click()}
-                      className="text-[12px] font-semibold text-[#fe2c55] hover:underline">
+                      className="text-[12px] font-semibold text-[#fd4605] hover:underline">
                       Change photo
                     </button>
                     {editAvatarFile && (
@@ -4328,7 +4328,7 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
                     <label className="block text-[11px] font-semibold text-[#6b7280] mb-1 uppercase tracking-wide">{label}</label>
                     <input type={type} value={editForm[key as keyof typeof editForm] as string}
                       onChange={e=>setEditForm(f=>({...f,[key]:e.target.value}))}
-                      className="h-9 w-full rounded-[10px] border border-[#e8eaed] px-3 text-[13px] outline-none focus:border-[#fe2c55]"/>
+                      className="h-9 w-full rounded-[10px] border border-[#e8eaed] px-3 text-[13px] outline-none focus:border-[#fd4605]"/>
                   </div>
                 ))}
               </div>
@@ -4337,7 +4337,7 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
               <div>
                 <label className="block text-[11px] font-semibold text-[#6b7280] mb-1 uppercase tracking-wide">Bio</label>
                 <textarea value={editForm.bio} onChange={e=>setEditForm(f=>({...f,bio:e.target.value}))} rows={2}
-                  className="w-full rounded-[10px] border border-[#e8eaed] px-3 py-2 text-[13px] outline-none focus:border-[#fe2c55] resize-none"/>
+                  className="w-full rounded-[10px] border border-[#e8eaed] px-3 py-2 text-[13px] outline-none focus:border-[#fd4605] resize-none"/>
               </div>
 
               {/* ── Categories (max 3) ── */}
@@ -4370,7 +4370,7 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
               <div>
                 <label className="block text-[11px] font-semibold text-[#6b7280] mb-1 uppercase tracking-wide">Role</label>
                 <select value={editForm.role} onChange={e=>setEditForm(f=>({...f,role:e.target.value}))}
-                  className="h-9 w-full rounded-[10px] border border-[#e8eaed] px-3 text-[13px] outline-none focus:border-[#fe2c55] bg-white">
+                  className="h-9 w-full rounded-[10px] border border-[#e8eaed] px-3 text-[13px] outline-none focus:border-[#fd4605] bg-white">
                   <option value="user">User</option>
                   <option value="creator">Creator</option>
                   <option value="admin">Admin</option>
@@ -4385,7 +4385,7 @@ export default function User360Page({ params }: { params: Promise<{ id: string }
                 Cancel
               </button>
               <button disabled={saveEdit.isPending} onClick={()=>saveEdit.mutate()}
-                className="px-4 py-2 rounded-xl text-[13px] font-semibold text-white bg-[#fe2c55] hover:bg-[#e02249] transition-colors disabled:opacity-50 flex items-center gap-1.5">
+                className="px-4 py-2 rounded-xl text-[13px] font-semibold text-white bg-[#fd4605] hover:bg-[#e03e04] transition-colors disabled:opacity-50 flex items-center gap-1.5">
                 <Save size={13}/>{saveEdit.isPending?"Saving…":"Save Changes"}
               </button>
             </div>

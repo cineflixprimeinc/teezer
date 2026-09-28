@@ -145,8 +145,8 @@ export function AdSetsPage() {
                   <tr key={s.objective} className="border-t border-[#f1f3f5]">
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
-                        <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg bg-[#fff0f4]">
-                          <Layers className="h-[18px] w-[18px] text-[#fe2c55]" />
+                        <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg bg-[#fff3ec]">
+                          <Layers className="h-[18px] w-[18px] text-[#fd4605]" />
                         </span>
                         <p className="text-[13px] font-bold text-[#111827]">{s.name}</p>
                       </div>

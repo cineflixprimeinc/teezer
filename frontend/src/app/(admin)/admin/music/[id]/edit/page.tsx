@@ -113,8 +113,8 @@ function Dropdown({ label, value, options, onChange, placeholder, searchable, er
         className={cn(
           "w-full flex items-center justify-between gap-2 h-10 px-3.5 rounded-xl border text-[13px] transition-all text-left",
           error ? "border-[#ef4444] bg-[#fff5f5]" :
-          open  ? "border-[#fe2c55] bg-white shadow-sm shadow-[#fe2c55]/10" :
-                  "border-[#e8eaed] bg-white hover:border-[#fe2c55] hover:shadow-sm",
+          open  ? "border-[#fd4605] bg-white shadow-sm shadow-[#fd4605]/10" :
+                  "border-[#e8eaed] bg-white hover:border-[#fd4605] hover:shadow-sm",
         )}>
         <span className={cn("truncate flex-1", selected ? "text-[#111827] font-medium" : "text-[#9ca3af]")}>
           {selected?.label ?? placeholder ?? "Select…"}
@@ -130,7 +130,7 @@ function Dropdown({ label, value, options, onChange, placeholder, searchable, er
               <div className="relative">
                 <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[#9ca3af] pointer-events-none" />
                 <input ref={inRef} value={query} onChange={e => setQuery(e.target.value)} placeholder="Search…"
-                  className="w-full h-8 pl-8 pr-3 rounded-xl bg-[#f9fafb] border border-[#e8eaed] text-[12px] text-[#111827] outline-none focus:border-[#fe2c55] transition-colors" />
+                  className="w-full h-8 pl-8 pr-3 rounded-xl bg-[#f9fafb] border border-[#e8eaed] text-[12px] text-[#111827] outline-none focus:border-[#fd4605] transition-colors" />
               </div>
             </div>
           )}
@@ -147,13 +147,13 @@ function Dropdown({ label, value, options, onChange, placeholder, searchable, er
                 <button key={o.value} type="button"
                   onClick={() => { onChange(o.value); setOpen(false); setQuery(""); }}
                   className={cn("w-full flex items-start gap-3 px-3.5 py-2.5 transition-colors text-left",
-                    value === o.value ? "bg-[#fff0f4]" : "hover:bg-[#f9fafb]")}>
+                    value === o.value ? "bg-[#fff3ec]" : "hover:bg-[#f9fafb]")}>
                   <div className={cn("mt-0.5 h-4 w-4 rounded-full border-2 shrink-0 grid place-items-center",
-                    value === o.value ? "border-[#fe2c55] bg-[#fe2c55]" : "border-[#d1d5db]")}>
+                    value === o.value ? "border-[#fd4605] bg-[#fd4605]" : "border-[#d1d5db]")}>
                     {value === o.value && <div className="h-1.5 w-1.5 rounded-full bg-white" />}
                   </div>
                   <div className="min-w-0">
-                    <p className={cn("text-[13px] font-medium leading-snug", value === o.value ? "text-[#fe2c55]" : "text-[#111827]")}>{o.label}</p>
+                    <p className={cn("text-[13px] font-medium leading-snug", value === o.value ? "text-[#fd4605]" : "text-[#111827]")}>{o.label}</p>
                     {o.desc && <p className="text-[11px] text-[#9ca3af] mt-0.5 leading-snug">{o.desc}</p>}
                   </div>
                 </button>
@@ -200,7 +200,7 @@ function DatePicker({ value, onChange, label }: { value: string; onChange: (v: s
       {label && <p className="text-[12px] font-semibold text-[#374151] mb-1.5">{label}</p>}
       <button type="button" onClick={() => setOpen(o => !o)}
         className={cn("w-full flex items-center gap-2.5 h-10 px-3.5 rounded-xl border text-[13px] transition-all",
-          open ? "border-[#fe2c55] shadow-sm bg-white" : "border-[#e8eaed] bg-white hover:border-[#fe2c55]")}>
+          open ? "border-[#fd4605] shadow-sm bg-white" : "border-[#e8eaed] bg-white hover:border-[#fd4605]")}>
         <CalendarDays className="h-4 w-4 text-[#9ca3af] shrink-0" />
         <span className={displayVal ? "text-[#111827] font-medium" : "text-[#9ca3af]"}>{displayVal || "Select date"}</span>
         {value && <button type="button" onClick={e => { e.stopPropagation(); onChange(""); }} className="ml-auto text-[#9ca3af] hover:text-[#374151] shrink-0"><X className="h-3.5 w-3.5" /></button>}
@@ -224,9 +224,9 @@ function DatePicker({ value, onChange, label }: { value: string; onChange: (v: s
               return (
                 <button key={i} type="button" onClick={() => selectDay(d)}
                   className={cn("h-8 w-8 mx-auto rounded-full text-[12px] font-medium transition-all",
-                    isSel  ? "bg-[#fe2c55] text-white font-bold shadow-sm" :
-                    isTod  ? "border-2 border-[#fe2c55] text-[#fe2c55] font-bold" :
-                             "text-[#374151] hover:bg-[#fff0f4] hover:text-[#fe2c55]")}>
+                    isSel  ? "bg-[#fd4605] text-white font-bold shadow-sm" :
+                    isTod  ? "border-2 border-[#fd4605] text-[#fd4605] font-bold" :
+                             "text-[#374151] hover:bg-[#fff3ec] hover:text-[#fd4605]")}>
                   {d}
                 </button>
               );
@@ -255,7 +255,7 @@ function Toggle({ value, onChange, label, sub }: { value: boolean; onChange: (v:
       </div>
       <button type="button" onClick={() => onChange(!value)}
         className={cn("relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent transition-colors duration-200 mt-0.5",
-          value ? "bg-[#fe2c55]" : "bg-[#e5e7eb]")}>
+          value ? "bg-[#fd4605]" : "bg-[#e5e7eb]")}>
         <span className={cn("pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transition-transform duration-200",
           value ? "translate-x-5" : "translate-x-0")} />
       </button>
@@ -266,7 +266,7 @@ function Toggle({ value, onChange, label, sub }: { value: boolean; onChange: (v:
 // ─── Field helpers ────────────────────────────────────────────────────────────
 
 function Label({ text, required }: { text: string; required?: boolean }) {
-  return <p className="text-[12px] font-semibold text-[#374151] mb-1.5">{text}{required && <span className="text-[#fe2c55] ml-0.5">*</span>}</p>;
+  return <p className="text-[12px] font-semibold text-[#374151] mb-1.5">{text}{required && <span className="text-[#fd4605] ml-0.5">*</span>}</p>;
 }
 
 function TextInput({ value, onChange, placeholder, error }: { value: string; onChange: (v: string) => void; placeholder?: string; error?: string }) {
@@ -274,7 +274,7 @@ function TextInput({ value, onChange, placeholder, error }: { value: string; onC
     <div>
       <input type="text" value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder}
         className={cn("w-full h-10 px-3.5 rounded-xl border text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none transition-all",
-          error ? "border-[#ef4444] bg-[#fff5f5]" : "border-[#e8eaed] hover:border-[#fe2c55] focus:border-[#fe2c55] focus:shadow-sm focus:shadow-[#fe2c55]/10")} />
+          error ? "border-[#ef4444] bg-[#fff5f5]" : "border-[#e8eaed] hover:border-[#fd4605] focus:border-[#fd4605] focus:shadow-sm focus:shadow-[#fd4605]/10")} />
       {error && <p className="text-[11px] text-[#ef4444] mt-1 flex items-center gap-1"><AlertCircle className="h-3 w-3" />{error}</p>}
     </div>
   );
@@ -284,7 +284,7 @@ function Section({ num, title, children }: { num: string; title: string; childre
   return (
     <div className="bg-white rounded-2xl border border-[#e8eaed]">
       <div className="px-6 py-4 border-b border-[#f4f5f7] bg-[#fafafa] rounded-t-2xl">
-        <h3 className="text-[14px] font-bold text-[#111827]"><span className="text-[#fe2c55] mr-1.5">{num}.</span>{title}</h3>
+        <h3 className="text-[14px] font-bold text-[#111827]"><span className="text-[#fd4605] mr-1.5">{num}.</span>{title}</h3>
       </div>
       <div className="p-6">{children}</div>
     </div>
@@ -502,10 +502,10 @@ export default function EditTrackPage() {
     return (
       <AdminShell title="Edit Track">
         <div className="flex flex-col items-center justify-center py-24 text-center">
-          <div className="h-14 w-14 rounded-2xl bg-[#fff0f4] grid place-items-center mb-4"><Music className="h-7 w-7 text-[#fe2c55]" /></div>
+          <div className="h-14 w-14 rounded-2xl bg-[#fff3ec] grid place-items-center mb-4"><Music className="h-7 w-7 text-[#fd4605]" /></div>
           <h2 className="text-[18px] font-bold text-[#111827]">Track not found</h2>
           <p className="text-[13px] text-[#9ca3af] mt-1">This track may have been deleted.</p>
-          <button onClick={() => router.push("/admin/music")} className="mt-5 h-9 px-5 rounded-xl bg-[#fe2c55] text-white text-[13px] font-semibold hover:bg-[#e0264b] transition-colors">
+          <button onClick={() => router.push("/admin/music")} className="mt-5 h-9 px-5 rounded-xl bg-[#fd4605] text-white text-[13px] font-semibold hover:bg-[#e03e04] transition-colors">
             Back to Music Library
           </button>
         </div>
@@ -528,7 +528,7 @@ export default function EditTrackPage() {
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
         <button onClick={() => router.push("/admin/music")}
-          className="h-9 w-9 rounded-xl border border-[#e8eaed] grid place-items-center text-[#6b7280] hover:border-[#fe2c55] hover:text-[#fe2c55] transition-colors">
+          className="h-9 w-9 rounded-xl border border-[#e8eaed] grid place-items-center text-[#6b7280] hover:border-[#fd4605] hover:text-[#fd4605] transition-colors">
           <ChevronLeft className="h-5 w-5" />
         </button>
         <div>
@@ -551,8 +551,8 @@ export default function EditTrackPage() {
                   <p className="text-[13px] font-bold text-[#111827] mb-3">Audio File</p>
                   <div className="bg-gradient-to-br from-[#f9fafb] to-[#f4f5f7] rounded-2xl p-4">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="h-10 w-10 rounded-full bg-[#fe2c55]/10 grid place-items-center shrink-0">
-                        <Music className="h-5 w-5 text-[#fe2c55]" />
+                      <div className="h-10 w-10 rounded-full bg-[#fd4605]/10 grid place-items-center shrink-0">
+                        <Music className="h-5 w-5 text-[#fd4605]" />
                       </div>
                       <div className="min-w-0">
                         <p className="text-[12px] font-semibold text-[#374151]">Existing audio</p>
@@ -566,8 +566,8 @@ export default function EditTrackPage() {
                         <button type="button" onClick={togglePreview}
                           className={cn("inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full border transition-colors",
                             previewPlaying
-                              ? "bg-[#fe2c55] border-[#fe2c55] text-white"
-                              : "bg-white border-[#e8eaed] text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55]")}>
+                              ? "bg-[#fd4605] border-[#fd4605] text-white"
+                              : "bg-white border-[#e8eaed] text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605]")}>
                           {previewPlaying ? <><Pause className="h-2.5 w-2.5 fill-current" /> Pause</> : <><Play className="h-2.5 w-2.5 fill-current ml-px" /> Play</>}
                         </button>
                         <a href={existingAudioUrl} target="_blank" rel="noreferrer"
@@ -588,11 +588,11 @@ export default function EditTrackPage() {
                   </p>
                   <div
                     onClick={() => coverInputRef.current?.click()}
-                    className="flex items-center gap-4 rounded-2xl border-2 border-dashed border-[#e8eaed] p-4 cursor-pointer hover:border-[#fe2c55] hover:bg-[#fff8f9] transition-all">
-                    <div className="h-20 w-20 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#ffd4dc] to-[#ffecef] grid place-items-center">
+                    className="flex items-center gap-4 rounded-2xl border-2 border-dashed border-[#e8eaed] p-4 cursor-pointer hover:border-[#fd4605] hover:bg-[#fff8f9] transition-all">
+                    <div className="h-20 w-20 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#ffdccc] to-[#fff0e8] grid place-items-center">
                       {coverDisplay
                         ? <img src={coverDisplay} alt="" className="h-full w-full object-cover" />
-                        : <ImageIcon className="h-6 w-6 text-[#fe2c55]" />}
+                        : <ImageIcon className="h-6 w-6 text-[#fd4605]" />}
                     </div>
                     <div>
                       <p className="text-[13px] font-semibold text-[#374151]">{coverFile ? "New cover selected" : existingCoverUrl ? "Current cover" : "No cover uploaded"}</p>
@@ -632,7 +632,7 @@ export default function EditTrackPage() {
                     <div>
                       <Label text="BPM" />
                       <input type="number" value={bpm} onChange={e => setBpm(e.target.value)} placeholder="e.g. 120" min={40} max={300}
-                        className="w-full h-10 px-3.5 rounded-xl border border-[#e8eaed] text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fe2c55] transition-colors hover:border-[#fe2c55]" />
+                        className="w-full h-10 px-3.5 rounded-xl border border-[#e8eaed] text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fd4605] transition-colors hover:border-[#fd4605]" />
                     </div>
                     <div><Dropdown label="Key" value={key} onChange={setKey} options={KEY_OPTIONS} placeholder="Select key" searchable /></div>
                     <div><Label text="ISRC / Track ID" /><TextInput value={isrc} onChange={setIsrc} placeholder="e.g. USRC17607839" /></div>
@@ -670,8 +670,8 @@ export default function EditTrackPage() {
                           <button key={k} type="button"
                             onClick={() => setUsagePerms(p => on ? p.filter(x=>x!==k) : [...p,k])}
                             className={cn("flex items-center gap-1.5 h-9 px-4 rounded-xl border text-[12px] font-semibold transition-all",
-                              on ? "border-[#fe2c55] bg-[#fff0f4] text-[#fe2c55] shadow-sm"
-                                 : "border-[#e8eaed] bg-white text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55]")}>
+                              on ? "border-[#fd4605] bg-[#fff3ec] text-[#fd4605] shadow-sm"
+                                 : "border-[#e8eaed] bg-white text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605]")}>
                             {on && <Check className="h-3 w-3 shrink-0" />}
                             {l}
                           </button>
@@ -689,13 +689,13 @@ export default function EditTrackPage() {
                     <Label text="Description" />
                     <textarea value={description} onChange={e => setDescription(e.target.value)} maxLength={1000} rows={6}
                       placeholder="Short description about the track..."
-                      className="w-full px-3.5 py-3 rounded-xl border border-[#e8eaed] text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fe2c55] resize-none transition-colors hover:border-[#fe2c55]" />
+                      className="w-full px-3.5 py-3 rounded-xl border border-[#e8eaed] text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fd4605] resize-none transition-colors hover:border-[#fd4605]" />
                     <p className="text-[11px] text-right mt-1 text-[#9ca3af]">{description.length} / 1000</p>
                   </div>
                   <div>
                     <Label text="Lyrics" />
                     <textarea value={lyrics} onChange={e => setLyrics(e.target.value)} rows={6} placeholder="Lyrics (optional)..."
-                      className="w-full px-3.5 py-3 rounded-xl border border-[#e8eaed] text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fe2c55] resize-none transition-colors hover:border-[#fe2c55]" />
+                      className="w-full px-3.5 py-3 rounded-xl border border-[#e8eaed] text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fd4605] resize-none transition-colors hover:border-[#fd4605]" />
                   </div>
                 </div>
               </Section>
@@ -725,8 +725,8 @@ export default function EditTrackPage() {
               <div className="bg-white rounded-2xl border border-[#e8eaed] p-5">
                 <p className="text-[14px] font-bold text-[#111827] mb-4">Track Preview</p>
                 <div className="flex gap-3">
-                  <div className="h-16 w-16 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#ffd4dc] to-[#ffecef] grid place-items-center">
-                    {coverDisplay ? <img src={coverDisplay} alt="" className="h-full w-full object-cover" /> : <Music className="h-6 w-6 text-[#fe2c55]" />}
+                  <div className="h-16 w-16 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#ffdccc] to-[#fff0e8] grid place-items-center">
+                    {coverDisplay ? <img src={coverDisplay} alt="" className="h-full w-full object-cover" /> : <Music className="h-6 w-6 text-[#fd4605]" />}
                   </div>
                   <div className="min-w-0 space-y-2">
                     {([["Title", title||"-"], ["Artist", artist||"-"], ["Genre", genre||"-"], ["Duration", existingDuration ? fmtTime(existingDuration) : "-"]] as [string,string][]).map(([l,v]) => (
@@ -747,8 +747,8 @@ export default function EditTrackPage() {
                 <div className="space-y-3">
                   {["Audio file cannot be replaced - delete and re-upload to change audio.", "Cover image can be replaced without re-uploading audio.", "Saving updates the track immediately in the library."].map((tip,i) => (
                     <div key={i} className="flex items-start gap-2.5">
-                      <div className="h-5 w-5 rounded-full bg-[#fff0f4] grid place-items-center shrink-0 mt-0.5">
-                        <span className="text-[9px] font-black text-[#fe2c55]">{i+1}</span>
+                      <div className="h-5 w-5 rounded-full bg-[#fff3ec] grid place-items-center shrink-0 mt-0.5">
+                        <span className="text-[9px] font-black text-[#fd4605]">{i+1}</span>
                       </div>
                       <p className="text-[12px] text-[#6b7280] leading-relaxed">{tip}</p>
                     </div>
@@ -771,7 +771,7 @@ export default function EditTrackPage() {
                 Save Changes
               </button>
               <button type="button" onClick={() => handleSave(true)} disabled={saving}
-                className="h-10 px-6 rounded-xl bg-[#fe2c55] text-white text-[13px] font-semibold hover:bg-[#e0264b] transition-colors disabled:opacity-50 active:scale-95 flex items-center gap-2 shadow-sm shadow-[#fe2c55]/30">
+                className="h-10 px-6 rounded-xl bg-[#fd4605] text-white text-[13px] font-semibold hover:bg-[#e03e04] transition-colors disabled:opacity-50 active:scale-95 flex items-center gap-2 shadow-sm shadow-[#fd4605]/30">
                 {saving && <Loader2 className="h-4 w-4 animate-spin" />}
                 Publish Track
               </button>

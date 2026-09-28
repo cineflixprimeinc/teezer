@@ -35,7 +35,7 @@ export default function GlobalError({
       <body style={{ margin: 0, fontFamily: "system-ui, -apple-system, sans-serif", background: "#f4f5f7" }}>
         <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "24px", textAlign: "center" }}>
           <div style={{ width: 64, height: 64, borderRadius: "9999px", background: "#fff0f3", display: "grid", placeItems: "center" }}>
-            <span style={{ color: "#fe2c55", fontSize: 30, fontWeight: 900 }}>!</span>
+            <span style={{ color: "#fd4605", fontSize: 30, fontWeight: 900 }}>!</span>
           </div>
           <h1 style={{ marginTop: 16, fontSize: 20, fontWeight: 800, color: "#111" }}>Something went wrong</h1>
           <p style={{ marginTop: 8, maxWidth: 360, fontSize: 14, color: "#5f6675" }}>
@@ -44,7 +44,7 @@ export default function GlobalError({
           <button
             type="button"
             onClick={() => window.location.reload()}
-            style={{ marginTop: 20, height: 44, padding: "0 24px", borderRadius: "9999px", background: "#fe2c55", color: "#fff", border: "none", fontSize: 14, fontWeight: 700, cursor: "pointer" }}
+            style={{ marginTop: 20, height: 44, padding: "0 24px", borderRadius: "9999px", background: "#fd4605", color: "#fff", border: "none", fontSize: 14, fontWeight: 700, cursor: "pointer" }}
           >
             Reload
           </button>

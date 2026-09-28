@@ -218,7 +218,7 @@ const GRADS = [
   "linear-gradient(135deg,#134e5e,#71b280)",
   "linear-gradient(135deg,#c94b4b,#4b134f)",
   "linear-gradient(135deg,#667eea,#764ba2)",
-  "linear-gradient(135deg,#fe2c55,#c02040)",
+  "linear-gradient(135deg,#fd4605,#b83203)",
   "linear-gradient(135deg,#2193b0,#6dd5ed)",
 ];
 function hashGrad(s: string) {
@@ -247,7 +247,7 @@ function Avatar({ src, name, size = 44, isOnline }: { src?: string | null; name:
 function Toggle({ on, onChange }: { on: boolean; onChange: (v: boolean) => void }) {
   return (
     <button type="button" onClick={() => onChange(!on)}
-      className={cn("relative h-6 w-11 rounded-full transition-colors flex-shrink-0", on ? "bg-[#fe2c55]" : "bg-[#d1d5db]")}>
+      className={cn("relative h-6 w-11 rounded-full transition-colors flex-shrink-0", on ? "bg-[#fd4605]" : "bg-[#d1d5db]")}>
       <span className={cn("absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-all", on ? "left-[22px]" : "left-0.5")} />
     </button>
   );
@@ -259,7 +259,7 @@ function Toggle({ on, onChange }: { on: boolean; onChange: (v: boolean) => void 
 function MsgStatus({ msg }: { msg: Msg }) {
   if (!msg.isMe) return null;
   if (msg.sending) return <Check className="h-3.5 w-3.5 text-[#9aa1ad]" />;
-  if (msg.read_at) return <CheckCheck className="h-3.5 w-3.5 text-[#fe2c55]" />;
+  if (msg.read_at) return <CheckCheck className="h-3.5 w-3.5 text-[#fd4605]" />;
   return <CheckCheck className="h-3.5 w-3.5 text-[#9aa1ad]" />;
 }
 
@@ -326,7 +326,7 @@ function AudioBubble({ msg, isMe }: { msg: Msg; isMe: boolean }) {
     else { audioRef.current?.play(); setPlaying(true); }
   };
   return (
-    <div className={cn("flex items-center gap-3 rounded-[18px] px-4 py-3", isMe ? "bg-[#fe2c55]" : "bg-[#f3f4f6]")}
+    <div className={cn("flex items-center gap-3 rounded-[18px] px-4 py-3", isMe ? "bg-[#fd4605]" : "bg-[#f3f4f6]")}
       style={{ minWidth: 200, maxWidth: 280 }}>
       <audio ref={audioRef} src={msg.r2_url}
         onTimeUpdate={() => {
@@ -336,15 +336,15 @@ function AudioBubble({ msg, isMe }: { msg: Msg; isMe: boolean }) {
         onEnded={() => { setPlaying(false); setProgress(0); }} />
       <button onClick={toggle}
         className={cn("flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full",
-          isMe ? "bg-white/20 hover:bg-white/30" : "bg-[#fe2c55]/10 hover:bg-[#fe2c55]/20")}>
+          isMe ? "bg-white/20 hover:bg-white/30" : "bg-[#fd4605]/10 hover:bg-[#fd4605]/20")}>
         {playing
-          ? <Square className={cn("h-3.5 w-3.5 fill-current", isMe ? "text-white" : "text-[#fe2c55]")} />
-          : <Play className={cn("h-3.5 w-3.5 fill-current", isMe ? "text-white" : "text-[#fe2c55]")} />
+          ? <Square className={cn("h-3.5 w-3.5 fill-current", isMe ? "text-white" : "text-[#fd4605]")} />
+          : <Play className={cn("h-3.5 w-3.5 fill-current", isMe ? "text-white" : "text-[#fd4605]")} />
         }
       </button>
       <div className="flex-1 min-w-0">
         <div className="relative h-1.5 rounded-full overflow-hidden bg-white/30">
-          <div className={cn("h-full rounded-full transition-all", isMe ? "bg-white" : "bg-[#fe2c55]")}
+          <div className={cn("h-full rounded-full transition-all", isMe ? "bg-white" : "bg-[#fd4605]")}
             style={{ width: `${progress}%` }} />
         </div>
         <span className={cn("mt-1 block text-[11px] font-mono", isMe ? "text-white/70" : "text-[#5f6675]")}>
@@ -365,11 +365,11 @@ function DocumentBubble({ msg, isMe }: { msg: Msg; isMe: boolean }) {
   return (
     <a href={msg.r2_url} download={name} target="_blank" rel="noreferrer"
       className={cn("flex items-center gap-3 rounded-[16px] px-4 py-3 transition hover:opacity-90",
-        isMe ? "bg-[#fe2c55]" : "bg-[#f3f4f6]")}
+        isMe ? "bg-[#fd4605]" : "bg-[#f3f4f6]")}
       style={{ maxWidth: 280 }}>
       <div className={cn("flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-[10px]",
-        isMe ? "bg-white/20" : "bg-[#fe2c55]/10")}>
-        <Icon className={cn("h-5 w-5", isMe ? "text-white" : "text-[#fe2c55]")} />
+        isMe ? "bg-white/20" : "bg-[#fd4605]/10")}>
+        <Icon className={cn("h-5 w-5", isMe ? "text-white" : "text-[#fd4605]")} />
       </div>
       <div className="min-w-0 flex-1">
         <p className={cn("truncate text-[13px] font-semibold", isMe ? "text-white" : "text-[#111827]")}>{name}</p>
@@ -419,7 +419,7 @@ function StoryReplyBubble({ msg }: { msg: Msg }) {
       {/* Reply text below card */}
       <div className={cn(
         "px-3 py-2.5 text-[13px] leading-relaxed",
-        msg.isMe ? "bg-[#fe2c55] text-white" : "bg-[#f3f4f6] text-[#111827]",
+        msg.isMe ? "bg-[#fd4605] text-white" : "bg-[#f3f4f6] text-[#111827]",
       )}>
         {msg.body || <span className="opacity-60 italic text-[12px]">Replied to story</span>}
       </div>
@@ -467,7 +467,7 @@ function StoryReactionBubble({ msg }: { msg: Msg }) {
       </div>
       <div className={cn(
         "px-3 py-2.5 text-[13px] leading-relaxed",
-        msg.isMe ? "bg-[#fe2c55] text-white" : "bg-[#f3f4f6] text-[#111827]",
+        msg.isMe ? "bg-[#fd4605] text-white" : "bg-[#f3f4f6] text-[#111827]",
       )}>
         {emoji} Reacted to your Story
       </div>
@@ -487,7 +487,7 @@ function MsgBubble({ msg, convAvatar, convName }: { msg: Msg; convAvatar?: strin
   return (
     <div className={cn("flex flex-col gap-1", msg.isMe ? "items-end" : "items-start")}>
       <div className={cn("rounded-[18px] px-4 py-2.5 text-[13.5px] leading-relaxed",
-        msg.isMe ? "rounded-br-[6px] bg-[#fe2c55] text-white" : "rounded-bl-[6px] bg-[#f3f4f6] text-[#111827]",
+        msg.isMe ? "rounded-br-[6px] bg-[#fd4605] text-white" : "rounded-bl-[6px] bg-[#f3f4f6] text-[#111827]",
         msg.sending && "opacity-60")}>
         {msg.body}
       </div>
@@ -521,21 +521,21 @@ function PrivacyModal({ current, onSave, onClose }: { current: Privacy; onSave: 
           {PRIVACY_OPTIONS.map((opt) => (
             <button key={opt.id} type="button" onClick={() => setSelected(opt.id)}
               className={cn("flex w-full items-center gap-3 rounded-[12px] border p-3 text-left transition",
-                selected === opt.id ? "border-[#fe2c55] bg-[#fff0f4]" : "border-[#eeeeee] hover:bg-[#f8f9fb]")}>
+                selected === opt.id ? "border-[#fd4605] bg-[#fff3ec]" : "border-[#eeeeee] hover:bg-[#f8f9fb]")}>
               <div className={cn("flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full",
-                selected === opt.id ? "bg-[#fe2c55] text-white" : "bg-[#f8f9fb] text-[#5f6675]")}>
+                selected === opt.id ? "bg-[#fd4605] text-white" : "bg-[#f8f9fb] text-[#5f6675]")}>
                 <opt.icon className="h-4.5 w-4.5" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className={cn("text-[13px] font-bold", selected === opt.id ? "text-[#fe2c55]" : "text-[#111827]")}>{opt.label}</p>
+                <p className={cn("text-[13px] font-bold", selected === opt.id ? "text-[#fd4605]" : "text-[#111827]")}>{opt.label}</p>
                 <p className="text-[11px] text-[#5f6675] leading-snug mt-0.5">{opt.sub}</p>
               </div>
-              {selected === opt.id && <Check className="h-4 w-4 flex-shrink-0 text-[#fe2c55]" />}
+              {selected === opt.id && <Check className="h-4 w-4 flex-shrink-0 text-[#fd4605]" />}
             </button>
           ))}
         </div>
         <button onClick={() => { onSave(selected); onClose(); }}
-          className="mt-4 w-full rounded-full bg-[#fe2c55] py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e02449]">
+          className="mt-4 w-full rounded-full bg-[#fd4605] py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e03e04]">
           Save
         </button>
       </div>
@@ -1166,13 +1166,13 @@ export function MessagesPage() {
     return (
       <AppShell>
         <div className="flex h-[calc(100vh-var(--topbar-h))] flex-col items-center justify-center gap-4 text-center px-6">
-          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#fff0f4]">
-            <Lock className="h-10 w-10 text-[#fe2c55]" />
+          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#fff3ec]">
+            <Lock className="h-10 w-10 text-[#fd4605]" />
           </div>
           <h2 className="text-[22px] font-black text-[#111827]">Sign in to access Messages</h2>
           <p className="max-w-[300px] text-[14px] text-[#5f6675]">Log in to message creators and connect with people you follow.</p>
           <button onClick={() => openAuthModal("login")}
-            className="mt-2 rounded-full bg-[#fe2c55] px-8 py-3 text-[14px] font-bold text-white shadow-lg transition hover:bg-[#e02449]">
+            className="mt-2 rounded-full bg-[#fd4605] px-8 py-3 text-[14px] font-bold text-white shadow-lg transition hover:bg-[#e03e04]">
             Log in to Teezer
           </button>
         </div>
@@ -1200,7 +1200,7 @@ export function MessagesPage() {
             <div className="flex items-center gap-1">
               <button onClick={() => setShowPrivacy(true)}
                 title="Message privacy settings"
-                className="grid h-8 w-8 place-items-center rounded-full text-[#5f6675] transition hover:bg-[#f8f9fb] hover:text-[#fe2c55]">
+                className="grid h-8 w-8 place-items-center rounded-full text-[#5f6675] transition hover:bg-[#f8f9fb] hover:text-[#fd4605]">
                 <Settings className="h-4 w-4" />
               </button>
               <button onClick={() => setShowNewChat(true)}
@@ -1214,8 +1214,8 @@ export function MessagesPage() {
           {/* Privacy badge */}
           <div className="px-4 pb-2">
             <button onClick={() => setShowPrivacy(true)}
-              className="flex w-full items-center gap-1.5 rounded-full bg-[#f8f9fb] px-3 py-1.5 text-left transition hover:bg-[#fff0f4]">
-              <Lock className="h-3 w-3 flex-shrink-0 text-[#fe2c55]" />
+              className="flex w-full items-center gap-1.5 rounded-full bg-[#f8f9fb] px-3 py-1.5 text-left transition hover:bg-[#fff3ec]">
+              <Lock className="h-3 w-3 flex-shrink-0 text-[#fd4605]" />
               <span className="text-[11px] text-[#5f6675]">
                 Who can message you: <strong className="text-[#111827]">
                   {privacy === "everyone" ? "Everyone" : privacy === "friends" ? "Friends only" : privacy === "followers" ? "Followers only" : "No one"}
@@ -1230,7 +1230,7 @@ export function MessagesPage() {
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#9aa1ad]" />
               <input value={listSearch} onChange={e => setListSearch(e.target.value)}
                 placeholder="Search conversations"
-                className="w-full rounded-full border border-[#eeeeee] bg-[#f8f9fb] py-2 pl-9 pr-4 text-[13px] outline-none transition focus:border-[#fe2c55] focus:bg-white" />
+                className="w-full rounded-full border border-[#eeeeee] bg-[#f8f9fb] py-2 pl-9 pr-4 text-[13px] outline-none transition focus:border-[#fd4605] focus:bg-white" />
             </div>
           </div>
 
@@ -1243,10 +1243,10 @@ export function MessagesPage() {
             ] as const).map(tab => (
               <button key={tab.id} type="button" onClick={() => setActiveTab(tab.id)}
                 className={cn("flex items-center gap-1.5 border-b-2 px-3 py-2.5 text-[13px] font-semibold transition",
-                  activeTab === tab.id ? "border-[#fe2c55] text-[#fe2c55]" : "border-transparent text-[#5f6675] hover:text-[#111827]")}>
+                  activeTab === tab.id ? "border-[#fd4605] text-[#fd4605]" : "border-transparent text-[#5f6675] hover:text-[#111827]")}>
                 {tab.label}
                 {tab.badge > 0 && (
-                  <span className="grid h-5 min-w-5 place-items-center rounded-full bg-[#fe2c55] px-1 text-[10px] font-bold text-white">{tab.badge}</span>
+                  <span className="grid h-5 min-w-5 place-items-center rounded-full bg-[#fd4605] px-1 text-[10px] font-bold text-white">{tab.badge}</span>
                 )}
               </button>
             ))}
@@ -1271,7 +1271,7 @@ export function MessagesPage() {
                       {incomingReqs.map(req => (
                         <div key={req.conversation_id}
                           className={cn("flex flex-col gap-2 border-b border-[#f3f4f6] px-4 py-3.5 cursor-pointer transition",
-                            activeRequest?.conversation_id === req.conversation_id ? "bg-[#fff0f4]" : "hover:bg-[#f8f9fb]")}
+                            activeRequest?.conversation_id === req.conversation_id ? "bg-[#fff3ec]" : "hover:bg-[#f8f9fb]")}
                           onClick={() => setActiveRequest(req)}
                         >
                           <div className="flex items-center gap-3">
@@ -1279,7 +1279,7 @@ export function MessagesPage() {
                             <div className="min-w-0 flex-1">
                               <div className="flex items-center gap-1">
                                 <span className={cn("truncate text-[13.5px] font-semibold",
-                                  activeRequest?.conversation_id === req.conversation_id ? "text-[#fe2c55]" : "text-[#111827]")}>{req.name}</span>
+                                  activeRequest?.conversation_id === req.conversation_id ? "text-[#fd4605]" : "text-[#111827]")}>{req.name}</span>
                                 {!!req.is_verified && <VerifiedBadge size={14} />}
                               </div>
                               <p className="text-[11px] text-[#5f6675]">@{req.username}</p>
@@ -1304,7 +1304,7 @@ export function MessagesPage() {
                                   toast.success("Request accepted - conversation moved to inbox.");
                                 } catch { toast.error("Failed to accept request"); }
                               }}
-                              className="rounded-full bg-[#fe2c55] px-4 py-1.5 text-[12px] font-bold text-white transition hover:bg-[#e02449]">
+                              className="rounded-full bg-[#fd4605] px-4 py-1.5 text-[12px] font-bold text-white transition hover:bg-[#e03e04]">
                               Accept
                             </button>
                             <button type="button"
@@ -1317,7 +1317,7 @@ export function MessagesPage() {
                                   toast.success("Request deleted");
                                 } catch { toast.error("Failed to delete request"); }
                               }}
-                              className="rounded-full border border-[#eeeeee] bg-white px-4 py-1.5 text-[12px] font-semibold text-[#5f6675] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+                              className="rounded-full border border-[#eeeeee] bg-white px-4 py-1.5 text-[12px] font-semibold text-[#5f6675] transition hover:border-[#fd4605] hover:text-[#fd4605]">
                               Delete
                             </button>
                             <button type="button"
@@ -1353,7 +1353,7 @@ export function MessagesPage() {
                       {sentReqs.map(req => (
                         <div key={req.conversation_id}
                           className={cn("flex flex-col gap-1.5 border-b border-[#f3f4f6] px-4 py-3.5 cursor-pointer transition",
-                            activeRequest?.conversation_id === req.conversation_id ? "bg-[#fff0f4]" : "hover:bg-[#f8f9fb]")}
+                            activeRequest?.conversation_id === req.conversation_id ? "bg-[#fff3ec]" : "hover:bg-[#f8f9fb]")}
                           onClick={() => setActiveRequest(req)}
                         >
                           <div className="flex items-center gap-3">
@@ -1361,7 +1361,7 @@ export function MessagesPage() {
                             <div className="min-w-0 flex-1">
                               <div className="flex items-center gap-1">
                                 <span className={cn("truncate text-[13.5px] font-semibold",
-                                  activeRequest?.conversation_id === req.conversation_id ? "text-[#fe2c55]" : "text-[#111827]")}>{req.name}</span>
+                                  activeRequest?.conversation_id === req.conversation_id ? "text-[#fd4605]" : "text-[#111827]")}>{req.name}</span>
                                 {!!req.is_verified && <VerifiedBadge size={14} />}
                               </div>
                               <p className="text-[11px] text-[#5f6675]">@{req.username}</p>
@@ -1396,7 +1396,7 @@ export function MessagesPage() {
                 </>
               )
             ) : loading ? (
-              <div className="flex justify-center py-12"><Loader2 className="h-6 w-6 animate-spin text-[#fe2c55]" /></div>
+              <div className="flex justify-center py-12"><Loader2 className="h-6 w-6 animate-spin text-[#fd4605]" /></div>
             ) : filteredConvos.length === 0 ? (
               <div className="flex flex-col items-center py-10 text-center px-4">
                 <Search className="h-8 w-8 text-[#d1d5db] mb-2" />
@@ -1411,7 +1411,7 @@ export function MessagesPage() {
               <button key={conv.convId} type="button"
                 onClick={() => setActiveId(conv.convId)}
                 className={cn("flex w-full items-center gap-3 px-4 py-3.5 text-left transition hover:bg-[#f8f9fb]",
-                  activeId === conv.convId && "bg-[#fff0f4] hover:bg-[#fff0f4]")}>
+                  activeId === conv.convId && "bg-[#fff3ec] hover:bg-[#fff3ec]")}>
                 <StoryRingAvatar userId={conv.userId} username={conv.username} displayName={conv.name} avatar={conv.avatar} size={48} isOnline={conv.isOnline} noProfileLink />
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between">
@@ -1420,7 +1420,7 @@ export function MessagesPage() {
                         {conv.name}
                       </span>
                       {conv.isVerified && <VerifiedBadge size={14} />}
-                      {conv.pinned && <Pin className="h-3 w-3 flex-shrink-0 text-[#fe2c55]" />}
+                      {conv.pinned && <Pin className="h-3 w-3 flex-shrink-0 text-[#fd4605]" />}
                     </div>
                     <span className="ml-2 flex-shrink-0 text-[11px] text-[#9aa1ad]">{tsLabel(conv.lastTs)}</span>
                   </div>
@@ -1429,7 +1429,7 @@ export function MessagesPage() {
                       {conv.lastMsg || <span className="italic text-[#9aa1ad]">No messages yet</span>}
                     </p>
                     {conv.unread > 0 && (
-                      <span className="ml-2 flex-shrink-0 grid h-5 min-w-5 place-items-center rounded-full bg-[#fe2c55] px-1 text-[10px] font-bold text-white">
+                      <span className="ml-2 flex-shrink-0 grid h-5 min-w-5 place-items-center rounded-full bg-[#fd4605] px-1 text-[10px] font-bold text-white">
                         {conv.unread}
                       </span>
                     )}
@@ -1473,7 +1473,7 @@ export function MessagesPage() {
                           toast.success("Request accepted - conversation moved to inbox.");
                         } catch { toast.error("Failed to accept request"); }
                       }}
-                      className="rounded-full bg-[#fe2c55] px-4 py-1.5 text-[12px] font-bold text-white transition hover:bg-[#e02449]">
+                      className="rounded-full bg-[#fd4605] px-4 py-1.5 text-[12px] font-bold text-white transition hover:bg-[#e03e04]">
                       Accept
                     </button>
                     <button type="button"
@@ -1486,7 +1486,7 @@ export function MessagesPage() {
                           toast.success("Request deleted");
                         } catch { toast.error("Failed to delete request"); }
                       }}
-                      className="rounded-full border border-[#eeeeee] bg-white px-4 py-1.5 text-[12px] font-semibold text-[#5f6675] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+                      className="rounded-full border border-[#eeeeee] bg-white px-4 py-1.5 text-[12px] font-semibold text-[#5f6675] transition hover:border-[#fd4605] hover:text-[#fd4605]">
                       Delete
                     </button>
                     <button type="button"
@@ -1551,7 +1551,7 @@ export function MessagesPage() {
               <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4"
                 style={{ scrollbarWidth: "thin", scrollbarColor: "#e5e7eb transparent" }}>
                 {requestPreviewLoading ? (
-                  <div className="flex justify-center py-12"><Loader2 className="h-6 w-6 animate-spin text-[#fe2c55]" /></div>
+                  <div className="flex justify-center py-12"><Loader2 className="h-6 w-6 animate-spin text-[#fd4605]" /></div>
                 ) : requestPreviewMsgs.length === 0 ? (
                   <div className="flex flex-col items-center py-12 text-center">
                     <Avatar src={activeRequest.avatar} name={activeRequest.name} size={56} />
@@ -1588,7 +1588,7 @@ export function MessagesPage() {
                         setActiveTab("all");
                         toast.success("Request accepted.");
                       } catch { toast.error("Failed to accept"); }
-                    }} className="ml-1 font-bold text-[#fe2c55] hover:underline">Accept now</button>
+                    }} className="ml-1 font-bold text-[#fd4605] hover:underline">Accept now</button>
                   </p>
                 </div>
               ) : (
@@ -1603,10 +1603,10 @@ export function MessagesPage() {
           ) : !activeId ? (
             /* ── No selection empty state ── */
             <div className="flex flex-1 flex-col items-center justify-center gap-3 text-center px-6">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#fff0f4]">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#fff3ec]">
                 {activeTab === "requests"
-                  ? <MessageCircleOff className="h-8 w-8 text-[#fe2c55]" />
-                  : convos.length === 0 ? <Edit3 className="h-8 w-8 text-[#fe2c55]" /> : <MessageCircleOff className="h-8 w-8 text-[#fe2c55]" />
+                  ? <MessageCircleOff className="h-8 w-8 text-[#fd4605]" />
+                  : convos.length === 0 ? <Edit3 className="h-8 w-8 text-[#fd4605]" /> : <MessageCircleOff className="h-8 w-8 text-[#fd4605]" />
                 }
               </div>
               <p className="text-[15px] font-bold text-[#111827]">
@@ -1625,7 +1625,7 @@ export function MessagesPage() {
               </p>
               {activeTab !== "requests" && convos.length === 0 && (
                 <button onClick={() => setShowNewChat(true)}
-                  className="mt-1 rounded-full bg-[#fe2c55] px-5 py-2 text-[13px] font-bold text-white transition hover:bg-[#e02449]">
+                  className="mt-1 rounded-full bg-[#fd4605] px-5 py-2 text-[13px] font-bold text-white transition hover:bg-[#e03e04]">
                   New Message
                 </button>
               )}
@@ -1657,7 +1657,7 @@ export function MessagesPage() {
                     className="grid h-9 w-9 place-items-center rounded-full text-[#5f6675] transition hover:bg-[#f8f9fb] hover:text-[#111827]"><Video className="h-4 w-4" /></button>
                   <button onClick={() => setShowDetails(v => !v)}
                     className={cn("grid h-9 w-9 place-items-center rounded-full transition",
-                      showDetails ? "bg-[#fff0f4] text-[#fe2c55]" : "text-[#5f6675] hover:bg-[#f8f9fb] hover:text-[#111827]")}>
+                      showDetails ? "bg-[#fff3ec] text-[#fd4605]" : "text-[#5f6675] hover:bg-[#f8f9fb] hover:text-[#111827]")}>
                     <Info className="h-4 w-4" />
                   </button>
                   <button
@@ -1672,10 +1672,10 @@ export function MessagesPage() {
 
               {/* Pinned message banner */}
               {pinnedMsg && !pinnedMsg.is_deleted_for_everyone && (
-                <div className="flex items-center gap-2 border-b border-[#eeeeee] bg-[#fff0f4] px-4 py-2">
-                  <Pin className="h-3.5 w-3.5 flex-shrink-0 text-[#fe2c55]" />
+                <div className="flex items-center gap-2 border-b border-[#eeeeee] bg-[#fff3ec] px-4 py-2">
+                  <Pin className="h-3.5 w-3.5 flex-shrink-0 text-[#fd4605]" />
                   <div className="flex-1 min-w-0">
-                    <p className="text-[10px] font-bold text-[#fe2c55] leading-none mb-0.5">Pinned message</p>
+                    <p className="text-[10px] font-bold text-[#fd4605] leading-none mb-0.5">Pinned message</p>
                     <p className="truncate text-[12px] text-[#374151]">{pinnedMsg.body}</p>
                   </div>
                   <button type="button" onClick={() => setPinnedMsg(null)}
@@ -1736,10 +1736,10 @@ export function MessagesPage() {
                         if (!orig) return null;
                         return (
                           <div className={cn(
-                            "mb-0.5 max-w-full rounded-[10px] border-l-[3px] border-[#fe2c55] px-2.5 py-1.5 text-[11px]",
+                            "mb-0.5 max-w-full rounded-[10px] border-l-[3px] border-[#fd4605] px-2.5 py-1.5 text-[11px]",
                             msg.isMe ? "bg-[#c0213e]/20 text-white/70" : "bg-[#f0f0f0] text-[#5f6675]",
                           )}>
-                            <span className="block font-bold text-[#fe2c55] text-[10px]">
+                            <span className="block font-bold text-[#fd4605] text-[10px]">
                               {orig.isMe ? "You" : activeConvo?.name}
                             </span>
                             <span className="line-clamp-1">
@@ -1764,7 +1764,7 @@ export function MessagesPage() {
                               if (e.key === "Enter") { e.preventDefault(); void confirmEdit(); }
                               if (e.key === "Escape") { setEditingMsg(null); setEditInput(""); }
                             }}
-                            className="rounded-[12px] border border-[#fe2c55] bg-white px-3 py-2 text-[13px] text-[#111827] outline-none"
+                            className="rounded-[12px] border border-[#fd4605] bg-white px-3 py-2 text-[13px] text-[#111827] outline-none"
                           />
                           <div className="flex gap-2 justify-end">
                             <button type="button" onClick={() => { setEditingMsg(null); setEditInput(""); }}
@@ -1772,7 +1772,7 @@ export function MessagesPage() {
                               Cancel
                             </button>
                             <button type="button" onClick={() => void confirmEdit()}
-                              className="rounded-full bg-[#fe2c55] px-3 py-1 text-[11px] font-bold text-white hover:bg-[#e02449]">
+                              className="rounded-full bg-[#fd4605] px-3 py-1 text-[11px] font-bold text-white hover:bg-[#e03e04]">
                               Save
                             </button>
                           </div>
@@ -1789,7 +1789,7 @@ export function MessagesPage() {
                           <span className="text-[10px] text-[#9aa1ad]">(edited)</span>
                         )}
                         {msg.is_pinned && !msg.is_deleted_for_everyone && (
-                          <Pin className="h-2.5 w-2.5 text-[#fe2c55]" />
+                          <Pin className="h-2.5 w-2.5 text-[#fd4605]" />
                         )}
                       </div>
                     </div>
@@ -1804,7 +1804,7 @@ export function MessagesPage() {
                 <div className="border-t border-[#eeeeee] bg-[#f8f9fb] px-5 py-3 text-center">
                   <p className="text-[12px] text-[#9aa1ad]">
                     You've set your messages to <strong>No one</strong>.{" "}
-                    <button onClick={() => setShowPrivacy(true)} className="text-[#fe2c55] hover:underline">Change settings</button>
+                    <button onClick={() => setShowPrivacy(true)} className="text-[#fd4605] hover:underline">Change settings</button>
                   </p>
                 </div>
               )}
@@ -1812,9 +1812,9 @@ export function MessagesPage() {
               {/* Reply preview strip */}
               {replyingTo && (
                 <div className="flex items-center gap-2 border-t border-[#eeeeee] bg-[#f8f9fb] px-4 py-2">
-                  <CornerUpLeft className="h-4 w-4 flex-shrink-0 text-[#fe2c55]" />
+                  <CornerUpLeft className="h-4 w-4 flex-shrink-0 text-[#fd4605]" />
                   <div className="flex-1 min-w-0">
-                    <p className="text-[11px] font-bold text-[#fe2c55] leading-none mb-0.5">
+                    <p className="text-[11px] font-bold text-[#fd4605] leading-none mb-0.5">
                       Replying to {replyingTo.isMe ? "yourself" : activeConvo?.name}
                     </p>
                     <p className="truncate text-[12px] text-[#374151]">
@@ -1837,7 +1837,7 @@ export function MessagesPage() {
                     onChange={e => { const f = e.target.files?.[0]; if (f) sendFile(f); e.target.value = ""; }} />
 
                   <div className="flex items-center gap-2">
-                    <button className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full text-[#5f6675] transition hover:bg-[#f8f9fb] hover:text-[#fe2c55]">
+                    <button className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full text-[#5f6675] transition hover:bg-[#f8f9fb] hover:text-[#fd4605]">
                       <Smile className="h-5 w-5" />
                     </button>
                     <input
@@ -1847,23 +1847,23 @@ export function MessagesPage() {
                       onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); } }}
                       placeholder={recording ? "🔴 Recording… tap mic to send" : `Message @${activeConvo.username}...`}
                       disabled={recording}
-                      className="flex-1 min-w-0 rounded-full border border-[#eeeeee] bg-[#f8f9fb] py-2 pl-4 pr-4 text-[13.5px] outline-none transition focus:border-[#fe2c55] focus:bg-white disabled:opacity-60"
+                      className="flex-1 min-w-0 rounded-full border border-[#eeeeee] bg-[#f8f9fb] py-2 pl-4 pr-4 text-[13.5px] outline-none transition focus:border-[#fd4605] focus:bg-white disabled:opacity-60"
                     />
                     {/* Attachment button */}
                     <button onClick={() => fileInputRef.current?.click()} disabled={uploading || recording}
                       title="Send photo, video, audio or document"
-                      className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full text-[#5f6675] transition hover:bg-[#f8f9fb] hover:text-[#fe2c55] disabled:opacity-40">
-                      {uploading ? <Loader2 className="h-5 w-5 animate-spin text-[#fe2c55]" /> : <PaperclipIcon className="h-5 w-5" />}
+                      className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full text-[#5f6675] transition hover:bg-[#f8f9fb] hover:text-[#fd4605] disabled:opacity-40">
+                      {uploading ? <Loader2 className="h-5 w-5 animate-spin text-[#fd4605]" /> : <PaperclipIcon className="h-5 w-5" />}
                     </button>
                     {/* Voice recording button */}
                     <button onClick={toggleRecording} disabled={uploading}
                       title={recording ? "Stop and send" : "Record voice message"}
                       className={cn("grid h-9 w-9 flex-shrink-0 place-items-center rounded-full transition disabled:opacity-40",
-                        recording ? "bg-[#fe2c55] text-white animate-pulse" : "text-[#5f6675] hover:bg-[#f8f9fb] hover:text-[#fe2c55]")}>
+                        recording ? "bg-[#fd4605] text-white animate-pulse" : "text-[#5f6675] hover:bg-[#f8f9fb] hover:text-[#fd4605]")}>
                       <Mic className="h-5 w-5" />
                     </button>
                     <button onClick={sendMessage} disabled={!msgInput.trim() || sending || recording}
-                      className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-[#fe2c55] text-white shadow transition hover:bg-[#e02449] active:scale-95 disabled:opacity-40">
+                      className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-[#fd4605] text-white shadow transition hover:bg-[#e03e04] active:scale-95 disabled:opacity-40">
                       {sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                     </button>
                   </div>
@@ -1904,7 +1904,7 @@ export function MessagesPage() {
                 { Icon: MoreHorizontal, label: "More"        },
               ].map(({ Icon, label, onClick }) => (
                 <div key={label} className="flex flex-col items-center gap-1.5">
-                  <button onClick={onClick} className="grid h-12 w-12 place-items-center rounded-full bg-[#f8f9fb] text-[#5f6675] transition hover:bg-[#fff0f4] hover:text-[#fe2c55]">
+                  <button onClick={onClick} className="grid h-12 w-12 place-items-center rounded-full bg-[#f8f9fb] text-[#5f6675] transition hover:bg-[#fff3ec] hover:text-[#fd4605]">
                     <Icon className="h-5 w-5" />
                   </button>
                   <span className="text-[10px] text-[#5f6675] text-center leading-tight">{label}</span>
@@ -1927,7 +1927,7 @@ export function MessagesPage() {
             <div className="border-b border-[#eeeeee] px-5 py-4">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-[13px] font-extrabold text-[#111827]">Shared media</h3>
-                <button className="text-[12px] font-semibold text-[#fe2c55] hover:underline">View all</button>
+                <button className="text-[12px] font-semibold text-[#fd4605] hover:underline">View all</button>
               </div>
               <div className="flex flex-col items-center py-4 text-center">
                 <Image className="h-7 w-7 text-[#d1d5db] mb-1.5" />
@@ -1965,7 +1965,7 @@ export function MessagesPage() {
 
             {/* Block user */}
             <div className="px-5 py-4">
-              <button className="flex items-center gap-2.5 text-[13px] font-semibold text-[#fe2c55] transition hover:opacity-80">
+              <button className="flex items-center gap-2.5 text-[13px] font-semibold text-[#fd4605] transition hover:opacity-80">
                 <ShieldOff className="h-4 w-4" />
                 Block user
               </button>
@@ -1989,7 +1989,7 @@ export function MessagesPage() {
                 <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#9aa1ad]" />
                 <input autoFocus value={newChatSearch} onChange={e => setNewChatSearch(e.target.value)}
                   placeholder="Search people you follow..."
-                  className="w-full rounded-full border border-[#eeeeee] bg-[#f8f9fb] py-2 pl-9 pr-4 text-[13px] outline-none focus:border-[#fe2c55]" />
+                  className="w-full rounded-full border border-[#eeeeee] bg-[#f8f9fb] py-2 pl-9 pr-4 text-[13px] outline-none focus:border-[#fd4605]" />
               </div>
             </div>
             <div className="max-h-[320px] overflow-y-auto" style={{ scrollbarWidth: "thin", scrollbarColor: "#e5e7eb transparent" }}>
@@ -2073,7 +2073,7 @@ export function MessagesPage() {
             <div className="flex flex-col gap-2">
               {deleteTarget.isMe && (
                 <button type="button" onClick={() => void confirmDelete("everyone")}
-                  className="w-full rounded-[12px] bg-[#fe2c55] py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e02449]">
+                  className="w-full rounded-[12px] bg-[#fd4605] py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e03e04]">
                   Delete for everyone
                 </button>
               )}
@@ -2102,7 +2102,7 @@ export function MessagesPage() {
                 <X className="h-4 w-4" />
               </button>
             </div>
-            <div className="mx-5 my-3 rounded-[10px] border-l-[3px] border-[#fe2c55] bg-[#f8f9fb] px-3 py-2 text-[12px] text-[#374151]">
+            <div className="mx-5 my-3 rounded-[10px] border-l-[3px] border-[#fd4605] bg-[#f8f9fb] px-3 py-2 text-[12px] text-[#374151]">
               <p className="line-clamp-2">{forwardTarget.is_deleted_for_everyone ? "This message was deleted" : forwardTarget.body}</p>
             </div>
             <div className="px-5 pb-3">
@@ -2110,7 +2110,7 @@ export function MessagesPage() {
                 <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#9aa1ad]" />
                 <input autoFocus value={forwardSearch} onChange={e => setForwardSearch(e.target.value)}
                   placeholder="Search conversations..."
-                  className="w-full rounded-full border border-[#eeeeee] bg-[#f8f9fb] py-2 pl-9 pr-4 text-[13px] outline-none focus:border-[#fe2c55]" />
+                  className="w-full rounded-full border border-[#eeeeee] bg-[#f8f9fb] py-2 pl-9 pr-4 text-[13px] outline-none focus:border-[#fd4605]" />
               </div>
             </div>
             <div className="max-h-[260px] overflow-y-auto" style={{ scrollbarWidth: "thin", scrollbarColor: "#e5e7eb transparent" }}>

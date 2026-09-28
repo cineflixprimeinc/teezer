@@ -99,7 +99,7 @@ export default function YourRightsPolicyPage() {
       <P>
         For most rights, the in-app tools above are the fastest route. For legal requests that the in-app tools
         don&apos;t cover, contact us at{" "}
-        <a href={`mailto:${CONTACT_EMAIL}?subject=Privacy%20Rights%20Request`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>{" "}
+        <a href={`mailto:${CONTACT_EMAIL}?subject=Privacy%20Rights%20Request`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>{" "}
         with the subject line &quot;Privacy Rights Request&quot;. We may need to verify your identity before acting on
         a request to protect your account.
       </P>

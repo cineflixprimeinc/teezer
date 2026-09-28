@@ -35,7 +35,7 @@ export const SITE_FALLBACK: SiteSettings = {
   site_description:
     "Create, watch, and share short videos on Teezer. Discover trending creators, upload reels, add music, share stories, and connect with a growing video community.",
   seo_keywords: "",
-  og_image_url: "/reelsoo-logo.png",
+  og_image_url: "/teezer-logo.png",
   canonical_base_url: "https://teezer.live",
   twitter_handle: "",
   allow_indexing: true,

@@ -24,7 +24,7 @@ import { friendService } from "@/services/friend.service";
 import { useAuthStore } from "@/store/auth.store";
 import { toast } from "sonner";
 
-const BRAND = "#fe2c55";
+const BRAND = "#fd4605";
 
 /* ── Tab definitions with icons ─────────────────────────────────────────── */
 const TABS = [
@@ -145,7 +145,7 @@ function GridCard({
             {fmtDuration(item.duration_secs)}
           </span>
         )}
-        <span className="absolute bottom-2 right-2 rounded-md bg-black/50 px-1.5 py-0.5 text-[8px] font-bold text-[#fe2c55]">
+        <span className="absolute bottom-2 right-2 rounded-md bg-black/50 px-1.5 py-0.5 text-[8px] font-bold text-[#fd4605]">
           {fmtRelative(item.watched_at)}
         </span>
         <div className="absolute right-1.5 top-1.5 flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -162,7 +162,7 @@ function GridCard({
                   { label: "Watch Again",      Icon: RotateCcw,    iconBg: "bg-[#eff6ff]",  iconColor: "text-[#3b82f6]" },
                   { label: "Save to Playlist", Icon: BookmarkPlus, iconBg: "bg-[#f0fdf4]",  iconColor: "text-[#16a34a]" },
                   { label: "Share",            Icon: Share2,       iconBg: "bg-[#f5f3ff]",  iconColor: "text-[#7c3aed]" },
-                  { label: "Not Interested",   Icon: EyeOff,       iconBg: "bg-[#fff0f4]",  iconColor: "text-[#fe2c55]" },
+                  { label: "Not Interested",   Icon: EyeOff,       iconBg: "bg-[#fff3ec]",  iconColor: "text-[#fd4605]" },
                 ].map(({ label, Icon, iconBg, iconColor }) => (
                   <button
                     key={label}
@@ -219,7 +219,7 @@ function SmallThumb({
           // eslint-disable-next-line @next/next/no-img-element
           <img src={thumbnailUrl} alt={title} className="h-full w-full object-cover" />
         ) : (
-          <div className="h-full w-full bg-gradient-to-br from-[#fe2c55] to-[#c02040]" />
+          <div className="h-full w-full bg-gradient-to-br from-[#fd4605] to-[#b83203]" />
         )}
         <div className="absolute inset-0 flex items-center justify-center bg-black/20">
           <Play className="h-4 w-4 fill-white text-white" />
@@ -387,14 +387,14 @@ export default function WatchHistoryPage() {
                   onClick={() => setActiveTab(id)}
                   className={cn(
                     "flex items-center gap-1.5 rounded-[10px] px-3 py-1.5 text-[12px] font-semibold transition-all",
-                    active ? "bg-white text-[#fe2c55] shadow-sm" : "text-[#6b7280] hover:text-[#374151]",
+                    active ? "bg-white text-[#fd4605] shadow-sm" : "text-[#6b7280] hover:text-[#374151]",
                   )}
                 >
-                  <Icon className={cn("h-3.5 w-3.5", active && "text-[#fe2c55]")} />
+                  <Icon className={cn("h-3.5 w-3.5", active && "text-[#fd4605]")} />
                   {label}
                   <span className={cn(
                     "ml-0.5 rounded-full px-1.5 py-0 text-[10px] font-bold leading-5",
-                    active ? "bg-[#fce7ec] text-[#fe2c55]" : "bg-[#f0f1f5] text-[#9ca3af]",
+                    active ? "bg-[#fce7ec] text-[#fd4605]" : "bg-[#f0f1f5] text-[#9ca3af]",
                   )}>
                     {count}
                   </span>
@@ -408,8 +408,8 @@ export default function WatchHistoryPage() {
             onClick={handleRefresh}
             title="Refresh history"
             className={cn(
-              "grid h-9 w-9 flex-shrink-0 place-items-center rounded-[10px] border border-[#f0f1f5] bg-white text-[#6b7280] transition hover:border-[#fe2c55] hover:text-[#fe2c55]",
-              refreshing && "border-[#fe2c55] text-[#fe2c55]",
+              "grid h-9 w-9 flex-shrink-0 place-items-center rounded-[10px] border border-[#f0f1f5] bg-white text-[#6b7280] transition hover:border-[#fd4605] hover:text-[#fd4605]",
+              refreshing && "border-[#fd4605] text-[#fd4605]",
             )}
           >
             <RotateCw className={cn("h-4 w-4", refreshing && "animate-spin")} />
@@ -428,7 +428,7 @@ export default function WatchHistoryPage() {
                 title={label}
                 className={cn(
                   "grid h-9 w-9 place-items-center transition",
-                  viewMode === mode ? "bg-[#fe2c55] text-white" : "text-[#9ca3af] hover:bg-white hover:text-[#374151]",
+                  viewMode === mode ? "bg-[#fd4605] text-white" : "text-[#9ca3af] hover:bg-white hover:text-[#374151]",
                   mode !== "list" && "border-l border-[#f0f1f5]",
                 )}
               >
@@ -439,7 +439,7 @@ export default function WatchHistoryPage() {
 
           <button
             onClick={clearAll}
-            className="flex items-center gap-1.5 rounded-[10px] border border-[#fecdd3] bg-white px-3 py-2 text-[12px] font-bold text-[#fe2c55] transition hover:bg-[#fff1f3]"
+            className="flex items-center gap-1.5 rounded-[10px] border border-[#fecdd3] bg-white px-3 py-2 text-[12px] font-bold text-[#fd4605] transition hover:bg-[#fff1f3]"
           >
             <Trash2 className="h-3.5 w-3.5" />
             Clear All
@@ -449,7 +449,7 @@ export default function WatchHistoryPage() {
         {/* Content */}
         {listLoading ? (
           <div className="flex justify-center py-24">
-            <Loader2 className="h-8 w-8 animate-spin text-[#fe2c55]" />
+            <Loader2 className="h-8 w-8 animate-spin text-[#fd4605]" />
           </div>
         ) : sorted.length === 0 ? (
           <div className="flex flex-col items-center gap-3 rounded-2xl border border-[#f0f1f5] bg-white py-20 text-center shadow-sm">
@@ -462,7 +462,7 @@ export default function WatchHistoryPage() {
             </p>
             <button
               onClick={handleRefresh}
-              className="mt-1 flex items-center gap-1.5 rounded-full border border-[#fecdd3] px-4 py-1.5 text-[12px] font-bold text-[#fe2c55] hover:bg-[#fff1f3] transition"
+              className="mt-1 flex items-center gap-1.5 rounded-full border border-[#fecdd3] px-4 py-1.5 text-[12px] font-bold text-[#fd4605] hover:bg-[#fff1f3] transition"
             >
               <RotateCw className="h-3.5 w-3.5" /> Refresh
             </button>
@@ -506,7 +506,7 @@ export default function WatchHistoryPage() {
                           { label: "Watch Again",      Icon: RotateCcw,    iconBg: "bg-[#eff6ff]", iconColor: "text-[#3b82f6]" },
                           { label: "Save to Playlist", Icon: BookmarkPlus, iconBg: "bg-[#f0fdf4]", iconColor: "text-[#16a34a]" },
                           { label: "Share",            Icon: Share2,       iconBg: "bg-[#f5f3ff]", iconColor: "text-[#7c3aed]" },
-                          { label: "Not Interested",   Icon: EyeOff,       iconBg: "bg-[#fff0f4]", iconColor: "text-[#fe2c55]" },
+                          { label: "Not Interested",   Icon: EyeOff,       iconBg: "bg-[#fff3ec]", iconColor: "text-[#fd4605]" },
                         ].map(({ label, Icon, iconBg, iconColor }) => (
                           <button
                             key={label}
@@ -524,7 +524,7 @@ export default function WatchHistoryPage() {
                   </div>
                   <button
                     onClick={() => removeItem(v.id)}
-                    className="grid h-8 w-8 place-items-center rounded-[10px] border border-[#f0f1f5] bg-[#f4f5f7] text-[#6b7280] transition hover:border-[#fecdd3] hover:bg-[#fff0f4] hover:text-[#fe2c55]"
+                    className="grid h-8 w-8 place-items-center rounded-[10px] border border-[#f0f1f5] bg-[#f4f5f7] text-[#6b7280] transition hover:border-[#fecdd3] hover:bg-[#fff3ec] hover:text-[#fd4605]"
                   >
                     <Trash2 className="h-[15px] w-[15px]" />
                   </button>
@@ -572,7 +572,7 @@ export default function WatchHistoryPage() {
               )}
             </div>
             {sidebarLoading ? (
-              <div className="flex justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-[#fe2c55]" /></div>
+              <div className="flex justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-[#fd4605]" /></div>
             ) : continueWatching.length === 0 ? (
               <p className="py-2 text-center text-[11px] text-[#9ca3af]">No videos to continue watching.</p>
             ) : (
@@ -598,7 +598,7 @@ export default function WatchHistoryPage() {
               <TrendingUp className="h-4 w-4 text-[#9ca3af]" />
             </div>
             {sidebarLoading ? (
-              <div className="flex justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-[#fe2c55]" /></div>
+              <div className="flex justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-[#fd4605]" /></div>
             ) : (
               <div className="flex flex-col gap-2">
                 {([
@@ -633,7 +633,7 @@ export default function WatchHistoryPage() {
               )}
             </div>
             {sidebarLoading ? (
-              <div className="flex justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-[#fe2c55]" /></div>
+              <div className="flex justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-[#fd4605]" /></div>
             ) : watchedCreators.length === 0 ? (
               <p className="py-2 text-center text-[11px] text-[#9ca3af]">No watched creators yet.</p>
             ) : (
@@ -646,7 +646,7 @@ export default function WatchHistoryPage() {
                     ) : (
                       <div
                         className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-[13px] font-bold text-white"
-                        style={{ background: "linear-gradient(135deg,#fe2c55,#c02040)" }}
+                        style={{ background: "linear-gradient(135deg,#fd4605,#b83203)" }}
                       >
                         {(c.name ?? c.username)[0]?.toUpperCase()}
                       </div>
@@ -738,7 +738,7 @@ export default function WatchHistoryPage() {
                   "flex w-full items-center justify-center gap-2 rounded-[10px] py-2.5 text-[12px] font-bold transition disabled:opacity-60",
                   settingsSaved
                     ? "bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0]"
-                    : "bg-[#fe2c55] text-white hover:bg-[#e0193f]",
+                    : "bg-[#fd4605] text-white hover:bg-[#e03e04]",
                 )}
               >
                 {savingSettings ? (

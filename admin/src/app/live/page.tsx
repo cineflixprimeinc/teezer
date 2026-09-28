@@ -56,7 +56,7 @@ export default function LivePage() {
                 "Control live eligibility rules",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-2 rounded-xl bg-[#f9fafb] px-4 py-3">
-                  <Radio className="h-4 w-4 text-[#fe2c55] shrink-0" />
+                  <Radio className="h-4 w-4 text-[#fd4605] shrink-0" />
                   <span className="text-[13px] text-[#374151]">{item}</span>
                 </div>
               ))}

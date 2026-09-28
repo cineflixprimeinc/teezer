@@ -117,10 +117,10 @@ function StatusBadge({ status, onStatusChange }: {
             <button key={value} type="button"
               onClick={() => { onStatusChange(value); setOpen(false); }}
               className={cn("flex w-full items-center gap-2 px-3 py-2 text-[12px] transition hover:bg-[#f8f9fb]",
-                value === status ? "font-bold text-[#fe2c55]" : "text-[#374151]")}>
+                value === status ? "font-bold text-[#fd4605]" : "text-[#374151]")}>
               <Icon className="h-3.5 w-3.5 flex-shrink-0 text-[#6b7280]" />
               {label}
-              {value === status && <Check className="ml-auto h-3 w-3 text-[#fe2c55]" />}
+              {value === status && <Check className="ml-auto h-3 w-3 text-[#fd4605]" />}
             </button>
           ))}
         </div>,
@@ -262,12 +262,12 @@ function RescheduleModal({ video, onSave, onCancel, loading }: {
             <label className="mb-1 block text-[12px] font-semibold text-[#374151]">Date</label>
             <input type="date" value={date} min={new Date().toISOString().slice(0, 10)}
               onChange={e => setDate(e.target.value)}
-              className="w-full rounded-xl border border-[#e5e7eb] px-3 py-2.5 text-[13px] text-[#111827] outline-none focus:border-[#fe2c55]" />
+              className="w-full rounded-xl border border-[#e5e7eb] px-3 py-2.5 text-[13px] text-[#111827] outline-none focus:border-[#fd4605]" />
           </div>
           <div>
             <label className="mb-1 block text-[12px] font-semibold text-[#374151]">Time</label>
             <input type="time" value={time} onChange={e => setTime(e.target.value)}
-              className="w-full rounded-xl border border-[#e5e7eb] px-3 py-2.5 text-[13px] text-[#111827] outline-none focus:border-[#fe2c55]" />
+              className="w-full rounded-xl border border-[#e5e7eb] px-3 py-2.5 text-[13px] text-[#111827] outline-none focus:border-[#fd4605]" />
           </div>
         </div>
 
@@ -331,7 +331,7 @@ function TableHeader({ allSelected, someSelected, onSelectAll }: {
     <div className="flex items-center gap-0 border-b border-[#f0f0f0] bg-[#fafafa] px-5 py-2.5">
       <div className="mr-2 w-5 flex-shrink-0">
         <input ref={ref} type="checkbox" checked={allSelected} onChange={onSelectAll}
-          className="h-4 w-4 cursor-pointer rounded border-[#d1d5db] accent-[#fe2c55]" />
+          className="h-4 w-4 cursor-pointer rounded border-[#d1d5db] accent-[#fd4605]" />
       </div>
       <div className="mr-3 w-[54px] flex-shrink-0" />
       <div className={cn(cell, "flex-1")} style={{ minWidth: 140 }}>Content</div>
@@ -401,7 +401,7 @@ function ContentRow({ video, selected, onSelect, onDelete, onPreview, onDuplicat
       {/* Checkbox */}
       <div className="mr-2 w-5 flex-shrink-0">
         <input type="checkbox" checked={selected} onChange={() => onSelect(video.id)}
-          className="h-4 w-4 cursor-pointer rounded border-[#d1d5db] accent-[#fe2c55]" />
+          className="h-4 w-4 cursor-pointer rounded border-[#d1d5db] accent-[#fd4605]" />
       </div>
 
       {/* Thumbnail - portrait 9:16; preview varies by media type */}
@@ -472,7 +472,7 @@ function ContentRow({ video, selected, onSelect, onDelete, onPreview, onDuplicat
               </span>
             );
             return (
-              <span className="inline-flex shrink-0 items-center gap-0.5 rounded-full bg-[#fff0f4] px-1.5 py-0.5 text-[9px] font-bold text-[#fe2c55]">
+              <span className="inline-flex shrink-0 items-center gap-0.5 rounded-full bg-[#fff3ec] px-1.5 py-0.5 text-[9px] font-bold text-[#fd4605]">
                 <Video className="h-2 w-2" />Video
               </span>
             );
@@ -854,12 +854,12 @@ export function StudioContentPage() {
             <div className="flex flex-wrap items-center gap-3">
 
               <Link href="/upload"
-                className="flex items-center gap-2 rounded-xl bg-[#fe2c55] px-4 py-2.5 text-[13px] font-bold text-white shadow-sm transition hover:bg-[#e0243d]">
+                className="flex items-center gap-2 rounded-xl bg-[#fd4605] px-4 py-2.5 text-[13px] font-bold text-white shadow-sm transition hover:bg-[#e03e04]">
                 <Upload className="h-4 w-4" /> Create Post
               </Link>
 
               <Link href="/upload?draft=1"
-                className="flex items-center gap-2 rounded-xl border border-[#e5e7eb] bg-white px-4 py-2.5 text-[13px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+                className="flex items-center gap-2 rounded-xl border border-[#e5e7eb] bg-white px-4 py-2.5 text-[13px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]">
                 <FileText className="h-4 w-4" /> Create Draft
               </Link>
 
@@ -869,13 +869,13 @@ export function StudioContentPage() {
                   className={cn(
                     "flex items-center gap-2 rounded-xl border bg-white px-4 py-2.5 text-[13px] font-semibold transition",
                     selectedIds.size > 0
-                      ? "border-[#fe2c55] text-[#fe2c55]"
-                      : "border-[#e5e7eb] text-[#374151] hover:border-[#fe2c55]",
+                      ? "border-[#fd4605] text-[#fd4605]"
+                      : "border-[#e5e7eb] text-[#374151] hover:border-[#fd4605]",
                   )}>
                   <Layers className="h-4 w-4" />
                   Bulk Actions
                   {selectedIds.size > 0 && (
-                    <span className="ml-1 grid h-5 w-5 place-items-center rounded-full bg-[#fe2c55] text-[10px] font-bold text-white">
+                    <span className="ml-1 grid h-5 w-5 place-items-center rounded-full bg-[#fd4605] text-[10px] font-bold text-white">
                       {selectedIds.size}
                     </span>
                   )}
@@ -908,7 +908,7 @@ export function StudioContentPage() {
 
               {/* Stats cards */}
               <div className="ml-auto flex flex-wrap gap-2">
-                <StatCard icon={LayoutGrid} iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]" label="Total Posts" value={fmt(counts?.total     ?? 0)} loading={contentQ.isLoading} />
+                <StatCard icon={LayoutGrid} iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]" label="Total Posts" value={fmt(counts?.total     ?? 0)} loading={contentQ.isLoading} />
                 <StatCard icon={Eye}      iconBg="bg-[#f0fdf4]" iconColor="text-[#16a34a]" label="Published"    value={fmt(counts?.published ?? 0)} loading={contentQ.isLoading} />
                 <StatCard icon={FileText} iconBg="bg-[#fff7ed]" iconColor="text-[#f97316]" label="Drafts"       value={fmt(counts?.draft     ?? 0)} loading={contentQ.isLoading} />
                 <StatCard icon={Calendar} iconBg="bg-[#eff6ff]" iconColor="text-[#3b82f6]" label="Scheduled"    value={fmt(counts?.scheduled ?? 0)} loading={contentQ.isLoading} />
@@ -922,7 +922,7 @@ export function StudioContentPage() {
                 <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#9ca3af]" />
                 <input value={search} onChange={e => setSearch(e.target.value)}
                   placeholder="Search content by title..."
-                  className="w-full rounded-xl border border-[#e5e7eb] bg-white py-2.5 pl-9 pr-9 text-[13px] text-[#111827] outline-none transition focus:border-[#fe2c55]" />
+                  className="w-full rounded-xl border border-[#e5e7eb] bg-white py-2.5 pl-9 pr-9 text-[13px] text-[#111827] outline-none transition focus:border-[#fd4605]" />
                 {search && (
                   <button type="button" onClick={() => setSearch("")}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9ca3af] hover:text-[#374151]">
@@ -933,13 +933,13 @@ export function StudioContentPage() {
 
               <button type="button" title="Refresh"
                 onClick={() => void qc.invalidateQueries({ queryKey: ["studio-content"] })}
-                className="grid h-10 w-10 place-items-center rounded-xl border border-[#e5e7eb] bg-white text-[#6b7280] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+                className="grid h-10 w-10 place-items-center rounded-xl border border-[#e5e7eb] bg-white text-[#6b7280] transition hover:border-[#fd4605] hover:text-[#fd4605]">
                 <RefreshCw className={cn("h-4 w-4", contentQ.isFetching && "animate-spin")} />
               </button>
 
               <div ref={sortRef} className="relative">
                 <button type="button" onClick={() => setSortOpen(o => !o)}
-                  className="flex items-center gap-2 rounded-xl border border-[#e5e7eb] bg-white px-4 py-2.5 text-[13px] text-[#374151] transition hover:border-[#fe2c55]">
+                  className="flex items-center gap-2 rounded-xl border border-[#e5e7eb] bg-white px-4 py-2.5 text-[13px] text-[#374151] transition hover:border-[#fd4605]">
                   <span className="text-[#9ca3af]">Sort by:</span>
                   <span className="font-semibold">{SORT_LABELS[sort]}</span>
                   <ChevronDown className={cn("h-3.5 w-3.5 text-[#9ca3af] transition-transform", sortOpen && "rotate-180")} />
@@ -949,7 +949,7 @@ export function StudioContentPage() {
                     {(Object.entries(SORT_LABELS) as [SortOption, string][]).map(([k, v]) => (
                       <button key={k} type="button" onClick={() => { setSort(k); setSortOpen(false); }}
                         className={cn("flex w-full items-center px-4 py-2.5 text-[13px] transition",
-                          k === sort ? "bg-[#fff0f4] font-semibold text-[#fe2c55]" : "text-[#374151] hover:bg-[#f8f9fb]")}>
+                          k === sort ? "bg-[#fff3ec] font-semibold text-[#fd4605]" : "text-[#374151] hover:bg-[#f8f9fb]")}>
                         {v}
                       </button>
                     ))}
@@ -963,15 +963,15 @@ export function StudioContentPage() {
                   className={cn(
                     "flex items-center gap-2 rounded-xl border px-4 py-2.5 text-[13px] font-semibold transition",
                     mediaTypeFilter !== "all"
-                      ? "border-[#fe2c55] bg-[#fff0f4] text-[#fe2c55]"
-                      : "border-[#e5e7eb] bg-white text-[#374151] hover:border-[#fe2c55]",
+                      ? "border-[#fd4605] bg-[#fff3ec] text-[#fd4605]"
+                      : "border-[#e5e7eb] bg-white text-[#374151] hover:border-[#fd4605]",
                   )}>
                   <currentTypeOption.icon className="h-4 w-4 flex-shrink-0" />
                   {mediaTypeFilter === "all" ? "Type" : currentTypeOption.label}
                   <ChevronDown className={cn(
                     "h-3.5 w-3.5 flex-shrink-0 transition-transform",
                     typeFilterOpen && "rotate-180",
-                    mediaTypeFilter !== "all" ? "text-[#fe2c55]" : "text-[#9ca3af]",
+                    mediaTypeFilter !== "all" ? "text-[#fd4605]" : "text-[#9ca3af]",
                   )} />
                 </button>
 
@@ -982,22 +982,22 @@ export function StudioContentPage() {
                         onClick={() => { setMediaTypeFilter(id); setTypeFilterOpen(false); }}
                         className={cn(
                           "flex w-full items-center gap-3 rounded-[8px] px-3 py-2.5 text-left transition hover:bg-[#f8f9fb]",
-                          id === mediaTypeFilter ? "bg-[#fff0f4]" : "",
+                          id === mediaTypeFilter ? "bg-[#fff3ec]" : "",
                         )}>
                         <div className={cn(
                           "flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg",
-                          id === mediaTypeFilter ? "bg-[#fe2c55]" : "bg-[#f3f4f6]",
+                          id === mediaTypeFilter ? "bg-[#fd4605]" : "bg-[#f3f4f6]",
                         )}>
                           <Icon className={cn("h-3.5 w-3.5", id === mediaTypeFilter ? "text-white" : "text-[#6b7280]")} />
                         </div>
                         <div className="min-w-0">
-                          <p className={cn("text-[12px] font-semibold leading-none", id === mediaTypeFilter ? "text-[#fe2c55]" : "text-[#111827]")}>
+                          <p className={cn("text-[12px] font-semibold leading-none", id === mediaTypeFilter ? "text-[#fd4605]" : "text-[#111827]")}>
                             {label}
                           </p>
                           <p className="mt-0.5 text-[10px] text-[#9ca3af]">{desc}</p>
                         </div>
                         {id === mediaTypeFilter && (
-                          <div className="ml-auto h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#fe2c55]" />
+                          <div className="ml-auto h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#fd4605]" />
                         )}
                       </button>
                     ))}
@@ -1011,11 +1011,11 @@ export function StudioContentPage() {
               {TABS.map(t => (
                 <button key={t.key} type="button" onClick={() => setTab(t.key)}
                   className={cn("flex items-center gap-1.5 rounded-lg px-4 py-1.5 text-[13px] font-semibold transition",
-                    tab === t.key ? "bg-white text-[#fe2c55] shadow-sm" : "text-[#6b7280] hover:text-[#374151]")}>
+                    tab === t.key ? "bg-white text-[#fd4605] shadow-sm" : "text-[#6b7280] hover:text-[#374151]")}>
                   {t.label}
                   {t.key !== "all" && counts && (
                     <span className={cn("rounded-full px-1.5 py-0.5 text-[10px] font-bold leading-none",
-                      tab === t.key ? "bg-[#fff0f4] text-[#fe2c55]" : "bg-[#e5e7eb] text-[#9ca3af]")}>
+                      tab === t.key ? "bg-[#fff3ec] text-[#fd4605]" : "bg-[#e5e7eb] text-[#9ca3af]")}>
                       {counts[t.key] ?? 0}
                     </span>
                   )}
@@ -1049,7 +1049,7 @@ export function StudioContentPage() {
                   </p>
                   {!search && mediaTypeFilter === "all" && (
                     <Link href="/upload"
-                      className="mt-4 rounded-full bg-[#fe2c55] px-5 py-2 text-[13px] font-bold text-white transition hover:bg-[#e0243d]">
+                      className="mt-4 rounded-full bg-[#fd4605] px-5 py-2 text-[13px] font-bold text-white transition hover:bg-[#e03e04]">
                       Create Now
                     </Link>
                   )}
@@ -1082,7 +1082,7 @@ export function StudioContentPage() {
                 {meta.last_page > 1 && (
                   <div className="flex items-center gap-1">
                     <button type="button" onClick={() => setPage(p => Math.max(1, p-1))} disabled={page===1}
-                      className="grid h-8 w-8 place-items-center rounded-lg border border-[#e5e7eb] bg-white text-[#374151] transition hover:border-[#fe2c55] disabled:opacity-40">
+                      className="grid h-8 w-8 place-items-center rounded-lg border border-[#e5e7eb] bg-white text-[#374151] transition hover:border-[#fd4605] disabled:opacity-40">
                       <ChevronLeft className="h-4 w-4" />
                     </button>
                     {pageNumbers(page, meta.last_page).map((p, i) =>
@@ -1091,13 +1091,13 @@ export function StudioContentPage() {
                       ) : (
                         <button key={p} type="button" onClick={() => setPage(p)}
                           className={cn("grid h-8 w-8 place-items-center rounded-lg text-[13px] font-semibold transition",
-                            p === page ? "bg-[#fe2c55] text-white" : "border border-[#e5e7eb] bg-white text-[#374151] hover:border-[#fe2c55]")}>
+                            p === page ? "bg-[#fd4605] text-white" : "border border-[#e5e7eb] bg-white text-[#374151] hover:border-[#fd4605]")}>
                           {p}
                         </button>
                       ),
                     )}
                     <button type="button" onClick={() => setPage(p => Math.min(meta.last_page, p+1))} disabled={page===meta.last_page}
-                      className="grid h-8 w-8 place-items-center rounded-lg border border-[#e5e7eb] bg-white text-[#374151] transition hover:border-[#fe2c55] disabled:opacity-40">
+                      className="grid h-8 w-8 place-items-center rounded-lg border border-[#e5e7eb] bg-white text-[#374151] transition hover:border-[#fd4605] disabled:opacity-40">
                       <ChevronRight className="h-4 w-4" />
                     </button>
                   </div>

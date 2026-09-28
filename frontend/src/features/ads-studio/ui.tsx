@@ -84,7 +84,7 @@ const STATUS_STYLE: Record<string, { bg: string; text: string; label: string }> 
   changes_requested: { bg: "bg-[#ffedd5]", text: "text-[#c2410c]", label: "Needs changes" },
   approved:          { bg: "bg-[#dbeafe]", text: "text-[#1d4ed8]", label: "Approved" },
   active:            { bg: "bg-[#dcfce7]", text: "text-[#15803d]", label: "Active" },
-  paused:            { bg: "bg-[#fff0f4]", text: "text-[#be123c]", label: "Paused" },
+  paused:            { bg: "bg-[#fff3ec]", text: "text-[#be123c]", label: "Paused" },
   rejected:          { bg: "bg-[#fee2e2]", text: "text-[#b91c1c]", label: "Rejected" },
   completed:         { bg: "bg-[#e0e7ff]", text: "text-[#4338ca]", label: "Completed" },
   archived:          { bg: "bg-[#e5e7eb]", text: "text-[#374151]", label: "Archived" },
@@ -124,8 +124,8 @@ export function EmptyState({
 }: { icon: LucideIcon; title: string; desc: string; action?: React.ReactNode }) {
   return (
     <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-[#e5e7eb] py-14 text-center">
-      <div className="mb-4 grid h-14 w-14 place-items-center rounded-full bg-[#fff0f4]">
-        <Icon className="h-7 w-7 text-[#fe2c55]" />
+      <div className="mb-4 grid h-14 w-14 place-items-center rounded-full bg-[#fff3ec]">
+        <Icon className="h-7 w-7 text-[#fd4605]" />
       </div>
       <p className="text-[15px] font-bold text-[#374151]">{title}</p>
       <p className="mt-1 max-w-[320px] text-[13px] text-[#9ca3af]">{desc}</p>
@@ -146,7 +146,7 @@ export function PrimaryButton({
   className?: string; type?: "button" | "submit";
 }) {
   const cls = cn(
-    "inline-flex items-center justify-center gap-2 rounded-full bg-[#fe2c55] px-5 py-2.5 text-[13px] font-bold text-white shadow-sm transition hover:bg-[#e0243d] disabled:opacity-50",
+    "inline-flex items-center justify-center gap-2 rounded-full bg-[#fd4605] px-5 py-2.5 text-[13px] font-bold text-white shadow-sm transition hover:bg-[#e03e04] disabled:opacity-50",
     className,
   );
   if (href) return <Link href={href} className={cls}>{children}</Link>;

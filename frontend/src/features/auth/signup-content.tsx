@@ -89,7 +89,7 @@ function Field({
             width: "100%",
             height: 52,
             borderRadius: 9999,
-            border: `1.5px solid ${error ? "#fe2c55" : "#e5e7eb"}`,
+            border: `1.5px solid ${error ? "#fd4605" : "#e5e7eb"}`,
             background: props.disabled ? "#f9fafb" : "#fff",
             padding: right ? "0 48px 0 44px" : "0 16px 0 44px",
             fontSize: 14,
@@ -112,7 +112,7 @@ function Field({
         )}
       </div>
       {error && (
-        <p style={{ marginTop: 4, paddingLeft: 16, fontSize: 11, color: "#fe2c55" }}>{error}</p>
+        <p style={{ marginTop: 4, paddingLeft: 16, fontSize: 11, color: "#fd4605" }}>{error}</p>
       )}
     </div>
   );
@@ -168,7 +168,7 @@ function OtpBoxes({ value, onChange }: { value: string; onChange: (v: string) =>
             maxWidth: 52,
             height: 52,
             borderRadius: 12,
-            border: `1.5px solid ${d ? "#fe2c55" : "#e5e7eb"}`,
+            border: `1.5px solid ${d ? "#fd4605" : "#e5e7eb"}`,
             background: "#fff",
             fontSize: 20,
             fontWeight: 700,
@@ -624,7 +624,7 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
   function UsernameIcon() {
     if (usernameStatus === "checking") return <Loader2 size={15} style={{ animation: "spin 0.75s linear infinite" }} />;
     if (usernameStatus === "available") return <CheckCircle2 size={15} color="#16a34a" />;
-    if (usernameStatus === "taken" || usernameStatus === "invalid") return <AlertCircle size={15} color="#fe2c55" />;
+    if (usernameStatus === "taken" || usernameStatus === "invalid") return <AlertCircle size={15} color="#fd4605" />;
     return null;
   }
 
@@ -654,7 +654,7 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
             display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
           }}
           onMouseEnter={(e) => {
-            (e.currentTarget as HTMLElement).style.borderColor = "#fe2c55";
+            (e.currentTarget as HTMLElement).style.borderColor = "#fd4605";
             (e.currentTarget as HTMLElement).style.background  = "#fff5f8";
           }}
           onMouseLeave={(e) => {
@@ -662,7 +662,7 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
             (e.currentTarget as HTMLElement).style.background  = "#fff";
           }}
         >
-          <Mail size={18} color="#fe2c55" /> Continue with Email
+          <Mail size={18} color="#fd4605" /> Continue with Email
         </button>
 
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -729,7 +729,7 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
         autoComplete="name" error={errors.name} maxLength={20}
         right={
           <span style={{ fontSize: 11, fontWeight: 600, pointerEvents: "none",
-            color: name.length >= 20 ? "#fe2c55" : "#9ca3af" }}>
+            color: name.length >= 20 ? "#fd4605" : "#9ca3af" }}>
             {name.length > 0 ? `${name.length}/20` : ""}
           </span>
         }
@@ -758,7 +758,7 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
               width: "100%", height: 52, borderRadius: 9999,
               border: `1.5px solid ${
                 errors.username || usernameStatus === "taken" || usernameStatus === "invalid"
-                  ? "#fe2c55"
+                  ? "#fd4605"
                   : usernameStatus === "available"
                   ? "#16a34a"
                   : "#e5e7eb"
@@ -777,7 +777,7 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
           }}>
             {username.length > 0 && (
               <span style={{ fontSize: 11, fontWeight: 600,
-                color: username.length >= 25 ? "#fe2c55" : "#9ca3af" }}>
+                color: username.length >= 25 ? "#fd4605" : "#9ca3af" }}>
                 {username.length}/25
               </span>
             )}
@@ -791,12 +791,12 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
           </p>
         )}
         {(usernameStatus === "taken" || usernameStatus === "invalid") && (
-          <p style={{ marginTop: 4, paddingLeft: 16, fontSize: 11, color: "#fe2c55" }}>
+          <p style={{ marginTop: 4, paddingLeft: 16, fontSize: 11, color: "#fd4605" }}>
             {usernameMessage}
           </p>
         )}
         {errors.username && usernameStatus !== "taken" && usernameStatus !== "invalid" && (
-          <p style={{ marginTop: 4, paddingLeft: 16, fontSize: 11, color: "#fe2c55" }}>{errors.username}</p>
+          <p style={{ marginTop: 4, paddingLeft: 16, fontSize: 11, color: "#fd4605" }}>{errors.username}</p>
         )}
       </div>
 
@@ -830,7 +830,7 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
               height: 52, flexShrink: 0,
               borderRadius: 9999, border: "none",
               background: (otpLoading || !email.trim() || !isValidEmail(email) || resendTimer > 0)
-                ? "#f87a96" : "#fe2c55",
+                ? "#f87a96" : "#fd4605",
               color: "#fff", fontSize: 13, fontWeight: 700,
               cursor: (otpLoading || !email.trim() || !isValidEmail(email) || resendTimer > 0)
                 ? "not-allowed" : "pointer",
@@ -839,11 +839,11 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
             }}
             onMouseEnter={(e) => {
               const ok = !otpLoading && email.trim() && isValidEmail(email) && !resendTimer;
-              if (ok) (e.currentTarget as HTMLElement).style.background = "#e0193f";
+              if (ok) (e.currentTarget as HTMLElement).style.background = "#e03e04";
             }}
             onMouseLeave={(e) => {
               const ok = !otpLoading && email.trim() && isValidEmail(email) && !resendTimer;
-              if (ok) (e.currentTarget as HTMLElement).style.background = "#fe2c55";
+              if (ok) (e.currentTarget as HTMLElement).style.background = "#fd4605";
             }}
           >
             {otpLoading ? "Sending…"
@@ -952,7 +952,7 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
 
               <OtpBoxes value={otp} onChange={setOtp} />
 
-              {errors.otp && <p style={{ fontSize: 12, color: "#fe2c55", margin: 0 }}>{errors.otp}</p>}
+              {errors.otp && <p style={{ fontSize: 12, color: "#fd4605", margin: 0 }}>{errors.otp}</p>}
 
               <p style={{ fontSize: 12, color: "#6b7280", margin: 0, lineHeight: 1.5 }}>
                 We sent a 6-digit code to <strong>{email}</strong>.
@@ -1008,14 +1008,14 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
         style={{
           width: "100%", height: 54, marginTop: 4,
           borderRadius: 9999, border: "none",
-          background: btnDisabled ? "#f87a96" : "#fe2c55",
+          background: btnDisabled ? "#f87a96" : "#fd4605",
           color: "#fff", fontSize: 15, fontWeight: 700,
           cursor: btnDisabled ? "not-allowed" : "pointer",
           transition: "background 150ms",
           display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
         }}
-        onMouseEnter={(e) => { if (!btnDisabled) (e.currentTarget as HTMLElement).style.background = "#e0193f"; }}
-        onMouseLeave={(e) => { if (!btnDisabled) (e.currentTarget as HTMLElement).style.background = "#fe2c55"; }}
+        onMouseEnter={(e) => { if (!btnDisabled) (e.currentTarget as HTMLElement).style.background = "#e03e04"; }}
+        onMouseLeave={(e) => { if (!btnDisabled) (e.currentTarget as HTMLElement).style.background = "#fd4605"; }}
       >
         {rateLimit
           ? `Try again in ${formatCountdown(rateLimit.retryAfter)}`

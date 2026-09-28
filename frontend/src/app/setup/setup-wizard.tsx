@@ -59,7 +59,7 @@ export default function SetupWizard() {
   const [form, setForm] = useState<Form>({
     app_name: '',
     app_description: '',
-    primary_color: '#FE2C55',
+    primary_color: '#FD4605',
     secondary_color: '#25F4EE',
     admin_site_title: '',
     admin_username: '',

@@ -333,7 +333,7 @@ export default function TermsPage() {
       <H2 id="contact" n={19}>Contact</H2>
       <P>
         Questions about these Terms? Contact us at{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">
           {CONTACT_EMAIL}
         </a>
         . For privacy questions, see our <DocLink href="/privacy">Privacy Policy</DocLink>; for content rules, see the{" "}

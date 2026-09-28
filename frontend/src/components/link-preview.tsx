@@ -35,7 +35,7 @@ export function LinkPreview({ url, compact = false, className }: {
   return (
     <a href={d.url} target="_blank" rel="noopener noreferrer nofollow"
       className={cn(
-        "group block max-w-[340px] overflow-hidden rounded-xl border border-[#e5e7eb] bg-white transition hover:border-[#fe2c55]",
+        "group block max-w-[340px] overflow-hidden rounded-xl border border-[#e5e7eb] bg-white transition hover:border-[#fd4605]",
         className,
       )}>
       {d.image && !compact && (
@@ -58,7 +58,7 @@ export function LinkPreview({ url, compact = false, className }: {
             </p>
           )}
           {d.title && (
-            <p className="truncate text-[13px] font-bold text-[#111827] group-hover:text-[#fe2c55]">{d.title}</p>
+            <p className="truncate text-[13px] font-bold text-[#111827] group-hover:text-[#fd4605]">{d.title}</p>
           )}
           {d.description && (
             <p className="mt-0.5 line-clamp-2 text-[11px] leading-snug text-[#6b7280]">{d.description}</p>

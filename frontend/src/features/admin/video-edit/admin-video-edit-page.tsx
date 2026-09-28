@@ -33,7 +33,7 @@ import {
 } from "@/services/admin-video.service";
 
 /* ── Constants ──────────────────────────────────────────────────────────── */
-const PINK = "#F92853";
+const PINK = "#FE5A1F";
 
 const CATEGORIES = [
   "Comedy","Dance","Music","Travel & Nature","Food","Fashion","Beauty",

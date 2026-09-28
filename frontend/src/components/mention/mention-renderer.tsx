@@ -23,7 +23,7 @@ export function MentionRenderer({ text, className }: { text: string; className?:
       <Link
         key={`${match.index}-${username}`}
         href={`/profile/${username}`}
-        className="font-semibold text-[#fe2c55] hover:underline"
+        className="font-semibold text-[#fd4605] hover:underline"
         onClick={(e) => e.stopPropagation()}
       >
         @{username}

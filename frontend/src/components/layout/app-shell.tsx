@@ -224,7 +224,7 @@ export function AppShell({ children, feedMode = false, backTitle, onBack, transp
               className={cn(
                 "mb-1 grid h-10 w-10 place-items-center rounded-full transition cursor-pointer",
                 searchOpen
-                  ? "bg-[rgba(254,44,85,0.10)] text-[#fe2c55] hover:bg-[rgba(254,44,85,0.18)]"
+                  ? "bg-[rgba(253,70,5,0.10)] text-[#fd4605] hover:bg-[rgba(253,70,5,0.18)]"
                   : "text-[#111827] hover:bg-[#f8f9fb]",
               )}
             >
@@ -249,8 +249,8 @@ export function AppShell({ children, feedMode = false, backTitle, onBack, transp
                 item.href === "/activity" ? (activityUnread > 0 ? activityUnread : 0) : 0;
               const iconBtnCls = cn(
                 "relative grid h-10 w-10 place-items-center rounded-full transition hover:bg-[#f8f9fb] cursor-pointer",
-                (active || isActivityActive) ? "text-[#fe2c55]" : "text-[#111827]",
-                isActivityActive && "bg-[rgba(254,44,85,0.10)] hover:bg-[rgba(254,44,85,0.18)]",
+                (active || isActivityActive) ? "text-[#fd4605]" : "text-[#111827]",
+                isActivityActive && "bg-[rgba(253,70,5,0.10)] hover:bg-[rgba(253,70,5,0.18)]",
               );
               function closeDrawers() { setSearchOpen(false); setActivityOpen(false); }
               if (item.href === "/more") {
@@ -260,7 +260,7 @@ export function AppShell({ children, feedMode = false, backTitle, onBack, transp
                     type="button"
                     title={item.label}
                     onClick={() => { closeDrawers(); setMoreMenuOpen(true); }}
-                    className={cn(iconBtnCls, moreMenuOpen && "text-[#fe2c55]")}
+                    className={cn(iconBtnCls, moreMenuOpen && "text-[#fd4605]")}
                   >
                     <Icon className="h-[22px] w-[22px]" strokeWidth={2.5} />
                   </button>
@@ -282,7 +282,7 @@ export function AppShell({ children, feedMode = false, backTitle, onBack, transp
                   >
                     <Icon className="h-[22px] w-[22px]" strokeWidth={2.5} />
                     {railBadge > 0 && (
-                      <span className="absolute right-0.5 top-0.5 grid h-[16px] min-w-[16px] place-items-center rounded-full bg-[#fe2c55] px-0.5 text-[9px] font-bold text-white">
+                      <span className="absolute right-0.5 top-0.5 grid h-[16px] min-w-[16px] place-items-center rounded-full bg-[#fd4605] px-0.5 text-[9px] font-bold text-white">
                         {railBadge > 99 ? "99+" : railBadge}
                       </span>
                     )}
@@ -300,7 +300,7 @@ export function AppShell({ children, feedMode = false, backTitle, onBack, transp
                   >
                     <Icon className="h-[22px] w-[22px]" strokeWidth={2.5} />
                     {railBadge > 0 && (
-                      <span className="absolute right-0.5 top-0.5 grid h-[16px] min-w-[16px] place-items-center rounded-full bg-[#fe2c55] px-0.5 text-[9px] font-bold text-white">
+                      <span className="absolute right-0.5 top-0.5 grid h-[16px] min-w-[16px] place-items-center rounded-full bg-[#fd4605] px-0.5 text-[9px] font-bold text-white">
                         {railBadge > 99 ? "99+" : railBadge}
                       </span>
                     )}
@@ -331,7 +331,7 @@ export function AppShell({ children, feedMode = false, backTitle, onBack, transp
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="mb-3 flex h-[42px] w-full flex-shrink-0 items-center gap-2.5 rounded-full border border-[#e5e7eb] bg-[#f8f9fb] px-3.5 text-[14px] text-[#9ca3af] hover:border-[#fe2c55] hover:bg-white transition-colors cursor-pointer"
+              className="mb-3 flex h-[42px] w-full flex-shrink-0 items-center gap-2.5 rounded-full border border-[#e5e7eb] bg-[#f8f9fb] px-3.5 text-[14px] text-[#9ca3af] hover:border-[#fd4605] hover:bg-white transition-colors cursor-pointer"
             >
               <Search className="h-4 w-4 flex-shrink-0 text-[#6b7280]" strokeWidth={2.5} />
               <span>Search...</span>
@@ -356,16 +356,16 @@ export function AppShell({ children, feedMode = false, backTitle, onBack, transp
                   item.href === "/activity" ? (activityUnread > 0 ? activityUnread : 0) : 0;
                 const sharedClass = cn(
                   "flex h-[46px] w-full items-center gap-4 rounded-[12px] px-3 text-[15px] font-semibold text-[#111827] transition hover:bg-[#f8f9fb] cursor-pointer",
-                  active && "bg-[#fff0f4] text-[#fe2c55] hover:bg-[#fff0f4]",
+                  active && "bg-[#fff3ec] text-[#fd4605] hover:bg-[#fff3ec]",
                 );
                 const iconEl = (
                   <span className="relative">
                     <Icon
-                      className={cn("h-[22px] w-[22px]", active ? "text-[#fe2c55]" : "text-[#111827]")}
+                      className={cn("h-[22px] w-[22px]", active ? "text-[#fd4605]" : "text-[#111827]")}
                       strokeWidth={2.5}
                     />
                     {badge ? (
-                      <span className="absolute -right-2 -top-2 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-[#fe2c55] px-1 text-[10px] font-bold text-white">
+                      <span className="absolute -right-2 -top-2 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-[#fd4605] px-1 text-[10px] font-bold text-white">
                         {badge}
                       </span>
                     ) : null}
@@ -377,7 +377,7 @@ export function AppShell({ children, feedMode = false, backTitle, onBack, transp
                       key={item.href}
                       type="button"
                       onClick={() => setMoreMenuOpen(true)}
-                      className={cn(sharedClass, moreMenuOpen && "bg-[#fff0f4] text-[#fe2c55] hover:bg-[#fff0f4]")}
+                      className={cn(sharedClass, moreMenuOpen && "bg-[#fff3ec] text-[#fd4605] hover:bg-[#fff3ec]")}
                     >
                       {iconEl}
                       {item.label}
@@ -420,7 +420,7 @@ export function AppShell({ children, feedMode = false, backTitle, onBack, transp
                   <button
                     type="button"
                     onClick={() => openAuthModal("login")}
-                    className="flex h-9 w-full items-center justify-center rounded-full bg-[#fe2c55] text-[13px] font-bold text-white hover:bg-[#e0193f] transition cursor-pointer"
+                    className="flex h-9 w-full items-center justify-center rounded-full bg-[#fd4605] text-[13px] font-bold text-white hover:bg-[#e03e04] transition cursor-pointer"
                   >
                     Log in
                   </button>

@@ -81,8 +81,8 @@ function Field({
   placeholder?: string; type?: string; rows?: number; error?: string | null; maxLength?: number;
 }) {
   const shared =
-    "w-full rounded-[10px] border bg-white px-3 text-[13px] text-[#111827] placeholder:text-[#c0c4cc] outline-none transition-colors focus:border-[#fe2c55]";
-  const borderCls = error ? "border-[#fe2c55]" : "border-[#e8eaf0]";
+    "w-full rounded-[10px] border bg-white px-3 text-[13px] text-[#111827] placeholder:text-[#c0c4cc] outline-none transition-colors focus:border-[#fd4605]";
+  const borderCls = error ? "border-[#fd4605]" : "border-[#e8eaf0]";
   return (
     <div className="flex flex-col gap-[3px]">
       <label className="text-[11px] font-semibold text-[#6b7280]">{label}</label>
@@ -108,7 +108,7 @@ function Field({
         </div>
       )}
       {error && (
-        <p className="mt-0.5 flex items-center gap-1 text-[10.5px] font-semibold text-[#fe2c55]">
+        <p className="mt-0.5 flex items-center gap-1 text-[10.5px] font-semibold text-[#fd4605]">
           <AlertCircle className="h-2.5 w-2.5" />
           {error}
         </p>
@@ -247,12 +247,12 @@ function InterestsPicker({
 
   return (
     <div ref={wrapRef} className="relative">
-      <div className="flex min-h-[38px] flex-wrap items-center gap-1.5 rounded-[10px] border border-[#e8eaf0] bg-white px-2.5 py-2 transition-colors focus-within:border-[#fe2c55]">
+      <div className="flex min-h-[38px] flex-wrap items-center gap-1.5 rounded-[10px] border border-[#e8eaf0] bg-white px-2.5 py-2 transition-colors focus-within:border-[#fd4605]">
         {selected.map((tag) => (
           <span
             key={tag}
             className="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-semibold text-white"
-            style={{ background: "#fe2c55" }}
+            style={{ background: "#fd4605" }}
           >
             {tag}
             <button type="button" onClick={() => remove(tag)} className="opacity-80 hover:opacity-100 transition-opacity">
@@ -264,7 +264,7 @@ function InterestsPicker({
           type="button"
           onClick={() => !reachedMax && setOpen(true)}
           disabled={reachedMax}
-          className="inline-flex items-center gap-1 rounded-full border border-dashed border-[#d1d5db] px-2.5 py-0.5 text-[11px] font-semibold text-[#9ca3af] transition-colors hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-[#d1d5db] disabled:hover:text-[#9ca3af]"
+          className="inline-flex items-center gap-1 rounded-full border border-dashed border-[#d1d5db] px-2.5 py-0.5 text-[11px] font-semibold text-[#9ca3af] transition-colors hover:border-[#fd4605] hover:text-[#fd4605] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-[#d1d5db] disabled:hover:text-[#9ca3af]"
         >
           <Plus className="h-2.5 w-2.5" />
           {reachedMax ? `${max} max` : "Add"}
@@ -299,7 +299,7 @@ function InterestsPicker({
             ) : (
               available.map((tag) => (
                 <button key={tag} type="button" onClick={() => add(tag)}
-                  className="rounded-full border border-[#e8eaf0] px-2.5 py-1 text-[11px] font-semibold text-[#374151] transition-colors hover:border-[#fe2c55] hover:bg-[#fff1f3] hover:text-[#fe2c55]"
+                  className="rounded-full border border-[#e8eaf0] px-2.5 py-1 text-[11px] font-semibold text-[#374151] transition-colors hover:border-[#fd4605] hover:bg-[#fff1f3] hover:text-[#fd4605]"
                 >
                   + {tag}
                 </button>
@@ -744,7 +744,7 @@ export default function AccountSettingsPage() {
           <p className="mt-1 text-[13px] text-[#6b7280]">Account Settings is available to logged-in users only.</p>
           <button
             onClick={() => openAuthModal("login")}
-            className="mt-4 rounded-full bg-[#fe2c55] px-5 py-2 text-[13px] font-bold text-white"
+            className="mt-4 rounded-full bg-[#fd4605] px-5 py-2 text-[13px] font-bold text-white"
           >
             Log in
           </button>
@@ -836,7 +836,7 @@ export default function AccountSettingsPage() {
                 <input ref={fileRef} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={handlePhoto} />
               </div>
               <button onClick={() => fileRef.current?.click()}
-                className="w-full rounded-lg border border-[#e8eaf0] bg-white px-2 py-1 text-center text-[10px] font-semibold text-[#374151] transition-colors hover:border-[#fe2c55] hover:text-[#fe2c55]">
+                className="w-full rounded-lg border border-[#e8eaf0] bg-white px-2 py-1 text-center text-[10px] font-semibold text-[#374151] transition-colors hover:border-[#fd4605] hover:text-[#fd4605]">
                 {avatarFile ? "Replace" : (profile?.has_avatar ? "Change Photo" : "Upload Photo")}
               </button>
               {(avatarFile || profile?.has_avatar) && !confirmRemove && (
@@ -916,7 +916,7 @@ export default function AccountSettingsPage() {
             <InfoRow icon={Globe} label="Email Address" value={user?.email ?? "-"}
               action={
                 <button onClick={() => setEmailModal(true)}
-                  className="rounded-full border border-[#e8eaf0] px-2 py-0.5 text-[10px] font-semibold text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55] transition-colors">
+                  className="rounded-full border border-[#e8eaf0] px-2 py-0.5 text-[10px] font-semibold text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605] transition-colors">
                   Change
                 </button>
               }
@@ -924,7 +924,7 @@ export default function AccountSettingsPage() {
             <InfoRow icon={Wifi} label="Phone Number" value={user?.phone ?? "-"}
               action={
                 <button onClick={() => setPhoneModal(true)}
-                  className="rounded-full border border-[#e8eaf0] px-2 py-0.5 text-[10px] font-semibold text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55] transition-colors">
+                  className="rounded-full border border-[#e8eaf0] px-2 py-0.5 text-[10px] font-semibold text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605] transition-colors">
                   Change
                 </button>
               }
@@ -940,7 +940,7 @@ export default function AccountSettingsPage() {
                 <button
                   type="button"
                   onClick={() => setLocationModal(true)}
-                  className="flex-shrink-0 rounded-full border border-[#e8eaf0] px-2 py-0.5 text-[10px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                  className="flex-shrink-0 rounded-full border border-[#e8eaf0] px-2 py-0.5 text-[10px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]"
                 >
                   Change
                 </button>
@@ -1013,7 +1013,7 @@ export default function AccountSettingsPage() {
                   type="button"
                   onClick={() => refetchDetect()}
                   disabled={detectFetching}
-                  className="grid h-5 w-5 place-items-center rounded-full text-[#9ca3af] hover:text-[#fe2c55] disabled:opacity-50"
+                  className="grid h-5 w-5 place-items-center rounded-full text-[#9ca3af] hover:text-[#fd4605] disabled:opacity-50"
                 >
                   <RefreshCw className={`h-3 w-3 ${detectFetching ? "animate-spin" : ""}`} />
                 </button>
@@ -1042,7 +1042,7 @@ export default function AccountSettingsPage() {
               <button
                 onClick={handleExport}
                 disabled={exporting}
-                className="flex-shrink-0 rounded-full border border-[#e8eaf0] px-3 py-1 text-[11px] font-semibold text-[#374151] transition-colors hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:opacity-60"
+                className="flex-shrink-0 rounded-full border border-[#e8eaf0] px-3 py-1 text-[11px] font-semibold text-[#374151] transition-colors hover:border-[#fd4605] hover:text-[#fd4605] disabled:opacity-60"
               >
                 {exporting ? "Preparing…" : "Download"}
               </button>
@@ -1107,8 +1107,8 @@ export default function AccountSettingsPage() {
               <button
                 onClick={handleSave}
                 disabled={isSaving || !!usernameErr}
-                className="rounded-[10px] bg-[#fe2c55] px-5 py-1.5 text-[12.5px] font-bold text-white shadow-sm hover:opacity-90 disabled:opacity-60"
-                style={{ boxShadow: "0 2px 12px rgba(254,44,85,0.30)" }}
+                className="rounded-[10px] bg-[#fd4605] px-5 py-1.5 text-[12.5px] font-bold text-white shadow-sm hover:opacity-90 disabled:opacity-60"
+                style={{ boxShadow: "0 2px 12px rgba(253,70,5,0.30)" }}
               >
                 {isSaving ? "Saving…" : "Save Changes"}
               </button>

@@ -76,7 +76,7 @@ const GRADS = [
   "linear-gradient(135deg,#f77f00,#d62828)",
   "linear-gradient(135deg,#134e5e,#71b280)",
   "linear-gradient(135deg,#667eea,#764ba2)",
-  "linear-gradient(135deg,#fe2c55,#c02040)",
+  "linear-gradient(135deg,#fd4605,#b83203)",
   "linear-gradient(135deg,#2193b0,#6dd5ed)",
 ];
 function grad(s: string) {
@@ -215,7 +215,7 @@ function NotifRow({ n, onMarkRead, onHide, onApprove, onReject, onOpenActors }: 
       )}>
       <div className="relative flex-shrink-0">
         {isAdminMsg
-          ? <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#fe2c55] to-[#ff7c9b]"><Shield className="h-5 w-5 text-white" /></div>
+          ? <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#fd4605] to-[#ff8a55]"><Shield className="h-5 w-5 text-white" /></div>
           : n.actor
             ? <MiniAvatar src={n.actor.avatar} name={actorName} size={44} />
             : <div className="flex h-11 w-11 items-center justify-center rounded-full" style={{ background: TYPE_META[n.type]?.bg ?? "#f3f4f6" }}>
@@ -227,7 +227,7 @@ function NotifRow({ n, onMarkRead, onHide, onApprove, onReject, onOpenActors }: 
 
       <div className="min-w-0 flex-1">
         {isAdminMsg && (
-          <p className="text-[11px] font-semibold text-[#fe2c55] mb-0.5 flex items-center gap-1">
+          <p className="text-[11px] font-semibold text-[#fd4605] mb-0.5 flex items-center gap-1">
             <Shield className="h-2.5 w-2.5" /> Teezer
           </p>
         )}
@@ -238,13 +238,13 @@ function NotifRow({ n, onMarkRead, onHide, onApprove, onReject, onOpenActors }: 
 
         {n.type === "follow_request" && n.action_status === "pending" && (
           <div className="mt-2 flex gap-2" onClick={e => e.stopPropagation()}>
-            <button onClick={() => onApprove?.(n.id)} className="rounded-full bg-[#fe2c55] px-4 py-1.5 text-[12px] font-bold text-white hover:bg-[#e02449]">Approve</button>
+            <button onClick={() => onApprove?.(n.id)} className="rounded-full bg-[#fd4605] px-4 py-1.5 text-[12px] font-bold text-white hover:bg-[#e03e04]">Approve</button>
             <button onClick={() => onReject?.(n.id)}  className="rounded-full border border-[#e5e7eb] px-4 py-1.5 text-[12px] font-bold text-[#374151] hover:bg-[#f8f9fb]">Reject</button>
           </div>
         )}
         {isTagOrCollab && n.action_status === "pending" && (
           <div className="mt-2 flex gap-2" onClick={e => e.stopPropagation()}>
-            <button onClick={() => onApprove?.(n.id)} className="rounded-full bg-[#fe2c55] px-4 py-1.5 text-[12px] font-bold text-white hover:bg-[#e02449]">Approve</button>
+            <button onClick={() => onApprove?.(n.id)} className="rounded-full bg-[#fd4605] px-4 py-1.5 text-[12px] font-bold text-white hover:bg-[#e03e04]">Approve</button>
             <button onClick={() => onReject?.(n.id)}  className="rounded-full border border-[#e5e7eb] px-4 py-1.5 text-[12px] font-bold text-[#374151] hover:bg-[#f8f9fb]">Decline</button>
           </div>
         )}
@@ -257,7 +257,7 @@ function NotifRow({ n, onMarkRead, onHide, onApprove, onReject, onOpenActors }: 
         {n.actionLabel && n.type !== "follow_request" && (
           <button onClick={e => { e.stopPropagation(); onMarkRead(n.id); }}
             className={cn("mt-2 rounded-full px-4 py-1.5 text-[12px] font-bold transition",
-              n.actionVariant === "primary" ? "bg-[#fe2c55] text-white hover:bg-[#e02449]" : "border border-[#e5e7eb] text-[#111827] hover:bg-[#f8f9fb]")}>
+              n.actionVariant === "primary" ? "bg-[#fd4605] text-white hover:bg-[#e03e04]" : "border border-[#e5e7eb] text-[#111827] hover:bg-[#f8f9fb]")}>
             {n.actionLabel}
           </button>
         )}
@@ -283,7 +283,7 @@ function NotifRow({ n, onMarkRead, onHide, onApprove, onReject, onOpenActors }: 
             <img src={n.thumbnail} alt="" className="h-full w-full object-cover" />
           </div>
         )}
-        {!n.is_read && <span className="h-2 w-2 rounded-full bg-[#fe2c55]" />}
+        {!n.is_read && <span className="h-2 w-2 rounded-full bg-[#fd4605]" />}
         <button
           onClick={e => { e.stopPropagation(); onHide(n.id); }}
           className="grid h-7 w-7 place-items-center rounded-full text-[#9aa1ad] opacity-0 transition hover:bg-[#f3f4f6] hover:text-[#5f6675] group-hover:opacity-100"
@@ -349,10 +349,10 @@ function ActorsSheet({ notif, onClose }: { notif: Notif; onClose: () => void }) 
             <button
               onClick={() => { const n = page + 1; setPage(n); fetchPage(n); }}
               disabled={loading}
-              className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl border border-[#e5e7eb] py-2.5 text-[13px] font-semibold text-[#5f6675] transition hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:opacity-50"
+              className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl border border-[#e5e7eb] py-2.5 text-[13px] font-semibold text-[#5f6675] transition hover:border-[#fd4605] hover:text-[#fd4605] disabled:opacity-50"
             >
               {loading
-                ? <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+                ? <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
                 : <><ChevronDown className="h-4 w-4" /> Load more</>}
             </button>
           )}
@@ -631,19 +631,19 @@ export function ActivityDrawer({
         {/* Header */}
         <div className="flex flex-shrink-0 items-center justify-between border-b border-[#f3f4f6] px-5 pt-5 pb-4">
           <div className="flex items-center gap-2.5">
-            <div className="grid h-8 w-8 place-items-center rounded-full bg-[#fff0f4]">
-              <Bell className="h-4 w-4 text-[#fe2c55]" />
+            <div className="grid h-8 w-8 place-items-center rounded-full bg-[#fff3ec]">
+              <Bell className="h-4 w-4 text-[#fd4605]" />
             </div>
             <span className="text-[17px] font-extrabold text-[#111827]">Activity</span>
             {unreadCount > 0 && (
-              <span className="rounded-full bg-[#fe2c55] px-2 py-0.5 text-[11px] font-bold text-white">
+              <span className="rounded-full bg-[#fd4605] px-2 py-0.5 text-[11px] font-bold text-white">
                 {unreadCount > 99 ? "99+" : unreadCount}
               </span>
             )}
           </div>
           <div className="flex items-center gap-1.5">
             {unreadCount > 0 && (
-              <button onClick={markAllRead} className="text-[12px] font-semibold text-[#fe2c55] hover:opacity-75 transition px-2">
+              <button onClick={markAllRead} className="text-[12px] font-semibold text-[#fd4605] hover:opacity-75 transition px-2">
                 Mark all read
               </button>
             )}
@@ -661,8 +661,8 @@ export function ActivityDrawer({
               className={cn(
                 "flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12px] font-semibold transition whitespace-nowrap",
                 activeTab === tab.id
-                  ? "bg-[#fe2c55] text-white"
-                  : "border border-[#e5e7eb] text-[#5f6675] hover:border-[#fe2c55] hover:text-[#fe2c55]",
+                  ? "bg-[#fd4605] text-white"
+                  : "border border-[#e5e7eb] text-[#5f6675] hover:border-[#fd4605] hover:text-[#fd4605]",
               )}>
               <tab.Icon className="h-3 w-3 flex-shrink-0" />
               {tab.label}
@@ -674,18 +674,18 @@ export function ActivityDrawer({
         <div className="flex-1 overflow-y-auto px-2 py-2">
           {loading ? (
             <div className="flex items-center justify-center py-20">
-              <div className="h-7 w-7 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+              <div className="h-7 w-7 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
             </div>
           ) : loadFailed ? (
             <div className="flex flex-col items-center gap-3 py-20 text-center px-6">
-              <div className="grid h-16 w-16 place-items-center rounded-full bg-[#fff0f4]">
-                <Bell className="h-7 w-7 text-[#fe2c55] opacity-60" />
+              <div className="grid h-16 w-16 place-items-center rounded-full bg-[#fff3ec]">
+                <Bell className="h-7 w-7 text-[#fd4605] opacity-60" />
               </div>
               <p className="text-[15px] font-bold text-[#111827]">Couldn&apos;t load activity</p>
               <p className="text-[13px] text-[#9aa1ad]">Something went wrong reaching Teezer. Check your connection and try again.</p>
               <button
                 onClick={() => { setLoading(true); load(1, false); }}
-                className="mt-1 rounded-xl border border-[#e5e7eb] px-4 py-2 text-[13px] font-semibold text-[#5f6675] transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                className="mt-1 rounded-xl border border-[#e5e7eb] px-4 py-2 text-[13px] font-semibold text-[#5f6675] transition hover:border-[#fd4605] hover:text-[#fd4605]"
               >
                 Try again
               </button>
@@ -720,9 +720,9 @@ export function ActivityDrawer({
         {hasMore && (
           <div className="flex-shrink-0 border-t border-[#f3f4f6] px-4 py-3">
             <button onClick={loadMore} disabled={loadingMore}
-              className="flex w-full items-center justify-center gap-2 rounded-xl border border-[#e5e7eb] py-2.5 text-[13px] font-semibold text-[#5f6675] transition hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:opacity-50">
+              className="flex w-full items-center justify-center gap-2 rounded-xl border border-[#e5e7eb] py-2.5 text-[13px] font-semibold text-[#5f6675] transition hover:border-[#fd4605] hover:text-[#fd4605] disabled:opacity-50">
               {loadingMore
-                ? <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+                ? <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
                 : <><ChevronDown className="h-4 w-4" /> View more notifications</>
               }
             </button>

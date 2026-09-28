@@ -15,7 +15,7 @@
   <!-- ── Logo ── -->
   <tr>
     <td style="padding:22px 32px;border-bottom:1px solid #f0f0f0;text-align:center;">
-      <img src="https://teezer.live/reelsoo-logo.png" width="120" alt="Teezer" style="display:inline-block;width:120px;height:auto;vertical-align:middle;">
+      <img src="https://teezer.live/teezer-logo.png" width="120" alt="Teezer" style="display:inline-block;width:120px;height:auto;vertical-align:middle;">
     </td>
   </tr>
 
@@ -27,11 +27,11 @@
           <td style="vertical-align:middle;padding-right:20px;">
             <p style="margin:0 0 14px;font-size:26px;font-weight:800;color:#0f172a;line-height:1.2;letter-spacing:-0.3px;">
               Verify Your Email
-              <img src="https://teezer.live/reelsoo-icon.svg" width="0" height="0" alt="" style="display:none;">
+              <img src="https://teezer.live/favicon.png" width="0" height="0" alt="" style="display:none;">
               &#128274;
             </p>
             <p style="margin:0 0 10px;font-size:15px;color:#374151;line-height:1.5;">
-              Hi <strong style="color:#fe2c55;">{{ $firstName }}</strong>,
+              Hi <strong style="color:#fd4605;">{{ $firstName }}</strong>,
             </p>
             <p style="margin:0;font-size:14px;color:#6b7280;line-height:1.75;">
               Thank you for signing up for Teezer. To complete your registration and secure your account, please use the verification code below.
@@ -62,7 +62,7 @@
                   <table role="presentation" cellpadding="0" cellspacing="0">
                     <tr>
                       <td align="center" valign="middle"
-                          style="width:62px;height:72px;background:#ffffff;border:1.5px solid #fca5a5;border-radius:10px;font-size:36px;font-weight:800;color:#fe2c55;text-align:center;vertical-align:middle;line-height:72px;">{{ $digit }}</td>
+                          style="width:62px;height:72px;background:#ffffff;border:1.5px solid #fca5a5;border-radius:10px;font-size:36px;font-weight:800;color:#fd4605;text-align:center;vertical-align:middle;line-height:72px;">{{ $digit }}</td>
                     </tr>
                   </table>
                 </td>
@@ -71,7 +71,7 @@
             </table>
 
             <p style="margin:0;font-size:13px;color:#374151;line-height:1.5;">
-              This code will expire in <strong style="color:#fe2c55;">{{ $expiryMinutes }} minutes.</strong>
+              This code will expire in <strong style="color:#fd4605;">{{ $expiryMinutes }} minutes.</strong>
             </p>
 
           </td>

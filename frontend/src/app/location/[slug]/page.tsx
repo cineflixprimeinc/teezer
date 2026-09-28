@@ -64,7 +64,7 @@ function Dropdown({ value, options, onChange }: {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex h-9 items-center gap-2 rounded-full border border-[#e5e7eb] bg-white px-3.5 text-[13px] font-semibold text-[#111827] hover:border-[#fe2c55]"
+        className="flex h-9 items-center gap-2 rounded-full border border-[#e5e7eb] bg-white px-3.5 text-[13px] font-semibold text-[#111827] hover:border-[#fd4605]"
       >
         <CurrentIcon className="h-4 w-4 text-[#6b7280]" />
         {current.label}
@@ -84,10 +84,10 @@ function Dropdown({ value, options, onChange }: {
                   onClick={() => { onChange(o.value); setOpen(false); }}
                   className={cn(
                     "flex w-full items-center gap-2.5 px-3.5 py-2 text-left text-[13px] hover:bg-[#f7f7f8]",
-                    active ? "font-bold text-[#fe2c55]" : "font-medium text-[#111827]",
+                    active ? "font-bold text-[#fd4605]" : "font-medium text-[#111827]",
                   )}
                 >
-                  <OptIcon className={cn("h-4 w-4 flex-shrink-0", active ? "text-[#fe2c55]" : "text-[#6b7280]")} />
+                  <OptIcon className={cn("h-4 w-4 flex-shrink-0", active ? "text-[#fd4605]" : "text-[#6b7280]")} />
                   {o.label}
                 </button>
               );
@@ -160,7 +160,7 @@ export default function LocationFeedPage() {
             type="button"
             onClick={() => router.back()}
             aria-label="Back"
-            className="grid h-9 w-9 place-items-center rounded-full border border-[#e5e7eb] bg-white text-[#111827] hover:border-[#fe2c55] hover:text-[#fe2c55]"
+            className="grid h-9 w-9 place-items-center rounded-full border border-[#e5e7eb] bg-white text-[#111827] hover:border-[#fd4605] hover:text-[#fd4605]"
           >
             <ArrowLeft className="h-5 w-5" />
           </button>
@@ -172,8 +172,8 @@ export default function LocationFeedPage() {
         {/* ── Location header card ── */}
         <div className="rounded-2xl border border-[#eeeeee] bg-white p-5">
           <div className="flex flex-wrap items-start gap-4">
-            <div className="grid h-[72px] w-[72px] flex-shrink-0 place-items-center rounded-2xl bg-[#fff0f4]">
-              <MapPin className="h-8 w-8 text-[#fe2c55]" />
+            <div className="grid h-[72px] w-[72px] flex-shrink-0 place-items-center rounded-2xl bg-[#fff3ec]">
+              <MapPin className="h-8 w-8 text-[#fd4605]" />
             </div>
             <div className="min-w-0 flex-1">
               <h2 className="text-[24px] font-extrabold leading-tight">{header?.name ?? deslug(slug)}</h2>
@@ -193,7 +193,7 @@ export default function LocationFeedPage() {
                   const q = encodeURIComponent(header?.display_name ?? deslug(slug));
                   window.open(`https://www.google.com/maps/search/?api=1&query=${q}`, "_blank", "noopener,noreferrer");
                 }}
-                className="flex h-10 items-center gap-2 rounded-full border border-[#e5e7eb] bg-white px-4 text-[13px] font-semibold hover:border-[#fe2c55]"
+                className="flex h-10 items-center gap-2 rounded-full border border-[#e5e7eb] bg-white px-4 text-[13px] font-semibold hover:border-[#fd4605]"
               >
                 <Compass className="h-4 w-4" /> Open map
               </button>
@@ -201,7 +201,7 @@ export default function LocationFeedPage() {
                 type="button"
                 onClick={() => navigator.share?.({ title: header?.display_name, url: window.location.href }).catch(() => {})}
                 aria-label="Share location"
-                className="grid h-10 w-10 place-items-center rounded-full border border-[#e5e7eb] bg-white hover:border-[#fe2c55]"
+                className="grid h-10 w-10 place-items-center rounded-full border border-[#e5e7eb] bg-white hover:border-[#fd4605]"
               >
                 <Share2 className="h-4 w-4" />
               </button>
@@ -212,7 +212,7 @@ export default function LocationFeedPage() {
                   aria-label="More"
                   aria-haspopup="menu"
                   aria-expanded={menuOpen}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-[#e5e7eb] bg-white hover:border-[#fe2c55]"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-[#e5e7eb] bg-white hover:border-[#fd4605]"
                 >
                   <MoreVertical className="h-4 w-4" />
                 </button>
@@ -281,11 +281,11 @@ export default function LocationFeedPage() {
               onClick={() => setTab(t)}
               className={cn(
                 "relative pb-3 text-[14px] font-semibold transition",
-                tab === t ? "text-[#fe2c55]" : "text-[#6b7280] hover:text-[#111827]",
+                tab === t ? "text-[#fd4605]" : "text-[#6b7280] hover:text-[#111827]",
               )}
             >
               {lbl}
-              {tab === t && <span className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-[#fe2c55]" />}
+              {tab === t && <span className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-[#fd4605]" />}
             </button>
           ))}
         </div>
@@ -307,7 +307,7 @@ export default function LocationFeedPage() {
                     onClick={() => void fetchPage(1, false)}
                     aria-label="Refresh"
                     title="Refresh - pull the latest posts"
-                    className="grid h-9 w-9 place-items-center rounded-full border border-[#e5e7eb] bg-white text-[#6b7280] transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                    className="grid h-9 w-9 place-items-center rounded-full border border-[#e5e7eb] bg-white text-[#6b7280] transition hover:border-[#fd4605] hover:text-[#fd4605]"
                   >
                     <RefreshCw className={cn("h-4 w-4", loading && "animate-spin")} />
                   </button>
@@ -332,7 +332,7 @@ export default function LocationFeedPage() {
                         type="button"
                         onClick={() => void fetchPage(page + 1, true)}
                         disabled={loadingMore}
-                        className="mt-5 flex w-full items-center justify-center gap-1.5 rounded-2xl bg-[#fff0f4] py-3.5 text-[14px] font-bold text-[#fe2c55] hover:bg-[#ffe3ea] disabled:opacity-60"
+                        className="mt-5 flex w-full items-center justify-center gap-1.5 rounded-2xl bg-[#fff3ec] py-3.5 text-[14px] font-bold text-[#fd4605] hover:bg-[#ffe3ea] disabled:opacity-60"
                       >
                         {loadingMore ? "Loading…" : "Load more videos"}
                         {!loadingMore && <ChevronDown className="h-4 w-4" />}
@@ -442,14 +442,14 @@ function Card({ v, locName }: { v: ReelsooVideo; locName: string }) {
 function EmptyState() {
   return (
     <div className="flex flex-col items-center justify-center rounded-2xl border border-[#eeeeee] bg-white px-6 py-16 text-center">
-      <div className="grid h-16 w-16 place-items-center rounded-full bg-[#fff0f4]">
-        <MapPin className="h-8 w-8 text-[#fe2c55]" />
+      <div className="grid h-16 w-16 place-items-center rounded-full bg-[#fff3ec]">
+        <MapPin className="h-8 w-8 text-[#fd4605]" />
       </div>
       <p className="mt-4 text-[16px] font-bold">No posts from this location yet</p>
       <p className="mt-1 max-w-sm text-[13.5px] text-[#6b7280]">
         When creators tag this location in their uploads, their posts will appear here.
       </p>
-      <Link href="/explore" className="mt-5 rounded-full bg-[#fe2c55] px-5 py-2.5 text-[13px] font-bold text-white hover:bg-[#e0193f]">
+      <Link href="/explore" className="mt-5 rounded-full bg-[#fd4605] px-5 py-2.5 text-[13px] font-bold text-white hover:bg-[#e03e04]">
         Explore other locations
       </Link>
     </div>
@@ -482,7 +482,7 @@ function NearbyCreators({ slug }: { slug: string }) {
   if (creators.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center rounded-2xl border border-[#eeeeee] bg-white px-6 py-16 text-center">
-        <div className="grid h-16 w-16 place-items-center rounded-full bg-[#fff0f4]"><MapPin className="h-8 w-8 text-[#fe2c55]" /></div>
+        <div className="grid h-16 w-16 place-items-center rounded-full bg-[#fff3ec]"><MapPin className="h-8 w-8 text-[#fd4605]" /></div>
         <p className="mt-4 text-[16px] font-bold">No nearby creators yet</p>
         <p className="mt-1 max-w-sm text-[13.5px] text-[#6b7280]">Creators who tag a location in {country ?? "this country"} will appear here.</p>
       </div>

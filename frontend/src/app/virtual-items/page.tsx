@@ -114,7 +114,7 @@ export default function VirtualItemsPolicyPage() {
       <H2 id="contact" n={10}>Contact</H2>
       <P>
         Billing and virtual-items questions:{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>{" "}
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>{" "}
         (subject line &quot;Billing&quot;).
       </P>
     </LegalShell>

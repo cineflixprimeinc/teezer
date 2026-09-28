@@ -58,9 +58,9 @@ type VideoFull = {
 type TabKey = "details" | "settings" | "monetization" | "visibility" | "advanced";
 
 // ── Style helpers ─────────────────────────────────────────────────────────────
-const INPUT    = "w-full rounded-[10px] border border-[#e8eaed] px-3 h-9 text-[13px] focus:outline-none focus:ring-2 focus:ring-[#fe2c55]/20 focus:border-[#fe2c55] bg-white";
-const TEXTAREA = "w-full rounded-[10px] border border-[#e8eaed] px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-[#fe2c55]/20 focus:border-[#fe2c55] bg-white resize-none";
-const SELECT   = "w-full rounded-[10px] border border-[#e8eaed] px-3 h-9 text-[13px] focus:outline-none focus:ring-2 focus:ring-[#fe2c55]/20 focus:border-[#fe2c55] bg-white cursor-pointer";
+const INPUT    = "w-full rounded-[10px] border border-[#e8eaed] px-3 h-9 text-[13px] focus:outline-none focus:ring-2 focus:ring-[#fd4605]/20 focus:border-[#fd4605] bg-white";
+const TEXTAREA = "w-full rounded-[10px] border border-[#e8eaed] px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-[#fd4605]/20 focus:border-[#fd4605] bg-white resize-none";
+const SELECT   = "w-full rounded-[10px] border border-[#e8eaed] px-3 h-9 text-[13px] focus:outline-none focus:ring-2 focus:ring-[#fd4605]/20 focus:border-[#fd4605] bg-white cursor-pointer";
 const CARD     = "bg-white rounded-2xl border border-[#e8eaed] shadow-sm overflow-hidden";
 const SEC_HEAD = "px-5 py-3.5 border-b border-[#e8eaed]";
 const ROW      = "flex items-center justify-between px-5 py-3 border-b border-[#f3f4f6] last:border-0";
@@ -73,7 +73,7 @@ function Toggle({ on, onChange }: { on: boolean; onChange: (v: boolean) => void 
     <button
       type="button"
       onClick={() => onChange(!on)}
-      className={`w-10 h-6 rounded-full transition-colors flex items-center px-0.5 shrink-0 ${on ? "bg-[#fe2c55]" : "bg-[#d1d5db]"}`}
+      className={`w-10 h-6 rounded-full transition-colors flex items-center px-0.5 shrink-0 ${on ? "bg-[#fd4605]" : "bg-[#d1d5db]"}`}
     >
       <span className={`h-5 w-5 rounded-full bg-white shadow transition-transform ${on ? "translate-x-4" : "translate-x-0"}`} />
     </button>
@@ -146,13 +146,13 @@ function DetailsTab({ video, qk }: { video: VideoFull; qk: readonly unknown[] })
                 ))}
               </div>
               <p className="text-[#9ca3af]">
-                By <a href={`/admin/users/${video.user.id}`} className="text-[#fe2c55] hover:underline">@{video.user.username}</a>
+                By <a href={`/admin/users/${video.user.id}`} className="text-[#fd4605] hover:underline">@{video.user.username}</a>
                 {" · "}{timeAgo(video.created_at)}
               </p>
               {video.duration  != null && <p className="text-[#9ca3af]">Duration: {Math.floor(video.duration / 60)}:{String(video.duration % 60).padStart(2, "0")}</p>}
               {video.file_size != null && <p className="text-[#9ca3af]">Size: {(video.file_size / 1024 / 1024).toFixed(1)} MB</p>}
               {video.video_url && (
-                <a href={video.video_url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-[#fe2c55] hover:underline">
+                <a href={video.video_url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-[#fd4605] hover:underline">
                   <ExternalLink size={11}/>View video
                 </a>
               )}
@@ -203,7 +203,7 @@ function DetailsTab({ video, qk }: { video: VideoFull; qk: readonly unknown[] })
           {tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
               {tags.map(t => (
-                <span key={t} className="flex items-center gap-1 text-[12px] bg-[#fff0f3] text-[#fe2c55] font-medium rounded-full px-2.5 py-1">
+                <span key={t} className="flex items-center gap-1 text-[12px] bg-[#fff0f3] text-[#fd4605] font-medium rounded-full px-2.5 py-1">
                   #{t}
                   <button type="button" onClick={() => setTags(ts => ts.filter(x => x !== t))} className="hover:text-red-700 leading-none">
                     <X size={10} />
@@ -310,7 +310,7 @@ function SettingsTab({ video, qk }: { video: VideoFull; qk: readonly unknown[] }
         <div className={ROW}>
           <div><p className={LABEL}>Age Restriction</p><p className={SUB}>Minimum age required to view</p></div>
           <select
-            className="rounded-[10px] border border-[#e8eaed] px-3 h-8 text-[12px] focus:outline-none focus:ring-2 focus:ring-[#fe2c55]/20 focus:border-[#fe2c55] bg-white"
+            className="rounded-[10px] border border-[#e8eaed] px-3 h-8 text-[12px] focus:outline-none focus:ring-2 focus:ring-[#fd4605]/20 focus:border-[#fd4605] bg-white"
             value={form.age_restriction}
             onChange={e => setForm(f => ({ ...f, age_restriction: e.target.value }))}
           >
@@ -323,7 +323,7 @@ function SettingsTab({ video, qk }: { video: VideoFull; qk: readonly unknown[] }
         <div className={ROW}>
           <div><p className={LABEL}>Content Label</p><p className={SUB}>Optional label shown on the video</p></div>
           <input
-            className="rounded-[10px] border border-[#e8eaed] px-3 h-8 text-[12px] w-36 focus:outline-none focus:ring-2 focus:ring-[#fe2c55]/20 focus:border-[#fe2c55]"
+            className="rounded-[10px] border border-[#e8eaed] px-3 h-8 text-[12px] w-36 focus:outline-none focus:ring-2 focus:ring-[#fd4605]/20 focus:border-[#fd4605]"
             value={form.content_label}
             onChange={e => setForm(f => ({ ...f, content_label: e.target.value }))}
             placeholder="e.g. Mature"
@@ -509,7 +509,7 @@ function VisibilityTab({ video, qk }: { video: VideoFull; qk: readonly unknown[]
         <div className={ROW}>
           <div><p className={LABEL}>Video Status</p><p className={SUB}>Controls who can see this video</p></div>
           <select
-            className="rounded-[10px] border border-[#e8eaed] px-3 h-8 text-[12px] focus:outline-none focus:ring-2 focus:ring-[#fe2c55]/20 focus:border-[#fe2c55] bg-white"
+            className="rounded-[10px] border border-[#e8eaed] px-3 h-8 text-[12px] focus:outline-none focus:ring-2 focus:ring-[#fd4605]/20 focus:border-[#fd4605] bg-white"
             value={form.status}
             onChange={e => setForm(f => ({ ...f, status: e.target.value }))}
           >
@@ -777,7 +777,7 @@ export default function VideoEditPage({ params }: { params: Promise<{ id: string
     return (
       <AdminShell title="Edit Video">
         <div className="flex items-center justify-center h-64">
-          <div className="animate-spin h-8 w-8 rounded-full border-4 border-[#fe2c55] border-t-transparent" />
+          <div className="animate-spin h-8 w-8 rounded-full border-4 border-[#fd4605] border-t-transparent" />
         </div>
       </AdminShell>
     );
@@ -832,7 +832,7 @@ export default function VideoEditPage({ params }: { params: Promise<{ id: string
               onClick={() => setTab(t.key)}
               className={`flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] font-semibold rounded-xl transition-colors ${
                 tab === t.key
-                  ? "bg-white text-[#fe2c55] shadow-sm border border-[#e8eaed]"
+                  ? "bg-white text-[#fd4605] shadow-sm border border-[#e8eaed]"
                   : "text-[#6b7280] hover:text-[#374151]"
               }`}
             >

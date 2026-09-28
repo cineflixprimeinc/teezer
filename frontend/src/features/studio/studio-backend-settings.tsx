@@ -46,7 +46,7 @@ export function StudioBackendSettings() {
               "flex items-center gap-2 rounded-lg px-4 py-2 text-[12px] font-semibold transition",
               loading
                 ? "cursor-not-allowed bg-[#f3f4f6] text-[#9ca3af]"
-                : "bg-[#fe2c55] text-white hover:bg-[#e0243d]"
+                : "bg-[#fd4605] text-white hover:bg-[#e03e04]"
             )}
           >
             {loading ? (
@@ -117,7 +117,7 @@ export function StudioBackendSettings() {
           href="https://github.com/cineflixprime/reelsoo"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col rounded-lg border border-[#f0f0f0] bg-white p-4 transition hover:border-[#fe2c55] hover:shadow-sm"
+          className="flex flex-col rounded-lg border border-[#f0f0f0] bg-white p-4 transition hover:border-[#fd4605] hover:shadow-sm"
         >
           <p className="text-[13px] font-semibold text-[#111827]">View Backend Code</p>
           <p className="mt-1 text-[11px] text-[#9ca3af]">GitHub repository →</p>
@@ -126,7 +126,7 @@ export function StudioBackendSettings() {
           href="https://laravel.com/docs"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col rounded-lg border border-[#f0f0f0] bg-white p-4 transition hover:border-[#fe2c55] hover:shadow-sm"
+          className="flex flex-col rounded-lg border border-[#f0f0f0] bg-white p-4 transition hover:border-[#fd4605] hover:shadow-sm"
         >
           <p className="text-[13px] font-semibold text-[#111827]">Laravel Docs</p>
           <p className="mt-1 text-[11px] text-[#9ca3af]">Official documentation →</p>

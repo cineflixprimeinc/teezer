@@ -9,13 +9,13 @@
         <div class="flex items-center gap-4">
             @auth
                 <a href="{{ route('dashboard') }}"
-                   class="px-4 py-1.5 rounded-full text-sm font-semibold bg-[#fe2c55] hover:bg-[#e0243d] transition-colors">
+                   class="px-4 py-1.5 rounded-full text-sm font-semibold bg-[#fd4605] hover:bg-[#e03e04] transition-colors">
                     Dashboard
                 </a>
             @else
                 <a href="{{ route('login') }}" class="text-sm text-white/80 hover:text-white transition-colors">Log in</a>
                 <a href="{{ route('register') }}"
-                   class="px-4 py-1.5 rounded-full text-sm font-semibold bg-[#fe2c55] hover:bg-[#e0243d] transition-colors">
+                   class="px-4 py-1.5 rounded-full text-sm font-semibold bg-[#fd4605] hover:bg-[#e03e04] transition-colors">
                     Sign up
                 </a>
             @endauth

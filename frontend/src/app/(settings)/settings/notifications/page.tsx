@@ -22,7 +22,7 @@ function Toggle({ on, onChange }: { on: boolean; onChange: (v: boolean) => void 
       aria-checked={on}
       onClick={() => onChange(!on)}
       className={`relative inline-flex h-[26px] w-12 flex-shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none ${
-        on ? "bg-[#fe2c55]" : "bg-[#d1d5db]"
+        on ? "bg-[#fd4605]" : "bg-[#d1d5db]"
       }`}
     >
       <span
@@ -63,7 +63,7 @@ function Card({ n, title, children }: { n: number; title: string; children: Reac
   return (
     <div className="overflow-hidden rounded-2xl border border-[#f0f1f5] bg-white shadow-sm">
       <div className="flex items-center gap-2.5 border-b border-[#f3f4f6] bg-white px-5 py-4">
-        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#fe2c55] text-[11px] font-black text-white">
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#fd4605] text-[11px] font-black text-white">
           {n}
         </span>
         <p className="text-[12px] font-bold uppercase tracking-widest text-[#374151]">{title}</p>
@@ -114,7 +114,7 @@ export default function NotificationsPage() {
   if (loading) {
     return (
       <div className="flex h-64 items-center justify-center">
-        <Loader2 className="h-7 w-7 animate-spin text-[#fe2c55]" />
+        <Loader2 className="h-7 w-7 animate-spin text-[#fd4605]" />
       </div>
     );
   }
@@ -132,7 +132,7 @@ export default function NotificationsPage() {
 
           {/* ── 1 Push Notifications ── */}
           <Card n={1} title="Push Notifications">
-            <NotifRow icon={Heart}         iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+            <NotifRow icon={Heart}         iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
               title="Likes"                desc="When someone likes your video"
               on={prefs.push_likes}     onChange={set("push_likes")} />
             <NotifRow icon={MessageSquare} iconBg="bg-[#eff6ff]" iconColor="text-[#3b82f6]"
@@ -179,7 +179,7 @@ export default function NotificationsPage() {
             <NotifRow icon={Phone}         iconBg="bg-[#f0fdf4]" iconColor="text-[#16a34a]"
               title="Login OTP"            desc="One-time password for login verification"
               on={prefs.sms_otp}        onChange={set("sms_otp")} />
-            <NotifRow icon={Lock}          iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+            <NotifRow icon={Lock}          iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
               title="Security Alerts"      desc="Critical security alerts via SMS"
               on={prefs.sms_security}   onChange={set("sms_security")} />
             <NotifRow icon={Bell}          iconBg="bg-[#fffbeb]" iconColor="text-[#f59e0b]"
@@ -211,7 +211,7 @@ export default function NotificationsPage() {
               type="button"
               onClick={save}
               disabled={!isDirty || saving}
-              className="flex items-center gap-2 rounded-[10px] bg-[#fe2c55] px-6 py-2.5 text-[13px] font-bold text-white shadow-[0_4px_14px_rgba(254,44,85,0.25)] transition hover:bg-[#e0193f] hover:shadow-[0_4px_18px_rgba(254,44,85,0.35)] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
+              className="flex items-center gap-2 rounded-[10px] bg-[#fd4605] px-6 py-2.5 text-[13px] font-bold text-white shadow-[0_4px_14px_rgba(253,70,5,0.25)] transition hover:bg-[#e03e04] hover:shadow-[0_4px_18px_rgba(253,70,5,0.35)] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
             >
               {saving ? (
                 <><Loader2 className="h-4 w-4 animate-spin" /> Saving…</>

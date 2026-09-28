@@ -32,7 +32,7 @@
           <td>
             <table role="presentation" border="0" cellpadding="0" cellspacing="0">
               <tr>
-                <td width="34" height="34" style="background-color:#fe2c55;border-radius:8px;text-align:center;vertical-align:middle;">
+                <td width="34" height="34" style="background-color:#fd4605;border-radius:8px;text-align:center;vertical-align:middle;">
                   <span style="font-size:20px;font-weight:900;color:#ffffff;line-height:34px;display:block;">R</span>
                 </td>
                 <td style="padding-left:9px;vertical-align:middle;">
@@ -86,13 +86,13 @@
             <!-- Red accent bar -->
             <table role="presentation" border="0" cellpadding="0" cellspacing="0">
               <tr>
-                <td width="36" height="3" style="background-color:#fe2c55;border-radius:2px;font-size:0;line-height:0;">&nbsp;</td>
+                <td width="36" height="3" style="background-color:#fd4605;border-radius:2px;font-size:0;line-height:0;">&nbsp;</td>
               </tr>
             </table>
             <p style="margin:10px 0 0;font-size:26px;font-weight:800;color:#111827;line-height:1.15;letter-spacing:-0.5px;">
               You have a new
             </p>
-            <p style="margin:2px 0 14px;font-size:26px;font-weight:800;color:#fe2c55;line-height:1.15;letter-spacing:-0.5px;">
+            <p style="margin:2px 0 14px;font-size:26px;font-weight:800;color:#fd4605;line-height:1.15;letter-spacing:-0.5px;">
               account notification
             </p>
             <p style="margin:0;font-size:13.5px;color:#4b5563;line-height:1.65;">
@@ -140,7 +140,7 @@
                 <span style="font-size:10px;color:#6b7280;font-weight:500;letter-spacing:0.2px;">Notification Type</span>
               </td></tr>
               <tr><td align="center">
-                <span style="font-size:11px;font-weight:700;color:#fe2c55;">{{ $actionLabel }}</span>
+                <span style="font-size:11px;font-weight:700;color:#fd4605;">{{ $actionLabel }}</span>
               </td></tr>
             </table>
           </td>
@@ -162,7 +162,7 @@
                 <span style="font-size:10px;color:#6b7280;font-weight:500;letter-spacing:0.2px;">Date &amp; Time</span>
               </td></tr>
               <tr><td align="center">
-                <span style="font-size:11px;font-weight:700;color:#fe2c55;">{{ $sentAt }}</span>
+                <span style="font-size:11px;font-weight:700;color:#fd4605;">{{ $sentAt }}</span>
               </td></tr>
             </table>
           </td>
@@ -184,7 +184,7 @@
                 <span style="font-size:10px;color:#6b7280;font-weight:500;letter-spacing:0.2px;">Account</span>
               </td></tr>
               <tr><td align="center">
-                <span style="font-size:11px;font-weight:700;color:#fe2c55;">{{ '@'.$username }}</span>
+                <span style="font-size:11px;font-weight:700;color:#fd4605;">{{ '@'.$username }}</span>
               </td></tr>
             </table>
           </td>
@@ -206,7 +206,7 @@
                 <span style="font-size:10px;color:#6b7280;font-weight:500;letter-spacing:0.2px;">Reference ID</span>
               </td></tr>
               <tr><td align="center">
-                <span style="font-size:11px;font-weight:700;color:#fe2c55;">{{ $referenceId }}</span>
+                <span style="font-size:11px;font-weight:700;color:#fd4605;">{{ $referenceId }}</span>
               </td></tr>
             </table>
           </td>
@@ -270,7 +270,7 @@
     <td align="center" style="padding:0 32px 14px;">
       <table role="presentation" border="0" cellpadding="0" cellspacing="0">
         <tr>
-          <td style="border-radius:12px;background-color:#fe2c55;">
+          <td style="border-radius:12px;background-color:#fd4605;">
             <a href="{{ rtrim(config('app.url','https://teezer.live'),'/') }}/account/notifications"
                style="display:inline-block;padding:15px 56px;font-size:15px;font-weight:700;color:#ffffff;text-decoration:none;border-radius:12px;letter-spacing:0.1px;">
               View Notification
@@ -286,7 +286,7 @@
     <td align="center" style="padding:0 32px 28px;">
       <p style="margin:0 0 5px;font-size:11.5px;color:#9ca3af;">If the button does not work, copy and paste this link:</p>
       <a href="{{ rtrim(config('app.url','https://teezer.live'),'/') }}/account/notifications"
-         style="font-size:11.5px;color:#fe2c55;text-decoration:none;word-break:break-all;">
+         style="font-size:11.5px;color:#fd4605;text-decoration:none;word-break:break-all;">
         {{ rtrim(config('app.url','https://teezer.live'),'/') }}/account/notifications
       </a>
     </td>
@@ -301,7 +301,7 @@
             <table role="presentation" border="0" cellpadding="0" cellspacing="0">
               <tr>
                 <td style="background-color:#fff0f3;border-radius:20px;padding:6px 13px;">
-                  <span style="font-size:11px;font-weight:600;color:#fe2c55;white-space:nowrap;">🛡️ Security</span>
+                  <span style="font-size:11px;font-weight:600;color:#fd4605;white-space:nowrap;">🛡️ Security</span>
                 </td>
               </tr>
             </table>
@@ -357,7 +357,7 @@
             <span style="font-size:12px;color:#6b7280;">
               Manage notification preferences in your
               <a href="{{ rtrim(config('app.url','https://teezer.live'),'/') }}/settings/notifications"
-                 style="color:#fe2c55;text-decoration:none;font-weight:500;">settings</a>.
+                 style="color:#fd4605;text-decoration:none;font-weight:500;">settings</a>.
             </span>
           </td>
         </tr>
@@ -381,13 +381,13 @@
   <tr>
     <td align="center" style="padding:10px 32px 28px;border-top:1px solid #f3f4f6;">
       <a href="https://teezer.live/privacy"
-         style="font-size:11.5px;color:#fe2c55;text-decoration:none;">Privacy Policy</a>
+         style="font-size:11.5px;color:#fd4605;text-decoration:none;">Privacy Policy</a>
       <span style="font-size:11.5px;color:#d1d5db;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
       <a href="https://teezer.live/terms"
-         style="font-size:11.5px;color:#fe2c55;text-decoration:none;">Terms of Service</a>
+         style="font-size:11.5px;color:#fd4605;text-decoration:none;">Terms of Service</a>
       <span style="font-size:11.5px;color:#d1d5db;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
       <a href="{{ $appealUrl }}"
-         style="font-size:11.5px;color:#fe2c55;text-decoration:none;">Support</a>
+         style="font-size:11.5px;color:#fd4605;text-decoration:none;">Support</a>
     </td>
   </tr>
 

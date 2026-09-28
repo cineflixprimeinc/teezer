@@ -238,7 +238,7 @@ function RecommendationSettingsSection() {
   return (
     <div className="mb-6 rounded-[12px] border border-[#e5e7eb] bg-white p-5 space-y-4">
       <div className="flex items-center gap-2 mb-2">
-        <Sparkles className="h-4 w-4 text-[#fe2c55]" />
+        <Sparkles className="h-4 w-4 text-[#fd4605]" />
         <h3 className="text-[14px] font-semibold text-[#111827]">Profile Suggestion Algorithm</h3>
       </div>
       <p className="text-[12px] text-[#6b7280]">
@@ -260,7 +260,7 @@ function RecommendationSettingsSection() {
               </div>
               <button
                 onClick={() => save(key, current === "1" ? "0" : "1", "boolean")}
-                className={`relative h-5 w-9 rounded-full transition-colors ${current === "1" ? "bg-[#fe2c55]" : "bg-[#d1d5db]"}`}
+                className={`relative h-5 w-9 rounded-full transition-colors ${current === "1" ? "bg-[#fd4605]" : "bg-[#d1d5db]"}`}
               >
                 <span className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform ${current === "1" ? "translate-x-4" : "translate-x-0.5"}`} />
               </button>
@@ -289,7 +289,7 @@ function RecommendationSettingsSection() {
                 onBlur={(e) => {
                   if (e.target.value !== current) save(key, e.target.value, "string");
                 }}
-                className="h-8 w-20 rounded-[8px] border border-[#e8eaed] px-2.5 text-[12px] outline-none focus:border-[#fe2c55] text-right"
+                className="h-8 w-20 rounded-[8px] border border-[#e8eaed] px-2.5 text-[12px] outline-none focus:border-[#fd4605] text-right"
               />
             </div>
           );
@@ -313,7 +313,7 @@ function RecommendationSettingsSection() {
               type="text"
               defaultValue={get(key, def)}
               onBlur={(e) => { if (e.target.value !== get(key, def)) save(key, e.target.value); }}
-              className="h-8 w-24 rounded-[8px] border border-[#e8eaed] px-2.5 text-[12px] outline-none focus:border-[#fe2c55] text-right"
+              className="h-8 w-24 rounded-[8px] border border-[#e8eaed] px-2.5 text-[12px] outline-none focus:border-[#fd4605] text-right"
             />
           </div>
         ))}
@@ -354,7 +354,7 @@ function SettingRow({ setting }: { setting: Setting }) {
                 .then(() => { toast.success("Updated"); qc.invalidateQueries({ queryKey: ["admin-settings"] }); })
                 .catch(() => toast.error("Failed"));
             }}
-            className={`relative h-5 w-9 rounded-full transition-colors ${val === "1" ? "bg-[#fe2c55]" : "bg-[#d1d5db]"}`}
+            className={`relative h-5 w-9 rounded-full transition-colors ${val === "1" ? "bg-[#fd4605]" : "bg-[#d1d5db]"}`}
           >
             <span className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform ${val === "1" ? "translate-x-4" : "translate-x-0.5"}`} />
           </button>
@@ -363,7 +363,7 @@ function SettingRow({ setting }: { setting: Setting }) {
             <input
               value={val}
               onChange={(e) => setVal(e.target.value)}
-              className="h-8 w-48 rounded-[8px] border border-[#e8eaed] px-2.5 text-[12px] outline-none focus:border-[#fe2c55]"
+              className="h-8 w-48 rounded-[8px] border border-[#e8eaed] px-2.5 text-[12px] outline-none focus:border-[#fd4605]"
               autoFocus
             />
             <Button size="sm" variant="primary" disabled={save.isPending || !isDirty}
@@ -419,8 +419,8 @@ export default function SettingsPage() {
         {/* Website & SEO gets a card of its own: it is the settings group most
             often reached, and the only one with a dedicated screen. */}
         <Link href="/settings/website"
-          className="flex items-center gap-3.5 rounded-[12px] border border-[#e5e7eb] bg-white p-4 transition-colors hover:border-[#fe2c55]/40 hover:bg-[#fff8fa]">
-          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#fff0f4] text-[#fe2c55]">
+          className="flex items-center gap-3.5 rounded-[12px] border border-[#e5e7eb] bg-white p-4 transition-colors hover:border-[#fd4605]/40 hover:bg-[#fff8fa]">
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#fff3ec] text-[#fd4605]">
             <Globe className="h-5 w-5" />
           </span>
           <span className="min-w-0 flex-1">
@@ -461,7 +461,7 @@ export default function SettingsPage() {
                   <button key={g}
                     onClick={() => setActiveGroup(g)}
                     className={`flex w-full items-center gap-2 rounded-[8px] px-3 py-2 text-[13px] font-medium transition-colors text-left
-                      ${activeGroup === g ? "bg-[#fff0f4] text-[#fe2c55]" : "text-[#374151] hover:bg-[#f4f5f7]"}`}>
+                      ${activeGroup === g ? "bg-[#fff3ec] text-[#fd4605]" : "text-[#374151] hover:bg-[#f4f5f7]"}`}>
                     <Settings className="h-3.5 w-3.5 shrink-0" />
                     <span className="truncate">{label}</span>
                     {count !== undefined && g !== "all" && (

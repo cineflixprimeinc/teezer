@@ -362,7 +362,7 @@ function CallOverlay(props: {
 function CallAvatar({ src, name }: { src?: string | null; name: string }) {
   if (src) return <img src={src} alt={name} className="h-[132px] w-[132px] rounded-full object-cover" />;
   return (
-    <div className="grid h-[132px] w-[132px] place-items-center rounded-full bg-[#fe2c55] text-[54px] font-extrabold text-white">
+    <div className="grid h-[132px] w-[132px] place-items-center rounded-full bg-[#fd4605] text-[54px] font-extrabold text-white">
       {(name || "U")[0]?.toUpperCase()}
     </div>
   );

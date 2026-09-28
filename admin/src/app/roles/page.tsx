@@ -78,7 +78,7 @@ function PermissionsCell({ userId, canManage }: { userId: number; canManage: boo
             {grantable.map((p) => <option key={p} value={p}>{catalog[p]?.label ?? p}</option>)}
           </Select>
         ) : (
-          <button onClick={() => setAdding(true)} className="inline-flex items-center gap-0.5 rounded-md border border-dashed border-[#d1d5db] px-1.5 py-0.5 text-[10px] font-medium text-[#9ca3af] hover:border-[#fe2c55] hover:text-[#fe2c55]">
+          <button onClick={() => setAdding(true)} className="inline-flex items-center gap-0.5 rounded-md border border-dashed border-[#d1d5db] px-1.5 py-0.5 text-[10px] font-medium text-[#9ca3af] hover:border-[#fd4605] hover:text-[#fd4605]">
             <Plus className="h-2.5 w-2.5" /> Grant
           </button>
         )

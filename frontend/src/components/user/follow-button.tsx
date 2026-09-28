@@ -131,7 +131,7 @@ export function FollowButton({
           "absolute -bottom-1.5 left-1/2 -translate-x-1/2",
           "grid h-5 w-5 place-items-center rounded-full shadow ring-2 ring-white",
           "transition-colors duration-150 disabled:opacity-60",
-          isFollowing ? "bg-[#10b981]" : isPending ? "bg-[#f59e0b]" : "bg-[#fe2c55]",
+          isFollowing ? "bg-[#10b981]" : isPending ? "bg-[#f59e0b]" : "bg-[#fd4605]",
           "text-white",
           className,
         )}
@@ -190,9 +190,9 @@ export function FollowButton({
               : "border border-[#eeeeee] bg-white text-[#5f6675]"
             : isFollowing
               ? hovering
-                ? "border border-red-200 bg-red-50 text-[#fe2c55]"
+                ? "border border-red-200 bg-red-50 text-[#fd4605]"
                 : "border border-[#eeeeee] bg-white text-[#111827]"
-              : "bg-[#fe2c55] text-white shadow-[0_4px_14px_rgba(254,44,85,0.25)] hover:bg-[#e02449]",
+              : "bg-[#fd4605] text-white shadow-[0_4px_14px_rgba(253,70,5,0.25)] hover:bg-[#e03e04]",
           className,
         )}
       >
@@ -226,10 +226,10 @@ export function FollowButton({
       className={cn(
         "flex-shrink-0 rounded-[8px] border px-3 py-[6px] text-[11.5px] font-bold transition disabled:opacity-60",
         isFollowing
-          ? "border-[#eeeeee] bg-white text-[#5f6675] hover:border-[#fe2c55] hover:text-[#fe2c55]"
+          ? "border-[#eeeeee] bg-white text-[#5f6675] hover:border-[#fd4605] hover:text-[#fd4605]"
           : isPending
             ? "border-amber-300 bg-amber-50 text-amber-600 hover:bg-amber-100"
-            : "border-[#fe2c55] bg-[#fe2c55] text-white hover:bg-[#e02449]",
+            : "border-[#fd4605] bg-[#fd4605] text-white hover:bg-[#e03e04]",
         className,
       )}
     >

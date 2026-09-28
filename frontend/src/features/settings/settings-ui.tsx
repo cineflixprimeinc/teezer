@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, ChevronDown, RotateCcw, CheckCircle, ChevronRight, Check } from "lucide-react";
 
-export const BRAND = "#fe2c55";
+export const BRAND = "#fd4605";
 
 /* ─── Section Badge ───────────────────────────────────────────────────────── */
 export function SectionBadge({ n }: { n: number }) {
@@ -41,7 +41,7 @@ export function PageHeader({
     <header className="mb-6 flex items-center gap-3">
       <Link
         href={backHref}
-        className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-[10px] border border-[#e8eaf0] bg-white text-[#6b7280] shadow-sm transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+        className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-[10px] border border-[#e8eaf0] bg-white text-[#6b7280] shadow-sm transition hover:border-[#fd4605] hover:text-[#fd4605]"
       >
         <ArrowLeft className="h-4 w-4" />
       </Link>
@@ -242,7 +242,7 @@ export function StatusBadge({
 /* ─── Inline Button ───────────────────────────────────────────────────────── */
 type BtnVariant = "default" | "primary" | "danger" | "warning";
 const BTN_CLS: Record<BtnVariant, string> = {
-  default: "border border-[#e8eaf0] bg-white text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55]",
+  default: "border border-[#e8eaf0] bg-white text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605]",
   primary: "text-white hover:opacity-90",
   danger:  "border border-[#fee2e2] bg-[#fff0f0] text-[#dc2626] hover:bg-[#fee2e2]",
   warning: "border border-[#fef3c7] bg-[#fffbeb] text-[#d97706] hover:bg-[#fef3c7]",
@@ -306,7 +306,7 @@ export function SmallSelect({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="h-8 appearance-none rounded-full border border-[#e8eaf0] bg-white pl-3 pr-7 text-[12px] font-semibold text-[#374151] outline-none focus:border-[#fe2c55]"
+        className="h-8 appearance-none rounded-full border border-[#e8eaf0] bg-white pl-3 pr-7 text-[12px] font-semibold text-[#374151] outline-none focus:border-[#fd4605]"
       >
         {options.map((o) => (
           <option key={o}>{o}</option>
@@ -364,7 +364,7 @@ export function NiceSelect({
           minWidth: fullWidth ? undefined : 110,
           borderColor: open ? BRAND : "#e8eaf0",
           color: value ? "#374151" : "#9ca3af",
-          boxShadow: open ? `0 0 0 3px rgba(254,44,85,0.10)` : "none",
+          boxShadow: open ? `0 0 0 3px rgba(253,70,5,0.10)` : "none",
         }}
       >
         <span className="flex-1 truncate text-left">{value || placeholder || "Select…"}</span>
@@ -395,7 +395,7 @@ export function NiceSelect({
                 onClick={() => { onChange(opt); setOpen(false); }}
                 className="flex w-full items-center gap-2.5 px-4 py-2.5 text-left text-[12.5px] font-semibold transition-colors"
                 style={{
-                  background: selected ? "#fff0f4" : "transparent",
+                  background: selected ? "#fff3ec" : "transparent",
                   color: selected ? BRAND : "#374151",
                 }}
                 onMouseEnter={(e) => { if (!selected) (e.currentTarget as HTMLButtonElement).style.background = "#f8fafc"; }}
@@ -437,7 +437,7 @@ export function Field({
   rows?: number;
 }) {
   const base =
-    "w-full rounded-[10px] border border-[#e8eaf0] bg-white px-3 text-[13px] text-[#111827] placeholder:text-[#c0c4cc] outline-none transition-colors focus:border-[#fe2c55]";
+    "w-full rounded-[10px] border border-[#e8eaf0] bg-white px-3 text-[13px] text-[#111827] placeholder:text-[#c0c4cc] outline-none transition-colors focus:border-[#fd4605]";
   return (
     <div className="flex flex-col gap-[3px]">
       <label className="text-[11px] font-semibold text-[#6b7280]">{label}</label>
@@ -529,7 +529,7 @@ export function ActionBar({
       <button
         onClick={onSave}
         className="flex items-center gap-2 rounded-[10px] px-5 py-1.5 text-[13px] font-bold text-white shadow-sm transition hover:opacity-90 active:scale-[0.98]"
-        style={{ background: BRAND, boxShadow: "0 2px 12px rgba(254,44,85,0.30)" }}
+        style={{ background: BRAND, boxShadow: "0 2px 12px rgba(253,70,5,0.30)" }}
       >
         <CheckCircle className="h-4 w-4" />
         {saveLabel}

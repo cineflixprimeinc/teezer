@@ -95,14 +95,14 @@ export function AdsAuthorizePage({ onGranted }: { onGranted: () => void }) {
           <div className="flex w-[120px] flex-col items-center text-center">
             <Avatar src={user?.avatar} name={user?.name} />
             <p className="mt-2 line-clamp-1 text-[13.5px] font-bold text-[#111827]">{user?.name ?? "Your account"}</p>
-            <button type="button" onClick={switchAccount} className="mt-0.5 text-[12px] font-semibold text-[#fe2c55]">
+            <button type="button" onClick={switchAccount} className="mt-0.5 text-[12px] font-semibold text-[#fd4605]">
               Switch account
             </button>
           </div>
           <ArrowLeftRight className="mt-5 h-5 w-5 flex-shrink-0 text-[#9ca3af]" />
           <div className="flex w-[120px] flex-col items-center text-center">
-            <span className="grid h-16 w-16 place-items-center rounded-full bg-[#fff0f4]">
-              <Image src="/reelsooadslogilogos.png" alt="Teezer Ads" width={64} height={64} unoptimized className="h-9 w-9 object-contain" />
+            <span className="grid h-16 w-16 place-items-center rounded-full bg-[#fff3ec]">
+              <Image src="/teezer-logo.png" alt="Teezer Ads" width={64} height={64} unoptimized className="h-9 w-9 object-contain" />
             </span>
             <p className="mt-2 text-[13.5px] font-bold text-[#111827]">Teezer Ads</p>
           </div>
@@ -114,7 +114,7 @@ export function AdsAuthorizePage({ onGranted }: { onGranted: () => void }) {
         <div className="flex items-center justify-between">
           <p className="text-[13px] font-bold text-[#111827]">Teezer Ads will be able to</p>
           {optional.length > 0 && (
-            <button type="button" onClick={toggleAll} className="text-[12px] font-bold text-[#fe2c55]">
+            <button type="button" onClick={toggleAll} className="text-[12px] font-bold text-[#fd4605]">
               {allSelected ? "Clear all" : "Select all"}
             </button>
           )}
@@ -133,14 +133,14 @@ export function AdsAuthorizePage({ onGranted }: { onGranted: () => void }) {
               return (
                 <li key={s.key}>
                   <label className={`flex items-center gap-3 rounded-xl px-2 py-2.5 transition ${required ? "" : "cursor-pointer hover:bg-[#f8f9fb]"}`}>
-                    <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-[#fff0f4]">
-                      <Icon className="h-[18px] w-[18px] text-[#fe2c55]" />
+                    <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-[#fff3ec]">
+                      <Icon className="h-[18px] w-[18px] text-[#fd4605]" />
                     </span>
                     <span className="flex-1 text-[13.5px] text-[#374151]">
                       {s.label}
                       {required && <span className="ml-1.5 text-[11px] font-semibold text-[#9ca3af]">(required)</span>}
                     </span>
-                    <span className={`grid h-[22px] w-[22px] place-items-center rounded-md border transition ${checked ? "border-[#fe2c55] bg-[#fe2c55]" : "border-[#d1d5db] bg-white"} ${required ? "opacity-70" : ""}`}>
+                    <span className={`grid h-[22px] w-[22px] place-items-center rounded-md border transition ${checked ? "border-[#fd4605] bg-[#fd4605]" : "border-[#d1d5db] bg-white"} ${required ? "opacity-70" : ""}`}>
                       {checked && <Check className="h-3.5 w-3.5 text-white" strokeWidth={3} />}
                     </span>
                     <input type="checkbox" className="sr-only" checked={checked} disabled={required} onChange={() => toggle(s.key)} />
@@ -173,7 +173,7 @@ export function AdsAuthorizePage({ onGranted }: { onGranted: () => void }) {
             type="button"
             onClick={cont}
             disabled={busy || scopes.length === 0}
-            className="h-12 flex-1 rounded-full bg-[#fe2c55] text-[14px] font-bold text-white transition hover:bg-[#e0193f] disabled:opacity-60"
+            className="h-12 flex-1 rounded-full bg-[#fd4605] text-[14px] font-bold text-white transition hover:bg-[#e03e04] disabled:opacity-60"
           >
             {busy ? "Authorizing…" : "Continue"}
           </button>

@@ -18,7 +18,7 @@ import { EmptyState } from "./primitives";
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 /** Donut palette. Ordered so adjacent slices always contrast. */
-export const DONUT_COLORS = ["#fe2c55", "#22c55e", "#3b82f6", "#f59e0b", "#a855f7", "#94a3b8"];
+export const DONUT_COLORS = ["#fd4605", "#22c55e", "#3b82f6", "#f59e0b", "#a855f7", "#94a3b8"];
 
 function shortDate(iso: string): string {
   const d = new Date(iso);
@@ -123,7 +123,7 @@ export function RetentionChart({ data, height = 240 }: { data: RetentionPoint[];
         animations: { enabled: true, speed: 450 },
         fontFamily: "inherit",
       },
-      colors: ["#fe2c55"],
+      colors: ["#fd4605"],
       dataLabels: { enabled: false },
       stroke: { curve: "smooth", width: 2.5 },
       fill: {
@@ -298,7 +298,7 @@ export function Heatmap({ cells }: { cells: HeatCell[] }) {
     if (intensity < 0.4)   return "#ffc2d0";
     if (intensity < 0.6)   return "#ff8fa8";
     if (intensity < 0.8)   return "#ff5c80";
-    return "#fe2c55";
+    return "#fd4605";
   };
 
   const hourLabel = (h: number) => {

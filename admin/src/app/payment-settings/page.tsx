@@ -143,7 +143,7 @@ export default function PaymentSettingsPage() {
     <AdminShell title="Payment Settings">
       <style>{CSS}</style>
       <div className="flex h-64 items-center justify-center">
-        <Loader2 className="h-6 w-6 animate-spin text-[#fe2c55]" />
+        <Loader2 className="h-6 w-6 animate-spin text-[#fd4605]" />
       </div>
     </AdminShell>
   );
@@ -153,7 +153,7 @@ export default function PaymentSettingsPage() {
       <div className="rounded-2xl border border-red-100 bg-red-50 p-8 text-center max-w-sm mx-auto mt-10">
         <XCircle className="h-8 w-8 text-red-400 mx-auto mb-3" />
         <p className="text-[14px] font-semibold text-red-700 mb-4">Failed to load settings</p>
-        <button onClick={load} className="inline-flex items-center gap-2 rounded-xl bg-[#fe2c55] px-4 py-2 text-[13px] font-semibold text-white hover:bg-[#e0243d] transition-colors">
+        <button onClick={load} className="inline-flex items-center gap-2 rounded-xl bg-[#fd4605] px-4 py-2 text-[13px] font-semibold text-white hover:bg-[#e03e04] transition-colors">
           <RefreshCw className="h-3.5 w-3.5" /> Retry
         </button>
       </div>
@@ -305,7 +305,7 @@ export default function PaymentSettingsPage() {
                   <ChevronDown className="h-4 w-4 text-[#9ca3af] pointer-events-none shrink-0" />
                 </div>
                 <button onClick={save} disabled={saving}
-                  className="flex items-center gap-2 rounded-xl bg-[#fe2c55] hover:bg-[#e0243d] px-5 py-2.5 text-[13px] font-bold text-white transition-colors disabled:opacity-60 active:scale-95 shadow-sm shadow-[#fe2c55]/20">
+                  className="flex items-center gap-2 rounded-xl bg-[#fd4605] hover:bg-[#e03e04] px-5 py-2.5 text-[13px] font-bold text-white transition-colors disabled:opacity-60 active:scale-95 shadow-sm shadow-[#fd4605]/20">
                   {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
                   {saving ? "Saving..." : "Save Changes"}
                 </button>
@@ -333,8 +333,8 @@ export default function PaymentSettingsPage() {
               <button onClick={() => setExpanded(v => v === "__pricing" ? null : "__pricing")}
                 className="w-full flex items-center justify-between px-5 py-4 hover:bg-[#fafafa] transition-colors">
                 <div className="flex items-center gap-3">
-                  <div className="h-8 w-8 rounded-xl bg-[#fe2c55]/10 flex items-center justify-center">
-                    <BadgePercent className="h-4 w-4 text-[#fe2c55]" />
+                  <div className="h-8 w-8 rounded-xl bg-[#fd4605]/10 flex items-center justify-center">
+                    <BadgePercent className="h-4 w-4 text-[#fd4605]" />
                   </div>
                   <div className="text-left">
                     <p className="text-[14px] font-bold text-[#111827]">Subscription &amp; Badge Pricing</p>
@@ -359,7 +359,7 @@ export default function PaymentSettingsPage() {
                             <p className="text-[10px] text-[#9ca3af]">{sub}</p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-1 bg-[#f9fafb] border border-[#e8eaed] rounded-xl px-3 py-2 focus-within:border-[#fe2c55] focus-within:ring-2 focus-within:ring-[#fe2c55]/10 transition-all">
+                        <div className="flex items-center gap-1 bg-[#f9fafb] border border-[#e8eaed] rounded-xl px-3 py-2 focus-within:border-[#fd4605] focus-within:ring-2 focus-within:ring-[#fd4605]/10 transition-all">
                           <span className="text-[13px] text-[#9ca3af]">$</span>
                           <input type="number" min={0} max={9999} step={0.01} value={s.pricing[k]}
                             onChange={e => upd({ pricing: { ...s.pricing, [k]: parseFloat(e.target.value) || 0 } })}
@@ -392,7 +392,7 @@ export default function PaymentSettingsPage() {
               {expanded === "__econ" && (
                 <div className="cfg-panel border-t border-[#f3f4f6] p-5 space-y-3">
                   {[
-                    { icon:"🏷️", label:"Commission Rate",    desc:"Platform cut from all gifts",             unit:"%",    k:"commission_rate"    as const, min:0,  max:100,  step:0.5, color:"#fe2c55" },
+                    { icon:"🏷️", label:"Commission Rate",    desc:"Platform cut from all gifts",             unit:"%",    k:"commission_rate"    as const, min:0,  max:100,  step:0.5, color:"#fd4605" },
                     { icon:"💸", label:"Min Withdrawal",     desc:"Minimum USD before creator can withdraw", unit:"USD",  k:"min_withdrawal_usd" as const, min:1,  max:9999, step:1,   color:"#6b7280" },
                     { icon:"🪙", label:"Coins per $1",       desc:"How many coins per dollar spent",         unit:"coins",k:"coin_usd_rate"       as const, min:1,  max:99999,step:1,   color:"#f59e0b" },
                   ].map(({ icon, label, desc, unit, k, min, max, step, color }) => (
@@ -405,7 +405,7 @@ export default function PaymentSettingsPage() {
                       <div className="flex items-center gap-2 shrink-0">
                         <input type="number" min={min} max={max} step={step} value={s.coins[k]}
                           onChange={e => upd({ coins: { ...s.coins, [k]: parseFloat(e.target.value) || min } })}
-                          className="w-20 h-9 rounded-xl border border-[#e8eaed] bg-white px-2 text-[14px] font-bold text-right outline-none focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10 transition-all"
+                          className="w-20 h-9 rounded-xl border border-[#e8eaed] bg-white px-2 text-[14px] font-bold text-right outline-none focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10 transition-all"
                           style={{ color }}
                         />
                         <span className="text-[11px] text-[#9ca3af] w-8">{unit}</span>
@@ -415,7 +415,7 @@ export default function PaymentSettingsPage() {
                   <div className="grid grid-cols-3 gap-3 mt-1">
                     {[
                       { label:"Creator keeps", value:`${100-s.coins.commission_rate}%`,  color:"#10b981" },
-                      { label:"Platform takes", value:`${s.coins.commission_rate}%`,      color:"#fe2c55" },
+                      { label:"Platform takes", value:`${s.coins.commission_rate}%`,      color:"#fd4605" },
                       { label:"1000 coins =",  value:`$${s.coins.coin_usd_rate>0?(1000/s.coins.coin_usd_rate).toFixed(2):"-"}`, color:"#6772E5" },
                     ].map(({ label, value, color }) => (
                       <div key={label} className="rounded-xl border border-[#e8eaed] bg-white p-3 text-center">
@@ -437,8 +437,8 @@ export default function PaymentSettingsPage() {
             <div className="rounded-2xl border border-[#e5e7eb] bg-white p-5">
               <h3 className="text-[14px] font-bold text-[#111827] mb-4">Payment Methods Summary</h3>
               <div className="flex items-center gap-4 mb-3">
-                <div className="h-14 w-14 rounded-2xl bg-[#fe2c55]/10 flex items-center justify-center shrink-0">
-                  <CreditCard className="h-7 w-7 text-[#fe2c55]" />
+                <div className="h-14 w-14 rounded-2xl bg-[#fd4605]/10 flex items-center justify-center shrink-0">
+                  <CreditCard className="h-7 w-7 text-[#fd4605]" />
                 </div>
                 <div>
                   <p className="text-[32px] font-black text-[#111827] leading-none">
@@ -474,7 +474,7 @@ export default function PaymentSettingsPage() {
               <label className="block text-[11px] font-bold text-[#374151] uppercase tracking-wide mb-2">Currency</label>
               <div className="relative">
                 <select value={currency} onChange={e => setCurrency(e.target.value)}
-                  className="w-full appearance-none rounded-xl border border-[#e5e7eb] bg-white pl-9 pr-8 py-2.5 text-[13px] font-semibold text-[#111827] outline-none focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10 transition-all cursor-pointer">
+                  className="w-full appearance-none rounded-xl border border-[#e5e7eb] bg-white pl-9 pr-8 py-2.5 text-[13px] font-semibold text-[#111827] outline-none focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10 transition-all cursor-pointer">
                   {CURRENCIES.map(c => (
                     <option key={c.code} value={c.code}>{c.flag} {c.code} - {c.name} ({c.symbol})</option>
                   ))}
@@ -513,13 +513,13 @@ export default function PaymentSettingsPage() {
             {/* Need Help */}
             <div className="rounded-2xl border border-[#e5e7eb] bg-white p-5">
               <div className="flex items-start gap-4">
-                <div className="h-12 w-12 rounded-2xl bg-[#fe2c55]/10 flex items-center justify-center shrink-0">
-                  <Headphones className="h-6 w-6 text-[#fe2c55]" />
+                <div className="h-12 w-12 rounded-2xl bg-[#fd4605]/10 flex items-center justify-center shrink-0">
+                  <Headphones className="h-6 w-6 text-[#fd4605]" />
                 </div>
                 <div>
                   <p className="text-[14px] font-bold text-[#111827] mb-1">Need Help?</p>
                   <p className="text-[12px] text-[#9ca3af] mb-3 leading-relaxed">If you need help setting up your payment methods, our support team is here for you.</p>
-                  <button className="rounded-xl border-2 border-[#fe2c55] px-4 py-1.5 text-[12px] font-bold text-[#fe2c55] hover:bg-[#fe2c55] hover:text-white transition-all active:scale-95">
+                  <button className="rounded-xl border-2 border-[#fd4605] px-4 py-1.5 text-[12px] font-bold text-[#fd4605] hover:bg-[#fd4605] hover:text-white transition-all active:scale-95">
                     Contact Support
                   </button>
                 </div>
@@ -551,7 +551,7 @@ export default function PaymentSettingsPage() {
 function IOToggle({ value, onChange }: { value:boolean; onChange:(v:boolean)=>void }) {
   return (
     <button type="button" onClick={() => onChange(!value)} role="switch" aria-checked={value}
-      className={`relative shrink-0 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[#fe2c55] ${value ? "bg-[#fe2c55]" : "bg-[#d1d5db]"}`}
+      className={`relative shrink-0 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[#fd4605] ${value ? "bg-[#fd4605]" : "bg-[#d1d5db]"}`}
       style={{ width:44, height:24, padding:2 }}>
       <span className={`block h-5 w-5 rounded-full bg-white shadow-sm transition-transform duration-200 ${value ? "translate-x-5" : "translate-x-0"}`} />
     </button>
@@ -747,7 +747,7 @@ function ConfigPanel({ gk, s, upd, showPP, setShowPP, showSK, setShowSK, showSW,
           placeholder={s.google_iap.service_account_is_set ? "Leave blank to keep current" : '{"type":"service_account","project_id":"…","private_key":"…"}'}
           value={s.google_iap.service_account}
           onChange={e => upd({ google_iap:{...s.google_iap,service_account:e.target.value} })}
-          className="w-full rounded-xl border border-[#e8eaed] bg-white px-3 py-2.5 font-mono text-[12px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10 resize-none transition-all"
+          className="w-full rounded-xl border border-[#e8eaed] bg-white px-3 py-2.5 font-mono text-[12px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10 resize-none transition-all"
         />
         <p className="mt-1 text-[11px] text-[#9ca3af]">
           Google Cloud → IAM → Service Accounts → Keys → JSON. Grant it access in Play Console → Users and permissions.
@@ -776,7 +776,7 @@ function ConfigPanel({ gk, s, upd, showPP, setShowPP, showSK, setShowSK, showSW,
         <label className="block text-[12px] font-semibold text-[#374151] mb-1.5">Instructions <span className="font-normal text-[#9ca3af]">(shown at checkout)</span></label>
         <textarea rows={3} placeholder="Include your reference number. Coins credited within 1-3 business days."
           value={s.bank.instructions} onChange={e => upd({ bank:{...s.bank,instructions:e.target.value} })}
-          className="w-full rounded-xl border border-[#e8eaed] bg-white px-3 py-2.5 text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10 resize-none transition-all"
+          className="w-full rounded-xl border border-[#e8eaed] bg-white px-3 py-2.5 text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10 resize-none transition-all"
         />
       </div>
       <IBox color="green">Bank transfer orders require manual admin approval before coins are credited.</IBox>
@@ -811,7 +811,7 @@ function Fld({ label, placeholder, value, hint, mono, onChange }:{
       <label className="block text-[12px] font-semibold text-[#374151] mb-1.5">{label}</label>
       <input type="text" spellCheck={false} autoComplete="off"
         placeholder={placeholder} value={value} onChange={e => onChange(e.target.value)}
-        className={`h-10 w-full rounded-xl border border-[#e8eaed] bg-white px-3.5 text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10 transition-all ${mono?"font-mono":""}`}
+        className={`h-10 w-full rounded-xl border border-[#e8eaed] bg-white px-3.5 text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10 transition-all ${mono?"font-mono":""}`}
       />
       {hint && <p className="mt-1 text-[11px] text-[#b0b7c3]">{hint}</p>}
     </div>
@@ -834,7 +834,7 @@ function Sec({ label, isSet, value, show, onToggleShow, placeholder, hint, onCha
       <div className="relative">
         <input type={show?"text":"password"} spellCheck={false} autoComplete="new-password"
           placeholder={placeholder} value={value} onChange={e => onChange(e.target.value)}
-          className="h-10 w-full rounded-xl border border-[#e8eaed] bg-white px-3.5 pr-12 text-[13px] text-[#111827] font-mono placeholder:font-sans placeholder:text-[#c4c9d4] outline-none focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10 transition-all"
+          className="h-10 w-full rounded-xl border border-[#e8eaed] bg-white px-3.5 pr-12 text-[13px] text-[#111827] font-mono placeholder:font-sans placeholder:text-[#c4c9d4] outline-none focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10 transition-all"
         />
         <button type="button" onClick={onToggleShow}
           className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9ca3af] hover:text-[#374151] p-1 rounded-lg hover:bg-[#f3f4f6] transition-colors">

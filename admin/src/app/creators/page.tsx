@@ -89,7 +89,7 @@ export default function CreatorsPage() {
                       <Tr key={c.id} onClick={() => router.push(`/users/${c.id}`)}>
                         <Td>
                           <div className="flex items-center gap-2.5">
-                            <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#fe2c55]/10 text-[12px] font-bold text-[#fe2c55]">
+                            <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#fd4605]/10 text-[12px] font-bold text-[#fd4605]">
                               {(c.name?.[0] ?? "C").toUpperCase()}
                             </div>
                             <div className="min-w-0">

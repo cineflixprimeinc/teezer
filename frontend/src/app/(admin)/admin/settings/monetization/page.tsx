@@ -301,7 +301,7 @@ export default function MonetizationControlCenter() {
                         onClick={() => setSelectedKey(p.key)}
                         className={`flex w-full items-start gap-3 px-4 py-3.5 text-left transition ${
                           on
-                            ? "border-l-[3px] border-l-[#fe2c55] bg-rose-50/40"
+                            ? "border-l-[3px] border-l-[#fd4605] bg-rose-50/40"
                             : "border-l-[3px] border-l-transparent hover:bg-slate-50"
                         }`}
                       >
@@ -478,7 +478,7 @@ function ProgramDetail({
       <CardBody className="border-b border-slate-100">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-xl bg-rose-50 text-[#fe2c55]">
+            <span className="grid h-11 w-11 place-items-center rounded-xl bg-rose-50 text-[#fd4605]">
               <Icon className="h-5 w-5" />
             </span>
             <div>
@@ -515,7 +515,7 @@ function ProgramDetail({
               onClick={() => setTab(t.key)}
               className={`-mb-px border-b-2 px-3 py-2 text-[13px] font-bold transition ${
                 tab === t.key
-                  ? "border-[#fe2c55] text-[#fe2c55]"
+                  ? "border-[#fd4605] text-[#fd4605]"
                   : "border-transparent text-slate-500 hover:text-slate-800"
               }`}
             >
@@ -944,7 +944,7 @@ function ProgramDetail({
                 type="range" min={0} max={100} step={5}
                 value={f.rollout}
                 onChange={(e) => setF({ ...f, rollout: Number(e.target.value) })}
-                className="w-full accent-[#fe2c55]"
+                className="w-full accent-[#fd4605]"
               />
             </Panel>
 
@@ -1111,7 +1111,7 @@ function CheckRow({
       }`}
     >
       <span className={`grid h-5 w-5 flex-shrink-0 place-items-center rounded ${
-        on ? "bg-[#fe2c55] text-white" : "border border-slate-300 bg-white"
+        on ? "bg-[#fd4605] text-white" : "border border-slate-300 bg-white"
       }`}>
         {on && <Check className="h-3.5 w-3.5" strokeWidth={3.5} />}
       </span>
@@ -1129,13 +1129,13 @@ function RadioRow({ on, label, hint, onClick }: { on: boolean; label: string; hi
     <button
       type="button" onClick={onClick}
       className={`flex w-full items-center gap-2.5 rounded-lg border p-2.5 text-left transition ${
-        on ? "border-[#fe2c55] bg-rose-50/50" : "border-slate-200 hover:border-slate-300"
+        on ? "border-[#fd4605] bg-rose-50/50" : "border-slate-200 hover:border-slate-300"
       }`}
     >
       <span className={`grid h-4 w-4 flex-shrink-0 place-items-center rounded-full border-2 ${
-        on ? "border-[#fe2c55]" : "border-slate-300"
+        on ? "border-[#fd4605]" : "border-slate-300"
       }`}>
-        {on && <span className="h-1.5 w-1.5 rounded-full bg-[#fe2c55]" />}
+        {on && <span className="h-1.5 w-1.5 rounded-full bg-[#fd4605]" />}
       </span>
       <span>
         <span className="block text-[13px] font-semibold text-slate-900">{label}</span>
@@ -1245,7 +1245,7 @@ function CountryPicker({
                 }`}
               >
                 <span className={`grid h-4 w-4 flex-shrink-0 place-items-center rounded ${
-                  on ? "bg-[#fe2c55] text-white" : "border border-slate-300 bg-white"
+                  on ? "bg-[#fd4605] text-white" : "border border-slate-300 bg-white"
                 }`}>
                   {on && <Check className="h-3 w-3" strokeWidth={4} />}
                 </span>

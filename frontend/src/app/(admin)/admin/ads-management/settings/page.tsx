@@ -102,7 +102,7 @@ function Toggle({ on, onChange }: { on: boolean; onChange: (v: boolean) => void 
     <button
       type="button"
       onClick={() => onChange(!on)}
-      className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${on ? "bg-[#fe2c55]" : "bg-[#e8eaed]"}`}
+      className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${on ? "bg-[#fd4605]" : "bg-[#e8eaed]"}`}
       aria-pressed={on}
     >
       <span className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform ${on ? "translate-x-[22px]" : "translate-x-0.5"}`} />

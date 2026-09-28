@@ -43,7 +43,7 @@ type Coupon = {
 const TYPE_LABEL: Record<Type, string> = { percentage: "Percentage off", fixed: "Fixed amount off", free_delivery: "Free delivery" };
 
 const input =
-  "w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3.5 py-2.5 text-[13px] text-[#111827] outline-none transition placeholder:text-[#c9c5d0] focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10";
+  "w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3.5 py-2.5 text-[13px] text-[#111827] outline-none transition placeholder:text-[#c9c5d0] focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10";
 const label = "mb-1.5 block text-[12px] font-semibold text-[#374151]";
 
 export default function ShopCouponsPage() {

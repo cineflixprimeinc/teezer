@@ -119,7 +119,7 @@ function SecurityContent() {
   return (
     <div className="mx-auto max-w-2xl p-6">
       <div className="mb-6 flex items-center gap-3">
-        <ShieldCheck className="h-6 w-6 text-[#fe2c55]" />
+        <ShieldCheck className="h-6 w-6 text-[#fd4605]" />
         <h1 className="text-xl font-bold text-[#111827]">Security · Two-Factor Authentication</h1>
       </div>
 
@@ -170,7 +170,7 @@ function SecurityContent() {
                 value={disablePassword}
                 onChange={(e) => setDisablePassword(e.target.value)}
                 placeholder="Current password"
-                className="h-[38px] flex-1 rounded-[10px] border border-[#e8eaed] bg-white px-3 text-[13px] outline-none focus:border-[#fe2c55]"
+                className="h-[38px] flex-1 rounded-[10px] border border-[#e8eaed] bg-white px-3 text-[13px] outline-none focus:border-[#fd4605]"
               />
               <button
                 onClick={disable}
@@ -187,7 +187,7 @@ function SecurityContent() {
       {/* ── Setup: idle (not enabled) ── */}
       {!enabled && step === "idle" && (
         <div className="rounded-xl border border-[#e8eaed] bg-white p-6 text-center">
-          <Smartphone className="mx-auto h-10 w-10 text-[#fe2c55]" />
+          <Smartphone className="mx-auto h-10 w-10 text-[#fd4605]" />
           <p className="mt-3 text-sm font-semibold text-[#111827]">Protect your account with an authenticator app</p>
           <p className="mx-auto mt-1 max-w-md text-[13px] text-[#6b7280]">
             Use Google Authenticator, Authy, or 1Password to generate a 6-digit code each time you sign in.
@@ -195,7 +195,7 @@ function SecurityContent() {
           <button
             onClick={beginSetup}
             disabled={busy}
-            className="mt-5 inline-flex items-center gap-2 rounded-lg bg-[#fe2c55] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#e0193f] disabled:opacity-60"
+            className="mt-5 inline-flex items-center gap-2 rounded-lg bg-[#fd4605] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#e03e04] disabled:opacity-60"
           >
             {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <ShieldCheck className="h-4 w-4" />}
             Begin setup
@@ -226,12 +226,12 @@ function SecurityContent() {
               placeholder="123456"
               inputMode="numeric"
               autoComplete="one-time-code"
-              className="h-[42px] flex-1 rounded-[10px] border border-[#e8eaed] bg-white px-3 text-center text-[15px] tracking-[0.3em] outline-none focus:border-[#fe2c55]"
+              className="h-[42px] flex-1 rounded-[10px] border border-[#e8eaed] bg-white px-3 text-center text-[15px] tracking-[0.3em] outline-none focus:border-[#fd4605]"
             />
             <button
               onClick={confirmSetup}
               disabled={busy || code.trim().length < 6}
-              className="rounded-lg bg-[#fe2c55] px-5 text-sm font-semibold text-white hover:bg-[#e0193f] disabled:opacity-50"
+              className="rounded-lg bg-[#fd4605] px-5 text-sm font-semibold text-white hover:bg-[#e03e04] disabled:opacity-50"
             >
               {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : "Verify"}
             </button>
@@ -252,7 +252,7 @@ function SecurityContent() {
           <RecoveryList codes={recoveryCodes} onCopy={copyCodes} copied={copied} onDownload={downloadCodes} />
           <button
             onClick={() => router.replace("/dashboard")}
-            className="mt-5 w-full rounded-lg bg-[#fe2c55] py-2.5 text-sm font-semibold text-white hover:bg-[#e0193f]"
+            className="mt-5 w-full rounded-lg bg-[#fd4605] py-2.5 text-sm font-semibold text-white hover:bg-[#e03e04]"
           >
             I&apos;ve saved my codes - continue
           </button>

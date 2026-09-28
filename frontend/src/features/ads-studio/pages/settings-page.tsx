@@ -24,7 +24,7 @@ function Toggle({
         onClick={() => onChange(!checked)}
         className={
           "relative inline-flex h-6 w-11 flex-shrink-0 items-center rounded-full transition " +
-          (checked ? "bg-[#fe2c55]" : "bg-[#e5e7eb]")
+          (checked ? "bg-[#fd4605]" : "bg-[#e5e7eb]")
         }
       >
         <span
@@ -115,7 +115,7 @@ export function SettingsPage() {
                   value={contactEmail}
                   onChange={(e) => setContactEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full rounded-xl border border-[#e5e7eb] bg-white px-3 py-2.5 text-[14px] text-[#111827] outline-none transition focus:border-[#fe2c55] sm:max-w-sm"
+                  className="w-full rounded-xl border border-[#e5e7eb] bg-white px-3 py-2.5 text-[14px] text-[#111827] outline-none transition focus:border-[#fd4605] sm:max-w-sm"
                 />
               </div>
             </div>

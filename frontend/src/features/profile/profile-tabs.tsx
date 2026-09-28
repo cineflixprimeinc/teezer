@@ -110,11 +110,11 @@ export function ProfileTabs({ active, onChange, sort, onSortChange, mediaType = 
               className={cn(
                 "flex flex-shrink-0 items-center gap-1.5 border-b-[2.5px] px-4 py-3.5 text-[13px] font-semibold transition-colors",
                 isActive
-                  ? "-mb-px border-[#fe2c55] text-[#fe2c55]"
+                  ? "-mb-px border-[#fd4605] text-[#fd4605]"
                   : "border-transparent text-[#5f6675] hover:text-[#111827]",
               )}
             >
-              <Icon className={cn("h-[15px] w-[15px]", isActive && "text-[#fe2c55]")} />
+              <Icon className={cn("h-[15px] w-[15px]", isActive && "text-[#fd4605]")} />
               {label}
             </button>
           );
@@ -132,8 +132,8 @@ export function ProfileTabs({ active, onChange, sort, onSortChange, mediaType = 
               className={cn(
                 "flex items-center gap-1.5 rounded-[10px] border px-3.5 py-[7px] text-[12px] font-semibold transition",
                 mediaType !== "all"
-                  ? "border-[#fe2c55] bg-[#fff0f4] text-[#fe2c55]"
-                  : "border-[#e5e7eb] bg-white text-[#111827] hover:border-[#fe2c55]",
+                  ? "border-[#fd4605] bg-[#fff3ec] text-[#fd4605]"
+                  : "border-[#e5e7eb] bg-white text-[#111827] hover:border-[#fd4605]",
               )}
             >
               <TypeIcon className="h-[13px] w-[13px] flex-shrink-0" />
@@ -142,7 +142,7 @@ export function ProfileTabs({ active, onChange, sort, onSortChange, mediaType = 
                 className={cn(
                   "h-3.5 w-3.5 flex-shrink-0 transition-transform",
                   typeOpen && "rotate-180",
-                  mediaType !== "all" ? "text-[#fe2c55]" : "text-[#5f6675]",
+                  mediaType !== "all" ? "text-[#fd4605]" : "text-[#5f6675]",
                 )}
               />
             </button>
@@ -159,23 +159,23 @@ export function ProfileTabs({ active, onChange, sort, onSortChange, mediaType = 
                     }}
                     className={cn(
                       "flex w-full items-center gap-3 rounded-[8px] px-3 py-2.5 text-left transition hover:bg-[#f8f9fb]",
-                      id === mediaType ? "bg-[#fff0f4]" : "",
+                      id === mediaType ? "bg-[#fff3ec]" : "",
                     )}
                   >
                     <div className={cn(
                       "flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg",
-                      id === mediaType ? "bg-[#fe2c55]" : "bg-[#f3f4f6]",
+                      id === mediaType ? "bg-[#fd4605]" : "bg-[#f3f4f6]",
                     )}>
                       <Icon className={cn("h-[14px] w-[14px]", id === mediaType ? "text-white" : "text-[#5f6675]")} />
                     </div>
                     <div className="min-w-0">
-                      <p className={cn("text-[12px] font-semibold leading-none", id === mediaType ? "text-[#fe2c55]" : "text-[#111827]")}>
+                      <p className={cn("text-[12px] font-semibold leading-none", id === mediaType ? "text-[#fd4605]" : "text-[#111827]")}>
                         {label}
                       </p>
                       <p className="mt-0.5 text-[10px] text-[#9ca3af]">{desc}</p>
                     </div>
                     {id === mediaType && (
-                      <div className="ml-auto h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#fe2c55]" />
+                      <div className="ml-auto h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#fd4605]" />
                     )}
                   </button>
                 ))}
@@ -187,7 +187,7 @@ export function ProfileTabs({ active, onChange, sort, onSortChange, mediaType = 
           <div ref={sortRef} className="relative">
             <button
               onClick={() => setSortOpen((o) => !o)}
-              className="flex items-center gap-1.5 rounded-[10px] border border-[#e5e7eb] bg-white px-3.5 py-[7px] text-[12px] font-semibold text-[#111827] transition hover:border-[#fe2c55]"
+              className="flex items-center gap-1.5 rounded-[10px] border border-[#e5e7eb] bg-white px-3.5 py-[7px] text-[12px] font-semibold text-[#111827] transition hover:border-[#fd4605]"
             >
               {currentSort.label}
               <ChevronDown
@@ -210,10 +210,10 @@ export function ProfileTabs({ active, onChange, sort, onSortChange, mediaType = 
                     }}
                     className={cn(
                       "flex w-full items-center gap-2 rounded-[8px] px-3 py-2 text-left text-[12px] font-medium transition hover:bg-[#f8f9fb]",
-                      id === sort ? "font-semibold text-[#fe2c55]" : "text-[#111827]",
+                      id === sort ? "font-semibold text-[#fd4605]" : "text-[#111827]",
                     )}
                   >
-                    <Icon className={cn("h-[14px] w-[14px]", id === sort ? "text-[#fe2c55]" : "text-[#5f6675]")} />
+                    <Icon className={cn("h-[14px] w-[14px]", id === sort ? "text-[#fd4605]" : "text-[#5f6675]")} />
                     {label}
                   </button>
                 ))}

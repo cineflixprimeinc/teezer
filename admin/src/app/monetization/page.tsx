@@ -62,8 +62,8 @@ export default function MonetizationPage() {
             <Link key={href} href={href}>
               <Card className="p-5 hover:shadow-md transition-shadow cursor-pointer group">
                 <div className="flex items-start gap-3">
-                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#fe2c55]/10 group-hover:bg-[#fe2c55]/20 transition-colors">
-                    <Icon className="h-5 w-5 text-[#fe2c55]" />
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#fd4605]/10 group-hover:bg-[#fd4605]/20 transition-colors">
+                    <Icon className="h-5 w-5 text-[#fd4605]" />
                   </div>
                   <div>
                     <p className="text-[13px] font-semibold text-[#111827]">{label}</p>

@@ -103,7 +103,7 @@ function Waveform({ seed, playing }: { seed: number; playing: boolean }) {
     <div className="flex items-center gap-[1.5px] h-9 flex-1">
       {bars.map((h, i) => (
         <div key={i}
-          className={cn("rounded-full flex-shrink-0 transition-colors duration-300", playing ? "bg-[#fe2c55]" : "bg-[#e5e7eb]")}
+          className={cn("rounded-full flex-shrink-0 transition-colors duration-300", playing ? "bg-[#fd4605]" : "bg-[#e5e7eb]")}
           style={{ width: 2, height: `${h}%` }}
         />
       ))}
@@ -120,7 +120,7 @@ function ProgressRing({ pct }: { pct: number }) {
       <div className="relative w-24 h-24">
         <svg className="w-full h-full -rotate-90" viewBox="0 0 88 88">
           <circle cx="44" cy="44" r={r} fill="none" stroke="#f0f0f0" strokeWidth="7" />
-          <circle cx="44" cy="44" r={r} fill="none" stroke="#fe2c55" strokeWidth="7"
+          <circle cx="44" cy="44" r={r} fill="none" stroke="#fd4605" strokeWidth="7"
             strokeDasharray={circ} strokeDashoffset={circ * (1 - pct / 100)}
             strokeLinecap="round" style={{ transition: "stroke-dashoffset 0.5s ease" }} />
         </svg>
@@ -180,8 +180,8 @@ function Dropdown({ label, value, options, onChange, placeholder, searchable, er
         className={cn(
           "w-full flex items-center justify-between gap-2 h-10 px-3.5 rounded-xl border text-[13px] transition-all text-left",
           error ? "border-[#ef4444] bg-[#fff5f5]" :
-          open  ? "border-[#fe2c55] bg-white shadow-sm shadow-[#fe2c55]/10" :
-                  "border-[#e8eaed] bg-white hover:border-[#fe2c55] hover:shadow-sm",
+          open  ? "border-[#fd4605] bg-white shadow-sm shadow-[#fd4605]/10" :
+                  "border-[#e8eaed] bg-white hover:border-[#fd4605] hover:shadow-sm",
         )}
       >
         <span className={cn("truncate flex-1", selected ? "text-[#111827] font-medium" : "text-[#9ca3af]")}>
@@ -199,7 +199,7 @@ function Dropdown({ label, value, options, onChange, placeholder, searchable, er
                 <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[#9ca3af] pointer-events-none" />
                 <input ref={inRef} value={query} onChange={e => setQuery(e.target.value)}
                   placeholder="Search…"
-                  className="w-full h-8 pl-8 pr-3 rounded-xl bg-[#f9fafb] border border-[#e8eaed] text-[12px] text-[#111827] outline-none focus:border-[#fe2c55] transition-colors" />
+                  className="w-full h-8 pl-8 pr-3 rounded-xl bg-[#f9fafb] border border-[#e8eaed] text-[12px] text-[#111827] outline-none focus:border-[#fd4605] transition-colors" />
               </div>
             </div>
           )}
@@ -220,17 +220,17 @@ function Dropdown({ label, value, options, onChange, placeholder, searchable, er
                 onClick={() => { onChange(o.value); setOpen(false); setQuery(""); }}
                 className={cn(
                   "w-full flex items-start gap-3 px-3.5 py-2.5 transition-colors text-left",
-                  value === o.value ? "bg-[#fff0f4]" : "hover:bg-[#f9fafb]",
+                  value === o.value ? "bg-[#fff3ec]" : "hover:bg-[#f9fafb]",
                 )}
               >
                 <div className={cn(
                   "mt-0.5 h-4 w-4 rounded-full border-2 shrink-0 grid place-items-center",
-                  value === o.value ? "border-[#fe2c55] bg-[#fe2c55]" : "border-[#d1d5db]",
+                  value === o.value ? "border-[#fd4605] bg-[#fd4605]" : "border-[#d1d5db]",
                 )}>
                   {value === o.value && <div className="h-1.5 w-1.5 rounded-full bg-white" />}
                 </div>
                 <div className="min-w-0">
-                  <p className={cn("text-[13px] font-medium leading-snug", value === o.value ? "text-[#fe2c55]" : "text-[#111827]")}>{o.label}</p>
+                  <p className={cn("text-[13px] font-medium leading-snug", value === o.value ? "text-[#fd4605]" : "text-[#111827]")}>{o.label}</p>
                   {o.desc && <p className="text-[11px] text-[#9ca3af] mt-0.5 leading-snug">{o.desc}</p>}
                 </div>
               </button>
@@ -297,15 +297,15 @@ function MultiDropdown({ label, values, options, onChange, placeholder, searchab
         className={cn(
           "w-full flex items-center justify-between gap-2 h-10 px-3.5 rounded-xl border text-[13px] transition-all text-left",
           error ? "border-[#ef4444] bg-[#fff5f5]" :
-          open  ? "border-[#fe2c55] bg-white shadow-sm shadow-[#fe2c55]/10" :
-                  "border-[#e8eaed] bg-white hover:border-[#fe2c55] hover:shadow-sm",
+          open  ? "border-[#fd4605] bg-white shadow-sm shadow-[#fd4605]/10" :
+                  "border-[#e8eaed] bg-white hover:border-[#fd4605] hover:shadow-sm",
         )}
       >
         <span className={cn("truncate flex-1", values.length > 0 ? "text-[#111827] font-medium" : "text-[#9ca3af]")}>
           {displayLabel}
         </span>
         {values.length > 0 && (
-          <span className="shrink-0 h-5 min-w-[20px] px-1 rounded-full bg-[#fe2c55] text-white text-[10px] font-bold grid place-items-center">
+          <span className="shrink-0 h-5 min-w-[20px] px-1 rounded-full bg-[#fd4605] text-white text-[10px] font-bold grid place-items-center">
             {values.length}
           </span>
         )}
@@ -321,13 +321,13 @@ function MultiDropdown({ label, values, options, onChange, placeholder, searchab
                 <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[#9ca3af] pointer-events-none" />
                 <input ref={inRef} value={query} onChange={e => setQuery(e.target.value)}
                   placeholder="Search…"
-                  className="w-full h-8 pl-8 pr-3 rounded-xl bg-[#f9fafb] border border-[#e8eaed] text-[12px] text-[#111827] outline-none focus:border-[#fe2c55] transition-colors" />
+                  className="w-full h-8 pl-8 pr-3 rounded-xl bg-[#f9fafb] border border-[#e8eaed] text-[12px] text-[#111827] outline-none focus:border-[#fd4605] transition-colors" />
               </div>
             </div>
           )}
           <div className="flex items-center justify-between px-3.5 py-2 border-b border-[#f4f5f7] bg-[#fafafa]">
             <button type="button" onClick={() => onChange(normalized.map(o => o.value))}
-              className="text-[11px] font-semibold text-[#fe2c55] hover:text-[#e11d48] transition-colors">
+              className="text-[11px] font-semibold text-[#fd4605] hover:text-[#e11d48] transition-colors">
               Select All
             </button>
             <button type="button" onClick={() => onChange([])}
@@ -347,16 +347,16 @@ function MultiDropdown({ label, values, options, onChange, placeholder, searchab
                   onClick={() => toggle(o.value)}
                   className={cn(
                     "w-full flex items-center gap-3 px-3.5 py-2.5 transition-colors text-left",
-                    checked ? "bg-[#fff0f4]" : "hover:bg-[#f9fafb]",
+                    checked ? "bg-[#fff3ec]" : "hover:bg-[#f9fafb]",
                   )}
                 >
                   <div className={cn(
                     "h-4 w-4 rounded border-2 shrink-0 grid place-items-center transition-colors",
-                    checked ? "border-[#fe2c55] bg-[#fe2c55]" : "border-[#d1d5db]",
+                    checked ? "border-[#fd4605] bg-[#fd4605]" : "border-[#d1d5db]",
                   )}>
                     {checked && <Check className="h-2.5 w-2.5 text-white" />}
                   </div>
-                  <p className={cn("text-[13px] font-medium leading-snug", checked ? "text-[#fe2c55]" : "text-[#111827]")}>{o.label}</p>
+                  <p className={cn("text-[13px] font-medium leading-snug", checked ? "text-[#fd4605]" : "text-[#111827]")}>{o.label}</p>
                 </button>
               );
             })}
@@ -419,7 +419,7 @@ function DatePicker({ value, onChange, label }: {
       <button type="button" onClick={() => setOpen(o => !o)}
         className={cn(
           "w-full flex items-center gap-2.5 h-10 px-3.5 rounded-xl border text-[13px] transition-all",
-          open ? "border-[#fe2c55] shadow-sm shadow-[#fe2c55]/10 bg-white" : "border-[#e8eaed] bg-white hover:border-[#fe2c55]",
+          open ? "border-[#fd4605] shadow-sm shadow-[#fd4605]/10 bg-white" : "border-[#e8eaed] bg-white hover:border-[#fd4605]",
         )}>
         <CalendarDays className="h-4 w-4 text-[#9ca3af] shrink-0" />
         <span className={displayVal ? "text-[#111827] font-medium" : "text-[#9ca3af]"}>
@@ -463,9 +463,9 @@ function DatePicker({ value, onChange, label }: {
                 <button key={i} type="button" onClick={() => selectDay(d)}
                   className={cn(
                     "h-8 w-8 mx-auto rounded-full text-[12px] font-medium transition-all",
-                    isSel  ? "bg-[#fe2c55] text-white font-bold shadow-sm" :
-                    isTod  ? "border-2 border-[#fe2c55] text-[#fe2c55] font-bold" :
-                             "text-[#374151] hover:bg-[#fff0f4] hover:text-[#fe2c55]",
+                    isSel  ? "bg-[#fd4605] text-white font-bold shadow-sm" :
+                    isTod  ? "border-2 border-[#fd4605] text-[#fd4605] font-bold" :
+                             "text-[#374151] hover:bg-[#fff3ec] hover:text-[#fd4605]",
                   )}>
                   {d}
                 </button>
@@ -503,7 +503,7 @@ function Toggle({ value, onChange, label, sub }: {
       <button type="button" onClick={() => onChange(!value)}
         className={cn(
           "relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent transition-colors duration-200 mt-0.5",
-          value ? "bg-[#fe2c55]" : "bg-[#e5e7eb]",
+          value ? "bg-[#fd4605]" : "bg-[#e5e7eb]",
         )}>
         <span className={cn(
           "pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transition-transform duration-200",
@@ -519,7 +519,7 @@ function Toggle({ value, onChange, label, sub }: {
 function Label({ text, required }: { text: string; required?: boolean }) {
   return (
     <p className="text-[12px] font-semibold text-[#374151] mb-1.5">
-      {text}{required && <span className="text-[#fe2c55] ml-0.5">*</span>}
+      {text}{required && <span className="text-[#fd4605] ml-0.5">*</span>}
     </p>
   );
 }
@@ -532,7 +532,7 @@ function TextInput({ value, onChange, placeholder, error }: {
       <input type="text" value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder}
         className={cn(
           "w-full h-10 px-3.5 rounded-xl border text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none transition-all",
-          error ? "border-[#ef4444] bg-[#fff5f5]" : "border-[#e8eaed] hover:border-[#fe2c55] focus:border-[#fe2c55] focus:shadow-sm focus:shadow-[#fe2c55]/10",
+          error ? "border-[#ef4444] bg-[#fff5f5]" : "border-[#e8eaed] hover:border-[#fd4605] focus:border-[#fd4605] focus:shadow-sm focus:shadow-[#fd4605]/10",
         )} />
       {error && <p className="text-[11px] text-[#ef4444] mt-1 flex items-center gap-1"><AlertCircle className="h-3 w-3" />{error}</p>}
     </div>
@@ -544,7 +544,7 @@ function Section({ num, title, children }: { num: string; title: string; childre
     <div className="bg-white rounded-2xl border border-[#e8eaed]">
       <div className="px-6 py-4 border-b border-[#f4f5f7] bg-[#fafafa] rounded-t-2xl">
         <h3 className="text-[14px] font-bold text-[#111827]">
-          <span className="text-[#fe2c55] mr-1.5">{num}.</span>{title}
+          <span className="text-[#fd4605] mr-1.5">{num}.</span>{title}
         </h3>
       </div>
       <div className="p-6">{children}</div>
@@ -787,10 +787,10 @@ export default function UploadTrackPage() {
                 onClick={() => audioInputRef.current?.click()}
                 className={cn(
                   "flex flex-col items-center justify-center gap-2.5 rounded-2xl border-2 border-dashed cursor-pointer transition-all py-8",
-                  audioDragging  ? "border-[#fe2c55] bg-[#fff8f9] scale-[1.01]" :
+                  audioDragging  ? "border-[#fd4605] bg-[#fff8f9] scale-[1.01]" :
                   audioFile      ? "border-[#22c55e] bg-[#f0fdf4]" :
                   fileError      ? "border-[#ef4444] bg-[#fff5f5]" :
-                                   "border-[#e8eaed] bg-[#f9fafb] hover:border-[#fe2c55] hover:bg-[#fff8f9]",
+                                   "border-[#e8eaed] bg-[#f9fafb] hover:border-[#fd4605] hover:bg-[#fff8f9]",
                 )}>
                 {audioFile ? (
                   <>
@@ -811,7 +811,7 @@ export default function UploadTrackPage() {
                     </div>
                     <p className="text-[12px] font-medium text-[#374151] text-center">Drag & drop your audio file here</p>
                     <p className="text-[11px] text-[#9ca3af]">or</p>
-                    <button type="button" className="h-9 px-5 rounded-xl border-2 border-[#fe2c55] text-[#fe2c55] text-[12px] font-bold hover:bg-[#fff0f4] transition-colors">
+                    <button type="button" className="h-9 px-5 rounded-xl border-2 border-[#fd4605] text-[#fd4605] text-[12px] font-bold hover:bg-[#fff3ec] transition-colors">
                       Browse Files
                     </button>
                   </>
@@ -839,8 +839,8 @@ export default function UploadTrackPage() {
                 onClick={() => coverInputRef.current?.click()}
                 className={cn(
                   "flex flex-col items-center justify-center gap-2.5 rounded-2xl border-2 border-dashed cursor-pointer transition-all",
-                  coverPreviewUrl ? "border-[#22c55e] bg-[#f0fdf4] py-4" : "py-8 border-[#e8eaed] bg-[#f9fafb] hover:border-[#fe2c55] hover:bg-[#fff8f9]",
-                  coverDragging && "scale-[1.01] border-[#fe2c55] bg-[#fff8f9]",
+                  coverPreviewUrl ? "border-[#22c55e] bg-[#f0fdf4] py-4" : "py-8 border-[#e8eaed] bg-[#f9fafb] hover:border-[#fd4605] hover:bg-[#fff8f9]",
+                  coverDragging && "scale-[1.01] border-[#fd4605] bg-[#fff8f9]",
                 )}>
                 {coverPreviewUrl ? (
                   <>
@@ -878,7 +878,7 @@ export default function UploadTrackPage() {
                     className={cn(
                       "h-10 w-10 rounded-full grid place-items-center shrink-0 transition-all",
                       audioFile
-                        ? "bg-[#fe2c55] text-white hover:bg-[#e0264b] shadow-lg shadow-[#fe2c55]/30"
+                        ? "bg-[#fd4605] text-white hover:bg-[#e03e04] shadow-lg shadow-[#fd4605]/30"
                         : "bg-[#e8eaed] text-[#9ca3af] cursor-not-allowed",
                     )}>
                     {isPlaying
@@ -958,7 +958,7 @@ export default function UploadTrackPage() {
                 <div>
                   <Label text="BPM" />
                   <input type="number" value={bpm} onChange={e => setBpm(e.target.value)} placeholder="e.g. 120" min={40} max={300}
-                    className="w-full h-10 px-3.5 rounded-xl border border-[#e8eaed] text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fe2c55] transition-colors hover:border-[#fe2c55]" />
+                    className="w-full h-10 px-3.5 rounded-xl border border-[#e8eaed] text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fd4605] transition-colors hover:border-[#fd4605]" />
                 </div>
                 <div>
                   <Dropdown label="Key" value={key} onChange={setKey} options={KEY_OPTIONS} placeholder="Select key" searchable />
@@ -1019,8 +1019,8 @@ export default function UploadTrackPage() {
                         onClick={() => setUsagePerms(p => on ? p.filter(x=>x!==k) : [...p,k])}
                         className={cn(
                           "flex items-center gap-1.5 h-9 px-4 rounded-xl border text-[12px] font-semibold transition-all",
-                          on ? "border-[#fe2c55] bg-[#fff0f4] text-[#fe2c55] shadow-sm"
-                             : "border-[#e8eaed] bg-white text-[#374151] hover:border-[#fe2c55] hover:text-[#fe2c55]",
+                          on ? "border-[#fd4605] bg-[#fff3ec] text-[#fd4605] shadow-sm"
+                             : "border-[#e8eaed] bg-white text-[#374151] hover:border-[#fd4605] hover:text-[#fd4605]",
                         )}>
                         {on && <Check className="h-3 w-3 shrink-0" />}
                         {l}
@@ -1039,14 +1039,14 @@ export default function UploadTrackPage() {
                 <Label text="Description" />
                 <textarea value={description} onChange={e => setDescription(e.target.value)}
                   maxLength={1000} rows={6} placeholder="Enter a short description about the track..."
-                  className="w-full px-3.5 py-3 rounded-xl border border-[#e8eaed] text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fe2c55] resize-none transition-colors hover:border-[#fe2c55]" />
+                  className="w-full px-3.5 py-3 rounded-xl border border-[#e8eaed] text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fd4605] resize-none transition-colors hover:border-[#fd4605]" />
                 <p className="text-[11px] text-right mt-1 text-[#9ca3af]">{description.length} / 1000</p>
               </div>
               <div>
                 <Label text="Lyrics (Optional)" />
                 <textarea value={lyrics} onChange={e => setLyrics(e.target.value)}
                   rows={6} placeholder="Enter lyrics (optional)..."
-                  className="w-full px-3.5 py-3 rounded-xl border border-[#e8eaed] text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fe2c55] resize-none transition-colors hover:border-[#fe2c55]" />
+                  className="w-full px-3.5 py-3 rounded-xl border border-[#e8eaed] text-[13px] text-[#111827] placeholder:text-[#c4c9d4] outline-none focus:border-[#fd4605] resize-none transition-colors hover:border-[#fd4605]" />
               </div>
             </div>
           </Section>
@@ -1101,10 +1101,10 @@ export default function UploadTrackPage() {
           <div className="bg-white rounded-2xl border border-[#e8eaed] p-5">
             <p className="text-[14px] font-bold text-[#111827] mb-4">Track Summary</p>
             <div className="flex gap-3">
-              <div className="h-16 w-16 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#ffd4dc] to-[#ffecef] grid place-items-center">
+              <div className="h-16 w-16 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#ffdccc] to-[#fff0e8] grid place-items-center">
                 {coverPreviewUrl
                   ? <img src={coverPreviewUrl} alt="" className="h-full w-full object-cover" />
-                  : <Music className="h-6 w-6 text-[#fe2c55]" />}
+                  : <Music className="h-6 w-6 text-[#fd4605]" />}
               </div>
               <div className="min-w-0 flex-1 space-y-2">
                 {([
@@ -1134,10 +1134,10 @@ export default function UploadTrackPage() {
             <div className="mt-4 pt-3 border-t border-[#f4f5f7]">
               <div className="flex justify-between mb-1.5">
                 <p className="text-[12px] font-semibold text-[#374151]">Completion</p>
-                <p className="text-[12px] font-bold text-[#fe2c55]">{completionPct}%</p>
+                <p className="text-[12px] font-bold text-[#fd4605]">{completionPct}%</p>
               </div>
               <div className="h-2 rounded-full bg-[#f4f5f7] overflow-hidden">
-                <div className="h-full rounded-full bg-[#fe2c55] transition-all duration-500" style={{ width: `${completionPct}%` }} />
+                <div className="h-full rounded-full bg-[#fd4605] transition-all duration-500" style={{ width: `${completionPct}%` }} />
               </div>
             </div>
           </div>
@@ -1153,8 +1153,8 @@ export default function UploadTrackPage() {
                 "Fill all required fields for faster approval",
               ].map((tip, i) => (
                 <div key={i} className="flex items-start gap-2.5">
-                  <div className="h-5 w-5 rounded-full bg-[#fff0f4] grid place-items-center shrink-0 mt-0.5">
-                    <span className="text-[9px] font-black text-[#fe2c55]">{i + 1}</span>
+                  <div className="h-5 w-5 rounded-full bg-[#fff3ec] grid place-items-center shrink-0 mt-0.5">
+                    <span className="text-[9px] font-black text-[#fd4605]">{i + 1}</span>
                   </div>
                   <p className="text-[12px] text-[#6b7280] leading-relaxed">{tip}</p>
                 </div>
@@ -1178,7 +1178,7 @@ export default function UploadTrackPage() {
             Save Draft
           </button>
           <button type="button" onClick={() => handleSubmit(true)} disabled={uploading}
-            className="h-10 px-6 rounded-xl bg-[#fe2c55] text-white text-[13px] font-semibold hover:bg-[#e0264b] transition-colors disabled:opacity-50 active:scale-95 flex items-center gap-2 shadow-sm shadow-[#fe2c55]/30">
+            className="h-10 px-6 rounded-xl bg-[#fd4605] text-white text-[13px] font-semibold hover:bg-[#e03e04] transition-colors disabled:opacity-50 active:scale-95 flex items-center gap-2 shadow-sm shadow-[#fd4605]/30">
             {uploading && <Loader2 className="h-4 w-4 animate-spin" />}
             Publish Track
           </button>

@@ -72,7 +72,7 @@ function RetentionRing({ pct }: { pct: number }) {
   return (
     <svg viewBox="0 0 100 100" className="h-[120px] w-[120px] -rotate-90">
       <circle cx="50" cy="50" r={r} fill="none" stroke="#f3f4f6" strokeWidth="10" />
-      <circle cx="50" cy="50" r={r} fill="none" stroke="#fe2c55" strokeWidth="10"
+      <circle cx="50" cy="50" r={r} fill="none" stroke="#fd4605" strokeWidth="10"
         strokeDasharray={`${dash} ${circ}`} strokeLinecap="round"
         style={{ transition: "stroke-dasharray 0.6s ease" }} />
     </svg>
@@ -81,7 +81,7 @@ function RetentionRing({ pct }: { pct: number }) {
 
 /* ── Stat card ──────────────────────────────────────────────────────────── */
 const STAT_META: Record<InsightMetric, { icon: React.ElementType; iconBg: string; iconColor: string; label: string }> = {
-  views:               { icon: Eye,         iconBg: "bg-[#fff0f4]", iconColor: "text-[#fe2c55]", label: "Views"             },
+  views:               { icon: Eye,         iconBg: "bg-[#fff3ec]", iconColor: "text-[#fd4605]", label: "Views"             },
   likes:               { icon: Heart,       iconBg: "bg-[#fce7f3]", iconColor: "text-[#ec4899]", label: "Likes"             },
   comments:            { icon: MessageCircle,iconBg:"bg-[#ffedd5]", iconColor: "text-[#f97316]", label: "Comments"          },
   shares:              { icon: Share2,      iconBg: "bg-[#ccfbf1]", iconColor: "text-[#0d9488]", label: "Shares"            },
@@ -113,7 +113,7 @@ function InsightCard({ metric, summary, prevPeriod, isActive, onClick, loading }
     <button type="button" onClick={onClick}
       className={cn(
         "flex flex-col gap-1.5 rounded-2xl border bg-white px-4 py-3.5 text-left transition hover:shadow-sm",
-        isActive ? "border-[#fe2c55] ring-1 ring-[#fe2c55]/15" : "border-[#f0f0f0]",
+        isActive ? "border-[#fd4605] ring-1 ring-[#fd4605]/15" : "border-[#f0f0f0]",
       )}>
       <div className="flex items-center gap-2">
         <div className={cn("grid h-8 w-8 flex-shrink-0 place-items-center rounded-xl", cfg.iconBg)}>
@@ -332,11 +332,11 @@ export function StudioInsightsPage({ videoId }: { videoId: number }) {
                     {/* Buttons */}
                     <div className="mt-4 space-y-2">
                       <Link href={`/studio/content/${videoId}/edit`}
-                        className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#fe2c55] py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e0243d]">
+                        className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#fd4605] py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e03e04]">
                         Edit Video
                       </Link>
                       <Link href={`/videos/${videoId}`} target="_blank"
-                        className="flex w-full items-center justify-center gap-2 rounded-xl border border-[#fe2c55] py-2.5 text-[13px] font-bold text-[#fe2c55] transition hover:bg-[#fff5f7]">
+                        className="flex w-full items-center justify-center gap-2 rounded-xl border border-[#fd4605] py-2.5 text-[13px] font-bold text-[#fd4605] transition hover:bg-[#fff6f1]">
                         View Public Video <ExternalLink className="h-3.5 w-3.5" />
                       </Link>
                     </div>
@@ -368,7 +368,7 @@ export function StudioInsightsPage({ videoId }: { videoId: number }) {
                       <div ref={metricRef} className="relative flex items-center gap-2">
                         <span className="text-[12px] text-[#9ca3af]">Metric</span>
                         <button type="button" onClick={() => setMetricOpen(o => !o)}
-                          className="flex items-center gap-2 rounded-lg border border-[#e5e7eb] px-3 py-1.5 text-[13px] font-semibold text-[#374151] transition hover:border-[#fe2c55]">
+                          className="flex items-center gap-2 rounded-lg border border-[#e5e7eb] px-3 py-1.5 text-[13px] font-semibold text-[#374151] transition hover:border-[#fd4605]">
                           <BarChart2 className="h-3.5 w-3.5 text-[#9ca3af]" />
                           {METRICS.find(m => m.key === metric)?.label ?? "Views"}
                           <ChevronDown className={cn("h-3.5 w-3.5 text-[#9ca3af] transition-transform", metricOpen && "rotate-180")} />
@@ -379,7 +379,7 @@ export function StudioInsightsPage({ videoId }: { videoId: number }) {
                               <button key={m.key} type="button"
                                 onClick={() => { setMetric(m.key); setMetricOpen(false); }}
                                 className={cn("flex w-full items-center px-4 py-2.5 text-[13px] transition",
-                                  m.key === metric ? "bg-[#fff0f4] font-semibold text-[#fe2c55]" : "text-[#374151] hover:bg-[#f8f9fb]")}>
+                                  m.key === metric ? "bg-[#fff3ec] font-semibold text-[#fd4605]" : "text-[#374151] hover:bg-[#f8f9fb]")}>
                                 {m.label}
                               </button>
                             ))}
@@ -401,7 +401,7 @@ export function StudioInsightsPage({ videoId }: { videoId: number }) {
 
                   {loading ? (
                     <div className="flex h-[220px] items-center justify-center">
-                      <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+                      <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
                     </div>
                   ) : (
                     <StudioLineChart data={chartData} height={220} metricLabel={METRICS.find(m=>m.key===metric)?.label} />
@@ -437,7 +437,7 @@ export function StudioInsightsPage({ videoId }: { videoId: number }) {
                       {data.retention.segments.map((seg, i) => (
                         <div key={i} className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
-                            <div className="h-2.5 w-2.5 rounded-full" style={{ background: `rgba(254,44,85,${1 - i * 0.2})` }} />
+                            <div className="h-2.5 w-2.5 rounded-full" style={{ background: `rgba(253,70,5,${1 - i * 0.2})` }} />
                             <span className="text-[11px] text-[#374151]">{seg.retention}%</span>
                           </div>
                           <span className="text-[11px] text-[#9ca3af]">{seg.label}</span>
@@ -452,7 +452,7 @@ export function StudioInsightsPage({ videoId }: { videoId: number }) {
                   </div>
                 )}
                 <button type="button" onClick={() => setShowRetModal(true)}
-                  className="mt-4 w-full rounded-xl border border-[#e5e7eb] py-2 text-[12px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+                  className="mt-4 w-full rounded-xl border border-[#e5e7eb] py-2 text-[12px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]">
                   View Retention Graph
                 </button>
               </div>
@@ -472,7 +472,7 @@ export function StudioInsightsPage({ videoId }: { videoId: number }) {
                           <span className="text-[12px] font-bold text-[#111827]">{s.pct}%</span>
                         </div>
                         <div className="h-2 overflow-hidden rounded-full bg-[#f3f4f6]">
-                          <div className="h-full rounded-full bg-[#fe2c55]" style={{ width: `${s.pct}%` }} />
+                          <div className="h-full rounded-full bg-[#fd4605]" style={{ width: `${s.pct}%` }} />
                         </div>
                       </div>
                     ))
@@ -484,7 +484,7 @@ export function StudioInsightsPage({ videoId }: { videoId: number }) {
                   )}
                 </div>
                 <button type="button" onClick={() => setShowSrcModal(true)}
-                  className="mt-4 w-full rounded-xl border border-[#e5e7eb] py-2 text-[12px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+                  className="mt-4 w-full rounded-xl border border-[#e5e7eb] py-2 text-[12px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]">
                   View All Sources
                 </button>
               </div>
@@ -500,7 +500,7 @@ export function StudioInsightsPage({ videoId }: { videoId: number }) {
                   {(["countries","cities"] as const).map(t => (
                     <button key={t} type="button" onClick={() => setLocationTab(t)}
                       className={cn("rounded-lg px-3 py-1 text-[11px] font-semibold capitalize transition",
-                        locationTab === t ? "bg-white text-[#fe2c55] shadow-sm" : "text-[#6b7280] hover:text-[#374151]")}>
+                        locationTab === t ? "bg-white text-[#fd4605] shadow-sm" : "text-[#6b7280] hover:text-[#374151]")}>
                       Top {t === "countries" ? "Countries" : "Cities"}
                     </button>
                   ))}
@@ -525,7 +525,7 @@ export function StudioInsightsPage({ videoId }: { videoId: number }) {
                               <span className="text-[12px] font-bold text-[#111827]">{l.pct}%</span>
                             </div>
                             <div className="h-1.5 overflow-hidden rounded-full bg-[#f3f4f6]">
-                              <div className="h-full rounded-full bg-[#fe2c55]" style={{ width: `${l.pct}%` }} />
+                              <div className="h-full rounded-full bg-[#fd4605]" style={{ width: `${l.pct}%` }} />
                             </div>
                           </div>
                         ))}
@@ -539,7 +539,7 @@ export function StudioInsightsPage({ videoId }: { videoId: number }) {
                   })()}
                 </div>
                 <button type="button" onClick={() => setShowLocModal(true)}
-                  className="mt-4 w-full rounded-xl border border-[#e5e7eb] py-2 text-[12px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+                  className="mt-4 w-full rounded-xl border border-[#e5e7eb] py-2 text-[12px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]">
                   View All Locations
                 </button>
               </div>
@@ -590,7 +590,7 @@ export function StudioInsightsPage({ videoId }: { videoId: number }) {
                   )}
                 </div>
                 <button type="button" onClick={() => setShowCmtModal(true)}
-                  className="mt-4 w-full rounded-xl border border-[#e5e7eb] py-2 text-[12px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+                  className="mt-4 w-full rounded-xl border border-[#e5e7eb] py-2 text-[12px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]">
                   View All Comments
                 </button>
               </div>
@@ -613,7 +613,7 @@ export function StudioInsightsPage({ videoId }: { videoId: number }) {
             <h3 className="text-[16px] font-extrabold text-[#111827]">{title as string}</h3>
             <p className="mt-2 text-[13px] text-[#9ca3af]">Detailed view coming soon.</p>
             <button onClick={() => (setOpen as (v: boolean) => void)(false)}
-              className="mt-4 w-full rounded-xl bg-[#fe2c55] py-2.5 text-[13px] font-bold text-white hover:bg-[#e0243d]">
+              className="mt-4 w-full rounded-xl bg-[#fd4605] py-2.5 text-[13px] font-bold text-white hover:bg-[#e03e04]">
               Close
             </button>
           </div>

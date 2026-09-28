@@ -70,7 +70,7 @@ function AddFundsModal({
         </div>
 
         <label className="mb-1.5 block text-[12px] font-semibold text-[#6b7280]">Amount</label>
-        <div className="flex items-center rounded-xl border border-[#e5e7eb] bg-white px-3 focus-within:border-[#fe2c55]">
+        <div className="flex items-center rounded-xl border border-[#e5e7eb] bg-white px-3 focus-within:border-[#fd4605]">
           <span className="text-[15px] font-bold text-[#9ca3af]">{currency}</span>
           <input
             type="number"
@@ -94,7 +94,7 @@ function AddFundsModal({
                 className={
                   "rounded-full px-3.5 py-1.5 text-[13px] font-bold transition " +
                   (on
-                    ? "bg-[#fe2c55] text-white"
+                    ? "bg-[#fd4605] text-white"
                     : "border border-[#eef0f3] bg-white text-[#6b7280] hover:bg-[#f9fafb]")
                 }
               >
@@ -167,7 +167,7 @@ export function BillingPage() {
           Array.from({ length: 3 }).map((_, i) => <Skeleton key={i} className="h-[128px]" />)
         ) : (
           <>
-            <StatTile icon={Wallet} iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+            <StatTile icon={Wallet} iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
               label="Balance" value={money(data?.balance_cents, currency)} hint="Available to spend" />
             <StatTile icon={CircleDollarSign} iconBg="bg-[#ede9fe]" iconColor="text-[#7c3aed]"
               label="Lifetime spent" value={money(account?.lifetime_spent_cents, currency)} hint="All-time" />
@@ -183,8 +183,8 @@ export function BillingPage() {
         <div className="p-5">
           <div className="flex items-center justify-between rounded-xl border border-[#eef0f3] bg-[#f8f9fb] px-4 py-3.5">
             <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-[#fff0f4]">
-                <Wallet className="h-5 w-5 text-[#fe2c55]" />
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-[#fff3ec]">
+                <Wallet className="h-5 w-5 text-[#fd4605]" />
               </span>
               <div>
                 <p className="text-[13px] font-bold text-[#111827]">Teezer balance</p>

@@ -155,7 +155,7 @@ export default function CommentsPage() {
               className={[
                 "border-b-2 px-3.5 py-2.5 text-[13px] font-semibold transition-colors",
                 queue === tab.key
-                  ? "border-[#fe2c55] text-[#fe2c55]"
+                  ? "border-[#fd4605] text-[#fd4605]"
                   : "border-transparent text-[#6b7280] hover:text-[#111827]",
               ].join(" ")}
             >
@@ -167,7 +167,7 @@ export default function CommentsPage() {
         {/* The bulk bar only exists when something is selected, so it never
             occupies space or invites an action with no target. */}
         {selectedIds.length > 0 && (
-          <div className="flex flex-wrap items-center gap-2 rounded-xl border border-[#fe2c55]/25 bg-[#fff0f4] px-4 py-2.5">
+          <div className="flex flex-wrap items-center gap-2 rounded-xl border border-[#fd4605]/25 bg-[#fff3ec] px-4 py-2.5">
             <span className="text-[13px] font-semibold text-[#111827]">
               {selectedIds.length} selected
             </span>
@@ -252,7 +252,7 @@ export default function CommentsPage() {
                       checked={selected.has(c.id)}
                       onChange={() => toggle(c.id)}
                       aria-label={`Select comment ${c.id}`}
-                      className="h-3.5 w-3.5 cursor-pointer accent-[#fe2c55]"
+                      className="h-3.5 w-3.5 cursor-pointer accent-[#fd4605]"
                     />
                   </Td>
 

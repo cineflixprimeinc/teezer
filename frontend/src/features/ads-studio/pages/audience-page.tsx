@@ -77,7 +77,7 @@ export function AudiencePage() {
             label="People reached" value={compact(reachTotal)} hint="recent campaigns" />
           <StatTile icon={Eye} iconBg="bg-[#ede9fe]" iconColor="text-[#7c3aed]"
             label="Impressions" value={compact(dash.tiles.impressions.value)} hint="this period" />
-          <StatTile icon={MousePointerClick} iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+          <StatTile icon={MousePointerClick} iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
             label="Clicks" value={compact(dash.tiles.clicks.value)} hint="this period" />
         </div>
       )}
@@ -95,7 +95,7 @@ export function AudiencePage() {
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
                 placeholder="e.g. United States"
-                className="w-full rounded-xl border border-[#e5e7eb] bg-white px-3.5 py-2.5 text-[13px] text-[#111827] outline-none transition placeholder:text-[#9ca3af] focus:border-[#fe2c55]"
+                className="w-full rounded-xl border border-[#e5e7eb] bg-white px-3.5 py-2.5 text-[13px] text-[#111827] outline-none transition placeholder:text-[#9ca3af] focus:border-[#fd4605]"
               />
             </div>
 
@@ -125,7 +125,7 @@ export function AudiencePage() {
               <select
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="w-full rounded-xl border border-[#e5e7eb] bg-white px-3.5 py-2.5 text-[13px] text-[#111827] outline-none transition focus:border-[#fe2c55]"
+                className="w-full rounded-xl border border-[#e5e7eb] bg-white px-3.5 py-2.5 text-[13px] text-[#111827] outline-none transition focus:border-[#fd4605]"
               >
                 {AGE_OPTIONS.map((o) => (
                   <option key={o.value} value={o.value}>{o.label}</option>
@@ -136,7 +136,7 @@ export function AudiencePage() {
             {/* Daily budget */}
             <div>
               <label className="mb-1.5 block text-[12px] font-semibold text-[#374151]">Daily budget</label>
-              <div className="flex items-center rounded-xl border border-[#e5e7eb] bg-white pr-3 transition focus-within:border-[#fe2c55]">
+              <div className="flex items-center rounded-xl border border-[#e5e7eb] bg-white pr-3 transition focus-within:border-[#fd4605]">
                 <input
                   type="number"
                   min={1}
@@ -175,8 +175,8 @@ export function AudiencePage() {
               {/* Big audience size */}
               <Card className="p-6">
                 <div className="flex items-center gap-2.5">
-                  <span className="grid h-9 w-9 place-items-center rounded-full bg-[#fff0f4]">
-                    <Users className="h-[18px] w-[18px] text-[#fe2c55]" />
+                  <span className="grid h-9 w-9 place-items-center rounded-full bg-[#fff3ec]">
+                    <Users className="h-[18px] w-[18px] text-[#fd4605]" />
                   </span>
                   <span className="text-[13px] font-semibold text-[#6b7280]">Estimated audience size</span>
                 </div>
@@ -194,7 +194,7 @@ export function AudiencePage() {
                   label="Impressions" value={`${compact(est.per_day.impressions.min)} – ${compact(est.per_day.impressions.max)}`} hint="per day" />
                 <StatTile icon={Play} iconBg="bg-[#dcfce7]" iconColor="text-[#16a34a]"
                   label="Views" value={`${compact(est.per_day.views.min)} – ${compact(est.per_day.views.max)}`} hint="per day" />
-                <StatTile icon={MousePointerClick} iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+                <StatTile icon={MousePointerClick} iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
                   label="Clicks" value={`${compact(est.per_day.clicks.min)} – ${compact(est.per_day.clicks.max)}`} hint="per day" />
               </div>
 

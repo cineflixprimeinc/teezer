@@ -24,14 +24,14 @@ interface PolicyLink {
 }
 
 const CORE: PolicyLink[] = [
-  { icon: Users, iconBg: "bg-[#fff0f4]", iconColor: "text-[#fe2c55]", title: "Community Guidelines", desc: "What's allowed on Teezer, and what's not", href: "/guidelines" },
+  { icon: Users, iconBg: "bg-[#fff3ec]", iconColor: "text-[#fd4605]", title: "Community Guidelines", desc: "What's allowed on Teezer, and what's not", href: "/guidelines" },
   { icon: FileText, iconBg: "bg-[#eff6ff]", iconColor: "text-[#3b82f6]", title: "Terms of Service", desc: "The agreement that governs your use of Teezer", href: "/terms" },
   { icon: ShieldCheck, iconBg: "bg-[#f0fdf4]", iconColor: "text-[#16a34a]", title: "Privacy Policy", desc: "How we collect, use and protect your data", href: "/privacy" },
 ];
 
 const SAFETY: PolicyLink[] = [
   { icon: AlertCircle, iconBg: "bg-[#fff7ed]", iconColor: "text-[#f97316]", title: "Safety Policy", desc: "Violence, self-harm and dangerous acts", href: "/policies/safety" },
-  { icon: EyeOff, iconBg: "bg-[#fff0f4]", iconColor: "text-[#fe2c55]", title: "Adult Content Policy", desc: "Nudity and sexual content rules", href: "/policies/adult-content" },
+  { icon: EyeOff, iconBg: "bg-[#fff3ec]", iconColor: "text-[#fd4605]", title: "Adult Content Policy", desc: "Nudity and sexual content rules", href: "/policies/adult-content" },
   { icon: Smile, iconBg: "bg-[#f0fdf4]", iconColor: "text-[#16a34a]", title: "Minor Safety Policy", desc: "Protecting children and teens", href: "/policies/minor-safety" },
   { icon: CalendarCheck, iconBg: "bg-[#eff6ff]", iconColor: "text-[#2563eb]", title: "Age Suitability", desc: "Our 16+ rating and minimum age to join", href: "/policies/age-suitability" },
   { icon: Music, iconBg: "bg-[#fdf4ff]", iconColor: "text-[#a21caf]", title: "Music Attribution", desc: "How tracks are identified and credited", href: "/policies/music-attribution" },
@@ -50,7 +50,7 @@ const LEGAL: PolicyLink[] = [
   { icon: Server, iconBg: "bg-[#eff6ff]", iconColor: "text-[#3b82f6]", title: "Data Collection Policy", desc: "What information Teezer collects and why", href: "/policies/data-collection" },
   { icon: BookOpen, iconBg: "bg-[#f0fdfa]", iconColor: "text-[#0d9488]", title: "Data Sharing Policy", desc: "Who receives your information and why", href: "/policies/data-sharing" },
   { icon: Clock, iconBg: "bg-[#f8fafc]", iconColor: "text-[#475569]", title: "Data Retention & Deletion", desc: "How long data is kept and what deletion does", href: "/policies/data-retention" },
-  { icon: Lock, iconBg: "bg-[#fff0f4]", iconColor: "text-[#fe2c55]", title: "Security Policy", desc: "How Teezer protects your account and data", href: "/policies/security" },
+  { icon: Lock, iconBg: "bg-[#fff3ec]", iconColor: "text-[#fd4605]", title: "Security Policy", desc: "How Teezer protects your account and data", href: "/policies/security" },
   { icon: Shield, iconBg: "bg-[#f5f3ff]", iconColor: "text-[#7c3aed]", title: "Your Rights & Controls", desc: "Access, export, correction and deletion rights", href: "/policies/your-rights" },
   { icon: Landmark, iconBg: "bg-[#eff6ff]", iconColor: "text-[#3b82f6]", title: "Law Enforcement Guidelines", desc: "How authorities can request data from Teezer", href: "/law-enforcement" },
 ];
@@ -63,16 +63,16 @@ function CoreTile({ p }: { p: PolicyLink }) {
       href={p.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col gap-3 rounded-2xl border border-[#f0f1f5] bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#fe2c55]/40 hover:shadow-[0_8px_24px_rgba(254,44,85,0.10)]"
+      className="group flex flex-col gap-3 rounded-2xl border border-[#f0f1f5] bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#fd4605]/40 hover:shadow-[0_8px_24px_rgba(253,70,5,0.10)]"
     >
       <div className="flex items-start justify-between">
         <span className={`flex h-11 w-11 items-center justify-center rounded-xl ${p.iconBg}`}>
           <Icon className={`h-5 w-5 ${p.iconColor}`} />
         </span>
-        <ArrowUpRight className="h-4 w-4 text-[#d1d5db] transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#fe2c55]" />
+        <ArrowUpRight className="h-4 w-4 text-[#d1d5db] transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#fd4605]" />
       </div>
       <div>
-        <p className="text-[14px] font-bold text-[#111827] group-hover:text-[#fe2c55]">{p.title}</p>
+        <p className="text-[14px] font-bold text-[#111827] group-hover:text-[#fd4605]">{p.title}</p>
         <p className="mt-1 text-[12px] leading-relaxed text-[#9ca3af]">{p.desc}</p>
       </div>
     </Link>
@@ -93,10 +93,10 @@ function PolicyRow({ p, last }: { p: PolicyLink; last?: boolean }) {
         <Icon className={`h-[17px] w-[17px] ${p.iconColor}`} />
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block text-[13px] font-semibold leading-tight text-[#111827] group-hover:text-[#fe2c55]">{p.title}</span>
+        <span className="block text-[13px] font-semibold leading-tight text-[#111827] group-hover:text-[#fd4605]">{p.title}</span>
         <span className="mt-0.5 block text-[11.5px] leading-tight text-[#9ca3af]">{p.desc}</span>
       </span>
-      <ChevronRight className="h-4 w-4 flex-shrink-0 text-[#d1d5db] transition-transform group-hover:translate-x-0.5 group-hover:text-[#fe2c55]" />
+      <ChevronRight className="h-4 w-4 flex-shrink-0 text-[#d1d5db] transition-transform group-hover:translate-x-0.5 group-hover:text-[#fd4605]" />
     </Link>
   );
 }
@@ -130,13 +130,13 @@ export default function GuidelinesPage() {
 
       {/* Help note */}
       <div className="mt-4 flex items-center gap-3.5 rounded-2xl border border-[#f0f1f5] bg-[#fafbfc] px-5 py-4">
-        <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[10px] bg-[#fff0f4]">
-          <Shield className="h-[17px] w-[17px] text-[#fe2c55]" />
+        <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[10px] bg-[#fff3ec]">
+          <Shield className="h-[17px] w-[17px] text-[#fd4605]" />
         </span>
         <p className="text-[12px] leading-relaxed text-[#6b7280]">
           Teezer follows <span className="font-semibold text-[#374151]">WCAG 2.1 AA</span> and industry safety
           standards. Questions about any policy? Contact{" "}
-          <a href="mailto:support@teezer.live" className="font-semibold text-[#fe2c55] hover:underline">
+          <a href="mailto:support@teezer.live" className="font-semibold text-[#fd4605] hover:underline">
             support@teezer.live
           </a>
           .

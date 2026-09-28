@@ -10,14 +10,14 @@
                 <span class="ml-2 text-xs font-semibold text-white/40 uppercase tracking-widest">Studio</span>
             </div>
             <nav class="flex-1 py-4 px-3 space-y-1 overflow-y-auto">
-                <a href="{{ route('creator.index') }}" @class(['flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors', 'bg-[#fe2c55]/10 text-[#fe2c55]' => request()->routeIs('creator.index'), 'text-white/70 hover:text-white hover:bg-white/5' => !request()->routeIs('creator.index')])>
+                <a href="{{ route('creator.index') }}" @class(['flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors', 'bg-[#fd4605]/10 text-[#fd4605]' => request()->routeIs('creator.index'), 'text-white/70 hover:text-white hover:bg-white/5' => !request()->routeIs('creator.index')])>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                     Analytics
                 </a>
             </nav>
             <div class="border-t border-white/10 p-4">
                 <div class="flex items-center gap-3 mb-3">
-                    <div class="w-8 h-8 rounded-full bg-[#fe2c55]/20 flex items-center justify-center text-xs font-bold text-[#fe2c55]">
+                    <div class="w-8 h-8 rounded-full bg-[#fd4605]/20 flex items-center justify-center text-xs font-bold text-[#fd4605]">
                         {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                     </div>
                     <div class="flex-1 min-w-0">

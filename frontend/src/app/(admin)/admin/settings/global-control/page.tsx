@@ -223,7 +223,7 @@ export default function GlobalReelsooControlPage() {
         {/* Header */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex items-start gap-3">
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#fff0f4] text-[#fe2c55]">
+            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#fff3ec] text-[#fd4605]">
               <SlidersHorizontal className="h-5 w-5" />
             </div>
             <div>
@@ -307,7 +307,7 @@ export default function GlobalReelsooControlPage() {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search global controls…"
-                  className="h-9 w-full rounded-[10px] border border-[#e8eaed] bg-white pl-9 pr-3 text-[13px] text-[#111827] outline-none placeholder:text-[#9ca3af] focus:border-[#fe2c55]"
+                  className="h-9 w-full rounded-[10px] border border-[#e8eaed] bg-white pl-9 pr-3 text-[13px] text-[#111827] outline-none placeholder:text-[#9ca3af] focus:border-[#fd4605]"
                 />
               </div>
             </div>
@@ -401,7 +401,7 @@ export default function GlobalReelsooControlPage() {
                       <p className="text-[#9ca3af]">{a.admin} · {timeAgo(a.createdAt)}</p>
                     </div>
                   ))}
-                  <button onClick={() => setShowActivity(true)} className="text-[12px] font-semibold text-[#fe2c55] hover:underline">
+                  <button onClick={() => setShowActivity(true)} className="text-[12px] font-semibold text-[#fd4605] hover:underline">
                     View All
                   </button>
                 </div>
@@ -443,7 +443,7 @@ export default function GlobalReelsooControlPage() {
                 onChange={(e) => setReason(e.target.value)}
                 rows={2}
                 placeholder="Why is this change being made?"
-                className="w-full rounded-lg border border-[#e8eaed] px-3 py-2 text-[13px] outline-none focus:border-[#fe2c55]"
+                className="w-full rounded-lg border border-[#e8eaed] px-3 py-2 text-[13px] outline-none focus:border-[#fd4605]"
               />
             </div>
             {pending.kind === "toggle" && pending.offeringDuration && (
@@ -518,7 +518,7 @@ function TabButton({ active, onClick, children }: { active: boolean; onClick: ()
       onClick={onClick}
       className={cn(
         "rounded-full px-3 py-1.5 text-[12px] font-semibold transition-colors",
-        active ? "bg-[#fe2c55] text-white" : "bg-[#f4f5f7] text-[#6b7280] hover:bg-[#e8eaed]",
+        active ? "bg-[#fd4605] text-white" : "bg-[#f4f5f7] text-[#6b7280] hover:bg-[#e8eaed]",
       )}
     >
       {children}
@@ -529,7 +529,7 @@ function TabButton({ active, onClick, children }: { active: boolean; onClick: ()
 function QuickAction({ icon: Icon, label, sub, onClick }: { icon: React.ElementType; label: string; sub: string; onClick: () => void }) {
   return (
     <button onClick={onClick} className="flex w-full items-start gap-2.5 rounded-lg px-2 py-2 text-left transition-colors hover:bg-[#f4f5f7]">
-      <div className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-[#fff0f4] text-[#fe2c55]">
+      <div className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-[#fff3ec] text-[#fd4605]">
         <Icon className="h-3.5 w-3.5" />
       </div>
       <div className="min-w-0">
@@ -562,9 +562,9 @@ function ControlRow({
               {control.critical && (
                 <span className="rounded-full bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700">Critical</span>
               )}
-              {dirty && <span className="text-[10px] font-semibold text-[#fe2c55]">Unsaved</span>}
+              {dirty && <span className="text-[10px] font-semibold text-[#fd4605]">Unsaved</span>}
               {control.expiresAt && (
-                <span className="rounded-full bg-[#fff0f4] px-1.5 py-0.5 text-[10px] font-semibold text-[#fe2c55]">Temporary</span>
+                <span className="rounded-full bg-[#fff3ec] px-1.5 py-0.5 text-[10px] font-semibold text-[#fd4605]">Temporary</span>
               )}
             </div>
             <p className="mt-0.5 text-[12px] text-[#6b7280]">{control.description}</p>

@@ -55,8 +55,8 @@ export default function FollowRequestsPage() {
   return (
     <div className="mx-auto max-w-[560px] px-4 py-6">
       <div className="mb-6 flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#fff0f4]">
-          <UserPlus className="h-5 w-5 text-[#fe2c55]" />
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#fff3ec]">
+          <UserPlus className="h-5 w-5 text-[#fd4605]" />
         </div>
         <div>
           <h1 className="text-[17px] font-extrabold text-[#111827]">Follow Requests</h1>
@@ -66,7 +66,7 @@ export default function FollowRequestsPage() {
 
       {loading ? (
         <div className="flex justify-center py-16">
-          <Loader2 className="h-7 w-7 animate-spin text-[#fe2c55]" />
+          <Loader2 className="h-7 w-7 animate-spin text-[#fd4605]" />
         </div>
       ) : requests.length === 0 ? (
         <div className="flex flex-col items-center gap-3 rounded-2xl border border-[#eeeeee] bg-white py-14 text-center">
@@ -90,7 +90,7 @@ export default function FollowRequestsPage() {
                     className="h-11 w-11 rounded-full object-cover"
                   />
                 ) : (
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#fe2c55] to-[#c02040] text-[15px] font-bold text-white">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#fd4605] to-[#b83203] text-[15px] font-bold text-white">
                     {req.user.name.charAt(0).toUpperCase()}
                   </div>
                 )}
@@ -110,7 +110,7 @@ export default function FollowRequestsPage() {
                   type="button"
                   disabled={working[req.id]}
                   onClick={() => accept(req.id)}
-                  className="flex h-8 items-center gap-1.5 rounded-full bg-[#fe2c55] px-4 text-[12px] font-bold text-white transition hover:bg-[#e02449] disabled:opacity-60"
+                  className="flex h-8 items-center gap-1.5 rounded-full bg-[#fd4605] px-4 text-[12px] font-bold text-white transition hover:bg-[#e03e04] disabled:opacity-60"
                 >
                   {working[req.id] ? (
                     <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -123,7 +123,7 @@ export default function FollowRequestsPage() {
                   type="button"
                   disabled={working[req.id]}
                   onClick={() => decline(req.id)}
-                  className="flex h-8 items-center gap-1.5 rounded-full border border-[#eeeeee] bg-white px-4 text-[12px] font-semibold text-[#5f6675] transition hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:opacity-60"
+                  className="flex h-8 items-center gap-1.5 rounded-full border border-[#eeeeee] bg-white px-4 text-[12px] font-semibold text-[#5f6675] transition hover:border-[#fd4605] hover:text-[#fd4605] disabled:opacity-60"
                 >
                   {working[req.id] ? (
                     <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -150,7 +150,7 @@ export default function FollowRequestsPage() {
               setRequests([]);
               toast.success("All requests declined");
             }}
-            className="text-[12px] font-semibold text-[#fe2c55] hover:underline"
+            className="text-[12px] font-semibold text-[#fd4605] hover:underline"
           >
             Decline all
           </button>

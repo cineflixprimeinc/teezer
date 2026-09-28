@@ -186,7 +186,7 @@ export function DOBPicker({ value, onChange, error }: DOBPickerProps) {
           width: "100%",
           height: 52,
           borderRadius: 9999,
-          border: `1.5px solid ${error ? "#fe2c55" : open ? "#fe2c55" : "#e5e7eb"}`,
+          border: `1.5px solid ${error ? "#fd4605" : open ? "#fd4605" : "#e5e7eb"}`,
           background: "#fff",
           display: "flex",
           alignItems: "center",
@@ -194,7 +194,7 @@ export function DOBPicker({ value, onChange, error }: DOBPickerProps) {
           cursor: "pointer",
           gap: 10,
           transition: "border-color 150ms, box-shadow 150ms",
-          boxShadow: open ? "0 0 0 3px rgba(254,44,85,0.10)" : "none",
+          boxShadow: open ? "0 0 0 3px rgba(253,70,5,0.10)" : "none",
         }}
       >
         <Calendar size={16} color="#9ca3af" style={{ flexShrink: 0 }} />
@@ -357,9 +357,9 @@ export function DOBPicker({ value, onChange, error }: DOBPickerProps) {
                         style={{
                           height: 30,
                           borderRadius: 8,
-                          border: isToday && !isSelected ? "1px solid #fe2c55" : "1px solid transparent",
-                          background: isSelected ? "#fe2c55" : "transparent",
-                          color: isSelected ? "#fff" : isToday ? "#fe2c55" : "#111827",
+                          border: isToday && !isSelected ? "1px solid #fd4605" : "1px solid transparent",
+                          background: isSelected ? "#fd4605" : "transparent",
+                          color: isSelected ? "#fff" : isToday ? "#fd4605" : "#111827",
                           fontSize: 12,
                           fontWeight: isSelected || isToday ? 700 : 500,
                           cursor: "pointer",
@@ -430,7 +430,7 @@ export function DOBPicker({ value, onChange, error }: DOBPickerProps) {
       )}
 
       {error && (
-        <p style={{ marginTop: 4, paddingLeft: 14, fontSize: 12, color: "#fe2c55" }}>{error}</p>
+        <p style={{ marginTop: 4, paddingLeft: 14, fontSize: 12, color: "#fd4605" }}>{error}</p>
       )}
     </div>
   );
@@ -455,9 +455,9 @@ function chipStyle(active: boolean): React.CSSProperties {
     height: 28,
     padding: "0 10px",
     borderRadius: 8,
-    border: `1px solid ${active ? "#fe2c55" : "#e5e7eb"}`,
-    background: active ? "#fff0f4" : "#fff",
-    color: active ? "#fe2c55" : "#111827",
+    border: `1px solid ${active ? "#fd4605" : "#e5e7eb"}`,
+    background: active ? "#fff3ec" : "#fff",
+    color: active ? "#fd4605" : "#111827",
     fontSize: 13,
     fontWeight: 600,
     cursor: "pointer",
@@ -470,7 +470,7 @@ function footerBtnStyle(primary: boolean): React.CSSProperties {
     padding: "0 12px",
     borderRadius: 8,
     border: primary ? "none" : "1px solid #e5e7eb",
-    background: primary ? "#fe2c55" : "#fff",
+    background: primary ? "#fd4605" : "#fff",
     color: primary ? "#fff" : "#374151",
     fontSize: 12,
     fontWeight: 700,
@@ -521,12 +521,12 @@ function ScrollableList({
               width: "100%",
               height: 34,
               padding: "0 12px",
-              background: isSelected ? "#fff0f4" : "transparent",
+              background: isSelected ? "#fff3ec" : "transparent",
               border: "none",
               cursor: "pointer",
               fontSize: 13,
               fontWeight: isSelected ? 700 : 500,
-              color: isSelected ? "#fe2c55" : "#111827",
+              color: isSelected ? "#fd4605" : "#111827",
               textAlign: "left",
               transition: "background 80ms",
             }}

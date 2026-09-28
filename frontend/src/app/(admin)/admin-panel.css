@@ -22,8 +22,8 @@
   /* Local overrides. --brand and --topbar-h happen to match the site's values
      today; they are restated so this panel does not silently change appearance
      if the site's are ever retuned for the site's own reasons. */
-  --brand: #fe2c55;
-  --brand-light: #fff0f4;
+  --brand: #fd4605;
+  --brand-light: #fff3ec;
   --sidebar-w: 256px;
   --topbar-h: 64px;
 
@@ -56,7 +56,7 @@
 }
 
 .admin-panel-root ::selection {
-  background: rgba(254, 44, 85, 0.15);
+  background: rgba(253, 70, 5, 0.15);
 }
 
 /* Scrollbars: thin and light, matching the panel's own surface rather than the
@@ -89,7 +89,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #fe2c55;
+  color: #fd4605;
 }
 .admin-panel-root .legal-preview-embed h1 {
   margin-top: 0.5rem;
@@ -127,7 +127,7 @@
 .admin-panel-root .legal-preview-embed ul { list-style: disc; }
 .admin-panel-root .legal-preview-embed ol { list-style: decimal; }
 .admin-panel-root .legal-preview-embed li + li { margin-top: 0.375rem; }
-.admin-panel-root .legal-preview-embed a { color: #fe2c55; font-weight: 600; text-decoration: underline; }
+.admin-panel-root .legal-preview-embed a { color: #fd4605; font-weight: 600; text-decoration: underline; }
 .admin-panel-root .legal-preview-embed strong { font-weight: 700; color: #111827; }
 .admin-panel-root .legal-preview-embed table { margin-top: 1rem; width: 100%; border-collapse: collapse; font-size: 13px; }
 .admin-panel-root .legal-preview-embed th { text-align: left; padding: 8px 10px; background: #111827; color: #fff; font-size: 11px; text-transform: uppercase; }

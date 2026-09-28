@@ -406,7 +406,7 @@ export default function PrivacyPolicyPage() {
       <P>
         If you have questions, concerns or requests about this Privacy Policy or your personal information, contact
         us at{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">
           {CONTACT_EMAIL}
         </a>
         . You can also manage most privacy matters directly in{" "}

@@ -70,7 +70,7 @@ export default function ActivateLicensePage() {
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
           <Link href="/" aria-label="Teezer home">
             <Image
-              src="/reelsoo-logo.png"
+              src="/teezer-logo.png"
               alt="Teezer"
               width={210}
               height={54}
@@ -80,7 +80,7 @@ export default function ActivateLicensePage() {
           </Link>
           <a
             href="mailto:support@teezer.live"
-            className="text-[13px] font-semibold text-[#5f6675] transition-colors hover:text-[#fe2c55]"
+            className="text-[13px] font-semibold text-[#5f6675] transition-colors hover:text-[#fd4605]"
           >
             Need help?
           </a>
@@ -89,7 +89,7 @@ export default function ActivateLicensePage() {
 
       <main className="mx-auto max-w-6xl px-5 pb-24 pt-12 sm:pt-16">
         <div className="max-w-2xl">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fff0f4] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[#fe2c55]">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fff3ec] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[#fd4605]">
             <KeyRound size={12} />
             Teezer Licensing
           </span>
@@ -119,7 +119,7 @@ export default function ActivateLicensePage() {
               <ol className="mt-4 flex flex-col gap-4">
                 {STEPS.map((step, index) => (
                   <li key={step.title} className="flex gap-3.5">
-                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#fff0f4] text-[11px] font-bold text-[#fe2c55]">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#fff3ec] text-[11px] font-bold text-[#fd4605]">
                       {index + 1}
                     </span>
                     <div>
@@ -152,7 +152,7 @@ export default function ActivateLicensePage() {
                 Code not activating, or need a licence moved to a different domain? Email{' '}
                 <a
                   href="mailto:support@teezer.live"
-                  className="font-semibold text-[#fe2c55] underline underline-offset-2 hover:text-[#e81d47]"
+                  className="font-semibold text-[#fd4605] underline underline-offset-2 hover:text-[#e81d47]"
                 >
                   support@teezer.live
                 </a>

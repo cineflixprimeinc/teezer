@@ -22,7 +22,7 @@ function formatVal(n: number): string {
   return String(n);
 }
 
-export function StudioLineChart({ data, color = "#fe2c55", height = 220, metricLabel = "Value" }: Props) {
+export function StudioLineChart({ data, color = "#fd4605", height = 220, metricLabel = "Value" }: Props) {
   const values = data.map(d => d.value);
   const maxVal = values.length ? Math.max(...values) : 0;
   const allZero = maxVal === 0;

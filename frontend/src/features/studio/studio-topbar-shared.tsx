@@ -47,7 +47,7 @@ export function StudioDateRangePicker({ dateRange, open, onToggle, onChange, onC
   return (
     <div className="relative">
       <button type="button" onClick={() => onToggle(!open)}
-        className="flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-white px-3 py-2 text-[12px] font-medium text-[#374151] transition hover:border-[#fe2c55]">
+        className="flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-white px-3 py-2 text-[12px] font-medium text-[#374151] transition hover:border-[#fd4605]">
         <Calendar className="h-3.5 w-3.5 text-[#9ca3af]" />
         <span>
           {isAllTime ? "All time" : `${fmtBtn(dateRange.start)} - ${dateRange.end.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})}`}
@@ -61,8 +61,8 @@ export function StudioDateRangePicker({ dateRange, open, onToggle, onChange, onC
             {onClearFilter && (
               <button type="button"
                 onClick={() => { onClearFilter(); onToggle(false); setErr(""); }}
-                className={cn("rounded-lg border py-1.5 text-[11px] font-semibold transition hover:border-[#fe2c55] hover:bg-[#fff5f5]",
-                  isAllTime ? "border-[#fe2c55] bg-[#fff0f4] text-[#fe2c55]" : "border-[#e5e7eb] text-[#374151]")}>
+                className={cn("rounded-lg border py-1.5 text-[11px] font-semibold transition hover:border-[#fd4605] hover:bg-[#fff5f5]",
+                  isAllTime ? "border-[#fd4605] bg-[#fff3ec] text-[#fd4605]" : "border-[#e5e7eb] text-[#374151]")}>
                 All time
               </button>
             )}
@@ -73,7 +73,7 @@ export function StudioDateRangePicker({ dateRange, open, onToggle, onChange, onC
                   const start = new Date(Date.now()-(p.days-1)*86400000); start.setHours(0,0,0,0);
                   onChange({start,end}); onToggle(false); setErr("");
                 }}
-                className="rounded-lg border border-[#e5e7eb] py-1.5 text-[11px] font-semibold text-[#374151] hover:border-[#fe2c55] hover:bg-[#fff5f5]">
+                className="rounded-lg border border-[#e5e7eb] py-1.5 text-[11px] font-semibold text-[#374151] hover:border-[#fd4605] hover:bg-[#fff5f5]">
                 {p.label}
               </button>
             ))}
@@ -84,11 +84,11 @@ export function StudioDateRangePicker({ dateRange, open, onToggle, onChange, onC
               <div><label className="mb-0.5 block text-[10px] text-[#6b7280]">Start</label>
                 <input type="date" value={cs} max={new Date().toISOString().split("T")[0]}
                   onChange={e => { setCs(e.target.value); setErr(""); }}
-                  className="w-full rounded-lg border border-[#e5e7eb] px-2 py-1.5 text-[12px] outline-none focus:border-[#fe2c55]" /></div>
+                  className="w-full rounded-lg border border-[#e5e7eb] px-2 py-1.5 text-[12px] outline-none focus:border-[#fd4605]" /></div>
               <div><label className="mb-0.5 block text-[10px] text-[#6b7280]">End</label>
                 <input type="date" value={ce} max={new Date().toISOString().split("T")[0]}
                   onChange={e => { setCe(e.target.value); setErr(""); }}
-                  className="w-full rounded-lg border border-[#e5e7eb] px-2 py-1.5 text-[12px] outline-none focus:border-[#fe2c55]" /></div>
+                  className="w-full rounded-lg border border-[#e5e7eb] px-2 py-1.5 text-[12px] outline-none focus:border-[#fd4605]" /></div>
             </div>
             {err && <p className="mt-1 text-[11px] text-red-500">{err}</p>}
             <button type="button"
@@ -100,7 +100,7 @@ export function StudioDateRangePicker({ dateRange, open, onToggle, onChange, onC
                 if ((e2.getTime()-s2.getTime())/86400000>92){setErr("Max 3 months.");return;}
                 onChange({start:s2,end:e2}); onToggle(false); setErr("");
               }}
-              className="mt-2 w-full rounded-lg bg-[#fe2c55] py-2 text-[12px] font-bold text-white hover:bg-[#e0243d]">
+              className="mt-2 w-full rounded-lg bg-[#fd4605] py-2 text-[12px] font-bold text-white hover:bg-[#e03e04]">
               Apply Range
             </button>
             <p className="mt-1 text-center text-[10px] text-[#9ca3af]">Max 3 months · No future dates</p>
@@ -202,7 +202,7 @@ export function StudioTopbarShared({
         {showBack && (
           <button type="button"
             onClick={onBack ?? (() => router.back())}
-            className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full border border-[#e5e7eb] text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+            className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full border border-[#e5e7eb] text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]">
             <ArrowLeft className="h-4 w-4" />
           </button>
         )}
@@ -218,7 +218,7 @@ export function StudioTopbarShared({
       <div className="relative flex-1 max-w-[440px]">
         <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#9ca3af]" />
         <input placeholder={searchPlaceholder}
-          className="w-full rounded-full border border-[#e5e7eb] bg-[#f9fafb] py-2 pl-9 pr-4 text-[13px] text-[#111827] outline-none transition focus:border-[#fe2c55] focus:bg-white" />
+          className="w-full rounded-full border border-[#e5e7eb] bg-[#f9fafb] py-2 pl-9 pr-4 text-[13px] text-[#111827] outline-none transition focus:border-[#fd4605] focus:bg-white" />
       </div>
 
       <div className="ml-auto flex items-center gap-3">
@@ -234,10 +234,10 @@ export function StudioTopbarShared({
         {/* Bell */}
         <div ref={notifRef} className="relative">
           <button type="button" onClick={() => setNotifOpen(o => !o)}
-            className="relative grid h-9 w-9 place-items-center rounded-full border border-[#e5e7eb] bg-white text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+            className="relative grid h-9 w-9 place-items-center rounded-full border border-[#e5e7eb] bg-white text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]">
             <Bell className="h-[18px] w-[18px]" />
             {(externalNotifCount ?? notifCount) > 0 && (
-              <span className="absolute -right-1 -top-1 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-[#fe2c55] px-1 text-[9px] font-bold text-white">
+              <span className="absolute -right-1 -top-1 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-[#fd4605] px-1 text-[9px] font-bold text-white">
                 {(externalNotifCount ?? notifCount) > 9 ? "9+" : (externalNotifCount ?? notifCount)}
               </span>
             )}
@@ -257,7 +257,7 @@ export function StudioTopbarShared({
               </div>
               <div className="border-t border-[#f0f0f0] px-4 py-3">
                 <Link href="/notifications" onClick={() => setNotifOpen(false)}
-                  className="text-[13px] font-semibold text-[#fe2c55] hover:underline">
+                  className="text-[13px] font-semibold text-[#fd4605] hover:underline">
                   View all notifications
                 </Link>
               </div>
@@ -268,11 +268,11 @@ export function StudioTopbarShared({
         {/* Avatar dropdown */}
         <div ref={avatarRef} className="relative">
           <button type="button" onClick={() => setAvatarOpen(o => !o)}
-            className="flex items-center gap-1.5 rounded-full border border-[#e5e7eb] bg-white pl-1 pr-3 py-1 transition hover:border-[#fe2c55]">
+            className="flex items-center gap-1.5 rounded-full border border-[#e5e7eb] bg-white pl-1 pr-3 py-1 transition hover:border-[#fd4605]">
             {(user as any)?.avatar
               // eslint-disable-next-line @next/next/no-img-element
               ? <img src={(user as any).avatar} alt={user?.name ?? ""} className="h-8 w-8 rounded-full object-cover" />
-              : <div className="grid h-8 w-8 place-items-center rounded-full bg-[#fe2c55] text-[13px] font-bold text-white">{initials}</div>}
+              : <div className="grid h-8 w-8 place-items-center rounded-full bg-[#fd4605] text-[13px] font-bold text-white">{initials}</div>}
             <ChevronDown className={cn("h-3.5 w-3.5 text-[#9ca3af] transition-transform", avatarOpen && "rotate-180")} />
           </button>
 
@@ -290,13 +290,13 @@ export function StudioTopbarShared({
                   </div>
                   <input type="text" value={addLogin} onChange={e => { setAddLogin(e.target.value); setAddError(""); }}
                     placeholder="Email or username"
-                    className="mb-2 w-full rounded-xl border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fe2c55]" />
+                    className="mb-2 w-full rounded-xl border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fd4605]" />
                   <input type="password" value={addPassword} onChange={e => { setAddPassword(e.target.value); setAddError(""); }}
                     placeholder="Password" onKeyDown={e => e.key === "Enter" && handleAddAccount()}
-                    className="mb-2 w-full rounded-xl border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fe2c55]" />
+                    className="mb-2 w-full rounded-xl border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fd4605]" />
                   {addError && <p className="mb-2 text-[12px] text-red-500">{addError}</p>}
                   <button onClick={handleAddAccount} disabled={addLoading}
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#fe2c55] py-2 text-[13px] font-bold text-white hover:bg-[#e0243d] disabled:opacity-60">
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#fd4605] py-2 text-[13px] font-bold text-white hover:bg-[#e03e04] disabled:opacity-60">
                     {addLoading && <Loader2 className="h-4 w-4 animate-spin" />}
                     {addLoading ? "Signing in…" : "Sign In & Save"}
                   </button>
@@ -308,7 +308,7 @@ export function StudioTopbarShared({
                     {(user as any)?.avatar
                       // eslint-disable-next-line @next/next/no-img-element
                       ? <img src={(user as any).avatar} alt="" className="h-8 w-8 rounded-full object-cover flex-shrink-0" />
-                      : <div className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-full bg-[#fe2c55] text-[13px] font-bold text-white">{initials}</div>}
+                      : <div className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-full bg-[#fd4605] text-[13px] font-bold text-white">{initials}</div>}
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-[13px] font-bold text-[#111827]">{user?.name}</p>
                       <p className="truncate text-[11px] text-[#9ca3af]">@{user?.username}</p>

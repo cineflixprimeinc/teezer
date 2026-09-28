@@ -46,7 +46,7 @@ function dateRangeStr(range: DateRange): string {
 function Avatar({ name, src, size = 32 }: { name: string; src: string | null; size?: number }) {
   const [err, setErr] = useState(false);
   const initials = name.split(" ").map((w: string) => w[0]).join("").slice(0, 2).toUpperCase();
-  const PALETTE = ["#3b82f6","#8b5cf6","#f59e0b","#10b981","#fe2c55","#06b6d4","#ec4899","#14b8a6"];
+  const PALETTE = ["#3b82f6","#8b5cf6","#f59e0b","#10b981","#fd4605","#06b6d4","#ec4899","#14b8a6"];
   const bg = PALETTE[name.charCodeAt(0) % PALETTE.length];
   if (src && !err) {
     return (
@@ -138,10 +138,10 @@ function IconCoins({ size = 26 }: { size?: number }) {
 function IconWallet({ size = 26 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 28 28" fill="none">
-      <rect x="2" y="7" width="24" height="16" rx="3" fill="#fe2c55" opacity="0.8"/>
-      <rect x="2" y="7" width="24" height="5" rx="2" fill="#fe2c55"/>
+      <rect x="2" y="7" width="24" height="16" rx="3" fill="#fd4605" opacity="0.8"/>
+      <rect x="2" y="7" width="24" height="5" rx="2" fill="#fd4605"/>
       <rect x="16" y="12.5" width="8" height="5.5" rx="2.75" fill="white" opacity="0.9"/>
-      <circle cx="20" cy="15.25" r="1.25" fill="#fe2c55"/>
+      <circle cx="20" cy="15.25" r="1.25" fill="#fd4605"/>
     </svg>
   );
 }
@@ -205,7 +205,7 @@ function CalendarRangePicker({ value, onChange }: { value: DateRange; onChange: 
           <div className="absolute right-0 top-full mt-1.5 z-20 bg-white border border-gray-200 rounded-xl shadow-xl py-1 w-44">
             {RANGES.map(r => (
               <button key={r.value} onClick={() => { onChange(r.value); setOpen(false); }}
-                className={`w-full text-left px-4 py-2.5 text-xs transition-colors hover:bg-gray-50 ${r.value === value ? "text-[#fe2c55] font-semibold" : "text-gray-700"}`}>
+                className={`w-full text-left px-4 py-2.5 text-xs transition-colors hover:bg-gray-50 ${r.value === value ? "text-[#fd4605] font-semibold" : "text-gray-700"}`}>
                 <span className="block font-medium">{r.label}</span>
                 <span className="block text-[10px] text-gray-400 mt-0.5">{dateRangeStr(r.value)}</span>
               </button>
@@ -239,7 +239,7 @@ function RangeDropdown({ value, onChange }: { value: DateRange; onChange: (v: Da
           <div className="absolute right-0 top-full mt-1 z-20 bg-white border border-gray-200 rounded-xl shadow-lg py-1 w-36">
             {RANGES.map(r => (
               <button key={r.value} onClick={() => { onChange(r.value); setOpen(false); }}
-                className={`w-full text-left px-3 py-2 text-xs hover:bg-gray-50 ${r.value === value ? "text-[#fe2c55] font-semibold" : "text-gray-700"}`}>
+                className={`w-full text-left px-3 py-2 text-xs hover:bg-gray-50 ${r.value === value ? "text-[#fd4605] font-semibold" : "text-gray-700"}`}>
                 {r.label}
               </button>
             ))}
@@ -266,7 +266,7 @@ function AnalyticsChart() {
     { name: "Revenue", data: data.revenue },
   ] : [];
 
-  const COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#fe2c55"];
+  const COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#fd4605"];
 
   const options = {
     chart: { type: "area", toolbar: { show: false }, animations: { enabled: true }, zoom: { enabled: false } },
@@ -448,7 +448,7 @@ function RevenueChart() {
             </div>
 
             {/* View Full Report button */}
-            <button className="mt-4 w-full flex items-center justify-center gap-1.5 bg-[#fff0f2] hover:bg-[#ffe0e4] text-[#fe2c55] text-xs font-semibold py-2.5 rounded-xl transition-colors">
+            <button className="mt-4 w-full flex items-center justify-center gap-1.5 bg-[#fff0f2] hover:bg-[#ffe0e4] text-[#fd4605] text-xs font-semibold py-2.5 rounded-xl transition-colors">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
                 <rect x="3" y="3" width="18" height="18" rx="2"/>
                 <path d="M3 9h18M9 21V9"/>
@@ -496,7 +496,7 @@ function RecentTransactions() {
     <Card className="p-5">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-sm font-semibold text-gray-900">Recent Transactions</h2>
-        <button className="text-xs font-medium text-[#fe2c55] border border-[#fe2c55]/30 px-3 py-1 rounded-lg hover:bg-red-50 transition-colors">
+        <button className="text-xs font-medium text-[#fd4605] border border-[#fd4605]/30 px-3 py-1 rounded-lg hover:bg-red-50 transition-colors">
           View All
         </button>
       </div>
@@ -522,7 +522,7 @@ function RecentTransactions() {
                 return (
                   <tr key={tx.id} className="border-b border-gray-50 last:border-0 hover:bg-gray-50/60 transition-colors">
                     <td className="py-3 pr-3 whitespace-nowrap">
-                      <span className="text-xs font-semibold text-[#fe2c55]">{tx.id}</span>
+                      <span className="text-xs font-semibold text-[#fd4605]">{tx.id}</span>
                     </td>
                     <td className="py-3 pr-3">
                       <div className="flex items-center gap-2.5">
@@ -575,7 +575,7 @@ function TopCreators() {
     <Card className="p-5">
       <div className="flex items-center justify-between mb-3">
         <h2 className="text-sm font-semibold text-gray-900">Top Creators</h2>
-        <button className="text-xs font-medium text-[#fe2c55] border border-[#fe2c55]/30 px-3 py-1 rounded-lg hover:bg-red-50 transition-colors">
+        <button className="text-xs font-medium text-[#fd4605] border border-[#fd4605]/30 px-3 py-1 rounded-lg hover:bg-red-50 transition-colors">
           View All
         </button>
       </div>
@@ -684,7 +684,7 @@ function SystemOverview() {
           {[
             { icon: "⏱",  label: "API Response",    value: `${data.apiResponseMs}ms`, spark: data.apiSparkline,     color: "#10b981" },
             { icon: "👥", label: "Active Sessions",  value: fmtNum(data.activeSessions), spark: data.sessionSparkline, color: "#3b82f6" },
-            { icon: "💬", label: "Support Tickets",  value: String(data.supportTickets), spark: data.ticketSparkline,  color: "#fe2c55" },
+            { icon: "💬", label: "Support Tickets",  value: String(data.supportTickets), spark: data.ticketSparkline,  color: "#fd4605" },
           ].map(row => (
             <div key={row.label} className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
               <div className="flex items-center gap-2 flex-1 min-w-0">
@@ -857,7 +857,7 @@ export default function DashboardPage() {
       value:   fmt(mini.coinsSold) + " RC",
       growth:  mini.growth.coinsSold,
       spark:   mini.sparklines.coinsSold,
-      color:   "#fe2c55",
+      color:   "#fd4605",
       icon:    <IconCoins size={15} />,
       iconBg:  "bg-red-50",
       vsLabel: vsLabel,

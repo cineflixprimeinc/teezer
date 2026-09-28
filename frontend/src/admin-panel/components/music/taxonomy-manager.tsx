@@ -123,7 +123,7 @@ export function TaxonomyManager({
                 onChange={(e) => setAdding(e.target.value)}
                 onKeyDown={(e) => { if (e.key === "Enter" && adding.trim()) create.mutate(adding.trim()); }}
                 placeholder={`Add a ${kind}…`}
-                className="h-10 w-full rounded-[10px] border border-[#e5e7eb] pl-9 pr-3 text-[13px] outline-none transition focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/15"
+                className="h-10 w-full rounded-[10px] border border-[#e5e7eb] pl-9 pr-3 text-[13px] outline-none transition focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/15"
               />
             </div>
             <Button
@@ -140,7 +140,7 @@ export function TaxonomyManager({
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="Search"
-                className="h-10 w-full rounded-[10px] border border-[#e5e7eb] pl-9 pr-3 text-[13px] outline-none transition focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/15"
+                className="h-10 w-full rounded-[10px] border border-[#e5e7eb] pl-9 pr-3 text-[13px] outline-none transition focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/15"
               />
             </div>
           </CardBody>
@@ -165,7 +165,7 @@ export function TaxonomyManager({
                     key={o.name}
                     onClick={() => create.mutate(o.name)}
                     disabled={create.isPending}
-                    className="group flex items-center gap-1.5 rounded-full border border-[#fde68a] bg-[#fffbeb] px-3 py-1.5 text-[12.5px] font-semibold text-[#92400e] transition hover:border-[#fe2c55]/40 hover:bg-[#fff0f4] hover:text-[#fe2c55]"
+                    className="group flex items-center gap-1.5 rounded-full border border-[#fde68a] bg-[#fffbeb] px-3 py-1.5 text-[12.5px] font-semibold text-[#92400e] transition hover:border-[#fd4605]/40 hover:bg-[#fff3ec] hover:text-[#fd4605]"
                   >
                     <Plus className="h-3.5 w-3.5" />
                     {o.name}
@@ -222,7 +222,7 @@ export function TaxonomyManager({
                             if (e.key === "Escape") setEditingId(null);
                           }}
                           autoFocus
-                          className="h-9 w-64 rounded-[10px] border border-[#e5e7eb] px-3 text-[13px] outline-none transition focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/15"
+                          className="h-9 w-64 rounded-[10px] border border-[#e5e7eb] px-3 text-[13px] outline-none transition focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/15"
                         />
                       ) : (
                         <>
@@ -254,7 +254,7 @@ export function TaxonomyManager({
                         </>
                       ) : (
                         <>
-                          <span className={`text-[11px] font-bold uppercase tracking-wide ${t.is_active ? "text-[#fe2c55]" : "text-[#9ca3af]"}`}>
+                          <span className={`text-[11px] font-bold uppercase tracking-wide ${t.is_active ? "text-[#fd4605]" : "text-[#9ca3af]"}`}>
                             {t.is_active ? "On" : "Off"}
                           </span>
                           {/* Off retires a term from the picker without touching
@@ -265,7 +265,7 @@ export function TaxonomyManager({
                             aria-checked={t.is_active}
                             aria-label={`${t.name} available in the picker`}
                             onClick={() => patch.mutate({ id: t.id, body: { is_active: !t.is_active } })}
-                            className={`relative h-[26px] w-[46px] shrink-0 rounded-full transition-colors duration-200 ${t.is_active ? "bg-[#fe2c55]" : "bg-[#d1d5db]"}`}
+                            className={`relative h-[26px] w-[46px] shrink-0 rounded-full transition-colors duration-200 ${t.is_active ? "bg-[#fd4605]" : "bg-[#d1d5db]"}`}
                           >
                             <span className={`absolute top-[3px] h-5 w-5 rounded-full bg-white shadow-sm transition-all duration-200 ${t.is_active ? "left-[23px]" : "left-[3px]"}`} />
                           </button>
@@ -273,7 +273,7 @@ export function TaxonomyManager({
                           <button
                             type="button"
                             onClick={() => { setEditingId(t.id); setEditValue(t.name); }}
-                            className="rounded-[8px] border border-[#e5e7eb] p-1.5 text-[#6b7280] transition-colors hover:border-[#fe2c55]/40 hover:bg-[#fff0f4] hover:text-[#fe2c55]"
+                            className="rounded-[8px] border border-[#e5e7eb] p-1.5 text-[#6b7280] transition-colors hover:border-[#fd4605]/40 hover:bg-[#fff3ec] hover:text-[#fd4605]"
                             aria-label={`Rename ${t.name}`}
                           >
                             <Pencil className="h-3.5 w-3.5" />

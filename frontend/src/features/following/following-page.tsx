@@ -58,12 +58,12 @@ function FollowingIllustration() {
       <svg viewBox="0 0 180 110" fill="none" className="absolute inset-0 h-full w-full" aria-hidden>
         {Array.from({ length: 4 }).map((_, r) =>
           Array.from({ length: 8 }).map((_, c) => (
-            <circle key={`${r}-${c}`} cx={c * 24 + 8} cy={r * 26 + 8} r="2" fill="#fe2c55" opacity="0.18" />
+            <circle key={`${r}-${c}`} cx={c * 24 + 8} cy={r * 26 + 8} r="2" fill="#fd4605" opacity="0.18" />
           )),
         )}
       </svg>
       <div className="absolute bottom-0 left-[16%] flex h-[72px] w-[72px] items-center justify-center rounded-full shadow-lg"
-        style={{ background: "linear-gradient(135deg,#ffc7d2,#fe2c55)" }}>
+        style={{ background: "linear-gradient(135deg,#ffc7d2,#fd4605)" }}>
         <svg viewBox="0 0 48 48" fill="none" className="h-10 w-10">
           <circle cx="24" cy="15" r="9.5" fill="white" fillOpacity="0.9" />
           <ellipse cx="24" cy="40" rx="15" ry="9" fill="white" fillOpacity="0.9" />
@@ -76,7 +76,7 @@ function FollowingIllustration() {
           <ellipse cx="24" cy="39" rx="13" ry="8" fill="white" fillOpacity="0.85" />
         </svg>
       </div>
-      <div className="absolute right-[30%] top-0 flex h-9 w-9 items-center justify-center rounded-full bg-[#fe2c55] shadow-lg">
+      <div className="absolute right-[30%] top-0 flex h-9 w-9 items-center justify-center rounded-full bg-[#fd4605] shadow-lg">
         <UserPlus className="h-4 w-4 fill-white text-white" />
       </div>
     </div>
@@ -228,7 +228,7 @@ function CreatorCard({ card, isFollowing, loading, onFollow }: CardProps) {
           <span className={cn(
             "rounded-full px-2.5 py-0.5 text-[11px] font-bold leading-tight",
             badge.kind === "live"
-              ? "bg-[#fe2c55] text-white"
+              ? "bg-[#fd4605] text-white"
               : badge.kind === "new"
                 ? "border border-white/30 bg-white/20 backdrop-blur-sm text-white"
                 : "bg-black/50 backdrop-blur-sm text-white/90",
@@ -256,7 +256,7 @@ function CreatorCard({ card, isFollowing, loading, onFollow }: CardProps) {
                     onClick={() => setMenuOpen(false)}
                     className={cn(
                       "flex items-center gap-2.5 px-3 py-2 text-[12px] font-medium transition hover:bg-white/10",
-                      item.red ? "text-[#fe2c55]" : "text-white",
+                      item.red ? "text-[#fd4605]" : "text-white",
                     )}
                   >
                     <item.icon className="h-3.5 w-3.5 flex-shrink-0" />
@@ -273,7 +273,7 @@ function CreatorCard({ card, isFollowing, loading, onFollow }: CardProps) {
                     }}
                     className={cn(
                       "flex w-full items-center gap-2.5 px-3 py-2 text-[12px] font-medium transition hover:bg-white/10",
-                      item.red ? "text-[#fe2c55]" : "text-white",
+                      item.red ? "text-[#fd4605]" : "text-white",
                     )}
                   >
                     <item.icon className="h-3.5 w-3.5 flex-shrink-0" />
@@ -315,7 +315,7 @@ function CreatorCard({ card, isFollowing, loading, onFollow }: CardProps) {
             "w-full rounded-full py-[7px] text-[13px] font-bold transition active:scale-95 disabled:opacity-60",
             isFollowing
               ? "border border-white/40 bg-white/15 text-white backdrop-blur-sm hover:bg-white/25"
-              : "bg-[#fe2c55] text-white hover:bg-[#e02449]",
+              : "bg-[#fd4605] text-white hover:bg-[#e03e04]",
           )}
         >
           {loading
@@ -358,7 +358,7 @@ function ListRow({ card, isFollowing, loading, onFollow }: CardProps) {
       <div className="relative flex-shrink-0">
         <StoryRingAvatar userId={user.id} username={user.username} displayName={user.name} avatar={user.avatar} size={48} />
         {badge?.kind === "live" && (
-          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 rounded-full bg-[#fe2c55] px-1.5 text-[8px] font-bold text-white leading-tight">
+          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 rounded-full bg-[#fd4605] px-1.5 text-[8px] font-bold text-white leading-tight">
             LIVE
           </span>
         )}
@@ -386,7 +386,7 @@ function ListRow({ card, isFollowing, loading, onFollow }: CardProps) {
           {badge && (
             <span className={cn(
               "rounded-full px-2 py-0.5 text-[10px] font-bold",
-              badge.kind === "live" ? "bg-[#fe2c55] text-white" : "bg-[#f8f9fb] text-[#5f6675]",
+              badge.kind === "live" ? "bg-[#fd4605] text-white" : "bg-[#f8f9fb] text-[#5f6675]",
             )}>
               {badge.label}
             </span>
@@ -401,8 +401,8 @@ function ListRow({ card, isFollowing, loading, onFollow }: CardProps) {
         className={cn(
           "flex-shrink-0 rounded-full px-4 py-1.5 text-[13px] font-bold transition disabled:opacity-60",
           isFollowing
-            ? "border border-[#fe2c55]/30 bg-[#fff0f4] text-[#fe2c55] hover:bg-[#ffe0e8]"
-            : "bg-[#fe2c55] text-white hover:bg-[#e02449]",
+            ? "border border-[#fd4605]/30 bg-[#fff3ec] text-[#fd4605] hover:bg-[#ffe0e8]"
+            : "bg-[#fd4605] text-white hover:bg-[#e03e04]",
         )}
       >
         {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : isFollowing ? "Following" : "Follow"}
@@ -584,12 +584,12 @@ function DiscoveryGrid({ onFollowSuccess }: DiscoveryGridProps) {
           {/* Page header */}
           <div className="relative mb-6 overflow-hidden rounded-[22px] border border-[#eeeeee] bg-white px-6 py-5 shadow-sm">
             {/* Subtle gradient background accent */}
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-[#fff0f4] to-transparent opacity-60" />
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-[#fff3ec] to-transparent opacity-60" />
             <div className="relative flex items-center justify-between">
               <div>
                 <div className="flex items-center gap-2">
                   <h1 className="text-[26px] font-black text-[#111827]">Following</h1>
-                  <span className="flex items-center gap-1 rounded-full bg-[#fff0f4] px-2.5 py-1 text-[11px] font-bold text-[#fe2c55]">
+                  <span className="flex items-center gap-1 rounded-full bg-[#fff3ec] px-2.5 py-1 text-[11px] font-bold text-[#fd4605]">
                     Following
                   </span>
                 </div>
@@ -599,7 +599,7 @@ function DiscoveryGrid({ onFollowSuccess }: DiscoveryGridProps) {
                 {/* Quick stat pills */}
                 <div className="mt-3 flex flex-wrap gap-2">
                   <span className="flex items-center gap-1.5 rounded-full bg-[#f8f9fb] px-3 py-1 text-[11px] font-semibold text-[#111827]">
-                    <Users className="h-3 w-3 text-[#fe2c55]" />
+                    <Users className="h-3 w-3 text-[#fd4605]" />
                     {user?.following_count ?? user?.profile?.total_following ?? 0} Following
                   </span>
                   <span className="flex items-center gap-1.5 rounded-full bg-[#f8f9fb] px-3 py-1 text-[11px] font-semibold text-[#111827]">
@@ -623,8 +623,8 @@ function DiscoveryGrid({ onFollowSuccess }: DiscoveryGridProps) {
                   className={cn(
                     "rounded-full px-4 py-1.5 text-[13px] font-semibold transition",
                     filter === f.id
-                      ? "bg-[#fe2c55] text-white shadow-sm"
-                      : "border border-[#e5e7eb] bg-white text-[#5f6675] hover:border-[#fe2c55] hover:text-[#fe2c55]",
+                      ? "bg-[#fd4605] text-white shadow-sm"
+                      : "border border-[#e5e7eb] bg-white text-[#5f6675] hover:border-[#fd4605] hover:text-[#fd4605]",
                   )}
                 >
                   {f.label}
@@ -641,7 +641,7 @@ function DiscoveryGrid({ onFollowSuccess }: DiscoveryGridProps) {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search following..."
-                className="h-[38px] w-[190px] rounded-full border border-[#e5e7eb] bg-white pl-9 pr-8 text-[13px] outline-none transition-all focus:w-[230px] focus:border-[#fe2c55]"
+                className="h-[38px] w-[190px] rounded-full border border-[#e5e7eb] bg-white pl-9 pr-8 text-[13px] outline-none transition-all focus:w-[230px] focus:border-[#fd4605]"
               />
               {search && (
                 <button
@@ -661,7 +661,7 @@ function DiscoveryGrid({ onFollowSuccess }: DiscoveryGridProps) {
                 onClick={() => setViewMode("grid")}
                 className={cn(
                   "grid h-9 w-9 place-items-center transition",
-                  viewMode === "grid" ? "bg-[#fe2c55] text-white" : "bg-white text-[#5f6675] hover:bg-[#f8f9fb]",
+                  viewMode === "grid" ? "bg-[#fd4605] text-white" : "bg-white text-[#5f6675] hover:bg-[#f8f9fb]",
                 )}
               >
                 <LayoutGrid className="h-4 w-4" />
@@ -671,7 +671,7 @@ function DiscoveryGrid({ onFollowSuccess }: DiscoveryGridProps) {
                 onClick={() => setViewMode("list")}
                 className={cn(
                   "grid h-9 w-9 place-items-center border-l border-[#e5e7eb] transition",
-                  viewMode === "list" ? "bg-[#fe2c55] text-white" : "bg-white text-[#5f6675] hover:bg-[#f8f9fb]",
+                  viewMode === "list" ? "bg-[#fd4605] text-white" : "bg-white text-[#5f6675] hover:bg-[#f8f9fb]",
                 )}
               >
                 <LayoutList className="h-4 w-4" />
@@ -682,7 +682,7 @@ function DiscoveryGrid({ onFollowSuccess }: DiscoveryGridProps) {
           {/* Content */}
           {fetching ? (
             <div className="flex justify-center py-28">
-              <Loader2 className="h-10 w-10 animate-spin text-[#fe2c55]" />
+              <Loader2 className="h-10 w-10 animate-spin text-[#fd4605]" />
             </div>
           ) : filter === "friends" ? (
             <div className="flex flex-col items-center py-20 text-center">
@@ -774,7 +774,7 @@ export function FollowingRouter() {
     return (
       <AppShell>
         <div className="flex h-[calc(100vh-var(--topbar-h))] items-center justify-center">
-          <Loader2 className="h-9 w-9 animate-spin text-[#fe2c55]" />
+          <Loader2 className="h-9 w-9 animate-spin text-[#fd4605]" />
         </div>
       </AppShell>
     );

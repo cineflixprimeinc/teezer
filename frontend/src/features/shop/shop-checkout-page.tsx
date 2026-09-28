@@ -58,7 +58,7 @@ function StripePaymentForm({ orderId, onSuccess }: { orderId: number; onSuccess:
       <button
         type="submit"
         disabled={!stripe || paying}
-        className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#fe2c55] py-3 text-[13px] font-black text-white transition hover:bg-[#e0193f] disabled:opacity-50"
+        className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#fd4605] py-3 text-[13px] font-black text-white transition hover:bg-[#e03e04] disabled:opacity-50"
       >
         <Lock className="h-3.5 w-3.5" />
         {paying ? "Processing…" : "Pay Now"}
@@ -115,7 +115,7 @@ function StripePane({ payload, amount, currency }: { payload: () => Parameters<t
       <button
         onClick={init}
         disabled={loading}
-        className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#fe2c55] py-3 text-[13px] font-black text-white transition hover:bg-[#e0193f] disabled:opacity-60"
+        className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#fd4605] py-3 text-[13px] font-black text-white transition hover:bg-[#e03e04] disabled:opacity-60"
       >
         <Lock className="h-3.5 w-3.5" />
         {loading ? "Loading…" : `Pay with Card - ${fmt(amount, currency)}`}
@@ -233,7 +233,7 @@ export function ShopCheckoutPage({ productId }: { productId: number }) {
         <Store className="h-10 w-10 text-[#d1d5db]" />
         <p className="text-[15px] font-black text-[#111827]">Log in to check out</p>
         <p className="text-[12.5px] text-[#6b7280]">You need a Teezer account to buy from this shop.</p>
-        <a href="/" className="mt-2 rounded-[10px] bg-[#fe2c55] px-5 py-2.5 text-[13px] font-black text-white">Go to Teezer</a>
+        <a href="/" className="mt-2 rounded-[10px] bg-[#fd4605] px-5 py-2.5 text-[13px] font-black text-white">Go to Teezer</a>
       </div>
     );
   }
@@ -277,7 +277,7 @@ export function ShopCheckoutPage({ productId }: { productId: number }) {
                       key={opt}
                       onClick={() => setVariation((prev) => ({ ...prev, [v.name]: opt }))}
                       className={`rounded-full border px-3 py-1 text-[11.5px] font-bold transition ${
-                        variation[v.name] === opt ? "border-[#fe2c55] bg-[#fff5f7] text-[#fe2c55]" : "border-[#e5e7eb] text-[#374151] hover:border-[#fca5a5]"
+                        variation[v.name] === opt ? "border-[#fd4605] bg-[#fff6f1] text-[#fd4605]" : "border-[#e5e7eb] text-[#374151] hover:border-[#fca5a5]"
                       }`}
                     >
                       {opt}
@@ -306,16 +306,16 @@ export function ShopCheckoutPage({ productId }: { productId: number }) {
           <div className="mt-4 space-y-2 border-t border-[#f3f4f6] pt-4">
             <p className="text-[11px] font-bold uppercase tracking-wide text-[#9ca3af]">Shipping address</p>
             <input placeholder="Full name" value={address.name} onChange={(e) => setAddress((a) => ({ ...a, name: e.target.value }))}
-              className="w-full rounded-[9px] border border-[#e5e7eb] px-3 py-2 text-[12.5px] outline-none focus:border-[#fe2c55]" />
+              className="w-full rounded-[9px] border border-[#e5e7eb] px-3 py-2 text-[12.5px] outline-none focus:border-[#fd4605]" />
             <input placeholder="Phone number" value={address.phone} onChange={(e) => setAddress((a) => ({ ...a, phone: e.target.value }))}
-              className="w-full rounded-[9px] border border-[#e5e7eb] px-3 py-2 text-[12.5px] outline-none focus:border-[#fe2c55]" />
+              className="w-full rounded-[9px] border border-[#e5e7eb] px-3 py-2 text-[12.5px] outline-none focus:border-[#fd4605]" />
             <input placeholder="Address" value={address.line1} onChange={(e) => setAddress((a) => ({ ...a, line1: e.target.value }))}
-              className="w-full rounded-[9px] border border-[#e5e7eb] px-3 py-2 text-[12.5px] outline-none focus:border-[#fe2c55]" />
+              className="w-full rounded-[9px] border border-[#e5e7eb] px-3 py-2 text-[12.5px] outline-none focus:border-[#fd4605]" />
             <div className="flex gap-2">
               <input placeholder="City" value={address.city} onChange={(e) => setAddress((a) => ({ ...a, city: e.target.value }))}
-                className="w-1/2 rounded-[9px] border border-[#e5e7eb] px-3 py-2 text-[12.5px] outline-none focus:border-[#fe2c55]" />
+                className="w-1/2 rounded-[9px] border border-[#e5e7eb] px-3 py-2 text-[12.5px] outline-none focus:border-[#fd4605]" />
               <input placeholder="Country" value={address.country} onChange={(e) => setAddress((a) => ({ ...a, country: e.target.value }))}
-                className="w-1/2 rounded-[9px] border border-[#e5e7eb] px-3 py-2 text-[12.5px] outline-none focus:border-[#fe2c55]" />
+                className="w-1/2 rounded-[9px] border border-[#e5e7eb] px-3 py-2 text-[12.5px] outline-none focus:border-[#fd4605]" />
             </div>
           </div>
         )}

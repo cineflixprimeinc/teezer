@@ -90,7 +90,7 @@ export function UploadChecklist({
             "h-full rounded-full transition-all duration-500",
             allDone    ? "bg-[#10b981]" :
             allReqDone ? "bg-[#f59e0b]" :
-                         "bg-[#fe2c55]",
+                         "bg-[#fd4605]",
           )}
           style={{ width: `${pct}%` }}
         />
@@ -141,7 +141,7 @@ function ChecklistRow({ item, done }: { item: ItemDef; done: boolean }) {
           done
             ? "bg-[#10b981] text-white"
             : item.required
-              ? "border-2 border-[#fe2c55] bg-white"
+              ? "border-2 border-[#fd4605] bg-white"
               : "border border-[#cccccc] bg-white",
         )}
       >
@@ -150,7 +150,7 @@ function ChecklistRow({ item, done }: { item: ItemDef; done: boolean }) {
       <span
         className={cn(
           "text-[11px] transition-colors",
-          done ? "text-black" : item.required ? "text-[#fe2c55]" : "text-[#5f6675]",
+          done ? "text-black" : item.required ? "text-[#fd4605]" : "text-[#5f6675]",
         )}
       >
         {item.label}

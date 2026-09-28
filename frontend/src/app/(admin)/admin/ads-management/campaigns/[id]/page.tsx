@@ -92,7 +92,7 @@ export default function AdDetailPage() {
               </div>
               <div className="flex gap-2 mt-2">
                 {[0, 1, 2, 3].map((i) => (
-                  <div key={i} className={`w-1/4 aspect-video rounded-lg overflow-hidden bg-black ${i === 0 ? "ring-2 ring-[#fe2c55]" : "opacity-70"}`}>
+                  <div key={i} className={`w-1/4 aspect-video rounded-lg overflow-hidden bg-black ${i === 0 ? "ring-2 ring-[#fd4605]" : "opacity-70"}`}>
                     {d.preview.thumbnail_url ? <img src={d.preview.thumbnail_url} alt="" className="w-full h-full object-cover" /> : null}
                   </div>
                 ))}
@@ -109,12 +109,12 @@ export default function AdDetailPage() {
               </div>
 
               <div className="flex items-center gap-2 mt-3">
-                {d.advertiser.avatar ? <img src={d.advertiser.avatar} className="w-8 h-8 rounded-full object-cover" alt="" /> : <div className="w-8 h-8 rounded-full bg-[#fe2c55] text-white grid place-items-center text-[13px] font-bold">{d.advertiser.name[0]}</div>}
+                {d.advertiser.avatar ? <img src={d.advertiser.avatar} className="w-8 h-8 rounded-full object-cover" alt="" /> : <div className="w-8 h-8 rounded-full bg-[#fd4605] text-white grid place-items-center text-[13px] font-bold">{d.advertiser.name[0]}</div>}
                 <div>
                   <div className="flex items-center gap-1 text-[13px] font-semibold text-[#111827]">{d.advertiser.name} {d.advertiser.is_verified && <BadgeCheck size={13} className="text-[#3b9aff]" />}</div>
                   {d.advertiser.username && <div className="text-[11px] text-[#9ca3af]">@{d.advertiser.username}</div>}
                 </div>
-                {d.advertiser.user_id && <Link href={`/admin/users/${d.advertiser.user_id}`} className="ml-auto text-[12px] font-semibold text-[#fe2c55]">View Advertiser Profile</Link>}
+                {d.advertiser.user_id && <Link href={`/admin/users/${d.advertiser.user_id}`} className="ml-auto text-[12px] font-semibold text-[#fd4605]">View Advertiser Profile</Link>}
               </div>
 
               <div className="flex items-center gap-2 mt-4 text-[12.5px]">
@@ -154,8 +154,8 @@ export default function AdDetailPage() {
         <div className="bg-white rounded-2xl border border-[#eef0f3]">
           <div className="flex items-center gap-1 px-4 border-b border-[#eef0f3]">
             {TABS.map((t) => (
-              <button key={t} onClick={() => setTab(t)} className={`relative px-3 py-3 text-[13px] font-semibold ${tab === t ? "text-[#fe2c55]" : "text-[#6b7280] hover:text-[#111827]"}`}>
-                {t}{tab === t && <span className="absolute left-3 right-3 -bottom-px h-0.5 rounded bg-[#fe2c55]" />}
+              <button key={t} onClick={() => setTab(t)} className={`relative px-3 py-3 text-[13px] font-semibold ${tab === t ? "text-[#fd4605]" : "text-[#6b7280] hover:text-[#111827]"}`}>
+                {t}{tab === t && <span className="absolute left-3 right-3 -bottom-px h-0.5 rounded bg-[#fd4605]" />}
               </button>
             ))}
           </div>
@@ -167,15 +167,15 @@ export default function AdDetailPage() {
                 <div className="xl:col-span-5">
                   <Row label="Ad Name" value={d.ad_info.ad_name} />
                   <Row label="Landing Page" value={d.ad_info.landing_page
-                    ? <a href={d.ad_info.landing_page} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-[#111827] hover:text-[#fe2c55]">{d.ad_info.landing_page} <ExternalLink size={12} /></a>
+                    ? <a href={d.ad_info.landing_page} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-[#111827] hover:text-[#fd4605]">{d.ad_info.landing_page} <ExternalLink size={12} /></a>
                     : "-"} />
                   <Row label="Caption / Headline" value={d.ad_info.caption ?? "-"} />
                   <Row label="Description" value={d.ad_info.description ?? "-"} />
-                  <Row label="Call To Action" value={d.ad_info.cta_type ? <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-[#ffe4ec] text-[#fe2c55]">{CTA[d.ad_info.cta_type] ?? d.ad_info.cta_type}</span> : "-"} />
+                  <Row label="Call To Action" value={d.ad_info.cta_type ? <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-[#ffe4ec] text-[#fd4605]">{CTA[d.ad_info.cta_type] ?? d.ad_info.cta_type}</span> : "-"} />
                   <Row label="Hashtags" value={d.ad_info.hashtags.length ? d.ad_info.hashtags.map((h) => `#${h.replace(/^#/, "")}`).join(" ") : "-"} />
                   <Row label="Language" value={d.ad_info.language} />
                   <Row label="Countries / Regions" value={d.ad_info.countries.length
-                    ? <span>{d.ad_info.countries.slice(0, 3).join(", ")}{d.ad_info.countries.length > 3 && <span className="ml-1 text-[11px] text-[#fe2c55] font-semibold">+{d.ad_info.countries.length - 3} more</span>}</span>
+                    ? <span>{d.ad_info.countries.slice(0, 3).join(", ")}{d.ad_info.countries.length > 3 && <span className="ml-1 text-[11px] text-[#fd4605] font-semibold">+{d.ad_info.countries.length - 3} more</span>}</span>
                     : "All countries"} />
                   <Row label="Age Range" value={d.ad_info.age_range} />
                   <Row label="Gender" value={d.ad_info.gender} />
@@ -193,7 +193,7 @@ export default function AdDetailPage() {
                   <div>
                     <p className="text-[13px] font-semibold text-[#111827] mb-2">Review Notes</p>
                     <div className="relative">
-                      <textarea value={notes} onChange={(e) => setNotes(e.target.value.slice(0, 500))} rows={4} placeholder="Add notes (optional)…" className="w-full rounded-xl border border-[#e8eaed] p-3 text-[13px] outline-none resize-none focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10" />
+                      <textarea value={notes} onChange={(e) => setNotes(e.target.value.slice(0, 500))} rows={4} placeholder="Add notes (optional)…" className="w-full rounded-xl border border-[#e8eaed] p-3 text-[13px] outline-none resize-none focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10" />
                       <span className="absolute bottom-2 right-3 text-[10px] text-[#9ca3af]">{notes.length} / 500</span>
                     </div>
                   </div>
@@ -205,7 +205,7 @@ export default function AdDetailPage() {
                         <span className="flex items-center justify-center gap-1.5 text-[13px] font-bold"><Check size={15} /> Approve</span>
                         <span className="block text-[11px] opacity-90">Ad will go live and start delivering</span>
                       </button>
-                      <button disabled={!canReview || rejectM.isPending} onClick={() => needReason(() => rejectM.mutate())} className="w-full rounded-xl bg-[#fe2c55] hover:bg-[#e0243d] text-white py-2.5 disabled:opacity-40">
+                      <button disabled={!canReview || rejectM.isPending} onClick={() => needReason(() => rejectM.mutate())} className="w-full rounded-xl bg-[#fd4605] hover:bg-[#e03e04] text-white py-2.5 disabled:opacity-40">
                         <span className="flex items-center justify-center gap-1.5 text-[13px] font-bold"><X size={15} /> Reject</span>
                         <span className="block text-[11px] opacity-90">Ad will be rejected and not published</span>
                       </button>
@@ -275,7 +275,7 @@ function PhonePreview({ d }: { d: AdDetail }) {
         </div>
         {/* right rail */}
         <div className="absolute right-2 bottom-16 flex flex-col items-center gap-3 text-white">
-          <div className="w-8 h-8 rounded-full bg-white grid place-items-center text-[#fe2c55] text-[11px] font-bold">R</div>
+          <div className="w-8 h-8 rounded-full bg-white grid place-items-center text-[#fd4605] text-[11px] font-bold">R</div>
           {[[<Heart key="h" size={18} />, "12.4K"], [<MessageCircle key="c" size={18} />, "356"], [<Share2 key="s" size={18} />, "742"]].map(([ic, n], i) => (
             <div key={i} className="flex flex-col items-center"><span>{ic}</span><span className="text-[9px]">{n as string}</span></div>
           ))}
@@ -290,7 +290,7 @@ function PhonePreview({ d }: { d: AdDetail }) {
         </div>
         {/* CTA */}
         <div className="absolute left-2 right-2 bottom-2">
-          <div className="w-full bg-[#fe2c55] text-white text-[11px] font-bold py-1.5 rounded text-center">{cta} ›</div>
+          <div className="w-full bg-[#fd4605] text-white text-[11px] font-bold py-1.5 rounded text-center">{cta} ›</div>
         </div>
       </div>
     </div>

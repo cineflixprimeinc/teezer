@@ -28,7 +28,7 @@ function greeting(): string {
 
 /* ── Status donut legend ───────────────────────────────────────────────── */
 const DONUT = [
-  { key: "active",    label: "Active",    color: "#fe2c55" },
+  { key: "active",    label: "Active",    color: "#fd4605" },
   { key: "paused",    label: "Paused",    color: "#f59e0b" },
   { key: "completed", label: "Completed", color: "#3b82f6" },
   { key: "in_review", label: "In review", color: "#a855f7" },
@@ -102,7 +102,7 @@ export function OverviewPage() {
           Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} className="h-[128px]" />)
         ) : (
           <>
-            <StatTile icon={CircleDollarSign} iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+            <StatTile icon={CircleDollarSign} iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
               label="Spend" value={money(s?.spend_cents.value, currency)}
               compareLabel={compareLabel} {...tile(s?.spend_cents)} />
             <StatTile icon={Eye} iconBg="bg-[#ede9fe]" iconColor="text-[#7c3aed]"
@@ -131,7 +131,7 @@ export function OverviewPage() {
           <CardHead title="Performance Overview"
             action={
               <div className="flex items-center gap-3 text-[12px] font-semibold">
-                <Legend color="#fe2c55" label="Spend" />
+                <Legend color="#fd4605" label="Spend" />
                 <Legend color="#2563eb" label="Clicks" />
                 <Legend color="#7c3aed" label="Conversions" />
               </div>
@@ -141,7 +141,7 @@ export function OverviewPage() {
               <PerformanceChart
                 categories={(data?.series ?? []).map((p) => axisDate(p.date))}
                 series={[
-                  { name: "Spend", color: "#fe2c55", isMoney: true, data: (data?.series ?? []).map((p) => Math.round(p.spend_cents / 100)) },
+                  { name: "Spend", color: "#fd4605", isMoney: true, data: (data?.series ?? []).map((p) => Math.round(p.spend_cents / 100)) },
                   { name: "Clicks", color: "#2563eb", data: (data?.series ?? []).map((p) => p.clicks) },
                   { name: "Conversions", color: "#7c3aed", data: (data?.series ?? []).map((p) => p.conversions) },
                 ]}
@@ -185,7 +185,7 @@ export function OverviewPage() {
         {/* Top campaigns */}
         <Card className="xl:col-span-3">
           <CardHead title="Top Campaigns"
-            action={<Link href="/ads-manager/campaigns" className="text-[12px] font-bold text-[#fe2c55]">View all</Link>} />
+            action={<Link href="/ads-manager/campaigns" className="text-[12px] font-bold text-[#fd4605]">View all</Link>} />
           <div className="px-5 pb-4 pt-3">
             {loading ? (
               <div className="space-y-3">{Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-12" />)}</div>
@@ -216,7 +216,7 @@ export function OverviewPage() {
       <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
         <Card className="xl:col-span-8">
           <CardHead title="Recent Campaigns"
-            action={<Link href="/ads-manager/campaigns" className="text-[12px] font-bold text-[#fe2c55]">View all</Link>} />
+            action={<Link href="/ads-manager/campaigns" className="text-[12px] font-bold text-[#fd4605]">View all</Link>} />
           <div className="mt-3 overflow-x-auto px-2 pb-4">
             <RecentTable rows={data?.recent_campaigns ?? []} loading={loading} />
           </div>
@@ -251,7 +251,7 @@ export function OverviewPage() {
               {loading ? "-" : money(balance, currency)}
             </p>
             <div className="mt-4 h-2 overflow-hidden rounded-full bg-[#f1f3f5]">
-              <div className="h-full rounded-full bg-[#fe2c55]" style={{ width: `${spentPct}%` }} />
+              <div className="h-full rounded-full bg-[#fd4605]" style={{ width: `${spentPct}%` }} />
             </div>
             <div className="mt-3 flex items-center justify-between text-[12px]">
               <div>
@@ -283,7 +283,7 @@ function Legend({ color, label }: { color: string; label: string }) {
 function QuickAction({ icon: Icon, label, href }: { icon: typeof Plus; label: string; href: string }) {
   return (
     <Link href={href} className="flex flex-col items-center gap-1.5 rounded-xl border border-[#eef0f3] py-3 transition hover:border-[#ffd6df] hover:bg-[#fff8fa]">
-      <Icon className="h-5 w-5 text-[#fe2c55]" />
+      <Icon className="h-5 w-5 text-[#fd4605]" />
       <span className="text-[11px] font-semibold text-[#374151]">{label}</span>
     </Link>
   );

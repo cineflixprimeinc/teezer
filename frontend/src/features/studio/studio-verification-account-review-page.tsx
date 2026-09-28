@@ -348,8 +348,8 @@ export function StudioVerificationAccountReviewPage() {
                   className={cn(
                     "flex items-center gap-2 rounded-[12px] px-7 py-3 text-[13px] font-bold text-white shadow-sm transition active:scale-95",
                     canProceed && !isCheckRunning
-                      ? "bg-[#fe2c55] hover:bg-[#e0193f]"
-                      : "bg-[#fe2c55]/80 cursor-not-allowed",
+                      ? "bg-[#fd4605] hover:bg-[#e03e04]"
+                      : "bg-[#fd4605]/80 cursor-not-allowed",
                   )}
                 >
                   {isCheckRunning && <Loader2 className="h-4 w-4 animate-spin" />}
@@ -406,7 +406,7 @@ export function StudioVerificationAccountReviewPage() {
                       <div key={row.n} className="flex items-center gap-2">
                         <div className={cn(
                           "flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full",
-                          row.done ? "bg-[#16a34a]" : row.n === 2 ? "bg-[#fe2c55]" : "bg-[#f3f4f6]",
+                          row.done ? "bg-[#16a34a]" : row.n === 2 ? "bg-[#fd4605]" : "bg-[#f3f4f6]",
                         )}>
                           {row.done
                             ? <Check className="h-2.5 w-2.5 text-white" />

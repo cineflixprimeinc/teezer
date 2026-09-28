@@ -85,7 +85,7 @@ export function PixelPage() {
             <button
               type="button"
               onClick={() => copy(snippet, "Base code copied")}
-              className="inline-flex items-center gap-1.5 rounded-full bg-[#fe2c55] px-4 py-2 text-[12px] font-bold text-white shadow-sm transition hover:bg-[#e0243d]"
+              className="inline-flex items-center gap-1.5 rounded-full bg-[#fd4605] px-4 py-2 text-[12px] font-bold text-white shadow-sm transition hover:bg-[#e03e04]"
             >
               <Copy className="h-3.5 w-3.5" />
               Copy code
@@ -141,7 +141,7 @@ export function PixelPage() {
         <ol className="divide-y divide-[#f1f3f5] px-5 pb-5 pt-2">
           {SETUP_STEPS.map((s, i) => (
             <li key={s.title} className="flex items-start gap-3.5 py-3.5">
-              <span className="mt-0.5 grid h-7 w-7 flex-shrink-0 place-items-center rounded-full bg-[#fff0f4] text-[13px] font-extrabold text-[#fe2c55]">
+              <span className="mt-0.5 grid h-7 w-7 flex-shrink-0 place-items-center rounded-full bg-[#fff3ec] text-[13px] font-extrabold text-[#fd4605]">
                 {i + 1}
               </span>
               <div>

@@ -190,11 +190,11 @@ function CountryPicker({ mode, selected, all, loading, onChange }: {
                   type="button"
                   onClick={() => toggle(c.code)}
                   className={`flex w-full items-center gap-2.5 border-b border-[#f4f2f5] px-3 py-2 text-left transition last:border-0 ${
-                    on ? "bg-[#fff5f7]" : "hover:bg-[#fafafa]"
+                    on ? "bg-[#fff6f1]" : "hover:bg-[#fafafa]"
                   }`}
                 >
                   <span className={`flex h-[15px] w-[15px] flex-none items-center justify-center rounded-[4px] border ${
-                    on ? "border-[#fe2c55] bg-[#fe2c55] text-white" : "border-[#d8d5dd] bg-white"
+                    on ? "border-[#fd4605] bg-[#fd4605] text-white" : "border-[#d8d5dd] bg-white"
                   }`}>
                     {on && <Check size={10} strokeWidth={3.5} />}
                   </span>
@@ -222,7 +222,7 @@ function CountryPicker({ mode, selected, all, loading, onChange }: {
                   ...selected.map((s) => s.toUpperCase()),
                   ...matches.map((c) => c.code),
                 ])))}
-                className="text-[11px] font-bold text-[#fe2c55] transition hover:underline"
+                className="text-[11px] font-bold text-[#fd4605] transition hover:underline"
               >
                 Select all shown
               </button>
@@ -260,8 +260,8 @@ function PriceCell({ value, placeholder, onCommit }: {
         if (Number.isNaN(n) || n < 0 || n === value) return;
         onCommit(n);
       }}
-      className={`w-[96px] rounded-[8px] border px-2 py-1.5 text-[12px] outline-none transition focus:border-[#fe2c55] ${
-        value !== null ? "border-[#fe2c55]/40 bg-[#fff5f7] font-bold text-[#111827]" : "border-[#e5e7eb] text-[#6b7280]"
+      className={`w-[96px] rounded-[8px] border px-2 py-1.5 text-[12px] outline-none transition focus:border-[#fd4605] ${
+        value !== null ? "border-[#fd4605]/40 bg-[#fff6f1] font-bold text-[#111827]" : "border-[#e5e7eb] text-[#6b7280]"
       }`}
     />
   );
@@ -409,7 +409,7 @@ type Stats = {
 
 const PLAN_ICON: Record<string, React.ElementType> = { starter: Rocket, pro: Zap, studio: Layers };
 const PLAN_TINT: Record<string, string> = {
-  starter: "bg-[#ffe9ef] text-[#fe2c55]",
+  starter: "bg-[#ffe9ef] text-[#fd4605]",
   pro: "bg-[#f3e8ff] text-[#7c3aed]",
   studio: "bg-[#17151b] text-white",
 };
@@ -418,10 +418,10 @@ const money = (n: number) =>
   "$" + n.toLocaleString(undefined, { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
 
 const input =
-  "w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3.5 py-2.5 text-[13px] text-[#111827] outline-none transition placeholder:text-[#c9c5d0] focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10";
+  "w-full rounded-[10px] border border-[#e5e7eb] bg-white px-3.5 py-2.5 text-[13px] text-[#111827] outline-none transition placeholder:text-[#c9c5d0] focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10";
 const label = "mb-1.5 block text-[12px] font-semibold text-[#374151]";
 const hint = "mt-1.5 block text-[11px] font-normal leading-snug text-[#9ca3af]";
-const req = <span className="text-[#fe2c55]"> *</span>;
+const req = <span className="text-[#fd4605]"> *</span>;
 
 /** Tabs backed by real settings, and those that are not built yet. */
 const TABS = [
@@ -448,10 +448,10 @@ const CATEGORIES = [
 
 /** The four card themes, each drawn as a miniature of what it produces. */
 const THEMES = [
-  { id: "light", name: "Light", card: "bg-white border-[#e5e7eb]", bar: "bg-[#fe2c55]", line: "bg-[#e9e7ec]" },
+  { id: "light", name: "Light", card: "bg-white border-[#e5e7eb]", bar: "bg-[#fd4605]", line: "bg-[#e9e7ec]" },
   { id: "dark", name: "Dark", card: "bg-[#17151b] border-[#17151b]", bar: "bg-white", line: "bg-white/25" },
   { id: "gradient", name: "Gradient", card: "bg-gradient-to-br from-[#a78bfa] to-[#818cf8] border-transparent", bar: "bg-white", line: "bg-white/40" },
-  { id: "brand", name: "Brand", card: "bg-gradient-to-br from-[#fe2c55] to-[#e0243d] border-transparent", bar: "bg-white", line: "bg-white/40" },
+  { id: "brand", name: "Brand", card: "bg-gradient-to-br from-[#fd4605] to-[#e03e04] border-transparent", bar: "bg-white", line: "bg-white/40" },
 ];
 
 /** iOS-style switch. Native checkbox underneath, so it stays keyboard-operable. */
@@ -462,7 +462,7 @@ function Toggle({ on, onChange }: { on: boolean; onChange: (v: boolean) => void 
       role="switch"
       aria-checked={on}
       onClick={() => onChange(!on)}
-      className={`relative h-[22px] w-[38px] flex-none rounded-full transition ${on ? "bg-[#fe2c55]" : "bg-[#d8d5dd]"}`}
+      className={`relative h-[22px] w-[38px] flex-none rounded-full transition ${on ? "bg-[#fd4605]" : "bg-[#d8d5dd]"}`}
     >
       <span
         className={`absolute top-[3px] h-4 w-4 rounded-full bg-white shadow-sm transition-all ${on ? "left-[19px]" : "left-[3px]"}`}
@@ -478,7 +478,7 @@ const cardSub = "mt-1 text-[11.5px] leading-snug text-[#8A8592]";
 function Check2({ on }: { on: boolean }) {
   return (
     <span className={`mt-[1px] flex h-[15px] w-[15px] flex-none items-center justify-center rounded-[4px] border ${
-      on ? "border-[#fe2c55] bg-[#fe2c55] text-white" : "border-[#d8d5dd] bg-white"
+      on ? "border-[#fd4605] bg-[#fd4605] text-white" : "border-[#d8d5dd] bg-white"
     }`}>
       {on && <Check size={10} strokeWidth={3.5} />}
     </span>
@@ -498,14 +498,14 @@ function Radio({
 }) {
   return (
     <label className={`flex cursor-pointer items-start gap-2.5 ${
-      boxed ? `rounded-[10px] border px-3 py-2.5 ${on ? "border-[#fe2c55] bg-[#fff5f7]" : "border-[#eceaf0]"}` : ""
+      boxed ? `rounded-[10px] border px-3 py-2.5 ${on ? "border-[#fd4605] bg-[#fff6f1]" : "border-[#eceaf0]"}` : ""
     }`}>
       <input
         type="radio"
         name={name}
         checked={on}
         onChange={onSelect}
-        className="mt-[2px] h-[14px] w-[14px] flex-none accent-[#fe2c55]"
+        className="mt-[2px] h-[14px] w-[14px] flex-none accent-[#fd4605]"
       />
       <span className="min-w-0 flex-1">
         <span className="flex flex-wrap items-center gap-2 text-[12px] font-semibold text-[#111827]">
@@ -538,7 +538,7 @@ function NumberRequirement({
     <div className="flex items-center gap-2.5">
       <input
         type="checkbox"
-        className="h-[15px] w-[15px] flex-none accent-[#fe2c55]"
+        className="h-[15px] w-[15px] flex-none accent-[#fd4605]"
         checked={on}
         onChange={(e) => onChange(e.target.checked ? (unit === "days" ? 18 : 13) : null)}
       />
@@ -548,7 +548,7 @@ function NumberRequirement({
         disabled={!on}
         value={on ? value : ""}
         onChange={(e) => onChange(e.target.value === "" ? null : Math.max(0, parseInt(e.target.value, 10) || 0))}
-        className={`w-[74px] rounded-[8px] border border-[#e5e7eb] px-2 py-1.5 text-[12px] text-[#111827] outline-none transition focus:border-[#fe2c55] ${
+        className={`w-[74px] rounded-[8px] border border-[#e5e7eb] px-2 py-1.5 text-[12px] text-[#111827] outline-none transition focus:border-[#fd4605] ${
           on ? "bg-white" : "bg-[#f6f4f7] text-[#c9c5d0]"
         }`}
       />
@@ -579,7 +579,7 @@ function SwitchRules({
       <label className="mt-2.5 flex cursor-pointer items-center gap-2.5">
         <input
           type="checkbox"
-          className="h-[15px] w-[15px] flex-none accent-[#fe2c55]"
+          className="h-[15px] w-[15px] flex-none accent-[#fd4605]"
           checked={allowed}
           onChange={(e) => onChange({ ...rules, allowed: e.target.checked })}
         />
@@ -613,7 +613,7 @@ function SwitchRules({
                     from: on ? from.filter((x) => x !== p.key) : [...from, p.key],
                   })}
                   className={`rounded-[7px] border px-2 py-1 text-[11px] font-semibold transition ${
-                    on ? "border-[#fe2c55] bg-[#ffe9ef] text-[#fe2c55]" : "border-[#e5e7eb] bg-white text-[#6b7280] hover:bg-[#fafafa]"
+                    on ? "border-[#fd4605] bg-[#ffe9ef] text-[#fd4605]" : "border-[#e5e7eb] bg-white text-[#6b7280] hover:bg-[#fafafa]"
                   }`}
                 >
                   {p.name}
@@ -997,13 +997,13 @@ export default function EditPlanPage() {
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <nav className="flex items-center gap-1.5 text-[11.5px] text-[#8A8592]">
-              <Link href="/premium-plans" className="hover:text-[#fe2c55]">Subscription Plans</Link>
+              <Link href="/premium-plans" className="hover:text-[#fd4605]">Subscription Plans</Link>
               <ChevronRight size={12} />
               {tab === "general" ? (
                 <span className="font-semibold text-[#111827]">Edit Plan</span>
               ) : (
                 <>
-                  <button onClick={() => setTab("general")} className="hover:text-[#fe2c55]">Edit Plan</button>
+                  <button onClick={() => setTab("general")} className="hover:text-[#fd4605]">Edit Plan</button>
                   <ChevronRight size={12} />
                   <span className="font-semibold text-[#111827]">
                     {TABS.find((t) => t.id === tab)?.name}
@@ -1030,7 +1030,7 @@ export default function EditPlanPage() {
             <button
               onClick={() => save.mutate()}
               disabled={save.isPending}
-              className="rounded-[10px] bg-[#fe2c55] px-5 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e0243d] disabled:opacity-60"
+              className="rounded-[10px] bg-[#fd4605] px-5 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e03e04] disabled:opacity-60"
             >
               {save.isPending ? "Saving…" : "Save Changes"}
             </button>
@@ -1053,12 +1053,12 @@ export default function EditPlanPage() {
                 key={t.id}
                 onClick={() => setTab(t.id)}
                 className={`relative flex items-center gap-1.5 px-3.5 py-3 text-[12.5px] font-semibold transition ${
-                  active ? "text-[#fe2c55]" : t.live ? "text-[#6b7280] hover:text-[#111827]" : "text-[#b9b5c0]"
+                  active ? "text-[#fd4605]" : t.live ? "text-[#6b7280] hover:text-[#111827]" : "text-[#b9b5c0]"
                 }`}
               >
                 <Icon size={14} strokeWidth={2.2} />
                 {t.name}
-                {active && <span className="absolute inset-x-2.5 -bottom-px h-[2.5px] rounded-full bg-[#fe2c55]" />}
+                {active && <span className="absolute inset-x-2.5 -bottom-px h-[2.5px] rounded-full bg-[#fd4605]" />}
               </button>
             );
           })}
@@ -1194,7 +1194,7 @@ export default function EditPlanPage() {
                                 type="button"
                                 onClick={() => set("theme", t.id)}
                                 className={`relative rounded-[11px] border-[1.5px] p-1.5 text-center transition ${
-                                  on ? "border-[#fe2c55] bg-[#fff5f7]" : "border-[#eceaf0] bg-white hover:border-[#d8d5dd]"
+                                  on ? "border-[#fd4605] bg-[#fff6f1]" : "border-[#eceaf0] bg-white hover:border-[#d8d5dd]"
                                 }`}
                               >
                                 <span className={`block rounded-[7px] border p-2 ${t.card}`}>
@@ -1205,7 +1205,7 @@ export default function EditPlanPage() {
                                 <span className={`mt-1.5 block text-[10.5px] font-bold ${on ? "text-[#111827]" : "text-[#6b7280]"}`}>
                                   {t.name}
                                 </span>
-                                <span className={`absolute right-1.5 top-1.5 h-2 w-2 rounded-full ${on ? "bg-[#fe2c55]" : "bg-[#e5e7eb]"}`} />
+                                <span className={`absolute right-1.5 top-1.5 h-2 w-2 rounded-full ${on ? "bg-[#fd4605]" : "bg-[#e5e7eb]"}`} />
                               </button>
                             );
                           })}
@@ -1233,7 +1233,7 @@ export default function EditPlanPage() {
 
                   <div className="mt-4 flex flex-wrap items-center gap-2 rounded-[10px] border border-[#e5e7eb] p-3">
                     {f.tags.map((t: string) => (
-                      <span key={t} className="flex items-center gap-1.5 rounded-[7px] bg-[#ffe9ef] px-2.5 py-1.5 text-[12px] font-semibold text-[#fe2c55]">
+                      <span key={t} className="flex items-center gap-1.5 rounded-[7px] bg-[#ffe9ef] px-2.5 py-1.5 text-[12px] font-semibold text-[#fd4605]">
                         {t}
                         <button
                           type="button"
@@ -1320,7 +1320,7 @@ export default function EditPlanPage() {
                     </div>
                   </div>
                   <label className="mt-3 flex cursor-pointer items-start gap-2.5 rounded-[10px] border border-[#e5e7eb] px-3 py-2.5">
-                    <input type="checkbox" className="mt-[2px] h-4 w-4 accent-[#fe2c55]"
+                    <input type="checkbox" className="mt-[2px] h-4 w-4 accent-[#fd4605]"
                            checked={f.separate} onChange={(e) => set("separate", e.target.checked)} />
                     <span className="text-[12px] leading-snug text-[#111827]">
                       <span className="font-bold">Charge a different price in the app</span>
@@ -1469,7 +1469,7 @@ export default function EditPlanPage() {
                       </div>
                       <div className="flex flex-wrap items-center gap-2">
                         <select value={cycle} onChange={(e) => setCycle(e.target.value)}
-                                className="rounded-[9px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12.5px] outline-none focus:border-[#fe2c55]">
+                                className="rounded-[9px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12.5px] outline-none focus:border-[#fd4605]">
                           <option value="month">Monthly</option>
                           <option value="year">Yearly</option>
                         </select>
@@ -1489,7 +1489,7 @@ export default function EditPlanPage() {
                                className={`${input} py-2 pl-9`} />
                       </div>
                       <select value={cFilter} onChange={(e) => setCFilter(e.target.value)}
-                              className="rounded-[9px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12.5px] outline-none focus:border-[#fe2c55]">
+                              className="rounded-[9px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12.5px] outline-none focus:border-[#fd4605]">
                         <option value="">All countries</option>
                         <option value="custom">Custom pricing</option>
                         <option value="global">Global pricing</option>
@@ -1521,7 +1521,7 @@ export default function EditPlanPage() {
                           </button>
                           {!!bulkPreview.length && (
                             <button type="button" onClick={() => bulk.mutate(true)} disabled={bulk.isPending}
-                                    className="rounded-[8px] bg-[#fe2c55] px-3 py-1.5 text-[12px] font-bold text-white disabled:opacity-60">
+                                    className="rounded-[8px] bg-[#fd4605] px-3 py-1.5 text-[12px] font-bold text-white disabled:opacity-60">
                               Apply to {bulkPreview.filter((r) => !r.skipped).length}
                             </button>
                           )}
@@ -1564,7 +1564,7 @@ export default function EditPlanPage() {
                           {visibleCountries.map((c) => (
                             <tr key={c.country_code} className="border-b border-[#f4f2f5] last:border-0">
                               <td className="py-2.5">
-                                <input type="checkbox" className="h-[14px] w-[14px] accent-[#fe2c55]"
+                                <input type="checkbox" className="h-[14px] w-[14px] accent-[#fd4605]"
                                        checked={bulkSel.includes(c.country_code)}
                                        onChange={(e) => setBulkSel(e.target.checked
                                          ? [...bulkSel, c.country_code]
@@ -1623,7 +1623,7 @@ export default function EditPlanPage() {
                               </td>
                               <td className="py-2.5 pr-3">
                                 <span className={`rounded-[6px] px-2 py-[3px] text-[10.5px] font-bold ${
-                                  c.status === "custom" ? "bg-[#ffe9ef] text-[#fe2c55]"
+                                  c.status === "custom" ? "bg-[#ffe9ef] text-[#fd4605]"
                                     : c.status === "disabled" ? "bg-[#f3f4f6] text-[#6b7280]"
                                     : "bg-[#f4f2f5] text-[#6b7280]"
                                 }`}>
@@ -1756,7 +1756,7 @@ export default function EditPlanPage() {
                                   value={ft.value ?? ""}
                                   disabled={!ft.is_enabled}
                                   onChange={(e) => setFeature(i, { value: e.target.value })}
-                                  className={`w-[150px] rounded-[9px] border border-[#e5e7eb] px-2.5 py-1.5 text-[12px] outline-none transition focus:border-[#fe2c55] ${
+                                  className={`w-[150px] rounded-[9px] border border-[#e5e7eb] px-2.5 py-1.5 text-[12px] outline-none transition focus:border-[#fd4605] ${
                                     ft.is_enabled ? "bg-white text-[#111827]" : "bg-[#f6f4f7] text-[#c9c5d0]"
                                   }`}
                                 >
@@ -1838,7 +1838,7 @@ export default function EditPlanPage() {
                       <select
                         value={featureCat}
                         onChange={(e) => setFeatureCat(e.target.value)}
-                        className="rounded-[9px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12px] text-[#374151] outline-none focus:border-[#fe2c55]"
+                        className="rounded-[9px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12px] text-[#374151] outline-none focus:border-[#fd4605]"
                       >
                         <option value="">All Categories</option>
                         {Object.entries(FEATURE_GROUPS).map(([k, n]) => <option key={k} value={k}>{n}</option>)}
@@ -1849,7 +1849,7 @@ export default function EditPlanPage() {
                           value={featureQuery}
                           onChange={(e) => setFeatureQuery(e.target.value)}
                           placeholder="Search features..."
-                          className="w-[190px] rounded-[9px] border border-[#e5e7eb] bg-white py-2 pl-8 pr-3 text-[12px] outline-none focus:border-[#fe2c55]"
+                          className="w-[190px] rounded-[9px] border border-[#e5e7eb] bg-white py-2 pl-8 pr-3 text-[12px] outline-none focus:border-[#fd4605]"
                         />
                       </div>
                     </div>
@@ -1930,7 +1930,7 @@ export default function EditPlanPage() {
                       <label key={v.id} className="flex cursor-pointer items-start gap-2.5">
                         <input
                           type="checkbox"
-                          className="mt-[1px] h-[15px] w-[15px] flex-none accent-[#fe2c55]"
+                          className="mt-[1px] h-[15px] w-[15px] flex-none accent-[#fd4605]"
                           checked={!!(f.visibility as Record<string, boolean>)[v.id]}
                           onChange={(e) => set("visibility", { ...f.visibility, [v.id]: e.target.checked })}
                         />
@@ -2016,7 +2016,7 @@ export default function EditPlanPage() {
                     <label className="flex cursor-pointer items-start gap-2.5">
                       <input
                         type="checkbox"
-                        className="mt-[1px] h-[15px] w-[15px] flex-none accent-[#fe2c55]"
+                        className="mt-[1px] h-[15px] w-[15px] flex-none accent-[#fd4605]"
                         checked={f.no_expiry}
                         onChange={(e) => set("no_expiry", e.target.checked)}
                       />
@@ -2086,7 +2086,7 @@ export default function EditPlanPage() {
                       <label key={r.id} className="flex cursor-pointer items-center gap-2.5">
                         <input
                           type="checkbox"
-                          className="h-[15px] w-[15px] flex-none accent-[#fe2c55]"
+                          className="h-[15px] w-[15px] flex-none accent-[#fd4605]"
                           checked={!!(f.requirements as Record<string, any>)[r.id]}
                           onChange={(e) => set("requirements", { ...f.requirements, [r.id]: e.target.checked })}
                         />
@@ -2111,7 +2111,7 @@ export default function EditPlanPage() {
                       <label key={r.id} className="flex cursor-pointer items-center gap-2.5">
                         <input
                           type="checkbox"
-                          className="h-[15px] w-[15px] flex-none accent-[#fe2c55]"
+                          className="h-[15px] w-[15px] flex-none accent-[#fd4605]"
                           checked={!!(f.requirements as Record<string, any>)[r.id]}
                           onChange={(e) => set("requirements", { ...f.requirements, [r.id]: e.target.checked })}
                         />
@@ -2220,7 +2220,7 @@ export default function EditPlanPage() {
 
             {(tab === "countries" || tab === "currencies") && (
               <Card className="p-8 text-center">
-                <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-[#ffe9ef] text-[#fe2c55]">
+                <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-[#ffe9ef] text-[#fd4605]">
                   <DollarSign size={18} />
                 </div>
                 <p className="text-[14px] font-bold text-[#111827]">Per-country pricing lives on the Pricing tab</p>
@@ -2230,7 +2230,7 @@ export default function EditPlanPage() {
                   the two copies drift apart.
                 </p>
                 <button type="button" onClick={() => setTab("pricing")}
-                        className="mt-4 rounded-[10px] bg-[#fe2c55] px-4 py-2 text-[12.5px] font-bold text-white transition hover:bg-[#e0243d]">
+                        className="mt-4 rounded-[10px] bg-[#fd4605] px-4 py-2 text-[12.5px] font-bold text-white transition hover:bg-[#e03e04]">
                   Open Pricing
                 </button>
               </Card>
@@ -2259,7 +2259,7 @@ export default function EditPlanPage() {
                   <div className="mt-3 flex items-center gap-2.5">
                     <input inputMode="numeric" value={f.trial_days}
                            onChange={(e) => set("trial_days", Math.max(0, Math.min(365, parseInt(e.target.value, 10) || 0)))}
-                           className="w-[90px] rounded-[9px] border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fe2c55]" />
+                           className="w-[90px] rounded-[9px] border border-[#e5e7eb] px-3 py-2 text-[13px] outline-none focus:border-[#fd4605]" />
                     <span className="text-[12px] text-[#6b7280]">days free, then billed {f.period === "year" ? "yearly" : "monthly"}.</span>
                   </div>
                 )}
@@ -2284,7 +2284,7 @@ export default function EditPlanPage() {
                     </p>
                   </div>
                   <Link href="/coupons"
-                        className="flex items-center gap-1.5 rounded-[9px] bg-[#fe2c55] px-3.5 py-2 text-[12px] font-bold text-white transition hover:bg-[#e0243d]">
+                        className="flex items-center gap-1.5 rounded-[9px] bg-[#fd4605] px-3.5 py-2 text-[12px] font-bold text-white transition hover:bg-[#e03e04]">
                     <Plus size={13} /> Manage coupons
                   </Link>
                 </div>
@@ -2292,7 +2292,7 @@ export default function EditPlanPage() {
                 <div className="mt-4 space-y-2">
                   {(plan.coupons ?? []).map((c) => (
                     <div key={c.id} className="flex flex-wrap items-center gap-3 rounded-[10px] border border-[#eceaf0] p-3">
-                      <span className="font-mono text-[12.5px] font-bold text-[#fe2c55]">{c.code}</span>
+                      <span className="font-mono text-[12.5px] font-bold text-[#fd4605]">{c.code}</span>
                       <span className="text-[12.5px] text-[#111827]">{c.name}</span>
                       <span className="rounded-[6px] bg-[#f4f2f5] px-2 py-[3px] text-[11px] font-bold text-[#374151]">
                         {c.type === "percentage" ? `${c.value}% OFF` : `$${c.value} OFF`}
@@ -2397,15 +2397,15 @@ export default function EditPlanPage() {
                       value={previewCountry}
                       onChange={(e) => setPreviewCountry(e.target.value.toUpperCase().slice(0, 2))}
                       placeholder="NP"
-                      className="w-[80px] rounded-[9px] border border-[#e5e7eb] px-3 py-2 text-center text-[13px] font-bold uppercase outline-none focus:border-[#fe2c55]"
+                      className="w-[80px] rounded-[9px] border border-[#e5e7eb] px-3 py-2 text-center text-[13px] font-bold uppercase outline-none focus:border-[#fd4605]"
                     />
                     <select value={previewCycle} onChange={(e) => setPreviewCycle(e.target.value)}
-                            className="rounded-[9px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12.5px] outline-none focus:border-[#fe2c55]">
+                            className="rounded-[9px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12.5px] outline-none focus:border-[#fd4605]">
                       <option value="month">Monthly</option>
                       <option value="year">Yearly</option>
                     </select>
                     <select value={previewSurface} onChange={(e) => setPreviewSurface(e.target.value)}
-                            className="rounded-[9px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12.5px] outline-none focus:border-[#fe2c55]">
+                            className="rounded-[9px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12.5px] outline-none focus:border-[#fd4605]">
                       <option value="web">Website</option>
                       <option value="app">App</option>
                     </select>
@@ -2627,7 +2627,7 @@ export default function EditPlanPage() {
                         type="button"
                         onClick={() => { setFeatureCat(featureCat === key ? "" : key); setTab("features"); }}
                         className={`flex w-full items-center gap-2.5 rounded-[10px] px-2.5 py-2.5 text-left transition ${
-                          featureCat === key ? "bg-[#fff5f7]" : "hover:bg-[#fafafa]"
+                          featureCat === key ? "bg-[#fff6f1]" : "hover:bg-[#fafafa]"
                         }`}
                       >
                         <span className={`flex h-8 w-8 flex-none items-center justify-center rounded-[9px] ${featureTint(key)}`}>

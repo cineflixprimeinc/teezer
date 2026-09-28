@@ -80,7 +80,7 @@ const SECTIONS: { title: string; items: SectionItem[] }[] = [
   {
     title: "Create & Engage",
     items: [
-      { icon: Briefcase, iconBg: "#fff1f3", iconColor: "#fe2c55", label: "Teezer Studio", desc: "Manage creator tools and dashboard", href: "/studio", requiresAuth: true, imageSrc: "/reelsoostudior.png" },
+      { icon: Briefcase, iconBg: "#fff1f3", iconColor: "#fd4605", label: "Teezer Studio", desc: "Manage creator tools and dashboard", href: "/studio", requiresAuth: true, imageSrc: "/favicon.png" },
       { icon: Megaphone, iconBg: "#fff7ed", iconColor: "#f97316", label: "Ads Manager",    desc: "Create and track your promotions",   href: "/ads-manager",      requiresAuth: true },
       { icon: Bookmark,  iconBg: "#ecfdf5", iconColor: "#059669", label: "Saved Videos",   desc: "Your bookmarked content",            href: "/settings/saved",   requiresAuth: true },
       { icon: History,   iconBg: "#eff6ff", iconColor: "#2563eb", label: "Watch History",  desc: "Videos you've watched",              href: "/settings/history", requiresAuth: true },
@@ -91,7 +91,7 @@ const SECTIONS: { title: string; items: SectionItem[] }[] = [
     title: "Support & Information",
     items: [
       { icon: HelpCircle, iconBg: "#eff6ff", iconColor: "#3b82f6", label: "Help Center",          desc: "Get answers and support",   href: "/settings/help",          requiresAuth: false },
-      { icon: Flag,       iconBg: "#fff1f3", iconColor: "#fe2c55", label: "Report a Problem",     desc: "Flag an issue to our team", href: "/settings/report",        requiresAuth: false },
+      { icon: Flag,       iconBg: "#fff1f3", iconColor: "#fd4605", label: "Report a Problem",     desc: "Flag an issue to our team", href: "/settings/report",        requiresAuth: false },
       { icon: BookOpen,   iconBg: "#f0fdf4", iconColor: "#16a34a", label: "Community Guidelines", desc: "Rules and standards",       href: "/settings/guidelines",    requiresAuth: false },
       { icon: Info,       iconBg: "#f3f4f6", iconColor: "#64748b", label: "About Teezer",        desc: "Version and credits",       href: "/settings/about",         requiresAuth: false },
       { icon: FileText,   iconBg: "#f5f3ff", iconColor: "#7c3aed", label: "Terms & Privacy",      desc: "Legal and policy info",     href: "/settings/terms-privacy", requiresAuth: false },
@@ -215,11 +215,11 @@ function LangDropdown({ selected, onSelect }: LangDropdownProps) {
         className={cn(
           "flex w-full h-full items-center justify-center gap-1.5 px-3 text-[13px] font-semibold transition-all duration-200",
           open
-            ? "bg-[#fff1f3] text-[#fe2c55]"
+            ? "bg-[#fff1f3] text-[#fd4605]"
             : "text-[#6b7280] hover:bg-[#f8f9fb]",
         )}
       >
-        <Globe className={cn("h-[17px] w-[17px] flex-shrink-0", open ? "text-[#fe2c55]" : "text-[#6b7280]")} />
+        <Globe className={cn("h-[17px] w-[17px] flex-shrink-0", open ? "text-[#fd4605]" : "text-[#6b7280]")} />
         <span className="truncate max-w-[72px]">{currentLang.name}</span>
         <ChevronDown
           className={cn(
@@ -271,7 +271,7 @@ function LangDropdown({ selected, onSelect }: LangDropdownProps) {
                   background: "#f8f9fb", fontSize: 13, color: "#111827",
                   outline: "none",
                 }}
-                onFocus={(e) => { e.currentTarget.style.borderColor = "#fe2c55"; e.currentTarget.style.background = "#fff"; }}
+                onFocus={(e) => { e.currentTarget.style.borderColor = "#fd4605"; e.currentTarget.style.background = "#fff"; }}
                 onBlur={(e)  => { e.currentTarget.style.borderColor = "#e5e7eb"; e.currentTarget.style.background = "#f8f9fb"; }}
               />
             </div>
@@ -303,7 +303,7 @@ function LangDropdown({ selected, onSelect }: LangDropdownProps) {
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <p style={{
                         fontSize: 13, fontWeight: 600, lineHeight: "1.2",
-                        color: isSel ? "#fe2c55" : "#111827",
+                        color: isSel ? "#fd4605" : "#111827",
                         overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
                       }}>
                         {lang.name}
@@ -315,7 +315,7 @@ function LangDropdown({ selected, onSelect }: LangDropdownProps) {
                         {lang.native}
                       </p>
                     </div>
-                    {isSel && <Check style={{ width: 15, height: 15, color: "#fe2c55", flexShrink: 0 }} />}
+                    {isSel && <Check style={{ width: 15, height: 15, color: "#fd4605", flexShrink: 0 }} />}
                   </button>
                 );
               })
@@ -461,14 +461,14 @@ export function MoreMenuModal({ open, onClose }: MoreMenuModalProps) {
               <Link
                 href={`/profile/${user.username}`}
                 onClick={onClose}
-                className="flex-shrink-0 h-9 px-5 rounded-full border border-[#e2e5ea] text-[13px] font-semibold text-[#111827] hover:border-[#fe2c55] hover:text-[#fe2c55] hover:bg-[#fff1f3] transition-all flex items-center whitespace-nowrap"
+                className="flex-shrink-0 h-9 px-5 rounded-full border border-[#e2e5ea] text-[13px] font-semibold text-[#111827] hover:border-[#fd4605] hover:text-[#fd4605] hover:bg-[#fff1f3] transition-all flex items-center whitespace-nowrap"
               >
                 Edit Profile
               </Link>
             ) : (
               <button
                 onClick={() => { openAuthModal("login"); onClose(); }}
-                className="flex-shrink-0 h-9 px-5 rounded-full bg-[#fe2c55] text-[13px] font-semibold text-white hover:bg-[#e0253e] active:scale-95 transition-all whitespace-nowrap shadow-sm"
+                className="flex-shrink-0 h-9 px-5 rounded-full bg-[#fd4605] text-[13px] font-semibold text-white hover:bg-[#e0253e] active:scale-95 transition-all whitespace-nowrap shadow-sm"
               >
                 Login
               </button>
@@ -490,14 +490,14 @@ export function MoreMenuModal({ open, onClose }: MoreMenuModalProps) {
                 className={cn(
                   "flex flex-1 h-full items-center justify-center gap-2 px-3 text-[13px] font-semibold transition-all duration-200",
                   theme === "light"
-                    ? "bg-[#fff1f3] text-[#fe2c55]"
+                    ? "bg-[#fff1f3] text-[#fd4605]"
                     : "text-[#6b7280] hover:bg-[#f8f9fb]",
                 )}
               >
-                <Sun className={cn("h-[17px] w-[17px] flex-shrink-0", theme === "light" ? "text-[#fe2c55]" : "text-[#6b7280]")} />
+                <Sun className={cn("h-[17px] w-[17px] flex-shrink-0", theme === "light" ? "text-[#fd4605]" : "text-[#6b7280]")} />
                 <span className="whitespace-nowrap">Light Mode</span>
                 {theme === "light" && (
-                  <Check className="h-3.5 w-3.5 text-[#fe2c55] flex-shrink-0" strokeWidth={2.5} />
+                  <Check className="h-3.5 w-3.5 text-[#fd4605] flex-shrink-0" strokeWidth={2.5} />
                 )}
               </button>
 
@@ -510,14 +510,14 @@ export function MoreMenuModal({ open, onClose }: MoreMenuModalProps) {
                 className={cn(
                   "flex flex-1 h-full items-center justify-center gap-2 px-3 text-[13px] font-semibold transition-all duration-200",
                   theme === "dark"
-                    ? "bg-[#fff1f3] text-[#fe2c55]"
+                    ? "bg-[#fff1f3] text-[#fd4605]"
                     : "text-[#6b7280] hover:bg-[#f8f9fb]",
                 )}
               >
-                <Moon className={cn("h-[17px] w-[17px] flex-shrink-0", theme === "dark" ? "text-[#fe2c55]" : "text-[#6b7280]")} />
+                <Moon className={cn("h-[17px] w-[17px] flex-shrink-0", theme === "dark" ? "text-[#fd4605]" : "text-[#6b7280]")} />
                 <span className="whitespace-nowrap">Dark Mode</span>
                 {theme === "dark" && (
-                  <Check className="h-3.5 w-3.5 text-[#fe2c55] flex-shrink-0" strokeWidth={2.5} />
+                  <Check className="h-3.5 w-3.5 text-[#fd4605] flex-shrink-0" strokeWidth={2.5} />
                 )}
               </button>
 
@@ -586,11 +586,11 @@ export function MoreMenuModal({ open, onClose }: MoreMenuModalProps) {
           {/* ── Footer ───────────────────────────────────────── */}
           <p className="mt-5 text-center text-[11px] text-[#c4c9d4] leading-relaxed">
             © 2026 Teezer ·{" "}
-            <Link href="/terms"    onClick={onClose} className="hover:text-[#fe2c55] transition-colors">Terms</Link>
+            <Link href="/terms"    onClick={onClose} className="hover:text-[#fd4605] transition-colors">Terms</Link>
             {" · "}
-            <Link href="/privacy"  onClick={onClose} className="hover:text-[#fe2c55] transition-colors">Privacy</Link>
+            <Link href="/privacy"  onClick={onClose} className="hover:text-[#fd4605] transition-colors">Privacy</Link>
             {" · "}
-            <Link href="/help"     onClick={onClose} className="hover:text-[#fe2c55] transition-colors">Help</Link>
+            <Link href="/help"     onClick={onClose} className="hover:text-[#fd4605] transition-colors">Help</Link>
           </p>
         </div>
       </div>

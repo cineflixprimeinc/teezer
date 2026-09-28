@@ -50,7 +50,7 @@ const REPLY_BATCH = 5;
 
 /* ─── Helpers ──────────────────────────────────────────────────────────── */
 function colorFor(seed?: string | number | null): string {
-  const p = ["#fe2c55", "#1d8cff", "#a855f7", "#10b981", "#f97316", "#8b5cf6"];
+  const p = ["#fd4605", "#1d8cff", "#a855f7", "#10b981", "#f97316", "#8b5cf6"];
   const s = String(seed ?? "x");
   let h = 0;
   for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
@@ -131,7 +131,7 @@ function RankBadge({ rank }: { rank: 1 | 2 | 3 }) {
 /* ─── Author badge ──────────────────────────────────────────────────────── */
 function AuthorBadge() {
   return (
-    <span className="rounded-full bg-[#fff0f4] px-[6px] py-px text-[10px] font-bold text-[#fe2c55] leading-none">
+    <span className="rounded-full bg-[#fff3ec] px-[6px] py-px text-[10px] font-bold text-[#fd4605] leading-none">
       Author
     </span>
   );
@@ -142,14 +142,14 @@ function NoCommentsIcon() {
   return (
     <svg viewBox="0 0 200 168" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[130px]" aria-hidden="true">
       <ellipse cx="100" cy="96" rx="68" ry="50" fill="#fff1f4" />
-      <ellipse cx="100" cy="148" rx="46" ry="7" fill="#fe2c55" fillOpacity="0.12" />
-      <rect x="28" y="36" width="120" height="88" rx="20" fill="white" stroke="#fe2c55" strokeOpacity="0.35" strokeWidth="2" />
-      <path d="M52 124 L44 140 L68 124 Z" fill="white" stroke="#fe2c55" strokeOpacity="0.35" strokeWidth="2" strokeLinejoin="round" />
+      <ellipse cx="100" cy="148" rx="46" ry="7" fill="#fd4605" fillOpacity="0.12" />
+      <rect x="28" y="36" width="120" height="88" rx="20" fill="white" stroke="#fd4605" strokeOpacity="0.35" strokeWidth="2" />
+      <path d="M52 124 L44 140 L68 124 Z" fill="white" stroke="#fd4605" strokeOpacity="0.35" strokeWidth="2" strokeLinejoin="round" />
       <rect x="46" y="122" width="28" height="6" fill="white" />
-      <circle cx="76" cy="80" r="6" fill="#fe2c55" fillOpacity="0.85" />
-      <circle cx="100" cy="80" r="6" fill="#fe2c55" fillOpacity="0.55" />
-      <circle cx="124" cy="80" r="6" fill="#fe2c55" fillOpacity="0.3" />
-      <circle cx="148" cy="124" r="12" fill="#fe2c55" />
+      <circle cx="76" cy="80" r="6" fill="#fd4605" fillOpacity="0.85" />
+      <circle cx="100" cy="80" r="6" fill="#fd4605" fillOpacity="0.55" />
+      <circle cx="124" cy="80" r="6" fill="#fd4605" fillOpacity="0.3" />
+      <circle cx="148" cy="124" r="12" fill="#fd4605" />
       <path d="M143 124 L147 128 L153 120" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -229,8 +229,8 @@ function GifPicker({ onSelect, onClose }: { onSelect: (gif: GifItem) => void; on
   if (!GIPHY_KEY) {
     return (
       <div className="rounded-2xl border border-[#eeeeee] bg-white p-4 text-center text-[12px] text-[#9ca3af] shadow-xl">
-        GIF search is not configured. Add <code className="text-[#fe2c55]">NEXT_PUBLIC_GIPHY_API_KEY</code> to your environment.
-        <button onClick={onClose} className="mt-2 block w-full text-center text-[#fe2c55] font-semibold">Close</button>
+        GIF search is not configured. Add <code className="text-[#fd4605]">NEXT_PUBLIC_GIPHY_API_KEY</code> to your environment.
+        <button onClick={onClose} className="mt-2 block w-full text-center text-[#fd4605] font-semibold">Close</button>
       </div>
     );
   }
@@ -256,7 +256,7 @@ function GifPicker({ onSelect, onClose }: { onSelect: (gif: GifItem) => void; on
       <div className="overflow-y-auto p-2" style={{ maxHeight: 320 }}>
         {loading ? (
           <div className="grid place-items-center py-8">
-            <Loader2 className="h-5 w-5 animate-spin text-[#fe2c55]" />
+            <Loader2 className="h-5 w-5 animate-spin text-[#fd4605]" />
           </div>
         ) : gifs.length === 0 ? (
           <p className="py-6 text-center text-[11px] text-[#9ca3af]">No GIFs found</p>
@@ -345,7 +345,7 @@ function GiftPicker({
   if (checkingEligibility) {
     return (
       <div className="overflow-hidden rounded-2xl border border-[#eeeeee] bg-white shadow-xl grid place-items-center" style={{ width: 280, height: 160 }}>
-        <Loader2 className="h-5 w-5 animate-spin text-[#fe2c55]" />
+        <Loader2 className="h-5 w-5 animate-spin text-[#fd4605]" />
       </div>
     );
   }
@@ -367,7 +367,7 @@ function GiftPicker({
           <button
             type="button"
             onClick={() => router.push("/studio/monetization")}
-            className="mt-3 w-full rounded-full bg-[#fe2c55] px-4 py-2 text-[12px] font-bold text-white hover:bg-[#e0264b]"
+            className="mt-3 w-full rounded-full bg-[#fd4605] px-4 py-2 text-[12px] font-bold text-white hover:bg-[#e03e04]"
           >
             Get Started
           </button>
@@ -393,7 +393,7 @@ function GiftPicker({
       <div className="overflow-y-auto p-2" style={{ maxHeight: 320 }}>
         {giftsQ.isLoading ? (
           <div className="grid place-items-center py-8">
-            <Loader2 className="h-5 w-5 animate-spin text-[#fe2c55]" />
+            <Loader2 className="h-5 w-5 animate-spin text-[#fd4605]" />
           </div>
         ) : !giftsQ.data?.length ? (
           <p className="py-6 text-center text-[11px] text-[#9ca3af]">No gifts available</p>
@@ -409,7 +409,7 @@ function GiftPicker({
                 title={gift.name}
               >
                 {sendingId === gift.id ? (
-                  <Loader2 className="h-7 w-7 animate-spin text-[#fe2c55]" />
+                  <Loader2 className="h-7 w-7 animate-spin text-[#fd4605]" />
                 ) : gift.icon_url ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={gift.icon_url} alt={gift.name} className="h-7 w-7 object-contain" />
@@ -923,7 +923,7 @@ export function CommentSection({
               <RankBadge rank={comment.comment_rank as 1 | 2 | 3} />
             )}
             {comment.is_pinned && (
-              <span className="flex items-center gap-0.5 rounded-full bg-[#fff0f4] px-1.5 py-px text-[9px] font-bold text-[#fe2c55]">
+              <span className="flex items-center gap-0.5 rounded-full bg-[#fff3ec] px-1.5 py-px text-[9px] font-bold text-[#fd4605]">
                 <Pin className="h-2 w-2" /> Pinned
               </span>
             )}
@@ -945,14 +945,14 @@ export function CommentSection({
                   if (e.key === "Escape") setEditingId(null);
                 }}
                 rows={2}
-                className="w-full resize-none rounded-xl border border-[#fe2c55] bg-[#fff8f9] px-3 py-1.5 text-[12px] text-black outline-none"
+                className="w-full resize-none rounded-xl border border-[#fd4605] bg-[#fff8f9] px-3 py-1.5 text-[12px] text-black outline-none"
                 disabled={editMut.isPending}
               />
               <div className="mt-1 flex gap-2">
                 <button
                   onClick={() => { if (editDraft.trim()) editMut.mutate({ id: comment.id, body: editDraft.trim() }); }}
                   disabled={!editDraft.trim() || editMut.isPending}
-                  className="flex items-center gap-1 rounded-full bg-[#fe2c55] px-3 py-1 text-[11px] font-bold text-white disabled:opacity-50"
+                  className="flex items-center gap-1 rounded-full bg-[#fd4605] px-3 py-1 text-[11px] font-bold text-white disabled:opacity-50"
                 >
                   <Check className="h-3 w-3" /> Save
                 </button>
@@ -1036,13 +1036,13 @@ export function CommentSection({
                 className={cn(
                   "flex items-center gap-1 text-[11px] font-semibold transition-colors",
                   comment.current_user_reaction === "love"
-                    ? "text-[#fe2c55]"
-                    : "text-[#5f6675] hover:text-[#fe2c55]",
+                    ? "text-[#fd4605]"
+                    : "text-[#5f6675] hover:text-[#fd4605]",
                 )}
                 aria-label="Love"
               >
                 <Heart
-                  className={cn("h-3.5 w-3.5", comment.current_user_reaction === "love" && "fill-[#fe2c55]")}
+                  className={cn("h-3.5 w-3.5", comment.current_user_reaction === "love" && "fill-[#fd4605]")}
                   strokeWidth={2}
                 />
                 {comment.love_count > 0 && <span>{fmtCount(comment.love_count)}</span>}
@@ -1077,7 +1077,7 @@ export function CommentSection({
                   setReplyTo(replyTo?.id === comment.id ? null : comment);
                   setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 50);
                 })}
-                className="text-[11px] font-semibold text-[#5f6675] hover:text-[#fe2c55] transition-colors"
+                className="text-[11px] font-semibold text-[#5f6675] hover:text-[#fd4605] transition-colors"
               >
                 {replyTo?.id === comment.id ? "Cancel" : "Reply"}
               </button>
@@ -1141,7 +1141,7 @@ export function CommentSection({
             <button
               type="button"
               onClick={() => toggleReplies(comment)}
-              className="mt-1.5 flex items-center gap-1 text-[11px] font-bold text-[#fe2c55] hover:text-[#c0213e] transition-colors"
+              className="mt-1.5 flex items-center gap-1 text-[11px] font-bold text-[#fd4605] hover:text-[#c0213e] transition-colors"
             >
               {expandedReplies.has(comment.id) ? (
                 <><ChevronUp className="h-3 w-3" /> Hide replies</>
@@ -1183,7 +1183,7 @@ export function CommentSection({
             <button
               type="button"
               onClick={() => setShownReplies((p) => ({ ...p, [comment.id]: visibleCount + REPLY_BATCH }))}
-              className="mt-1 flex items-center gap-1 text-[11px] font-bold text-[#fe2c55] hover:text-[#c0213e] transition-colors"
+              className="mt-1 flex items-center gap-1 text-[11px] font-bold text-[#fd4605] hover:text-[#c0213e] transition-colors"
             >
               <ChevronDown className="h-3 w-3" />
               View {Math.min(allReplies.length - visibleCount, REPLY_BATCH)} more{" "}
@@ -1251,7 +1251,7 @@ export function CommentSection({
             className={cn(
               "flex flex-shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-bold transition-colors",
               commentFilter === key
-                ? "bg-[#fe2c55] text-white"
+                ? "bg-[#fd4605] text-white"
                 : "bg-[#f3f4f6] text-[#5f6675] hover:bg-[#eeeeee] hover:text-[#111827]",
             )}
           >
@@ -1297,7 +1297,7 @@ export function CommentSection({
         {replyTo && (
           <div className="mb-2 flex items-center justify-between rounded-xl bg-[#f8f9fb] px-3 py-1.5">
             <p className="text-[12px] text-[#5f6675]">
-              Replying to <span className="font-bold text-[#fe2c55]">@{replyTo.user?.username}</span>
+              Replying to <span className="font-bold text-[#fd4605]">@{replyTo.user?.username}</span>
             </p>
             <button type="button" onClick={() => setReplyTo(null)} className="text-[#9aa1ad] hover:text-black">
               <X className="h-3.5 w-3.5" />
@@ -1336,7 +1336,7 @@ export function CommentSection({
             <button
               type="button"
               onClick={() => openAuth("login")}
-              className="flex-1 rounded-2xl border border-[#eeeeee] bg-[#f8f9fb] px-3 py-2 text-left text-[13px] text-[#9ca3af] hover:border-[#fe2c55] hover:bg-white transition-colors"
+              className="flex-1 rounded-2xl border border-[#eeeeee] bg-[#f8f9fb] px-3 py-2 text-left text-[13px] text-[#9ca3af] hover:border-[#fd4605] hover:bg-white transition-colors"
               style={{ minHeight: 40 }}
             >
               Log in to comment…
@@ -1353,7 +1353,7 @@ export function CommentSection({
               disabled={postMut.isPending}
               rows={1}
               maxLength={1000}
-              className="w-full resize-none rounded-2xl border border-[#eeeeee] bg-[#f8f9fb] px-3 py-2 text-[13px] text-black outline-none focus:border-[#fe2c55] disabled:opacity-60"
+              className="w-full resize-none rounded-2xl border border-[#eeeeee] bg-[#f8f9fb] px-3 py-2 text-[13px] text-black outline-none focus:border-[#fd4605] disabled:opacity-60"
               style={{ maxHeight: 120 }}
             />
           )}
@@ -1364,7 +1364,7 @@ export function CommentSection({
               <button
                 type="button"
                 onClick={() => { setEmojiOpen((o) => !o); setGifOpen(false); }}
-                className="grid h-8 w-8 place-items-center rounded-full text-[#9ca3af] hover:bg-[#f0f0f0] hover:text-[#fe2c55] transition-colors"
+                className="grid h-8 w-8 place-items-center rounded-full text-[#9ca3af] hover:bg-[#f0f0f0] hover:text-[#fd4605] transition-colors"
                 aria-label="Emoji"
               >
                 <Smile className="h-4 w-4" />
@@ -1395,7 +1395,7 @@ export function CommentSection({
               <button
                 type="button"
                 onClick={() => { setGifOpen((o) => !o); setEmojiOpen(false); }}
-                className="grid h-8 w-8 place-items-center rounded-full text-[#9ca3af] hover:bg-[#f0f0f0] hover:text-[#fe2c55] transition-colors"
+                className="grid h-8 w-8 place-items-center rounded-full text-[#9ca3af] hover:bg-[#f0f0f0] hover:text-[#fd4605] transition-colors"
                 aria-label="GIF"
               >
                 <GifGlyph className="h-4 w-4" />
@@ -1437,7 +1437,7 @@ export function CommentSection({
               <button
                 type="button"
                 onClick={() => imageInputRef.current?.click()}
-                className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-full text-[#9ca3af] hover:bg-[#f0f0f0] hover:text-[#fe2c55] transition-colors"
+                className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-full text-[#9ca3af] hover:bg-[#f0f0f0] hover:text-[#fd4605] transition-colors"
                 aria-label="Add photo"
               >
                 <ImagePlus className="h-4 w-4" />
@@ -1451,7 +1451,7 @@ export function CommentSection({
               <button
                 type="button"
                 onClick={() => { setGiftOpen((o) => !o); setEmojiOpen(false); setGifOpen(false); }}
-                className="grid h-8 w-8 place-items-center rounded-full text-[#9ca3af] hover:bg-[#f0f0f0] hover:text-[#fe2c55] transition-colors"
+                className="grid h-8 w-8 place-items-center rounded-full text-[#9ca3af] hover:bg-[#f0f0f0] hover:text-[#fd4605] transition-colors"
                 aria-label="Send a gift"
               >
                 <GiftIcon className="h-4 w-4" />
@@ -1478,7 +1478,7 @@ export function CommentSection({
             className={cn(
               "mb-0.5 grid h-9 w-9 flex-shrink-0 place-items-center rounded-full transition",
               (!isAuth || ((draft.trim() || selectedGif || selectedImage) && !postMut.isPending))
-                ? "bg-[#fe2c55] text-white hover:bg-[#e0193f]"
+                ? "bg-[#fd4605] text-white hover:bg-[#e03e04]"
                 : "bg-[#f0f0f0] text-[#9aa1ad]",
             )}
           >
@@ -1503,7 +1503,7 @@ export function CommentSection({
               <button
                 onClick={() => deleteMut.mutate(deletingId)}
                 disabled={deleteMut.isPending}
-                className="flex-1 rounded-xl bg-[#fe2c55] py-2.5 text-[13px] font-semibold text-white hover:bg-[#e0193f] disabled:opacity-60 transition"
+                className="flex-1 rounded-xl bg-[#fd4605] py-2.5 text-[13px] font-semibold text-white hover:bg-[#e03e04] disabled:opacity-60 transition"
               >
                 {deleteMut.isPending ? "Deleting…" : "Delete"}
               </button>

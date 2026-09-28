@@ -45,11 +45,11 @@ export function DateRangePicker({ className }: { className?: string }) {
                 onClick={() => { setRange(presetRange(p.days, p.label)); setOpen(false); }}
                 className={cn(
                   "flex w-full items-center justify-between px-4 py-2.5 text-left text-[13px] transition hover:bg-[#f8f9fb]",
-                  active ? "font-bold text-[#fe2c55]" : "text-[#374151]",
+                  active ? "font-bold text-[#fd4605]" : "text-[#374151]",
                 )}
               >
                 {p.label}
-                {active && <span className="h-1.5 w-1.5 rounded-full bg-[#fe2c55]" />}
+                {active && <span className="h-1.5 w-1.5 rounded-full bg-[#fd4605]" />}
               </button>
             );
           })}

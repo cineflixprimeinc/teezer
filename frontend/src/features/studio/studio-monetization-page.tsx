@@ -59,7 +59,7 @@ function CardHead({ title, subtitle, action, badge }: { title: string; subtitle?
   );
 }
 
-function Spark({ data, color = "#fe2c55" }: { data: number[]; color?: string }) {
+function Spark({ data, color = "#fd4605" }: { data: number[]; color?: string }) {
   const series  = useMemo(() => [{ data: data.length > 1 ? data : [0, 0, 0, 0, 0, 0, 0] }], [data]);
   const options = useMemo(() => ({
     chart:   { type: "area" as const, sparkline: { enabled: true }, toolbar: { show: false }, animations: { enabled: false } },
@@ -110,7 +110,7 @@ function RangeSelect({ value, onChange }: { value: string; onChange: (v: string)
           {RANGE_OPTS.map(o => (
             <button key={o.value} onClick={() => { onChange(o.value); setOpen(false); }}
               className={cn("flex w-full items-center px-3 py-2 text-left text-[12px] font-medium transition hover:bg-[#f8f9fb]",
-                o.value === value ? "text-[#fe2c55] font-bold" : "text-[#374151]")}>
+                o.value === value ? "text-[#fd4605] font-bold" : "text-[#374151]")}>
               {o.label}
             </button>
           ))}
@@ -126,16 +126,16 @@ function RevenueChart({ daily }: { daily: Array<{ date: string; amount: number }
   const series  = useMemo(() => [{ name: "Revenue", data: amounts }], [amounts]);
   const options = useMemo(() => ({
     chart:      { type: "area" as const, toolbar: { show: false }, zoom: { enabled: false }, animations: { enabled: false } },
-    stroke:     { curve: "smooth" as const, width: 2, colors: ["#fe2c55"] },
+    stroke:     { curve: "smooth" as const, width: 2, colors: ["#fd4605"] },
     fill:       { type: "gradient", gradient: { shadeIntensity: 1, type: "vertical",
-      colorStops: [{ offset: 0, color: "#fe2c55", opacity: 0.2 }, { offset: 100, color: "#fe2c55", opacity: 0 }] } },
+      colorStops: [{ offset: 0, color: "#fd4605", opacity: 0.2 }, { offset: 100, color: "#fd4605", opacity: 0 }] } },
     xaxis:      { categories: cats, tickAmount: Math.min(cats.length, 7),
       labels: { style: { fontSize: "10px", colors: "#9ca3af" }, rotate: 0 },
       axisBorder: { show: false }, axisTicks: { show: false } },
     yaxis:      { labels: { formatter: (v: number) => v >= 1000 ? `$${(v/1000).toFixed(0)}K` : `$${v.toFixed(0)}`,
       style: { fontSize: "10px", colors: "#9ca3af" } }, min: 0 },
     grid:       { borderColor: "#f3f4f6", strokeDashArray: 4, xaxis: { lines: { show: false } } },
-    markers:    { size: 4, colors: ["#fe2c55"], strokeColors: "#fff", strokeWidth: 2, hover: { size: 6 } },
+    markers:    { size: 4, colors: ["#fd4605"], strokeColors: "#fff", strokeWidth: 2, hover: { size: 6 } },
     dataLabels: { enabled: false },
     tooltip:    { custom: ({ series: s, dataPointIndex: i }: any) =>
       `<div style="padding:8px 12px;background:#fff;border:1px solid #f0f0f0;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,.08)">
@@ -147,7 +147,7 @@ function RevenueChart({ daily }: { daily: Array<{ date: string; amount: number }
   return <ApexChart type="area" series={series} options={options} height={220} />;
 }
 
-const SRC_COLORS = ["#fe2c55", "#1d8cff", "#8b5cf6", "#22c55e", "#f97316", "#a855f7"];
+const SRC_COLORS = ["#fd4605", "#1d8cff", "#8b5cf6", "#22c55e", "#f97316", "#a855f7"];
 // "Sell on Reelsoo" matches the programme's own label (studio-programmes.ts /
 // CreatorEarning::sourceLabelMap()), so a Shop sale is named identically
 // everywhere it shows up.
@@ -238,7 +238,7 @@ function Payouts({ payouts, onWithdraw }: { payouts: PayoutsData; onWithdraw: ()
         <p className="text-[11px] font-semibold uppercase tracking-wide text-[#9ca3af]">Current Balance</p>
         <p className="mt-1 text-[22px] font-black text-[#111827] leading-tight">{fmt(payouts.available_balance)}</p>
         <button onClick={onWithdraw}
-          className="mt-2.5 rounded-xl bg-[#fe2c55] px-5 py-2 text-[12.5px] font-bold text-white transition hover:bg-[#e0193f] disabled:cursor-not-allowed disabled:opacity-50 active:scale-95">
+          className="mt-2.5 rounded-xl bg-[#fd4605] px-5 py-2 text-[12.5px] font-bold text-white transition hover:bg-[#e03e04] disabled:cursor-not-allowed disabled:opacity-50 active:scale-95">
           Withdraw
         </button>
         <p className="mt-1.5 text-[10px] text-[#9ca3af]">Minimum ${payouts.minimum_withdraw} to withdraw</p>
@@ -272,7 +272,7 @@ function Payouts({ payouts, onWithdraw }: { payouts: PayoutsData; onWithdraw: ()
         ) : (
           <p className="mt-1 text-[12px] text-[#9ca3af]">Not configured</p>
         )}
-        <button className="mt-2 rounded-lg border border-[#e5e7eb] px-3 py-1 text-[11px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+        <button className="mt-2 rounded-lg border border-[#e5e7eb] px-3 py-1 text-[11px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]">
           Manage
         </button>
       </div>
@@ -294,13 +294,13 @@ function RevenueGoal({ goal, onEdit }: { goal: GoalData; onEdit: () => void }) {
         <span className="text-[#9ca3af]"> / {fmt(goal.monthly_goal)}</span>
       </div>
       <div className="relative h-2.5 w-full overflow-hidden rounded-full bg-[#f3f4f6]">
-        <div className="h-full rounded-full bg-[#fe2c55] transition-all duration-700" style={{ width: `${pct}%` }} />
+        <div className="h-full rounded-full bg-[#fd4605] transition-all duration-700" style={{ width: `${pct}%` }} />
       </div>
       <div className="flex items-center justify-between">
-        <p className="text-[11px] font-bold text-[#fe2c55]">{pct.toFixed(0)}%</p>
+        <p className="text-[11px] font-bold text-[#fd4605]">{pct.toFixed(0)}%</p>
         {pct >= 80 && <p className="text-[10.5px] text-[#6b7280]">🚀 Great progress! Keep it up!</p>}
       </div>
-      <button onClick={onEdit} className="mt-auto flex items-center gap-1 self-start text-[11px] font-semibold text-[#fe2c55] hover:underline">
+      <button onClick={onEdit} className="mt-auto flex items-center gap-1 self-start text-[11px] font-semibold text-[#fd4605] hover:underline">
         <Edit3 className="h-3 w-3" /> Edit goal
       </button>
     </div>
@@ -308,7 +308,7 @@ function RevenueGoal({ goal, onEdit }: { goal: GoalData; onEdit: () => void }) {
 }
 
 const TIPS = [
-  { Icon: Zap,     color: "#fe2c55", bg: "#fff0f4", title: "Post consistently", sub: "Creators who post 4+ times/week earn 2.5x more."  },
+  { Icon: Zap,     color: "#fd4605", bg: "#fff3ec", title: "Post consistently", sub: "Creators who post 4+ times/week earn 2.5x more."  },
   { Icon: Tv2,     color: "#1d8cff", bg: "#eff6ff", title: "Go Live",            sub: "Live streams get 3x more gifts on average."         },
   { Icon: Bookmark,color: "#8b5cf6", bg: "#f5f3ff", title: "Create Series",      sub: "Series increase watch time and conversions."        },
   { Icon: Users,   color: "#22c55e", bg: "#f0fdf4", title: "Collaborate",        sub: "Brand collabs can significantly boost earnings."    },
@@ -370,7 +370,7 @@ function TopContent({ items }: { items: TopItem[] }) {
                     {item.duration ? <span className="absolute bottom-0.5 right-0.5 rounded bg-black/60 px-0.5 text-[6px] font-bold text-white">{fmtDur(item.duration)}</span> : null}
                   </div>
                   <div className="min-w-0">
-                    <p className="max-w-[140px] truncate text-[11.5px] font-semibold text-[#111827] group-hover:text-[#fe2c55]">{item.title ?? "Untitled"}</p>
+                    <p className="max-w-[140px] truncate text-[11.5px] font-semibold text-[#111827] group-hover:text-[#fd4605]">{item.title ?? "Untitled"}</p>
                     <p className="text-[9.5px] text-[#9ca3af]">{fmtShort(item.created_at)}</p>
                   </div>
                 </div>
@@ -396,7 +396,7 @@ const TX_ICON: Record<string, React.ElementType> = {
   ad_revenue: DollarSign, live_gift: Heart, subscription: RefreshCw, brand_collab: Megaphone, series: Bookmark, shop: Store,
 };
 const TX_CLS: Record<string, string> = {
-  ad_revenue: "bg-[#fff0f4] text-[#fe2c55]", live_gift: "bg-[#eff6ff] text-[#1d8cff]",
+  ad_revenue: "bg-[#fff3ec] text-[#fd4605]", live_gift: "bg-[#eff6ff] text-[#1d8cff]",
   subscription: "bg-[#f5f3ff] text-[#8b5cf6]", brand_collab: "bg-[#f0fdf4] text-[#22c55e]", series: "bg-[#fff7ed] text-[#f97316]",
   shop: "bg-[#faf5ff] text-[#a855f7]",
 };
@@ -425,7 +425,7 @@ function RecentTransactions({ items }: { items: TxItem[] }) {
 }
 
 const BRANDS = [
-  { name: "GlowUp",     color: "#fe2c55" },
+  { name: "GlowUp",     color: "#fd4605" },
   { name: "URBAN WEAR", color: "#111827" },
   { name: "FitLife",    color: "#22c55e" },
 ];
@@ -445,7 +445,7 @@ function Marketplace() {
         ))}
         <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#f3f4f6] text-[10px] font-bold text-[#9ca3af]">+</div>
       </div>
-      <button className="w-full rounded-xl bg-[#fe2c55] py-2 text-[12px] font-bold text-white transition hover:bg-[#e0193f] active:scale-95">
+      <button className="w-full rounded-xl bg-[#fd4605] py-2 text-[12px] font-bold text-white transition hover:bg-[#e03e04] active:scale-95">
         Explore Opportunities
       </button>
     </div>
@@ -468,12 +468,12 @@ function GoalModal({ current, onClose, onSubmit, busy }: {
         <div className="relative">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[14px] font-bold text-[#9ca3af]">$</span>
           <input type="number" value={val} min={0} onChange={e => setVal(e.target.value)}
-            className="w-full rounded-xl border border-[#e5e7eb] py-2.5 pl-7 pr-4 text-[14px] font-bold outline-none focus:border-[#fe2c55]" />
+            className="w-full rounded-xl border border-[#e5e7eb] py-2.5 pl-7 pr-4 text-[14px] font-bold outline-none focus:border-[#fd4605]" />
         </div>
         <div className="mt-4 flex gap-3">
           <button onClick={onClose} className="flex-1 rounded-xl border border-[#e5e7eb] py-2.5 text-[13px] font-semibold text-[#374151] hover:bg-[#f8f9fb] transition">Cancel</button>
           <button onClick={() => n >= 0 && onSubmit(n)} disabled={n < 0 || busy}
-            className="flex-1 rounded-xl bg-[#fe2c55] py-2.5 text-[13px] font-bold text-white hover:bg-[#e0193f] disabled:opacity-50 transition">
+            className="flex-1 rounded-xl bg-[#fd4605] py-2.5 text-[13px] font-bold text-white hover:bg-[#e03e04] disabled:opacity-50 transition">
             {busy ? "Saving…" : "Save"}
           </button>
         </div>
@@ -583,7 +583,7 @@ export function StudioMonetizationPage() {
             <>
               <div className="grid grid-cols-5 gap-4">
                 <StatCard title="Total Earnings" value={fmt(summary.total_earnings?.amount ?? 0)} sub={`${Math.abs(summary.total_earnings?.growth ?? 0).toFixed(1)}% vs last ${range}`} up={summary.total_earnings?.up}
-                  icon={<Wallet className="h-4.5 w-4.5 text-[#fe2c55]" />} iconBg="bg-[#fff0f4]" spark={spark} sparkColor="#fe2c55" />
+                  icon={<Wallet className="h-4.5 w-4.5 text-[#fd4605]" />} iconBg="bg-[#fff3ec]" spark={spark} sparkColor="#fd4605" />
                 <StatCard title="Available Balance" value={fmt(summary.available_balance?.amount ?? 0)} sub={`${Math.abs(growth).toFixed(1)}% vs last ${range}`} up={growUp}
                   icon={<CircleDollarSign className="h-4.5 w-4.5 text-[#1d8cff]" />} iconBg="bg-[#eff6ff]" spark={spark} sparkColor="#1d8cff" />
                 <StatCard title="This Month" value={fmt(summary.this_month?.amount ?? 0)} sub="vs last month" up={true}
@@ -614,7 +614,7 @@ export function StudioMonetizationPage() {
 
               <div className="grid grid-cols-12 gap-4">
                 <Card className="col-span-5"><CardHead title="Payouts" /><Payouts payouts={d?.payouts ?? { available_balance: 0, pending_balance: 0, minimum_withdraw: 50 }} onWithdraw={() => setShowWithdraw(true)} /></Card>
-                <Card className="col-span-4"><CardHead title="Revenue Goal" action={<button onClick={() => setShowGoal(true)} className="text-[11.5px] font-semibold text-[#fe2c55] hover:underline">Edit goal</button>} /><RevenueGoal goal={d?.revenue_goal ?? { monthly_goal: 10000, current: 0, percentage: 0 }} onEdit={() => setShowGoal(true)} /></Card>
+                <Card className="col-span-4"><CardHead title="Revenue Goal" action={<button onClick={() => setShowGoal(true)} className="text-[11.5px] font-semibold text-[#fd4605] hover:underline">Edit goal</button>} /><RevenueGoal goal={d?.revenue_goal ?? { monthly_goal: 10000, current: 0, percentage: 0 }} onEdit={() => setShowGoal(true)} /></Card>
                 <Card className="col-span-3"><CardHead title="Monetization Tips" /><Tips /></Card>
               </div>
 
@@ -627,14 +627,14 @@ export function StudioMonetizationPage() {
 
                 {/* ── Recent Transactions - CENTER ── */}
                 <Card className="col-span-3">
-                  <CardHead title="Recent Transactions" action={<button className="text-[11px] font-semibold text-[#fe2c55] hover:underline">View all</button>} />
+                  <CardHead title="Recent Transactions" action={<button className="text-[11px] font-semibold text-[#fd4605] hover:underline">View all</button>} />
                   <RecentTransactions items={d?.recent_transactions ?? []} />
                 </Card>
 
                 {/* ── Creator Marketplace (top) + Eligible Opportunities (below) - RIGHT STACKED ── */}
                 <div className="col-span-4 flex flex-col gap-4">
                   <Card>
-                    <CardHead title="Creator Marketplace" badge={<span className="rounded-full bg-[#fe2c55] px-1.5 py-0.5 text-[8px] font-black text-white">New</span>} />
+                    <CardHead title="Creator Marketplace" badge={<span className="rounded-full bg-[#fd4605] px-1.5 py-0.5 text-[8px] font-black text-white">New</span>} />
                     <Marketplace />
                   </Card>
 

@@ -61,7 +61,7 @@ function RangeDropdown({ value, onChange }: { value: AdRange; onChange: (v: AdRa
           <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
           <div className="absolute right-0 top-full mt-1 z-20 bg-white border border-[#e8eaed] rounded-xl shadow-lg py-1 w-40">
             {RANGES.map((r) => (
-              <button key={r.value} onClick={() => { onChange(r.value); setOpen(false); }} className={`w-full text-left px-3 py-2 text-[12px] hover:bg-[#f8f9fb] ${r.value === value ? "text-[#fe2c55] font-semibold" : "text-[#374151]"}`}>{r.label}</button>
+              <button key={r.value} onClick={() => { onChange(r.value); setOpen(false); }} className={`w-full text-left px-3 py-2 text-[12px] hover:bg-[#f8f9fb] ${r.value === value ? "text-[#fd4605] font-semibold" : "text-[#374151]"}`}>{r.label}</button>
             ))}
           </div>
         </>
@@ -114,7 +114,7 @@ function PerformanceChart({ range }: { range: AdRange }) {
   ] : [];
   const options = {
     chart: { type: "line", toolbar: { show: false }, zoom: { enabled: false } },
-    colors: ["#fe2c55", "#3b82f6", "#a855f7", "#22c55e"],
+    colors: ["#fd4605", "#3b82f6", "#a855f7", "#22c55e"],
     stroke: { curve: "smooth", width: 2.5 },
     markers: { size: 3, strokeWidth: 0, hover: { size: 5 } },
     xaxis: { categories: data?.labels ?? [], axisBorder: { show: false }, axisTicks: { show: false }, labels: { style: { fontSize: "11px", colors: "#9ca3af" }, rotate: 0, hideOverlappingLabels: true } },
@@ -132,7 +132,7 @@ function RevenueChart({ range }: { range: AdRange }) {
   const { data } = useQuery({ queryKey: ["ads-rev", range], queryFn: () => adsService.revenue(range), refetchInterval: 60_000 });
   const options = {
     chart: { type: "bar", toolbar: { show: false } },
-    colors: ["#fe2c55"],
+    colors: ["#fd4605"],
     plotOptions: { bar: { columnWidth: "55%", borderRadius: 3 } },
     xaxis: { categories: data?.labels ?? [], axisBorder: { show: false }, axisTicks: { show: false }, labels: { show: false } },
     yaxis: { labels: { formatter: (v: number) => v >= 1000 ? "$" + (v / 1000).toFixed(0) + "K" : "$" + v.toFixed(0), style: { fontSize: "11px", colors: ["#9ca3af"] } } },
@@ -172,7 +172,7 @@ export default function AdsOverviewPage() {
   const s = data?.stats;
 
   const tiles = [
-    { label: "Campaigns", value: adNum(s?.campaigns.value ?? 0), stat: s?.campaigns, icon: <Megaphone size={18} />, tint: "#ffe4ec", color: "#fe2c55" },
+    { label: "Campaigns", value: adNum(s?.campaigns.value ?? 0), stat: s?.campaigns, icon: <Megaphone size={18} />, tint: "#ffe4ec", color: "#fd4605" },
     { label: "Active Ads", value: adNum(s?.active_ads.value ?? 0), stat: s?.active_ads, icon: <PlayCircle size={18} />, tint: "#dcfce7", color: "#16a34a" },
     { label: "Pending Review", value: adNum(s?.pending_review.value ?? 0), stat: s?.pending_review, icon: <Clock size={18} />, tint: "#fef3c7", color: "#d97706" },
     { label: "Rejected", value: adNum(s?.rejected.value ?? 0), stat: s?.rejected, icon: <ShieldX size={18} />, tint: "#fee2e2", color: "#dc2626" },
@@ -200,7 +200,7 @@ export default function AdsOverviewPage() {
   const modRows = [
     { label: "Adult Content", n: mod?.adult ?? 0, icon: <AlertTriangle size={16} />, tint: "#fee2e2", color: "#dc2626" },
     { label: "Copyright Issues", n: mod?.copyright ?? 0, icon: <Copyright size={16} />, tint: "#fef3c7", color: "#d97706" },
-    { label: "Policy Violations", n: mod?.policy ?? 0, icon: <ShieldAlert size={16} />, tint: "#ffe4ec", color: "#fe2c55" },
+    { label: "Policy Violations", n: mod?.policy ?? 0, icon: <ShieldAlert size={16} />, tint: "#ffe4ec", color: "#fd4605" },
   ];
 
   return (
@@ -215,7 +215,7 @@ export default function AdsOverviewPage() {
           <div className="flex items-center gap-2">
             <RangeDropdown value={range} onChange={setRange} />
             <button className="flex items-center gap-1.5 border border-[#e8eaed] rounded-lg px-3 py-2 text-[12px] font-medium text-[#374151] hover:bg-[#f8f9fb]"><Download size={14} /> Export</button>
-            <Link href="/ads-management/campaigns" className="flex items-center gap-1.5 bg-[#fe2c55] text-white rounded-lg px-3.5 py-2 text-[12px] font-semibold hover:bg-[#e0243d]"><Plus size={15} /> New Campaign</Link>
+            <Link href="/ads-management/campaigns" className="flex items-center gap-1.5 bg-[#fd4605] text-white rounded-lg px-3.5 py-2 text-[12px] font-semibold hover:bg-[#e03e04]"><Plus size={15} /> New Campaign</Link>
           </div>
         </div>
 
@@ -267,7 +267,7 @@ export default function AdsOverviewPage() {
           <Card className="p-5 xl:col-span-3">
             <div className="flex items-center justify-between mb-1">
               <h2 className="text-[14px] font-bold text-[#111827]">Approval Queue</h2>
-              <span className="w-8 h-8 rounded-lg bg-[#ffe4ec] text-[#fe2c55] grid place-items-center"><Megaphone size={16} /></span>
+              <span className="w-8 h-8 rounded-lg bg-[#ffe4ec] text-[#fd4605] grid place-items-center"><Megaphone size={16} /></span>
             </div>
             <p className="text-[34px] font-bold text-[#111827] leading-tight">{adNum(data?.approval_queue.count ?? 0)}</p>
             <p className="text-[12px] text-[#9ca3af] mb-3">Ads awaiting review</p>
@@ -276,7 +276,7 @@ export default function AdsOverviewPage() {
                 <p className="text-[11px] text-[#9ca3af]">Avg. review time</p>
                 <p className="text-[15px] font-bold text-[#111827]">{fmtDuration(data?.approval_queue.avg_review_minutes ?? 0)}</p>
               </div>
-              <Link href="/ads-management/approvals" className="bg-[#fff0f2] text-[#fe2c55] text-[12px] font-semibold px-3.5 py-2 rounded-lg hover:bg-[#ffe0e4]">Review Ads</Link>
+              <Link href="/ads-management/approvals" className="bg-[#fff0f2] text-[#fd4605] text-[12px] font-semibold px-3.5 py-2 rounded-lg hover:bg-[#ffe0e4]">Review Ads</Link>
             </div>
           </Card>
 
@@ -287,7 +287,7 @@ export default function AdsOverviewPage() {
                 <div key={p.key} className="flex items-center gap-2.5">
                   <span className="text-[12px] text-[#6b7280] w-24 shrink-0 truncate">{p.label}</span>
                   <div className="flex-1 h-1.5 bg-[#f1f2f4] rounded-full overflow-hidden">
-                    <div className="h-full rounded-full bg-[#fe2c55]" style={{ width: `${p.pct}%` }} />
+                    <div className="h-full rounded-full bg-[#fd4605]" style={{ width: `${p.pct}%` }} />
                   </div>
                   <span className="text-[12px] font-semibold text-[#111827] w-9 text-right tabular-nums">{p.pct}%</span>
                 </div>
@@ -318,7 +318,7 @@ export default function AdsOverviewPage() {
                 </tbody>
               </table>
             </div>
-            <Link href="/ads-management/advertisers" className="block text-center text-[12px] font-semibold text-[#fe2c55] mt-2">View all advertisers →</Link>
+            <Link href="/ads-management/advertisers" className="block text-center text-[12px] font-semibold text-[#fd4605] mt-2">View all advertisers →</Link>
           </Card>
 
           <Card className="p-5 xl:col-span-3">
@@ -342,7 +342,7 @@ export default function AdsOverviewPage() {
                 </tbody>
               </table>
             </div>
-            <Link href="/ads-management/campaigns" className="block text-center text-[12px] font-semibold text-[#fe2c55] mt-2">View all campaigns →</Link>
+            <Link href="/ads-management/campaigns" className="block text-center text-[12px] font-semibold text-[#fd4605] mt-2">View all campaigns →</Link>
           </Card>
         </div>
 
@@ -378,7 +378,7 @@ export default function AdsOverviewPage() {
                 </div>
               ))}
             </div>
-            <Link href="/ads-management/approvals" className="block text-center text-[12px] font-semibold text-[#fe2c55] mt-4">View moderation queue →</Link>
+            <Link href="/ads-management/approvals" className="block text-center text-[12px] font-semibold text-[#fd4605] mt-4">View moderation queue →</Link>
           </Card>
 
           <Card className="p-5 xl:col-span-5">
@@ -404,7 +404,7 @@ export default function AdsOverviewPage() {
                 </tbody>
               </table>
             </div>
-            <Link href="/ads-management/campaigns" className="block text-center text-[12px] font-semibold text-[#fe2c55] mt-2">View all drafts →</Link>
+            <Link href="/ads-management/campaigns" className="block text-center text-[12px] font-semibold text-[#fd4605] mt-2">View all drafts →</Link>
           </Card>
         </div>
       </div>

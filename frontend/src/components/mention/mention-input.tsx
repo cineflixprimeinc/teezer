@@ -31,7 +31,7 @@ function MiniAvatar({ src, name, size = 32 }: { src?: string | null; name: strin
   }
   return (
     <div
-      className="rounded-full grid place-items-center font-bold text-white flex-shrink-0 bg-[#fe2c55]"
+      className="rounded-full grid place-items-center font-bold text-white flex-shrink-0 bg-[#fd4605]"
       style={{ width: size, height: size, fontSize: Math.round(size * 0.38) }}
     >
       {initial}
@@ -173,7 +173,7 @@ export const MentionInput = forwardRef<HTMLDivElement, MentionInputProps>(functi
           style={{ animation: "fadeInUp 160ms ease" }}>
           {loading && results.length === 0 ? (
             <div className="flex items-center justify-center py-4">
-              <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+              <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
             </div>
           ) : (
             <ul role="listbox" className="py-1">
@@ -185,7 +185,7 @@ export const MentionInput = forwardRef<HTMLDivElement, MentionInputProps>(functi
                     onMouseEnter={() => setActiveIdx(idx)}
                     className={cn(
                       "flex w-full items-center gap-2.5 px-3 py-2 text-left transition-colors",
-                      idx === activeIdx ? "bg-[#fff0f4]" : "hover:bg-[#f8f9fb]",
+                      idx === activeIdx ? "bg-[#fff3ec]" : "hover:bg-[#f8f9fb]",
                     )}
                   >
                     <MiniAvatar src={user.avatar} name={user.displayName || user.username} size={32} />

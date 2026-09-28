@@ -12,14 +12,14 @@ import {
 import { AppShell } from "@/components/layout/app-shell";
 import { useAuthStore } from "@/store/auth.store";
 
-const BRAND = "#fe2c55";
+const BRAND = "#fd4605";
 
 const GROUPS = [
   {
     id: "account",
     title: "Account & Preferences",
     items: [
-      { icon: CircleUser,        bg: "bg-[#fff0f4]", color: "text-[#fe2c55]", label: "Account Settings",    desc: "Profile, bio, social links",           href: "/settings/account" },
+      { icon: CircleUser,        bg: "bg-[#fff3ec]", color: "text-[#fd4605]", label: "Account Settings",    desc: "Profile, bio, social links",           href: "/settings/account" },
       { icon: ShieldCheck,       bg: "bg-[#f0fdf4]", color: "text-[#16a34a]", label: "Login & Security",    desc: "Password, 2FA, active sessions",       href: "/settings/security" },
       { icon: Lock,              bg: "bg-[#f5f3ff]", color: "text-[#7c3aed]", label: "Privacy & Safety",    desc: "Who can see and interact with you",     href: "/settings/privacy" },
       { icon: Bell,              bg: "bg-[#fffbeb]", color: "text-[#f59e0b]", label: "Notifications",       desc: "Push, email and SMS alerts",            href: "/settings/notifications" },
@@ -35,7 +35,7 @@ const GROUPS = [
       { icon: Megaphone,         bg: "bg-[#fff7ed]", color: "text-[#f97316]", label: "Ads Manager",         desc: "Create and track your promotions",      href: "/ads-manager" },
       { icon: Bookmark,          bg: "bg-[#f5f3ff]", color: "text-[#7c3aed]", label: "Saved Videos",        desc: "Videos and collections you saved",      href: "/settings/saved" },
       { icon: Clock,             bg: "bg-[#fff7ed]", color: "text-[#f97316]", label: "Watch History",       desc: "Your recently watched videos",          href: "/settings/history" },
-      { icon: Radio,             bg: "bg-[#fff0f4]", color: "text-[#fe2c55]", label: "Live Settings",       desc: "Live streaming preferences",            href: "/settings/live" },
+      { icon: Radio,             bg: "bg-[#fff3ec]", color: "text-[#fd4605]", label: "Live Settings",       desc: "Live streaming preferences",            href: "/settings/live" },
     ],
   },
   {
@@ -43,7 +43,7 @@ const GROUPS = [
     title: "Support & Legal",
     items: [
       { icon: LifeBuoy,          bg: "bg-[#eff6ff]", color: "text-[#3b82f6]", label: "Help Center",         desc: "FAQs and contact support",              href: "/settings/help" },
-      { icon: AlertTriangle,     bg: "bg-[#fff0f4]", color: "text-[#fe2c55]", label: "Report a Problem",    desc: "Tell us what went wrong",               href: "/settings/report" },
+      { icon: AlertTriangle,     bg: "bg-[#fff3ec]", color: "text-[#fd4605]", label: "Report a Problem",    desc: "Tell us what went wrong",               href: "/settings/report" },
       { icon: BookOpen,          bg: "bg-[#f5f3ff]", color: "text-[#7c3aed]", label: "Community Guidelines",desc: "Rules and content standards",           href: "/settings/guidelines" },
       { icon: Info,              bg: "bg-[#fefce8]", color: "text-[#ca8a04]", label: "About Teezer",       desc: "Version, rate and share the app",       href: "/settings/about" },
       { icon: Scale,             bg: "bg-[#f0fdf4]", color: "text-[#16a34a]", label: "Terms & Privacy",     desc: "Legal documents and data controls",     href: "/settings/terms-privacy" },
@@ -81,7 +81,7 @@ export function MorePage() {
               <p className="truncate text-[12px] text-[#9ca3af]">@{user?.username ?? "username"}</p>
             </div>
             <Link href="/settings/account"
-              className="flex flex-shrink-0 items-center gap-1.5 rounded-[10px] border border-[#e8eaf0] bg-[#fafbfc] px-3 py-2 text-[12px] font-bold text-[#334155] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+              className="flex flex-shrink-0 items-center gap-1.5 rounded-[10px] border border-[#e8eaf0] bg-[#fafbfc] px-3 py-2 text-[12px] font-bold text-[#334155] transition hover:border-[#fd4605] hover:text-[#fd4605]">
               <Edit3 className="h-3.5 w-3.5" />
               Edit Profile
             </Link>
@@ -118,7 +118,7 @@ export function MorePage() {
               <button
                 onClick={() => { logout(); router.push("/auth/login"); }}
                 className="flex w-full items-center gap-3.5 px-4 py-3 transition hover:bg-[#fff5f6] active:bg-[#ffe4e6]">
-                <span className="flex h-[42px] w-[42px] flex-shrink-0 items-center justify-center rounded-[12px] bg-[#fff0f4]">
+                <span className="flex h-[42px] w-[42px] flex-shrink-0 items-center justify-center rounded-[12px] bg-[#fff3ec]">
                   <LogOut className="h-[20px] w-[20px] text-[#dc2626]" strokeWidth={1.8} />
                 </span>
                 <div className="flex-1 min-w-0 text-left">

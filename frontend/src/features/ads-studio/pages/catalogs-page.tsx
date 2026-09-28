@@ -50,8 +50,8 @@ export function CatalogsPage() {
       <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
         {FEATURES.map(({ icon: Icon, title, desc }) => (
           <Card key={title} className="p-5">
-            <span className="mb-3 grid h-10 w-10 place-items-center rounded-full bg-[#fff0f4]">
-              <Icon className="h-[19px] w-[19px] text-[#fe2c55]" />
+            <span className="mb-3 grid h-10 w-10 place-items-center rounded-full bg-[#fff3ec]">
+              <Icon className="h-[19px] w-[19px] text-[#fd4605]" />
             </span>
             <p className="text-[14px] font-bold text-[#111827]">{title}</p>
             <p className="mt-1 text-[13px] leading-relaxed text-[#6b7280]">{desc}</p>

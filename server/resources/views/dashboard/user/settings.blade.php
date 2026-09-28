@@ -15,7 +15,7 @@
             <div>
                 <label class="block text-xs text-gray-400 mb-1">Display Name</label>
                 <input type="text" name="name" value="{{ auth()->user()->name }}"
-                    class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-[#fe2c55]">
+                    class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-[#fd4605]">
             </div>
             <div>
                 <label class="block text-xs text-gray-400 mb-1">Email</label>

@@ -83,7 +83,7 @@ export default function AiContentPolicyPage() {
         is removed immediately and the account is subject to our{" "}
         <DocLink href="/policies/enforcement">Enforcement &amp; Appeals</DocLink> policy at the highest severity tier.
         Questions: {" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>.
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>.
       </P>
     </LegalShell>
     } />

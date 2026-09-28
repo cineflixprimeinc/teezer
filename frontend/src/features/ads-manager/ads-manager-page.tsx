@@ -40,7 +40,7 @@ const STATUS_STYLE: Record<string, { bg: string; text: string; label: string }> 
   pending_review: { bg: "bg-[#fef3c7]", text: "text-[#b45309]", label: "In review" },
   approved:       { bg: "bg-[#dbeafe]", text: "text-[#1d4ed8]", label: "Approved" },
   active:         { bg: "bg-[#dcfce7]", text: "text-[#15803d]", label: "Active" },
-  paused:         { bg: "bg-[#fff0f4]", text: "text-[#be123c]", label: "Paused" },
+  paused:         { bg: "bg-[#fff3ec]", text: "text-[#be123c]", label: "Paused" },
   rejected:       { bg: "bg-[#fee2e2]", text: "text-[#b91c1c]", label: "Rejected" },
   completed:      { bg: "bg-[#e5e7eb]", text: "text-[#374151]", label: "Ended" },
   archived:       { bg: "bg-[#e5e7eb]", text: "text-[#374151]", label: "Archived" },
@@ -59,8 +59,8 @@ function StatusPill({ status }: { status: string }) {
 function EmptyCampaigns() {
   return (
     <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-[#e5e7eb] py-16 text-center">
-      <div className="mb-4 grid h-16 w-16 place-items-center rounded-full bg-[#fff0f4]">
-        <Megaphone className="h-8 w-8 text-[#fe2c55]" />
+      <div className="mb-4 grid h-16 w-16 place-items-center rounded-full bg-[#fff3ec]">
+        <Megaphone className="h-8 w-8 text-[#fd4605]" />
       </div>
       <p className="text-[15px] font-bold text-[#374151]">No campaigns yet</p>
       <p className="mt-1 max-w-[280px] text-[13px] text-[#9ca3af]">
@@ -147,7 +147,7 @@ export function AdsManagerPage() {
             <button
               type="button"
               onClick={() => router.push("/studio")}
-              className="flex items-center gap-2 rounded-full bg-[#fe2c55] px-5 py-2.5 text-[13px] font-bold text-white shadow-sm transition hover:bg-[#e0243d]"
+              className="flex items-center gap-2 rounded-full bg-[#fd4605] px-5 py-2.5 text-[13px] font-bold text-white shadow-sm transition hover:bg-[#e03e04]"
             >
               <Plus className="h-4 w-4" />
               Create Campaign
@@ -162,7 +162,7 @@ export function AdsManagerPage() {
 
           {/* Stat cards */}
           <div className="mb-6 flex flex-wrap gap-4">
-            <AdStatCard icon={TrendingUp} iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+            <AdStatCard icon={TrendingUp} iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
               label="Active Campaigns"
               value={loading ? "-" : adNum(overview?.active_campaigns)}
               sub={overview?.active_campaigns ? "Currently running" : "No campaigns running"} />
@@ -190,7 +190,7 @@ export function AdsManagerPage() {
                     className={cn(
                       "rounded-full px-3 py-1 text-[12px] font-semibold transition",
                       t === tab
-                        ? "bg-[#fe2c55] text-white"
+                        ? "bg-[#fd4605] text-white"
                         : "bg-[#f3f4f6] text-[#6b7280] hover:bg-[#e5e7eb]"
                     )}>
                     {t}
@@ -264,7 +264,7 @@ export function AdsManagerPage() {
             <h2 className="mb-4 text-[15px] font-extrabold text-[#111827]">Getting started with Ads</h2>
             <div className="grid gap-3 sm:grid-cols-3">
               {[
-                { icon: <Megaphone className="h-5 w-5 text-[#fe2c55]" />, bg: "bg-[#fff0f4]",
+                { icon: <Megaphone className="h-5 w-5 text-[#fd4605]" />, bg: "bg-[#fff3ec]",
                   title: "Promote a Video",   desc: "Boost reach on your best content" },
                 { icon: <Target className="h-5 w-5 text-[#7c3aed]" />,   bg: "bg-[#ede9fe]",
                   title: "Target Audience",   desc: "Reach the right people by interest & location" },

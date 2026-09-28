@@ -29,7 +29,7 @@ import { StudioSidebarWrapper } from "./studio-sidebar-wrapper";
 import { StudioTopbarShared } from "./studio-topbar-shared";
 
 /* ── Brand colours ──────────────────────────────────────────────────────── */
-const BRAND = "#fe2c55";
+const BRAND = "#fd4605";
 
 /* ── Plan data ──────────────────────────────────────────────────────────── */
 const BV_PLANS = [
@@ -421,7 +421,7 @@ function VerificationStatusCard({
               <div key={row.n} className="flex items-center gap-2">
                 <div className={cn(
                   "flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full",
-                  row.done ? "bg-[#16a34a]" : currentStep === row.n ? "bg-[#fe2c55]" : "bg-[#f3f4f6]",
+                  row.done ? "bg-[#16a34a]" : currentStep === row.n ? "bg-[#fd4605]" : "bg-[#f3f4f6]",
                 )}>
                   {row.done
                     ? <Check className="h-2.5 w-2.5 text-white" />
@@ -470,7 +470,7 @@ function FAQCard() {
         ))}
       </div>
       <div className="border-t border-[#f3f4f6] px-4 py-3">
-        <button type="button" className="text-[11px] font-semibold text-[#fe2c55] transition hover:underline">
+        <button type="button" className="text-[11px] font-semibold text-[#fd4605] transition hover:underline">
           View all FAQs →
         </button>
       </div>
@@ -541,7 +541,7 @@ function SocialLinkRow({
       </div>
       <input type="url" value={link.url} disabled={disabled} onChange={e => onChange(index, "url", e.target.value)}
         placeholder={`https://${link.platform.toLowerCase().replace("/x", "")}.com/@handle`}
-        className="min-w-0 flex-1 rounded-[8px] border border-[#e5e7eb] bg-white px-2.5 py-[7px] text-[12px] text-[#374151] outline-none transition placeholder:text-[#c9cdd4] focus:border-[#fe2c55] disabled:bg-[#f9fafb] disabled:opacity-70" />
+        className="min-w-0 flex-1 rounded-[8px] border border-[#e5e7eb] bg-white px-2.5 py-[7px] text-[12px] text-[#374151] outline-none transition placeholder:text-[#c9cdd4] focus:border-[#fd4605] disabled:bg-[#f9fafb] disabled:opacity-70" />
       <button type="button" disabled={disabled} onClick={() => onRemove(index)}
         className="flex-shrink-0 rounded-full p-1 text-[#9ca3af] transition hover:bg-[#fee2e2] hover:text-[#dc2626]">
         <X className="h-3.5 w-3.5" />
@@ -580,7 +580,7 @@ function FileUploadBox({
         <div className="min-w-0 flex-1">
           <p className="text-[12.5px] font-semibold text-[#374151]">
             {label}
-            {!optional && <span className="ml-0.5 text-[#fe2c55]">*</span>}
+            {!optional && <span className="ml-0.5 text-[#fd4605]">*</span>}
             {optional  && <span className="ml-1 text-[11px] font-normal text-[#9ca3af]">(Optional)</span>}
           </p>
           <p className="text-[11px] leading-snug text-[#9ca3af]">{subtext}</p>
@@ -592,7 +592,7 @@ function FileUploadBox({
           </button>
         ) : (
           <button type="button" onClick={() => inputRef.current?.click()} disabled={disabled}
-            className="flex flex-shrink-0 items-center gap-1.5 rounded-[8px] border border-[#e5e7eb] bg-white px-3 py-1.5 text-[12px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:opacity-50">
+            className="flex flex-shrink-0 items-center gap-1.5 rounded-[8px] border border-[#e5e7eb] bg-white px-3 py-1.5 text-[12px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605] disabled:opacity-50">
             <Upload className="h-3.5 w-3.5" />Upload
           </button>
         )}
@@ -769,8 +769,8 @@ function ChoosePlanStep({
               {/* Popular badge */}
               {p.badge && (
                 <div className="absolute -top-3.5 left-0 right-0 flex justify-center">
-                  <span className="flex items-center gap-1 rounded-full bg-[#fee2e2] px-3 py-1 text-[11px] font-bold text-[#fe2c55]">
-                    <Star className="h-3 w-3 fill-[#fe2c55]" /> {p.badge}
+                  <span className="flex items-center gap-1 rounded-full bg-[#fee2e2] px-3 py-1 text-[11px] font-bold text-[#fd4605]">
+                    <Star className="h-3 w-3 fill-[#fd4605]" /> {p.badge}
                   </span>
                 </div>
               )}
@@ -780,13 +780,13 @@ function ChoosePlanStep({
                   <Check className="h-3 w-3 text-white" />
                 </div>
               )}
-              <div className={cn("rounded-t-[16px] px-5 pt-6 pb-4", p.popular && !isSelected && "bg-[#fff5f7]", isSelected && "bg-[#eff6ff]")}>
+              <div className={cn("rounded-t-[16px] px-5 pt-6 pb-4", p.popular && !isSelected && "bg-[#fff6f1]", isSelected && "bg-[#eff6ff]")}>
                 <p className="text-[13.5px] font-extrabold text-[#111827]">{p.name}</p>
                 <div className="mt-2 flex items-end gap-1.5">
                   <span className="text-[28px] font-black leading-none text-[#111827]">{p.price}</span>
                   <span className="mb-0.5 text-[13px] text-[#6b7280]">{p.period}</span>
                   {p.save && (
-                    <span className="mb-0.5 rounded-full bg-[#fee2e2] px-2 py-0.5 text-[10px] font-bold text-[#fe2c55]">
+                    <span className="mb-0.5 rounded-full bg-[#fee2e2] px-2 py-0.5 text-[10px] font-bold text-[#fd4605]">
                       {p.save}
                     </span>
                   )}
@@ -808,8 +808,8 @@ function ChoosePlanStep({
                     isSelected
                       ? "bg-[#1d4ed8] text-white"
                       : p.popular
-                      ? "bg-[#fe2c55] text-white hover:bg-[#e0193f]"
-                      : "border border-[#fe2c55] text-[#fe2c55] hover:bg-[#fff5f7]",
+                      ? "bg-[#fd4605] text-white hover:bg-[#e03e04]"
+                      : "border border-[#fd4605] text-[#fd4605] hover:bg-[#fff6f1]",
                   )}>
                   {isSelected ? "Selected ✓" : `Choose ${p.name.replace("Blue Verified ", "")}`}
                 </button>
@@ -828,7 +828,7 @@ function ChoosePlanStep({
               {/* Left - icon + name + price */}
               <div className="flex min-w-[200px] items-center gap-3 border-r border-[#f3f4f6] px-5 py-4">
                 <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[10px] bg-[#fff0f3]">
-                  <CreditCard className="h-5 w-5 text-[#fe2c55]" />
+                  <CreditCard className="h-5 w-5 text-[#fd4605]" />
                 </div>
                 <div>
                   <p className="text-[11px] font-semibold text-[#9ca3af]">Selected Plan</p>
@@ -837,7 +837,7 @@ function ChoosePlanStep({
                     <span className="text-[13.5px] font-black text-[#111827]">{plan.price}</span>
                     <span className="text-[11.5px] text-[#6b7280]">{plan.period}</span>
                     {fullPlan?.save && (
-                      <span className="rounded-full bg-[#fee2e2] px-1.5 py-0.5 text-[10px] font-bold text-[#fe2c55]">
+                      <span className="rounded-full bg-[#fee2e2] px-1.5 py-0.5 text-[10px] font-bold text-[#fd4605]">
                         {fullPlan.save}
                       </span>
                     )}
@@ -862,7 +862,7 @@ function ChoosePlanStep({
                   <span className="text-[11px] font-bold text-[#16a34a]">Plan Selected</span>
                 </div>
                 <button type="button" onClick={onNext} disabled={isSubmitting}
-                  className="flex items-center justify-center gap-2 rounded-[10px] bg-[#fe2c55] px-5 py-2.5 text-[13px] font-bold text-white shadow-sm transition hover:bg-[#e0193f] active:scale-[0.98] disabled:opacity-60">
+                  className="flex items-center justify-center gap-2 rounded-[10px] bg-[#fd4605] px-5 py-2.5 text-[13px] font-bold text-white shadow-sm transition hover:bg-[#e03e04] active:scale-[0.98] disabled:opacity-60">
                   {isSubmitting
                     ? <><Loader2 className="h-4 w-4 animate-spin" />Processing…</>
                     : <>Next: Account Review <ChevronRight className="h-4 w-4" /></>}
@@ -913,7 +913,7 @@ function ChoosePlanStep({
                 {/* Step column */}
                 <div className="flex flex-col items-center text-center px-2 flex-1">
                   {/* Number circle */}
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#fe2c55] text-[13px] font-black text-white shadow-sm ring-4 ring-white">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#fd4605] text-[13px] font-black text-white shadow-sm ring-4 ring-white">
                     {step.n}
                   </div>
                   {/* Icon circle */}
@@ -1097,8 +1097,8 @@ function AccountReviewStep({
           className={cn(
             "flex items-center gap-2 rounded-[12px] px-7 py-3 text-[13px] font-bold text-white shadow-sm transition active:scale-95",
             canProceed && !isChecking
-              ? "bg-[#fe2c55] hover:bg-[#e0193f]"
-              : "bg-[#fe2c55]/80 cursor-not-allowed",
+              ? "bg-[#fd4605] hover:bg-[#e03e04]"
+              : "bg-[#fd4605]/80 cursor-not-allowed",
           )}
         >
           {isChecking && <Loader2 className="h-4 w-4 animate-spin" />}
@@ -1186,7 +1186,7 @@ function UploadDocumentsStep({
               ))}
               {socialLinks.length < 5 && (
                 <button type="button" onClick={addLink}
-                  className="flex items-center gap-1 text-[12px] font-semibold text-[#fe2c55] transition hover:underline">
+                  className="flex items-center gap-1 text-[12px] font-semibold text-[#fd4605] transition hover:underline">
                   <Plus className="h-3.5 w-3.5" /> Add another link
                 </button>
               )}
@@ -1195,7 +1195,7 @@ function UploadDocumentsStep({
           {/* Website */}
           <div>
             <p className="mb-1.5 text-[12px] font-semibold text-[#374151]">Website / Official Page</p>
-            <div className="flex items-center gap-2 rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-[9px] transition focus-within:border-[#fe2c55]">
+            <div className="flex items-center gap-2 rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-[9px] transition focus-within:border-[#fd4605]">
               <Globe className="h-4 w-4 flex-shrink-0 text-[#9ca3af]" />
               <input type="url" value={website} onChange={e => setWebsite(e.target.value)}
                 placeholder="https://yourwebsite.com"
@@ -1231,7 +1231,7 @@ function UploadDocumentsStep({
       {/* Action buttons */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <button type="button" onClick={onBack}
-          className="flex items-center gap-1.5 rounded-[12px] border border-[#e5e7eb] bg-white px-4 py-3 text-[13px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+          className="flex items-center gap-1.5 rounded-[12px] border border-[#e5e7eb] bg-white px-4 py-3 text-[13px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]">
           <ArrowLeft className="h-4 w-4" /> Back to Account Review
         </button>
 
@@ -1243,7 +1243,7 @@ function UploadDocumentsStep({
             className={cn(
               "flex items-center gap-2 rounded-[12px] px-6 py-3 text-[13px] font-bold transition",
               canContinue && !isSubmitting
-                ? "bg-[#fe2c55] text-white shadow-sm hover:bg-[#e0193f] active:scale-95"
+                ? "bg-[#fd4605] text-white shadow-sm hover:bg-[#e03e04] active:scale-95"
                 : "cursor-not-allowed bg-[#f3f4f6] text-[#9ca3af]",
             )}>
             {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" />Uploading…</> : <>Continue to Submit for Review <ChevronRight className="h-4 w-4" /></>}
@@ -1309,7 +1309,7 @@ function BvStripeForm({ paymentId, onPaid, onCancel }: {
     <form onSubmit={submit} className="space-y-3">
       <PaymentElement />
       <button type="submit" disabled={!stripe || paying}
-        className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#fe2c55] py-3 text-[13px] font-black text-white transition hover:bg-[#e0193f] disabled:opacity-50">
+        className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#fd4605] py-3 text-[13px] font-black text-white transition hover:bg-[#e03e04] disabled:opacity-50">
         <Lock className="h-3.5 w-3.5" />
         {paying ? "Processing…" : "Pay now"}
       </button>
@@ -1391,7 +1391,7 @@ function BvPaymentModal({ amount, planName, onPaid, onClose }: {
 
         <div className="p-5">
           {methodsQ.isLoading ? (
-            <div className="flex justify-center py-8"><Loader2 className="h-5 w-5 animate-spin text-[#fe2c55]" /></div>
+            <div className="flex justify-center py-8"><Loader2 className="h-5 w-5 animate-spin text-[#fd4605]" /></div>
           ) : available.length === 0 ? (
             /* Every gateway is off in Admin → Payment Settings. Say that, rather than
                showing an empty box the creator can't act on. */
@@ -1447,7 +1447,7 @@ function BvPaymentModal({ amount, planName, onPaid, onClose }: {
                   key={m.id}
                   disabled={busy}
                   onClick={() => (m.id === "paypal" ? setMethod("paypal") : startCard(m.id))}
-                  className="flex w-full items-center gap-3 rounded-[12px] border border-[#e5e7eb] px-4 py-3 text-left transition hover:border-[#fe2c55] hover:bg-[#fff5f7] disabled:opacity-50"
+                  className="flex w-full items-center gap-3 rounded-[12px] border border-[#e5e7eb] px-4 py-3 text-left transition hover:border-[#fd4605] hover:bg-[#fff6f1] disabled:opacity-50"
                 >
                   <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-[10px] bg-[#f3f4f6] text-[#374151]">
                     {m.icon}
@@ -1619,7 +1619,7 @@ function SubmitReviewStep({
           className={cn(
             "flex items-center gap-2 rounded-[12px] px-6 py-3 text-[13px] font-bold transition",
             allTerms && !isSubmitting
-              ? "bg-[#fe2c55] text-white shadow-sm hover:bg-[#e0193f] active:scale-95"
+              ? "bg-[#fd4605] text-white shadow-sm hover:bg-[#e03e04] active:scale-95"
               : "cursor-not-allowed bg-[#f3f4f6] text-[#9ca3af]",
           )}>
           {isSubmitting
@@ -1733,7 +1733,7 @@ function UnderReviewStep({ planId }: { planId: string | null }) {
             "Your subscription remains active regardless of the decision.",
           ].map((item, i) => (
             <div key={i} className="flex items-start gap-2">
-              <div className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#fe2c55]" />
+              <div className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#fd4605]" />
               <p className="text-[11.5px] leading-relaxed text-[#6b7280]">{item}</p>
             </div>
           ))}
@@ -1927,7 +1927,7 @@ function VerifiedStep({ planId, vData }: { planId: string | null; vData: Verific
                     <button
                       onClick={() => renew.mutate()}
                       disabled={renew.isPending}
-                      className="flex flex-shrink-0 items-center gap-1.5 rounded-full bg-[#fe2c55] px-5 py-2.5 text-[12.5px] font-bold text-white shadow-sm transition hover:bg-[#e0243d] disabled:opacity-60"
+                      className="flex flex-shrink-0 items-center gap-1.5 rounded-full bg-[#fd4605] px-5 py-2.5 text-[12.5px] font-bold text-white shadow-sm transition hover:bg-[#e03e04] disabled:opacity-60"
                     >
                       {renew.isPending
                         ? <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -2246,7 +2246,7 @@ export function StudioVerificationPage() {
               </div>
               <div className="border-t border-[#f3f4f6] px-4 pb-4 pt-3">
                 <button type="button"
-                  className="w-full rounded-[10px] border border-[#fe2c55] bg-white py-2 text-[12px] font-bold text-[#fe2c55] transition hover:bg-[#fff5f5]">
+                  className="w-full rounded-[10px] border border-[#fd4605] bg-white py-2 text-[12px] font-bold text-[#fd4605] transition hover:bg-[#fff5f5]">
                   Manage Subscription
                 </button>
               </div>
@@ -2321,7 +2321,7 @@ export function StudioVerificationPage() {
                 { n: 3, t: "Final decision" },
               ].map(s => (
                 <div key={s.n} className="flex items-center gap-2">
-                  <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#fee2e2] text-[10px] font-black text-[#fe2c55]">
+                  <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#fee2e2] text-[10px] font-black text-[#fd4605]">
                     {s.n}
                   </div>
                   <span className="text-[11.5px] text-[#374151]">{s.t}</span>
@@ -2436,7 +2436,7 @@ export function StudioVerificationPage() {
         <div className="min-h-0 flex-1 overflow-y-auto">
           {vLoading ? (
             <div className="flex items-center justify-center py-20">
-              <Loader2 className="h-7 w-7 animate-spin text-[#fe2c55]" />
+              <Loader2 className="h-7 w-7 animate-spin text-[#fd4605]" />
             </div>
           ) : (
             <div className="flex gap-4 px-5 py-4">

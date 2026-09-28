@@ -112,7 +112,7 @@ export function CountrySelect({ value, onChange, error, disabledCodes, countries
           width: "100%",
           height: 52,
           borderRadius: 9999,
-          border: `1.5px solid ${error ? "#fe2c55" : open ? "#fe2c55" : "#e5e7eb"}`,
+          border: `1.5px solid ${error ? "#fd4605" : open ? "#fd4605" : "#e5e7eb"}`,
           background: locked ? "#f8f9fb" : "#fff",
           display: "flex",
           alignItems: "center",
@@ -121,7 +121,7 @@ export function CountrySelect({ value, onChange, error, disabledCodes, countries
           gap: 8,
           opacity: locked ? 0.75 : 1,
           transition: "border-color 150ms",
-          boxShadow: open ? "0 0 0 3px rgba(254,44,85,0.10)" : "none",
+          boxShadow: open ? "0 0 0 3px rgba(253,70,5,0.10)" : "none",
         }}
       >
         {/* Left icon: globe or flag */}
@@ -265,7 +265,7 @@ export function CountrySelect({ value, onChange, error, disabledCodes, countries
                       width: "100%",
                       height: 40,
                       padding: "0 14px",
-                      background: isSelected ? "#fff0f4" : "transparent",
+                      background: isSelected ? "#fff3ec" : "transparent",
                       border: "none",
                       cursor: isDisabled ? "not-allowed" : "pointer",
                       opacity: isDisabled ? 0.45 : 1,
@@ -274,7 +274,7 @@ export function CountrySelect({ value, onChange, error, disabledCodes, countries
                       gap: 10,
                       fontSize: 13,
                       fontWeight: isSelected ? 600 : 400,
-                      color: isSelected ? "#fe2c55" : "#111827",
+                      color: isSelected ? "#fd4605" : "#111827",
                       transition: "background 80ms",
                       textAlign: "left",
                     }}
@@ -323,7 +323,7 @@ export function CountrySelect({ value, onChange, error, disabledCodes, countries
 
       {/* Error message */}
       {error && (
-        <p style={{ marginTop: 4, paddingLeft: 14, fontSize: 12, color: "#fe2c55" }}>
+        <p style={{ marginTop: 4, paddingLeft: 14, fontSize: 12, color: "#fd4605" }}>
           {error}
         </p>
       )}

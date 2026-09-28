@@ -56,7 +56,7 @@ function submitted(iso: string | null): { date: string; time: string } {
 }
 function Avatar({ name, src, size = 22 }: { name: string; src: string | null; size?: number }) {
   if (src) return <img src={src} alt={name} className="rounded-full object-cover shrink-0" style={{ width: size, height: size }} />;
-  return <div className="rounded-full grid place-items-center bg-[#fe2c55] text-white font-bold shrink-0" style={{ width: size, height: size, fontSize: size * 0.42 }}>{name[0]?.toUpperCase()}</div>;
+  return <div className="rounded-full grid place-items-center bg-[#fd4605] text-white font-bold shrink-0" style={{ width: size, height: size, fontSize: size * 0.42 }}>{name[0]?.toUpperCase()}</div>;
 }
 
 /* ── stat tile ────────────────────────────────────────────────────────────── */
@@ -137,7 +137,7 @@ export default function AdsApprovalsPage() {
   const bulkApprove = () => sel.forEach((id) => approve.mutate(id));
 
   const tiles = useMemo(() => [
-    { value: adNum(sum?.pending ?? 0), label: "Pending Review", sub: "Awaiting your review", icon: <Clock size={20} />, tint: "#ffe4ec", color: "#fe2c55" },
+    { value: adNum(sum?.pending ?? 0), label: "Pending Review", sub: "Awaiting your review", icon: <Clock size={20} />, tint: "#ffe4ec", color: "#fd4605" },
     { value: adNum(sum?.needs_changes ?? 0), label: "Needs Changes", sub: "Require modifications", icon: <ShieldAlert size={20} />, tint: "#fef3c7", color: "#d97706" },
     { value: adNum(sum?.approved_month ?? 0), label: "Approved", sub: "This month", icon: <CheckCircle2 size={20} />, tint: "#dcfce7", color: "#16a34a" },
     { value: adNum(sum?.rejected_month ?? 0), label: "Rejected", sub: "This month", icon: <XCircle size={20} />, tint: "#fee2e2", color: "#dc2626" },
@@ -162,7 +162,7 @@ export default function AdsApprovalsPage() {
                 value={search}
                 onChange={(e) => { setSearch(e.target.value); setPage(1); }}
                 placeholder="Search campaigns, advertisers…"
-                className="h-9 w-[240px] rounded-lg border border-[#e8eaed] bg-white pl-8 pr-3 text-[13px] text-[#111827] outline-none focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10"
+                className="h-9 w-[240px] rounded-lg border border-[#e8eaed] bg-white pl-8 pr-3 text-[13px] text-[#111827] outline-none focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10"
               />
             </div>
           </div>
@@ -181,9 +181,9 @@ export default function AdsApprovalsPage() {
               const active = tab === t.key;
               return (
                 <button key={t.key} onClick={() => { setTab(t.key); setPage(1); setSel(new Set()); }}
-                  className={`relative px-3 py-3 text-[13px] font-semibold transition-colors ${active ? "text-[#fe2c55]" : "text-[#6b7280] hover:text-[#111827]"}`}>
+                  className={`relative px-3 py-3 text-[13px] font-semibold transition-colors ${active ? "text-[#fd4605]" : "text-[#6b7280] hover:text-[#111827]"}`}>
                   {t.label}{c != null ? ` (${c})` : ""}
-                  {active && <span className="absolute left-3 right-3 -bottom-px h-0.5 rounded bg-[#fe2c55]" />}
+                  {active && <span className="absolute left-3 right-3 -bottom-px h-0.5 rounded bg-[#fd4605]" />}
                 </button>
               );
             })}
@@ -205,7 +205,7 @@ export default function AdsApprovalsPage() {
             <table className="w-full min-w-[1040px]">
               <thead>
                 <tr className="text-[11px] font-semibold text-[#9ca3af] border-b border-[#eef0f3]">
-                  <th className="w-10 pl-5 py-3"><input type="checkbox" checked={allSelected} onChange={toggleAll} className="accent-[#fe2c55]" /></th>
+                  <th className="w-10 pl-5 py-3"><input type="checkbox" checked={allSelected} onChange={toggleAll} className="accent-[#fd4605]" /></th>
                   <th className="text-left py-3 pr-4">AD PREVIEW</th>
                   <th className="text-left py-3 pr-4">CAMPAIGN &amp; ADVERTISER</th>
                   <th className="text-left py-3 pr-4">PLACEMENTS</th>
@@ -230,7 +230,7 @@ export default function AdsApprovalsPage() {
                   const canChanges = !["rejected", "completed"].includes(r.status);
                   return (
                     <tr key={r.id} className="border-b border-[#f4f5f7] last:border-0 hover:bg-[#fafbfc]">
-                      <td className="pl-5 py-4 align-top"><input type="checkbox" checked={sel.has(r.id)} onChange={() => toggle(r.id)} className="mt-1 accent-[#fe2c55]" /></td>
+                      <td className="pl-5 py-4 align-top"><input type="checkbox" checked={sel.has(r.id)} onChange={() => toggle(r.id)} className="mt-1 accent-[#fd4605]" /></td>
 
                       {/* Preview */}
                       <td className="py-4 pr-4 align-top">
@@ -244,7 +244,7 @@ export default function AdsApprovalsPage() {
 
                       {/* Campaign & advertiser */}
                       <td className="py-4 pr-4 align-top">
-                        <button onClick={() => router.push(`/ads-management/campaigns/${r.id}`)} className="font-bold text-[13.5px] text-[#111827] leading-tight text-left hover:text-[#fe2c55]">{r.name}</button>
+                        <button onClick={() => router.push(`/ads-management/campaigns/${r.id}`)} className="font-bold text-[13.5px] text-[#111827] leading-tight text-left hover:text-[#fd4605]">{r.name}</button>
                         <div className="text-[11px] text-[#9ca3af] mb-1.5">Ad ID: {r.ad_id}</div>
                         <div className="flex items-center gap-1.5">
                           <Avatar name={r.advertiser.name} src={r.advertiser.avatar} />
@@ -330,7 +330,7 @@ export default function AdsApprovalsPage() {
                 </select>
                 <button disabled={data.meta.current_page <= 1} onClick={() => setPage((p) => p - 1)} className="w-8 h-8 grid place-items-center rounded-lg border border-[#e8eaed] text-[#6b7280] disabled:opacity-40 hover:bg-[#f8f9fb]">‹</button>
                 {Array.from({ length: data.meta.last_page }, (_, i) => i + 1).slice(0, 6).map((n) => (
-                  <button key={n} onClick={() => setPage(n)} className={`w-8 h-8 grid place-items-center rounded-lg text-[12px] font-semibold ${n === data.meta.current_page ? "bg-[#fe2c55] text-white" : "border border-[#e8eaed] text-[#374151] hover:bg-[#f8f9fb]"}`}>{n}</button>
+                  <button key={n} onClick={() => setPage(n)} className={`w-8 h-8 grid place-items-center rounded-lg text-[12px] font-semibold ${n === data.meta.current_page ? "bg-[#fd4605] text-white" : "border border-[#e8eaed] text-[#374151] hover:bg-[#f8f9fb]"}`}>{n}</button>
                 ))}
                 <button disabled={data.meta.current_page >= data.meta.last_page} onClick={() => setPage((p) => p + 1)} className="w-8 h-8 grid place-items-center rounded-lg border border-[#e8eaed] text-[#6b7280] disabled:opacity-40 hover:bg-[#f8f9fb]">›</button>
               </div>

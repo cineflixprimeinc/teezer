@@ -85,7 +85,7 @@ export function EmbedPlayer({
         href="https://teezer.live"
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-1 rounded-full bg-[#fe2c55] px-4 py-1.5 text-[12px] font-bold text-white hover:bg-[#e02449]"
+        className="mt-1 rounded-full bg-[#fd4605] px-4 py-1.5 text-[12px] font-bold text-white hover:bg-[#e03e04]"
       >
         Open Teezer
       </a>
@@ -170,7 +170,7 @@ export function EmbedPlayer({
             {avatar
               // eslint-disable-next-line @next/next/no-img-element
               ? <img src={avatar} alt={username} className="h-7 w-7 flex-shrink-0 rounded-full object-cover ring-1 ring-white/30" />
-              : <div className="grid h-7 w-7 flex-shrink-0 place-items-center rounded-full bg-[#fe2c55] text-[10px] font-black text-white">{username[0]?.toUpperCase()}</div>}
+              : <div className="grid h-7 w-7 flex-shrink-0 place-items-center rounded-full bg-[#fd4605] text-[10px] font-black text-white">{username[0]?.toUpperCase()}</div>}
             <span className="truncate text-[12px] font-semibold text-white">@{username}</span>
           </Link>
 
@@ -198,7 +198,7 @@ export function EmbedPlayer({
               href={watchUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 rounded-full bg-[#fe2c55] px-3 py-1.5 text-[11px] font-bold text-white ring-1 ring-[#fe2c55]/50 hover:bg-[#e02449] transition"
+              className="flex items-center gap-1.5 rounded-full bg-[#fd4605] px-3 py-1.5 text-[11px] font-bold text-white ring-1 ring-[#fd4605]/50 hover:bg-[#e03e04] transition"
             >
               <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>

@@ -126,7 +126,7 @@ function TextField({
   return (
     <label className="block">
       <span className="text-[12.5px] font-semibold text-[#374151]">
-        {label}{required && <span className="text-[#EC1C5C]"> *</span>}
+        {label}{required && <span className="text-[#E84004]"> *</span>}
       </span>
       <div className="relative mt-1.5">
         {icon && (
@@ -138,14 +138,14 @@ function TextField({
             onChange={(e) => onChange(e.target.value)}
             placeholder={placeholder}
             rows={3}
-            className="w-full rounded-xl border border-[#E5E7EB] bg-white px-3.5 py-2.5 text-[13.5px] text-[#111827] outline-none transition focus:border-[#EC1C5C] focus:ring-2 focus:ring-[#EC1C5C]/15 resize-y"
+            className="w-full rounded-xl border border-[#E5E7EB] bg-white px-3.5 py-2.5 text-[13.5px] text-[#111827] outline-none transition focus:border-[#E84004] focus:ring-2 focus:ring-[#E84004]/15 resize-y"
           />
         ) : (
           <input
             value={value}
             onChange={(e) => onChange(e.target.value)}
             placeholder={placeholder}
-            className={`w-full rounded-xl border border-[#E5E7EB] bg-white py-2.5 text-[13.5px] text-[#111827] outline-none transition focus:border-[#EC1C5C] focus:ring-2 focus:ring-[#EC1C5C]/15 ${icon ? "pl-9 pr-3.5" : "px-3.5"}`}
+            className={`w-full rounded-xl border border-[#E5E7EB] bg-white py-2.5 text-[13.5px] text-[#111827] outline-none transition focus:border-[#E84004] focus:ring-2 focus:ring-[#E84004]/15 ${icon ? "pl-9 pr-3.5" : "px-3.5"}`}
           />
         )}
       </div>
@@ -168,7 +168,7 @@ function Toggle({
         className="mt-1.5 flex items-center gap-2.5"
       >
         <span
-          className={`relative h-[26px] w-[46px] rounded-full transition-colors ${checked ? "bg-[#EC1C5C]" : "bg-[#D1D5DB]"}`}
+          className={`relative h-[26px] w-[46px] rounded-full transition-colors ${checked ? "bg-[#E84004]" : "bg-[#D1D5DB]"}`}
         >
           <span
             className={`absolute top-[3px] h-5 w-5 rounded-full bg-white shadow transition-all ${checked ? "left-[23px]" : "left-[3px]"}`}
@@ -227,7 +227,7 @@ function LivePreview({ draft }: { draft: Draft }) {
                 type="button"
                 onClick={() => setMode(p.key)}
                 className={`flex flex-1 items-center justify-center gap-1.5 rounded-lg px-2 py-1.5 text-[11.5px] font-semibold transition ${
-                  on ? "bg-white text-[#EC1C5C] shadow-sm" : "text-[#6B7280] hover:text-[#374151]"
+                  on ? "bg-white text-[#E84004] shadow-sm" : "text-[#6B7280] hover:text-[#374151]"
                 }`}
               >
                 <p.icon size={13} />
@@ -241,7 +241,7 @@ function LivePreview({ draft }: { draft: Draft }) {
           {mode === "google" && (
             <>
               <div className="flex items-center gap-2">
-                <span className="grid h-6 w-6 place-items-center rounded-full bg-[#EC1C5C]/10 text-[#EC1C5C] text-[11px] font-black">R</span>
+                <span className="grid h-6 w-6 place-items-center rounded-full bg-[#E84004]/10 text-[#E84004] text-[11px] font-black">R</span>
                 <div className="min-w-0 leading-tight">
                   <div className="truncate text-[12.5px] text-[#111827]">{name}</div>
                   <div className="truncate text-[11.5px] text-[#6B7280]">{url}</div>
@@ -256,7 +256,7 @@ function LivePreview({ draft }: { draft: Draft }) {
 
           {mode === "share" && (
             <>
-              <div className="mb-3 grid h-28 place-items-center rounded-lg bg-gradient-to-br from-[#EC1C5C]/15 to-[#3B82F6]/15 text-[#9CA3AF]">
+              <div className="mb-3 grid h-28 place-items-center rounded-lg bg-gradient-to-br from-[#E84004]/15 to-[#3B82F6]/15 text-[#9CA3AF]">
                 <ImageIcon size={22} />
               </div>
               <div className="text-[10.5px] font-semibold uppercase tracking-wide text-[#9CA3AF]">{host}</div>
@@ -269,7 +269,7 @@ function LivePreview({ draft }: { draft: Draft }) {
 
           {mode === "tab" && (
             <div className="flex items-center gap-2 rounded-t-lg border border-[#E5E7EB] bg-[#F3F4F6] px-3 py-2">
-              <span className="grid h-4 w-4 place-items-center rounded-sm bg-[#EC1C5C] text-[8px] font-black text-white">R</span>
+              <span className="grid h-4 w-4 place-items-center rounded-sm bg-[#E84004] text-[8px] font-black text-white">R</span>
               <span className="truncate text-[12px] text-[#374151]">{title}</span>
             </div>
           )}
@@ -357,14 +357,14 @@ export default function WebsiteSettingsPage() {
         {/* ── header ── */}
         <Link
           href="/settings"
-          className="inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-[#EC1C5C] hover:underline"
+          className="inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-[#E84004] hover:underline"
         >
           <ArrowLeft size={14} /> Platform Settings
         </Link>
 
         <div className="mt-3 flex flex-wrap items-start justify-between gap-3">
           <div className="flex items-center gap-3">
-            <span className="grid h-12 w-12 place-items-center rounded-full bg-[#EC1C5C]/10 text-[#EC1C5C]">
+            <span className="grid h-12 w-12 place-items-center rounded-full bg-[#E84004]/10 text-[#E84004]">
               <Globe size={22} />
             </span>
             <p className="max-w-[560px] text-[13px] text-[#4B5563]">
@@ -404,7 +404,7 @@ export default function WebsiteSettingsPage() {
                   onClick={() => setTab(t.key)}
                   className={`flex items-center gap-2 px-5 py-3.5 text-[13px] font-semibold transition ${
                     on
-                      ? "border-b-2 border-[#EC1C5C] text-[#EC1C5C]"
+                      ? "border-b-2 border-[#E84004] text-[#E84004]"
                       : "border-b-2 border-transparent text-[#6B7280] hover:text-[#374151]"
                   }`}
                 >
@@ -478,7 +478,7 @@ export default function WebsiteSettingsPage() {
 
                   <SectionCard
                     icon={Share2}
-                    tint="#EC1C5C"
+                    tint="#E84004"
                     title="Social Media Handles"
                     sub="Your official social media accounts for meta tags and footer display."
                   >

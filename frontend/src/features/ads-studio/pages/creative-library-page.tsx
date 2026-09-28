@@ -114,7 +114,7 @@ export function CreativeLibraryPage() {
               className={
                 "rounded-full px-4 py-1.5 text-[13px] font-semibold transition " +
                 (on
-                  ? "bg-[#fe2c55] text-white"
+                  ? "bg-[#fd4605] text-white"
                   : "border border-[#eef0f3] bg-white text-[#6b7280] hover:bg-[#f9fafb]")
               }
             >

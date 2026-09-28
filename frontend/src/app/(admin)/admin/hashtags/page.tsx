@@ -136,7 +136,7 @@ export default function HashtagsPage() {
         {/* ── Header ── */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3.5">
-            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#fff0f4] text-[#fe2c55]">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#fff3ec] text-[#fd4605]">
               <Hash className="h-[22px] w-[22px]" />
             </span>
             <div>
@@ -170,13 +170,13 @@ export default function HashtagsPage() {
             return (
               <button key={t.key} type="button" onClick={() => switchTab(t.key)}
                 className={`flex items-center gap-3 rounded-2xl border bg-white p-4 text-left shadow-sm transition-all
-                  ${on ? "border-[#fe2c55] ring-2 ring-[#fe2c55]/15" : "border-[#e8eaed] hover:border-[#d1d5db]"}`}>
-                <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl ${t.alert ? "bg-[#fff0f4] text-[#fe2c55]" : "bg-[#f4f5f7] text-[#6b7280]"}`}>
+                  ${on ? "border-[#fd4605] ring-2 ring-[#fd4605]/15" : "border-[#e8eaed] hover:border-[#d1d5db]"}`}>
+                <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl ${t.alert ? "bg-[#fff3ec] text-[#fd4605]" : "bg-[#f4f5f7] text-[#6b7280]"}`}>
                   {t.icon}
                 </span>
                 <div className="min-w-0">
                   <p className="truncate text-[11px] text-[#9ca3af]">{t.label}</p>
-                  <p className={`text-[19px] font-black leading-tight tabular-nums ${t.alert ? "text-[#fe2c55]" : "text-[#111827]"}`}>
+                  <p className={`text-[19px] font-black leading-tight tabular-nums ${t.alert ? "text-[#fd4605]" : "text-[#111827]"}`}>
                     {formatCompact(t.value)}
                   </p>
                 </div>
@@ -189,14 +189,14 @@ export default function HashtagsPage() {
         {topTrending.length > 0 && (
           <div className="rounded-2xl border border-[#e8eaed] bg-white p-4 shadow-sm">
             <div className="mb-3 flex items-center gap-2">
-              <TrendingUp className="h-4 w-4 text-[#fe2c55]" />
+              <TrendingUp className="h-4 w-4 text-[#fd4605]" />
               <h3 className="text-[13px] font-bold text-[#111827]">Trending on this page</h3>
               <span className="text-[11px] text-[#9ca3af]">posts carrying the tag in the last {days} days</span>
             </div>
             <div className="flex flex-wrap gap-2">
               {topTrending.map(h => (
                 <a key={h.id} href={`${frontendBase}/tag/${encodeURIComponent(h.name)}`} target="_blank" rel="noreferrer"
-                  className="flex items-center gap-1.5 rounded-full border border-[#e8eaed] bg-[#f9fafb] px-3 py-1.5 transition-colors hover:border-[#fe2c55]/40 hover:bg-[#fff0f4]">
+                  className="flex items-center gap-1.5 rounded-full border border-[#e8eaed] bg-[#f9fafb] px-3 py-1.5 transition-colors hover:border-[#fd4605]/40 hover:bg-[#fff3ec]">
                   <Hash className="h-3 w-3 text-[#9ca3af]" />
                   <span className="text-[12px] font-semibold text-[#111827]">{h.name}</span>
                   <span className="rounded-full bg-white px-1.5 text-[10.5px] font-bold tabular-nums text-[#6b7280]">
@@ -225,10 +225,10 @@ export default function HashtagsPage() {
               <div className="relative">
                 <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3 w-3 -translate-y-1/2 text-[#9ca3af]" />
                 <input value={qInput} onChange={e => setQInput(e.target.value)} placeholder="Search hashtags…"
-                  className="h-8 w-48 rounded-lg border border-[#e8eaed] bg-[#f9fafb] pl-7 pr-2 text-[12px] outline-none transition focus:border-[#fe2c55] focus:ring-1 focus:ring-[#fe2c55]/20" />
+                  className="h-8 w-48 rounded-lg border border-[#e8eaed] bg-[#f9fafb] pl-7 pr-2 text-[12px] outline-none transition focus:border-[#fd4605] focus:ring-1 focus:ring-[#fd4605]/20" />
               </div>
               <select value={sort} onChange={e => { setSort(e.target.value); setPage(1); }}
-                className="h-8 rounded-lg border border-[#e8eaed] bg-[#f9fafb] px-2 text-[12px] text-[#374151] outline-none focus:border-[#fe2c55]">
+                className="h-8 rounded-lg border border-[#e8eaed] bg-[#f9fafb] px-2 text-[12px] text-[#374151] outline-none focus:border-[#fd4605]">
                 {SORTS.map(o => <option key={o.key} value={o.key}>{o.label}</option>)}
               </select>
               <span className="rounded-full bg-[#f3f4f6] px-2.5 py-1 text-[11.5px] font-bold tabular-nums text-[#6b7280]">
@@ -239,8 +239,8 @@ export default function HashtagsPage() {
 
           {/* Bulk bar appears only when something is selected. */}
           {selected.length > 0 && (
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#ffd9e2] bg-[#fff0f4] px-4 py-2.5">
-              <p className="text-[12px] font-semibold tabular-nums text-[#fe2c55]">{selected.length} selected</p>
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#ffd9e2] bg-[#fff3ec] px-4 py-2.5">
+              <p className="text-[12px] font-semibold tabular-nums text-[#fd4605]">{selected.length} selected</p>
               <div className="flex flex-wrap items-center gap-1.5">
                 <Button size="sm" variant="outline" onClick={() => ask(selected, "block", `${selected.length} tags`)}>
                   <Ban className="h-3 w-3" /> Block
@@ -265,7 +265,7 @@ export default function HashtagsPage() {
                   <th className="w-10 px-4 py-2.5">
                     <input type="checkbox" checked={allChecked}
                       onChange={() => setSelected(allChecked ? [] : allOnPage)}
-                      className="h-3.5 w-3.5 cursor-pointer rounded border-[#d1d5db] text-[#fe2c55] focus:ring-[#fe2c55]/30" />
+                      className="h-3.5 w-3.5 cursor-pointer rounded border-[#d1d5db] text-[#fd4605] focus:ring-[#fd4605]/30" />
                   </th>
                   {["Hashtag", "Total posts", `Last ${days}d`, "Status", "First seen", ""].map((h, i) => (
                     <th key={h || i}
@@ -303,11 +303,11 @@ export default function HashtagsPage() {
                 ) : hashtags.map((h, i) => {
                   const checked = selected.includes(h.id);
                   return (
-                    <tr key={h.id} className={`transition-colors ${checked ? "bg-[#fff0f4]" : "hover:bg-[#fafbfc]"}`}>
+                    <tr key={h.id} className={`transition-colors ${checked ? "bg-[#fff3ec]" : "hover:bg-[#fafbfc]"}`}>
                       <td className="px-4 py-3.5">
                         <input type="checkbox" checked={checked}
                           onChange={() => setSelected(s => s.includes(h.id) ? s.filter(x => x !== h.id) : [...s, h.id])}
-                          className="h-3.5 w-3.5 cursor-pointer rounded border-[#d1d5db] text-[#fe2c55] focus:ring-[#fe2c55]/30" />
+                          className="h-3.5 w-3.5 cursor-pointer rounded border-[#d1d5db] text-[#fd4605] focus:ring-[#fd4605]/30" />
                       </td>
 
                       <td className="px-4 py-3.5">
@@ -315,7 +315,7 @@ export default function HashtagsPage() {
                           <span className="w-6 shrink-0 text-[11px] font-bold tabular-nums text-[#c4c7ce]">
                             {(meta.current_page - 1) * 30 + i + 1}
                           </span>
-                          <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full ${h.is_blocked ? "bg-[#f3f4f6] text-[#9ca3af]" : "bg-[#fff0f4] text-[#fe2c55]"}`}>
+                          <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full ${h.is_blocked ? "bg-[#f3f4f6] text-[#9ca3af]" : "bg-[#fff3ec] text-[#fd4605]"}`}>
                             <Hash className="h-3.5 w-3.5" />
                           </span>
                           <div className="min-w-0">
@@ -338,7 +338,7 @@ export default function HashtagsPage() {
 
                       <td className="px-4 py-3.5 text-right">
                         {h.recent_count > 0 ? (
-                          <span className="inline-flex items-center gap-1 rounded-full bg-[#fff0f4] px-2 py-0.5 text-[11.5px] font-bold tabular-nums text-[#fe2c55]">
+                          <span className="inline-flex items-center gap-1 rounded-full bg-[#fff3ec] px-2 py-0.5 text-[11.5px] font-bold tabular-nums text-[#fd4605]">
                             <TrendingUp className="h-3 w-3" />{formatCompact(h.recent_count)}
                           </span>
                         ) : (
@@ -354,7 +354,7 @@ export default function HashtagsPage() {
                             </span>
                           )}
                           {h.is_featured && (
-                            <span className="inline-flex items-center gap-0.5 rounded-full border border-[#ffd9e2] bg-[#fff0f4] px-1.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wide text-[#fe2c55]">
+                            <span className="inline-flex items-center gap-0.5 rounded-full border border-[#ffd9e2] bg-[#fff3ec] px-1.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wide text-[#fd4605]">
                               <Star className="h-2.5 w-2.5" /> Featured
                             </span>
                           )}
@@ -382,7 +382,7 @@ export default function HashtagsPage() {
                             title={h.is_featured ? "Remove from featured" : "Feature this tag"}
                             disabled={h.is_blocked}
                             className="grid h-7 w-7 place-items-center rounded-lg border border-[#e8eaed] text-[#9ca3af] transition-colors hover:bg-[#f4f5f7] hover:text-[#374151] disabled:opacity-40">
-                            <Star className={`h-3 w-3 ${h.is_featured ? "fill-current text-[#fe2c55]" : ""}`} />
+                            <Star className={`h-3 w-3 ${h.is_featured ? "fill-current text-[#fd4605]" : ""}`} />
                           </button>
                           <button
                             onClick={() => ask([h.id], h.is_blocked ? "unblock" : "block", `#${h.name}`)}
@@ -425,7 +425,7 @@ export default function HashtagsPage() {
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => { setPending(null); setReason(""); }} />
           <div className="relative z-10 w-full max-w-sm rounded-2xl bg-white p-6 shadow-2xl">
             <div className="mb-3 flex items-center gap-2.5">
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#fff0f4] text-[#fe2c55]">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#fff3ec] text-[#fd4605]">
                 <AlertTriangle className="h-[18px] w-[18px]" />
               </span>
               <div className="min-w-0">
@@ -436,7 +436,7 @@ export default function HashtagsPage() {
             <p className="text-[12.5px] leading-relaxed text-[#6b7280]">{ACTION_COPY[pending.action].message}</p>
             <textarea value={reason} onChange={e => setReason(e.target.value)} rows={3} maxLength={500}
               placeholder="Reason (optional) — shown in the audit log"
-              className="mt-3 w-full resize-none rounded-xl border border-[#e8eaed] bg-[#f9fafb] px-3 py-2 text-[12px] text-[#111827] outline-none focus:border-[#fe2c55]" />
+              className="mt-3 w-full resize-none rounded-xl border border-[#e8eaed] bg-[#f9fafb] px-3 py-2 text-[12px] text-[#111827] outline-none focus:border-[#fd4605]" />
             <div className="mt-4 flex justify-end gap-2.5">
               <button onClick={() => { setPending(null); setReason(""); }}
                 className="rounded-xl border border-[#e8eaed] px-4 py-2 text-xs font-medium text-[#374151] transition-colors hover:bg-[#f4f5f7]">
@@ -446,7 +446,7 @@ export default function HashtagsPage() {
                 disabled={act.isPending}
                 onClick={() => act.mutate({ ids: pending.ids, action: pending.action })}
                 className={`inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-semibold text-white transition-colors disabled:opacity-50
-                  ${ACTION_COPY[pending.action].danger ? "bg-red-500 hover:bg-red-600" : "bg-[#fe2c55] hover:bg-[#e0243d]"}`}>
+                  ${ACTION_COPY[pending.action].danger ? "bg-red-500 hover:bg-red-600" : "bg-[#fd4605] hover:bg-[#e03e04]"}`}>
                 {act.isPending && <Loader2 className="h-3 w-3 animate-spin" />}
                 {ACTION_COPY[pending.action].confirm}
               </button>

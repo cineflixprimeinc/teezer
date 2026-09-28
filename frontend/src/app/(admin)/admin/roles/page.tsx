@@ -42,7 +42,7 @@ const TABS = [
 ];
 
 const STATUS_META: Record<string, { label: string; cls: string }> = {
-  active:    { label: "Active",    cls: "bg-[#fff0f4] text-[#F5074D] border-[#ffd9e2]" },
+  active:    { label: "Active",    cls: "bg-[#fff3ec] text-[#E84004] border-[#ffd9e2]" },
   disabled:  { label: "Disabled",  cls: "bg-[#F2F4F7] text-[#667085] border-[#E4E7EC]" },
   suspended: { label: "Suspended", cls: "bg-[#F2F4F7] text-[#667085] border-[#E4E7EC]" },
   pending:   { label: "Pending",   cls: "bg-[#F2F4F7] text-[#667085] border-[#E4E7EC]" },
@@ -121,7 +121,7 @@ function PermissionPicker({ categories, selected, onChange }: {
       <div className="relative mb-3">
         <Search className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#667085]" />
         <input value={q} onChange={e => setQ(e.target.value)} placeholder="Search permissions…"
-          className="h-9 w-full rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] pl-9 pr-3 text-[13px] outline-none transition focus:border-[#F5074D] focus:ring-2 focus:ring-[#F5074D]/15" />
+          className="h-9 w-full rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] pl-9 pr-3 text-[13px] outline-none transition focus:border-[#E84004] focus:ring-2 focus:ring-[#E84004]/15" />
       </div>
 
       <p className="mb-3 text-[12px] text-[#667085]">
@@ -141,7 +141,7 @@ function PermissionPicker({ categories, selected, onChange }: {
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <button onClick={() => selectAll(c)} className="text-[11px] font-semibold text-[#F5074D] hover:underline">Select all</button>
+                  <button onClick={() => selectAll(c)} className="text-[11px] font-semibold text-[#E84004] hover:underline">Select all</button>
                   <span className="text-[#E4E7EC]">·</span>
                   <button onClick={() => clearAll(c)} className="text-[11px] font-semibold text-[#667085] hover:underline">Clear</button>
                 </div>
@@ -151,12 +151,12 @@ function PermissionPicker({ categories, selected, onChange }: {
                   <label key={p.key}
                     className="flex cursor-pointer items-start gap-2 rounded-[8px] px-2 py-1.5 transition-colors hover:bg-[#F6F7F9]">
                     <input type="checkbox" checked={has(p.key)} onChange={() => toggle(p.key)}
-                      className="mt-0.5 h-3.5 w-3.5 shrink-0 cursor-pointer rounded border-[#D0D5DD] text-[#F5074D] focus:ring-[#F5074D]/30" />
+                      className="mt-0.5 h-3.5 w-3.5 shrink-0 cursor-pointer rounded border-[#D0D5DD] text-[#E84004] focus:ring-[#E84004]/30" />
                     <span className="min-w-0">
                       <span className="block text-[12.5px] text-[#101828]">{p.label}</span>
                       <span className="block truncate font-mono text-[10px] text-[#98A2B3]">{p.key}</span>
                     </span>
-                    {p.sensitive && <ShieldAlert className="mt-0.5 h-3 w-3 shrink-0 text-[#F5074D]" />}
+                    {p.sensitive && <ShieldAlert className="mt-0.5 h-3 w-3 shrink-0 text-[#E84004]" />}
                   </label>
                 ))}
               </div>
@@ -207,7 +207,7 @@ export default function AdminRolesPage() {
         {/* ── Header ── */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3.5">
-            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#fff0f4] text-[#F5074D]">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#fff3ec] text-[#E84004]">
               <Shield className="h-[22px] w-[22px]" />
             </span>
             <div>
@@ -362,15 +362,15 @@ function AdministratorsTab({ categories, onChanged }: { categories: PermCategory
           <div className="relative">
             <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3 w-3 -translate-y-1/2 text-[#667085]" />
             <input value={qInput} onChange={e => setQInput(e.target.value)} placeholder="Search username or email…"
-              className="h-8 w-56 rounded-lg border border-[#E4E7EC] bg-[#F6F7F9] pl-7 pr-2 text-[12px] outline-none transition focus:border-[#F5074D]" />
+              className="h-8 w-56 rounded-lg border border-[#E4E7EC] bg-[#F6F7F9] pl-7 pr-2 text-[12px] outline-none transition focus:border-[#E84004]" />
           </div>
           <select value={roleId} onChange={e => setRoleId(e.target.value)}
-            className="h-8 rounded-lg border border-[#E4E7EC] bg-[#F6F7F9] px-2 text-[12px] text-[#344054] outline-none focus:border-[#F5074D]">
+            className="h-8 rounded-lg border border-[#E4E7EC] bg-[#F6F7F9] px-2 text-[12px] text-[#344054] outline-none focus:border-[#E84004]">
             <option value="">All roles</option>
             {(roles ?? []).map((r: RoleRow) => <option key={r.id} value={r.id}>{r.name}</option>)}
           </select>
           <select value={status} onChange={e => setStatus(e.target.value)}
-            className="h-8 rounded-lg border border-[#E4E7EC] bg-[#F6F7F9] px-2 text-[12px] text-[#344054] outline-none focus:border-[#F5074D]">
+            className="h-8 rounded-lg border border-[#E4E7EC] bg-[#F6F7F9] px-2 text-[12px] text-[#344054] outline-none focus:border-[#E84004]">
             <option value="">All statuses</option>
             {["active", "disabled", "suspended", "pending"].map(s => <option key={s} value={s}>{STATUS_META[s].label}</option>)}
           </select>
@@ -416,7 +416,7 @@ function AdministratorsTab({ categories, onChanged }: { categories: PermCategory
                   </td>
                   <td className="px-5 py-3.5">
                     <span className="inline-flex items-center gap-1 rounded-full border border-[#E4E7EC] bg-[#F6F7F9] px-2 py-0.5 text-[11.5px] font-semibold text-[#344054]">
-                      {a.role === "super_admin" && <Shield className="h-3 w-3 text-[#F5074D]" />}
+                      {a.role === "super_admin" && <Shield className="h-3 w-3 text-[#E84004]" />}
                       {a.admin_role?.name ?? (a.role === "super_admin" ? "Super Admin" : "No role")}
                     </span>
                   </td>
@@ -432,7 +432,7 @@ function AdministratorsTab({ categories, onChanged }: { categories: PermCategory
                   </td>
                   <td className="px-5 py-3.5 text-right">
                     <button onClick={() => setDetailId(a.id)}
-                      className="inline-flex items-center gap-0.5 text-[11.5px] font-semibold text-[#F5074D] hover:underline">
+                      className="inline-flex items-center gap-0.5 text-[11.5px] font-semibold text-[#E84004] hover:underline">
                       Manage <ChevronRight className="h-3 w-3" />
                     </button>
                   </td>
@@ -492,7 +492,7 @@ function AddAdministratorModal({ roles, onClose, onDone }: {
             <Search className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#667085]" />
             <input value={qInput} onChange={e => { setQInput(e.target.value); setPicked(null); }}
               placeholder="Username, email or user ID…"
-              className="h-10 w-full rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] pl-9 pr-3 text-[13px] outline-none transition focus:border-[#F5074D] focus:ring-2 focus:ring-[#F5074D]/15" />
+              className="h-10 w-full rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] pl-9 pr-3 text-[13px] outline-none transition focus:border-[#E84004] focus:ring-2 focus:ring-[#E84004]/15" />
           </div>
           <p className="mt-1.5 text-[11.5px] text-[#667085]">
             Administrators are existing accounts given a role — no second login is created.
@@ -500,7 +500,7 @@ function AddAdministratorModal({ roles, onClose, onDone }: {
         </div>
 
         {picked ? (
-          <div className="flex items-center gap-3 rounded-[12px] border border-[#F5074D]/30 bg-[#fff0f4] p-3">
+          <div className="flex items-center gap-3 rounded-[12px] border border-[#E84004]/30 bg-[#fff3ec] p-3">
             <Avatar src={picked.avatar} name={picked.name || picked.username} size={40} />
             <div className="min-w-0 flex-1">
               <p className="truncate text-[13px] font-bold text-[#101828]">{picked.name || picked.username}</p>
@@ -535,7 +535,7 @@ function AddAdministratorModal({ roles, onClose, onDone }: {
         <div>
           <label className="mb-1.5 block text-[12px] font-semibold text-[#344054]">Role</label>
           <select value={roleId} onChange={e => setRoleId(e.target.value)}
-            className="h-10 w-full rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] px-3 text-[13px] text-[#101828] outline-none focus:border-[#F5074D]">
+            className="h-10 w-full rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] px-3 text-[13px] text-[#101828] outline-none focus:border-[#E84004]">
             <option value="">Select a role…</option>
             {roles.filter(r => r.is_active).map(r => (
               <option key={r.id} value={r.id}>{r.name} — {r.permission_count} permissions</option>
@@ -545,8 +545,8 @@ function AddAdministratorModal({ roles, onClose, onDone }: {
         </div>
 
         {isSuper && (
-          <div className="flex items-start gap-2 rounded-[12px] border border-[#ffd9e2] bg-[#fff0f4] px-3 py-2.5">
-            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[#F5074D]" />
+          <div className="flex items-start gap-2 rounded-[12px] border border-[#ffd9e2] bg-[#fff3ec] px-3 py-2.5">
+            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[#E84004]" />
             <p className="text-[12px] leading-relaxed text-[#7a1229]">
               Super Admin grants complete control of the platform, including the ability to remove
               other administrators. Only a Super Admin can grant this.
@@ -624,7 +624,7 @@ function AdministratorDrawer({ id, roles, categories, onClose, onDone }: {
             <label className="mb-1.5 block text-[12px] font-semibold text-[#344054]">Role</label>
             <div className="flex flex-wrap gap-2">
               <select value={roleId} onChange={e => setRoleId(e.target.value)}
-                className="h-9 flex-1 rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] px-3 text-[13px] text-[#101828] outline-none focus:border-[#F5074D]">
+                className="h-9 flex-1 rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] px-3 text-[13px] text-[#101828] outline-none focus:border-[#E84004]">
                 <option value="">No role</option>
                 {roles.map(r => <option key={r.id} value={r.id}>{r.name}</option>)}
               </select>
@@ -671,7 +671,7 @@ function AdministratorDrawer({ id, roles, categories, onClose, onDone }: {
                       <div key={i.key} className="flex items-center justify-between gap-2 text-[11.5px]">
                         <span className={i.granted ? "text-[#101828]" : "text-[#98A2B3]"}>{i.label}</span>
                         {i.granted ? (
-                          <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-[#F5074D]">
+                          <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-[#E84004]">
                             <Check className="h-3 w-3" />{i.source === "override" ? "Override" : "Role"}
                           </span>
                         ) : i.source === "denied" ? (
@@ -733,8 +733,8 @@ function AdministratorDrawer({ id, roles, categories, onClose, onDone }: {
           <span className="font-semibold text-[#101828]">{confirmRole?.name}</span>.
         </p>
         {confirmRole?.key === "super_admin" && (
-          <div className="mt-3 flex items-start gap-2 rounded-[12px] border border-[#ffd9e2] bg-[#fff0f4] px-3 py-2.5">
-            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[#F5074D]" />
+          <div className="mt-3 flex items-start gap-2 rounded-[12px] border border-[#ffd9e2] bg-[#fff3ec] px-3 py-2.5">
+            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[#E84004]" />
             <p className="text-[12px] leading-relaxed text-[#7a1229]">
               Super Admin grants complete control, including removing other administrators and changing
               anyone&apos;s access.
@@ -802,7 +802,7 @@ function RolesTab({ categories, onChanged }: { categories: PermCategory[]; onCha
                 </div>
                 <p className="mt-1 line-clamp-2 text-[11.5px] leading-relaxed text-[#667085]">{r.description}</p>
               </div>
-              {r.key === "super_admin" && <Shield className="h-4 w-4 shrink-0 text-[#F5074D]" />}
+              {r.key === "super_admin" && <Shield className="h-4 w-4 shrink-0 text-[#E84004]" />}
             </div>
 
             <div className="mt-3 flex items-center gap-4 border-t border-[#F2F4F7] pt-3">
@@ -877,14 +877,14 @@ function RoleEditor({ roleId, categories, onClose, onDone }: {
             <div>
               <label className="mb-1.5 block text-[12px] font-semibold text-[#344054]">Role name</label>
               <input value={name} onChange={e => setName(e.target.value)} placeholder="Community Manager"
-                className="h-10 w-full rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] px-3 text-[13px] outline-none transition focus:border-[#F5074D] focus:ring-2 focus:ring-[#F5074D]/15" />
+                className="h-10 w-full rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] px-3 text-[13px] outline-none transition focus:border-[#E84004] focus:ring-2 focus:ring-[#E84004]/15" />
             </div>
             <div>
               <label className="mb-1.5 block text-[12px] font-semibold text-[#344054]">Status</label>
               <div className="flex items-center gap-2 pt-1.5">
                 <button type="button" role="switch" aria-checked={active} onClick={() => setActive(!active)}
                   disabled={isSuper}
-                  className={`relative h-[26px] w-[46px] shrink-0 rounded-full transition-colors disabled:opacity-50 ${active ? "bg-[#F5074D]" : "bg-[#D0D5DD]"}`}>
+                  className={`relative h-[26px] w-[46px] shrink-0 rounded-full transition-colors disabled:opacity-50 ${active ? "bg-[#E84004]" : "bg-[#D0D5DD]"}`}>
                   <span className={`absolute top-[3px] h-5 w-5 rounded-full bg-white shadow-sm transition-all ${active ? "left-[23px]" : "left-[3px]"}`} />
                 </button>
                 <span className="text-[12.5px] font-semibold text-[#344054]">{active ? "Active" : "Disabled"}</span>
@@ -895,12 +895,12 @@ function RoleEditor({ roleId, categories, onClose, onDone }: {
           <div>
             <label className="mb-1.5 block text-[12px] font-semibold text-[#344054]">Description</label>
             <input value={desc} onChange={e => setDesc(e.target.value)} placeholder="What this role is for"
-              className="h-10 w-full rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] px-3 text-[13px] outline-none transition focus:border-[#F5074D] focus:ring-2 focus:ring-[#F5074D]/15" />
+              className="h-10 w-full rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] px-3 text-[13px] outline-none transition focus:border-[#E84004] focus:ring-2 focus:ring-[#E84004]/15" />
           </div>
 
           {isSuper ? (
-            <div className="flex items-start gap-2 rounded-[12px] border border-[#ffd9e2] bg-[#fff0f4] px-3 py-2.5">
-              <Shield className="mt-0.5 h-4 w-4 shrink-0 text-[#F5074D]" />
+            <div className="flex items-start gap-2 rounded-[12px] border border-[#ffd9e2] bg-[#fff3ec] px-3 py-2.5">
+              <Shield className="mt-0.5 h-4 w-4 shrink-0 text-[#E84004]" />
               <p className="text-[12px] leading-relaxed text-[#7a1229]">
                 Super Admin holds every permission by design rather than by a stored list, so it never
                 falls behind as new permissions are added. Its permissions cannot be edited.
@@ -938,11 +938,11 @@ function DuplicateRoleModal({ role, onClose, onDone }: { role: RoleRow; onClose:
         <div>
           <label className="mb-1.5 block text-[12px] font-semibold text-[#344054]">New role name</label>
           <input value={name} onChange={e => setName(e.target.value)}
-            className="h-10 w-full rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] px-3 text-[13px] outline-none focus:border-[#F5074D]" />
+            className="h-10 w-full rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] px-3 text-[13px] outline-none focus:border-[#E84004]" />
         </div>
         <label className="flex cursor-pointer items-center gap-2">
           <input type="checkbox" checked={copy} onChange={() => setCopy(!copy)}
-            className="h-3.5 w-3.5 rounded border-[#D0D5DD] text-[#F5074D] focus:ring-[#F5074D]/30" />
+            className="h-3.5 w-3.5 rounded border-[#D0D5DD] text-[#E84004] focus:ring-[#E84004]/30" />
           <span className="text-[12.5px] text-[#344054]">Copy its {role.permission_count} permissions</span>
         </label>
         <p className="text-[11.5px] text-[#667085]">The copy is always a custom role, even when duplicated from a system one.</p>
@@ -979,18 +979,18 @@ function DeleteRoleModal({ role, roles, onClose, onDone }: {
             removed silently.
           </p>
           <label className="flex cursor-pointer items-start gap-2 rounded-[10px] border border-[#E4E7EC] p-3">
-            <input type="radio" checked={mode === "reassign"} onChange={() => setMode("reassign")} className="mt-0.5 text-[#F5074D]" />
+            <input type="radio" checked={mode === "reassign"} onChange={() => setMode("reassign")} className="mt-0.5 text-[#E84004]" />
             <span className="min-w-0 flex-1">
               <span className="block text-[12.5px] font-semibold text-[#101828]">Reassign to another role</span>
               <select value={target} onChange={e => setTarget(e.target.value)} disabled={mode !== "reassign"}
-                className="mt-2 h-9 w-full rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] px-2 text-[12.5px] outline-none focus:border-[#F5074D] disabled:opacity-50">
+                className="mt-2 h-9 w-full rounded-[10px] border border-[#E4E7EC] bg-[#F6F7F9] px-2 text-[12.5px] outline-none focus:border-[#E84004] disabled:opacity-50">
                 <option value="">Select a role…</option>
                 {roles.filter(r => r.id !== role.id).map(r => <option key={r.id} value={r.id}>{r.name}</option>)}
               </select>
             </span>
           </label>
           <label className="flex cursor-pointer items-start gap-2 rounded-[10px] border border-[#E4E7EC] p-3">
-            <input type="radio" checked={mode === "disable"} onChange={() => setMode("disable")} className="mt-0.5 text-[#F5074D]" />
+            <input type="radio" checked={mode === "disable"} onChange={() => setMode("disable")} className="mt-0.5 text-[#E84004]" />
             <span>
               <span className="block text-[12.5px] font-semibold text-[#101828]">Disable their administrative access</span>
               <span className="block text-[11.5px] text-[#667085]">Their Teezer accounts stay intact.</span>
@@ -1035,7 +1035,7 @@ function MatrixTab() {
         <div className="relative">
           <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3 w-3 -translate-y-1/2 text-[#667085]" />
           <input value={q} onChange={e => setQ(e.target.value)} placeholder="Search permissions…"
-            className="h-8 w-52 rounded-lg border border-[#E4E7EC] bg-[#F6F7F9] pl-7 pr-2 text-[12px] outline-none focus:border-[#F5074D]" />
+            className="h-8 w-52 rounded-lg border border-[#E4E7EC] bg-[#F6F7F9] pl-7 pr-2 text-[12px] outline-none focus:border-[#E84004]" />
         </div>
       </div>
 
@@ -1060,14 +1060,14 @@ function MatrixTab() {
                   <td className="sticky left-0 z-10 bg-white px-5 py-2">
                     <div className="flex items-center gap-1.5">
                       <span className="text-[12.5px] text-[#101828]">{row.label}</span>
-                      {row.sensitive && <ShieldAlert className="h-3 w-3 shrink-0 text-[#F5074D]" />}
+                      {row.sensitive && <ShieldAlert className="h-3 w-3 shrink-0 text-[#E84004]" />}
                     </div>
                     <span className="font-mono text-[10px] text-[#98A2B3]">{row.permission}</span>
                   </td>
                   {(data?.roles ?? []).map((r: { id: number }) => (
                     <td key={r.id} className="px-3 py-2 text-center">
                       {row.roles[r.id]
-                        ? <Check className="mx-auto h-3.5 w-3.5 text-[#F5074D]" />
+                        ? <Check className="mx-auto h-3.5 w-3.5 text-[#E84004]" />
                         : <span className="text-[#D0D5DD]">—</span>}
                     </td>
                   ))}
@@ -1117,7 +1117,7 @@ function ActivityTab() {
           {rows.map((l: { id: number; action: string; description: string; severity: string; created_at: string | null; metadata: Record<string, unknown> | null; admin: { username: string; name: string; avatar: string | null } | null }) => (
             <div key={l.id} className="flex items-start gap-3 px-5 py-3.5">
               <span className={`mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full ${
-                l.severity === "critical" ? "bg-[#fff0f4] text-[#F5074D]" : "bg-[#F2F4F7] text-[#667085]"}`}>
+                l.severity === "critical" ? "bg-[#fff3ec] text-[#E84004]" : "bg-[#F2F4F7] text-[#667085]"}`}>
                 <KeyRound className="h-3.5 w-3.5" />
               </span>
               <div className="min-w-0 flex-1">
@@ -1130,7 +1130,7 @@ function ActivityTab() {
                 {l.metadata && Array.isArray((l.metadata as { added?: string[] }).added) && (
                   <p className="mt-1 text-[11px] text-[#667085]">
                     {((l.metadata as { added?: string[] }).added ?? []).length > 0 && (
-                      <span className="mr-2 rounded-full bg-[#fff0f4] px-1.5 py-0.5 font-bold text-[#F5074D]">
+                      <span className="mr-2 rounded-full bg-[#fff3ec] px-1.5 py-0.5 font-bold text-[#E84004]">
                         +{((l.metadata as { added?: string[] }).added ?? []).length} permissions
                       </span>
                     )}

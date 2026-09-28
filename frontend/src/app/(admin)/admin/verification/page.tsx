@@ -103,7 +103,7 @@ function documentCount(r: VRequest) {
 
 /* ── Avatar ─────────────────────────────────────────────────────────────────── */
 
-const PALETTE = ["#fe2c55", "#7c3aed", "#2563eb", "#059669", "#d97706", "#db2777"];
+const PALETTE = ["#fd4605", "#7c3aed", "#2563eb", "#059669", "#d97706", "#db2777"];
 
 /**
  * The house avatar: a plain <img> that falls back to coloured initials on error.
@@ -194,7 +194,7 @@ export default function VerificationPage() {
   const insights = [
     { label: "Pending",  value: counts.pending,  color: "#f59e0b" },
     { label: "Approved", value: counts.approved, color: "#22c55e" },
-    { label: "Rejected", value: counts.rejected, color: "#fe2c55" },
+    { label: "Rejected", value: counts.rejected, color: "#fd4605" },
   ];
   const decidedTotal = Math.max(1, counts.pending + counts.approved + counts.rejected);
 
@@ -210,7 +210,7 @@ export default function VerificationPage() {
         <div>
           <h2 className="flex items-center gap-2 text-[18px] font-bold text-[#111827]">
             Verification Applications
-            <BadgeCheck className="h-4 w-4 text-[#fe2c55]" />
+            <BadgeCheck className="h-4 w-4 text-[#fd4605]" />
           </h2>
           <p className="text-[13px] text-[#6b7280]">
             Creators applying for a verification badge. Open an applicant to see their
@@ -219,7 +219,7 @@ export default function VerificationPage() {
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <Stat label="Total Applications" value={counts.total}    icon={BadgeCheck}  tint="bg-rose-50"    fg="text-[#fe2c55]" />
+          <Stat label="Total Applications" value={counts.total}    icon={BadgeCheck}  tint="bg-rose-50"    fg="text-[#fd4605]" />
           <Stat label="Pending Review"     value={counts.pending}  icon={Clock}       tint="bg-amber-50"   fg="text-amber-500" />
           <Stat label="Approved"           value={counts.approved} icon={ShieldCheck} tint="bg-emerald-50" fg="text-emerald-500" />
           <Stat label="Rejected"           value={counts.rejected} icon={ShieldX}     tint="bg-rose-50"    fg="text-rose-500" />
@@ -243,14 +243,14 @@ export default function VerificationPage() {
                     onClick={() => { setTab(t.key); setPage(1); }}
                     className={`flex items-center gap-2 whitespace-nowrap border-b-2 px-3 py-3 text-[13px] font-semibold transition ${
                       active
-                        ? "border-[#fe2c55] text-[#fe2c55]"
+                        ? "border-[#fd4605] text-[#fd4605]"
                         : "border-transparent text-[#6b7280] hover:text-[#111827]"
                     }`}
                   >
                     {t.label}
                     {n !== null && (
                       <span className={`rounded-full px-1.5 py-0.5 text-[10.5px] font-bold ${
-                        active ? "bg-rose-50 text-[#fe2c55]" : "bg-[#f3f4f6] text-[#6b7280]"
+                        active ? "bg-rose-50 text-[#fd4605]" : "bg-[#f3f4f6] text-[#6b7280]"
                       }`}>
                         {n}
                       </span>
@@ -408,7 +408,7 @@ export default function VerificationPage() {
                         {countryName(c.country)}
                       </span>
                       <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#f3f4f6]">
-                        <div className="h-full rounded-full bg-[#fe2c55]" style={{ width: `${c.pct}%` }} />
+                        <div className="h-full rounded-full bg-[#fd4605]" style={{ width: `${c.pct}%` }} />
                       </div>
                       <span className="w-11 flex-shrink-0 text-right text-[11.5px] font-semibold text-[#374151]">
                         {c.pct}%
@@ -437,7 +437,7 @@ export default function VerificationPage() {
         >
           <div className="flex items-center justify-between rounded-t-2xl border-b border-[#e8eaed] bg-white px-5 py-3.5">
             <div className="flex items-center gap-2">
-              <BadgeCheck className="h-4 w-4 text-[#fe2c55]" />
+              <BadgeCheck className="h-4 w-4 text-[#fd4605]" />
               <p className="text-[14px] font-bold text-[#111827]">@{reviewing.username}</p>
             </div>
             <button

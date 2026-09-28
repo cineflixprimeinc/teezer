@@ -11,16 +11,16 @@
         <div>
             <label for="email" class="block text-sm text-white/60 mb-1">Email</label>
             <input id="email" name="email" type="email" value="{{ old('email') }}" placeholder="you@example.com"
-                class="w-full px-4 py-2.5 rounded-xl bg-white/5 border @error('email') border-red-500 @else border-white/10 @enderror text-sm focus:outline-none focus:border-[#fe2c55] transition-colors">
+                class="w-full px-4 py-2.5 rounded-xl bg-white/5 border @error('email') border-red-500 @else border-white/10 @enderror text-sm focus:outline-none focus:border-[#fd4605] transition-colors">
             @error('email')<p class="mt-1 text-xs text-red-400">{{ $message }}</p>@enderror
         </div>
         <button type="submit"
-                class="w-full py-2.5 rounded-xl font-bold bg-[#fe2c55] hover:bg-[#e0243d] transition-colors text-sm">
+                class="w-full py-2.5 rounded-xl font-bold bg-[#fd4605] hover:bg-[#e03e04] transition-colors text-sm">
             Send reset link
         </button>
     </form>
 @endsection
 
 @section('footer_link')
-    <a href="{{ route('login') }}" class="text-[#fe2c55] hover:underline">Back to log in</a>
+    <a href="{{ route('login') }}" class="text-[#fd4605] hover:underline">Back to log in</a>
 @endsection

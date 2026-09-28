@@ -71,8 +71,8 @@ const TEXT_BG_COLORS = [
   { id: "orange", bg: "#f97316", text: "white" },
 ];
 
-const TEXT_COLORS  = ["#ffffff", "#111827", "#fe2c55", "#f59e0b", "#10b981", "#3b82f6", "#a855f7"];
-const DRAW_COLORS  = ["#ffffff", "#000000", "#fe2c55", "#f59e0b", "#3b82f6", "#a855f7", "#10b981"];
+const TEXT_COLORS  = ["#ffffff", "#111827", "#fd4605", "#f59e0b", "#10b981", "#3b82f6", "#a855f7"];
+const DRAW_COLORS  = ["#ffffff", "#000000", "#fd4605", "#f59e0b", "#3b82f6", "#a855f7", "#10b981"];
 
 const FONTS: { value: LayerFont; label: string; style?: React.CSSProperties }[] = [
   { value: "classic",    label: "Classic" },
@@ -111,7 +111,7 @@ function getFontStyle(font: LayerFont): React.CSSProperties {
 function Toggle({ checked, onChange }: { checked: boolean; onChange: (v: boolean) => void }) {
   return (
     <button type="button" role="switch" aria-checked={checked} onClick={() => onChange(!checked)}
-      style={{ width: 44, height: 24, borderRadius: 999, border: "none", background: checked ? "#fe2c55" : "#d1d5db", position: "relative", cursor: "pointer", flexShrink: 0, transition: "background 200ms" }}
+      style={{ width: 44, height: 24, borderRadius: 999, border: "none", background: checked ? "#fd4605" : "#d1d5db", position: "relative", cursor: "pointer", flexShrink: 0, transition: "background 200ms" }}
     >
       <span style={{ position: "absolute", top: 3, width: 18, height: 18, borderRadius: "50%", background: "white", boxShadow: "0 1px 4px rgba(0,0,0,0.25)", left: checked ? 23 : 3, transition: "left 200ms" }} />
     </button>
@@ -130,11 +130,11 @@ function CustomDropdown({ value, onChange, options }: {
     <div style={{ position: "relative" }}>
       <button type="button" onClick={() => setOpen(v => !v)}
         style={{ width: "100%", padding: "9px 12px", borderRadius: 10, border: "1.5px solid #e5e7eb", background: "white", display: "flex", alignItems: "center", gap: 8, cursor: "pointer", fontSize: 13, fontWeight: 600, color: "#111827", outline: "none", transition: "border-color 150ms" }}
-        onFocus={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#fe2c55"; }}
+        onFocus={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#fd4605"; }}
         onBlur={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#e5e7eb"; }}>
         <span style={{ fontSize: 15 }}>{current?.emoji}</span>
         <span style={{ flex: 1, textAlign: "left" }}>{current?.label}</span>
-        <ChevronDown size={14} color={open ? "#fe2c55" : "#9ca3af"}
+        <ChevronDown size={14} color={open ? "#fd4605" : "#9ca3af"}
           style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 150ms" }} />
       </button>
       {open && (
@@ -144,12 +144,12 @@ function CustomDropdown({ value, onChange, options }: {
             {options.map(opt => (
               <button key={opt.value} type="button"
                 onClick={() => { onChange(opt.value); setOpen(false); }}
-                style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: opt.value === value ? "#fff0f4" : "white", border: "none", cursor: "pointer", fontSize: 13, fontWeight: opt.value === value ? 700 : 500, color: opt.value === value ? "#fe2c55" : "#374151", textAlign: "left", transition: "background 100ms" }}
+                style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: opt.value === value ? "#fff3ec" : "white", border: "none", cursor: "pointer", fontSize: 13, fontWeight: opt.value === value ? 700 : 500, color: opt.value === value ? "#fd4605" : "#374151", textAlign: "left", transition: "background 100ms" }}
                 onMouseEnter={(e) => { if (opt.value !== value) (e.currentTarget as HTMLButtonElement).style.background = "#f9fafb"; }}
                 onMouseLeave={(e) => { if (opt.value !== value) (e.currentTarget as HTMLButtonElement).style.background = "white"; }}>
                 <span style={{ fontSize: 15 }}>{opt.emoji}</span>
                 <span style={{ flex: 1 }}>{opt.label}</span>
-                {opt.value === value && <span style={{ color: "#fe2c55", fontWeight: 800 }}>✓</span>}
+                {opt.value === value && <span style={{ color: "#fd4605", fontWeight: 800 }}>✓</span>}
               </button>
             ))}
           </div>
@@ -688,11 +688,11 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
           </div>
           <div style={{ textAlign: "center", marginBottom: 28 }}>
             <h2 style={{ fontSize: 36, fontWeight: 800, color: "#111827", margin: "0 0 8px", letterSpacing: "-0.03em", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
-              Create story <span style={{ color: "#fe2c55", fontSize: 28 }}>✦</span>
+              Create story <span style={{ color: "#fd4605", fontSize: 28 }}>✦</span>
             </h2>
             <p style={{ fontSize: 14, color: "#6b7280", margin: 0, fontWeight: 500 }}>Share a moment with photos, videos, or a simple text story.</p>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "20px", background: "rgba(254,44,85,0.06)", borderRadius: 20, marginBottom: 12, border: "1.5px solid rgba(254,44,85,0.12)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "20px", background: "rgba(253,70,5,0.06)", borderRadius: 20, marginBottom: 12, border: "1.5px solid rgba(253,70,5,0.12)" }}>
             <div style={{ width: 72, height: 72, borderRadius: 18, flexShrink: 0, background: "linear-gradient(135deg,#ff9a44,#fc3a6b)", display: "grid", placeItems: "center" }}>
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
                 <rect x="3" y="7" width="22" height="18" rx="3" stroke="white" strokeWidth="2"/>
@@ -709,7 +709,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
               <p style={{ fontSize: 13, color: "#6b7280", margin: 0, lineHeight: 1.5 }}>Up to 10 photos or 1 video (max 60s).<br/>Add text, links, mentions and more.</p>
             </div>
             <button type="button" onClick={() => fileInputRef.current?.click()}
-              style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 22px", borderRadius: 999, background: "#fe2c55", border: "none", color: "white", fontSize: 14, fontWeight: 700, cursor: "pointer", flexShrink: 0, whiteSpace: "nowrap", boxShadow: "0 4px 16px rgba(254,44,85,0.35)" }}>
+              style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 22px", borderRadius: 999, background: "#fd4605", border: "none", color: "white", fontSize: 14, fontWeight: 700, cursor: "pointer", flexShrink: 0, whiteSpace: "nowrap", boxShadow: "0 4px 16px rgba(253,70,5,0.35)" }}>
               Select <ChevronRight size={16} />
             </button>
           </div>
@@ -784,7 +784,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                 console.error("[Story publish error]", status ?? "", msg ?? "");
               } finally { setSubmitting(false); }
             }}
-              style={{ width: "100%", padding: "14px", borderRadius: 14, border: "none", background: "#fe2c55", fontSize: 15, fontWeight: 800, color: "white", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, boxShadow: "0 6px 20px rgba(254,44,85,0.35)", opacity: submitting || !textContent.trim() ? 0.6 : 1 }}>
+              style={{ width: "100%", padding: "14px", borderRadius: 14, border: "none", background: "#fd4605", fontSize: 15, fontWeight: 800, color: "white", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, boxShadow: "0 6px 20px rgba(253,70,5,0.35)", opacity: submitting || !textContent.trim() ? 0.6 : 1 }}>
               <Send size={16} style={{ transform: "rotate(-40deg)" }} /> {submitting ? "Sharing…" : "Share Story"}
             </button>
           </div>
@@ -828,7 +828,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
               onDragOver={(e) => { e.preventDefault(); setDraggingFile(true); }}
               onDragLeave={() => setDraggingFile(false)}
               onDrop={(e) => { e.preventDefault(); setDraggingFile(false); void addFiles(e.dataTransfer.files); }}
-              style={{ position: "relative", width: 360, height: 640, borderRadius: 36, overflow: "hidden", background: "#111", flexShrink: 0, border: draggingFile ? "3px solid #fe2c55" : "3px solid #1c1c1e", boxShadow: "0 28px 72px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.07)", transition: "border-color 200ms" }}
+              style={{ position: "relative", width: 360, height: 640, borderRadius: 36, overflow: "hidden", background: "#111", flexShrink: 0, border: draggingFile ? "3px solid #fd4605" : "3px solid #1c1c1e", boxShadow: "0 28px 72px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.07)", transition: "border-color 200ms" }}
             >
               {/* Media */}
               {activeMedia ? (
@@ -871,7 +871,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
 
               {/* Story header */}
               <div style={{ position: "absolute", top: 18, left: 10, right: 10, zIndex: 20, display: "flex", alignItems: "center", gap: 8 }}>
-                <div style={{ width: 30, height: 30, borderRadius: "50%", overflow: "hidden", background: "linear-gradient(135deg,#fe2c55,#ff6b8a)", display: "grid", placeItems: "center", border: "1.5px solid rgba(255,255,255,0.6)", flexShrink: 0 }}>
+                <div style={{ width: 30, height: 30, borderRadius: "50%", overflow: "hidden", background: "linear-gradient(135deg,#fd4605,#ff6b8a)", display: "grid", placeItems: "center", border: "1.5px solid rgba(255,255,255,0.6)", flexShrink: 0 }}>
                   {userAvatar
                     // eslint-disable-next-line @next/next/no-img-element
                     ? <img src={userAvatar} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
@@ -915,7 +915,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
               <div style={{ display: "flex", gap: 6, justifyContent: "center", flexWrap: "wrap", maxWidth: 360 }}>
                 {mediaItems.map((m, i) => (
                   <button key={m.id} type="button" onClick={() => setActiveSlide(i)}
-                    style={{ width: 40, height: 58, borderRadius: 6, overflow: "hidden", border: i === activeSlide ? "2.5px solid #fe2c55" : "2.5px solid transparent", cursor: "pointer", flexShrink: 0, padding: 0 }}>
+                    style={{ width: 40, height: 58, borderRadius: 6, overflow: "hidden", border: i === activeSlide ? "2.5px solid #fd4605" : "2.5px solid transparent", cursor: "pointer", flexShrink: 0, padding: 0 }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={m.previewUrl} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   </button>
@@ -986,13 +986,13 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                         <textarea value={textInput} onChange={(e) => setTextInput(e.target.value.slice(0, 80))}
                           placeholder="Write story text" rows={2}
                           style={{ ...inputStyle, flex: 1, resize: "none", lineHeight: 1.5 }}
-                          onFocus={(e) => { (e.currentTarget as HTMLTextAreaElement).style.borderColor = "#fe2c55"; }}
+                          onFocus={(e) => { (e.currentTarget as HTMLTextAreaElement).style.borderColor = "#fd4605"; }}
                           onBlur={(e) => { (e.currentTarget as HTMLTextAreaElement).style.borderColor = "#e5e7eb"; }}
                           onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey && textInput.trim()) { e.preventDefault(); addLayer({ type: "text", text: textInput, color: textColor, font: activeFont }); setTextInput(""); } }}
                         />
                         <button type="button" disabled={!textInput.trim()}
                           onClick={() => { if (!textInput.trim()) return; addLayer({ type: "text", text: textInput, color: textColor, font: activeFont }); setTextInput(""); }}
-                          style={{ padding: "10px 16px", borderRadius: 10, border: "none", background: textInput.trim() ? "#fe2c55" : "#fca5b5", color: "white", fontWeight: 700, fontSize: 13, cursor: textInput.trim() ? "pointer" : "not-allowed", flexShrink: 0, alignSelf: "flex-start" }}>
+                          style={{ padding: "10px 16px", borderRadius: 10, border: "none", background: textInput.trim() ? "#fd4605" : "#fca5b5", color: "white", fontWeight: 700, fontSize: 13, cursor: textInput.trim() ? "pointer" : "not-allowed", flexShrink: 0, alignSelf: "flex-start" }}>
                           Add
                         </button>
                       </div>
@@ -1008,7 +1008,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                       <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                         {FONTS.map(({ value, label: fl, style: fs }) => (
                           <button key={value} type="button" onClick={() => setActiveFont(value)}
-                            style={{ padding: "6px 12px", borderRadius: 8, border: activeFont === value ? "1.5px solid #fe2c55" : "1.5px solid #e5e7eb", background: activeFont === value ? "#fff0f4" : "white", color: activeFont === value ? "#fe2c55" : "#374151", fontSize: 12, fontWeight: activeFont === value ? 700 : 500, cursor: "pointer", transition: "all 150ms", ...fs }}>
+                            style={{ padding: "6px 12px", borderRadius: 8, border: activeFont === value ? "1.5px solid #fd4605" : "1.5px solid #e5e7eb", background: activeFont === value ? "#fff3ec" : "white", color: activeFont === value ? "#fd4605" : "#374151", fontSize: 12, fontWeight: activeFont === value ? 700 : 500, cursor: "pointer", transition: "all 150ms", ...fs }}>
                             {fl}
                           </button>
                         ))}
@@ -1021,14 +1021,14 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                     <div>
                       <input type="text" value={linkTitle} onChange={(e) => setLinkTitle(e.target.value.slice(0, 40))} placeholder="Link label (optional)"
                         style={{ ...inputStyle, marginBottom: 8 }}
-                        onFocus={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#fe2c55"; }}
+                        onFocus={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#fd4605"; }}
                         onBlur={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#e5e7eb"; }}
                       />
                       <div style={{ display: "flex", gap: 8 }}>
                         <div style={{ flex: 1 }}>
                           <input type="url" value={linkUrl} onChange={(e) => { setLinkUrl(e.target.value); setLinkUrlError(false); }} placeholder="https://example.com"
                             style={{ ...inputStyle, borderColor: linkUrlError ? "#ef4444" : "#e5e7eb" }}
-                            onFocus={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = linkUrlError ? "#ef4444" : "#fe2c55"; }}
+                            onFocus={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = linkUrlError ? "#ef4444" : "#fd4605"; }}
                             onBlur={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = linkUrlError ? "#ef4444" : "#e5e7eb"; }}
                           />
                           {linkUrlError && <p style={{ fontSize: 11, color: "#ef4444", margin: "4px 0 0" }}>Add a valid URL.</p>}
@@ -1040,7 +1040,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                           addLayer({ type: "link", text: linkTitle || "Link", url });
                           setLinkTitle(""); setLinkUrl(""); setLinkUrlError(false);
                         }}
-                          style={{ padding: "10px 16px", borderRadius: 10, border: "none", background: "#fe2c55", color: "white", fontWeight: 700, fontSize: 13, cursor: "pointer", flexShrink: 0 }}>
+                          style={{ padding: "10px 16px", borderRadius: 10, border: "none", background: "#fd4605", color: "white", fontWeight: 700, fontSize: 13, cursor: "pointer", flexShrink: 0 }}>
                           Add
                         </button>
                       </div>
@@ -1052,14 +1052,14 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                     <div>
                       <input type="text" value={mentionQuery} onChange={(e) => handleMentionSearch(e.target.value)} placeholder="Search @username…"
                         style={inputStyle}
-                        onFocus={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#fe2c55"; }}
+                        onFocus={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#fd4605"; }}
                         onBlur={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#e5e7eb"; }}
                       />
                       {(mentionResults.length > 0 || mentionLoading) && (
                         <div style={{ marginTop: 8, background: "white", border: "1.5px solid #e5e7eb", borderRadius: 12, boxShadow: "0 4px 16px rgba(0,0,0,0.08)", overflow: "hidden" }}>
                           {mentionLoading && (
                             <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "12px 14px" }}>
-                              <div style={{ width: 16, height: 16, borderRadius: "50%", border: "2px solid #fe2c55", borderTopColor: "transparent", animation: "spin 0.7s linear infinite" }} />
+                              <div style={{ width: 16, height: 16, borderRadius: "50%", border: "2px solid #fd4605", borderTopColor: "transparent", animation: "spin 0.7s linear infinite" }} />
                               <p style={{ fontSize: 12, color: "#9ca3af", margin: 0 }}>Searching users…</p>
                             </div>
                           )}
@@ -1069,7 +1069,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                               style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "white", border: "none", cursor: "pointer", textAlign: "left", borderBottom: "1px solid #f3f4f6", transition: "background 100ms" }}
                               onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#fff8f9"; }}
                               onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "white"; }}>
-                              <div style={{ width: 36, height: 36, borderRadius: "50%", overflow: "hidden", flexShrink: 0, background: "linear-gradient(135deg,#fe2c55,#c02040)", display: "grid", placeItems: "center" }}>
+                              <div style={{ width: 36, height: 36, borderRadius: "50%", overflow: "hidden", flexShrink: 0, background: "linear-gradient(135deg,#fd4605,#b83203)", display: "grid", placeItems: "center" }}>
                                 {u.avatar
                                   // eslint-disable-next-line @next/next/no-img-element
                                   ? <img src={u.avatar} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
@@ -1079,7 +1079,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                                 <p style={{ fontSize: 13, fontWeight: 700, color: "#111827", margin: "0 0 1px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{u.name}</p>
                                 <p style={{ fontSize: 11, color: "#9ca3af", margin: 0 }}>@{u.username}</p>
                               </div>
-                              <AtSign size={14} color="#fe2c55" style={{ flexShrink: 0 }} />
+                              <AtSign size={14} color="#fd4605" style={{ flexShrink: 0 }} />
                             </button>
                           ))}
                         </div>
@@ -1092,13 +1092,13 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                     <div style={{ display: "flex", gap: 8 }}>
                       <input type="text" value={hashtagInput} onChange={(e) => setHashtagInput(e.target.value.replace(/\s/g, "").slice(0, 50))} placeholder="trending, travel, teezer…"
                         style={{ ...inputStyle, flex: 1 }}
-                        onFocus={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#fe2c55"; }}
+                        onFocus={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#fd4605"; }}
                         onBlur={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#e5e7eb"; }}
                         onKeyDown={(e) => { if (e.key === "Enter" && hashtagInput.trim()) { addLayer({ type: "hashtag", text: hashtagInput.replace(/^#+/, ""), hashtag: hashtagInput.replace(/^#+/, "") }); setHashtagInput(""); } }}
                       />
                       <button type="button" disabled={!hashtagInput.trim()}
                         onClick={() => { if (!hashtagInput.trim()) return; addLayer({ type: "hashtag", text: hashtagInput.replace(/^#+/, ""), hashtag: hashtagInput.replace(/^#+/, "") }); setHashtagInput(""); }}
-                        style={{ padding: "10px 16px", borderRadius: 10, border: "none", background: hashtagInput.trim() ? "#fe2c55" : "#fca5b5", color: "white", fontWeight: 700, fontSize: 13, cursor: hashtagInput.trim() ? "pointer" : "not-allowed", flexShrink: 0 }}>
+                        style={{ padding: "10px 16px", borderRadius: 10, border: "none", background: hashtagInput.trim() ? "#fd4605" : "#fca5b5", color: "white", fontWeight: 700, fontSize: 13, cursor: hashtagInput.trim() ? "pointer" : "not-allowed", flexShrink: 0 }}>
                         Add
                       </button>
                     </div>
@@ -1110,13 +1110,13 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                       <div style={{ display: "flex", gap: 8 }}>
                         <input type="text" value={locationQuery} onChange={(e) => handleLocationSearch(e.target.value.slice(0, 100))} placeholder="Search a place, city, or country…"
                           style={{ ...inputStyle, flex: 1 }}
-                          onFocus={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#fe2c55"; }}
+                          onFocus={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#fd4605"; }}
                           onBlur={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#e5e7eb"; }}
                           onKeyDown={(e) => { if (e.key === "Enter" && locationQuery.trim()) { addLayer({ type: "location", text: locationQuery, locationName: locationQuery }); setLocationQuery(""); setLocationResults([]); } }}
                         />
                         <button type="button" disabled={!locationQuery.trim()}
                           onClick={() => { if (!locationQuery.trim()) return; addLayer({ type: "location", text: locationQuery, locationName: locationQuery }); setLocationQuery(""); setLocationResults([]); }}
-                          style={{ padding: "10px 16px", borderRadius: 10, border: "none", background: locationQuery.trim() ? "#fe2c55" : "#fca5b5", color: "white", fontWeight: 700, fontSize: 13, cursor: locationQuery.trim() ? "pointer" : "not-allowed", flexShrink: 0 }}>
+                          style={{ padding: "10px 16px", borderRadius: 10, border: "none", background: locationQuery.trim() ? "#fd4605" : "#fca5b5", color: "white", fontWeight: 700, fontSize: 13, cursor: locationQuery.trim() ? "pointer" : "not-allowed", flexShrink: 0 }}>
                           Add
                         </button>
                       </div>
@@ -1124,7 +1124,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                         <div style={{ marginTop: 8, background: "white", border: "1.5px solid #e5e7eb", borderRadius: 12, boxShadow: "0 4px 16px rgba(0,0,0,0.08)", overflow: "hidden" }}>
                           {locationLoading && (
                             <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "12px 14px" }}>
-                              <div style={{ width: 16, height: 16, borderRadius: "50%", border: "2px solid #fe2c55", borderTopColor: "transparent", animation: "spin 0.7s linear infinite" }} />
+                              <div style={{ width: 16, height: 16, borderRadius: "50%", border: "2px solid #fd4605", borderTopColor: "transparent", animation: "spin 0.7s linear infinite" }} />
                               <p style={{ fontSize: 12, color: "#9ca3af", margin: 0 }}>Searching locations…</p>
                             </div>
                           )}
@@ -1138,7 +1138,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                                 style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "white", border: "none", cursor: "pointer", textAlign: "left", borderBottom: "1px solid #f3f4f6", transition: "background 100ms" }}
                                 onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#fff8f9"; }}
                                 onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "white"; }}>
-                                <div style={{ width: 34, height: 34, borderRadius: "50%", background: "#fff0f4", flexShrink: 0, display: "grid", placeItems: "center", fontSize: 16 }}>📍</div>
+                                <div style={{ width: 34, height: 34, borderRadius: "50%", background: "#fff3ec", flexShrink: 0, display: "grid", placeItems: "center", fontSize: 16 }}>📍</div>
                                 <div style={{ flex: 1, minWidth: 0 }}>
                                   <p style={{ fontSize: 13, fontWeight: 700, color: "#111827", margin: "0 0 1px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{main}</p>
                                   {sub && <p style={{ fontSize: 11, color: "#9ca3af", margin: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{sub}</p>}
@@ -1171,11 +1171,11 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                       {/* Brush / Eraser */}
                       <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
                         <button type="button" onClick={() => setDrawTool("brush")}
-                          style={{ flex: 1, padding: "10px", borderRadius: 10, border: `2px solid ${drawTool === "brush" ? "#fe2c55" : "#e5e7eb"}`, background: drawTool === "brush" ? "#fff0f4" : "white", color: drawTool === "brush" ? "#fe2c55" : "#374151", fontSize: 13, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, transition: "all 150ms" }}>
+                          style={{ flex: 1, padding: "10px", borderRadius: 10, border: `2px solid ${drawTool === "brush" ? "#fd4605" : "#e5e7eb"}`, background: drawTool === "brush" ? "#fff3ec" : "white", color: drawTool === "brush" ? "#fd4605" : "#374151", fontSize: 13, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, transition: "all 150ms" }}>
                           🖌️ Brush
                         </button>
                         <button type="button" onClick={() => setDrawTool("eraser")}
-                          style={{ flex: 1, padding: "10px", borderRadius: 10, border: `2px solid ${drawTool === "eraser" ? "#fe2c55" : "#e5e7eb"}`, background: drawTool === "eraser" ? "#fff0f4" : "white", color: drawTool === "eraser" ? "#fe2c55" : "#374151", fontSize: 13, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, transition: "all 150ms" }}>
+                          style={{ flex: 1, padding: "10px", borderRadius: 10, border: `2px solid ${drawTool === "eraser" ? "#fd4605" : "#e5e7eb"}`, background: drawTool === "eraser" ? "#fff3ec" : "white", color: drawTool === "eraser" ? "#fd4605" : "#374151", fontSize: 13, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, transition: "all 150ms" }}>
                           🧹 Eraser
                         </button>
                       </div>
@@ -1185,7 +1185,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                         <div style={{ display: "flex", gap: 8, marginBottom: 10, flexWrap: "wrap" }}>
                           {DRAW_COLORS.map(c => (
                             <button key={c} type="button" onClick={() => setDrawColor(c)}
-                              style={{ width: 30, height: 30, borderRadius: "50%", background: c, border: c === "#ffffff" ? "2px solid #e5e7eb" : "2px solid transparent", cursor: "pointer", outline: drawColor === c ? "3px solid #fe2c55" : "none", outlineOffset: 2, flexShrink: 0, transition: "transform 100ms" }}
+                              style={{ width: 30, height: 30, borderRadius: "50%", background: c, border: c === "#ffffff" ? "2px solid #e5e7eb" : "2px solid transparent", cursor: "pointer", outline: drawColor === c ? "3px solid #fd4605" : "none", outlineOffset: 2, flexShrink: 0, transition: "transform 100ms" }}
                               onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = "scale(1.15)"; }}
                               onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)"; }}
                             />
@@ -1205,7 +1205,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                           <span style={{ fontSize: 11, color: "#374151", fontWeight: 700 }}>{brushSize}px</span>
                         </div>
                         <input type="range" min={2} max={40} value={brushSize} onChange={e => setBrushSize(+e.target.value)}
-                          style={{ width: "100%", accentColor: "#fe2c55", cursor: "pointer" }}
+                          style={{ width: "100%", accentColor: "#fd4605", cursor: "pointer" }}
                         />
                       </div>
 
@@ -1264,7 +1264,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
               <div style={{ display: "flex", gap: 8 }}>
                 {(["fill", "fit"] as FillMode[]).map((mode) => (
                   <button key={mode} type="button" onClick={() => setFillMode(mode)}
-                    style={{ flex: 1, padding: "9px 0", borderRadius: 10, border: fillMode === mode ? "1.5px solid #fe2c55" : "1.5px solid #e5e7eb", background: fillMode === mode ? "#fff0f4" : "white", fontSize: 13, fontWeight: fillMode === mode ? 700 : 500, color: fillMode === mode ? "#fe2c55" : "#374151", cursor: "pointer", transition: "all 150ms", textTransform: "capitalize" }}>
+                    style={{ flex: 1, padding: "9px 0", borderRadius: 10, border: fillMode === mode ? "1.5px solid #fd4605" : "1.5px solid #e5e7eb", background: fillMode === mode ? "#fff3ec" : "white", fontSize: 13, fontWeight: fillMode === mode ? 700 : 500, color: fillMode === mode ? "#fd4605" : "#374151", cursor: "pointer", transition: "all 150ms", textTransform: "capitalize" }}>
                     {mode}
                   </button>
                 ))}
@@ -1311,13 +1311,13 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
                 borderRadius: 16, border: "none",
                 background: submitting || mediaItems.length === 0
                   ? "linear-gradient(135deg,#fca5b5,#fca5b5)"
-                  : "linear-gradient(135deg,#fe2c55 0%,#e01945 60%,#c01038 100%)",
+                  : "linear-gradient(135deg,#fd4605 0%,#e01945 60%,#c01038 100%)",
                 fontSize: 16, fontWeight: 800, color: "white",
                 letterSpacing: "-0.01em",
                 cursor: submitting || mediaItems.length === 0 ? "not-allowed" : "pointer",
                 display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
                 boxShadow: mediaItems.length > 0 && !submitting
-                  ? "0 8px 28px rgba(254,44,85,0.45), 0 2px 8px rgba(254,44,85,0.2)"
+                  ? "0 8px 28px rgba(253,70,5,0.45), 0 2px 8px rgba(253,70,5,0.2)"
                   : "none",
                 transition: "all 200ms",
               }}>

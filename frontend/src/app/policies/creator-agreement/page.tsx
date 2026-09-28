@@ -147,7 +147,7 @@ export default function CreatorAgreementPage() {
         We may update this Agreement from time to time. Material changes are communicated through Teezer Studio and, where
         significant, by the notification method described in our Terms of Service. Continuing as a Creator after a change
         takes effect means you accept the updated Agreement. Questions:{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>.
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>.
       </P>
     </LegalShell>
     } />

@@ -44,7 +44,7 @@ export default function AnalyticsPage() {
         {/* KPI row */}
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           <StatCard label="Total Users"    value={formatCompact(u.total)}      icon={Users}     color="#3b82f6" trend={`+${formatCompact(u.new_7d)} this week`} />
-          <StatCard label="Total Videos"   value={formatCompact(v.total)}      icon={Video}     color="#fe2c55" sub={`${formatCompact(v.published)} published`} />
+          <StatCard label="Total Videos"   value={formatCompact(v.total)}      icon={Video}     color="#fd4605" sub={`${formatCompact(v.published)} published`} />
           <StatCard label="7-Day Views"    value={formatCompact(views["7d"])}  icon={Eye}       color="#f59e0b" sub={`${formatCompact(views.today)} today`} />
           <StatCard label="Pending Reports"value={formatCompact(reports.pending)} icon={Shield} color="#ef4444" />
         </div>
@@ -76,11 +76,11 @@ export default function AnalyticsPage() {
           {/* Video uploads */}
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2"><Video className="h-4 w-4 text-[#fe2c55]" />Video Uploads (30 days)</CardTitle>
+              <CardTitle className="flex items-center gap-2"><Video className="h-4 w-4 text-[#fd4605]" />Video Uploads (30 days)</CardTitle>
             </CardHeader>
             <CardBody>
               {uploadData.length > 1
-                ? <MiniBarChart data={uploadData} color="#fe2c55" height={160} />
+                ? <MiniBarChart data={uploadData} color="#fd4605" height={160} />
                 : <div className="h-[160px] flex items-center justify-center text-[13px] text-[#9ca3af]">Not enough data</div>
               }
               <div className="mt-4 grid grid-cols-3 gap-3 border-t border-[#f3f4f6] pt-4">
@@ -125,7 +125,7 @@ export default function AnalyticsPage() {
                 {Object.entries(byRole).map(([role, count]) => {
                   const total = Object.values(byRole).reduce((a, b) => a + b, 0) || 1;
                   const pct   = Math.round((count / total) * 100);
-                  const colors: Record<string, string> = { user: "#3b82f6", creator: "#fe2c55", admin: "#8b5cf6" };
+                  const colors: Record<string, string> = { user: "#3b82f6", creator: "#fd4605", admin: "#8b5cf6" };
                   const color = colors[role] ?? "#9ca3af";
                   return (
                     <div key={role}>

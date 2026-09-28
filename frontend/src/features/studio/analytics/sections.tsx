@@ -85,7 +85,7 @@ type KpiSpec = {
 };
 
 const KPIS: KpiSpec[] = [
-  { key: "views", label: "Views", icon: Eye, tint: "bg-rose-50", fg: "text-rose-500", stroke: "#fe2c55",
+  { key: "views", label: "Views", icon: Eye, tint: "bg-rose-50", fg: "text-rose-500", stroke: "#fd4605",
     format: compact, series: d => d.charts.views_over_time },
   { key: "watch_time_hours", label: "Watch Time", icon: Clock, tint: "bg-violet-50", fg: "text-violet-500", stroke: "#8b5cf6",
     format: n => `${compact(n)} h`, series: d => d.charts.watch_time_growth },
@@ -157,7 +157,7 @@ export function MainCharts({ data }: { data: DashboardData }) {
           {totalViews.toLocaleString()}
         </p>
         <div className="mt-1"><GrowthChip growth={data.summary.views.growth} /></div>
-        <AreaChart data={data.charts.views_over_time} color="#fe2c55" />
+        <AreaChart data={data.charts.views_over_time} color="#fd4605" />
       </Card>
 
       <Card>
@@ -344,7 +344,7 @@ const ENGAGEMENT: Array<{
   stroke: string;
   isRate?: boolean;
 }> = [
-  { key: "likes",           label: "Likes",           icon: Heart,         tint: "bg-rose-50",    fg: "text-rose-500",    stroke: "#fe2c55" },
+  { key: "likes",           label: "Likes",           icon: Heart,         tint: "bg-rose-50",    fg: "text-rose-500",    stroke: "#fd4605" },
   { key: "comments",        label: "Comments",        icon: MessageCircle, tint: "bg-violet-50",  fg: "text-violet-500",  stroke: "#8b5cf6" },
   { key: "shares",          label: "Shares",          icon: Share2,        tint: "bg-sky-50",     fg: "text-sky-500",     stroke: "#3b82f6" },
   { key: "saves",           label: "Saves",           icon: Bookmark,      tint: "bg-amber-50",   fg: "text-amber-500",   stroke: "#f59e0b" },

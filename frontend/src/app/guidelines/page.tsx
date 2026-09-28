@@ -294,7 +294,7 @@ export default function GuidelinesPage() {
         You can report any video, story, comment, message or account directly in the app - open the menu on the
         content and choose Report. Every report is reviewed, reporting is confidential, and the person you report is
         not told who reported them. For anything urgent or sensitive you can also reach us at{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">
           {CONTACT_EMAIL}
         </a>
         . If someone is in immediate danger, contact your local emergency services first.

@@ -12,7 +12,7 @@
     {{-- Pages --}}
     @foreach($paginator->getUrlRange(max(1, $paginator->currentPage() - 2), min($paginator->lastPage(), $paginator->currentPage() + 2)) as $page => $url)
         @if($page == $paginator->currentPage())
-            <span class="px-3 py-1.5 text-sm rounded-lg bg-[#fe2c55] text-white font-medium">{{ $page }}</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg bg-[#fd4605] text-white font-medium">{{ $page }}</span>
         @else
             <a href="{{ $url }}" class="px-3 py-1.5 text-sm rounded-lg bg-white/5 hover:bg-white/10 text-gray-400 transition-colors">{{ $page }}</a>
         @endif

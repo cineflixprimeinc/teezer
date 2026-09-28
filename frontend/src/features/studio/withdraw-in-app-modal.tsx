@@ -38,7 +38,7 @@ export function WithdrawInAppModal({
 
       <div className="relative flex max-h-[92vh] w-full max-w-[440px] flex-col overflow-hidden rounded-t-2xl bg-white shadow-xl sm:rounded-2xl">
         <div className="flex items-start gap-3 border-b border-[#f0f1f4] px-5 py-4">
-          <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl bg-[#fff0f4] text-[#fe2c55]">
+          <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl bg-[#fff3ec] text-[#fd4605]">
             <Wallet className="h-5 w-5" />
           </div>
           <div className="min-w-0 flex-1">
@@ -93,7 +93,7 @@ export function WithdrawInAppModal({
                 { icon: Check,    text: "See a full earnings breakdown by source and by day" },
               ].map(({ icon: Icon, text }) => (
                 <li key={text} className="flex items-start gap-2.5 text-[11.5px] leading-relaxed text-[#374151]">
-                  <span className="mt-0.5 grid h-4 w-4 flex-shrink-0 place-items-center rounded-full bg-[#fff0f4] text-[#fe2c55]">
+                  <span className="mt-0.5 grid h-4 w-4 flex-shrink-0 place-items-center rounded-full bg-[#fff3ec] text-[#fd4605]">
                     <Icon className="h-2.5 w-2.5" />
                   </span>
                   {text}
@@ -105,7 +105,7 @@ export function WithdrawInAppModal({
 
         <div className="border-t border-[#f0f1f4] bg-[#fafbfc] px-5 py-4">
           <p className="mb-2.5 flex items-center gap-1.5 text-[11px] font-semibold text-[#111827]">
-            <Smartphone className="h-3.5 w-3.5 text-[#fe2c55]" />
+            <Smartphone className="h-3.5 w-3.5 text-[#fd4605]" />
             Get the Teezer app
           </p>
           <div className="flex gap-2">

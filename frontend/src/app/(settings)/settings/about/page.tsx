@@ -28,8 +28,8 @@ export default function AboutPage() {
 
           {/* Version hero */}
           <div className="flex flex-col items-center gap-2 py-6 border-b border-[#f0f1f5]">
-            <div className="flex h-16 w-16 items-center justify-center rounded-[20px] bg-[#fff0f4]">
-              <span className="text-[28px] font-black" style={{ color: "#fe2c55" }}>R</span>
+            <div className="flex h-16 w-16 items-center justify-center rounded-[20px] bg-[#fff3ec]">
+              <span className="text-[28px] font-black" style={{ color: "#fd4605" }}>R</span>
             </div>
             <p className="text-[18px] font-extrabold text-[#111827]">Teezer</p>
             <p className="text-[12px] font-semibold text-[#9ca3af]">Version {APP_VERSION} · Build {BUILD}</p>
@@ -62,7 +62,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 gap-0 lg:grid-cols-2">
             <ChevronRow icon={UserCircle2} iconBg="bg-[#f5f3ff]" iconColor="text-[#7c3aed]"
               title="Switch Account"  desc="Log in to a different Teezer account" />
-            <SettingsRow icon={LogOut}    iconBg="bg-[#fff0f4]"  iconColor="text-[#dc2626]"
+            <SettingsRow icon={LogOut}    iconBg="bg-[#fff3ec]"  iconColor="text-[#dc2626]"
               title="Log Out"         desc="Sign out of your current Teezer account"
               right={<Btn label="Log Out" variant="danger" onClick={() => router.push("/auth/login")} />} last />
           </div>

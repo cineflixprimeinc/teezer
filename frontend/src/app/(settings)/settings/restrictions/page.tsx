@@ -182,7 +182,7 @@ export default function RestrictionsPage() {
         <button
           onClick={() => refetch()}
           disabled={isFetching}
-          className="flex items-center gap-1.5 rounded-full border border-[#e8eaf0] bg-white px-3 py-1.5 text-[11px] font-semibold text-[#374151] transition-colors hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:opacity-60"
+          className="flex items-center gap-1.5 rounded-full border border-[#e8eaf0] bg-white px-3 py-1.5 text-[11px] font-semibold text-[#374151] transition-colors hover:border-[#fd4605] hover:text-[#fd4605] disabled:opacity-60"
         >
           <RefreshCw className={`h-3 w-3 ${isFetching ? "animate-spin" : ""}`} />
           Refresh

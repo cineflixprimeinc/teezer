@@ -121,7 +121,7 @@ const GRADS = [
   "linear-gradient(135deg,#f77f00,#d62828)",
   "linear-gradient(135deg,#134e5e,#71b280)",
   "linear-gradient(135deg,#667eea,#764ba2)",
-  "linear-gradient(135deg,#fe2c55,#c02040)",
+  "linear-gradient(135deg,#fd4605,#b83203)",
   "linear-gradient(135deg,#2193b0,#6dd5ed)",
 ];
 function grad(s: string) {
@@ -346,13 +346,13 @@ function DetailPanel({
           <div className="flex items-center gap-2.5">
             <div
               className="grid h-9 w-9 place-items-center rounded-full"
-              style={{ background: isRestriction ? (isActive ? "#fee2e2" : "#dcfce7") : "#fff0f4" }}
+              style={{ background: isRestriction ? (isActive ? "#fee2e2" : "#dcfce7") : "#fff3ec" }}
             >
               {isRestriction
                 ? (isActive
                     ? <AlertTriangle className="h-4.5 w-4.5 text-[#dc2626]" />
                     : <CheckCircle2 className="h-4.5 w-4.5 text-[#16a34a]" />)
-                : <Shield className="h-4 w-4 text-[#fe2c55]" />
+                : <Shield className="h-4 w-4 text-[#fd4605]" />
               }
             </div>
             <div>
@@ -435,7 +435,7 @@ function DetailPanel({
         {/* Actions */}
         <div className="flex-shrink-0 border-t border-[#f3f4f6] px-5 py-4 space-y-2.5">
           {isRestriction && (
-            <button className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#fe2c55] py-3 text-[14px] font-bold text-white hover:bg-[#e02449] transition-colors">
+            <button className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#fd4605] py-3 text-[14px] font-bold text-white hover:bg-[#e03e04] transition-colors">
               <ArrowUpRight className="h-4 w-4" />
               View Community Guidelines
             </button>
@@ -485,8 +485,8 @@ function BulletItem({ ok, text }: { ok: boolean; text: string }) {
 function ErrorState({ onRetry }: { onRetry: () => void }) {
   return (
     <div className="flex flex-col items-center gap-4 py-20 text-center px-8">
-      <div className="grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-[#fff0f4] to-[#fce7f3]">
-        <Bell className="h-9 w-9 text-[#fe2c55] opacity-60" />
+      <div className="grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-[#fff3ec] to-[#fce7f3]">
+        <Bell className="h-9 w-9 text-[#fd4605] opacity-60" />
       </div>
       <div className="space-y-2">
         <p className="text-[17px] font-bold text-[#111827]">Couldn&apos;t load notifications</p>
@@ -496,7 +496,7 @@ function ErrorState({ onRetry }: { onRetry: () => void }) {
       </div>
       <button
         onClick={onRetry}
-        className="rounded-xl border border-[#e5e7eb] px-5 py-2.5 text-[13.5px] font-semibold text-[#5f6675] transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+        className="rounded-xl border border-[#e5e7eb] px-5 py-2.5 text-[13.5px] font-semibold text-[#5f6675] transition hover:border-[#fd4605] hover:text-[#fd4605]"
       >
         Try again
       </button>
@@ -508,8 +508,8 @@ function ErrorState({ onRetry }: { onRetry: () => void }) {
 function EmptyState({ hasFilters }: { hasFilters: boolean }) {
   return (
     <div className="flex flex-col items-center gap-4 py-20 text-center px-8">
-      <div className="grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-[#fff0f4] to-[#fce7f3]">
-        <Bell className="h-9 w-9 text-[#fe2c55] opacity-60" />
+      <div className="grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-[#fff3ec] to-[#fce7f3]">
+        <Bell className="h-9 w-9 text-[#fd4605] opacity-60" />
       </div>
       <div className="space-y-2">
         <p className="text-[17px] font-bold text-[#111827]">
@@ -581,7 +581,7 @@ function NotifRow({
       {/* Avatar + badge */}
       <div className="relative flex-shrink-0">
         {isAdmin
-          ? <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#fe2c55] to-[#ff7c9b]"><Shield className="h-5 w-5 text-white" /></div>
+          ? <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#fd4605] to-[#ff8a55]"><Shield className="h-5 w-5 text-white" /></div>
           : n.actor
             ? <MiniAvatar src={n.actor.avatar} name={actorName} size={44} />
             : <div className="flex h-11 w-11 items-center justify-center rounded-full" style={{ background: meta.bg }}>
@@ -596,7 +596,7 @@ function NotifRow({
         {/* Type label row */}
         <div className="flex items-center gap-1.5 mb-0.5">
           {isAdmin
-            ? <span className="flex items-center gap-1 text-[10.5px] font-bold uppercase tracking-wider text-[#fe2c55]"><Shield className="h-2.5 w-2.5" />Teezer</span>
+            ? <span className="flex items-center gap-1 text-[10.5px] font-bold uppercase tracking-wider text-[#fd4605]"><Shield className="h-2.5 w-2.5" />Teezer</span>
             : <span className="text-[10.5px] font-bold uppercase tracking-wider" style={{ color: meta.color }}>{meta.label}</span>
           }
         </div>
@@ -608,7 +608,7 @@ function NotifRow({
         {/* Follow request actions */}
         {n.type === "follow_request" && n.action_status === "pending" && (
           <div className="mt-2 flex gap-2" onClick={e => e.stopPropagation()}>
-            <button onClick={() => onApprove?.(n.id)} className="rounded-full bg-[#fe2c55] px-4 py-1.5 text-[12px] font-bold text-white hover:bg-[#e02449] transition-colors">Approve</button>
+            <button onClick={() => onApprove?.(n.id)} className="rounded-full bg-[#fd4605] px-4 py-1.5 text-[12px] font-bold text-white hover:bg-[#e03e04] transition-colors">Approve</button>
             <button onClick={() => onReject?.(n.id)}  className="rounded-full border border-[#e5e7eb] px-4 py-1.5 text-[12px] font-bold text-[#374151] hover:bg-[#f8f9fb] transition-colors">Reject</button>
           </div>
         )}
@@ -617,7 +617,7 @@ function NotifRow({
             require the tagged user's approval before they show publicly. */}
         {isTagOrCollab && n.action_status === "pending" && (
           <div className="mt-2 flex gap-2" onClick={e => e.stopPropagation()}>
-            <button onClick={() => onApprove?.(n.id)} className="rounded-full bg-[#fe2c55] px-4 py-1.5 text-[12px] font-bold text-white hover:bg-[#e02449] transition-colors">Approve</button>
+            <button onClick={() => onApprove?.(n.id)} className="rounded-full bg-[#fd4605] px-4 py-1.5 text-[12px] font-bold text-white hover:bg-[#e03e04] transition-colors">Approve</button>
             <button onClick={() => onReject?.(n.id)}  className="rounded-full border border-[#e5e7eb] px-4 py-1.5 text-[12px] font-bold text-[#374151] hover:bg-[#f8f9fb] transition-colors">Decline</button>
           </div>
         )}
@@ -634,7 +634,7 @@ function NotifRow({
             onClick={e => { e.stopPropagation(); onMarkRead(n.id); }}
             className={cn(
               "mt-2 rounded-full px-4 py-1.5 text-[12px] font-bold transition-colors",
-              n.actionVariant === "primary" ? "bg-[#fe2c55] text-white hover:bg-[#e02449]" : "border border-[#e5e7eb] text-[#111827] hover:bg-[#f8f9fb]"
+              n.actionVariant === "primary" ? "bg-[#fd4605] text-white hover:bg-[#e03e04]" : "border border-[#e5e7eb] text-[#111827] hover:bg-[#f8f9fb]"
             )}
           >
             {n.actionLabel}
@@ -660,7 +660,7 @@ function NotifRow({
             <img src={n.thumbnail} alt="" className="h-full w-full object-cover" />
           </div>
         )}
-        {!n.is_read && <span className="h-2 w-2 rounded-full bg-[#fe2c55] flex-shrink-0" />}
+        {!n.is_read && <span className="h-2 w-2 rounded-full bg-[#fd4605] flex-shrink-0" />}
         <ThreeDotMenu
           isRead={n.is_read}
           onMarkRead={() => onMarkRead(n.id)}
@@ -858,11 +858,11 @@ export function NotificationsCenter() {
           {unreadCount > 0 && (
             <button
               onClick={markAllRead}
-              className="flex flex-shrink-0 items-center gap-2 rounded-full border border-[#e5e7eb] bg-white px-4 py-2 text-[13px] font-semibold text-[#374151] shadow-sm hover:border-[#fe2c55] hover:text-[#fe2c55] transition-colors"
+              className="flex flex-shrink-0 items-center gap-2 rounded-full border border-[#e5e7eb] bg-white px-4 py-2 text-[13px] font-semibold text-[#374151] shadow-sm hover:border-[#fd4605] hover:text-[#fd4605] transition-colors"
             >
               <Check className="h-3.5 w-3.5" />
               Mark all read
-              <span className="rounded-full bg-[#fe2c55] px-1.5 py-0.5 text-[10px] font-bold text-white">
+              <span className="rounded-full bg-[#fd4605] px-1.5 py-0.5 text-[10px] font-bold text-white">
                 {unreadCount > 99 ? "99+" : unreadCount}
               </span>
             </button>
@@ -878,8 +878,8 @@ export function NotificationsCenter() {
               className={cn(
                 "flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[12.5px] font-semibold transition-all whitespace-nowrap",
                 activeTab === tab.id
-                  ? "bg-[#fe2c55] text-white shadow-sm"
-                  : "border border-[#e5e7eb] bg-white text-[#5f6675] hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                  ? "bg-[#fd4605] text-white shadow-sm"
+                  : "border border-[#e5e7eb] bg-white text-[#5f6675] hover:border-[#fd4605] hover:text-[#fd4605]"
               )}
             >
               <tab.Icon className="h-3.5 w-3.5 flex-shrink-0" />
@@ -898,7 +898,7 @@ export function NotificationsCenter() {
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder="Search notifications…"
-              className="w-full rounded-2xl border border-[#e5e7eb] bg-white py-2.5 pl-10 pr-9 text-[13.5px] text-[#111827] placeholder-[#9aa1ad] outline-none transition focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10"
+              className="w-full rounded-2xl border border-[#e5e7eb] bg-white py-2.5 pl-10 pr-9 text-[13.5px] text-[#111827] placeholder-[#9aa1ad] outline-none transition focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10"
             />
             {search && (
               <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9aa1ad] hover:text-[#374151] transition-colors">
@@ -915,7 +915,7 @@ export function NotificationsCenter() {
                 onClick={() => setReadFilter(f)}
                 className={cn(
                   "rounded-xl px-3 py-1.5 text-[12px] font-semibold capitalize transition-colors",
-                  readFilter === f ? "bg-[#fe2c55] text-white" : "text-[#5f6675] hover:text-[#374151]"
+                  readFilter === f ? "bg-[#fd4605] text-white" : "text-[#5f6675] hover:text-[#374151]"
                 )}
               >
                 {f}
@@ -975,10 +975,10 @@ export function NotificationsCenter() {
               <button
                 onClick={loadMore}
                 disabled={loadingMore}
-                className="flex w-full items-center justify-center gap-2 rounded-xl border border-[#e5e7eb] py-2.5 text-[13px] font-semibold text-[#5f6675] transition hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:opacity-50"
+                className="flex w-full items-center justify-center gap-2 rounded-xl border border-[#e5e7eb] py-2.5 text-[13px] font-semibold text-[#5f6675] transition hover:border-[#fd4605] hover:text-[#fd4605] disabled:opacity-50"
               >
                 {loadingMore
-                  ? <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+                  ? <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
                   : <><ChevronDown className="h-4 w-4" /> Load more</>
                 }
               </button>

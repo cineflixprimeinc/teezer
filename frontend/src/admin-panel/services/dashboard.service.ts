@@ -111,7 +111,7 @@ const FALLBACK_REVENUE: RevenueData = {
   totalRevenue: 0, growth: 0,
   breakdown: [
     { label:"Coins Revenue",        value:0, growth:0, color:"#3b82f6" },
-    { label:"Subscription Revenue", value:0, growth:0, color:"#fe2c55" },
+    { label:"Subscription Revenue", value:0, growth:0, color:"#fd4605" },
     { label:"Promotion Revenue",    value:0, growth:0, color:"#f59e0b" },
     { label:"Other Revenue",        value:0, growth:0, color:"#10b981" },
   ],

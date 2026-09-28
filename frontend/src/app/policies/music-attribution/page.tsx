@@ -148,7 +148,7 @@ export default function MusicAttributionPolicyPage() {
         Automatic identification makes mistakes in both directions - crediting the wrong recording, or
         failing to identify one that is there. If a credit on your video is wrong, or a video credits
         your recording incorrectly, email{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>{" "}
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>{" "}
         with the video link and what you believe the correct credit is.
       </P>
       <P>
@@ -160,7 +160,7 @@ export default function MusicAttributionPolicyPage() {
       <P>
         If you hold rights in a recording or composition and want to raise an infringement claim,
         contact{" "}
-        <a href={`mailto:${RIGHTS_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{RIGHTS_EMAIL}</a>{" "}
+        <a href={`mailto:${RIGHTS_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{RIGHTS_EMAIL}</a>{" "}
         with the subject line &quot;Music Rights&quot;, identifying the work, the specific videos, and
         your authority to act. Claims are handled under our{" "}
         <DocLink href="/policies/enforcement">Enforcement &amp; Appeals</DocLink> policy.
@@ -174,7 +174,7 @@ export default function MusicAttributionPolicyPage() {
       <H2 id="contact" n={9}>Contact</H2>
       <P>
         Questions about this policy:{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fe2c55] hover:underline">{CONTACT_EMAIL}</a>{" "}
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#fd4605] hover:underline">{CONTACT_EMAIL}</a>{" "}
         with the subject line &quot;Music Attribution&quot;.
       </P>
     </LegalShell>

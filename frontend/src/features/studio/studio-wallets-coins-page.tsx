@@ -155,7 +155,7 @@ function txMeta(t: string) {
 ══════════════════════════════════════════════════════════════════════════ */
 function PlanCard({ pkg, selected, onSelect }: { pkg: CoinPackage; selected: boolean; onSelect: () => void }) {
   const badgeColor =
-    pkg.badge === "Popular" ? "#fe2c55" :
+    pkg.badge === "Popular" ? "#fd4605" :
     pkg.badge === "Creator" ? "#7c3aed" :
     pkg.badge === "Boost"   ? "#2563eb" :
     pkg.badge === "Pro"     ? "#0891b2" : "#374151";
@@ -166,7 +166,7 @@ function PlanCard({ pkg, selected, onSelect }: { pkg: CoinPackage; selected: boo
       className={cn(
         "relative flex flex-col items-center rounded-[16px] border px-2 pb-4 pt-6 transition focus:outline-none",
         selected
-          ? "border-[#fe2c55] bg-[#fff5f7] shadow-[0_0_0_2px_#fe2c55]"
+          ? "border-[#fd4605] bg-[#fff6f1] shadow-[0_0_0_2px_#fd4605]"
           : "border-[#f0f1f5] bg-white hover:border-[#fca5a5] hover:shadow-sm",
         pkg.badge && !selected && "border-[#fed7aa]",
       )}
@@ -178,7 +178,7 @@ function PlanCard({ pkg, selected, onSelect }: { pkg: CoinPackage; selected: boo
         >{pkg.badge}</span>
       )}
       {selected && (
-        <span className="absolute right-2 top-2 flex items-center justify-center rounded-full bg-[#fe2c55]" style={{ width: 18, height: 18 }}>
+        <span className="absolute right-2 top-2 flex items-center justify-center rounded-full bg-[#fd4605]" style={{ width: 18, height: 18 }}>
           <svg width="8" height="8" viewBox="0 0 10 10" fill="none">
             <path d="M1.5 5l2.5 2.5 4.5-5" stroke="#fff" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -362,7 +362,7 @@ function SeeMoreModal({
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder="Search by name, RC amount, or price…"
-              className="w-full rounded-[10px] border border-[#e5e7eb] bg-[#f8f9fb] py-2.5 pl-9 pr-9 text-[13px] outline-none focus:border-[#fe2c55] focus:bg-white"
+              className="w-full rounded-[10px] border border-[#e5e7eb] bg-[#f8f9fb] py-2.5 pl-9 pr-9 text-[13px] outline-none focus:border-[#fd4605] focus:bg-white"
             />
             {search && (
               <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9ca3af]">
@@ -378,7 +378,7 @@ function SeeMoreModal({
                 className={cn(
                   "rounded-full border px-3 py-1 text-[11.5px] font-bold transition",
                   filter === f.id
-                    ? "border-[#fe2c55] bg-[#fe2c55] text-white"
+                    ? "border-[#fd4605] bg-[#fd4605] text-white"
                     : "border-[#e5e7eb] bg-white text-[#374151] hover:border-[#fca5a5]",
                 )}
               >{f.label}</button>
@@ -398,14 +398,14 @@ function SeeMoreModal({
               <p className="mt-3 text-[13.5px] font-bold text-[#374151]">No plans found</p>
               <p className="mt-1 text-[11.5px] text-[#9ca3af]">Try a different search or filter</p>
               <button onClick={() => { setSearch(""); setFilter("all"); }}
-                className="mt-3 text-[12.5px] font-bold text-[#fe2c55]">Clear filters</button>
+                className="mt-3 text-[12.5px] font-bold text-[#fd4605]">Clear filters</button>
             </div>
           ) : (
             <div className="grid grid-cols-5 gap-3">
               {displayList.map(p => {
                 const isSel = p.id === currentId;
                 const badgeColor =
-                  p.badge === "Popular" ? "#fe2c55" :
+                  p.badge === "Popular" ? "#fd4605" :
                   p.badge === "Creator" ? "#7c3aed" :
                   p.badge === "Boost"   ? "#2563eb" : "#0891b2";
                 return (
@@ -415,7 +415,7 @@ function SeeMoreModal({
                     className={cn(
                       "relative flex flex-col items-center rounded-[14px] border px-2 pb-3 pt-5 text-center transition hover:shadow-sm",
                       isSel
-                        ? "border-[#fe2c55] bg-[#fff5f7] shadow-md"
+                        ? "border-[#fd4605] bg-[#fff6f1] shadow-md"
                         : "border-[#f0f1f5] bg-white hover:border-[#fca5a5]",
                       p.badge && !isSel && "border-[#fed7aa]",
                     )}
@@ -425,7 +425,7 @@ function SeeMoreModal({
                         style={{ background: badgeColor }}>{p.badge}</span>
                     )}
                     {isSel && (
-                      <span className="absolute right-1.5 top-1.5 flex items-center justify-center rounded-full bg-[#fe2c55]" style={{ width: 16, height: 16 }}>
+                      <span className="absolute right-1.5 top-1.5 flex items-center justify-center rounded-full bg-[#fd4605]" style={{ width: 16, height: 16 }}>
                         <svg width="7" height="7" viewBox="0 0 10 10" fill="none">
                           <path d="M1.5 5l2.5 2.5 4.5-5" stroke="#fff" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
@@ -436,7 +436,7 @@ function SeeMoreModal({
                     </span>
                     <CoinPlanIcon icon={p.icon} iconUrl={p.icon_url} sort={p.sort_order} size={48} />
                     <p className="mt-1.5 text-[11.5px] font-black leading-tight text-[#111827]">{p.plan_name}</p>
-                    <p className="text-[10px] font-bold text-[#fe2c55]">{fmtRC(p.coins)} RC</p>
+                    <p className="text-[10px] font-bold text-[#fd4605]">{fmtRC(p.coins)} RC</p>
                     <p className="mt-1 text-[13px] font-black text-[#111827]">{fmtUSD(p.price_usd)}</p>
                     {/* Not "$0.01/RC": rounded to cents that reads the same on every plan and
                         is wrong on the cheap ones ($0.0127). Coins per dollar is the number a
@@ -538,7 +538,7 @@ function TransactionsModal({ initialType, onClose }: {
           <button
             onClick={onClose}
             aria-label="Close"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f3f4f6] text-[#374151] transition hover:bg-[#e5e7eb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fe2c55]"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f3f4f6] text-[#374151] transition hover:bg-[#e5e7eb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fd4605]"
           >
             <X className="h-4 w-4" />
           </button>
@@ -554,7 +554,7 @@ function TransactionsModal({ initialType, onClose }: {
                 className={cn(
                   "whitespace-nowrap rounded-full px-3 py-1.5 text-[11.5px] font-bold transition",
                   type === k
-                    ? "bg-[#fe2c55] text-white"
+                    ? "bg-[#fd4605] text-white"
                     : "bg-[#f3f4f6] text-[#6b7280] hover:bg-[#e5e7eb]",
                 )}
               >
@@ -730,7 +730,7 @@ function PayPalCheckout({ selectedPkg, canBuy, clientId, pendingOrderRef, onSucc
   if (isPending) {
     return (
       <div className="flex items-center justify-center gap-2 rounded-[10px] border border-[#e5e7eb] bg-[#f8f9fb] py-3">
-        <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+        <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
         <span className="text-[12px] text-[#6b7280]">Loading PayPal…</span>
       </div>
     );
@@ -805,7 +805,7 @@ function StripePaymentForm({ orderId, onSuccess, onCancel }: {
       <button
         type="submit"
         disabled={!stripe || paying}
-        className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#fe2c55] py-3 text-[13px] font-black text-white transition hover:bg-[#e0193f] disabled:opacity-50"
+        className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#fd4605] py-3 text-[13px] font-black text-white transition hover:bg-[#e03e04] disabled:opacity-50"
       >
         <Lock className="h-3.5 w-3.5" />
         {paying ? "Processing…" : "Pay Now"}
@@ -868,7 +868,7 @@ function StripeCheckout({ selectedPkg, onSuccess, onCancel }: {
       <button
         onClick={initStripe}
         disabled={loading}
-        className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#fe2c55] py-3 text-[13px] font-black text-white transition hover:bg-[#e0193f] disabled:opacity-60"
+        className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#fd4605] py-3 text-[13px] font-black text-white transition hover:bg-[#e03e04] disabled:opacity-60"
       >
         <Lock className="h-3.5 w-3.5" />
         {loading ? "Loading…" : `Pay with Card - $${selectedPkg.price_usd.toFixed(2)}`}
@@ -1193,7 +1193,7 @@ export function StudioWalletsCoinsPage() {
                 <div className="rounded-[16px] border border-[#f0f1f5] bg-white shadow-sm">
                   <div className="flex items-start gap-3 p-5">
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[12px] bg-[#fff0f3]">
-                      <Wallet className="h-5 w-5 text-[#fe2c55]"/>
+                      <Wallet className="h-5 w-5 text-[#fd4605]"/>
                     </div>
                     <div>
                       <p className="flex items-center gap-1 text-[11.5px] font-semibold text-[#9ca3af]">
@@ -1207,7 +1207,7 @@ export function StudioWalletsCoinsPage() {
                         : <p className="mt-0.5 text-[26px] font-black leading-tight text-[#111827]">{wallet ? fmtUSD(wallet.wallet_balance_usd) : "$0.00"}</p>
                       }
                       <p className="text-[10.5px] text-[#9ca3af]">Withdrawable</p>
-                      <button className="mt-3 rounded-[8px] border border-[#fe2c55] px-4 py-1.5 text-[12px] font-bold text-[#fe2c55] hover:bg-[#fff0f3] transition active:scale-[.97]">
+                      <button className="mt-3 rounded-[8px] border border-[#fd4605] px-4 py-1.5 text-[12px] font-bold text-[#fd4605] hover:bg-[#fff0f3] transition active:scale-[.97]">
                         Withdraw
                       </button>
                     </div>
@@ -1397,7 +1397,7 @@ export function StudioWalletsCoinsPage() {
                           {/* See More Gifts - opens the full 200-pack catalog */}
                           <button
                             onClick={() => setShowModal(true)}
-                            className="group relative flex flex-col items-center justify-center gap-2 overflow-hidden rounded-[16px] border border-dashed border-[#fca5a5] bg-gradient-to-b from-[#fff5f7] to-[#ffe4e6] px-2 py-3 transition hover:border-solid hover:border-[#fe2c55] hover:shadow-[0_8px_20px_-10px_rgba(254,44,85,.55)] active:scale-[.97]"
+                            className="group relative flex flex-col items-center justify-center gap-2 overflow-hidden rounded-[16px] border border-dashed border-[#fca5a5] bg-gradient-to-b from-[#fff6f1] to-[#ffe4e6] px-2 py-3 transition hover:border-solid hover:border-[#fd4605] hover:shadow-[0_8px_20px_-10px_rgba(253,70,5,.55)] active:scale-[.97]"
                           >
                             <span className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-white/50 opacity-0 transition-all duration-500 group-hover:left-[110%] group-hover:opacity-100" />
 
@@ -1417,10 +1417,10 @@ export function StudioWalletsCoinsPage() {
                               ))}
                             </div>
 
-                            <p className="text-center text-[11px] font-black leading-tight text-[#fe2c55]">
+                            <p className="text-center text-[11px] font-black leading-tight text-[#fd4605]">
                               See More Gifts
                             </p>
-                            <span className="flex items-center gap-1 rounded-full bg-[#fe2c55] px-2.5 py-1 text-[9.5px] font-black text-white shadow-sm">
+                            <span className="flex items-center gap-1 rounded-full bg-[#fd4605] px-2.5 py-1 text-[9.5px] font-black text-white shadow-sm">
                               +{morePkgs.length} more
                               <ChevronRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
                             </span>
@@ -1430,12 +1430,12 @@ export function StudioWalletsCoinsPage() {
 
                       {/* Plan picked from the modal (not in the front row) */}
                       {selectedPkg && !frontPkgs.find(p => p.id === selectedPkg.id) && (
-                        <div className="mt-3 flex items-center gap-3 rounded-[12px] border border-[#fe2c55] bg-[#fff5f7] px-4 py-3">
+                        <div className="mt-3 flex items-center gap-3 rounded-[12px] border border-[#fd4605] bg-[#fff6f1] px-4 py-3">
                           <CoinPlanIcon icon={selectedPkg.icon} iconUrl={selectedPkg.icon_url} sort={selectedPkg.sort_order} size={42}/>
                           <div className="flex-1">
                             <p className="text-[12.5px] font-black text-[#111827]">{selectedPkg.plan_name}</p>
                             <div className="flex items-center gap-1.5">
-                              <span className="text-[11px] font-bold text-[#fe2c55]">{fmtRC(selectedPkg.coins)} RC</span>
+                              <span className="text-[11px] font-bold text-[#fd4605]">{fmtRC(selectedPkg.coins)} RC</span>
                               <span className="text-[#d1d5db]">·</span>
                               <span className="text-[11px] text-[#6b7280]">{fmtUSD(selectedPkg.price_usd)}</span>
                             </div>
@@ -1499,7 +1499,7 @@ export function StudioWalletsCoinsPage() {
                       <select
                         value={txFilter}
                         onChange={e => setTxFilter(e.target.value)}
-                        className="rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12px] font-semibold text-[#374151] outline-none focus:border-[#fe2c55]"
+                        className="rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2 text-[12px] font-semibold text-[#374151] outline-none focus:border-[#fd4605]"
                       >
                         <option value="all">All Transactions</option>
                         {Object.entries(TX_META).map(([k, m]) => (
@@ -1576,7 +1576,7 @@ export function StudioWalletsCoinsPage() {
                       <button
                         type="button"
                         onClick={() => setShowTxModal(true)}
-                        className="flex items-center gap-1 rounded text-[12px] font-bold text-[#fe2c55] transition hover:text-[#e0193f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fe2c55]"
+                        className="flex items-center gap-1 rounded text-[12px] font-bold text-[#fd4605] transition hover:text-[#e03e04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fd4605]"
                       >
                         View All Transactions <ChevronRight className="h-3.5 w-3.5"/>
                       </button>
@@ -1600,8 +1600,8 @@ export function StudioWalletsCoinsPage() {
                             <div className="flex-1 min-w-0">
                               <p className="truncate text-[12.5px] font-black text-[#111827]">{selectedPkg.plan_name}</p>
                               <div className="flex items-center gap-1.5">
-                                <span className="text-[11px] font-bold text-[#fe2c55]">{fmtRC(selectedPkg.coins)} RC</span>
-                                {selectedPkg.badge && <span className="rounded-full bg-[#fe2c55] px-1.5 py-0.5 text-[8px] font-black text-white">{selectedPkg.badge}</span>}
+                                <span className="text-[11px] font-bold text-[#fd4605]">{fmtRC(selectedPkg.coins)} RC</span>
+                                {selectedPkg.badge && <span className="rounded-full bg-[#fd4605] px-1.5 py-0.5 text-[8px] font-black text-white">{selectedPkg.badge}</span>}
                               </div>
                             </div>
                             <button onClick={() => setSelectedPkg(null)} className="text-[#9ca3af] hover:text-[#374151]"><X className="h-4 w-4"/></button>
@@ -1699,8 +1699,8 @@ export function StudioWalletsCoinsPage() {
                       {PAYMENT_METHODS.map(m => (
                         <label key={m.id} className="flex cursor-pointer items-center justify-between py-3" onClick={() => setPayMethod(m.id)}>
                           <div className="flex items-center gap-2.5">
-                            <div className={cn("flex h-4 w-4 items-center justify-center rounded-full border-2 transition", payMethod === m.id ? "border-[#fe2c55]" : "border-[#d1d5db]")}>
-                              {payMethod === m.id && <div className="h-2 w-2 rounded-full bg-[#fe2c55]"/>}
+                            <div className={cn("flex h-4 w-4 items-center justify-center rounded-full border-2 transition", payMethod === m.id ? "border-[#fd4605]" : "border-[#d1d5db]")}>
+                              {payMethod === m.id && <div className="h-2 w-2 rounded-full bg-[#fd4605]"/>}
                             </div>
                             <div>
                               <p className="text-[12px] font-bold text-[#374151]">{m.label}</p>
@@ -1717,13 +1717,13 @@ export function StudioWalletsCoinsPage() {
                   <div className="rounded-[16px] border border-[#f0f1f5] bg-white p-4 shadow-sm">
                     <div className="mb-2.5 flex items-center gap-2">
                       <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#fff0f3]">
-                        <Info className="h-4 w-4 text-[#fe2c55]"/>
+                        <Info className="h-4 w-4 text-[#fd4605]"/>
                       </div>
                       <h3 className="text-[12.5px] font-black text-[#111827]">Gift Commission Rule</h3>
                     </div>
                     <div className="space-y-1.5 text-[11px]">
                       <div className="flex items-center gap-2 rounded-[8px] bg-[#fff0f3] px-3 py-2">
-                        <span className="font-black text-[#fe2c55]">30%</span>
+                        <span className="font-black text-[#fd4605]">30%</span>
                         <span className="text-[#374151]">Teezer commission on all received gifts</span>
                       </div>
                       <div className="flex items-center gap-2 rounded-[8px] bg-[#dcfce7] px-3 py-2">

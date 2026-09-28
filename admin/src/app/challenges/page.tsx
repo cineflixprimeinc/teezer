@@ -102,8 +102,8 @@ export default function ChallengesPage() {
         {/* Header */}
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="flex items-start gap-3">
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#fe2c55]/10">
-              <Trophy className="h-5 w-5 text-[#fe2c55]" />
+            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#fd4605]/10">
+              <Trophy className="h-5 w-5 text-[#fd4605]" />
             </div>
             <div>
               <h2 className="text-[20px] font-bold text-[#111827]">Hashtag Challenges</h2>
@@ -114,7 +114,7 @@ export default function ChallengesPage() {
           </div>
           <button
             onClick={() => setCreating(true)}
-            className="inline-flex h-10 items-center gap-2 rounded-[12px] bg-[#fe2c55] px-4 text-[13px] font-semibold text-white transition hover:bg-[#e0243d]"
+            className="inline-flex h-10 items-center gap-2 rounded-[12px] bg-[#fd4605] px-4 text-[13px] font-semibold text-white transition hover:bg-[#e03e04]"
           >
             <Plus className="h-4 w-4" /> New Challenge
           </button>
@@ -124,7 +124,7 @@ export default function ChallengesPage() {
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           <StatCard label="Active" value={stats.active} sub="open for entries" icon={CheckCircle2} color="#10b981" loading={statsQ.isLoading} />
           <StatCard label="Ended" value={stats.ended} sub="closed challenges" icon={XCircle} color="#9ca3af" loading={statsQ.isLoading} />
-          <StatCard label="Total" value={stats.total} sub="all-time" icon={Trophy} color="#fe2c55" loading={statsQ.isLoading} />
+          <StatCard label="Total" value={stats.total} sub="all-time" icon={Trophy} color="#fd4605" loading={statsQ.isLoading} />
           <StatCard label="Participants" value={stats.total_participants} sub="joins across all challenges" icon={Users} color="#3b82f6" loading={statsQ.isLoading} />
         </div>
 
@@ -361,7 +361,7 @@ function Field({ label, hint, children }: { label: string; hint?: string; childr
 }
 
 const inputCls =
-  "mt-1 w-full rounded-[10px] border border-[#e5e7eb] px-3 py-2.5 text-[13px] outline-none transition focus:border-[#fe2c55]";
+  "mt-1 w-full rounded-[10px] border border-[#e5e7eb] px-3 py-2.5 text-[13px] outline-none transition focus:border-[#fd4605]";
 
 /** yyyy-MM-ddTHH:mm for a <input type="datetime-local"> from an ISO string. */
 function toLocalInput(iso: string | null): string {
@@ -457,7 +457,7 @@ function ChallengeForm({
         <button
           onClick={() => m.mutate()}
           disabled={m.isPending || !valid}
-          className="mt-2 w-full rounded-[10px] bg-[#fe2c55] py-3 text-[13px] font-black text-white transition hover:bg-[#e0193f] disabled:opacity-50"
+          className="mt-2 w-full rounded-[10px] bg-[#fd4605] py-3 text-[13px] font-black text-white transition hover:bg-[#e03e04] disabled:opacity-50"
         >
           {m.isPending ? "Saving…" : isEdit ? "Save changes" : "Create challenge"}
         </button>

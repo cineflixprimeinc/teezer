@@ -120,7 +120,7 @@ export default function ShopApplicationsPage() {
           <CardHeader>
             <CardTitle>Seller Applications</CardTitle>
             <input
-              className="w-56 rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2 text-[13px] outline-none focus:border-[#fe2c55]"
+              className="w-56 rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2 text-[13px] outline-none focus:border-[#fd4605]"
               placeholder="Search shop or owner…" value={q} onChange={(e) => { setQ(e.target.value); setPage(1); }}
             />
           </CardHeader>
@@ -292,7 +292,7 @@ export default function ShopApplicationsPage() {
         onCancel={() => { setReasonModal(null); setReason(""); }}
       >
         <textarea
-          className="mt-3 w-full rounded-[10px] border border-[#e5e7eb] p-2.5 text-[13px] outline-none focus:border-[#fe2c55]"
+          className="mt-3 w-full rounded-[10px] border border-[#e5e7eb] p-2.5 text-[13px] outline-none focus:border-[#fd4605]"
           rows={3} value={reason} onChange={(e) => setReason(e.target.value)}
           placeholder={reasonModal === "suspend" ? "Reason (optional)" : "Explain what's needed…"}
         />

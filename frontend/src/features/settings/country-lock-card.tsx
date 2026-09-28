@@ -176,7 +176,7 @@ export function CountryLockCard() {
       <div className="flex items-start justify-between gap-4">
         <div>
           <h3 className="text-base font-bold text-[#111827] flex items-center gap-2">
-            <Globe className="h-4 w-4 text-[#fe2c55]" />
+            <Globe className="h-4 w-4 text-[#fd4605]" />
             Country & Region
           </h3>
           <p className="mt-1 text-xs text-[#6b7280]">
@@ -207,7 +207,7 @@ export function CountryLockCard() {
           </div>
         </div>
         {status.remainingLockDays > 0 ? (
-          <span className="flex items-center gap-1.5 rounded-full bg-[#fff1f3] text-[#fe2c55] px-3 py-1 text-xs font-bold whitespace-nowrap">
+          <span className="flex items-center gap-1.5 rounded-full bg-[#fff1f3] text-[#fd4605] px-3 py-1 text-xs font-bold whitespace-nowrap">
             <Lock className="h-3 w-3" />
             {status.remainingLockDays} day{status.remainingLockDays === 1 ? "" : "s"} left
           </span>
@@ -252,7 +252,7 @@ export function CountryLockCard() {
 
           <div className="h-2 w-full rounded-full bg-[#f0f0f0] overflow-hidden">
             <div
-              className="h-full rounded-full bg-[#fe2c55] transition-all duration-300"
+              className="h-full rounded-full bg-[#fd4605] transition-all duration-300"
               style={{ width: `${progressPct}%` }}
             />
           </div>
@@ -269,7 +269,7 @@ export function CountryLockCard() {
               type="button"
               onClick={confirmChange}
               disabled={busy}
-              className="w-full h-10 rounded-full bg-[#fe2c55] text-sm font-bold text-white hover:bg-[#e0193f] disabled:opacity-60 transition"
+              className="w-full h-10 rounded-full bg-[#fd4605] text-sm font-bold text-white hover:bg-[#e03e04] disabled:opacity-60 transition"
             >
               {busy ? "Updating…" : `Confirm change to ${status.pendingRequestedName}`}
             </button>
@@ -282,7 +282,7 @@ export function CountryLockCard() {
         <button
           type="button"
           onClick={() => setPicker(true)}
-          className="w-full h-10 rounded-full border border-[#e5e7eb] bg-white text-sm font-bold text-[#111827] hover:border-[#fe2c55] hover:text-[#fe2c55] hover:bg-[#fff1f3] transition"
+          className="w-full h-10 rounded-full border border-[#e5e7eb] bg-white text-sm font-bold text-[#111827] hover:border-[#fd4605] hover:text-[#fd4605] hover:bg-[#fff1f3] transition"
         >
           Request country change
         </button>
@@ -308,7 +308,7 @@ export function CountryLockCard() {
               type="button"
               onClick={submitRequest}
               disabled={busy || !target}
-              className="flex-1 h-9 rounded-full bg-[#fe2c55] text-sm font-bold text-white hover:bg-[#e0193f] disabled:opacity-50 transition"
+              className="flex-1 h-9 rounded-full bg-[#fd4605] text-sm font-bold text-white hover:bg-[#e03e04] disabled:opacity-50 transition"
             >
               {busy ? "Starting…" : "Start verification"}
             </button>
@@ -320,7 +320,7 @@ export function CountryLockCard() {
       <div className="rounded-xl border border-dashed border-[#e5e7eb] bg-white px-4 py-4 space-y-3">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-start gap-2">
-            <ShieldCheck className="h-4 w-4 mt-0.5 text-[#fe2c55]" />
+            <ShieldCheck className="h-4 w-4 mt-0.5 text-[#fd4605]" />
             <div>
               <p className="text-sm font-bold text-[#111827]">
                 Change country with documents
@@ -338,7 +338,7 @@ export function CountryLockCard() {
             <button
               type="button"
               onClick={() => setManualOpen(true)}
-              className="flex-shrink-0 h-8 rounded-full border border-[#e5e7eb] bg-white px-3 text-xs font-bold text-[#111827] hover:border-[#fe2c55] hover:text-[#fe2c55] hover:bg-[#fff1f3] transition"
+              className="flex-shrink-0 h-8 rounded-full border border-[#e5e7eb] bg-white px-3 text-xs font-bold text-[#111827] hover:border-[#fd4605] hover:text-[#fd4605] hover:bg-[#fff1f3] transition"
             >
               Upload
             </button>
@@ -362,7 +362,7 @@ export function CountryLockCard() {
                 <select
                   value={docType}
                   onChange={(e) => setDocType(e.target.value as ResidencyDocumentType)}
-                  className="w-full h-10 rounded-xl border border-[#e5e7eb] bg-white px-3 text-sm text-[#111827] focus:outline-none focus:border-[#fe2c55]"
+                  className="w-full h-10 rounded-xl border border-[#e5e7eb] bg-white px-3 text-sm text-[#111827] focus:outline-none focus:border-[#fd4605]"
                 >
                   {DOCUMENT_TYPES.map((t) => (
                     <option key={t.value} value={t.value}>{t.label}</option>
@@ -378,7 +378,7 @@ export function CountryLockCard() {
                   value={residingSince}
                   max={todayMinusDays(60)}
                   onChange={(e) => setResidingSince(e.target.value)}
-                  className="w-full h-10 rounded-xl border border-[#e5e7eb] bg-white px-3 text-sm text-[#111827] focus:outline-none focus:border-[#fe2c55]"
+                  className="w-full h-10 rounded-xl border border-[#e5e7eb] bg-white px-3 text-sm text-[#111827] focus:outline-none focus:border-[#fd4605]"
                 />
                 <p className="mt-1 text-[10.5px] text-[#9ca3af]">
                   Must be at least {status.requiredContinuousDays} days ago.
@@ -395,7 +395,7 @@ export function CountryLockCard() {
                 onChange={(e) => setDocNote(e.target.value.slice(0, 500))}
                 rows={2}
                 placeholder="Anything that helps us verify your residency…"
-                className="w-full rounded-xl border border-[#e5e7eb] bg-white px-3 py-2 text-sm text-[#111827] focus:outline-none focus:border-[#fe2c55] resize-none"
+                className="w-full rounded-xl border border-[#e5e7eb] bg-white px-3 py-2 text-sm text-[#111827] focus:outline-none focus:border-[#fd4605] resize-none"
               />
             </div>
 
@@ -411,7 +411,7 @@ export function CountryLockCard() {
               {docFile ? (
                 <div className="flex items-center justify-between gap-3 rounded-xl border border-[#e5e7eb] bg-[#f8f9fb] px-3 py-2">
                   <div className="flex items-center gap-2 min-w-0">
-                    <FileText className="h-4 w-4 text-[#fe2c55] flex-shrink-0" />
+                    <FileText className="h-4 w-4 text-[#fd4605] flex-shrink-0" />
                     <div className="min-w-0">
                       <p className="text-sm font-semibold text-[#111827] truncate">
                         {docFile.name}
@@ -424,7 +424,7 @@ export function CountryLockCard() {
                   <button
                     type="button"
                     onClick={() => { setDocFile(null); if (docInputRef.current) docInputRef.current.value = ""; }}
-                    className="grid h-8 w-8 place-items-center rounded-full text-[#9ca3af] hover:bg-white hover:text-[#fe2c55] transition"
+                    className="grid h-8 w-8 place-items-center rounded-full text-[#9ca3af] hover:bg-white hover:text-[#fd4605] transition"
                     aria-label="Remove file"
                   >
                     <X className="h-4 w-4" />
@@ -434,7 +434,7 @@ export function CountryLockCard() {
                 <button
                   type="button"
                   onClick={() => docInputRef.current?.click()}
-                  className="flex w-full items-center justify-center gap-2 h-10 rounded-xl border border-dashed border-[#e5e7eb] bg-white text-sm font-semibold text-[#6b7280] hover:border-[#fe2c55] hover:text-[#fe2c55] hover:bg-[#fff1f3] transition"
+                  className="flex w-full items-center justify-center gap-2 h-10 rounded-xl border border-dashed border-[#e5e7eb] bg-white text-sm font-semibold text-[#6b7280] hover:border-[#fd4605] hover:text-[#fd4605] hover:bg-[#fff1f3] transition"
                 >
                   <Upload className="h-4 w-4" />
                   Choose file (PDF, JPG, PNG, WEBP · 10 MB max)
@@ -455,7 +455,7 @@ export function CountryLockCard() {
                 type="button"
                 onClick={submitResidencyDocument}
                 disabled={uploading || !manualCountry || !docFile}
-                className="flex-1 h-9 rounded-full bg-[#fe2c55] text-sm font-bold text-white hover:bg-[#e0193f] disabled:opacity-50 transition"
+                className="flex-1 h-9 rounded-full bg-[#fd4605] text-sm font-bold text-white hover:bg-[#e03e04] disabled:opacity-50 transition"
               >
                 {uploading ? "Uploading…" : "Submit for review"}
               </button>

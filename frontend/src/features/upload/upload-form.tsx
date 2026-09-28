@@ -104,7 +104,7 @@ export function UploadForm({ value, onChange, disabled = false, mediaType }: Pro
           maxLength={DESCRIPTION_MAX}
           rows={3}
           placeholder="Write a caption or description for your post…"
-          className="block h-[88px] w-full resize-none rounded-[10px] border border-[#eeeeee] bg-white p-3 pb-6 text-sm text-black outline-none transition focus:border-[#fe2c55]"
+          className="block h-[88px] w-full resize-none rounded-[10px] border border-[#eeeeee] bg-white p-3 pb-6 text-sm text-black outline-none transition focus:border-[#fd4605]"
         />
         <Counter value={value.description.length} max={DESCRIPTION_MAX} bottom={6} />
       </Field>
@@ -151,7 +151,7 @@ export function UploadForm({ value, onChange, disabled = false, mediaType }: Pro
               type="button"
               onClick={() => addHashtag(hashtagDraft)}
               disabled={disabled}
-              className="inline-flex items-center gap-0.5 rounded-full border border-dashed border-[#cccccc] px-2 py-0.5 text-[11px] font-semibold text-[#5f6675] hover:border-[#fe2c55] hover:text-[#fe2c55]"
+              className="inline-flex items-center gap-0.5 rounded-full border border-dashed border-[#cccccc] px-2 py-0.5 text-[11px] font-semibold text-[#5f6675] hover:border-[#fd4605] hover:text-[#fd4605]"
             >
               <Plus className="h-2.5 w-2.5" /> Add
             </button>
@@ -236,7 +236,7 @@ export function UploadForm({ value, onChange, disabled = false, mediaType }: Pro
               <button
                 type="button"
                 disabled={disabled}
-                className="rounded-[8px] border border-[#eeeeee] bg-white px-2.5 py-1 text-[11px] font-semibold text-black hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                className="rounded-[8px] border border-[#eeeeee] bg-white px-2.5 py-1 text-[11px] font-semibold text-black hover:border-[#fd4605] hover:text-[#fd4605]"
               >
                 Change
               </button>
@@ -256,7 +256,7 @@ function Field({
   return (
     <div>
       <label className="mb-1 block text-[12px] font-semibold text-black">
-        {label} {required && <span className="text-[#fe2c55]">*</span>}
+        {label} {required && <span className="text-[#fd4605]">*</span>}
       </label>
       <div className="relative">{children}</div>
     </div>
@@ -301,7 +301,7 @@ function ToggleRow({
         onClick={() => onChange(!checked)}
         className={cn(
           "relative inline-flex h-5 w-9 items-center rounded-full transition",
-          checked ? "bg-[#fe2c55]" : "bg-[#e5e7eb]",
+          checked ? "bg-[#fd4605]" : "bg-[#e5e7eb]",
         )}
       >
         <span

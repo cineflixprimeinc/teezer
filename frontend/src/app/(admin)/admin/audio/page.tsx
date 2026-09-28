@@ -186,7 +186,7 @@ export default function AudioRoomsPage() {
 
   const TABS: { key: string; label: string; count: number; dot?: string }[] = [
     { key: "", label: "All Rooms", count: total },
-    { key: "live", label: "Live", count: live, dot: "#fe2c55" },
+    { key: "live", label: "Live", count: live, dot: "#fd4605" },
     { key: "scheduled", label: "Scheduled", count: scheduled, dot: "#f59e0b" },
     { key: "ended", label: "Ended", count: ended, dot: "#9ca3af" },
   ];
@@ -199,8 +199,8 @@ export default function AudioRoomsPage() {
           {/* Header */}
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="flex items-start gap-3">
-              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#fe2c55]/10">
-                <Headphones className="h-5 w-5 text-[#fe2c55]" />
+              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#fd4605]/10">
+                <Headphones className="h-5 w-5 text-[#fd4605]" />
               </div>
               <div>
                 <h2 className="text-[20px] font-bold text-[#111827]">Audio Rooms Management</h2>
@@ -211,7 +211,7 @@ export default function AudioRoomsPage() {
             </div>
             <button
               onClick={() => toast.info("Rooms are hosted by creators from the app - there's no admin create flow.")}
-              className="inline-flex h-10 items-center gap-2 rounded-[12px] bg-[#fe2c55] px-4 text-[13px] font-semibold text-white transition hover:bg-[#e0243d]"
+              className="inline-flex h-10 items-center gap-2 rounded-[12px] bg-[#fd4605] px-4 text-[13px] font-semibold text-white transition hover:bg-[#e03e04]"
             >
               <Plus className="h-4 w-4" /> Create Audio Room
             </button>
@@ -219,7 +219,7 @@ export default function AudioRoomsPage() {
 
           {/* Stat cards */}
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
-            <StatCard label="Live Now"       value={live}                    sub="rooms on air now"     icon={Radio}        color="#fe2c55" loading={statsQ.isLoading} />
+            <StatCard label="Live Now"       value={live}                    sub="rooms on air now"     icon={Radio}        color="#fd4605" loading={statsQ.isLoading} />
             <StatCard label="Listening Now"  value={stats.listeners_now}     sub="across live rooms"    icon={Headphones}   color="#3b82f6" loading={statsQ.isLoading} />
             <StatCard label="Scheduled"      value={scheduled}               sub="upcoming rooms"       icon={CalendarClock} color="#f59e0b" loading={statsQ.isLoading} />
             <StatCard label="Total Rooms"    value={total}                   sub="all-time"             icon={AudioLines}   color="#8b5cf6" loading={statsQ.isLoading} />
@@ -271,12 +271,12 @@ export default function AudioRoomsPage() {
                     onClick={() => { setStatus(t.key); setPage(1); }}
                     className={cn(
                       "flex items-center gap-2 border-b-2 py-3 text-[13px] font-semibold transition-colors",
-                      active ? "border-[#fe2c55] text-[#fe2c55]" : "border-transparent text-[#6b7280] hover:text-[#111827]",
+                      active ? "border-[#fd4605] text-[#fd4605]" : "border-transparent text-[#6b7280] hover:text-[#111827]",
                     )}
                   >
                     {t.dot && <span className="h-1.5 w-1.5 rounded-full" style={{ background: t.dot }} />}
                     {t.label}
-                    <span className={cn("rounded-full px-1.5 py-0.5 text-[11px] font-bold", active ? "bg-[#fe2c55]/10 text-[#fe2c55]" : "bg-[#f3f4f6] text-[#9ca3af]")}>
+                    <span className={cn("rounded-full px-1.5 py-0.5 text-[11px] font-bold", active ? "bg-[#fd4605]/10 text-[#fd4605]" : "bg-[#f3f4f6] text-[#9ca3af]")}>
                       {formatCompact(t.count)}
                     </span>
                   </button>
@@ -319,7 +319,7 @@ export default function AudioRoomsPage() {
                       onClick={() => setSelectedId(s.id)}
                       className={cn(
                         "cursor-pointer transition-colors hover:bg-[#f9fafb]",
-                        selectedId === s.id && "bg-[#fff0f4] ring-1 ring-inset ring-[#fe2c55]/40",
+                        selectedId === s.id && "bg-[#fff3ec] ring-1 ring-inset ring-[#fd4605]/40",
                       )}
                     >
                       <td className="px-4 py-3">
@@ -356,7 +356,7 @@ export default function AudioRoomsPage() {
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-1.5" onClick={(e) => e.stopPropagation()}>
                           {s.status === "live" && (
-                            <IconBtn title="Listen" onClick={() => setSelectedId(s.id)} className="text-[#fe2c55]">
+                            <IconBtn title="Listen" onClick={() => setSelectedId(s.id)} className="text-[#fd4605]">
                               <AudioLines className="h-4 w-4" />
                             </IconBtn>
                           )}
@@ -461,7 +461,7 @@ function StatCard({ label, value, sub, icon: Icon, color, loading }: {
 function Avatar({ name, src, size = 24 }: { name: string; src: string | null; size?: number }) {
   if (src) return <img src={src} alt={name} className="rounded-full object-cover" style={{ width: size, height: size }} />;
   return (
-    <div className="grid shrink-0 place-items-center rounded-full bg-[#fe2c55]/10 font-bold text-[#fe2c55]"
+    <div className="grid shrink-0 place-items-center rounded-full bg-[#fd4605]/10 font-bold text-[#fd4605]"
       style={{ width: size, height: size, fontSize: Math.round(size * 0.4) }}>
       {(name?.[0] ?? "?").toUpperCase()}
     </div>
@@ -470,7 +470,7 @@ function Avatar({ name, src, size = 24 }: { name: string; src: string | null; si
 
 function StatusPill({ status }: { status: Space["status"] }) {
   const map = {
-    live:      { label: "LIVE", tone: CATEGORY_TONES.live, dot: "#fe2c55", filled: true },
+    live:      { label: "LIVE", tone: CATEGORY_TONES.live, dot: "#fd4605", filled: true },
     scheduled: { label: "SCHEDULED", tone: CATEGORY_TONES.scheduled, dot: "#f59e0b", filled: true },
     ended:     { label: "ENDED", tone: CATEGORY_TONES.ended, dot: "#9ca3af", filled: false },
   }[status];
@@ -640,23 +640,23 @@ function RoomControlPanel({ space, onClose, onEnd }: { space: Space; onClose: ()
         <div className="rounded-2xl border border-[#e8eaed] p-3">
           <div className="flex items-center justify-between">
             <p className="text-[12px] font-semibold text-[#111827]">Listen to Live Audio</p>
-            {isLive && <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#fe2c55]"><span className="h-1.5 w-1.5 rounded-full bg-[#fe2c55]" /> LIVE</span>}
+            {isLive && <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#fd4605]"><span className="h-1.5 w-1.5 rounded-full bg-[#fd4605]" /> LIVE</span>}
           </div>
           <p className="mt-0.5 text-[11px] text-[#9ca3af]">Listen to the live audio stream as an admin.</p>
           <div className="mt-3 flex h-9 items-center gap-[2px]">
             {BARS.map((h, i) => (
-              <span key={i} className="w-[3px] rounded-full" style={{ height: `${h}px`, background: isLive ? "#fe2c55" : "#e5e7eb", opacity: isLive ? 0.5 + (h / 62) : 1 }} />
+              <span key={i} className="w-[3px] rounded-full" style={{ height: `${h}px`, background: isLive ? "#fd4605" : "#e5e7eb", opacity: isLive ? 0.5 + (h / 62) : 1 }} />
             ))}
           </div>
           <div className="mt-2 flex items-center justify-between text-[11px] font-semibold text-[#6b7280]">
             <span className="tabular-nums">{elapsed}</span>
-            {isLive && <span className="inline-flex items-center gap-1 text-[#fe2c55]"><span className="h-1.5 w-1.5 rounded-full bg-[#fe2c55]" /> LIVE</span>}
+            {isLive && <span className="inline-flex items-center gap-1 text-[#fd4605]"><span className="h-1.5 w-1.5 rounded-full bg-[#fd4605]" /> LIVE</span>}
           </div>
           <div className="mt-3 grid grid-cols-[1fr_auto_auto] gap-2">
             <button onClick={() => setMuted((m) => !m)} className="inline-flex h-9 items-center justify-center gap-1.5 rounded-xl border border-[#e8eaed] bg-white text-[12px] font-semibold text-[#374151] hover:bg-[#f4f5f7]">
               {muted ? <MicOff className="h-3.5 w-3.5" /> : <Mic className="h-3.5 w-3.5" />} {muted ? "Muted" : "Mute Stream"}
             </button>
-            <button onClick={() => toast.info("Live audio relay to the admin console isn't enabled yet.")} disabled={!isLive} className="inline-flex h-9 items-center justify-center gap-1.5 rounded-xl bg-[#fe2c55] px-4 text-[12px] font-semibold text-white transition hover:bg-[#e0243d] disabled:opacity-40">
+            <button onClick={() => toast.info("Live audio relay to the admin console isn't enabled yet.")} disabled={!isLive} className="inline-flex h-9 items-center justify-center gap-1.5 rounded-xl bg-[#fd4605] px-4 text-[12px] font-semibold text-white transition hover:bg-[#e03e04] disabled:opacity-40">
               <PlayCircle className="h-4 w-4" /> Listen Live
             </button>
             <button title="Volume" className="grid h-9 w-9 place-items-center rounded-xl border border-[#e8eaed] bg-white text-[#6b7280] hover:bg-[#f4f5f7]">
@@ -678,12 +678,12 @@ function RoomControlPanel({ space, onClose, onEnd }: { space: Space; onClose: ()
               onClick={() => setTab(key)}
               className={cn(
                 "flex items-center gap-1.5 border-b-2 py-2 text-[12px] font-semibold transition-colors",
-                tab === key ? "border-[#fe2c55] text-[#fe2c55]" : "border-transparent text-[#6b7280] hover:text-[#111827]",
+                tab === key ? "border-[#fd4605] text-[#fd4605]" : "border-transparent text-[#6b7280] hover:text-[#111827]",
               )}
             >
               {label}
               {count != null && count > 0 ? (
-                <span className={cn("rounded-full px-1.5 text-[10px] font-bold", tab === key ? "bg-[#fe2c55]/10 text-[#fe2c55]" : "bg-[#f3f4f6] text-[#9ca3af]")}>{count}</span>
+                <span className={cn("rounded-full px-1.5 text-[10px] font-bold", tab === key ? "bg-[#fd4605]/10 text-[#fd4605]" : "bg-[#f3f4f6] text-[#9ca3af]")}>{count}</span>
               ) : null}
             </button>
           ))}
@@ -758,7 +758,7 @@ function RoomControlPanel({ space, onClose, onEnd }: { space: Space; onClose: ()
               <button
                 onClick={onEnd}
                 disabled={!isLive}
-                className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl border border-[#fe2c55]/30 bg-[#fe2c55]/5 py-2.5 text-[13px] font-bold text-[#fe2c55] transition hover:bg-[#fe2c55]/10 disabled:opacity-40"
+                className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl border border-[#fd4605]/30 bg-[#fd4605]/5 py-2.5 text-[13px] font-bold text-[#fd4605] transition hover:bg-[#fd4605]/10 disabled:opacity-40"
               >
                 <Square className="h-4 w-4" /> End Room for Everyone
               </button>
@@ -801,7 +801,7 @@ function RoomControlPanel({ space, onClose, onEnd }: { space: Space; onClose: ()
                   </div>
                   <span className="text-[11px] text-[#9ca3af]">@{m.username}</span>
                 </div>
-                <span className="inline-flex items-center gap-1 rounded-full bg-[#fe2c55]/10 px-2 py-0.5 text-[10px] font-bold text-[#fe2c55]">
+                <span className="inline-flex items-center gap-1 rounded-full bg-[#fd4605]/10 px-2 py-0.5 text-[10px] font-bold text-[#fd4605]">
                   {m.is_host ? <><Crown className="h-3 w-3" /> Host</> : "Moderator"}
                 </span>
               </div>
@@ -823,7 +823,7 @@ function PanelBtn({ icon: Icon, label, onClick, danger, disabled, wide }: {
       className={cn(
         "inline-flex h-9 items-center justify-center gap-1.5 rounded-xl border px-2 text-[12px] font-semibold transition disabled:opacity-40",
         wide && "col-span-2",
-        danger ? "border-[#fe2c55]/30 text-[#fe2c55] hover:bg-[#fe2c55]/5" : "border-[#e8eaed] text-[#374151] hover:bg-[#f4f5f7]",
+        danger ? "border-[#fd4605]/30 text-[#fd4605] hover:bg-[#fd4605]/5" : "border-[#e8eaed] text-[#374151] hover:bg-[#f4f5f7]",
       )}
     >
       <Icon className="h-3.5 w-3.5" /> {label}
@@ -890,7 +890,7 @@ function ParticipantList({ items, loading, empty, onMute, onRemove, removeLabel 
                   </button>
                 )}
                 {onRemove && (
-                  <button title={removeLabel} disabled={busy} onClick={() => onRemove(p)} className="grid h-7 w-7 place-items-center rounded-lg border border-[#e8eaed] text-[#fe2c55] transition hover:bg-[#fe2c55]/5 disabled:opacity-40">
+                  <button title={removeLabel} disabled={busy} onClick={() => onRemove(p)} className="grid h-7 w-7 place-items-center rounded-lg border border-[#e8eaed] text-[#fd4605] transition hover:bg-[#fd4605]/5 disabled:opacity-40">
                     <UserX className="h-3.5 w-3.5" />
                   </button>
                 )}
@@ -911,7 +911,7 @@ function ToggleRow({ icon: Icon, label, on, onToggle, last }: {
       <span className="flex items-center gap-2 text-[12px] font-medium text-[#374151]"><Icon className="h-4 w-4 text-[#9ca3af]" /> {label}</span>
       <button
         onClick={onToggle}
-        className={cn("relative h-5 w-9 rounded-full transition-colors", on ? "bg-[#fe2c55]" : "bg-[#e5e7eb]")}
+        className={cn("relative h-5 w-9 rounded-full transition-colors", on ? "bg-[#fd4605]" : "bg-[#e5e7eb]")}
         aria-pressed={on}
       >
         <span className={cn("absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-all", on ? "left-[18px]" : "left-0.5")} />

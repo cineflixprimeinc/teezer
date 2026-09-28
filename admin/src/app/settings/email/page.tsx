@@ -19,7 +19,7 @@ function Input({ ...props }: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
       {...props}
-      className="w-full h-[38px] rounded-[10px] border border-[#e8eaed] bg-white px-3 text-[13px] text-[#111827] placeholder:text-[#9ca3af] outline-none focus:border-[#fe2c55] transition-colors disabled:bg-[#f4f5f7] disabled:text-[#9ca3af]"
+      className="w-full h-[38px] rounded-[10px] border border-[#e8eaed] bg-white px-3 text-[13px] text-[#111827] placeholder:text-[#9ca3af] outline-none focus:border-[#fd4605] transition-colors disabled:bg-[#f4f5f7] disabled:text-[#9ca3af]"
     />
   );
 }
@@ -28,7 +28,7 @@ function Select({ children, ...props }: React.SelectHTMLAttributes<HTMLSelectEle
   return (
     <select
       {...props}
-      className="w-full h-[38px] rounded-[10px] border border-[#e8eaed] bg-white px-3 text-[13px] text-[#111827] outline-none focus:border-[#fe2c55] transition-colors"
+      className="w-full h-[38px] rounded-[10px] border border-[#e8eaed] bg-white px-3 text-[13px] text-[#111827] outline-none focus:border-[#fd4605] transition-colors"
     >
       {children}
     </select>
@@ -44,8 +44,8 @@ function SectionCard({ icon, title, subtitle, children }: {
   return (
     <div className="bg-white rounded-2xl border border-[#e8eaed] overflow-hidden">
       <div className="flex items-center gap-3 px-6 py-4 border-b border-[#f3f4f6]">
-        <div className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-[#fff0f4]">
-          <span className="text-[#fe2c55]">{icon}</span>
+        <div className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-[#fff3ec]">
+          <span className="text-[#fd4605]">{icon}</span>
         </div>
         <div>
           <p className="text-[14px] font-bold text-[#111827]">{title}</p>
@@ -68,7 +68,7 @@ function Btn({
 }) {
   const base = "inline-flex items-center gap-2 rounded-[10px] px-4 h-[36px] text-[13px] font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed";
   const styles = {
-    primary: "bg-[#fe2c55] text-white hover:bg-[#e0193f]",
+    primary: "bg-[#fd4605] text-white hover:bg-[#e03e04]",
     outline: "border border-[#e8eaed] text-[#374151] hover:bg-[#f4f5f7]",
     ghost:   "text-[#6b7280] hover:bg-[#f4f5f7]",
   };
@@ -195,7 +195,7 @@ export default function EmailSettingsPage() {
     return (
       <AdminShell title="Email & OTP">
         <div className="flex items-center justify-center h-64">
-          <Loader2 className="h-8 w-8 animate-spin text-[#fe2c55]" />
+          <Loader2 className="h-8 w-8 animate-spin text-[#fd4605]" />
         </div>
       </AdminShell>
     );
@@ -435,7 +435,7 @@ export default function EmailSettingsPage() {
         {/* ── Current Config Summary ─────────────────────────────────────── */}
         <div className="rounded-2xl border border-[#e8eaed] bg-[#fafafa] px-6 py-4">
           <p className="text-[12px] font-bold text-[#374151] mb-3 flex items-center gap-2">
-            <Mail size={13} className="text-[#fe2c55]" /> Active Configuration
+            <Mail size={13} className="text-[#fd4605]" /> Active Configuration
           </p>
           <div className="grid grid-cols-2 gap-x-8 gap-y-1.5 text-[12px]">
             {[

@@ -5,7 +5,7 @@ import { AdsShell } from "@/features/ads-studio/ads-shell";
 const TITLE = "Teezer - Grow Your Business with Teezer Ads.";
 const DESCRIPTION =
   "Reach millions of engaged users across the Teezer App and Web with powerful AI-powered advertising. Create campaigns, target the right audience, optimize performance, and turn every scroll into measurable business growth.";
-const LOGO = "https://ads.teezer.live/reelsoostudioadslogo.png";
+const LOGO = "https://ads.teezer.live/teezer-logo.png";
 
 export const metadata: Metadata = {
   // `absolute` bypasses the root layout's "%s | Reelsoo" template so the browser
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   // root, and on teezer.live it comes from frontend/public - the file sits in
   // both. It also dodges the 30-day Cloudflare object still held for
   // ads.teezer.live/favicon.png (the API tokens on hand cannot purge).
-  icons: { icon: "/reelsooadslogo.png", shortcut: "/reelsooadslogo.png", apple: "/reelsooadslogo.png" },
+  icons: { icon: "/icon-192.png", shortcut: "/icon-192.png", apple: "/apple-touch-icon.png" },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,

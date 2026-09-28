@@ -249,7 +249,7 @@ function RowMenu({ track, onDelete, onStatusChange, onRefresh }: {
                       "w-full flex items-center gap-3 px-4 py-2.5 text-[12.5px] font-medium transition-colors text-left",
                       item.danger
                         ? "text-[#ef4444] hover:bg-[#fff5f5]"
-                        : "text-[#374151] hover:bg-[#f9fafb] hover:text-[#fe2c55]",
+                        : "text-[#374151] hover:bg-[#f9fafb] hover:text-[#fd4605]",
                     )}
                   >
                     <Icon className={cn("h-3.5 w-3.5 shrink-0", item.danger ? "text-[#ef4444]" : "text-[#9ca3af]")} />
@@ -271,7 +271,7 @@ function SourceBadge({ track }: { track: MusicTrack }) {
   const isReelsoo = !!track.created_by_admin_id ||
     (track.artist_name?.toLowerCase().includes("reelsoo") ?? false);
   return isReelsoo ? (
-    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#fff0f4] text-[#fe2c55] border border-[#ffd4dc] whitespace-nowrap">
+    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#fff3ec] text-[#fd4605] border border-[#ffdccc] whitespace-nowrap">
       <Music className="h-2.5 w-2.5 shrink-0" />
       Teezer
     </span>
@@ -370,7 +370,7 @@ export default function MusicLibraryPage() {
   const statCards = [
     {
       label: "TOTAL TRACKS", value: stats.total, trend: `${stats.new_this_week} this week`,
-      icon: ListMusic, iconBg: "#fff0f4", iconColor: "#fe2c55",
+      icon: ListMusic, iconBg: "#fff3ec", iconColor: "#fd4605",
     },
     {
       label: "WITH PLAYS", value: stats.total_plays, trend: "8.4% this week",
@@ -388,8 +388,8 @@ export default function MusicLibraryPage() {
         {/* Header */}
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="h-11 w-11 rounded-2xl bg-[#fff0f4] grid place-items-center shrink-0">
-              <Music className="h-5 w-5 text-[#fe2c55]" />
+            <div className="h-11 w-11 rounded-2xl bg-[#fff3ec] grid place-items-center shrink-0">
+              <Music className="h-5 w-5 text-[#fd4605]" />
             </div>
             <div>
               <h2 className="text-[20px] font-bold text-[#111827] leading-tight">Music Library</h2>
@@ -398,7 +398,7 @@ export default function MusicLibraryPage() {
           </div>
           <Link
             href="/admin/music/upload"
-            className="flex items-center gap-2 h-10 px-5 rounded-xl bg-[#fe2c55] text-white text-[13px] font-semibold hover:bg-[#e0264b] active:scale-95 transition-all shrink-0 whitespace-nowrap shadow-sm shadow-[#fe2c55]/20"
+            className="flex items-center gap-2 h-10 px-5 rounded-xl bg-[#fd4605] text-white text-[13px] font-semibold hover:bg-[#e03e04] active:scale-95 transition-all shrink-0 whitespace-nowrap shadow-sm shadow-[#fd4605]/20"
           >
             <Plus className="h-4 w-4" />
             Upload Track
@@ -437,27 +437,27 @@ export default function MusicLibraryPage() {
                 placeholder="Search title or artist..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="h-9 w-full rounded-xl border border-[#e8eaed] bg-[#f9fafb] pl-9 pr-3 text-[12px] text-[#111827] placeholder:text-[#9ca3af] outline-none focus:border-[#fe2c55] focus:bg-white transition-colors"
+                className="h-9 w-full rounded-xl border border-[#e8eaed] bg-[#f9fafb] pl-9 pr-3 text-[12px] text-[#111827] placeholder:text-[#9ca3af] outline-none focus:border-[#fd4605] focus:bg-white transition-colors"
               />
             </div>
 
             {/* Mood */}
             <select value={moodFilter} onChange={e => { setMoodFilter(e.target.value); setPage(1); }}
-              className="h-9 px-3 pr-8 rounded-xl border border-[#e8eaed] bg-white text-[12px] text-[#374151] outline-none focus:border-[#fe2c55] transition-colors appearance-none cursor-pointer" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center" }}>
+              className="h-9 px-3 pr-8 rounded-xl border border-[#e8eaed] bg-white text-[12px] text-[#374151] outline-none focus:border-[#fd4605] transition-colors appearance-none cursor-pointer" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center" }}>
               <option value="">All Moods</option>
               {MOOD_OPTIONS.map(m => <option key={m} value={m}>{m}</option>)}
             </select>
 
             {/* Genre */}
             <select value={genreFilter} onChange={e => { setGenreFilter(e.target.value); setPage(1); }}
-              className="h-9 px-3 pr-8 rounded-xl border border-[#e8eaed] bg-white text-[12px] text-[#374151] outline-none focus:border-[#fe2c55] transition-colors appearance-none cursor-pointer" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center" }}>
+              className="h-9 px-3 pr-8 rounded-xl border border-[#e8eaed] bg-white text-[12px] text-[#374151] outline-none focus:border-[#fd4605] transition-colors appearance-none cursor-pointer" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center" }}>
               <option value="">All Genres</option>
               {GENRE_OPTIONS.map(g => <option key={g} value={g}>{g}</option>)}
             </select>
 
             {/* Status */}
             <select value={statusFilter} onChange={e => { setStatusFilter(e.target.value); setPage(1); }}
-              className="h-9 px-3 pr-8 rounded-xl border border-[#e8eaed] bg-white text-[12px] text-[#374151] outline-none focus:border-[#fe2c55] transition-colors appearance-none cursor-pointer" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center" }}>
+              className="h-9 px-3 pr-8 rounded-xl border border-[#e8eaed] bg-white text-[12px] text-[#374151] outline-none focus:border-[#fd4605] transition-colors appearance-none cursor-pointer" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center" }}>
               <option value="">All Status</option>
               <option value="published">Published</option>
               <option value="draft">Draft</option>
@@ -489,14 +489,14 @@ export default function MusicLibraryPage() {
                   "flex items-center gap-2 h-8 px-4 rounded-xl text-[12px] font-semibold transition-all whitespace-nowrap",
                   sourceFilter === tab.id
                     ? tab.id === "reelsoo"
-                      ? "bg-[#fe2c55] text-white shadow-sm shadow-[#fe2c55]/25"
+                      ? "bg-[#fd4605] text-white shadow-sm shadow-[#fd4605]/25"
                       : tab.id === "artist"
                         ? "bg-[#3b82f6] text-white shadow-sm shadow-[#3b82f6]/25"
                         : "bg-[#111827] text-white shadow-sm"
                     : "text-[#6b7280] hover:bg-[#f4f5f7] hover:text-[#374151]",
                 )}>
                 {tab.id === "reelsoo" && (
-                  <Music className={cn("h-3 w-3 shrink-0", sourceFilter === "reelsoo" ? "text-white" : "text-[#fe2c55]")} />
+                  <Music className={cn("h-3 w-3 shrink-0", sourceFilter === "reelsoo" ? "text-white" : "text-[#fd4605]")} />
                 )}
                 {tab.id === "artist" && (
                   <Users2 className={cn("h-3 w-3 shrink-0", sourceFilter === "artist" ? "text-white" : "text-[#3b82f6]")} />
@@ -516,7 +516,7 @@ export default function MusicLibraryPage() {
           <div className="flex items-center gap-3 px-4 py-2.5 border-b border-[#f9fafb] bg-[#fafafa]">
             <div className="w-4 shrink-0">
               <input type="checkbox" checked={allChecked} onChange={toggleAll}
-                className="rounded border-[#d1d5db] accent-[#fe2c55] cursor-pointer" />
+                className="rounded border-[#d1d5db] accent-[#fd4605] cursor-pointer" />
             </div>
             <div className="w-7 shrink-0" />
             <div className="flex-1 min-w-0 text-[10px] font-bold uppercase tracking-widest text-[#9ca3af]">Track</div>
@@ -559,7 +559,7 @@ export default function MusicLibraryPage() {
               <p className="text-[15px] font-semibold text-[#374151]">No tracks yet</p>
               <p className="text-[13px] text-[#9ca3af] mt-1">Upload the first track to get started.</p>
               <Link href="/admin/music/upload"
-                className="mt-4 inline-flex items-center gap-2 h-9 px-4 rounded-xl bg-[#fe2c55] text-white text-[13px] font-semibold hover:bg-[#e0264b] transition-colors">
+                className="mt-4 inline-flex items-center gap-2 h-9 px-4 rounded-xl bg-[#fd4605] text-white text-[13px] font-semibold hover:bg-[#e03e04] transition-colors">
                 <Plus className="h-3.5 w-3.5" /> Upload Track
               </Link>
             </div>
@@ -578,7 +578,7 @@ export default function MusicLibraryPage() {
                     {/* Checkbox */}
                     <div className="w-4 shrink-0">
                       <input type="checkbox" checked={isSel} onChange={() => toggleOne(track.id)}
-                        className="rounded border-[#d1d5db] accent-[#fe2c55] cursor-pointer" />
+                        className="rounded border-[#d1d5db] accent-[#fd4605] cursor-pointer" />
                     </div>
 
                     {/* Play button */}
@@ -586,8 +586,8 @@ export default function MusicLibraryPage() {
                       className={cn(
                         "w-7 h-7 rounded-full border-2 grid place-items-center shrink-0 transition-all",
                         isPlay
-                          ? "border-[#fe2c55] bg-[#fe2c55] text-white"
-                          : "border-[#e8eaed] text-[#6b7280] hover:border-[#fe2c55] hover:text-[#fe2c55]",
+                          ? "border-[#fd4605] bg-[#fd4605] text-white"
+                          : "border-[#e8eaed] text-[#6b7280] hover:border-[#fd4605] hover:text-[#fd4605]",
                       )}>
                       {isPlay
                         ? <Pause className="h-3 w-3 fill-current" />
@@ -596,10 +596,10 @@ export default function MusicLibraryPage() {
                     </button>
 
                     {/* Cover */}
-                    <div className="h-9 w-9 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#ffd4dc] to-[#ffecef] grid place-items-center">
+                    <div className="h-9 w-9 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#ffdccc] to-[#fff0e8] grid place-items-center">
                       {track.cover_url
                         ? <img src={track.cover_url} alt="" className="h-full w-full object-cover" />
-                        : <Music className="h-3.5 w-3.5 text-[#fe2c55]" />}
+                        : <Music className="h-3.5 w-3.5 text-[#fd4605]" />}
                     </div>
 
                     {/* Title */}
@@ -607,7 +607,7 @@ export default function MusicLibraryPage() {
                       <div className="flex items-center gap-1.5 min-w-0">
                         <span className="truncate text-[13px] font-semibold text-[#111827]">{track.title}</span>
                         {isNew && (
-                          <span className="shrink-0 text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-[#fe2c55] text-white leading-none">NEW</span>
+                          <span className="shrink-0 text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-[#fd4605] text-white leading-none">NEW</span>
                         )}
                         {track.featured && (
                           <span className="shrink-0 text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-[#eab308] text-white leading-none">FEATURED</span>
@@ -703,7 +703,7 @@ export default function MusicLibraryPage() {
                       className={cn(
                         "h-8 w-8 rounded-lg border text-[12px] font-semibold transition-colors",
                         p === paginator.current_page
-                          ? "border-[#fe2c55] bg-[#fe2c55] text-white"
+                          ? "border-[#fd4605] bg-[#fd4605] text-white"
                           : "border-[#e8eaed] text-[#374151] hover:bg-[#f4f5f7]",
                       )}
                     >
@@ -720,7 +720,7 @@ export default function MusicLibraryPage() {
                       className={cn(
                         "h-8 w-8 rounded-lg border text-[12px] font-semibold transition-colors",
                         paginator.current_page === paginator.last_page
-                          ? "border-[#fe2c55] bg-[#fe2c55] text-white"
+                          ? "border-[#fd4605] bg-[#fd4605] text-white"
                           : "border-[#e8eaed] text-[#374151] hover:bg-[#f4f5f7]",
                       )}
                     >
@@ -738,7 +738,7 @@ export default function MusicLibraryPage() {
                 </button>
 
                 <select value={perPage} onChange={e => { setPerPage(Number(e.target.value)); setPage(1); }}
-                  className="h-8 px-2 pr-7 rounded-xl border border-[#e8eaed] text-[12px] text-[#374151] outline-none focus:border-[#fe2c55] bg-white transition-colors appearance-none cursor-pointer"
+                  className="h-8 px-2 pr-7 rounded-xl border border-[#e8eaed] text-[12px] text-[#374151] outline-none focus:border-[#fd4605] bg-white transition-colors appearance-none cursor-pointer"
                   style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 8px center" }}>
                   <option value={10}>10 / page</option>
                   <option value={25}>25 / page</option>

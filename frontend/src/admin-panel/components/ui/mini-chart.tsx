@@ -3,7 +3,7 @@
 /** Pure SVG mini line chart - no external dependencies */
 export function MiniLineChart({
   data,
-  color = "#fe2c55",
+  color = "#fd4605",
   height = 50,
   fill = true,
 }: {
@@ -58,7 +58,7 @@ export function MiniLineChart({
 /** Simple bar chart */
 export function MiniBarChart({
   data,
-  color = "#fe2c55",
+  color = "#fd4605",
   height = 50,
 }: {
   data: number[];

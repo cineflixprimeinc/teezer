@@ -223,7 +223,7 @@ export function LocationChangeModal({
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[#f0f0f0] px-5 py-4">
           <div className="flex items-center gap-2">
-            <MapPin className="h-5 w-5 text-[#fe2c55]" />
+            <MapPin className="h-5 w-5 text-[#fd4605]" />
             <p className="text-base font-bold text-[#111827]">Change Location</p>
           </div>
           <button type="button" onClick={onClose}
@@ -245,7 +245,7 @@ export function LocationChangeModal({
                 </p>
               </div>
               {countryLocked && !lockLoading && (
-                <span className="flex items-center gap-1.5 rounded-full bg-[#fff1f3] px-3 py-1 text-[11px] font-bold text-[#fe2c55]">
+                <span className="flex items-center gap-1.5 rounded-full bg-[#fff1f3] px-3 py-1 text-[11px] font-bold text-[#fd4605]">
                   <Lock className="h-3 w-3" />
                   {lockStatus!.remainingLockDays}d locked
                 </span>
@@ -256,10 +256,10 @@ export function LocationChangeModal({
           {/* Lock notice */}
           {countryLocked && !lockLoading && (
             <div className="flex items-start gap-2 rounded-xl border border-[#fde8ec] bg-[#fff8f9] px-4 py-3">
-              <Lock className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#fe2c55]" />
+              <Lock className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#fd4605]" />
               <p className="text-xs leading-relaxed text-[#6b7280]">
                 Your country is locked for{" "}
-                <span className="font-semibold text-[#fe2c55]">{lockStatus!.remainingLockDays} more days</span>.
+                <span className="font-semibold text-[#fd4605]">{lockStatus!.remainingLockDays} more days</span>.
                 {" "}You can still change your city or regional location within{" "}
                 <span className="font-semibold text-[#111827]">
                   {lockStatus?.currentCountryName ?? countryName}
@@ -270,17 +270,17 @@ export function LocationChangeModal({
 
           {/* GPS button */}
           <button type="button" onClick={detectGps} disabled={detecting}
-            className="flex w-full items-center gap-3 rounded-xl border border-[#e5e7eb] bg-white px-4 py-3 text-sm font-semibold text-[#111827] transition hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:opacity-60"
+            className="flex w-full items-center gap-3 rounded-xl border border-[#e5e7eb] bg-white px-4 py-3 text-sm font-semibold text-[#111827] transition hover:border-[#fd4605] hover:text-[#fd4605] disabled:opacity-60"
           >
             {detecting
-              ? <Loader2 className="h-4 w-4 animate-spin flex-shrink-0 text-[#fe2c55]" />
+              ? <Loader2 className="h-4 w-4 animate-spin flex-shrink-0 text-[#fd4605]" />
               : <Navigation className="h-4 w-4 flex-shrink-0" />}
             <span>{detecting ? "Detecting your location…" : "Use my current location"}</span>
           </button>
 
           {gpsError && (
             <div className="flex items-start gap-2 rounded-xl border border-[#fde8ec] bg-[#fff8f9] px-3 py-2.5">
-              <AlertCircle className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[#fe2c55]" />
+              <AlertCircle className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[#fd4605]" />
               <p className="text-xs text-[#6b7280]">{gpsError}</p>
             </div>
           )}
@@ -309,7 +309,7 @@ export function LocationChangeModal({
                 }}
                 onKeyDown={handleInputKeyDown}
                 placeholder="Search city, area, or region…"
-                className="h-11 w-full rounded-xl border border-[#e5e7eb] bg-white pl-9 pr-9 text-sm text-[#111827] outline-none transition placeholder:text-[#9ca3af] focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10"
+                className="h-11 w-full rounded-xl border border-[#e5e7eb] bg-white pl-9 pr-9 text-sm text-[#111827] outline-none transition placeholder:text-[#9ca3af] focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10"
               />
               {dropState === "loading" && (
                 <Loader2 className="absolute right-3 h-4 w-4 animate-spin text-[#9ca3af]" />
@@ -353,7 +353,7 @@ export function LocationChangeModal({
                       i === highlightIdx ? "bg-[#fff0f3]" : "hover:bg-[#f8f9fb]",
                     )}
                   >
-                    <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#fe2c55]" />
+                    <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#fd4605]" />
                     <div className="min-w-0">
                       <p className="font-semibold text-[#111827] truncate">
                         {s.city ?? s.formatted.split(",")[0]}
@@ -419,7 +419,7 @@ export function LocationChangeModal({
             </button>
             <button type="button" onClick={handleSave}
               disabled={!selected || saving || blockedByCountryLock}
-              className="flex-1 rounded-full bg-[#fe2c55] py-2.5 text-sm font-bold text-white transition hover:bg-[#e02449] disabled:opacity-50"
+              className="flex-1 rounded-full bg-[#fd4605] py-2.5 text-sm font-bold text-white transition hover:bg-[#e03e04] disabled:opacity-50"
             >
               {saving ? (
                 <span className="flex items-center justify-center gap-2">

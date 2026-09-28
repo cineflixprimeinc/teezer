@@ -65,14 +65,14 @@ function FeatureSwitch({ on, busy, onToggle, label }: {
 }) {
   return (
     <div className="flex shrink-0 items-center gap-2.5">
-      <span className={`text-[11px] font-bold uppercase tracking-wide tabular-nums ${on ? "text-[#fe2c55]" : "text-[#9ca3af]"}`}>
+      <span className={`text-[11px] font-bold uppercase tracking-wide tabular-nums ${on ? "text-[#fd4605]" : "text-[#9ca3af]"}`}>
         {on ? "On" : "Off"}
       </span>
       <button
         type="button" role="switch" aria-checked={on} aria-label={label}
         disabled={busy} onClick={onToggle}
-        className={`relative h-[26px] w-[46px] shrink-0 rounded-full transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fe2c55]/30 disabled:opacity-60
-          ${on ? "bg-[#fe2c55]" : "bg-[#d1d5db]"}`}>
+        className={`relative h-[26px] w-[46px] shrink-0 rounded-full transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fd4605]/30 disabled:opacity-60
+          ${on ? "bg-[#fd4605]" : "bg-[#d1d5db]"}`}>
         <span className={`absolute top-[3px] h-5 w-5 rounded-full bg-white shadow-sm transition-all duration-200 ${on ? "left-[23px]" : "left-[3px]"}`} />
       </button>
     </div>
@@ -169,7 +169,7 @@ export default function FeaturesPage() {
         {/* ── Header ── */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3.5">
-            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#fff0f4] text-[#fe2c55]">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#fff3ec] text-[#fd4605]">
               <Zap className="h-[22px] w-[22px]" />
             </span>
             <div>
@@ -195,12 +195,12 @@ export default function FeaturesPage() {
             { label: "Core off",       value: offCritical.length, icon: <AlertTriangle className="h-[15px] w-[15px]"/>, alert: offCritical.length > 0 },
           ].map(c => (
             <div key={c.label} className="flex items-center gap-3 rounded-2xl border border-[#e8eaed] bg-white p-4 shadow-sm">
-              <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl ${c.alert ? "bg-[#fff0f4] text-[#fe2c55]" : "bg-[#f4f5f7] text-[#6b7280]"}`}>
+              <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl ${c.alert ? "bg-[#fff3ec] text-[#fd4605]" : "bg-[#f4f5f7] text-[#6b7280]"}`}>
                 {c.icon}
               </span>
               <div className="min-w-0">
                 <p className="text-[11px] text-[#9ca3af] truncate">{c.label}</p>
-                <p className={`text-[19px] font-black leading-tight tabular-nums ${c.alert ? "text-[#fe2c55]" : "text-[#111827]"}`}>{c.value}</p>
+                <p className={`text-[19px] font-black leading-tight tabular-nums ${c.alert ? "text-[#fd4605]" : "text-[#111827]"}`}>{c.value}</p>
               </div>
             </div>
           ))}
@@ -209,8 +209,8 @@ export default function FeaturesPage() {
         {/* A core surface being off is the single thing worth interrupting for -
             it is usually a leftover from an incident, not a decision. */}
         {offCritical.length > 0 && (
-          <div className="flex items-start gap-2.5 rounded-2xl border border-[#ffd9e2] bg-[#fff0f4] px-4 py-3">
-            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[#fe2c55]" />
+          <div className="flex items-start gap-2.5 rounded-2xl border border-[#ffd9e2] bg-[#fff3ec] px-4 py-3">
+            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[#fd4605]" />
             <p className="text-[12.5px] leading-relaxed text-[#7a1229]">
               <span className="font-bold">
                 {offCritical.length} core feature{offCritical.length === 1 ? " is" : "s are"} switched off
@@ -226,12 +226,12 @@ export default function FeaturesPage() {
             <div className="rounded-2xl border border-[#e8eaed] bg-white p-2 shadow-sm">
               <button onClick={() => setActive("all")}
                 className={`relative flex w-full items-center gap-2.5 rounded-[10px] px-3 py-2.5 text-left text-[13px] font-semibold transition-colors
-                  ${activeGroup === "all" ? "bg-[#fff0f4] text-[#fe2c55]" : "text-[#374151] hover:bg-[#f7f8fa]"}`}>
-                {activeGroup === "all" && <span className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r-full bg-[#fe2c55]" />}
-                <Zap className={`h-4 w-4 shrink-0 ${activeGroup === "all" ? "text-[#fe2c55]" : "text-[#9ca3af]"}`} />
+                  ${activeGroup === "all" ? "bg-[#fff3ec] text-[#fd4605]" : "text-[#374151] hover:bg-[#f7f8fa]"}`}>
+                {activeGroup === "all" && <span className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r-full bg-[#fd4605]" />}
+                <Zap className={`h-4 w-4 shrink-0 ${activeGroup === "all" ? "text-[#fd4605]" : "text-[#9ca3af]"}`} />
                 <span className="truncate">All features</span>
                 <span className={`ml-auto rounded-full px-1.5 py-0.5 text-[10.5px] font-bold tabular-nums
-                  ${activeGroup === "all" ? "bg-[#fe2c55]/12 text-[#fe2c55]" : "bg-[#f3f4f6] text-[#9ca3af]"}`}>{total}</span>
+                  ${activeGroup === "all" ? "bg-[#fd4605]/12 text-[#fd4605]" : "bg-[#f3f4f6] text-[#9ca3af]"}`}>{total}</span>
               </button>
 
               {groupsToRender.map(g => {
@@ -242,12 +242,12 @@ export default function FeaturesPage() {
                 return (
                   <button key={g.name} onClick={() => setActive(g.name)}
                     className={`relative flex w-full items-center gap-2.5 rounded-[10px] px-3 py-2.5 text-left text-[13px] font-semibold transition-colors
-                      ${active ? "bg-[#fff0f4] text-[#fe2c55]" : "text-[#374151] hover:bg-[#f7f8fa]"}`}>
-                    {active && <span className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r-full bg-[#fe2c55]" />}
-                    <Icon className={`h-4 w-4 shrink-0 ${active ? "text-[#fe2c55]" : "text-[#9ca3af]"}`} />
+                      ${active ? "bg-[#fff3ec] text-[#fd4605]" : "text-[#374151] hover:bg-[#f7f8fa]"}`}>
+                    {active && <span className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r-full bg-[#fd4605]" />}
+                    <Icon className={`h-4 w-4 shrink-0 ${active ? "text-[#fd4605]" : "text-[#9ca3af]"}`} />
                     <span className="truncate">{g.label}</span>
                     <span className={`ml-auto rounded-full px-1.5 py-0.5 text-[10.5px] font-bold tabular-nums
-                      ${active ? "bg-[#fe2c55]/12 text-[#fe2c55]" : "bg-[#f3f4f6] text-[#9ca3af]"}`}>{n}</span>
+                      ${active ? "bg-[#fd4605]/12 text-[#fd4605]" : "bg-[#f3f4f6] text-[#9ca3af]"}`}>{n}</span>
                   </button>
                 );
               })}
@@ -265,7 +265,7 @@ export default function FeaturesPage() {
                   <div className="relative">
                     <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3 w-3 -translate-y-1/2 text-[#9ca3af]" />
                     <input value={q} onChange={e => setQ(e.target.value)} placeholder="Search features…"
-                      className="h-8 w-48 rounded-lg border border-[#e8eaed] bg-[#f9fafb] pl-7 pr-2 text-[12px] outline-none transition focus:border-[#fe2c55] focus:ring-1 focus:ring-[#fe2c55]/20" />
+                      className="h-8 w-48 rounded-lg border border-[#e8eaed] bg-[#f9fafb] pl-7 pr-2 text-[12px] outline-none transition focus:border-[#fd4605] focus:ring-1 focus:ring-[#fd4605]/20" />
                   </div>
                   <span className="rounded-full bg-[#f3f4f6] px-2.5 py-1 text-[11.5px] font-bold tabular-nums text-[#6b7280]">
                     {filtered.length}
@@ -301,7 +301,7 @@ export default function FeaturesPage() {
                         <div className="flex flex-wrap items-center gap-1.5">
                           <p className="text-[13.5px] font-bold capitalize text-[#111827]">{r.label}</p>
                           {r.critical && (
-                            <span className="rounded-full border border-[#ffd9e2] bg-[#fff0f4] px-1.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wide text-[#fe2c55]">
+                            <span className="rounded-full border border-[#ffd9e2] bg-[#fff3ec] px-1.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wide text-[#fd4605]">
                               Core
                             </span>
                           )}
@@ -337,7 +337,7 @@ export default function FeaturesPage() {
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setConfirm(null)} />
           <div className="relative z-10 w-full max-w-sm rounded-2xl bg-white p-6 shadow-2xl">
             <div className="mb-3 flex items-center gap-2.5">
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#fff0f4] text-[#fe2c55]">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#fff3ec] text-[#fd4605]">
                 <AlertTriangle className="h-[18px] w-[18px]" />
               </span>
               <h3 className="text-[15px] font-bold text-[#111827]">Turn off {confirming.label}?</h3>

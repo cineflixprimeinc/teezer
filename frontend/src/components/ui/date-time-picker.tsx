@@ -121,8 +121,8 @@ export function DatePicker({
           "flex items-center gap-1.5 rounded-[10px] border px-2.5 py-1.5 text-[11px] transition",
           disabled
             ? "cursor-not-allowed border-transparent bg-[#f3f4f6] text-[#9aa1ad]"
-            : "border-[#e5e7eb] bg-white text-[#111827] hover:border-[#fe2c55]/40 hover:bg-[#fff5f7]",
-          open && !disabled && "border-[#fe2c55] ring-2 ring-[#fe2c55]/15",
+            : "border-[#e5e7eb] bg-white text-[#111827] hover:border-[#fd4605]/40 hover:bg-[#fff6f1]",
+          open && !disabled && "border-[#fd4605] ring-2 ring-[#fd4605]/15",
         )}
       >
         <Calendar className="h-3 w-3 shrink-0 text-[#5f6675]"/>
@@ -169,14 +169,14 @@ export function DatePicker({
                     c.disabled
                       ? "cursor-not-allowed text-[#d1d5db]"
                       : c.inMonth ? "text-[#111827] hover:bg-[#f3f4f6]" : "text-[#c4c9d2] hover:bg-[#f7f8fa]",
-                    isSel && "bg-[#fe2c55] font-bold text-white hover:bg-[#fe2c55]",
+                    isSel && "bg-[#fd4605] font-bold text-white hover:bg-[#fd4605]",
                   )}
                 >
                   {c.date.getDate()}
                   {/* Today marker, but not when the cell is already filled -
                       a dot on a solid pink tile is invisible anyway. */}
                   {c.isToday && !isSel && (
-                    <span className="absolute bottom-1 h-1 w-1 rounded-full bg-[#fe2c55]"/>
+                    <span className="absolute bottom-1 h-1 w-1 rounded-full bg-[#fd4605]"/>
                   )}
                 </button>
               );
@@ -189,7 +189,7 @@ export function DatePicker({
               Clear
             </button>
             <button type="button" onClick={() => { onChange(toKey(today)); setOpen(false); }}
-              className="rounded-lg px-2 py-1 text-[11px] font-semibold text-[#fe2c55] transition hover:bg-[#fff1f4]">
+              className="rounded-lg px-2 py-1 text-[11px] font-semibold text-[#fd4605] transition hover:bg-[#fff1f4]">
               Today
             </button>
           </div>
@@ -250,8 +250,8 @@ export function TimePicker({
           "flex items-center gap-1.5 rounded-[10px] border px-2.5 py-1.5 text-[11px] transition",
           disabled
             ? "cursor-not-allowed border-transparent bg-[#f3f4f6] text-[#9aa1ad]"
-            : "border-[#e5e7eb] bg-white text-[#111827] hover:border-[#fe2c55]/40 hover:bg-[#fff5f7]",
-          open && !disabled && "border-[#fe2c55] ring-2 ring-[#fe2c55]/15",
+            : "border-[#e5e7eb] bg-white text-[#111827] hover:border-[#fd4605]/40 hover:bg-[#fff6f1]",
+          open && !disabled && "border-[#fd4605] ring-2 ring-[#fd4605]/15",
         )}
       >
         <Clock className="h-3 w-3 shrink-0 text-[#5f6675]"/>
@@ -271,7 +271,7 @@ export function TimePicker({
                   onClick={() => { onChange(s); setOpen(false); }}
                   className={cn(
                     "flex w-full items-center justify-between rounded-[9px] px-2.5 py-1.5 text-left text-[11.5px] transition",
-                    active ? "bg-[#fff1f4] font-bold text-[#fe2c55]" : "text-[#111827] hover:bg-[#f3f4f6]",
+                    active ? "bg-[#fff1f4] font-bold text-[#fd4605]" : "text-[#111827] hover:bg-[#f3f4f6]",
                   )}
                 >
                   {pretty(s)}

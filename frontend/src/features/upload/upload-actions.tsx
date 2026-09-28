@@ -32,7 +32,7 @@ export function UploadActions({
         disabled={disabled || uploading}
         className={cn(
           "inline-flex h-[42px] items-center justify-center gap-1.5 rounded-[10px] border border-[#eeeeee] bg-white px-3 text-[12px] font-semibold text-black transition",
-          "hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:opacity-50 disabled:cursor-not-allowed",
+          "hover:border-[#fd4605] hover:text-[#fd4605] disabled:opacity-50 disabled:cursor-not-allowed",
         )}
       >
         <Eye className="h-3.5 w-3.5" />
@@ -45,7 +45,7 @@ export function UploadActions({
         disabled={disabled || uploading}
         className={cn(
           "inline-flex h-[42px] items-center justify-center gap-1.5 rounded-[10px] border border-[#eeeeee] bg-white px-3 text-[12px] font-semibold text-black transition",
-          "hover:border-[#fe2c55] hover:text-[#fe2c55] disabled:opacity-50 disabled:cursor-not-allowed",
+          "hover:border-[#fd4605] hover:text-[#fd4605] disabled:opacity-50 disabled:cursor-not-allowed",
         )}
       >
         <FolderClosed className="h-3.5 w-3.5" />
@@ -59,7 +59,7 @@ export function UploadActions({
         className={cn(
           "inline-flex h-[42px] items-center justify-center gap-1.5 rounded-[10px] px-4 text-[13px] font-bold text-white shadow-sm transition",
           postReady
-            ? "bg-[#fe2c55] shadow-[#fe2c55]/20 hover:bg-[#e0243d] disabled:opacity-60 disabled:cursor-not-allowed"
+            ? "bg-[#fd4605] shadow-[#fd4605]/20 hover:bg-[#e03e04] disabled:opacity-60 disabled:cursor-not-allowed"
             : "bg-[#c0c4cc] shadow-[#c0c4cc]/20 hover:bg-[#aab0ba] cursor-pointer",
         )}
       >

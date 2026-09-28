@@ -17,7 +17,7 @@ const FAQ_CATEGORIES = [
   { icon: Shield,       bg: "bg-[#f5f3ff]",  color: "text-[#7c3aed]",  title: "Safety Help",    desc: "Reporting, blocking, privacy and trust" },
   { icon: MessageSquare,bg: "bg-[#fff7ed]",  color: "text-[#f97316]",  title: "Contact Support",desc: "Reach out to the Teezer support team" },
   { icon: FileQuestion, bg: "bg-[#fefce8]",  color: "text-[#ca8a04]",  title: "FAQs",           desc: "Most frequently asked questions and answers" },
-  { icon: Phone,        bg: "bg-[#fff0f4]",  color: "text-[#fe2c55]",  title: "Live Chat",      desc: "Chat with a support agent in real time" },
+  { icon: Phone,        bg: "bg-[#fff3ec]",  color: "text-[#fd4605]",  title: "Live Chat",      desc: "Chat with a support agent in real time" },
 ];
 
 export default function HelpPage() {
@@ -32,7 +32,7 @@ export default function HelpPage() {
         href={HELP_DOMAIN}
         target="_blank"
         rel="noopener noreferrer"
-        className="group mb-4 flex items-center gap-4 overflow-hidden rounded-2xl bg-gradient-to-r from-[#fe2c55] to-[#ff5b7a] p-5 text-white shadow-[0_8px_28px_rgba(254,44,85,0.28)] transition-transform hover:-translate-y-0.5"
+        className="group mb-4 flex items-center gap-4 overflow-hidden rounded-2xl bg-gradient-to-r from-[#fd4605] to-[#ff5b7a] p-5 text-white shadow-[0_8px_28px_rgba(253,70,5,0.28)] transition-transform hover:-translate-y-0.5"
       >
         <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white/20">
           <LifeBuoy className="h-6 w-6 text-white" />
@@ -46,7 +46,7 @@ export default function HelpPage() {
             Browse articles, guides and topics for the Teezer website and app at help.teezer.live
           </p>
         </div>
-        <span className="hidden rounded-full bg-white px-4 py-2 text-[13px] font-bold text-[#fe2c55] sm:block">
+        <span className="hidden rounded-full bg-white px-4 py-2 text-[13px] font-bold text-[#fd4605] sm:block">
           Open Help Center
         </span>
       </a>
@@ -68,7 +68,7 @@ export default function HelpPage() {
             </div>
             <p className="text-[11px] text-[#9ca3af] px-1">Try searching "reset password", "monetization", or "report a video"</p>
             <button className="w-full rounded-[12px] py-2.5 text-[13px] font-bold text-white transition hover:opacity-90"
-              style={{ background: "#fe2c55" }}>
+              style={{ background: "#fd4605" }}>
               Search
             </button>
           </div>

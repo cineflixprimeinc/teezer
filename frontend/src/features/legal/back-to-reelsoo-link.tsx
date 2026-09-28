@@ -17,7 +17,7 @@ export function BackToReelsooLink() {
   if (params.get("embedded") === "1") return null;
 
   return (
-    <Link href="/" className="rounded-full bg-[#fe2c55] px-5 py-2 text-sm font-bold text-white hover:bg-[#e0243d]">
+    <Link href="/" className="rounded-full bg-[#fd4605] px-5 py-2 text-sm font-bold text-white hover:bg-[#e03e04]">
       Back to Teezer
     </Link>
   );

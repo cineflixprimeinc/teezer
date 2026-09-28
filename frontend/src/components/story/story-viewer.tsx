@@ -363,7 +363,7 @@ export function StoryViewer({ storyUsers, initialUserIdx, onClose, onSeenChange,
               // eslint-disable-next-line @next/next/no-img-element
               <img src={currentUserData.user.avatar} alt="" className="h-full w-full object-cover" />
             ) : (
-              <div className="grid h-full w-full place-items-center bg-[#fe2c55] text-[12px] font-bold text-white">
+              <div className="grid h-full w-full place-items-center bg-[#fd4605] text-[12px] font-bold text-white">
                 {(currentUserData.user.display_name || currentUserData.user.username)[0]?.toUpperCase()}
               </div>
             )}
@@ -474,7 +474,7 @@ export function StoryViewer({ storyUsers, initialUserIdx, onClose, onSeenChange,
                 onError={() => goNextRef.current()}
               />
             ) : imgErr ? (
-              <div className="grid h-full w-full place-items-center bg-gradient-to-br from-[#fe2c55] to-[#a855f7]">
+              <div className="grid h-full w-full place-items-center bg-gradient-to-br from-[#fd4605] to-[#a855f7]">
                 <span className="text-4xl font-black text-white">
                   {(currentUserData.user.display_name || currentUserData.user.username)[0]?.toUpperCase()}
                 </span>
@@ -650,7 +650,7 @@ export function StoryViewer({ storyUsers, initialUserIdx, onClose, onSeenChange,
                 disabled={!reply.trim() || replySending}
                 className={cn(
                   "grid h-8 w-8 flex-shrink-0 place-items-center rounded-full transition",
-                  reply.trim() ? "bg-[#fe2c55] text-white" : "bg-white/10 text-white/40",
+                  reply.trim() ? "bg-[#fd4605] text-white" : "bg-white/10 text-white/40",
                 )}
                 onClick={() => void sendReply()}
               >
@@ -815,7 +815,7 @@ function ViewerRow({ viewer }: { viewer: StoryViewer }) {
           // eslint-disable-next-line @next/next/no-img-element
           <img src={viewer.avatar} alt={viewer.display_name} className="h-full w-full rounded-full object-cover" />
         ) : (
-          <div className="grid h-full w-full place-items-center rounded-full bg-[#fe2c55] text-[13px] font-bold text-white">
+          <div className="grid h-full w-full place-items-center rounded-full bg-[#fd4605] text-[13px] font-bold text-white">
             {initials}
           </div>
         )}

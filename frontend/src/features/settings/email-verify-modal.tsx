@@ -112,7 +112,7 @@ export function EmailVerifyModal({
               onKeyDown={(e) => onKey(i, e)}
               inputMode="numeric"
               maxLength={i === 0 ? 6 : 1}
-              className={`h-12 w-11 rounded-xl border text-center text-2xl font-bold outline-none transition-colors ${d ? "border-[#fe2c55]" : "border-[#e8eaf0]"} focus:border-[#fe2c55]`}
+              className={`h-12 w-11 rounded-xl border text-center text-2xl font-bold outline-none transition-colors ${d ? "border-[#fd4605]" : "border-[#e8eaf0]"} focus:border-[#fd4605]`}
             />
           ))}
         </div>
@@ -120,7 +120,7 @@ export function EmailVerifyModal({
         <button
           onClick={verify}
           disabled={code.length < 6 || verifying || sending}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#fe2c55] py-3 text-[15px] font-bold text-white transition hover:opacity-90 disabled:opacity-50"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#fd4605] py-3 text-[15px] font-bold text-white transition hover:opacity-90 disabled:opacity-50"
         >
           {verifying && <Loader2 className="h-4 w-4 animate-spin" />}
           {verifying ? "Verifying…" : "Verify Email"}
@@ -128,7 +128,7 @@ export function EmailVerifyModal({
 
         <div className="mt-3 flex items-center justify-between text-[13px]">
           <button onClick={onClose} className="font-semibold text-[#6b7280] hover:text-[#111827]">Cancel</button>
-          <button onClick={send} disabled={sending} className="font-semibold text-[#fe2c55] hover:underline disabled:opacity-50">Resend code</button>
+          <button onClick={send} disabled={sending} className="font-semibold text-[#fd4605] hover:underline disabled:opacity-50">Resend code</button>
         </div>
       </div>
     </div>

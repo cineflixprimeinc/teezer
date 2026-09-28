@@ -122,7 +122,7 @@ export default function ModerationPage() {
           {(["queue", "logs"] as TabKey[]).map((t) => (
             <button key={t} onClick={() => { setTab(t); setPage(1); }}
               className={`shrink-0 border-b-2 px-5 py-3 text-[13px] font-medium transition-colors capitalize
-                ${tab === t ? "border-[#fe2c55] text-[#fe2c55]" : "border-transparent text-[#6b7280] hover:text-[#111827]"}`}>
+                ${tab === t ? "border-[#fd4605] text-[#fd4605]" : "border-transparent text-[#6b7280] hover:text-[#111827]"}`}>
               {t === "queue" ? `Pending Queue${stats?.pending_count ? ` (${stats.pending_count})` : ""}` : "Moderation Logs"}
             </button>
           ))}

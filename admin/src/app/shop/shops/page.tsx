@@ -48,7 +48,7 @@ export default function ShopsPage() {
           <div className="relative w-64">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#9ca3af]" />
             <input
-              className="w-full rounded-[10px] border border-[#e5e7eb] bg-white py-2 pl-9 pr-3 text-[13px] outline-none focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10"
+              className="w-full rounded-[10px] border border-[#e5e7eb] bg-white py-2 pl-9 pr-3 text-[13px] outline-none focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10"
               placeholder="Search shop or owner…"
               value={q}
               onChange={(e) => { setQ(e.target.value); setPage(1); }}

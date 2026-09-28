@@ -15,7 +15,7 @@
   <!-- ── Logo ── -->
   <tr>
     <td style="padding:22px 32px;border-bottom:1px solid #f0f0f0;text-align:center;">
-      <img src="https://teezer.live/reelsoo-logo.png" width="120" alt="Teezer" style="display:inline-block;width:120px;height:auto;vertical-align:middle;">
+      <img src="https://teezer.live/teezer-logo.png" width="120" alt="Teezer" style="display:inline-block;width:120px;height:auto;vertical-align:middle;">
     </td>
   </tr>
 
@@ -29,7 +29,7 @@
               Login Verification &#128274;
             </p>
             <p style="margin:0 0 10px;font-size:15px;color:#374151;line-height:1.5;">
-              Hi <strong style="color:#fe2c55;">{{ $firstName }}</strong>,
+              Hi <strong style="color:#fd4605;">{{ $firstName }}</strong>,
             </p>
             <p style="margin:0;font-size:14px;color:#6b7280;line-height:1.75;">
               We received a request to log in to your Teezer account. Please use the verification code below to complete your login.
@@ -60,7 +60,7 @@
                   <table role="presentation" cellpadding="0" cellspacing="0">
                     <tr>
                       <td align="center" valign="middle"
-                          style="width:62px;height:72px;background:#ffffff;border:1.5px solid #fca5a5;border-radius:10px;font-size:36px;font-weight:800;color:#fe2c55;text-align:center;vertical-align:middle;line-height:72px;">{{ $digit }}</td>
+                          style="width:62px;height:72px;background:#ffffff;border:1.5px solid #fca5a5;border-radius:10px;font-size:36px;font-weight:800;color:#fd4605;text-align:center;vertical-align:middle;line-height:72px;">{{ $digit }}</td>
                     </tr>
                   </table>
                 </td>
@@ -69,7 +69,7 @@
             </table>
 
             <p style="margin:0;font-size:13px;color:#374151;line-height:1.5;">
-              This code will expire in <strong style="color:#fe2c55;">{{ $expiryMinutes }} minutes.</strong>
+              This code will expire in <strong style="color:#fd4605;">{{ $expiryMinutes }} minutes.</strong>
             </p>
 
           </td>

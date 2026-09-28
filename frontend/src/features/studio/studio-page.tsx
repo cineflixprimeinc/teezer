@@ -113,13 +113,13 @@ export function StudioSidebar({
       {/* Logo */}
       <div className="flex h-16 items-center justify-between px-4 border-b border-[#f0f0f0]">
         {!collapsed && (
-          <Image src="/reelsoostudio.png" alt="Teezer Studio" width={130} height={32} className="object-contain" />
+          <span className="flex items-center gap-2"><Image src="/favicon.png" alt="Teezer Studio" width={32} height={32} className="rounded-lg object-contain" /><span className="text-[15px] font-bold text-[#111827]">Teezer Studio</span></span>
         )}
         <button
           type="button"
           onClick={onToggle}
           className={cn(
-            "grid h-8 w-8 flex-shrink-0 place-items-center rounded-full text-[#6b7280] transition hover:bg-[#f8f9fb] hover:text-[#fe2c55]",
+            "grid h-8 w-8 flex-shrink-0 place-items-center rounded-full text-[#6b7280] transition hover:bg-[#f8f9fb] hover:text-[#fd4605]",
             collapsed && "mx-auto",
           )}
           title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
@@ -151,16 +151,16 @@ export function StudioSidebar({
                 "flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium transition",
                 collapsed ? "justify-center px-0" : "",
                 selfActive
-                  ? "bg-[#fff0f4] text-[#fe2c55]"
-                  : "text-[#374151] hover:bg-[#f8f9fb] hover:text-[#fe2c55]",
+                  ? "bg-[#fff3ec] text-[#fd4605]"
+                  : "text-[#374151] hover:bg-[#f8f9fb] hover:text-[#fd4605]",
               )}
               title={tip}
             >
-              <Icon className={cn("h-[18px] w-[18px] flex-shrink-0", selfActive && "text-[#fe2c55]")} />
+              <Icon className={cn("h-[18px] w-[18px] flex-shrink-0", selfActive && "text-[#fd4605]")} />
               {!collapsed && <span className="truncate">{item.label}</span>}
               {!collapsed && item.external && <ExternalLink className="ml-auto h-3 w-3 text-[#9ca3af]" />}
               {!collapsed && !item.external && item.badge != null && item.badge > 0 && (
-                <span className="ml-auto grid h-5 min-w-5 place-items-center rounded-full bg-[#fe2c55] px-1 text-[10px] font-bold text-white">
+                <span className="ml-auto grid h-5 min-w-5 place-items-center rounded-full bg-[#fd4605] px-1 text-[10px] font-bold text-white">
                   {item.badge}
                 </span>
               )}
@@ -171,13 +171,13 @@ export function StudioSidebar({
 
       {/* Reelsoo Pro card */}
       {!collapsed && (
-        <div className="mx-3 mb-2 overflow-hidden rounded-xl bg-gradient-to-br from-[#fe2c55] to-[#c0153a] px-3 py-2">
+        <div className="mx-3 mb-2 overflow-hidden rounded-xl bg-gradient-to-br from-[#fd4605] to-[#b83203] px-3 py-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5">
               <Crown className="h-3.5 w-3.5 flex-shrink-0 text-yellow-300" />
               <p className="text-[12px] font-extrabold text-white">Teezer Pro</p>
             </div>
-            <button className="rounded-full bg-white px-2.5 py-0.5 text-[10px] font-bold text-[#fe2c55] transition hover:bg-yellow-50">
+            <button className="rounded-full bg-white px-2.5 py-0.5 text-[10px] font-bold text-[#fd4605] transition hover:bg-yellow-50">
               Upgrade
             </button>
           </div>
@@ -189,7 +189,7 @@ export function StudioSidebar({
         <Link
           href="/"
           className={cn(
-            "flex items-center gap-2.5 rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2.5 text-[13px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]",
+            "flex items-center gap-2.5 rounded-[10px] border border-[#e5e7eb] bg-white px-3 py-2.5 text-[13px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]",
             collapsed && "justify-center px-0",
           )}
           title="Back to Teezer"
@@ -246,9 +246,9 @@ const DateRangePicker = React.forwardRef<HTMLDivElement, {
     <div ref={ref} className="relative">
       <button
         onClick={() => onToggle(!open)}
-        className="flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-white px-3 py-2 text-[12px] font-medium text-[#374151] transition hover:border-[#fe2c55]"
+        className="flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-white px-3 py-2 text-[12px] font-medium text-[#374151] transition hover:border-[#fd4605]"
       >
-        <span className="text-[#fe2c55]">📅</span>
+        <span className="text-[#fd4605]">📅</span>
         <span>{fmtBtn(dateRange.start)} - {dateRange.end.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
         <ChevronDown className={cn("h-3.5 w-3.5 text-[#9ca3af] transition-transform", open && "rotate-180")} />
       </button>
@@ -260,7 +260,7 @@ const DateRangePicker = React.forwardRef<HTMLDivElement, {
           <div className="grid grid-cols-3 gap-2 mb-3">
             {PRESETS.map(p => (
               <button key={p.days} onClick={() => applyPreset(p.days)}
-                className="rounded-lg border border-[#e5e7eb] py-1.5 text-[11px] font-semibold text-[#374151] transition hover:border-[#fe2c55] hover:bg-[#fff5f5]">
+                className="rounded-lg border border-[#e5e7eb] py-1.5 text-[11px] font-semibold text-[#374151] transition hover:border-[#fd4605] hover:bg-[#fff5f5]">
                 {p.label}
               </button>
             ))}
@@ -273,18 +273,18 @@ const DateRangePicker = React.forwardRef<HTMLDivElement, {
                 <label className="mb-0.5 block text-[10px] text-[#6b7280]">Start</label>
                 <input type="date" value={customStart} max={new Date().toISOString().split("T")[0]}
                   onChange={e => { setCustomStart(e.target.value); setError(""); }}
-                  className="w-full rounded-lg border border-[#e5e7eb] px-2 py-1.5 text-[12px] text-[#374151] outline-none focus:border-[#fe2c55]" />
+                  className="w-full rounded-lg border border-[#e5e7eb] px-2 py-1.5 text-[12px] text-[#374151] outline-none focus:border-[#fd4605]" />
               </div>
               <div>
                 <label className="mb-0.5 block text-[10px] text-[#6b7280]">End</label>
                 <input type="date" value={customEnd} max={new Date().toISOString().split("T")[0]}
                   onChange={e => { setCustomEnd(e.target.value); setError(""); }}
-                  className="w-full rounded-lg border border-[#e5e7eb] px-2 py-1.5 text-[12px] text-[#374151] outline-none focus:border-[#fe2c55]" />
+                  className="w-full rounded-lg border border-[#e5e7eb] px-2 py-1.5 text-[12px] text-[#374151] outline-none focus:border-[#fd4605]" />
               </div>
             </div>
             {error && <p className="mt-1.5 text-[11px] font-medium text-red-500">{error}</p>}
             <button onClick={applyCustom}
-              className="mt-2.5 w-full rounded-lg bg-[#fe2c55] py-2 text-[12px] font-bold text-white transition hover:bg-[#e0243d]">
+              className="mt-2.5 w-full rounded-lg bg-[#fd4605] py-2 text-[12px] font-bold text-white transition hover:bg-[#e03e04]">
               Apply Range
             </button>
             <p className="mt-1.5 text-center text-[10px] text-[#9ca3af]">Max 3 months · No future dates</p>
@@ -339,14 +339,14 @@ function AccountSwitcherModal({ onClose, currentUser, avatar }: {
         {!showLogin ? (
           <div className="p-4 space-y-2">
             {/* Current account */}
-            <div className="flex items-center gap-3 rounded-xl border-2 border-[#fe2c55] bg-[#fff5f7] px-4 py-3">
+            <div className="flex items-center gap-3 rounded-xl border-2 border-[#fd4605] bg-[#fff6f1] px-4 py-3">
               {avatar
                 // eslint-disable-next-line @next/next/no-img-element
                 ? <img src={avatar} alt={currentUser} className="h-9 w-9 rounded-full object-cover flex-shrink-0" />
-                : <div className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-[#fe2c55] text-[13px] font-bold text-white">{initials}</div>}
+                : <div className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-[#fd4605] text-[13px] font-bold text-white">{initials}</div>}
               <div className="min-w-0 flex-1">
                 <p className="truncate text-[13px] font-bold text-[#111827]">{currentUser}</p>
-                <p className="text-[11px] text-[#fe2c55] font-semibold">Active</p>
+                <p className="text-[11px] text-[#fd4605] font-semibold">Active</p>
               </div>
             </div>
 
@@ -368,7 +368,7 @@ function AccountSwitcherModal({ onClose, currentUser, avatar }: {
 
             {/* Add Account */}
             <button onClick={() => setShowLogin(true)}
-              className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-[#e5e7eb] py-3 text-[13px] font-semibold text-[#6b7280] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+              className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-[#e5e7eb] py-3 text-[13px] font-semibold text-[#6b7280] transition hover:border-[#fd4605] hover:text-[#fd4605]">
               <Plus className="h-4 w-4" />
               Add Account
             </button>
@@ -377,14 +377,14 @@ function AccountSwitcherModal({ onClose, currentUser, avatar }: {
           <div className="p-4 space-y-3">
             <input type="text" value={loginVal} onChange={e => { setLoginVal(e.target.value); setErr(""); }}
               placeholder="Email or username"
-              className="w-full rounded-xl border border-[#e5e7eb] px-4 py-2.5 text-[13px] outline-none focus:border-[#fe2c55]" />
+              className="w-full rounded-xl border border-[#e5e7eb] px-4 py-2.5 text-[13px] outline-none focus:border-[#fd4605]" />
             <input type="password" value={password} onChange={e => { setPassword(e.target.value); setErr(""); }}
               placeholder="Password"
-              className="w-full rounded-xl border border-[#e5e7eb] px-4 py-2.5 text-[13px] outline-none focus:border-[#fe2c55]"
+              className="w-full rounded-xl border border-[#e5e7eb] px-4 py-2.5 text-[13px] outline-none focus:border-[#fd4605]"
               onKeyDown={e => e.key === "Enter" && addAccount()} />
             {err && <p className="text-[12px] text-red-500">{err}</p>}
             <button onClick={addAccount} disabled={loading}
-              className="w-full rounded-xl bg-[#fe2c55] py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e0243d] disabled:opacity-60">
+              className="w-full rounded-xl bg-[#fd4605] py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e03e04] disabled:opacity-60">
               {loading ? "Signing in…" : "Sign In & Add"}
             </button>
             <button onClick={() => { setShowLogin(false); setErr(""); }}
@@ -450,7 +450,7 @@ function StudioTopbar({
           value={searchQ}
           onChange={e => setSearchQ(e.target.value)}
           placeholder="Search content, analytics, and more..."
-          className="w-full rounded-full border border-[#e5e7eb] bg-[#f9fafb] py-2 pl-9 pr-4 text-[13px] text-[#111827] outline-none transition focus:border-[#fe2c55] focus:bg-white"
+          className="w-full rounded-full border border-[#e5e7eb] bg-[#f9fafb] py-2 pl-9 pr-4 text-[13px] text-[#111827] outline-none transition focus:border-[#fd4605] focus:bg-white"
         />
       </div>
 
@@ -465,10 +465,10 @@ function StudioTopbar({
         />
 
         {/* Notifications */}
-        <button className="relative grid h-10 w-10 place-items-center rounded-full border border-[#e5e7eb] bg-white text-[#374151] transition hover:border-[#fe2c55] hover:text-[#fe2c55]">
+        <button className="relative grid h-10 w-10 place-items-center rounded-full border border-[#e5e7eb] bg-white text-[#374151] transition hover:border-[#fd4605] hover:text-[#fd4605]">
           <Bell className="h-5 w-5" />
           {notificationCount > 0 && (
-            <span className="absolute -right-1 -top-1 grid h-5 w-5 place-items-center rounded-full bg-[#fe2c55] text-[9px] font-bold text-white">
+            <span className="absolute -right-1 -top-1 grid h-5 w-5 place-items-center rounded-full bg-[#fd4605] text-[9px] font-bold text-white">
               {notificationCount > 9 ? "9+" : notificationCount}
             </span>
           )}
@@ -478,12 +478,12 @@ function StudioTopbar({
         <div ref={avatarRef} className="relative">
           <button
             onClick={() => setAvatarMenuOpen(o => !o)}
-            className="flex items-center gap-2 rounded-full border border-[#e5e7eb] bg-white pl-1 pr-3 py-1 transition hover:border-[#fe2c55]"
+            className="flex items-center gap-2 rounded-full border border-[#e5e7eb] bg-white pl-1 pr-3 py-1 transition hover:border-[#fd4605]"
           >
             {avatar
               // eslint-disable-next-line @next/next/no-img-element
               ? <img src={avatar} alt={userName} className="h-8 w-8 rounded-full object-cover" />
-              : <div className="grid h-8 w-8 place-items-center rounded-full bg-[#fe2c55] text-[13px] font-bold text-white">{initials}</div>}
+              : <div className="grid h-8 w-8 place-items-center rounded-full bg-[#fd4605] text-[13px] font-bold text-white">{initials}</div>}
             <ChevronDown className={cn("h-3.5 w-3.5 text-[#9ca3af] transition-transform", avatarMenuOpen && "rotate-180")} />
           </button>
 
@@ -495,7 +495,7 @@ function StudioTopbar({
                 {avatar
                   // eslint-disable-next-line @next/next/no-img-element
                   ? <img src={avatar} alt={userName} className="h-8 w-8 rounded-full object-cover flex-shrink-0" />
-                  : <div className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-full bg-[#fe2c55] text-[13px] font-bold text-white">{initials}</div>}
+                  : <div className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-full bg-[#fd4605] text-[13px] font-bold text-white">{initials}</div>}
                 <div className="min-w-0">
                   <p className="truncate text-[13px] font-bold text-[#111827]">{userName}</p>
                   <p className="text-[11px] text-[#9ca3af]">Creator</p>
@@ -564,7 +564,7 @@ function StatCard({ icon: Icon, iconBg, iconColor, label, value, growth, growthU
       className={cn(
         "flex flex-1 items-center gap-4 rounded-2xl border bg-white px-5 py-4 transition",
         onClick && "cursor-pointer hover:shadow-sm",
-        isActive ? "border-[#fe2c55] ring-1 ring-[#fe2c55]/20" : "border-[#f0f0f0]",
+        isActive ? "border-[#fd4605] ring-1 ring-[#fd4605]/20" : "border-[#f0f0f0]",
       )}>
       {/* Icon */}
       <div className={cn("grid h-[46px] w-[46px] flex-shrink-0 place-items-center rounded-[12px]", iconBg)}>
@@ -620,7 +620,7 @@ function SecondaryStatCard({ icon: Icon, iconBg, iconColor, label, value, growth
       className={cn(
         "flex flex-1 flex-col rounded-2xl border bg-white px-4 py-3.5 transition",
         onClick && "cursor-pointer hover:shadow-sm",
-        isActive ? "border-[#fe2c55] ring-1 ring-[#fe2c55]/20" : "border-[#f0f0f0]",
+        isActive ? "border-[#fd4605] ring-1 ring-[#fd4605]/20" : "border-[#f0f0f0]",
       )}
     >
       {loading ? (
@@ -664,14 +664,14 @@ function QuickAction({ icon, iconBg, label, badge, href }: { icon: React.ReactNo
     <C
       href={href as string}
       type={href ? undefined : "button"}
-      className="flex flex-1 items-center gap-3 rounded-2xl border border-[#f0f0f0] bg-white px-4 py-4 text-[13px] font-semibold text-[#111827] transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+      className="flex flex-1 items-center gap-3 rounded-2xl border border-[#f0f0f0] bg-white px-4 py-4 text-[13px] font-semibold text-[#111827] transition hover:border-[#fd4605] hover:text-[#fd4605]"
     >
       <div className={cn("grid h-10 w-10 flex-shrink-0 place-items-center rounded-full", iconBg)}>
         {icon}
       </div>
       <span>{label}</span>
       {badge != null && badge > 0 && (
-        <span className="ml-auto grid h-6 min-w-6 place-items-center rounded-full bg-[#fe2c55] px-1.5 text-[11px] font-bold text-white">{badge}</span>
+        <span className="ml-auto grid h-6 min-w-6 place-items-center rounded-full bg-[#fd4605] px-1.5 text-[11px] font-bold text-white">{badge}</span>
       )}
     </C>
   );
@@ -759,7 +759,7 @@ const METRIC_MAP: Record<Metric, AnalyticsMetric> = {
 /* Icon + color per metric for the dropdown */
 type MetricMeta = { icon: React.ElementType; color: string };
 const METRIC_META: Record<Metric, MetricMeta> = {
-  "Views":         { icon: Play,             color: "text-[#fe2c55]"  },
+  "Views":         { icon: Play,             color: "text-[#fd4605]"  },
   "Watch Time":    { icon: Eye,              color: "text-[#7c3aed]"  },
   "Followers":     { icon: Users,            color: "text-[#10b981]"  },
   "Engagement":    { icon: TrendingUp,       color: "text-[#f97316]"  },
@@ -930,14 +930,14 @@ export function StudioPage() {
                     <div className="relative flex-shrink-0">
                       {/* Outer pink ring */}
                       <div className="flex h-[88px] w-[88px] items-center justify-center rounded-full p-[3px]"
-                        style={{ background: "linear-gradient(135deg,#fe2c55,#ff6b8a)" }}>
+                        style={{ background: "linear-gradient(135deg,#fd4605,#ff6b8a)" }}>
                         <div className="h-full w-full overflow-hidden rounded-full bg-white p-[2px]">
                           <div className="h-full w-full overflow-hidden rounded-full">
                             {(profile as any)?.avatar
                               // eslint-disable-next-line @next/next/no-img-element
                               ? <img src={(profile as any).avatar} alt={profile?.name ?? username}
                                   className="h-full w-full object-cover" />
-                              : <div className="flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br from-[#fe2c55] to-[#c0153a] text-[28px] font-black text-white">
+                              : <div className="flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br from-[#fd4605] to-[#b83203] text-[28px] font-black text-white">
                                   {(profile?.name || username || "U")[0].toUpperCase()}
                                 </div>}
                           </div>
@@ -976,7 +976,7 @@ export function StudioPage() {
                           <span className="rounded-full border border-[#e5e7eb] bg-[#f9fafb] px-2 py-0.5 text-[11px] font-semibold text-[#6b7280]">Admin</span>
                         )}
                         {user?.role === "creator" && (
-                          <span className="rounded-full border border-[#fecdd3] bg-[#fff0f4] px-2 py-0.5 text-[11px] font-semibold text-[#fe2c55]">Creator</span>
+                          <span className="rounded-full border border-[#fecdd3] bg-[#fff3ec] px-2 py-0.5 text-[11px] font-semibold text-[#fd4605]">Creator</span>
                         )}
                       </div>
 
@@ -994,7 +994,7 @@ export function StudioPage() {
                       {/* Days Active */}
                       <div className="flex items-center gap-3">
                         <div className="grid h-10 w-10 place-items-center rounded-full bg-[#fff0f2]">
-                          <Flame className="h-5 w-5 text-[#fe2c55]" />
+                          <Flame className="h-5 w-5 text-[#fd4605]" />
                         </div>
                         <div>
                           <p className="text-[20px] font-extrabold leading-none text-[#111827]">
@@ -1046,7 +1046,7 @@ export function StudioPage() {
                 {/* Stat Cards - clickable, drive graph metric */}
                 <div className="flex gap-4">
                   <StatCard
-                    icon={Play} iconBg="bg-[#fff0f4]" iconColor="text-[#fe2c55]"
+                    icon={Play} iconBg="bg-[#fff3ec]" iconColor="text-[#fd4605]"
                     label="Views"
                     value={fmt(totalViews)}
                     growth={`${g?.views?.pct ?? 0}%`}
@@ -1162,7 +1162,7 @@ export function StudioPage() {
                       <button
                         onClick={() => analyticsQ.refetch()}
                         title="Refresh chart"
-                        className="grid h-8 w-8 place-items-center rounded-lg border border-[#e5e7eb] text-[#6b7280] transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                        className="grid h-8 w-8 place-items-center rounded-lg border border-[#e5e7eb] text-[#6b7280] transition hover:border-[#fd4605] hover:text-[#fd4605]"
                       >
                         <RefreshCw className={cn("h-3.5 w-3.5", analyticsQ.isFetching && "animate-spin")} />
                       </button>
@@ -1171,7 +1171,7 @@ export function StudioPage() {
                       <div className="relative">
                         <button
                           onClick={() => setMetricDropOpen(o => !o)}
-                          className="flex items-center gap-2 rounded-lg border border-[#e5e7eb] px-3 py-1.5 text-[13px] font-semibold text-[#374151] transition hover:border-[#fe2c55]"
+                          className="flex items-center gap-2 rounded-lg border border-[#e5e7eb] px-3 py-1.5 text-[13px] font-semibold text-[#374151] transition hover:border-[#fd4605]"
                         >
                           {(() => { const M = METRIC_META[activeMetric]; return <M.icon className={cn("h-3.5 w-3.5", M.color)} />; })()}
                           {activeMetric}
@@ -1185,8 +1185,8 @@ export function StudioPage() {
                                 <button key={m} type="button"
                                   onClick={() => { setActiveMetric(m); setMetricDropOpen(false); }}
                                   className={cn("flex w-full items-center gap-2.5 px-4 py-2.5 text-[13px] text-left transition",
-                                    m === activeMetric ? "bg-[#fff0f4] text-[#fe2c55] font-semibold" : "text-[#374151] hover:bg-[#f8f9fb]")}>
-                                  <M.icon className={cn("h-3.5 w-3.5 flex-shrink-0", m === activeMetric ? "text-[#fe2c55]" : M.color)} />
+                                    m === activeMetric ? "bg-[#fff3ec] text-[#fd4605] font-semibold" : "text-[#374151] hover:bg-[#f8f9fb]")}>
+                                  <M.icon className={cn("h-3.5 w-3.5 flex-shrink-0", m === activeMetric ? "text-[#fd4605]" : M.color)} />
                                   {m}
                                 </button>
                               );
@@ -1198,7 +1198,7 @@ export function StudioPage() {
                   </div>
                   {analyticsLoading ? (
                     <div className="flex h-[220px] items-center justify-center">
-                      <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#fe2c55] border-t-transparent" />
+                      <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#fd4605] border-t-transparent" />
                     </div>
                   ) : (
                     <StudioLineChart data={chartData} height={220} metricLabel={activeMetric} />
@@ -1209,8 +1209,8 @@ export function StudioPage() {
                 <div>
                   <h3 className="mb-3 text-[15px] font-extrabold text-[#111827]">Quick Actions</h3>
                   <div className="flex flex-wrap gap-3">
-                    <QuickAction href="/upload" iconBg="bg-[#fff0f4]"
-                      icon={<Upload className="h-5 w-5 text-[#fe2c55]" />} label="Upload Video" />
+                    <QuickAction href="/upload" iconBg="bg-[#fff3ec]"
+                      icon={<Upload className="h-5 w-5 text-[#fd4605]" />} label="Upload Video" />
                     <QuickAction href="#" iconBg="bg-[#fce7f3]"
                       icon={<Radio className="h-5 w-5 text-[#ec4899]" />} label="Go Live" />
                     <QuickAction href="/studio/content" iconBg="bg-[#ede9fe]"
@@ -1227,7 +1227,7 @@ export function StudioPage() {
                   <div className="mb-3 flex items-center justify-between">
                     <h3 className="text-[15px] font-extrabold text-[#111827]">Recent Content</h3>
                     <Link href="/studio/content"
-                      className="flex items-center gap-1 text-[13px] font-semibold text-[#fe2c55] hover:underline">
+                      className="flex items-center gap-1 text-[13px] font-semibold text-[#fd4605] hover:underline">
                       See all <ChevronRight className="h-3.5 w-3.5" />
                     </Link>
                   </div>
@@ -1246,7 +1246,7 @@ export function StudioPage() {
                       <Video className="mb-2 h-10 w-10 text-[#d1d5db]" />
                       <p className="text-[14px] font-semibold text-[#6b7280]">No content yet</p>
                       <p className="mt-1 text-[12px] text-[#9ca3af]">Upload your first video to get started.</p>
-                      <Link href="/upload" className="mt-4 rounded-full bg-[#fe2c55] px-5 py-2 text-[13px] font-bold text-white transition hover:bg-[#e0243d]">
+                      <Link href="/upload" className="mt-4 rounded-full bg-[#fd4605] px-5 py-2 text-[13px] font-bold text-white transition hover:bg-[#e03e04]">
                         Upload Now
                       </Link>
                     </div>
@@ -1262,7 +1262,7 @@ export function StudioPage() {
                   <div className="mb-3 flex items-center justify-between">
                     <h3 className="text-[14px] font-extrabold text-[#111827]">Monetization</h3>
                     {(
-                      <Link href="/studio/monetization" className="text-[12px] font-semibold text-[#fe2c55] hover:underline">
+                      <Link href="/studio/monetization" className="text-[12px] font-semibold text-[#fd4605] hover:underline">
                         See all →
                       </Link>
                     )}
@@ -1297,7 +1297,7 @@ export function StudioPage() {
                       </div>
                       <Link
                         href="/studio/wallets-coins"
-                        className="mt-4 block w-full rounded-full bg-[#fe2c55] py-2.5 text-center text-[13px] font-bold text-white transition hover:bg-[#e0243d]"
+                        className="mt-4 block w-full rounded-full bg-[#fd4605] py-2.5 text-center text-[13px] font-bold text-white transition hover:bg-[#e03e04]"
                       >
                         View earnings
                       </Link>
@@ -1308,9 +1308,9 @@ export function StudioPage() {
                 <div className="rounded-2xl border border-[#f0f0f0] bg-white p-5">
                   <h3 className="mb-3 text-[14px] font-extrabold text-[#111827]">Verification &amp; Status</h3>
                   <div className="flex items-center gap-3 rounded-xl bg-[#f8f9fb] p-3">
-                    <div className="grid h-10 w-10 place-items-center rounded-full bg-[#fff0f4]">
+                    <div className="grid h-10 w-10 place-items-center rounded-full bg-[#fff3ec]">
                       {(profile as any)?.is_verified
-                        ? <ShieldCheck className="h-5 w-5 text-[#fe2c55]" />
+                        ? <ShieldCheck className="h-5 w-5 text-[#fd4605]" />
                         : <Shield className="h-5 w-5 text-[#9ca3af]" />}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -1326,7 +1326,7 @@ export function StudioPage() {
                       {(profile as any)?.is_verified ? "All good" : "Pending"}
                     </span>
                   </div>
-                  <Link href="/studio/verification" className="mt-3 flex items-center justify-between text-[12px] font-semibold text-[#fe2c55] hover:underline">
+                  <Link href="/studio/verification" className="mt-3 flex items-center justify-between text-[12px] font-semibold text-[#fd4605] hover:underline">
                     Learn more about verification <ChevronRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
@@ -1335,20 +1335,20 @@ export function StudioPage() {
                 <div className="rounded-2xl border border-[#f0f0f0] bg-white p-5">
                   <div className="mb-3 flex items-center justify-between">
                     <h3 className="text-[14px] font-extrabold text-[#111827]">Creator Tools</h3>
-                    <Link href="/studio/tools" className="text-[12px] font-semibold text-[#fe2c55] hover:underline">
+                    <Link href="/studio/tools" className="text-[12px] font-semibold text-[#fd4605] hover:underline">
                       See all →
                     </Link>
                   </div>
                   <div className="grid grid-cols-3 gap-3">
                     {[
                       { icon: <Users className="h-5 w-5 text-[#7c3aed]" />, bg: "bg-[#ede9fe]", label: "Audience" },
-                      { icon: <Radio className="h-5 w-5 text-[#fe2c55]" />, bg: "bg-[#fff0f4]", label: "Live Tools" },
+                      { icon: <Radio className="h-5 w-5 text-[#fd4605]" />, bg: "bg-[#fff3ec]", label: "Live Tools" },
                       { icon: <Music2 className="h-5 w-5 text-[#2563eb]" />, bg: "bg-[#dbeafe]", label: "Music Library" },
                       { icon: <Lightbulb className="h-5 w-5 text-[#f59e0b]" />, bg: "bg-[#fef3c7]", label: "Ideas Hub" },
                       { icon: <Settings className="h-5 w-5 text-[#6b7280]" />, bg: "bg-[#f3f4f6]", label: "Settings" },
                     ].map(({ icon, bg, label }) => (
                       <button key={label} type="button"
-                        className="flex flex-col items-center gap-1.5 rounded-xl border border-[#f0f0f0] p-2.5 transition hover:border-[#fe2c55]">
+                        className="flex flex-col items-center gap-1.5 rounded-xl border border-[#f0f0f0] p-2.5 transition hover:border-[#fd4605]">
                         <div className={cn("grid h-10 w-10 place-items-center rounded-full", bg)}>{icon}</div>
                         <span className="text-[10px] font-semibold text-[#374151] text-center leading-tight">{label}</span>
                       </button>

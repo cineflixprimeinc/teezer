@@ -16,7 +16,7 @@ export function StudioLayout({ title, children }: { title: string; children: Rea
           <h1 className="text-3xl font-bold text-black">Teezer Studio</h1>
           <div className="mt-5 flex gap-2 overflow-x-auto border-b border-[#eeeeee] pb-3">
             {studioNav.map(([label, href]) => (
-              <Link key={href} href={href} className={cn("rounded-full px-4 py-2 text-sm font-semibold text-[#5f6675] hover:bg-white", pathname === href && "bg-[#fe2c55] text-white")}>{label}</Link>
+              <Link key={href} href={href} className={cn("rounded-full px-4 py-2 text-sm font-semibold text-[#5f6675] hover:bg-white", pathname === href && "bg-[#fd4605] text-white")}>{label}</Link>
             ))}
           </div>
           <h2 className="mt-8 text-xl font-bold text-black">{title}</h2>

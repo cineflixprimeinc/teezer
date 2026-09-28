@@ -510,7 +510,7 @@ export default function ReportedPage() {
         {/* Stat cards - overall totals + a real 14-day trend, computed once
             server-side in AdminReportsController::stats() and reused here. */}
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <TrendStatCard icon={Flag} label="Total Reports" color="#fe2c55" semantic="neutral"
+          <TrendStatCard icon={Flag} label="Total Reports" color="#fd4605" semantic="neutral"
             value={stats?.overall.total} deltaPct={stats?.trend.total.delta_pct} series={stats?.trend.total.series} />
           <TrendStatCard icon={Clock} label="Pending Review" color="#f59e0b" semantic="up-bad"
             value={stats?.overall.pending} deltaPct={stats?.trend.pending.delta_pct} series={stats?.trend.pending.series} />
@@ -532,12 +532,12 @@ export default function ReportedPage() {
                   <button key={t.key}
                     onClick={() => { setTab(t.key); setPage(1); setReason(""); resetSelection(); }}
                     className={`flex shrink-0 items-center gap-1.5 border-b-2 px-4 py-3 text-[13px] font-medium transition-colors
-                      ${on ? "border-[#fe2c55] text-[#fe2c55]" : "border-transparent text-[#6b7280] hover:text-[#111827]"}`}>
+                      ${on ? "border-[#fd4605] text-[#fd4605]" : "border-transparent text-[#6b7280] hover:text-[#111827]"}`}>
                     <t.icon className="h-3.5 w-3.5" />
                     {t.label}
                     {!!pending && (
                       <span className={`grid h-4 min-w-4 place-items-center rounded-full px-1 text-[10px] font-bold
-                        ${on ? "bg-[#fe2c55] text-white" : "bg-[#f3f4f6] text-[#6b7280]"}`}>
+                        ${on ? "bg-[#fd4605] text-white" : "bg-[#f3f4f6] text-[#6b7280]"}`}>
                         {pending > 999 ? `${(pending / 1000).toFixed(1)}K` : pending}
                       </span>
                     )}
@@ -584,7 +584,7 @@ export default function ReportedPage() {
                     <FilterChip label={`Date: ${from || "…"} → ${to || "…"}`} onClear={() => { setFrom(""); setTo(""); }} />
                   )}
                   {!!q && <FilterChip label={`Search: "${q}"`} onClear={() => setQ("")} />}
-                  <button onClick={clearAllFilters} className="text-[12px] font-semibold text-[#fe2c55] hover:underline">
+                  <button onClick={clearAllFilters} className="text-[12px] font-semibold text-[#fd4605] hover:underline">
                     Clear all
                   </button>
                 </div>
@@ -596,7 +596,7 @@ export default function ReportedPage() {
               <Table>
                 <Thead>
                   <Th className="w-8">
-                    <input type="checkbox" className="accent-[#fe2c55]" checked={allOnPageSelected}
+                    <input type="checkbox" className="accent-[#fd4605]" checked={allOnPageSelected}
                       onChange={() => setSelectedIds((prev) => {
                         const next = new Set(prev);
                         if (allOnPageSelected) pageIds.forEach((id) => next.delete(id));
@@ -622,7 +622,7 @@ export default function ReportedPage() {
                           return (
                             <Tr key={r.id} className={selected ? "bg-[#fff1f3]" : undefined}>
                               <Td>
-                                <input type="checkbox" className="accent-[#fe2c55]" checked={selected}
+                                <input type="checkbox" className="accent-[#fd4605]" checked={selected}
                                   onChange={() => setSelectedIds((prev) => {
                                     const next = new Set(prev);
                                     if (next.has(r.id)) next.delete(r.id); else next.add(r.id);
@@ -977,7 +977,7 @@ export default function ReportedPage() {
             {(["24h", "7d", "30d", "indefinite"] as const).map((p) => (
               <button key={p} type="button" onClick={() => setSuspendPreset(p)}
                 className={`rounded-lg px-2.5 py-1 text-[11.5px] font-semibold capitalize transition ${
-                  suspendPreset === p ? "bg-[#fe2c55] text-white" : "bg-[#f3f4f6] text-[#374151] hover:bg-[#e8eaed]"
+                  suspendPreset === p ? "bg-[#fd4605] text-white" : "bg-[#f3f4f6] text-[#374151] hover:bg-[#e8eaed]"
                 }`}>
                 {p === "indefinite" ? "Indefinite" : p}
               </button>

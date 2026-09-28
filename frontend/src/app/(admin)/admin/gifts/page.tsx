@@ -125,7 +125,7 @@ export default function GiftsPage() {
           </div>
           <button
             onClick={() => setCreating(true)}
-            className="inline-flex items-center gap-2 rounded-[10px] bg-[#fe2c55] px-4 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e0193f]"
+            className="inline-flex items-center gap-2 rounded-[10px] bg-[#fd4605] px-4 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#e03e04]"
           >
             <Plus className="h-4 w-4" /> New gift
           </button>
@@ -133,7 +133,7 @@ export default function GiftsPage() {
 
         {/* Stats */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Stat label="Live gifts" value={s ? num(s.packages_active) : "-"} sub="buyable in the app" icon={Gift} color="#fe2c55" />
+          <Stat label="Live gifts" value={s ? num(s.packages_active) : "-"} sub="buyable in the app" icon={Gift} color="#fd4605" />
           <Stat label="Sendable" value={s ? num(s.gifts_active) : "-"} sub="in the gift sheet" icon={Package} color="#7c3aed" />
           <Stat label="Gifts sent" value={s ? num(s.gifts_sent) : "-"} sub="all time" icon={Send} color="#2563eb" />
           <Stat label="Coins spent" value={s ? num(s.coins_spent) : "-"} sub="on gifts" icon={Coins} color="#f59e0b" />
@@ -148,7 +148,7 @@ export default function GiftsPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by name, slug, coins or catalog number"
-                className="w-full rounded-[10px] border border-[#e5e7eb] py-2.5 pl-9 pr-3 text-[13px] outline-none transition focus:border-[#fe2c55]"
+                className="w-full rounded-[10px] border border-[#e5e7eb] py-2.5 pl-9 pr-3 text-[13px] outline-none transition focus:border-[#fd4605]"
               />
             </div>
 
@@ -163,7 +163,7 @@ export default function GiftsPage() {
             {filtersOn && (
               <button
                 onClick={() => { setSearch(""); setStatus("active"); setSort("catalog"); setPage(1); }}
-                className="inline-flex items-center gap-1.5 rounded-[10px] border border-[#e5e7eb] px-3 py-2.5 text-[12.5px] font-semibold text-[#6b7280] transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+                className="inline-flex items-center gap-1.5 rounded-[10px] border border-[#e5e7eb] px-3 py-2.5 text-[12.5px] font-semibold text-[#6b7280] transition hover:border-[#fd4605] hover:text-[#fd4605]"
               >
                 <X className="h-3.5 w-3.5" /> Clear
               </button>
@@ -211,7 +211,7 @@ export default function GiftsPage() {
             <button
               disabled={page <= 1}
               onClick={() => setPage((p) => p - 1)}
-              className="rounded-[8px] border border-[#e5e7eb] px-3 py-1.5 text-[12px] font-semibold transition hover:border-[#fe2c55] disabled:opacity-40 disabled:hover:border-[#e5e7eb]"
+              className="rounded-[8px] border border-[#e5e7eb] px-3 py-1.5 text-[12px] font-semibold transition hover:border-[#fd4605] disabled:opacity-40 disabled:hover:border-[#e5e7eb]"
             >
               Previous
             </button>
@@ -219,7 +219,7 @@ export default function GiftsPage() {
             <button
               disabled={page >= lastPage}
               onClick={() => setPage((p) => p + 1)}
-              className="rounded-[8px] border border-[#e5e7eb] px-3 py-1.5 text-[12px] font-semibold transition hover:border-[#fe2c55] disabled:opacity-40 disabled:hover:border-[#e5e7eb]"
+              className="rounded-[8px] border border-[#e5e7eb] px-3 py-1.5 text-[12px] font-semibold transition hover:border-[#fd4605] disabled:opacity-40 disabled:hover:border-[#e5e7eb]"
             >
               Next
             </button>
@@ -296,7 +296,7 @@ function Dropdown<T extends string>({
         className={`inline-flex min-w-[160px] items-center justify-between gap-2 rounded-[10px] border px-3 py-2.5 text-[13px] font-semibold transition ${
           isDefault
             ? "border-[#e5e7eb] text-[#374151] hover:border-[#d1d5db]"
-            : "border-[#fe2c55] bg-[#fff5f7] text-[#fe2c55]"
+            : "border-[#fd4605] bg-[#fff6f1] text-[#fd4605]"
         }`}
       >
         <span className="flex items-center gap-1.5">
@@ -320,7 +320,7 @@ function Dropdown<T extends string>({
                 aria-selected={on}
                 onClick={() => { onChange(o.value); setOpen(false); }}
                 className={`flex w-full items-center justify-between rounded-[8px] px-3 py-2 text-left text-[12.5px] font-semibold transition ${
-                  on ? "bg-[#fff0f4] text-[#fe2c55]" : "text-[#374151] hover:bg-[#f8f9fb]"
+                  on ? "bg-[#fff3ec] text-[#fd4605]" : "text-[#374151] hover:bg-[#f8f9fb]"
                 }`}
               >
                 {o.label}
@@ -371,7 +371,7 @@ function IconSlot({
         onClick={() => ref.current?.click()}
         disabled={busy}
         title="Upload a PNG, SVG, GIF or WebP"
-        className="group relative grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-[12px] border border-[#f0f1f5] bg-[#f8f9fb] transition hover:border-[#fe2c55] disabled:opacity-50"
+        className="group relative grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-[12px] border border-[#f0f1f5] bg-[#f8f9fb] transition hover:border-[#fd4605] disabled:opacity-50"
       >
         {src ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -424,7 +424,7 @@ function GiftCard({
               </span>
             )}
             {g.badge && (
-              <span className="rounded-full bg-[#fff0f4] px-1.5 py-0.5 text-[9px] font-black uppercase text-[#fe2c55]">
+              <span className="rounded-full bg-[#fff3ec] px-1.5 py-0.5 text-[9px] font-black uppercase text-[#fd4605]">
                 {g.badge}
               </span>
             )}
@@ -477,7 +477,7 @@ function GiftCard({
         <button
           onClick={onEdit}
           title="Edit prices and details"
-          className="grid h-8 w-8 place-items-center rounded-[8px] border border-[#e5e7eb] text-[#6b7280] transition hover:border-[#fe2c55] hover:text-[#fe2c55]"
+          className="grid h-8 w-8 place-items-center rounded-[8px] border border-[#e5e7eb] text-[#6b7280] transition hover:border-[#fd4605] hover:text-[#fd4605]"
         >
           <Pencil className="h-3.5 w-3.5" />
         </button>
@@ -521,7 +521,7 @@ function Field({ label, hint, children }: { label: string; hint?: string; childr
 }
 
 const inputCls =
-  "mt-1 w-full rounded-[10px] border border-[#e5e7eb] px-3 py-2.5 text-[13px] outline-none transition focus:border-[#fe2c55]";
+  "mt-1 w-full rounded-[10px] border border-[#e5e7eb] px-3 py-2.5 text-[13px] outline-none transition focus:border-[#fd4605]";
 
 function Editor({
   g, onClose, onSaved, onError,
@@ -714,7 +714,7 @@ function Editor({
         <button
           onClick={() => m.mutate()}
           disabled={m.isPending || !name.trim() || coinsN < 1 || priceN <= 0}
-          className="mt-2 w-full rounded-[10px] bg-[#fe2c55] py-3 text-[13px] font-black text-white transition hover:bg-[#e0193f] disabled:opacity-50"
+          className="mt-2 w-full rounded-[10px] bg-[#fd4605] py-3 text-[13px] font-black text-white transition hover:bg-[#e03e04] disabled:opacity-50"
         >
           {m.isPending ? "Saving…" : "Save changes"}
         </button>
@@ -802,7 +802,7 @@ function Creator({
         <button
           onClick={() => m.mutate()}
           disabled={m.isPending || !valid}
-          className="mt-2 w-full rounded-[10px] bg-[#fe2c55] py-3 text-[13px] font-black text-white transition hover:bg-[#e0193f] disabled:opacity-50"
+          className="mt-2 w-full rounded-[10px] bg-[#fd4605] py-3 text-[13px] font-black text-white transition hover:bg-[#e03e04] disabled:opacity-50"
         >
           {m.isPending ? "Creating…" : "Create gift"}
         </button>
@@ -826,7 +826,7 @@ function Toggle({
         <span className="block text-[12.5px] font-bold text-[#374151]">{label}</span>
         {hint && <span className="block text-[10.5px] text-[#9ca3af]">{hint}</span>}
       </span>
-      <span className={`relative h-5 w-9 shrink-0 rounded-full transition ${checked ? "bg-[#fe2c55]" : "bg-[#d1d5db]"}`}>
+      <span className={`relative h-5 w-9 shrink-0 rounded-full transition ${checked ? "bg-[#fd4605]" : "bg-[#d1d5db]"}`}>
         <span className={`absolute top-0.5 h-4 w-4 rounded-full bg-white transition-all ${checked ? "left-[18px]" : "left-0.5"}`} />
       </span>
     </button>

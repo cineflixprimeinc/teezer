@@ -38,7 +38,7 @@ const livePathFor = (slug: string) => LIVE_PATHS[slug] ?? `/policies/${slug}`;
 /** Same three groupings mobile's PoliciesScreen.tsx already uses, so the
  *  admin's mental model of "where is this policy" matches the app's. */
 const CATEGORIES: { title: string; color: string; slugs: string[] }[] = [
-  { title: "Core Policies", color: "#fe2c55", slugs: ["terms", "privacy", "guidelines"] },
+  { title: "Core Policies", color: "#fd4605", slugs: ["terms", "privacy", "guidelines"] },
   {
     title: "Safety & Community",
     color: "#f59e0b",
@@ -199,12 +199,12 @@ function CmsEditor({ page }: { page: CmsPage }) {
         <input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="h-10 flex-1 rounded-xl border border-[#e8eaed] bg-white px-3.5 text-[14px] font-semibold text-[#111827] outline-none transition-colors focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10"
+          className="h-10 flex-1 rounded-xl border border-[#e8eaed] bg-white px-3.5 text-[14px] font-semibold text-[#111827] outline-none transition-colors focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10"
           placeholder="Page title…"
         />
         <button
           onClick={() => setPublished((p) => !p)}
-          className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${published ? "bg-[#fe2c55]" : "bg-[#d1d5db]"}`}
+          className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${published ? "bg-[#fd4605]" : "bg-[#d1d5db]"}`}
         >
           <span className={`absolute top-1 h-4 w-4 rounded-full bg-white shadow transition-transform ${published ? "translate-x-6" : "translate-x-1"}`} />
         </button>
@@ -231,7 +231,7 @@ function CmsEditor({ page }: { page: CmsPage }) {
               <input
                 value={metaTitle}
                 onChange={(e) => setMetaTitle(e.target.value)}
-                className="mt-1 h-9 w-full rounded-[10px] border border-[#e8eaed] bg-white px-3 text-[13px] text-[#111827] outline-none focus:border-[#fe2c55]"
+                className="mt-1 h-9 w-full rounded-[10px] border border-[#e8eaed] bg-white px-3 text-[13px] text-[#111827] outline-none focus:border-[#fd4605]"
                 placeholder={title || "Defaults to page title"}
               />
             </div>
@@ -241,7 +241,7 @@ function CmsEditor({ page }: { page: CmsPage }) {
                 value={metaDesc}
                 onChange={(e) => setMetaDesc(e.target.value)}
                 rows={2}
-                className="mt-1 w-full resize-none rounded-[10px] border border-[#e8eaed] bg-white px-3 py-2 text-[13px] text-[#111827] outline-none focus:border-[#fe2c55]"
+                className="mt-1 w-full resize-none rounded-[10px] border border-[#e8eaed] bg-white px-3 py-2 text-[13px] text-[#111827] outline-none focus:border-[#fd4605]"
                 placeholder="One or two sentences for search results"
               />
             </div>
@@ -333,7 +333,7 @@ function NewPageModal({ open, onClose }: { open: boolean; onClose: () => void })
             value={slug}
             onChange={(e) => setSlug(e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, "-").replace(/-+/g, "-"))}
             placeholder="e.g. refund-policy"
-            className="mt-1 h-9 w-full rounded-[10px] border border-[#e8eaed] bg-white px-3 text-[13px] text-[#111827] outline-none focus:border-[#fe2c55]"
+            className="mt-1 h-9 w-full rounded-[10px] border border-[#e8eaed] bg-white px-3 text-[13px] text-[#111827] outline-none focus:border-[#fd4605]"
           />
         </div>
         <div>
@@ -342,7 +342,7 @@ function NewPageModal({ open, onClose }: { open: boolean; onClose: () => void })
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="e.g. Refund Policy"
-            className="mt-1 h-9 w-full rounded-[10px] border border-[#e8eaed] bg-white px-3 text-[13px] text-[#111827] outline-none focus:border-[#fe2c55]"
+            className="mt-1 h-9 w-full rounded-[10px] border border-[#e8eaed] bg-white px-3 text-[13px] text-[#111827] outline-none focus:border-[#fd4605]"
           />
         </div>
         <p className="text-[11px] leading-4 text-[#9ca3af]">
@@ -384,8 +384,8 @@ export default function LegalPage() {
       <div className="space-y-5">
         <div className="flex items-start justify-between gap-4 rounded-2xl border border-[#e8eaed] bg-gradient-to-br from-white to-[#fff8f9] p-5">
           <div className="flex items-start gap-3">
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#fe2c55]/10">
-              <Sparkles className="h-5 w-5 text-[#fe2c55]" />
+            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#fd4605]/10">
+              <Sparkles className="h-5 w-5 text-[#fd4605]" />
             </div>
             <div>
               <h2 className="text-[18px] font-bold text-[#111827]">CMS & Legal</h2>
@@ -416,7 +416,7 @@ export default function LegalPage() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search pages…"
-                className="h-10 w-full rounded-xl border border-[#e8eaed] bg-white pl-9 pr-3 text-[13px] text-[#111827] outline-none transition-colors focus:border-[#fe2c55] focus:ring-2 focus:ring-[#fe2c55]/10"
+                className="h-10 w-full rounded-xl border border-[#e8eaed] bg-white pl-9 pr-3 text-[13px] text-[#111827] outline-none transition-colors focus:border-[#fd4605] focus:ring-2 focus:ring-[#fd4605]/10"
               />
             </div>
 
@@ -467,7 +467,7 @@ export default function LegalPage() {
                     </div>
                     <div>
                       <p className="flex items-center gap-1.5 text-[15px] font-bold text-[#111827]">
-                        <FileText className="h-3.5 w-3.5 text-[#fe2c55]" /> {activePage.title}
+                        <FileText className="h-3.5 w-3.5 text-[#fd4605]" /> {activePage.title}
                       </p>
                       <p className="text-[11px] text-[#9ca3af]">
                         /{activePage.slug} · Updated {new Date(activePage.updated_at).toLocaleDateString()}
@@ -495,7 +495,7 @@ export default function LegalPage() {
 }
 
 function PageList({
-  pages, activeSlug, onSelect, accent = "#fe2c55",
+  pages, activeSlug, onSelect, accent = "#fd4605",
 }: {
   pages: CmsPage[]; activeSlug: string; onSelect: (slug: string) => void; accent?: string;
 }) {
