@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdminActionLog;
 use App\Models\Profile;
 use App\Models\RateLimit;
 use App\Models\User;
@@ -881,7 +882,9 @@ class ApiAuthController extends Controller
     {
         $request->validate([
             'current_password' => ['required', 'string'],
-            'password'         => ['required', 'string', 'min:8', 'confirmed'],
+            'password'         => ['required', 'string', 'min:8', 'max:128', 'confirmed', 'different:current_password'],
+        ], [
+            'password.different' => 'Your new password must be different from your current password.',
         ]);
 
         $user = $request->user();
@@ -895,10 +898,34 @@ class ApiAuthController extends Controller
         $user->update(['password' => $request->password, 'password_changed_at' => now()]);
         $user->tokens()->delete(); // Revoke all sessions for security
 
+        // Also end every browser SSO session, so an existing web/admin session
+        // cannot outlive the old password (same as "sign out everywhere").
+        $sso = app(SsoSessionService::class);
+        $sso->revokeAllForUser($user->id);
+
+        if (in_array($user->role, ['admin', 'super_admin'], true) || $user->admin_role_id) {
+            try {
+                AdminActionLog::create([
+                    'admin_id'    => $user->id,
+                    'action'      => 'change_password',
+                    'category'    => 'security',
+                    'target_type' => 'User',
+                    'target_id'   => $user->id,
+                    'description' => 'Changed own admin password',
+                    'ip_address'  => $request->ip(),
+                    'severity'    => 'warning',
+                    'created_at'  => now(),
+                ]);
+            } catch (\Throwable) {
+                // Audit logging must never block a successful password change.
+            }
+        }
+
         return response()->json([
             'success' => true,
             'message' => 'Password changed successfully. Please log in again.',
-        ]);
+        ])->withCookie($sso->forgetCookie())
+          ->withCookie($this->forgetAdminSessionCookie());
     }
 
     public function verifyEmail(Request $request): JsonResponse

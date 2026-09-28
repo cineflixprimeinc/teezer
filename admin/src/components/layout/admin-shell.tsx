@@ -462,7 +462,7 @@ function Header({
           {profileOpen && (
             <>
               <div className="fixed inset-0 z-10" onClick={() => setProfileOpen(false)} />
-              <div className="absolute right-0 top-full z-20 mt-1.5 w-48 rounded-2xl border border-[#e8eaed] bg-white p-1.5 shadow-lg">
+              <div className="absolute right-0 top-full z-20 mt-1.5 w-56 rounded-2xl border border-[#e8eaed] bg-white p-1.5 shadow-lg">
                 <div className="px-3 py-2">
                   <p className="text-[12px] font-semibold text-[#111827]">{user?.name}</p>
                   <p className="text-[11px] text-[#9ca3af]">{user?.email}</p>
@@ -472,6 +472,11 @@ function Header({
                   className="flex items-center gap-2 rounded-[8px] px-3 py-2 text-[13px] text-[#374151] hover:bg-[#f4f5f7] transition-colors">
                   <Settings className="h-3.5 w-3.5 text-[#9ca3af]" />
                   Settings
+                </Link>
+                <Link href="/account/password" onClick={() => setProfileOpen(false)}
+                  className="flex items-center gap-2 rounded-[8px] px-3 py-2 text-[13px] text-[#374151] hover:bg-[#f4f5f7] transition-colors">
+                  <KeyRound className="h-3.5 w-3.5 text-[#9ca3af]" />
+                  Change Admin Password
                 </Link>
                 <button
                   onClick={() => { setProfileOpen(false); logout(); }}
