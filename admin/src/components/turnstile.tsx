@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /* Cloudflare Turnstile widget. Renders only when a site key is configured
    (NEXT_PUBLIC_TURNSTILE_SITE_KEY); otherwise it's a no-op so login is
@@ -8,6 +8,32 @@ import { useEffect, useRef } from "react";
 
 export const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
 export const turnstileEnabled = TURNSTILE_SITE_KEY.length > 0;
+
+/* Runtime fallback: when no key was baked in at build time, ask the API. An
+   admin can paste or rotate the key in Admin > Integrations without a rebuild. */
+let runtimeKeyPromise: Promise<string> | null = null;
+function fetchRuntimeSiteKey(): Promise<string> {
+  if (!runtimeKeyPromise) {
+    const base = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+    runtimeKeyPromise = fetch(`${base}/app/turnstile`, { headers: { Accept: "application/json" } })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => (j?.data?.enabled && typeof j.data.site_key === "string" ? j.data.site_key : ""))
+      .catch(() => "");
+  }
+  return runtimeKeyPromise;
+}
+
+/** Site key to use: the build-time one, else the one configured in the admin panel. */
+export function useTurnstileSiteKey(): string {
+  const [key, setKey] = useState(TURNSTILE_SITE_KEY);
+  useEffect(() => {
+    if (TURNSTILE_SITE_KEY) return;
+    let alive = true;
+    fetchRuntimeSiteKey().then((k) => { if (alive) setKey(k); });
+    return () => { alive = false; };
+  }, []);
+  return key;
+}
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare global {
@@ -23,7 +49,7 @@ declare global {
 const SCRIPT_ID = "cf-turnstile-script";
 const SCRIPT_SRC = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
 
-export function Turnstile({ onToken }: { onToken: (token: string | null) => void }) {
+export function Turnstile({ onToken, siteKey = TURNSTILE_SITE_KEY }: { onToken: (token: string | null) => void; siteKey?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
   // Keep the latest callback without re-running the mount effect.
@@ -31,14 +57,14 @@ export function Turnstile({ onToken }: { onToken: (token: string | null) => void
   useEffect(() => { onTokenRef.current = onToken; }, [onToken]);
 
   useEffect(() => {
-    if (!turnstileEnabled) return;
+    if (!siteKey) return;
     let cancelled = false;
     let poll: ReturnType<typeof setInterval> | null = null;
 
     const renderWidget = () => {
       if (cancelled || widgetIdRef.current || !containerRef.current || !window.turnstile) return;
       widgetIdRef.current = window.turnstile.render(containerRef.current, {
-        sitekey: TURNSTILE_SITE_KEY,
+        sitekey: siteKey,
         callback: (t: string) => onTokenRef.current(t),
         "expired-callback": () => onTokenRef.current(null),
         "error-callback": () => onTokenRef.current(null),
@@ -77,8 +103,8 @@ export function Turnstile({ onToken }: { onToken: (token: string | null) => void
         widgetIdRef.current = null;
       }
     };
-  }, []);
+  }, [siteKey]);
 
-  if (!turnstileEnabled) return null;
+  if (!siteKey) return null;
   return <div ref={containerRef} style={{ minHeight: 65, display: "flex", justifyContent: "center" }} />;
 }

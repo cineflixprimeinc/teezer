@@ -11,7 +11,7 @@ import { GlobalRestrictionNotice } from "@/components/global-restriction-notice"
 import { authService } from "@/services/auth.service";
 import { countryService } from "@/services/country.service";
 import { SocialButton, GoogleIcon, TikTokIcon, FacebookIcon, AppleIcon } from "./social-button";
-import { Turnstile, turnstileEnabled } from "./turnstile";
+import { Turnstile, useTurnstileSiteKey } from "./turnstile";
 
 type LoginView = "options" | "email" | "forgot" | "twofa" | "qr";
 
@@ -207,6 +207,8 @@ export function LoginContent({ startView = "options", embedded = false }: { star
   const [rateLimit, setRateLimit] = useState<{ message: string; retryAfter: number } | null>(null);
   const [rememberMe, setRememberMe] = useState(false);
   const [tsToken, setTsToken] = useState<string | null>(null);
+  const tsSiteKey = useTurnstileSiteKey();
+  const turnstileOn = tsSiteKey.length > 0;
 
   /* Forgot-password state */
   const [fpEmail,   setFpEmail]   = useState("");
@@ -421,7 +423,7 @@ export function LoginContent({ startView = "options", embedded = false }: { star
     const errs: Record<string, string> = {};
     if (!loginVal.trim()) errs.login    = "Email or username required.";
     if (!password)        errs.password = "Password required.";
-    if (turnstileEnabled && !tsToken) errs.captcha = "Please complete the verification below.";
+    if (turnstileOn && !tsToken) errs.captcha = "Please complete the verification below.";
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setErrors({});
     try {
@@ -828,9 +830,9 @@ export function LoginContent({ startView = "options", embedded = false }: { star
         </div>
 
         {/* Cloudflare Turnstile - only rendered when a site key is configured */}
-        {turnstileEnabled && (
+        {turnstileOn && (
           <div>
-            <Turnstile onToken={setTsToken} />
+            <Turnstile onToken={setTsToken} siteKey={tsSiteKey} />
             {errors.captcha && (
               <p style={{ marginTop: 4, fontSize: 11, color: "#fd4605", textAlign: "center" }}>{errors.captcha}</p>
             )}
@@ -838,7 +840,7 @@ export function LoginContent({ startView = "options", embedded = false }: { star
         )}
 
         {(() => {
-          const disabled = isLoading || Boolean(rateLimit) || Boolean(loginRestriction) || (turnstileEnabled && !tsToken);
+          const disabled = isLoading || Boolean(rateLimit) || Boolean(loginRestriction) || (turnstileOn && !tsToken);
           return (
             <button
               type="submit" disabled={disabled}

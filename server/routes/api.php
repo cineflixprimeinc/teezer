@@ -177,6 +177,21 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
     Route::get('/app/settings', function () {
         return response()->json(['success' => true, 'data' => \App\Models\AppSetting::publicSettings()]);
     })->name('app.settings');
+    /* Turnstile public config for the login forms. The site key is a public
+       value by design (it is embedded in every page that renders the widget);
+       the secret never leaves the server. Lets the web/admin login pick up a
+       key pasted in Admin > Integrations without rebuilding the frontends.
+       `enabled` mirrors TurnstileService::enabled() - i.e. whether the API
+       will actually demand a token. */
+    Route::get('/app/turnstile', function (\App\Services\TurnstileService $turnstile) {
+        $enabled = $turnstile->enabled();
+        $siteKey = $enabled
+            ? (string) \App\Services\Integrations\IntegrationRegistry::get('turnstile', 'site_key', '')
+            : '';
+        return response()
+            ->json(['success' => true, 'data' => ['enabled' => $enabled, 'site_key' => $siteKey]])
+            ->header('Cache-Control', 'public, max-age=30, s-maxage=30');
+    })->name('app.turnstile');
     Route::get('/app/menus', function () {
         return response()->json(['success' => true, 'data' => \App\Models\MenuItem::where('is_enabled', true)->orderBy('sort_order')->get()]);
     })->name('app.menus');

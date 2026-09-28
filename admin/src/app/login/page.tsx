@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { Lock, Mail, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Turnstile, turnstileEnabled } from "@/components/turnstile";
+import { Turnstile, useTurnstileSiteKey } from "@/components/turnstile";
 import { apiMessage } from "@/services/api";
 import { useAuthStore } from "@/store/auth.store";
 
@@ -21,6 +21,8 @@ function LoginContent() {
   const [code, setCode] = useState("");
   const [useRecovery, setUseRecovery] = useState(false);
   const [tsToken, setTsToken] = useState<string | null>(null);
+  const tsSiteKey = useTurnstileSiteKey();
+  const turnstileOn = tsSiteKey.length > 0;
 
   useEffect(() => {
     if (params.get("error") === "access_denied") {
@@ -128,8 +130,8 @@ function LoginContent() {
                 <Lock className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
                 <Input className="pl-11" name="password" type="password" placeholder="Password" required autoComplete="current-password" />
               </div>
-              {turnstileEnabled && <Turnstile onToken={setTsToken} />}
-              <Button className="w-full" disabled={loading || (turnstileEnabled && !tsToken)}>
+              {turnstileOn && <Turnstile onToken={setTsToken} siteKey={tsSiteKey} />}
+              <Button className="w-full" disabled={loading || (turnstileOn && !tsToken)}>
                 {loading ? "Signing in..." : "Sign In"}
               </Button>
             </form>
