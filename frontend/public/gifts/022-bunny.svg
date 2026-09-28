@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes bunny-hop{0%,100%{transform:translateY(0) scale(1,1)}20%{transform:translateY(1px) scale(1.08,.92)}50%{transform:translateY(-5px) scale(.94,1.07)}75%{transform:translateY(0) scale(1.04,.96)}}
+    @keyframes bunny-ear{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+    .bunny-b{transform-box:fill-box;transform-origin:center bottom;animation:bunny-hop 1.7s ease-in-out infinite}
+    .bunny-e{transform-box:fill-box;transform-origin:center bottom;animation:bunny-ear 1.7s ease-in-out infinite}
+    @keyframes bunny-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes bunny-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes bunny-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes bunny-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes bunny-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .bunny-x-lift{transform-box:fill-box;transform-origin:center;animation:bunny-x-lift 3.4s ease-in-out infinite}
+    .bunny-x-shine{animation:bunny-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .bunny-x-spark{transform-box:fill-box;transform-origin:center;animation:bunny-x-spark 2.2s ease-in-out infinite}
+    .bunny-x-aura{transform-box:fill-box;transform-origin:center;animation:bunny-x-aura 3s ease-in-out infinite}
+    .bunny-x-cast{transform-box:fill-box;transform-origin:center;animation:bunny-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.bunny-x-lift,.bunny-x-shine,.bunny-x-spark,.bunny-x-aura,.bunny-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="bunny-g" x1="16" y1="6" x2="48" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#ecdff2"/><stop offset="1" stop-color="#bda6c9"/>
+    </linearGradient>
+    <linearGradient id="bunny-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bunny-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="bunny-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bunny-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="bunny-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="bunny-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="bunny-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#bunny-x-white)">
+        <g class="bunny-b">
+        <g class="bunny-e">
+        <ellipse cx="24" cy="16" rx="4.6" ry="11" fill="url(#bunny-g)"/><ellipse cx="24" cy="17" rx="2.1" ry="7.5" fill="#ff9ec4" opacity=".8"/>
+        <ellipse cx="40" cy="16" rx="4.6" ry="11" fill="url(#bunny-g)"/><ellipse cx="40" cy="17" rx="2.1" ry="7.5" fill="#ff9ec4" opacity=".8"/>
+        </g>
+        <path d="M32 56c-10 0-16-6-16-14s7-14 16-14 16 6 16 14-6 14-16 14Z" fill="url(#bunny-g)"/>
+        <ellipse cx="32" cy="47" rx="8.5" ry="6" fill="#ffffff" opacity=".7"/>
+        <path d="M23 33c-3 2-4 5-4 8" stroke="#fff" stroke-opacity=".8" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M32 56c9 0 15-5 15-12 1 9-5 13-15 13Z" fill="#9c85ab" opacity=".45"/>
+        <circle cx="25" cy="39" r="2.5" fill="#3a2a44"/><circle cx="24.2" cy="38.2" r="1" fill="#fff"/>
+        <circle cx="39" cy="39" r="2.5" fill="#3a2a44"/><circle cx="38.2" cy="38.2" r="1" fill="#fff"/>
+        <path d="M32 43.5 30 42h4Z" fill="#ff7aa8"/>
+        <path d="M32 44c-1.5 2-4 1.5-5 0M32 44c1.5 2 4 1.5 5 0" stroke="#5a4468" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        <ellipse cx="20" cy="44" rx="3" ry="2" fill="#ff8fb0" opacity=".6"/>
+        <ellipse cx="44" cy="44" rx="3" ry="2" fill="#ff8fb0" opacity=".6"/>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="bunny-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#bunny-x-cast-g)"/>
+  <g class="bunny-x-lift">
+    <g class="bunny-b">
+    <g class="bunny-e">
+    <ellipse cx="24" cy="16" rx="4.6" ry="11" fill="url(#bunny-g)"/><ellipse cx="24" cy="17" rx="2.1" ry="7.5" fill="#ff9ec4" opacity=".8"/>
+    <ellipse cx="40" cy="16" rx="4.6" ry="11" fill="url(#bunny-g)"/><ellipse cx="40" cy="17" rx="2.1" ry="7.5" fill="#ff9ec4" opacity=".8"/>
+    </g>
+    <path d="M32 56c-10 0-16-6-16-14s7-14 16-14 16 6 16 14-6 14-16 14Z" fill="url(#bunny-g)"/>
+    <ellipse cx="32" cy="47" rx="8.5" ry="6" fill="#ffffff" opacity=".7"/>
+    <path d="M23 33c-3 2-4 5-4 8" stroke="#fff" stroke-opacity=".8" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M32 56c9 0 15-5 15-12 1 9-5 13-15 13Z" fill="#9c85ab" opacity=".45"/>
+    <circle cx="25" cy="39" r="2.5" fill="#3a2a44"/><circle cx="24.2" cy="38.2" r="1" fill="#fff"/>
+    <circle cx="39" cy="39" r="2.5" fill="#3a2a44"/><circle cx="38.2" cy="38.2" r="1" fill="#fff"/>
+    <path d="M32 43.5 30 42h4Z" fill="#ff7aa8"/>
+    <path d="M32 44c-1.5 2-4 1.5-5 0M32 44c1.5 2 4 1.5 5 0" stroke="#5a4468" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    <ellipse cx="20" cy="44" rx="3" ry="2" fill="#ff8fb0" opacity=".6"/>
+    <ellipse cx="44" cy="44" rx="3" ry="2" fill="#ff8fb0" opacity=".6"/>
+    </g>
+    <g mask="url(#bunny-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#bunny-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#bunny-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#bunny-x-rim)"/>
+      <rect class="bunny-x-shine" x="0" y="-16" width="26" height="96" fill="url(#bunny-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

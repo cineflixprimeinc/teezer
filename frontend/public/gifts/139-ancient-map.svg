@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes ancient-map-float{0%,100%{transform:translateY(-2px) rotate(-1.5deg)}50%{transform:translateY(3px) rotate(1.5deg)}}
+    @keyframes ancient-map-xglow{0%,100%{opacity:.5;transform:scale(.85);filter:drop-shadow(0 0 1px #b91c1c)}50%{opacity:1;transform:scale(1.15);filter:drop-shadow(0 0 6px #f87171)}}
+    @keyframes ancient-map-tw{0%,100%{opacity:.2;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    .ancient-map-body{transform-box:fill-box;transform-origin:center;animation:ancient-map-float 2.6s ease-in-out infinite}
+    .ancient-map-x{transform-box:fill-box;transform-origin:center;animation:ancient-map-xglow 1.6s ease-in-out infinite}
+    .ancient-map-s{transform-box:fill-box;transform-origin:center;animation:ancient-map-tw 2s ease-in-out infinite}
+    .ancient-map-s2{animation-delay:.9s}
+    @keyframes ancient-map-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes ancient-map-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes ancient-map-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes ancient-map-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes ancient-map-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .ancient-map-x-lift{transform-box:fill-box;transform-origin:center;animation:ancient-map-x-lift 3.4s ease-in-out infinite}
+    .ancient-map-x-shine{animation:ancient-map-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .ancient-map-x-spark{transform-box:fill-box;transform-origin:center;animation:ancient-map-x-spark 2.2s ease-in-out infinite}
+    .ancient-map-x-aura{transform-box:fill-box;transform-origin:center;animation:ancient-map-x-aura 3s ease-in-out infinite}
+    .ancient-map-x-cast{transform-box:fill-box;transform-origin:center;animation:ancient-map-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.ancient-map-x-lift,.ancient-map-x-shine,.ancient-map-x-spark,.ancient-map-x-aura,.ancient-map-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="ancient-map-g" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff2d0"/><stop offset=".5" stop-color="#e8c98a"/><stop offset="1" stop-color="#a97d3c"/>
+    </linearGradient>
+    <linearGradient id="ancient-map-r" x1="6" y1="12" x2="12" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#c9a05a"/><stop offset="1" stop-color="#7a5320"/>
+    </linearGradient>
+    <filter id="ancient-map-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="ancient-map-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="ancient-map-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ancient-map-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="ancient-map-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ancient-map-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="ancient-map-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="ancient-map-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="ancient-map-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#ancient-map-x-white)">
+        <g class="ancient-map-body" filter="url(#ancient-map-f)">
+        <path d="M12 10h40v44H12Z" fill="url(#ancient-map-g)"/>
+        <path d="M16 22c5-4 10-3 13 1s8 5 12 1 8-2 9 2c-2 8-8 12-16 12-9 0-16-6-18-16Z" fill="#93b96b" opacity=".85"/>
+        <path d="M14 40c6 3 12 4 18 3" stroke="#5f8fb0" stroke-width="2" stroke-linecap="round" fill="none" opacity=".7"/>
+        <path d="M18 46c8-4 18-4 26 1" stroke="#8a6a3a" stroke-width="1.8" stroke-dasharray="3 3" stroke-linecap="round" fill="none"/>
+        <rect x="6" y="8" width="8" height="48" rx="4" fill="url(#ancient-map-r)"/>
+        <rect x="50" y="8" width="8" height="48" rx="4" fill="url(#ancient-map-r)"/>
+        <path d="M9 14c-1 4-1 8-1 12" stroke="#fff" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <path d="M12 48h40v6H12Z" fill="#8a6a3a" opacity=".35"/>
+        <g class="ancient-map-x">
+        <path d="M40 40l8 8M48 40l-8 8" stroke="#d62828" stroke-width="3.4" stroke-linecap="round"/>
+        </g>
+        </g>
+        <circle class="ancient-map-s" cx="55" cy="14" r="1.8" fill="#fff"/>
+        <circle class="ancient-map-s ancient-map-s2" cx="9" cy="52" r="1.5" fill="#fff3c4"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="ancient-map-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#ancient-map-x-cast-g)"/>
+  <circle class="ancient-map-x-aura" cx="32" cy="32" r="29" fill="url(#ancient-map-x-aura-g)"/>
+  <g class="ancient-map-x-lift">
+    <g class="ancient-map-body" filter="url(#ancient-map-f)">
+    <path d="M12 10h40v44H12Z" fill="url(#ancient-map-g)"/>
+    <path d="M16 22c5-4 10-3 13 1s8 5 12 1 8-2 9 2c-2 8-8 12-16 12-9 0-16-6-18-16Z" fill="#93b96b" opacity=".85"/>
+    <path d="M14 40c6 3 12 4 18 3" stroke="#5f8fb0" stroke-width="2" stroke-linecap="round" fill="none" opacity=".7"/>
+    <path d="M18 46c8-4 18-4 26 1" stroke="#8a6a3a" stroke-width="1.8" stroke-dasharray="3 3" stroke-linecap="round" fill="none"/>
+    <rect x="6" y="8" width="8" height="48" rx="4" fill="url(#ancient-map-r)"/>
+    <rect x="50" y="8" width="8" height="48" rx="4" fill="url(#ancient-map-r)"/>
+    <path d="M9 14c-1 4-1 8-1 12" stroke="#fff" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <path d="M12 48h40v6H12Z" fill="#8a6a3a" opacity=".35"/>
+    <g class="ancient-map-x">
+    <path d="M40 40l8 8M48 40l-8 8" stroke="#d62828" stroke-width="3.4" stroke-linecap="round"/>
+    </g>
+    </g>
+    <circle class="ancient-map-s" cx="55" cy="14" r="1.8" fill="#fff"/>
+    <circle class="ancient-map-s ancient-map-s2" cx="9" cy="52" r="1.5" fill="#fff3c4"/>
+    <g mask="url(#ancient-map-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#ancient-map-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#ancient-map-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#ancient-map-x-rim)"/>
+      <rect class="ancient-map-x-shine" x="0" y="-16" width="26" height="96" fill="url(#ancient-map-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="ancient-map-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="ancient-map-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="ancient-map-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="ancient-map-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

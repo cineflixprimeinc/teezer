@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes latte-float{0%,100%{transform:translateY(2px)}50%{transform:translateY(-3px)}}
+    @keyframes latte-steam{0%{opacity:0;transform:translateY(3px) scaleY(.7)}40%{opacity:.75}100%{opacity:0;transform:translateY(-7px) scaleY(1.2)}}
+    .latte-body{transform-box:fill-box;transform-origin:center;animation:latte-float 2.8s ease-in-out infinite}
+    .latte-st{transform-box:fill-box;transform-origin:center bottom;animation:latte-steam 2.4s ease-in-out infinite}
+    .latte-st2{animation-delay:.8s}
+    .latte-st3{animation-delay:1.6s}
+    @keyframes latte-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes latte-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes latte-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes latte-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes latte-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .latte-x-lift{transform-box:fill-box;transform-origin:center;animation:latte-x-lift 3.4s ease-in-out infinite}
+    .latte-x-shine{animation:latte-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .latte-x-spark{transform-box:fill-box;transform-origin:center;animation:latte-x-spark 2.2s ease-in-out infinite}
+    .latte-x-aura{transform-box:fill-box;transform-origin:center;animation:latte-x-aura 3s ease-in-out infinite}
+    .latte-x-cast{transform-box:fill-box;transform-origin:center;animation:latte-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.latte-x-lift,.latte-x-shine,.latte-x-spark,.latte-x-aura,.latte-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="latte-g" x1="12" y1="18" x2="44" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#ffe2ec"/><stop offset="1" stop-color="#e88fae"/>
+    </linearGradient>
+    <linearGradient id="latte-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="latte-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="latte-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="latte-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="latte-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="latte-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="latte-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#latte-x-white)">
+        <path class="latte-st" d="M24 18c-2-3 2-5 0-9" stroke="#fff" stroke-opacity=".8" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <path class="latte-st latte-st2" d="M32 17c-2-3 2-5 0-10" stroke="#fff" stroke-opacity=".8" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <path class="latte-st latte-st3" d="M40 18c-2-3 2-5 0-9" stroke="#fff" stroke-opacity=".8" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <g class="latte-body">
+        <path d="M44 26h6a8 8 0 0 1 0 16h-6" fill="none" stroke="#d5738f" stroke-width="4" stroke-linecap="round"/>
+        <path d="M12 22h33v22a10 10 0 0 1-10 10H22a10 10 0 0 1-10-10V22Z" fill="url(#latte-g)" stroke="#d5738f" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M12 42h33v2a10 10 0 0 1-10 10H22a10 10 0 0 1-10-10Z" fill="#cf6c8a" opacity=".3"/>
+        <path d="M16 27v12" stroke="#fff" stroke-opacity=".75" stroke-width="3.2" stroke-linecap="round"/>
+        <ellipse cx="28.5" cy="22" rx="16.5" ry="4.5" fill="#c98a5e" stroke="#d5738f" stroke-width="2"/>
+        <path d="M28.5 26c-4.5-2.5-7-4-7-6 0-1.6 1.3-2.7 2.9-2.7 1.6 0 3.2.9 4.1 2.2.9-1.3 2.5-2.2 4.1-2.2 1.6 0 2.9 1.1 2.9 2.7 0 2-2.5 3.5-7 6Z" fill="#fff6ef"/>
+        <path d="M9 56h39" stroke="#d5738f" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="latte-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#latte-x-cast-g)"/>
+  <g class="latte-x-lift">
+    <path class="latte-st" d="M24 18c-2-3 2-5 0-9" stroke="#fff" stroke-opacity=".8" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path class="latte-st latte-st2" d="M32 17c-2-3 2-5 0-10" stroke="#fff" stroke-opacity=".8" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path class="latte-st latte-st3" d="M40 18c-2-3 2-5 0-9" stroke="#fff" stroke-opacity=".8" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <g class="latte-body">
+    <path d="M44 26h6a8 8 0 0 1 0 16h-6" fill="none" stroke="#d5738f" stroke-width="4" stroke-linecap="round"/>
+    <path d="M12 22h33v22a10 10 0 0 1-10 10H22a10 10 0 0 1-10-10V22Z" fill="url(#latte-g)" stroke="#d5738f" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M12 42h33v2a10 10 0 0 1-10 10H22a10 10 0 0 1-10-10Z" fill="#cf6c8a" opacity=".3"/>
+    <path d="M16 27v12" stroke="#fff" stroke-opacity=".75" stroke-width="3.2" stroke-linecap="round"/>
+    <ellipse cx="28.5" cy="22" rx="16.5" ry="4.5" fill="#c98a5e" stroke="#d5738f" stroke-width="2"/>
+    <path d="M28.5 26c-4.5-2.5-7-4-7-6 0-1.6 1.3-2.7 2.9-2.7 1.6 0 3.2.9 4.1 2.2.9-1.3 2.5-2.2 4.1-2.2 1.6 0 2.9 1.1 2.9 2.7 0 2-2.5 3.5-7 6Z" fill="#fff6ef"/>
+    <path d="M9 56h39" stroke="#d5738f" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+    </g>
+    <g mask="url(#latte-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#latte-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#latte-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#latte-x-rim)"/>
+      <rect class="latte-x-shine" x="0" y="-16" width="26" height="96" fill="url(#latte-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

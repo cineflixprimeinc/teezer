@@ -1,0 +1,22 @@
+{
+  "_admin_api_path": "/apisix/admin/upstreams/teezer-go",
+  "_comment": "The Go service (backend-go), listening on 127.0.0.1:8090. Separate upstream from teezer-laravel because it is a different process with a different health endpoint - Laravel answers /up, Fiber answers /health. Only routes explicitly pointed here reach Go; everything else still goes to the monolith. Health check is active from the start so a crashed Go service takes its routes out of rotation rather than 502-ing users.",
+
+  "type": "roundrobin",
+  "scheme": "http",
+  "pass_host": "pass",
+  "nodes": {
+    "${GO_UPSTREAM_HOST}:${GO_UPSTREAM_PORT}": 1
+  },
+  "checks": {
+    "active": {
+      "type": "http",
+      "http_path": "/health",
+      "timeout": 3,
+      "healthy": { "interval": 5, "successes": 2 },
+      "unhealthy": { "interval": 5, "http_failures": 3, "timeouts": 3 }
+    }
+  },
+  "retries": 2,
+  "timeout": { "connect": 5, "send": 15, "read": 15 }
+}

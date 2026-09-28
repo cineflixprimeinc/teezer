@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes gold-dragon-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+    @keyframes gold-dragon-whisk{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(6deg)}}
+    @keyframes gold-dragon-aura{0%,100%{opacity:.25;transform:scale(.92) rotate(0)}50%{opacity:.6;transform:scale(1.05) rotate(180deg)}}
+    @keyframes gold-dragon-tw{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .gold-dragon-body{transform-box:fill-box;transform-origin:center;animation:gold-dragon-float 2.6s ease-in-out infinite}
+    .gold-dragon-w{transform-box:fill-box;transform-origin:right center;animation:gold-dragon-whisk 2s ease-in-out infinite}
+    .gold-dragon-aura{transform-box:fill-box;transform-origin:center;animation:gold-dragon-aura 3s ease-in-out infinite}
+    .gold-dragon-s{transform-box:fill-box;transform-origin:center;animation:gold-dragon-tw 2s ease-in-out infinite}
+    .gold-dragon-s2{animation-delay:.5s}.gold-dragon-s3{animation-delay:1s}.gold-dragon-s4{animation-delay:1.5s}
+    @keyframes gold-dragon-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes gold-dragon-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes gold-dragon-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes gold-dragon-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes gold-dragon-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .gold-dragon-x-lift{transform-box:fill-box;transform-origin:center;animation:gold-dragon-x-lift 3.4s ease-in-out infinite}
+    .gold-dragon-x-shine{animation:gold-dragon-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .gold-dragon-x-spark{transform-box:fill-box;transform-origin:center;animation:gold-dragon-x-spark 2.2s ease-in-out infinite}
+    .gold-dragon-x-aura{transform-box:fill-box;transform-origin:center;animation:gold-dragon-x-aura 3s ease-in-out infinite}
+    .gold-dragon-x-cast{transform-box:fill-box;transform-origin:center;animation:gold-dragon-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.gold-dragon-x-lift,.gold-dragon-x-shine,.gold-dragon-x-spark,.gold-dragon-x-aura,.gold-dragon-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="gold-dragon-g" x1="14" y1="12" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff6cf"/><stop offset=".45" stop-color="#f9c93c"/><stop offset="1" stop-color="#a86d05"/>
+    </linearGradient>
+    <radialGradient id="gold-dragon-a" cx="32" cy="32" r="27" gradientUnits="userSpaceOnUse">
+    <stop offset=".6" stop-color="#ffd76a" stop-opacity="0"/><stop offset="1" stop-color="#ffd76a" stop-opacity=".5"/>
+    </radialGradient>
+    <filter id="gold-dragon-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="gold-dragon-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="gold-dragon-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gold-dragon-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="gold-dragon-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gold-dragon-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="gold-dragon-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gold-dragon-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="gold-dragon-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#gold-dragon-x-white)">
+        <circle class="gold-dragon-aura" cx="32" cy="32" r="27" fill="url(#gold-dragon-a)"/>
+        <g class="gold-dragon-body" filter="url(#gold-dragon-f)">
+        <path d="M36 22c10 0 18 7 18 16s-8 16-20 16c-10 0-18-6-18-14 0-6 4-10 9-10 4 0 7 3 7 7 0 3-2 5-4 5-2 0-3-1-3-3"
+        fill="none" stroke="url(#gold-dragon-g)" stroke-width="8" stroke-linecap="round"/>
+        <path d="M40 24c-3-3-4-6-3-9-4 1-7 0-9-3-2 4-1 8 2 11" fill="url(#gold-dragon-g)"/>
+        <path d="M28 8l-2 6 6-2Z" fill="#fff0b8"/>
+        <path d="M40 9l3 5-6-1Z" fill="#fff0b8"/>
+        <path d="M28 14c-6 0-10 4-10 9 0 5 5 9 11 9 7 0 12-4 12-10 0-5-5-8-13-8Z" fill="url(#gold-dragon-g)"/>
+        <path d="M21 18c-2 2-3 4-3 6" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <circle cx="26" cy="21" r="2.6" fill="#fff"/><circle cx="26" cy="21" r="1.3" fill="#c0392b"/>
+        <path d="M40 26c5 3 8 8 8 13-4-5-8-8-13-9Z" fill="#8a5a03" opacity=".4"/>
+        <g class="gold-dragon-w"><path d="M18 26c-5 1-8 4-9 8" stroke="#ffe08a" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+        <path d="M46 44c4 2 7 1 9-2 1 5-3 9-8 9Z" fill="url(#gold-dragon-g)"/>
+        </g>
+        <circle class="gold-dragon-s" cx="53" cy="14" r="2.2" fill="#fff"/>
+        <circle class="gold-dragon-s gold-dragon-s2" cx="10" cy="18" r="1.6" fill="#fff"/>
+        <circle class="gold-dragon-s gold-dragon-s3" cx="56" cy="30" r="1.7" fill="#fff"/>
+        <circle class="gold-dragon-s gold-dragon-s4" cx="9" cy="50" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="gold-dragon-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#gold-dragon-x-cast-g)"/>
+  <circle class="gold-dragon-x-aura" cx="32" cy="32" r="29" fill="url(#gold-dragon-x-aura-g)"/>
+  <g class="gold-dragon-x-lift">
+    <circle class="gold-dragon-aura" cx="32" cy="32" r="27" fill="url(#gold-dragon-a)"/>
+    <g class="gold-dragon-body" filter="url(#gold-dragon-f)">
+    <path d="M36 22c10 0 18 7 18 16s-8 16-20 16c-10 0-18-6-18-14 0-6 4-10 9-10 4 0 7 3 7 7 0 3-2 5-4 5-2 0-3-1-3-3"
+    fill="none" stroke="url(#gold-dragon-g)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M40 24c-3-3-4-6-3-9-4 1-7 0-9-3-2 4-1 8 2 11" fill="url(#gold-dragon-g)"/>
+    <path d="M28 8l-2 6 6-2Z" fill="#fff0b8"/>
+    <path d="M40 9l3 5-6-1Z" fill="#fff0b8"/>
+    <path d="M28 14c-6 0-10 4-10 9 0 5 5 9 11 9 7 0 12-4 12-10 0-5-5-8-13-8Z" fill="url(#gold-dragon-g)"/>
+    <path d="M21 18c-2 2-3 4-3 6" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="26" cy="21" r="2.6" fill="#fff"/><circle cx="26" cy="21" r="1.3" fill="#c0392b"/>
+    <path d="M40 26c5 3 8 8 8 13-4-5-8-8-13-9Z" fill="#8a5a03" opacity=".4"/>
+    <g class="gold-dragon-w"><path d="M18 26c-5 1-8 4-9 8" stroke="#ffe08a" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+    <path d="M46 44c4 2 7 1 9-2 1 5-3 9-8 9Z" fill="url(#gold-dragon-g)"/>
+    </g>
+    <circle class="gold-dragon-s" cx="53" cy="14" r="2.2" fill="#fff"/>
+    <circle class="gold-dragon-s gold-dragon-s2" cx="10" cy="18" r="1.6" fill="#fff"/>
+    <circle class="gold-dragon-s gold-dragon-s3" cx="56" cy="30" r="1.7" fill="#fff"/>
+    <circle class="gold-dragon-s gold-dragon-s4" cx="9" cy="50" r="1.5" fill="#fff"/>
+    <g mask="url(#gold-dragon-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#gold-dragon-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#gold-dragon-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#gold-dragon-x-rim)"/>
+      <rect class="gold-dragon-x-shine" x="0" y="-16" width="26" height="96" fill="url(#gold-dragon-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="gold-dragon-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="gold-dragon-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="gold-dragon-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="gold-dragon-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="gold-dragon-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

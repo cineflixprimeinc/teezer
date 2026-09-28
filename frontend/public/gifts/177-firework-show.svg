@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes firework-show-burst{0%{opacity:0;transform:scale(.25)}25%{opacity:1}70%{opacity:.7;transform:scale(1.08)}100%{opacity:0;transform:scale(1.25)}}
+    @keyframes firework-show-aura{0%,100%{opacity:.15;transform:scale(.86)}50%{opacity:.6;transform:scale(1.08)}}
+    @keyframes firework-show-tw{0%,100%{opacity:.15;transform:scale(.4)}50%{opacity:1;transform:scale(1.2)}}
+    @keyframes firework-show-rise{0%{opacity:0;transform:translateY(8px)}40%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}
+    .firework-show-b{transform-box:fill-box;transform-origin:center;animation:firework-show-burst 2.4s ease-in-out infinite}
+    .firework-show-b2{animation-delay:.8s}.firework-show-b3{animation-delay:1.6s}
+    .firework-show-ring{transform-box:fill-box;transform-origin:center;animation:firework-show-aura 2.8s ease-in-out infinite}
+    .firework-show-r{transform-box:fill-box;transform-origin:center;animation:firework-show-rise 2s ease-in-out infinite}
+    .firework-show-r2{animation-delay:1s}
+    .firework-show-s{transform-box:fill-box;transform-origin:center;animation:firework-show-tw 1.8s ease-in-out infinite}
+    .firework-show-s2{animation-delay:.45s}.firework-show-s3{animation-delay:.9s}.firework-show-s4{animation-delay:1.35s}
+    @keyframes firework-show-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes firework-show-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes firework-show-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes firework-show-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes firework-show-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .firework-show-x-lift{transform-box:fill-box;transform-origin:center;animation:firework-show-x-lift 3.4s ease-in-out infinite}
+    .firework-show-x-shine{animation:firework-show-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .firework-show-x-spark{transform-box:fill-box;transform-origin:center;animation:firework-show-x-spark 2.2s ease-in-out infinite}
+    .firework-show-x-aura{transform-box:fill-box;transform-origin:center;animation:firework-show-x-aura 3s ease-in-out infinite}
+    .firework-show-x-cast{transform-box:fill-box;transform-origin:center;animation:firework-show-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.firework-show-x-lift,.firework-show-x-shine,.firework-show-x-spark,.firework-show-x-aura,.firework-show-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="firework-show-g1" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#fff8d6"/><stop offset=".5" stop-color="#ffd24d"/><stop offset="1" stop-color="#ff6b3d" stop-opacity=".2"/>
+    </radialGradient>
+    <radialGradient id="firework-show-g2" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#7ad9ff"/><stop offset="1" stop-color="#3f7fff" stop-opacity=".2"/>
+    </radialGradient>
+    <radialGradient id="firework-show-g3" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#fff0fb"/><stop offset=".5" stop-color="#ff85d6"/><stop offset="1" stop-color="#b13aff" stop-opacity=".2"/>
+    </radialGradient>
+    <radialGradient id="firework-show-a" cx=".5" cy=".5" r=".5">
+    <stop offset=".55" stop-color="#ffd979" stop-opacity="0"/><stop offset="1" stop-color="#ffb6f0" stop-opacity=".45"/>
+    </radialGradient>
+    <filter id="firework-show-f" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="firework-show-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="firework-show-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="firework-show-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="firework-show-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="firework-show-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="firework-show-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="firework-show-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="firework-show-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#firework-show-x-white)">
+        <circle class="firework-show-ring" cx="32" cy="32" r="28" fill="url(#firework-show-a)"/>
+        <g filter="url(#firework-show-f)">
+        <g class="firework-show-b">
+        <circle cx="24" cy="21" r="14" fill="url(#firework-show-g1)"/>
+        <path d="M24 7v28M10 21h28M14 11l20 20M34 11 14 31" stroke="#ffe9a3" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="24" cy="7" r="1.8" fill="#fff"/><circle cx="38" cy="21" r="1.8" fill="#fff"/>
+        <circle cx="24" cy="35" r="1.8" fill="#fff"/><circle cx="10" cy="21" r="1.8" fill="#fff"/>
+        <circle cx="24" cy="21" r="3.4" fill="#fff"/>
+        </g>
+        <g class="firework-show-b firework-show-b2">
+        <circle cx="46" cy="30" r="11" fill="url(#firework-show-g2)"/>
+        <path d="M46 19v22M35 30h22M38 22l16 16M54 22 38 38" stroke="#cdf3ff" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="46" cy="30" r="3" fill="#fff"/>
+        <circle cx="46" cy="19" r="1.5" fill="#fff"/><circle cx="57" cy="30" r="1.5" fill="#fff"/>
+        </g>
+        <g class="firework-show-b firework-show-b3">
+        <circle cx="30" cy="45" r="12" fill="url(#firework-show-g3)"/>
+        <path d="M30 33v24M18 45h24M22 37l16 16M38 37 22 53" stroke="#ffd0ef" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="30" cy="45" r="3.2" fill="#fff"/>
+        <circle cx="18" cy="45" r="1.5" fill="#fff"/><circle cx="42" cy="45" r="1.5" fill="#fff"/>
+        </g>
+        </g>
+        <path class="firework-show-r" d="M12 56c0-6 1-11 2-15" stroke="#ffe9a3" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".8"/>
+        <path class="firework-show-r firework-show-r2" d="M54 58c0-6-1-11-2-15" stroke="#cdf3ff" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".8"/>
+        <path class="firework-show-s" d="M56 12l1.2 3 3 1.2-3 1.2L56 21.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+        <circle class="firework-show-s firework-show-s2" cx="7" cy="14" r="1.9" fill="#ffe9a3"/>
+        <circle class="firework-show-s firework-show-s3" cx="58" cy="48" r="1.7" fill="#ff9fe0"/>
+        <circle class="firework-show-s firework-show-s4" cx="6" cy="38" r="1.5" fill="#8ee6ff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="firework-show-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#firework-show-x-cast-g)"/>
+  <circle class="firework-show-x-aura" cx="32" cy="32" r="29" fill="url(#firework-show-x-aura-g)"/>
+  <g class="firework-show-x-lift">
+    <circle class="firework-show-ring" cx="32" cy="32" r="28" fill="url(#firework-show-a)"/>
+    <g filter="url(#firework-show-f)">
+    <g class="firework-show-b">
+    <circle cx="24" cy="21" r="14" fill="url(#firework-show-g1)"/>
+    <path d="M24 7v28M10 21h28M14 11l20 20M34 11 14 31" stroke="#ffe9a3" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="24" cy="7" r="1.8" fill="#fff"/><circle cx="38" cy="21" r="1.8" fill="#fff"/>
+    <circle cx="24" cy="35" r="1.8" fill="#fff"/><circle cx="10" cy="21" r="1.8" fill="#fff"/>
+    <circle cx="24" cy="21" r="3.4" fill="#fff"/>
+    </g>
+    <g class="firework-show-b firework-show-b2">
+    <circle cx="46" cy="30" r="11" fill="url(#firework-show-g2)"/>
+    <path d="M46 19v22M35 30h22M38 22l16 16M54 22 38 38" stroke="#cdf3ff" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="46" cy="30" r="3" fill="#fff"/>
+    <circle cx="46" cy="19" r="1.5" fill="#fff"/><circle cx="57" cy="30" r="1.5" fill="#fff"/>
+    </g>
+    <g class="firework-show-b firework-show-b3">
+    <circle cx="30" cy="45" r="12" fill="url(#firework-show-g3)"/>
+    <path d="M30 33v24M18 45h24M22 37l16 16M38 37 22 53" stroke="#ffd0ef" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="30" cy="45" r="3.2" fill="#fff"/>
+    <circle cx="18" cy="45" r="1.5" fill="#fff"/><circle cx="42" cy="45" r="1.5" fill="#fff"/>
+    </g>
+    </g>
+    <path class="firework-show-r" d="M12 56c0-6 1-11 2-15" stroke="#ffe9a3" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".8"/>
+    <path class="firework-show-r firework-show-r2" d="M54 58c0-6-1-11-2-15" stroke="#cdf3ff" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".8"/>
+    <path class="firework-show-s" d="M56 12l1.2 3 3 1.2-3 1.2L56 21.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+    <circle class="firework-show-s firework-show-s2" cx="7" cy="14" r="1.9" fill="#ffe9a3"/>
+    <circle class="firework-show-s firework-show-s3" cx="58" cy="48" r="1.7" fill="#ff9fe0"/>
+    <circle class="firework-show-s firework-show-s4" cx="6" cy="38" r="1.5" fill="#8ee6ff"/>
+    <g mask="url(#firework-show-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#firework-show-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#firework-show-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#firework-show-x-rim)"/>
+      <rect class="firework-show-x-shine" x="0" y="-16" width="26" height="96" fill="url(#firework-show-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="firework-show-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="firework-show-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="firework-show-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="firework-show-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="firework-show-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

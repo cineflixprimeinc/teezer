@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes key-wiggle{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+    @keyframes key-sweep{0%{transform:translateY(-24px)}55%,100%{transform:translateY(56px)}}
+    @keyframes key-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .key-body{transform-box:fill-box;transform-origin:50% 22%;animation:key-wiggle 2.2s ease-in-out infinite}
+    .key-shine{animation:key-sweep 2.2s ease-in-out infinite}
+    .key-s{transform-box:fill-box;transform-origin:center;animation:key-tw 1.9s ease-in-out infinite}
+    .key-s2{animation-delay:.9s}
+    @keyframes key-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes key-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes key-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes key-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes key-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .key-x-lift{transform-box:fill-box;transform-origin:center;animation:key-x-lift 3.4s ease-in-out infinite}
+    .key-x-shine{animation:key-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .key-x-spark{transform-box:fill-box;transform-origin:center;animation:key-x-spark 2.2s ease-in-out infinite}
+    .key-x-aura{transform-box:fill-box;transform-origin:center;animation:key-x-aura 3s ease-in-out infinite}
+    .key-x-cast{transform-box:fill-box;transform-origin:center;animation:key-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.key-x-lift,.key-x-shine,.key-x-spark,.key-x-aura,.key-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="key-g1" x1="18" y1="8" x2="44" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff3c4"/><stop offset=".5" stop-color="#f5b942"/><stop offset="1" stop-color="#b8770d"/>
+    </linearGradient>
+    <linearGradient id="key-g2" x1="24" y1="30" x2="40" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#eeb43a"/><stop offset="1" stop-color="#8f5a04"/>
+    </linearGradient>
+    <clipPath id="key-clip">
+    <path d="M32 6a13 13 0 0 1 5 25v25h-6V31A13 13 0 0 1 32 6Z"/>
+    </clipPath>
+    <linearGradient id="key-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="key-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="key-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="key-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="key-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="key-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="key-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#key-x-white)">
+        <g class="key-body">
+        <circle cx="32" cy="19" r="13" fill="url(#key-g1)"/>
+        <circle cx="32" cy="19" r="6" fill="#0b0b0f" opacity=".55"/>
+        <circle cx="32" cy="19" r="6" fill="none" stroke="#8f5a04" stroke-width="1.6" opacity=".6"/>
+        <path d="M23 12a13 13 0 0 1 8-5" stroke="#fff" stroke-opacity=".7" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+        <rect x="28" y="30" width="8" height="28" rx="3" fill="url(#key-g2)"/>
+        <rect x="28" y="30" width="3.5" height="28" rx="1.75" fill="#ffe9a3" opacity=".55"/>
+        <rect x="36" y="40" width="9" height="6" rx="2.5" fill="url(#key-g1)"/>
+        <rect x="36" y="50" width="7" height="5.5" rx="2.5" fill="url(#key-g1)"/>
+        <path d="M40 41h4" stroke="#fff" stroke-opacity=".5" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="32" cy="19" r="13" fill="none" stroke="#a86c07" stroke-width="1.6" opacity=".35"/>
+        <g clip-path="url(#key-clip)">
+        <rect class="key-shine" x="10" y="-8" width="46" height="8" fill="#fff" opacity=".45"/>
+        </g>
+        </g>
+        <circle class="key-s" cx="52" cy="14" r="2.2" fill="#fff"/>
+        <circle class="key-s key-s2" cx="12" cy="44" r="1.6" fill="#ffeaa8"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="key-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#key-x-cast-g)"/>
+  <g class="key-x-lift">
+    <g class="key-body">
+    <circle cx="32" cy="19" r="13" fill="url(#key-g1)"/>
+    <circle cx="32" cy="19" r="6" fill="#0b0b0f" opacity=".55"/>
+    <circle cx="32" cy="19" r="6" fill="none" stroke="#8f5a04" stroke-width="1.6" opacity=".6"/>
+    <path d="M23 12a13 13 0 0 1 8-5" stroke="#fff" stroke-opacity=".7" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+    <rect x="28" y="30" width="8" height="28" rx="3" fill="url(#key-g2)"/>
+    <rect x="28" y="30" width="3.5" height="28" rx="1.75" fill="#ffe9a3" opacity=".55"/>
+    <rect x="36" y="40" width="9" height="6" rx="2.5" fill="url(#key-g1)"/>
+    <rect x="36" y="50" width="7" height="5.5" rx="2.5" fill="url(#key-g1)"/>
+    <path d="M40 41h4" stroke="#fff" stroke-opacity=".5" stroke-width="1.8" stroke-linecap="round"/>
+    <circle cx="32" cy="19" r="13" fill="none" stroke="#a86c07" stroke-width="1.6" opacity=".35"/>
+    <g clip-path="url(#key-clip)">
+    <rect class="key-shine" x="10" y="-8" width="46" height="8" fill="#fff" opacity=".45"/>
+    </g>
+    </g>
+    <circle class="key-s" cx="52" cy="14" r="2.2" fill="#fff"/>
+    <circle class="key-s key-s2" cx="12" cy="44" r="1.6" fill="#ffeaa8"/>
+    <g mask="url(#key-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#key-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#key-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#key-x-rim)"/>
+      <rect class="key-x-shine" x="0" y="-16" width="26" height="96" fill="url(#key-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="key-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="key-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

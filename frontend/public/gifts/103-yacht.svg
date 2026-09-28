@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes yacht-sway{0%,100%{transform:rotate(-3.5deg) translateY(0)}50%{transform:rotate(3.5deg) translateY(-2px)}}
+    @keyframes yacht-wave{0%,100%{transform:translateX(-2px)}50%{transform:translateX(2px)}}
+    @keyframes yacht-flag{0%,100%{transform:skewX(0) scaleX(1)}50%{transform:skewX(-14deg) scaleX(.85)}}
+    @keyframes yacht-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .yacht-body{transform-box:fill-box;transform-origin:center bottom;animation:yacht-sway 2.6s ease-in-out infinite}
+    .yacht-wave{transform-box:fill-box;transform-origin:center;animation:yacht-wave 2.6s ease-in-out infinite}
+    .yacht-flag{transform-box:fill-box;transform-origin:left center;animation:yacht-flag 1.6s ease-in-out infinite}
+    .yacht-s{transform-box:fill-box;transform-origin:center;animation:yacht-tw 2.2s ease-in-out infinite}
+    .yacht-s2{animation-delay:.8s}.yacht-s3{animation-delay:1.5s}
+    @keyframes yacht-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes yacht-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes yacht-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes yacht-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes yacht-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .yacht-x-lift{transform-box:fill-box;transform-origin:center;animation:yacht-x-lift 3.4s ease-in-out infinite}
+    .yacht-x-shine{animation:yacht-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .yacht-x-spark{transform-box:fill-box;transform-origin:center;animation:yacht-x-spark 2.2s ease-in-out infinite}
+    .yacht-x-aura{transform-box:fill-box;transform-origin:center;animation:yacht-x-aura 3s ease-in-out infinite}
+    .yacht-x-cast{transform-box:fill-box;transform-origin:center;animation:yacht-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.yacht-x-lift,.yacht-x-shine,.yacht-x-spark,.yacht-x-aura,.yacht-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="yacht-g" x1="8" y1="36" x2="56" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#e2ecf7"/><stop offset="1" stop-color="#9fb4cc"/>
+    </linearGradient>
+    <linearGradient id="yacht-gd" x1="18" y1="20" x2="46" y2="36" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fdfeff"/><stop offset="1" stop-color="#c3d3e6"/>
+    </linearGradient>
+    <linearGradient id="yacht-gw" x1="6" y1="50" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#5fd0ff"/><stop offset="1" stop-color="#1d6fd0"/>
+    </linearGradient>
+    <filter id="yacht-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="yacht-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="yacht-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="yacht-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="yacht-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="yacht-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="yacht-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="yacht-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="yacht-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#yacht-x-white)">
+        <g class="yacht-body" filter="url(#yacht-f)">
+        <rect x="30.6" y="8" width="2.4" height="14" rx="1.2" fill="#b9c8d9"/>
+        <path class="yacht-flag" d="M33 8h9l-3 3 3 3h-9z" fill="#e0325c"/>
+        <path d="M20 30l4-9c.6-1.3 1.8-2 3.2-2H40c1.6 0 2.6.9 3 2.4l2 8.6z" fill="url(#yacht-gd)"/>
+        <rect x="24" y="23" width="6" height="4" rx="1.4" fill="#4fb6f2"/>
+        <rect x="33" y="23" width="6" height="4" rx="1.4" fill="#4fb6f2"/>
+        <path d="M9 33h46l-4 10c-.8 2-2.4 3-4.6 3H18c-2.6 0-4.6-1.4-5.6-3.6z" fill="url(#yacht-g)"/>
+        <rect x="12" y="35" width="4" height="3" rx="1.5" fill="#2b83d8"/>
+        <rect x="19" y="35" width="4" height="3" rx="1.5" fill="#2b83d8"/>
+        <rect x="26" y="35" width="4" height="3" rx="1.5" fill="#2b83d8"/>
+        <rect x="33" y="35" width="4" height="3" rx="1.5" fill="#2b83d8"/>
+        <rect x="40" y="35" width="4" height="3" rx="1.5" fill="#2b83d8"/>
+        <path d="M11 41h44l-1.6 4H12.6z" fill="#7b93ae" opacity=".55"/>
+        <path d="M13 34c3-.6 8-1 12-1" stroke="#fff" stroke-opacity=".8" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="yacht-wave">
+        <path d="M4 50c5-3 9 3 14 0s9 3 14 0 9 3 14 0 9 3 14 0v7H4z" fill="url(#yacht-gw)" opacity=".9"/>
+        </g>
+        <circle class="yacht-s" cx="55" cy="14" r="2.1" fill="#fff"/>
+        <circle class="yacht-s yacht-s2" cx="9" cy="20" r="1.7" fill="#fff"/>
+        <circle class="yacht-s yacht-s3" cx="49" cy="26" r="1.4" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="yacht-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#yacht-x-cast-g)"/>
+  <circle class="yacht-x-aura" cx="32" cy="32" r="29" fill="url(#yacht-x-aura-g)"/>
+  <g class="yacht-x-lift">
+    <g class="yacht-body" filter="url(#yacht-f)">
+    <rect x="30.6" y="8" width="2.4" height="14" rx="1.2" fill="#b9c8d9"/>
+    <path class="yacht-flag" d="M33 8h9l-3 3 3 3h-9z" fill="#e0325c"/>
+    <path d="M20 30l4-9c.6-1.3 1.8-2 3.2-2H40c1.6 0 2.6.9 3 2.4l2 8.6z" fill="url(#yacht-gd)"/>
+    <rect x="24" y="23" width="6" height="4" rx="1.4" fill="#4fb6f2"/>
+    <rect x="33" y="23" width="6" height="4" rx="1.4" fill="#4fb6f2"/>
+    <path d="M9 33h46l-4 10c-.8 2-2.4 3-4.6 3H18c-2.6 0-4.6-1.4-5.6-3.6z" fill="url(#yacht-g)"/>
+    <rect x="12" y="35" width="4" height="3" rx="1.5" fill="#2b83d8"/>
+    <rect x="19" y="35" width="4" height="3" rx="1.5" fill="#2b83d8"/>
+    <rect x="26" y="35" width="4" height="3" rx="1.5" fill="#2b83d8"/>
+    <rect x="33" y="35" width="4" height="3" rx="1.5" fill="#2b83d8"/>
+    <rect x="40" y="35" width="4" height="3" rx="1.5" fill="#2b83d8"/>
+    <path d="M11 41h44l-1.6 4H12.6z" fill="#7b93ae" opacity=".55"/>
+    <path d="M13 34c3-.6 8-1 12-1" stroke="#fff" stroke-opacity=".8" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    </g>
+    <g class="yacht-wave">
+    <path d="M4 50c5-3 9 3 14 0s9 3 14 0 9 3 14 0 9 3 14 0v7H4z" fill="url(#yacht-gw)" opacity=".9"/>
+    </g>
+    <circle class="yacht-s" cx="55" cy="14" r="2.1" fill="#fff"/>
+    <circle class="yacht-s yacht-s2" cx="9" cy="20" r="1.7" fill="#fff"/>
+    <circle class="yacht-s yacht-s3" cx="49" cy="26" r="1.4" fill="#fff"/>
+    <g mask="url(#yacht-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#yacht-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#yacht-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#yacht-x-rim)"/>
+      <rect class="yacht-x-shine" x="0" y="-16" width="26" height="96" fill="url(#yacht-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="yacht-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="yacht-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="yacht-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

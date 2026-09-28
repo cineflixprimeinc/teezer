@@ -1,0 +1,20 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["REPLACE_WITH_TEAM_ID.com.teezer.app"],
+        "components": [
+          { "/": "/video/*", "comment": "A single reel" },
+          { "/": "/profile/*", "comment": "A creator profile" },
+          { "/": "/live/*", "comment": "A live stream" },
+          { "/": "/tag/*", "comment": "A hashtag" },
+          { "/": "/comment/*", "comment": "A single comment" },
+          { "/": "/notification/*", "comment": "A notification" }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["REPLACE_WITH_TEAM_ID.com.teezer.app"]
+  }
+}

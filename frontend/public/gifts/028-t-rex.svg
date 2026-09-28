@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes t-rex-wig{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+    @keyframes t-rex-arm{0%,100%{transform:rotate(0)}50%{transform:rotate(-20deg)}}
+    .t-rex-b{transform-box:fill-box;transform-origin:center bottom;animation:t-rex-wig 2s ease-in-out infinite}
+    .t-rex-a{transform-box:fill-box;transform-origin:0% 0%;animation:t-rex-arm 0.9s ease-in-out infinite}
+    @keyframes t-rex-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes t-rex-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes t-rex-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes t-rex-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes t-rex-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .t-rex-x-lift{transform-box:fill-box;transform-origin:center;animation:t-rex-x-lift 3.4s ease-in-out infinite}
+    .t-rex-x-shine{animation:t-rex-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .t-rex-x-spark{transform-box:fill-box;transform-origin:center;animation:t-rex-x-spark 2.2s ease-in-out infinite}
+    .t-rex-x-aura{transform-box:fill-box;transform-origin:center;animation:t-rex-x-aura 3s ease-in-out infinite}
+    .t-rex-x-cast{transform-box:fill-box;transform-origin:center;animation:t-rex-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.t-rex-x-lift,.t-rex-x-shine,.t-rex-x-spark,.t-rex-x-aura,.t-rex-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="t-rex-g" x1="10" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#8ad9e6"/><stop offset=".5" stop-color="#3aa0c9"/><stop offset="1" stop-color="#1c5f8c"/>
+    </linearGradient>
+    <linearGradient id="t-rex-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="t-rex-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="t-rex-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="t-rex-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="t-rex-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="t-rex-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="t-rex-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#t-rex-x-white)">
+        <g class="t-rex-b">
+        <path d="M50 40c6-3 8-9 7-16 6 12 1 26-9 26Z" fill="url(#t-rex-g)"/>
+        <path d="M14 30 18 22l3 8ZM22 27l4-8 3 8Z" fill="#1c5f8c"/>
+        <path d="M40 55H24c-6 0-9-4-9-9V30c0-9 6-16 15-16 8 0 15 6 15 15v17c0 5-2 9-5 9Z" fill="url(#t-rex-g)"/>
+        <path d="M8 26c0-6 5-10 11-10h11v11H19c-3 4-8 4-11-1Z" fill="url(#t-rex-g)"/>
+        <path d="M8 26c3 3 7 3 10 1h11" stroke="#12496e" stroke-width="1.6" fill="none" opacity=".5"/>
+        <path d="M9 23c4-3 9-4 12-4" stroke="#fff" stroke-opacity=".5" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <path class="t-rex-a" d="M32 34c4 0 7 2 8 5" stroke="#2c86ad" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <ellipse cx="30" cy="46" rx="9" ry="7" fill="#cdeff7" opacity=".8"/>
+        <path d="M40 55H24c9 2 17-1 21-8-1 5-2 8-5 8Z" fill="#164a72" opacity=".45"/>
+        <circle cx="17" cy="19" r="2.7" fill="#12303f"/><circle cx="16.1" cy="18.1" r="1.05" fill="#fff"/>
+        <circle cx="27" cy="19" r="2.7" fill="#12303f"/><circle cx="26.1" cy="18.1" r="1.05" fill="#fff"/>
+        <path d="M11 25h1.5v2H11ZM15 25h1.5v2H15ZM19 25h1.5v2H19Z" fill="#fff"/>
+        <ellipse cx="24" cy="26" rx="3" ry="2" fill="#ff8fa8" opacity=".5"/>
+        <path d="M24 51v5M36 51v5" stroke="#1c5f8c" stroke-width="3" stroke-linecap="round"/>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="t-rex-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#t-rex-x-cast-g)"/>
+  <g class="t-rex-x-lift">
+    <g class="t-rex-b">
+    <path d="M50 40c6-3 8-9 7-16 6 12 1 26-9 26Z" fill="url(#t-rex-g)"/>
+    <path d="M14 30 18 22l3 8ZM22 27l4-8 3 8Z" fill="#1c5f8c"/>
+    <path d="M40 55H24c-6 0-9-4-9-9V30c0-9 6-16 15-16 8 0 15 6 15 15v17c0 5-2 9-5 9Z" fill="url(#t-rex-g)"/>
+    <path d="M8 26c0-6 5-10 11-10h11v11H19c-3 4-8 4-11-1Z" fill="url(#t-rex-g)"/>
+    <path d="M8 26c3 3 7 3 10 1h11" stroke="#12496e" stroke-width="1.6" fill="none" opacity=".5"/>
+    <path d="M9 23c4-3 9-4 12-4" stroke="#fff" stroke-opacity=".5" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path class="t-rex-a" d="M32 34c4 0 7 2 8 5" stroke="#2c86ad" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <ellipse cx="30" cy="46" rx="9" ry="7" fill="#cdeff7" opacity=".8"/>
+    <path d="M40 55H24c9 2 17-1 21-8-1 5-2 8-5 8Z" fill="#164a72" opacity=".45"/>
+    <circle cx="17" cy="19" r="2.7" fill="#12303f"/><circle cx="16.1" cy="18.1" r="1.05" fill="#fff"/>
+    <circle cx="27" cy="19" r="2.7" fill="#12303f"/><circle cx="26.1" cy="18.1" r="1.05" fill="#fff"/>
+    <path d="M11 25h1.5v2H11ZM15 25h1.5v2H15ZM19 25h1.5v2H19Z" fill="#fff"/>
+    <ellipse cx="24" cy="26" rx="3" ry="2" fill="#ff8fa8" opacity=".5"/>
+    <path d="M24 51v5M36 51v5" stroke="#1c5f8c" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g mask="url(#t-rex-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#t-rex-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#t-rex-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#t-rex-x-rim)"/>
+      <rect class="t-rex-x-shine" x="0" y="-16" width="26" height="96" fill="url(#t-rex-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

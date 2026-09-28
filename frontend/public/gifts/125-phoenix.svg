@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes phoenix-rise{0%,100%{transform:translateY(2px) scale(.97)}50%{transform:translateY(-3px) scale(1.04)}}
+    @keyframes phoenix-flick{0%,100%{opacity:.45;transform:scaleY(.85)}50%{opacity:1;transform:scaleY(1.15)}}
+    @keyframes phoenix-tw{0%,100%{opacity:.2;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    .phoenix-body{transform-box:fill-box;transform-origin:center;animation:phoenix-rise 2.2s ease-in-out infinite}
+    .phoenix-fl{transform-box:fill-box;transform-origin:50% 100%;animation:phoenix-flick 1.1s ease-in-out infinite}
+    .phoenix-s{transform-box:fill-box;transform-origin:center;animation:phoenix-tw 1.8s ease-in-out infinite}
+    .phoenix-s2{animation-delay:.6s}.phoenix-s3{animation-delay:1.2s}
+    @keyframes phoenix-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes phoenix-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes phoenix-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes phoenix-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes phoenix-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .phoenix-x-lift{transform-box:fill-box;transform-origin:center;animation:phoenix-x-lift 3.4s ease-in-out infinite}
+    .phoenix-x-shine{animation:phoenix-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .phoenix-x-spark{transform-box:fill-box;transform-origin:center;animation:phoenix-x-spark 2.2s ease-in-out infinite}
+    .phoenix-x-aura{transform-box:fill-box;transform-origin:center;animation:phoenix-x-aura 3s ease-in-out infinite}
+    .phoenix-x-cast{transform-box:fill-box;transform-origin:center;animation:phoenix-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.phoenix-x-lift,.phoenix-x-shine,.phoenix-x-spark,.phoenix-x-aura,.phoenix-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="phoenix-g" x1="18" y1="8" x2="46" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff2b8"/><stop offset=".4" stop-color="#ff9a2e"/><stop offset="1" stop-color="#d81f34"/>
+    </linearGradient>
+    <linearGradient id="phoenix-g2" x1="24" y1="44" x2="40" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffd166"/><stop offset="1" stop-color="#e8502a"/>
+    </linearGradient>
+    <filter id="phoenix-f" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="phoenix-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="phoenix-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="phoenix-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="phoenix-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="phoenix-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="phoenix-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="phoenix-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="phoenix-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#phoenix-x-white)">
+        <g class="phoenix-fl"><path d="M32 60c-7-3-11-8-11-14 3 3 5 4 7 4-2-5-1-9 4-13-1 6 1 8 4 11 1-3 3-5 3-8 4 5 5 9 4 12-1 4-5 7-11 8Z" fill="url(#phoenix-g2)" opacity=".85"/></g>
+        <g class="phoenix-body" filter="url(#phoenix-f)">
+        <path d="M30 40C18 38 8 30 6 18c8 6 14 8 19 8-4-4-6-8-6-13 5 7 9 10 13 11Z" fill="url(#phoenix-g)"/>
+        <path d="M34 40c12-2 22-10 24-22-8 6-14 8-19 8 4-4 6-8 6-13-5 7-9 10-13 11Z" fill="url(#phoenix-g)"/>
+        <path d="M32 14c5 0 9 5 9 12 0 8-4 15-9 22-5-7-9-14-9-22 0-7 4-12 9-12Z" fill="url(#phoenix-g)"/>
+        <path d="M29 18c-2 3-3 6-3 10" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M32 48c3-5 5-9 6-14 1 8-2 14-6 14Z" fill="#a8151f" opacity=".45"/>
+        <circle cx="29" cy="20" r="1.5" fill="#7c1010"/><circle cx="35" cy="20" r="1.5" fill="#7c1010"/>
+        <path d="M31 24h2l-1 2.5Z" fill="#ffe08a"/>
+        </g>
+        <circle class="phoenix-s" cx="53" cy="34" r="2" fill="#fff"/>
+        <circle class="phoenix-s phoenix-s2" cx="11" cy="36" r="1.6" fill="#ffe9a8"/>
+        <circle class="phoenix-s phoenix-s3" cx="32" cy="7" r="1.6" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="phoenix-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#phoenix-x-cast-g)"/>
+  <circle class="phoenix-x-aura" cx="32" cy="32" r="29" fill="url(#phoenix-x-aura-g)"/>
+  <g class="phoenix-x-lift">
+    <g class="phoenix-fl"><path d="M32 60c-7-3-11-8-11-14 3 3 5 4 7 4-2-5-1-9 4-13-1 6 1 8 4 11 1-3 3-5 3-8 4 5 5 9 4 12-1 4-5 7-11 8Z" fill="url(#phoenix-g2)" opacity=".85"/></g>
+    <g class="phoenix-body" filter="url(#phoenix-f)">
+    <path d="M30 40C18 38 8 30 6 18c8 6 14 8 19 8-4-4-6-8-6-13 5 7 9 10 13 11Z" fill="url(#phoenix-g)"/>
+    <path d="M34 40c12-2 22-10 24-22-8 6-14 8-19 8 4-4 6-8 6-13-5 7-9 10-13 11Z" fill="url(#phoenix-g)"/>
+    <path d="M32 14c5 0 9 5 9 12 0 8-4 15-9 22-5-7-9-14-9-22 0-7 4-12 9-12Z" fill="url(#phoenix-g)"/>
+    <path d="M29 18c-2 3-3 6-3 10" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M32 48c3-5 5-9 6-14 1 8-2 14-6 14Z" fill="#a8151f" opacity=".45"/>
+    <circle cx="29" cy="20" r="1.5" fill="#7c1010"/><circle cx="35" cy="20" r="1.5" fill="#7c1010"/>
+    <path d="M31 24h2l-1 2.5Z" fill="#ffe08a"/>
+    </g>
+    <circle class="phoenix-s" cx="53" cy="34" r="2" fill="#fff"/>
+    <circle class="phoenix-s phoenix-s2" cx="11" cy="36" r="1.6" fill="#ffe9a8"/>
+    <circle class="phoenix-s phoenix-s3" cx="32" cy="7" r="1.6" fill="#fff"/>
+    <g mask="url(#phoenix-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#phoenix-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#phoenix-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#phoenix-x-rim)"/>
+      <rect class="phoenix-x-shine" x="0" y="-16" width="26" height="96" fill="url(#phoenix-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="phoenix-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="phoenix-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="phoenix-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="phoenix-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

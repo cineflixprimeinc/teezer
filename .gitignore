@@ -1,0 +1,103 @@
+# ========================
+# Credentials - never commit
+# ========================
+# The production root password was committed here in plain text (two tracked files, six
+# commits, pushed to GitHub). Anyone with read access to the repo had root on prod. These
+# patterns exist so it cannot happen again by accident.
+*vps_pw*
+*_pw.txt
+*password*.txt
+*credentials*
+*.pem
+*.p8
+*.key
+id_rsa*
+id_ed25519*
+*service-account*.json
+.env
+.env.*
+!.env.example
+# Public-only Next.js build configs (NEXT_PUBLIC_* values, no secrets) are committed.
+# Their *.local overrides stay ignored by the rule above.
+!frontend/.env.production
+!admin/.env.production
+# Committed templates / source files that the broad patterns above would hide.
+!.env.*.example
+!server/database/migrations/*credentials*.php
+
+# ========================
+# Laravel / Server
+# ========================
+server/.env
+server/.env.backup
+server/vendor/
+server/node_modules/
+server/bootstrap/cache/*.php
+server/storage/app/public/videos/
+server/storage/app/public/thumbnails/
+server/storage/logs/
+server/storage/framework/cache/
+server/storage/framework/sessions/
+server/storage/framework/views/
+server/public/hot
+server/public/storage
+server/.phpunit.result.cache
+server/Homestead.json
+server/Homestead.yaml
+server/auth.json
+
+# ========================
+# Flutter / Mobile App
+# ========================
+mobile-app/.dart_tool/
+mobile-app/.flutter-plugins
+mobile-app/.flutter-plugins-dependencies
+mobile-app/build/
+mobile-app/*.apk
+mobile-app/*.aab
+mobile-app/*.ipa
+mobile-app/ios/Pods/
+mobile-app/ios/.symlinks/
+mobile-app/android/.gradle/
+mobile-app/android/local.properties
+mobile-app/android/key.properties
+mobile-app/**/*.g.dart
+mobile-app/**/*.freezed.dart
+
+# ========================
+# Cloudflare Worker
+# ========================
+.wrangler/
+
+# ========================
+# System
+# ========================
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+.idea/
+.vscode/settings.json
+*.swp
+*~
+
+# ========================
+# Dependencies / build output (all apps)
+# ========================
+node_modules/
+vendor/
+.next/
+out/
+dist/
+build/
+.expo/
+*.tsbuildinfo
+
+# local deploy secrets / keys (never commit)
+.deploy.local.*
+*deploy*key*
+id_ed25519*
+
+# Local Socket.IO chat-server working dir - dependencies only, no tracked source
+chat-server/

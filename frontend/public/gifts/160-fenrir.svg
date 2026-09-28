@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes fenrir-glow{0%,100%{filter:drop-shadow(0 0 2px #2f7fd6) brightness(1)}50%{filter:drop-shadow(0 0 8px #8fe6ff) brightness(1.18)}}
+    @keyframes fenrir-eye{0%,100%{opacity:.5;transform:scale(.9)}20%{opacity:1;transform:scale(1.15)}40%{opacity:.7}60%{opacity:1}}
+    @keyframes fenrir-frost{0%{opacity:0;transform:translateY(2px) scale(.5)}40%{opacity:.9}100%{opacity:0;transform:translateY(-11px) scale(1.3)}}
+    .fenrir-b{transform-box:fill-box;transform-origin:center;animation:fenrir-glow 2.5s ease-in-out infinite}
+    .fenrir-e{transform-box:fill-box;transform-origin:center;animation:fenrir-eye 1.5s ease-in-out infinite}
+    .fenrir-p{transform-box:fill-box;transform-origin:center;animation:fenrir-frost 2.4s ease-in-out infinite}
+    .fenrir-p2{animation-delay:.8s}.fenrir-p3{animation-delay:1.6s}
+    @keyframes fenrir-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes fenrir-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes fenrir-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes fenrir-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes fenrir-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .fenrir-x-lift{transform-box:fill-box;transform-origin:center;animation:fenrir-x-lift 3.4s ease-in-out infinite}
+    .fenrir-x-shine{animation:fenrir-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .fenrir-x-spark{transform-box:fill-box;transform-origin:center;animation:fenrir-x-spark 2.2s ease-in-out infinite}
+    .fenrir-x-aura{transform-box:fill-box;transform-origin:center;animation:fenrir-x-aura 3s ease-in-out infinite}
+    .fenrir-x-cast{transform-box:fill-box;transform-origin:center;animation:fenrir-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.fenrir-x-lift,.fenrir-x-shine,.fenrir-x-spark,.fenrir-x-aura,.fenrir-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="fenrir-g" x1="14" y1="8" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#cfe6f7"/><stop offset=".45" stop-color="#6f8bb0"/><stop offset="1" stop-color="#2a3550"/>
+    </linearGradient>
+    <linearGradient id="fenrir-gm" x1="12" y1="16" x2="52" y2="46" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#8fb6d8"/><stop offset="1" stop-color="#1b2438"/>
+    </linearGradient>
+    <radialGradient id="fenrir-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="fenrir-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fenrir-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="fenrir-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fenrir-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="fenrir-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="fenrir-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="fenrir-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#fenrir-x-white)">
+        <g class="fenrir-b">
+        <path d="M32 14c14 0 24 6 26 16-4-2-7-2-10 0 2-4 1-8-3-10 1 5-1 8-5 9 0-6-4-10-8-11-4 1-8 5-8 11-4-1-6-4-5-9-4 2-5 6-3 10-3-2-6-2-10 0 2-10 12-16 26-16Z" fill="url(#fenrir-gm)"/>
+        <path d="M15 8l3 14 9-8ZM49 8l-3 14-9-8Z" fill="url(#fenrir-g)"/>
+        <path d="M17 12l2 8 5-4ZM47 12l-2 8-5-4Z" fill="#3a5478"/>
+        <path d="M32 18c11 0 18 7 18 17 0 8-8 15-18 15s-18-7-18-15c0-10 7-17 18-17Z" fill="url(#fenrir-g)"/>
+        <path d="M21 24c-3 3-4 6-4 10" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M26 36h12c3 0 5 3 5 7 0 5-5 9-11 9s-11-4-11-9c0-4 2-7 5-7Z" fill="#e8f4ff"/>
+        <path d="M18 42c4 6 9 9 14 9s10-3 14-9c-1 8-7 12-14 12s-13-4-14-12Z" fill="#22304a" opacity=".45"/>
+        <path d="M32 38l4 4-4 3-4-3Z" fill="#28374f"/>
+        <path d="M25 45l2 5 2-5ZM39 45l-2 5-2-5Z" fill="#fff"/>
+        <path d="M27 48c2 3 8 3 10 0" stroke="#28374f" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        <g class="fenrir-e">
+        <path d="M18 30l9 3-9 3Z" fill="#4fd8ff"/><path d="M46 30l-9 3 9 3Z" fill="#4fd8ff"/>
+        <circle cx="22" cy="33" r="1.6" fill="#eafcff"/><circle cx="42" cy="33" r="1.6" fill="#eafcff"/>
+        </g>
+        </g>
+        <circle class="fenrir-p" cx="12" cy="52" r="2" fill="#9fe9ff"/>
+        <circle class="fenrir-p fenrir-p2" cx="52" cy="54" r="1.6" fill="#d8f7ff"/>
+        <circle class="fenrir-p fenrir-p3" cx="32" cy="57" r="1.4" fill="#9fe9ff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="fenrir-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#fenrir-x-cast-g)"/>
+  <circle class="fenrir-x-aura" cx="32" cy="32" r="29" fill="url(#fenrir-x-aura-g)"/>
+  <g class="fenrir-x-lift">
+    <g class="fenrir-b">
+    <path d="M32 14c14 0 24 6 26 16-4-2-7-2-10 0 2-4 1-8-3-10 1 5-1 8-5 9 0-6-4-10-8-11-4 1-8 5-8 11-4-1-6-4-5-9-4 2-5 6-3 10-3-2-6-2-10 0 2-10 12-16 26-16Z" fill="url(#fenrir-gm)"/>
+    <path d="M15 8l3 14 9-8ZM49 8l-3 14-9-8Z" fill="url(#fenrir-g)"/>
+    <path d="M17 12l2 8 5-4ZM47 12l-2 8-5-4Z" fill="#3a5478"/>
+    <path d="M32 18c11 0 18 7 18 17 0 8-8 15-18 15s-18-7-18-15c0-10 7-17 18-17Z" fill="url(#fenrir-g)"/>
+    <path d="M21 24c-3 3-4 6-4 10" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M26 36h12c3 0 5 3 5 7 0 5-5 9-11 9s-11-4-11-9c0-4 2-7 5-7Z" fill="#e8f4ff"/>
+    <path d="M18 42c4 6 9 9 14 9s10-3 14-9c-1 8-7 12-14 12s-13-4-14-12Z" fill="#22304a" opacity=".45"/>
+    <path d="M32 38l4 4-4 3-4-3Z" fill="#28374f"/>
+    <path d="M25 45l2 5 2-5ZM39 45l-2 5-2-5Z" fill="#fff"/>
+    <path d="M27 48c2 3 8 3 10 0" stroke="#28374f" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    <g class="fenrir-e">
+    <path d="M18 30l9 3-9 3Z" fill="#4fd8ff"/><path d="M46 30l-9 3 9 3Z" fill="#4fd8ff"/>
+    <circle cx="22" cy="33" r="1.6" fill="#eafcff"/><circle cx="42" cy="33" r="1.6" fill="#eafcff"/>
+    </g>
+    </g>
+    <circle class="fenrir-p" cx="12" cy="52" r="2" fill="#9fe9ff"/>
+    <circle class="fenrir-p fenrir-p2" cx="52" cy="54" r="1.6" fill="#d8f7ff"/>
+    <circle class="fenrir-p fenrir-p3" cx="32" cy="57" r="1.4" fill="#9fe9ff"/>
+    <g mask="url(#fenrir-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#fenrir-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#fenrir-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#fenrir-x-rim)"/>
+      <rect class="fenrir-x-shine" x="0" y="-16" width="26" height="96" fill="url(#fenrir-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="fenrir-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="fenrir-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="fenrir-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="fenrir-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

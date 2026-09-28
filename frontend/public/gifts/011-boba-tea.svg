@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes boba-tea-wiggle{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+    @keyframes boba-tea-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+    .boba-tea-body{transform-box:fill-box;transform-origin:center bottom;animation:boba-tea-wiggle 2.2s ease-in-out infinite}
+    .boba-tea-p{transform-box:fill-box;transform-origin:center;animation:boba-tea-bob 1.8s ease-in-out infinite}
+    .boba-tea-p2{animation-delay:.4s}
+    .boba-tea-p3{animation-delay:.8s}
+    @keyframes boba-tea-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes boba-tea-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes boba-tea-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes boba-tea-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes boba-tea-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .boba-tea-x-lift{transform-box:fill-box;transform-origin:center;animation:boba-tea-x-lift 3.4s ease-in-out infinite}
+    .boba-tea-x-shine{animation:boba-tea-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .boba-tea-x-spark{transform-box:fill-box;transform-origin:center;animation:boba-tea-x-spark 2.2s ease-in-out infinite}
+    .boba-tea-x-aura{transform-box:fill-box;transform-origin:center;animation:boba-tea-x-aura 3s ease-in-out infinite}
+    .boba-tea-x-cast{transform-box:fill-box;transform-origin:center;animation:boba-tea-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.boba-tea-x-lift,.boba-tea-x-shine,.boba-tea-x-spark,.boba-tea-x-aura,.boba-tea-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="boba-tea-g" x1="18" y1="20" x2="46" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#f3ddc0"/><stop offset=".45" stop-color="#d9a86e"/><stop offset="1" stop-color="#a9713c"/>
+    </linearGradient>
+    <linearGradient id="boba-tea-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="boba-tea-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="boba-tea-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="boba-tea-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="boba-tea-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="boba-tea-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="boba-tea-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#boba-tea-x-white)">
+        <g class="boba-tea-body">
+        <rect x="33" y="6" width="5" height="18" rx="2.5" transform="rotate(12 35.5 15)" fill="#ff6f9c"/>
+        <rect x="33" y="6" width="2" height="18" rx="1" transform="rotate(12 35.5 15)" fill="#fff" opacity=".45"/>
+        <path d="M17 21h30l-3.4 33.2A5 5 0 0 1 38.6 59H25.4a5 5 0 0 1-5-4.8L17 21Z" fill="url(#boba-tea-g)" stroke="#8f5c2e" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M18.4 34h27.2l-2 20H20.4Z" fill="#c08c52" opacity=".25"/>
+        <path d="M21 26v10" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
+        <g fill="#3b2318">
+        <circle class="boba-tea-p" cx="25" cy="49" r="3.6"/>
+        <circle class="boba-tea-p boba-tea-p2" cx="33" cy="52" r="3.8"/>
+        <circle class="boba-tea-p boba-tea-p3" cx="40.5" cy="48.5" r="3.4"/>
+        <circle class="boba-tea-p boba-tea-p2" cx="29" cy="43" r="3"/>
+        <circle class="boba-tea-p boba-tea-p3" cx="38" cy="41" r="2.8"/>
+        </g>
+        <rect x="14" y="16" width="36" height="8" rx="4" fill="#ffe9d2" stroke="#8f5c2e" stroke-width="2"/>
+        <rect x="17" y="18" width="14" height="2.6" rx="1.3" fill="#fff" opacity=".7"/>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="boba-tea-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#boba-tea-x-cast-g)"/>
+  <g class="boba-tea-x-lift">
+    <g class="boba-tea-body">
+    <rect x="33" y="6" width="5" height="18" rx="2.5" transform="rotate(12 35.5 15)" fill="#ff6f9c"/>
+    <rect x="33" y="6" width="2" height="18" rx="1" transform="rotate(12 35.5 15)" fill="#fff" opacity=".45"/>
+    <path d="M17 21h30l-3.4 33.2A5 5 0 0 1 38.6 59H25.4a5 5 0 0 1-5-4.8L17 21Z" fill="url(#boba-tea-g)" stroke="#8f5c2e" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M18.4 34h27.2l-2 20H20.4Z" fill="#c08c52" opacity=".25"/>
+    <path d="M21 26v10" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
+    <g fill="#3b2318">
+    <circle class="boba-tea-p" cx="25" cy="49" r="3.6"/>
+    <circle class="boba-tea-p boba-tea-p2" cx="33" cy="52" r="3.8"/>
+    <circle class="boba-tea-p boba-tea-p3" cx="40.5" cy="48.5" r="3.4"/>
+    <circle class="boba-tea-p boba-tea-p2" cx="29" cy="43" r="3"/>
+    <circle class="boba-tea-p boba-tea-p3" cx="38" cy="41" r="2.8"/>
+    </g>
+    <rect x="14" y="16" width="36" height="8" rx="4" fill="#ffe9d2" stroke="#8f5c2e" stroke-width="2"/>
+    <rect x="17" y="18" width="14" height="2.6" rx="1.3" fill="#fff" opacity=".7"/>
+    </g>
+    <g mask="url(#boba-tea-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#boba-tea-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#boba-tea-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#boba-tea-x-rim)"/>
+      <rect class="boba-tea-x-shine" x="0" y="-16" width="26" height="96" fill="url(#boba-tea-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes magic-mirror-shim{0%{opacity:0;transform:translate(-20px,10px) rotate(24deg)}45%{opacity:.9}100%{opacity:0;transform:translate(20px,-10px) rotate(24deg)}}
+    @keyframes magic-mirror-tilt{0%,100%{transform:rotate(-2.5deg) scale(1)}50%{transform:rotate(2.5deg) scale(1.04)}}
+    @keyframes magic-mirror-swirl{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes magic-mirror-tw{0%,100%{opacity:.15;transform:scale(.55)}50%{opacity:1;transform:scale(1)}}
+    .magic-mirror-body{transform-box:fill-box;transform-origin:center bottom;animation:magic-mirror-tilt 2.6s ease-in-out infinite}
+    .magic-mirror-sh{transform-box:fill-box;transform-origin:center;animation:magic-mirror-shim 2.4s ease-in-out infinite}
+    .magic-mirror-sw{transform-box:fill-box;transform-origin:center;animation:magic-mirror-swirl 3s linear infinite}
+    .magic-mirror-s{transform-box:fill-box;transform-origin:center;animation:magic-mirror-tw 2.1s ease-in-out infinite}
+    .magic-mirror-s2{animation-delay:.7s}.magic-mirror-s3{animation-delay:1.4s}
+    @keyframes magic-mirror-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes magic-mirror-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes magic-mirror-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes magic-mirror-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes magic-mirror-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .magic-mirror-x-lift{transform-box:fill-box;transform-origin:center;animation:magic-mirror-x-lift 3.4s ease-in-out infinite}
+    .magic-mirror-x-shine{animation:magic-mirror-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .magic-mirror-x-spark{transform-box:fill-box;transform-origin:center;animation:magic-mirror-x-spark 2.2s ease-in-out infinite}
+    .magic-mirror-x-aura{transform-box:fill-box;transform-origin:center;animation:magic-mirror-x-aura 3s ease-in-out infinite}
+    .magic-mirror-x-cast{transform-box:fill-box;transform-origin:center;animation:magic-mirror-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.magic-mirror-x-lift,.magic-mirror-x-shine,.magic-mirror-x-spark,.magic-mirror-x-aura,.magic-mirror-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="magic-mirror-gf" x1="14" y1="6" x2="50" y2="46" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff6cf"/><stop offset=".45" stop-color="#e9bf35"/><stop offset="1" stop-color="#95660a"/>
+    </linearGradient>
+    <radialGradient id="magic-mirror-gm" cx=".36" cy=".3" r=".85">
+    <stop offset="0" stop-color="#f0e6ff"/><stop offset=".5" stop-color="#a487e8"/><stop offset="1" stop-color="#4b2b8f"/>
+    </radialGradient>
+    <filter id="magic-mirror-f" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="magic-mirror-cp"><ellipse cx="32" cy="27" rx="14" ry="16"/></clipPath>
+    <radialGradient id="magic-mirror-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="magic-mirror-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="magic-mirror-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="magic-mirror-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="magic-mirror-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="magic-mirror-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="magic-mirror-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="magic-mirror-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#magic-mirror-x-white)">
+        <g class="magic-mirror-body" filter="url(#magic-mirror-f)">
+        <path d="M28 42h8l2 8c.4 1.8 3 2 4.4 3.2 1.6 1.4.6 4.2-1.6 4.2H23.2c-2.2 0-3.2-2.8-1.6-4.2 1.4-1.2 4-1.4 4.4-3.2z" fill="url(#magic-mirror-gf)"/>
+        <ellipse cx="32" cy="27" rx="18" ry="20" fill="url(#magic-mirror-gf)"/>
+        <ellipse cx="32" cy="27" rx="14" ry="16" fill="url(#magic-mirror-gm)"/>
+        <g clip-path="url(#magic-mirror-cp)">
+        <g class="magic-mirror-sw">
+        <path d="M32 12c8 0 13 6 13 13s-6 12-13 12-11-4-11-10 4-9 9-9 7 3 7 6-2 5-5 5" fill="none" stroke="#e6d8ff" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>
+        </g>
+        <rect class="magic-mirror-sh" x="24" y="0" width="9" height="50" fill="#fff" opacity=".7"/>
+        </g>
+        <path d="M22 14c-3 3-4.6 6.6-4.8 10.6" stroke="#fff" stroke-opacity=".7" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <path d="M18 34c3 6 8 9 14 9s11-3 14-9c-2 8-8 13-14 13s-12-5-14-13Z" fill="#7a5406" opacity=".35"/>
+        <circle cx="32" cy="8" r="3.2" fill="#ffe9a8"/>
+        <circle cx="32" cy="8" r="1.3" fill="#fff"/>
+        </g>
+        <circle class="magic-mirror-s" cx="52" cy="10" r="2.2" fill="#fff"/>
+        <circle class="magic-mirror-s magic-mirror-s2" cx="9" cy="20" r="1.8" fill="#fff"/>
+        <circle class="magic-mirror-s magic-mirror-s3" cx="56" cy="40" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="magic-mirror-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#magic-mirror-x-cast-g)"/>
+  <circle class="magic-mirror-x-aura" cx="32" cy="32" r="29" fill="url(#magic-mirror-x-aura-g)"/>
+  <g class="magic-mirror-x-lift">
+    <g class="magic-mirror-body" filter="url(#magic-mirror-f)">
+    <path d="M28 42h8l2 8c.4 1.8 3 2 4.4 3.2 1.6 1.4.6 4.2-1.6 4.2H23.2c-2.2 0-3.2-2.8-1.6-4.2 1.4-1.2 4-1.4 4.4-3.2z" fill="url(#magic-mirror-gf)"/>
+    <ellipse cx="32" cy="27" rx="18" ry="20" fill="url(#magic-mirror-gf)"/>
+    <ellipse cx="32" cy="27" rx="14" ry="16" fill="url(#magic-mirror-gm)"/>
+    <g clip-path="url(#magic-mirror-cp)">
+    <g class="magic-mirror-sw">
+    <path d="M32 12c8 0 13 6 13 13s-6 12-13 12-11-4-11-10 4-9 9-9 7 3 7 6-2 5-5 5" fill="none" stroke="#e6d8ff" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>
+    </g>
+    <rect class="magic-mirror-sh" x="24" y="0" width="9" height="50" fill="#fff" opacity=".7"/>
+    </g>
+    <path d="M22 14c-3 3-4.6 6.6-4.8 10.6" stroke="#fff" stroke-opacity=".7" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+    <path d="M18 34c3 6 8 9 14 9s11-3 14-9c-2 8-8 13-14 13s-12-5-14-13Z" fill="#7a5406" opacity=".35"/>
+    <circle cx="32" cy="8" r="3.2" fill="#ffe9a8"/>
+    <circle cx="32" cy="8" r="1.3" fill="#fff"/>
+    </g>
+    <circle class="magic-mirror-s" cx="52" cy="10" r="2.2" fill="#fff"/>
+    <circle class="magic-mirror-s magic-mirror-s2" cx="9" cy="20" r="1.8" fill="#fff"/>
+    <circle class="magic-mirror-s magic-mirror-s3" cx="56" cy="40" r="1.5" fill="#fff"/>
+    <g mask="url(#magic-mirror-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#magic-mirror-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#magic-mirror-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#magic-mirror-x-rim)"/>
+      <rect class="magic-mirror-x-shine" x="0" y="-16" width="26" height="96" fill="url(#magic-mirror-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="magic-mirror-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="magic-mirror-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="magic-mirror-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

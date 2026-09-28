@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* Hand/pointer cursor on every interactive element (native <button> defaults
+   to the arrow cursor otherwise). In @layer base so explicit Tailwind cursor
+   utilities still take precedence. */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href],
+  label[for],
+  summary,
+  select:not(:disabled),
+  [role="tab"],
+  [role="menuitem"] {
+    cursor: pointer;
+  }
+}
+
+:root {
+  --brand:       #fe2c55;
+  --brand-light: #fff0f4;
+  --sidebar-w:   256px;
+  --topbar-h:    64px;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, Arial, Helvetica, sans-serif;
+  background: #f4f5f7;
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+
+::selection { background: rgba(254, 44, 85, 0.15); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+/* Hide number input arrows */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+/* CMS & Legal's "current default content" preview (legal/page.tsx +
+   api/legal-preview/route.ts). Approximates frontend/src/features/legal/
+   legal-ui.tsx's own typography as plain selectors, since the fetched
+   fragment's raw Tailwind classes don't resolve here (this app compiles
+   its own separate CSS bundle) - same idea as the site's own
+   .legal-cms-body for CMS-authored content. */
+.legal-preview-embed p:first-of-type {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fe2c55;
+}
+.legal-preview-embed h1 {
+  margin-top: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #111827;
+}
+.legal-preview-embed h2 {
+  margin-top: 2.5rem;
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: #111827;
+}
+.legal-preview-embed h3 {
+  margin-top: 1.5rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #111827;
+}
+.legal-preview-embed p {
+  margin-top: 0.75rem;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #4b5563;
+}
+.legal-preview-embed ul,
+.legal-preview-embed ol {
+  margin-top: 0.5rem;
+  padding-left: 1.375rem;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #4b5563;
+}
+.legal-preview-embed ul { list-style: disc; }
+.legal-preview-embed ol { list-style: decimal; }
+.legal-preview-embed li + li { margin-top: 0.375rem; }
+.legal-preview-embed a { color: #fe2c55; font-weight: 600; text-decoration: underline; }
+.legal-preview-embed strong { font-weight: 700; color: #111827; }
+.legal-preview-embed table { margin-top: 1rem; width: 100%; border-collapse: collapse; font-size: 13px; }
+.legal-preview-embed th { text-align: left; padding: 8px 10px; background: #111827; color: #fff; font-size: 11px; text-transform: uppercase; }
+.legal-preview-embed td { padding: 8px 10px; border-top: 1px solid #f3f4f6; color: #374151; }
+/* The mobile-only "Categories" nav duplicates the sidebar tree of pages -
+   redundant chrome inside a small preview panel, not useful content. */
+.legal-preview-embed nav { display: none; }

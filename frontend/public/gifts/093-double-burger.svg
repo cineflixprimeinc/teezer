@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes double-burger-hop{0%,100%{transform:translateY(0) scale(1,1)}25%{transform:translateY(-4px) scale(.96,1.05)}55%{transform:translateY(1px) scale(1.05,.95)}}
+    @keyframes double-burger-top{0%,100%{transform:translateY(0)}30%{transform:translateY(-3px)}}
+    @keyframes double-burger-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .double-burger-body{transform-box:fill-box;transform-origin:center bottom;animation:double-burger-hop 1.8s ease-in-out infinite}
+    .double-burger-t{transform-box:fill-box;transform-origin:center bottom;animation:double-burger-top 1.8s ease-in-out infinite}
+    .double-burger-s{transform-box:fill-box;transform-origin:center;animation:double-burger-tw 2.3s ease-in-out infinite}
+    .double-burger-s2{animation-delay:.8s}
+    .double-burger-s3{animation-delay:1.5s}
+    @keyframes double-burger-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes double-burger-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes double-burger-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes double-burger-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes double-burger-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .double-burger-x-lift{transform-box:fill-box;transform-origin:center;animation:double-burger-x-lift 3.4s ease-in-out infinite}
+    .double-burger-x-shine{animation:double-burger-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .double-burger-x-spark{transform-box:fill-box;transform-origin:center;animation:double-burger-x-spark 2.2s ease-in-out infinite}
+    .double-burger-x-aura{transform-box:fill-box;transform-origin:center;animation:double-burger-x-aura 3s ease-in-out infinite}
+    .double-burger-x-cast{transform-box:fill-box;transform-origin:center;animation:double-burger-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.double-burger-x-lift,.double-burger-x-shine,.double-burger-x-spark,.double-burger-x-aura,.double-burger-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="double-burger-gb" x1="10" y1="10" x2="52" y2="30" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffdca3"/><stop offset=".5" stop-color="#e8a54f"/><stop offset="1" stop-color="#b56f1c"/>
+    </linearGradient>
+    <linearGradient id="double-burger-gp" x1="10" y1="26" x2="54" y2="40" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#8a5330"/><stop offset=".5" stop-color="#5d3316"/><stop offset="1" stop-color="#331904"/>
+    </linearGradient>
+    <linearGradient id="double-burger-gc" x1="12" y1="24" x2="52" y2="34" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffe27a"/><stop offset=".5" stop-color="#ffb524"/><stop offset="1" stop-color="#e07a00"/>
+    </linearGradient>
+    <filter id="double-burger-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="double-burger-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="double-burger-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="double-burger-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="double-burger-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="double-burger-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="double-burger-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="double-burger-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="double-burger-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#double-burger-x-white)">
+        <g class="double-burger-body" filter="url(#double-burger-f)">
+        <path d="M9 48h46v3.5A5.5 5.5 0 0 1 49.5 57h-35A5.5 5.5 0 0 1 9 51.5V48Z" fill="url(#double-burger-gb)"/>
+        <path d="M9 52h46v0a5 5 0 0 1-5 5H14a5 5 0 0 1-5-5Z" fill="#8a5310" opacity=".5"/>
+        <rect x="8" y="42.5" width="48" height="6" rx="3" fill="url(#double-burger-gp)"/>
+        <path d="M8 36c4-3 10 2 15-1s10 3 16 0 12 3 17 1v3.5c-6 2-12-1-17 1s-11-2-16 0-11-1-15-1V36Z" fill="#ffc93c"/>
+        <rect x="9" y="30" width="46" height="6.5" rx="3.2" fill="url(#double-burger-gp)"/>
+        <path d="M9 25.5c4-2 8 1 12-.5s8 2 12 .5 8 1.5 12 0 6 1 9 .5v4c-4 2-9-1-13 .5s-9-1.5-13 0-8-1-12 .5-5-1-7-1v-4.5Z" fill="url(#double-burger-gc)"/>
+        <path d="M9 22c4-2 8 1 12-1s9 2 13 0 8 1 12-.5 6 1 9 .5v3c-5 1-9-1-13 .5s-9-1-13 .5-8-1-12 .5-6-1-8-.5V22Z" fill="#68c22a"/>
+        <g class="double-burger-t">
+        <path d="M8 24c0-9 10-16 24-16s24 7 24 16H8Z" fill="url(#double-burger-gb)"/>
+        <path d="M18 13.5c-3.6 2.4-6 5.6-6.6 9.4" stroke="#fff" stroke-opacity=".55" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+        <ellipse cx="20" cy="19" rx="2.4" ry="1.4" fill="#fff8e6" transform="rotate(-16 20 19)"/>
+        <ellipse cx="31" cy="14.5" rx="2.4" ry="1.4" fill="#fff8e6"/>
+        <ellipse cx="42" cy="18.5" rx="2.4" ry="1.4" fill="#fff8e6" transform="rotate(14 42 18.5)"/>
+        <ellipse cx="26" cy="21.5" rx="2.2" ry="1.3" fill="#fff8e6" transform="rotate(6 26 21.5)"/>
+        <ellipse cx="48" cy="22" rx="2.2" ry="1.3" fill="#fff8e6" transform="rotate(20 48 22)"/>
+        <ellipse cx="37" cy="21.5" rx="2.2" ry="1.3" fill="#fff8e6"/>
+        </g>
+        <rect x="30" y="2" width="4" height="8" rx="2" fill="#ffd85c"/>
+        </g>
+        <circle class="double-burger-s" cx="57" cy="14" r="2.2" fill="#fff"/>
+        <circle class="double-burger-s double-burger-s2" cx="6" cy="16" r="1.7" fill="#ffe6a1"/>
+        <circle class="double-burger-s double-burger-s3" cx="57" cy="38" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="double-burger-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#double-burger-x-cast-g)"/>
+  <circle class="double-burger-x-aura" cx="32" cy="32" r="29" fill="url(#double-burger-x-aura-g)"/>
+  <g class="double-burger-x-lift">
+    <g class="double-burger-body" filter="url(#double-burger-f)">
+    <path d="M9 48h46v3.5A5.5 5.5 0 0 1 49.5 57h-35A5.5 5.5 0 0 1 9 51.5V48Z" fill="url(#double-burger-gb)"/>
+    <path d="M9 52h46v0a5 5 0 0 1-5 5H14a5 5 0 0 1-5-5Z" fill="#8a5310" opacity=".5"/>
+    <rect x="8" y="42.5" width="48" height="6" rx="3" fill="url(#double-burger-gp)"/>
+    <path d="M8 36c4-3 10 2 15-1s10 3 16 0 12 3 17 1v3.5c-6 2-12-1-17 1s-11-2-16 0-11-1-15-1V36Z" fill="#ffc93c"/>
+    <rect x="9" y="30" width="46" height="6.5" rx="3.2" fill="url(#double-burger-gp)"/>
+    <path d="M9 25.5c4-2 8 1 12-.5s8 2 12 .5 8 1.5 12 0 6 1 9 .5v4c-4 2-9-1-13 .5s-9-1.5-13 0-8-1-12 .5-5-1-7-1v-4.5Z" fill="url(#double-burger-gc)"/>
+    <path d="M9 22c4-2 8 1 12-1s9 2 13 0 8 1 12-.5 6 1 9 .5v3c-5 1-9-1-13 .5s-9-1-13 .5-8-1-12 .5-6-1-8-.5V22Z" fill="#68c22a"/>
+    <g class="double-burger-t">
+    <path d="M8 24c0-9 10-16 24-16s24 7 24 16H8Z" fill="url(#double-burger-gb)"/>
+    <path d="M18 13.5c-3.6 2.4-6 5.6-6.6 9.4" stroke="#fff" stroke-opacity=".55" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+    <ellipse cx="20" cy="19" rx="2.4" ry="1.4" fill="#fff8e6" transform="rotate(-16 20 19)"/>
+    <ellipse cx="31" cy="14.5" rx="2.4" ry="1.4" fill="#fff8e6"/>
+    <ellipse cx="42" cy="18.5" rx="2.4" ry="1.4" fill="#fff8e6" transform="rotate(14 42 18.5)"/>
+    <ellipse cx="26" cy="21.5" rx="2.2" ry="1.3" fill="#fff8e6" transform="rotate(6 26 21.5)"/>
+    <ellipse cx="48" cy="22" rx="2.2" ry="1.3" fill="#fff8e6" transform="rotate(20 48 22)"/>
+    <ellipse cx="37" cy="21.5" rx="2.2" ry="1.3" fill="#fff8e6"/>
+    </g>
+    <rect x="30" y="2" width="4" height="8" rx="2" fill="#ffd85c"/>
+    </g>
+    <circle class="double-burger-s" cx="57" cy="14" r="2.2" fill="#fff"/>
+    <circle class="double-burger-s double-burger-s2" cx="6" cy="16" r="1.7" fill="#ffe6a1"/>
+    <circle class="double-burger-s double-burger-s3" cx="57" cy="38" r="1.5" fill="#fff"/>
+    <g mask="url(#double-burger-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#double-burger-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#double-burger-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#double-burger-x-rim)"/>
+      <rect class="double-burger-x-shine" x="0" y="-16" width="26" height="96" fill="url(#double-burger-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="double-burger-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="double-burger-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="double-burger-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

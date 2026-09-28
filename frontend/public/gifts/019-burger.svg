@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes burger-bounce{0%,100%{transform:translateY(0) scale(1,1)}25%{transform:translateY(-5px) scale(.96,1.05)}55%{transform:translateY(0) scale(1.06,.94)}75%{transform:translateY(-1px) scale(1,1)}}
+    @keyframes burger-top{0%,100%{transform:translateY(0)}25%{transform:translateY(-3px)}55%{transform:translateY(1px)}}
+    .burger-body{transform-box:fill-box;transform-origin:center bottom;animation:burger-bounce 1.9s ease-in-out infinite}
+    .burger-cap{transform-box:fill-box;transform-origin:center bottom;animation:burger-top 1.9s ease-in-out infinite}
+    @keyframes burger-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes burger-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes burger-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes burger-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes burger-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .burger-x-lift{transform-box:fill-box;transform-origin:center;animation:burger-x-lift 3.4s ease-in-out infinite}
+    .burger-x-shine{animation:burger-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .burger-x-spark{transform-box:fill-box;transform-origin:center;animation:burger-x-spark 2.2s ease-in-out infinite}
+    .burger-x-aura{transform-box:fill-box;transform-origin:center;animation:burger-x-aura 3s ease-in-out infinite}
+    .burger-x-cast{transform-box:fill-box;transform-origin:center;animation:burger-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.burger-x-lift,.burger-x-shine,.burger-x-spark,.burger-x-aura,.burger-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="burger-g" x1="10" y1="8" x2="52" y2="34" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffdda4"/><stop offset=".5" stop-color="#e8a74e"/><stop offset="1" stop-color="#b5741f"/>
+    </linearGradient>
+    <linearGradient id="burger-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="burger-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="burger-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="burger-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="burger-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="burger-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="burger-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#burger-x-white)">
+        <g class="burger-body">
+        <path d="M8 44h48v3a9 9 0 0 1-9 9H17a9 9 0 0 1-9-9v-3Z" fill="#e2a552" stroke="#a86f25" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M9 50h46a9 9 0 0 1-8 6H17a9 9 0 0 1-8-6Z" fill="#8f5a1c" opacity=".4"/>
+        <rect x="7" y="36" width="50" height="8" rx="4" fill="#7a4a2b" stroke="#5c3520" stroke-width="2"/>
+        <path d="M12 40h40" stroke="#a06844" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/>
+        <path d="M13 26h38l7 8-7 4H13l-7-4Z" fill="#ffd23f" stroke="#d9a51e" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M8 28c5 3 12 4 20 4s16-1 21-4c2 2 3 3 4 4-6 3-14 4.4-24 4.4S12 35 6 32c1-1.6 1.6-2.6 2-4Z" fill="#7bc043" stroke="#4f9b3a" stroke-width="1.6" stroke-linejoin="round"/>
+        <g class="burger-cap">
+        <path d="M32 6c13.3 0 24 8 24 16 0 2.6-1.6 4-4 4H12c-2.4 0-4-1.4-4-4C8 14 18.7 6 32 6Z" fill="url(#burger-g)" stroke="#a86f25" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M18 15c4-3 8-4.6 13-5" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <g fill="#fff5dd">
+        <ellipse cx="22" cy="16" rx="2.6" ry="1.6" transform="rotate(-20 22 16)"/>
+        <ellipse cx="33" cy="12" rx="2.6" ry="1.6"/>
+        <ellipse cx="43" cy="17" rx="2.6" ry="1.6" transform="rotate(20 43 17)"/>
+        <ellipse cx="27" cy="22" rx="2.4" ry="1.5"/>
+        <ellipse cx="39" cy="22" rx="2.4" ry="1.5"/>
+        </g>
+        </g>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="burger-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#burger-x-cast-g)"/>
+  <g class="burger-x-lift">
+    <g class="burger-body">
+    <path d="M8 44h48v3a9 9 0 0 1-9 9H17a9 9 0 0 1-9-9v-3Z" fill="#e2a552" stroke="#a86f25" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M9 50h46a9 9 0 0 1-8 6H17a9 9 0 0 1-8-6Z" fill="#8f5a1c" opacity=".4"/>
+    <rect x="7" y="36" width="50" height="8" rx="4" fill="#7a4a2b" stroke="#5c3520" stroke-width="2"/>
+    <path d="M12 40h40" stroke="#a06844" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/>
+    <path d="M13 26h38l7 8-7 4H13l-7-4Z" fill="#ffd23f" stroke="#d9a51e" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M8 28c5 3 12 4 20 4s16-1 21-4c2 2 3 3 4 4-6 3-14 4.4-24 4.4S12 35 6 32c1-1.6 1.6-2.6 2-4Z" fill="#7bc043" stroke="#4f9b3a" stroke-width="1.6" stroke-linejoin="round"/>
+    <g class="burger-cap">
+    <path d="M32 6c13.3 0 24 8 24 16 0 2.6-1.6 4-4 4H12c-2.4 0-4-1.4-4-4C8 14 18.7 6 32 6Z" fill="url(#burger-g)" stroke="#a86f25" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M18 15c4-3 8-4.6 13-5" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <g fill="#fff5dd">
+    <ellipse cx="22" cy="16" rx="2.6" ry="1.6" transform="rotate(-20 22 16)"/>
+    <ellipse cx="33" cy="12" rx="2.6" ry="1.6"/>
+    <ellipse cx="43" cy="17" rx="2.6" ry="1.6" transform="rotate(20 43 17)"/>
+    <ellipse cx="27" cy="22" rx="2.4" ry="1.5"/>
+    <ellipse cx="39" cy="22" rx="2.4" ry="1.5"/>
+    </g>
+    </g>
+    </g>
+    <g mask="url(#burger-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#burger-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#burger-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#burger-x-rim)"/>
+      <rect class="burger-x-shine" x="0" y="-16" width="26" height="96" fill="url(#burger-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

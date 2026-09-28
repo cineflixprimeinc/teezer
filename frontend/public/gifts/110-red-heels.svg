@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes red-heels-wig{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+    @keyframes red-heels-wig2{0%,100%{transform:rotate(6deg)}50%{transform:rotate(-6deg)}}
+    @keyframes red-heels-shine{0%,100%{opacity:.2;transform:translateX(-4px)}50%{opacity:.85;transform:translateX(4px)}}
+    @keyframes red-heels-tw{0%,100%{opacity:.15;transform:scale(.55)}50%{opacity:1;transform:scale(1)}}
+    .red-heels-a{transform-box:fill-box;transform-origin:bottom center;animation:red-heels-wig 2.2s ease-in-out infinite}
+    .red-heels-b{transform-box:fill-box;transform-origin:bottom center;animation:red-heels-wig2 2.2s ease-in-out infinite}
+    .red-heels-sh{transform-box:fill-box;transform-origin:center;animation:red-heels-shine 2s ease-in-out infinite}
+    .red-heels-s{transform-box:fill-box;transform-origin:center;animation:red-heels-tw 2.1s ease-in-out infinite}
+    .red-heels-s2{animation-delay:.7s}.red-heels-s3{animation-delay:1.4s}
+    @keyframes red-heels-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes red-heels-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes red-heels-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes red-heels-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes red-heels-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .red-heels-x-lift{transform-box:fill-box;transform-origin:center;animation:red-heels-x-lift 3.4s ease-in-out infinite}
+    .red-heels-x-shine{animation:red-heels-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .red-heels-x-spark{transform-box:fill-box;transform-origin:center;animation:red-heels-x-spark 2.2s ease-in-out infinite}
+    .red-heels-x-aura{transform-box:fill-box;transform-origin:center;animation:red-heels-x-aura 3s ease-in-out infinite}
+    .red-heels-x-cast{transform-box:fill-box;transform-origin:center;animation:red-heels-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.red-heels-x-lift,.red-heels-x-shine,.red-heels-x-spark,.red-heels-x-aura,.red-heels-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="red-heels-g" x1="8" y1="18" x2="40" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff9aa8"/><stop offset=".45" stop-color="#e4243f"/><stop offset="1" stop-color="#8e0c22"/>
+    </linearGradient>
+    <linearGradient id="red-heels-g2" x1="28" y1="22" x2="58" y2="54" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffb0bb"/><stop offset=".45" stop-color="#f0334c"/><stop offset="1" stop-color="#a01029"/>
+    </linearGradient>
+    <filter id="red-heels-f" x="-45%" y="-45%" width="190%" height="190%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="red-heels-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="red-heels-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="red-heels-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="red-heels-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="red-heels-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="red-heels-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="red-heels-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="red-heels-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#red-heels-x-white)">
+        <g filter="url(#red-heels-f)">
+        <g class="red-heels-b">
+        <path d="M31 24c1.6 0 2.6 1.2 3 3 .8 4.4 3.4 7.6 8 9.6l12 5.2c2.6 1.2 3.4 2.8 3.4 5.2 0 2-1.4 3-3.4 3H34c-3.4 0-5-2-5.4-5.4L27 27.6c-.2-2 1.4-3.6 4-3.6Z" fill="url(#red-heels-g2)"/>
+        <path d="M54 42.8l3 8.2h-3.6l-2.6-7z" fill="#c01631"/>
+        <path d="M31 26c-.6 3 .2 6 2 8.6" stroke="#fff" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <path d="M29 45h29v3c0 2-1.4 3-3.4 3H34c-2.6 0-4.2-1.4-5-6Z" fill="#7d0a1e" opacity=".4"/>
+        </g>
+        <g class="red-heels-a">
+        <path d="M12 18c1.8 0 3 1.2 3.2 3.2.6 5 3 8.6 7.4 10.6l11 5c2.6 1.2 3.4 2.8 3.4 5.2 0 2-1.4 3-3.4 3H15c-3.6 0-5.2-2-5.6-5.6L8 21.6C7.8 19.4 9.4 18 12 18Z" fill="url(#red-heels-g)"/>
+        <path d="M34.4 41.6L37 50h-3.6l-2.4-7.2z" fill="#a51127"/>
+        <path class="red-heels-sh" d="M12 21c-.4 4 .6 7.6 3 10.6" stroke="#fff" stroke-opacity=".55" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <path d="M9.6 39H37v3c0 2-1.4 3-3.4 3H15c-2.8 0-4.4-1.6-5.4-6Z" fill="#6f0819" opacity=".42"/>
+        <circle cx="17" cy="34" r="2.6" fill="#ffd7dd" opacity=".8"/>
+        </g>
+        </g>
+        <circle class="red-heels-s" cx="52" cy="14" r="2.2" fill="#fff"/>
+        <circle class="red-heels-s red-heels-s2" cx="12" cy="10" r="1.8" fill="#fff"/>
+        <circle class="red-heels-s red-heels-s3" cx="41" cy="19" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="red-heels-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#red-heels-x-cast-g)"/>
+  <circle class="red-heels-x-aura" cx="32" cy="32" r="29" fill="url(#red-heels-x-aura-g)"/>
+  <g class="red-heels-x-lift">
+    <g filter="url(#red-heels-f)">
+    <g class="red-heels-b">
+    <path d="M31 24c1.6 0 2.6 1.2 3 3 .8 4.4 3.4 7.6 8 9.6l12 5.2c2.6 1.2 3.4 2.8 3.4 5.2 0 2-1.4 3-3.4 3H34c-3.4 0-5-2-5.4-5.4L27 27.6c-.2-2 1.4-3.6 4-3.6Z" fill="url(#red-heels-g2)"/>
+    <path d="M54 42.8l3 8.2h-3.6l-2.6-7z" fill="#c01631"/>
+    <path d="M31 26c-.6 3 .2 6 2 8.6" stroke="#fff" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <path d="M29 45h29v3c0 2-1.4 3-3.4 3H34c-2.6 0-4.2-1.4-5-6Z" fill="#7d0a1e" opacity=".4"/>
+    </g>
+    <g class="red-heels-a">
+    <path d="M12 18c1.8 0 3 1.2 3.2 3.2.6 5 3 8.6 7.4 10.6l11 5c2.6 1.2 3.4 2.8 3.4 5.2 0 2-1.4 3-3.4 3H15c-3.6 0-5.2-2-5.6-5.6L8 21.6C7.8 19.4 9.4 18 12 18Z" fill="url(#red-heels-g)"/>
+    <path d="M34.4 41.6L37 50h-3.6l-2.4-7.2z" fill="#a51127"/>
+    <path class="red-heels-sh" d="M12 21c-.4 4 .6 7.6 3 10.6" stroke="#fff" stroke-opacity=".55" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path d="M9.6 39H37v3c0 2-1.4 3-3.4 3H15c-2.8 0-4.4-1.6-5.4-6Z" fill="#6f0819" opacity=".42"/>
+    <circle cx="17" cy="34" r="2.6" fill="#ffd7dd" opacity=".8"/>
+    </g>
+    </g>
+    <circle class="red-heels-s" cx="52" cy="14" r="2.2" fill="#fff"/>
+    <circle class="red-heels-s red-heels-s2" cx="12" cy="10" r="1.8" fill="#fff"/>
+    <circle class="red-heels-s red-heels-s3" cx="41" cy="19" r="1.5" fill="#fff"/>
+    <g mask="url(#red-heels-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#red-heels-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#red-heels-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#red-heels-x-rim)"/>
+      <rect class="red-heels-x-shine" x="0" y="-16" width="26" height="96" fill="url(#red-heels-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="red-heels-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="red-heels-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="red-heels-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

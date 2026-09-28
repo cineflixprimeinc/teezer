@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes camera-shim{0%{transform:translateX(-30px)}55%,100%{transform:translateX(34px)}}
+    @keyframes camera-flash{0%,88%,100%{opacity:.25;transform:scale(.8)}94%{opacity:1;transform:scale(1.4)}}
+    @keyframes camera-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .camera-shine{animation:camera-shim 2.4s ease-in-out infinite}
+    .camera-flash{transform-box:fill-box;transform-origin:center;animation:camera-flash 2.4s ease-in-out infinite}
+    .camera-s{transform-box:fill-box;transform-origin:center;animation:camera-tw 2.2s ease-in-out infinite}
+    .camera-s2{animation-delay:1.1s}
+    @keyframes camera-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes camera-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes camera-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes camera-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes camera-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .camera-x-lift{transform-box:fill-box;transform-origin:center;animation:camera-x-lift 3.4s ease-in-out infinite}
+    .camera-x-shine{animation:camera-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .camera-x-spark{transform-box:fill-box;transform-origin:center;animation:camera-x-spark 2.2s ease-in-out infinite}
+    .camera-x-aura{transform-box:fill-box;transform-origin:center;animation:camera-x-aura 3s ease-in-out infinite}
+    .camera-x-cast{transform-box:fill-box;transform-origin:center;animation:camera-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.camera-x-lift,.camera-x-shine,.camera-x-spark,.camera-x-aura,.camera-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="camera-body" x1="10" y1="18" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#6d7ea3"/><stop offset=".5" stop-color="#3a4665"/><stop offset="1" stop-color="#1d2438"/>
+    </linearGradient>
+    <radialGradient id="camera-lens" cx=".35" cy=".3" r=".8">
+    <stop offset="0" stop-color="#8fe9ff"/><stop offset=".5" stop-color="#2b7fd4"/><stop offset="1" stop-color="#101a3a"/>
+    </radialGradient>
+    <clipPath id="camera-clip"><rect x="7" y="19" width="50" height="32" rx="7"/></clipPath>
+    <linearGradient id="camera-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="camera-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="camera-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="camera-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="camera-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="camera-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="camera-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#camera-x-white)">
+        <rect x="24" y="12" width="16" height="8" rx="3" fill="#2b3450"/>
+        <rect x="7" y="19" width="50" height="32" rx="7" fill="url(#camera-body)"/>
+        <rect x="11" y="23" width="15" height="4" rx="2" fill="#fff" opacity=".3"/>
+        <rect x="7" y="43" width="50" height="8" rx="4" fill="#141a2b" opacity=".45" clip-path="url(#camera-clip)"/>
+        <circle cx="32" cy="35" r="12" fill="#232c44"/>
+        <circle cx="32" cy="35" r="9" fill="url(#camera-lens)"/>
+        <circle cx="32" cy="35" r="4" fill="#0d1430" opacity=".7"/>
+        <path d="M27 30c1.4-1.6 3.3-2.5 5.2-2.6" stroke="#fff" stroke-opacity=".65" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <circle class="camera-flash" cx="47" cy="26" r="3" fill="#ffe27a"/>
+        <g clip-path="url(#camera-clip)">
+        <rect class="camera-shine" x="6" y="14" width="7" height="44" fill="#fff" opacity=".22" transform="skewX(-18)"/>
+        </g>
+        <circle class="camera-s" cx="57" cy="14" r="2.1" fill="#fff"/>
+        <circle class="camera-s camera-s2" cx="9" cy="56" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="camera-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#camera-x-cast-g)"/>
+  <g class="camera-x-lift">
+    <rect x="24" y="12" width="16" height="8" rx="3" fill="#2b3450"/>
+    <rect x="7" y="19" width="50" height="32" rx="7" fill="url(#camera-body)"/>
+    <rect x="11" y="23" width="15" height="4" rx="2" fill="#fff" opacity=".3"/>
+    <rect x="7" y="43" width="50" height="8" rx="4" fill="#141a2b" opacity=".45" clip-path="url(#camera-clip)"/>
+    <circle cx="32" cy="35" r="12" fill="#232c44"/>
+    <circle cx="32" cy="35" r="9" fill="url(#camera-lens)"/>
+    <circle cx="32" cy="35" r="4" fill="#0d1430" opacity=".7"/>
+    <path d="M27 30c1.4-1.6 3.3-2.5 5.2-2.6" stroke="#fff" stroke-opacity=".65" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <circle class="camera-flash" cx="47" cy="26" r="3" fill="#ffe27a"/>
+    <g clip-path="url(#camera-clip)">
+    <rect class="camera-shine" x="6" y="14" width="7" height="44" fill="#fff" opacity=".22" transform="skewX(-18)"/>
+    </g>
+    <circle class="camera-s" cx="57" cy="14" r="2.1" fill="#fff"/>
+    <circle class="camera-s camera-s2" cx="9" cy="56" r="1.5" fill="#fff"/>
+    <g mask="url(#camera-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#camera-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#camera-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#camera-x-rim)"/>
+      <rect class="camera-x-shine" x="0" y="-16" width="26" height="96" fill="url(#camera-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="camera-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="camera-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

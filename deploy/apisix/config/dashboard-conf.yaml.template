@@ -1,0 +1,28 @@
+# APISIX Dashboard config TEMPLATE. Rendered to conf.yaml via envsubst at
+# deploy time (see apply-routes.sh / README) - the dashboard component's
+# native env-var support isn't reliable across versions, so this project
+# renders it explicitly instead of trusting runtime interpolation.
+#
+# Host networking (see docker-compose.yml) - listens on 9002 directly, not
+# the dashboard's native 9000 (VPS1's own port 9000 is already the
+# ClickHouse SSH tunnel's local end), since host networking has no
+# host-port-remapping layer to fall back on. Loopback-only. Reach it via
+# `ssh -L 9002:127.0.0.1:9002 root@<TEEZER_VPS1_IP>` (Teezer VPS1: 77.237.242.249), then
+# http://127.0.0.1:9002 locally. Never exposed publicly.
+conf:
+  listen:
+    host: 127.0.0.1
+    port: 9002
+  etcd:
+    endpoints:
+      - "127.0.0.1:2379"
+  log:
+    error_log:
+      level: warn
+
+authentication:
+  secret: ${APISIX_DASHBOARD_JWT_SECRET}
+  expire_time: 3600
+  users:
+    - username: ${APISIX_DASHBOARD_ADMIN_USER}
+      password: ${APISIX_DASHBOARD_ADMIN_PASSWORD}

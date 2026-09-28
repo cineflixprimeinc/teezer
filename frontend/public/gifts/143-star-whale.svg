@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes star-whale-float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-3px) rotate(2deg)}}
+    @keyframes star-whale-tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    @keyframes star-whale-trail{0%{opacity:0;transform:translateX(4px) scale(1)}40%{opacity:1}100%{opacity:0;transform:translateX(-7px) scale(.4)}}
+    .star-whale-b{transform-box:fill-box;transform-origin:center;animation:star-whale-float 2.6s ease-in-out infinite}
+    .star-whale-d{transform-box:fill-box;transform-origin:center;animation:star-whale-tw 1.9s ease-in-out infinite}
+    .star-whale-d2{animation-delay:.6s}.star-whale-d3{animation-delay:1.2s}.star-whale-d4{animation-delay:1.6s}
+    .star-whale-t{transform-box:fill-box;transform-origin:center;animation:star-whale-trail 2.2s ease-in-out infinite}
+    .star-whale-t2{animation-delay:.75s}.star-whale-t3{animation-delay:1.5s}
+    @keyframes star-whale-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes star-whale-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes star-whale-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes star-whale-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes star-whale-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .star-whale-x-lift{transform-box:fill-box;transform-origin:center;animation:star-whale-x-lift 3.4s ease-in-out infinite}
+    .star-whale-x-shine{animation:star-whale-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .star-whale-x-spark{transform-box:fill-box;transform-origin:center;animation:star-whale-x-spark 2.2s ease-in-out infinite}
+    .star-whale-x-aura{transform-box:fill-box;transform-origin:center;animation:star-whale-x-aura 3s ease-in-out infinite}
+    .star-whale-x-cast{transform-box:fill-box;transform-origin:center;animation:star-whale-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.star-whale-x-lift,.star-whale-x-shine,.star-whale-x-spark,.star-whale-x-aura,.star-whale-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="star-whale-g" x1="18" y1="18" x2="52" y2="46" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#6f8bff"/><stop offset=".5" stop-color="#3a3f9e"/><stop offset="1" stop-color="#1a1a4d"/>
+    </linearGradient>
+    <filter id="star-whale-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="star-whale-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="star-whale-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="star-whale-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="star-whale-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="star-whale-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="star-whale-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="star-whale-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="star-whale-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#star-whale-x-white)">
+        <g class="star-whale-b" filter="url(#star-whale-f)">
+        <path d="M19 27l-8-9 2 11-5 8 12-5Z" fill="url(#star-whale-g)"/>
+        <path d="M22 21c11-4 25-1 31 8 3 5 1 11-5 14-9 5-24 3-30-5-5-6-4-14 4-17Z" fill="url(#star-whale-g)"/>
+        <path d="M30 39c2 5 6 8 11 8-5 2-11 0-14-4Z" fill="#12123a"/>
+        <path d="M26 24c4-2 9-3 14-2" stroke="#fff" stroke-opacity=".4" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <path d="M24 40c8 4 19 4 25 0-6 6-19 7-25 0Z" fill="#0f0f33" opacity=".55"/>
+        <circle cx="47" cy="29" r="2.6" fill="#fff"/><circle cx="47.8" cy="29" r="1.3" fill="#1b1b45"/>
+        <circle class="star-whale-d" cx="30" cy="28" r="1.3" fill="#fff"/>
+        <circle class="star-whale-d star-whale-d2" cx="37" cy="24" r="1" fill="#cfe0ff"/>
+        <circle class="star-whale-d star-whale-d3" cx="35" cy="33" r="1.5" fill="#fff"/>
+        <circle class="star-whale-d star-whale-d4" cx="43" cy="35" r="1.1" fill="#a9c2ff"/>
+        <circle class="star-whale-d star-whale-d2" cx="25" cy="33" r="1" fill="#fff"/>
+        </g>
+        <path class="star-whale-t" d="M9 34l1.2 2.8L13 38l-2.8 1.2L9 42l-1.2-2.8L5 38l2.8-1.2Z" fill="#fff"/>
+        <path class="star-whale-t star-whale-t2" d="M14 16l1 2.4 2.4 1-2.4 1-1 2.4-1-2.4-2.4-1 2.4-1Z" fill="#c6d6ff"/>
+        <path class="star-whale-t star-whale-t3" d="M55 49l1 2.3 2.3 1-2.3 1-1 2.3-1-2.3-2.3-1 2.3-1Z" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="star-whale-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#star-whale-x-cast-g)"/>
+  <circle class="star-whale-x-aura" cx="32" cy="32" r="29" fill="url(#star-whale-x-aura-g)"/>
+  <g class="star-whale-x-lift">
+    <g class="star-whale-b" filter="url(#star-whale-f)">
+    <path d="M19 27l-8-9 2 11-5 8 12-5Z" fill="url(#star-whale-g)"/>
+    <path d="M22 21c11-4 25-1 31 8 3 5 1 11-5 14-9 5-24 3-30-5-5-6-4-14 4-17Z" fill="url(#star-whale-g)"/>
+    <path d="M30 39c2 5 6 8 11 8-5 2-11 0-14-4Z" fill="#12123a"/>
+    <path d="M26 24c4-2 9-3 14-2" stroke="#fff" stroke-opacity=".4" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+    <path d="M24 40c8 4 19 4 25 0-6 6-19 7-25 0Z" fill="#0f0f33" opacity=".55"/>
+    <circle cx="47" cy="29" r="2.6" fill="#fff"/><circle cx="47.8" cy="29" r="1.3" fill="#1b1b45"/>
+    <circle class="star-whale-d" cx="30" cy="28" r="1.3" fill="#fff"/>
+    <circle class="star-whale-d star-whale-d2" cx="37" cy="24" r="1" fill="#cfe0ff"/>
+    <circle class="star-whale-d star-whale-d3" cx="35" cy="33" r="1.5" fill="#fff"/>
+    <circle class="star-whale-d star-whale-d4" cx="43" cy="35" r="1.1" fill="#a9c2ff"/>
+    <circle class="star-whale-d star-whale-d2" cx="25" cy="33" r="1" fill="#fff"/>
+    </g>
+    <path class="star-whale-t" d="M9 34l1.2 2.8L13 38l-2.8 1.2L9 42l-1.2-2.8L5 38l2.8-1.2Z" fill="#fff"/>
+    <path class="star-whale-t star-whale-t2" d="M14 16l1 2.4 2.4 1-2.4 1-1 2.4-1-2.4-2.4-1 2.4-1Z" fill="#c6d6ff"/>
+    <path class="star-whale-t star-whale-t3" d="M55 49l1 2.3 2.3 1-2.3 1-1 2.3-1-2.3-2.3-1 2.3-1Z" fill="#fff"/>
+    <g mask="url(#star-whale-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#star-whale-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#star-whale-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#star-whale-x-rim)"/>
+      <rect class="star-whale-x-shine" x="0" y="-16" width="26" height="96" fill="url(#star-whale-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="star-whale-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="star-whale-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="star-whale-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="star-whale-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

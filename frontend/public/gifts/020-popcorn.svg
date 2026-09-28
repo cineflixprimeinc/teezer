@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes popcorn-bounce{0%,100%{transform:translateY(0) scale(1,1)}25%{transform:translateY(-5px) scale(.96,1.05)}55%{transform:translateY(0) scale(1.05,.95)}75%{transform:translateY(-1px) scale(1,1)}}
+    @keyframes popcorn-pop{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-3px) scale(1.12)}}
+    .popcorn-body{transform-box:fill-box;transform-origin:center bottom;animation:popcorn-bounce 1.9s ease-in-out infinite}
+    .popcorn-k{transform-box:fill-box;transform-origin:center;animation:popcorn-pop 1.9s ease-in-out infinite}
+    .popcorn-k2{animation-delay:.35s}
+    .popcorn-k3{animation-delay:.7s}
+    @keyframes popcorn-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes popcorn-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes popcorn-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes popcorn-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes popcorn-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .popcorn-x-lift{transform-box:fill-box;transform-origin:center;animation:popcorn-x-lift 3.4s ease-in-out infinite}
+    .popcorn-x-shine{animation:popcorn-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .popcorn-x-spark{transform-box:fill-box;transform-origin:center;animation:popcorn-x-spark 2.2s ease-in-out infinite}
+    .popcorn-x-aura{transform-box:fill-box;transform-origin:center;animation:popcorn-x-aura 3s ease-in-out infinite}
+    .popcorn-x-cast{transform-box:fill-box;transform-origin:center;animation:popcorn-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.popcorn-x-lift,.popcorn-x-shine,.popcorn-x-spark,.popcorn-x-aura,.popcorn-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="popcorn-g" x1="14" y1="28" x2="50" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff8f8f"/><stop offset=".5" stop-color="#ef4249"/><stop offset="1" stop-color="#b01f2b"/>
+    </linearGradient>
+    <linearGradient id="popcorn-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="popcorn-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="popcorn-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="popcorn-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="popcorn-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="popcorn-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="popcorn-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#popcorn-x-white)">
+        <g class="popcorn-body">
+        <g fill="#fff6dc" stroke="#e0c583" stroke-width="1.6" stroke-linejoin="round">
+        <path class="popcorn-k" d="M20 20a4.5 4.5 0 0 1 4-5 5 5 0 0 1 9-1 4.5 4.5 0 0 1 4 6 4.5 4.5 0 0 1-4 5 5 5 0 0 1-9 0 4.5 4.5 0 0 1-4-5Z"/>
+        <path class="popcorn-k popcorn-k2" d="M8 30a4 4 0 0 1 3-5 4.5 4.5 0 0 1 8-1 4 4 0 0 1 3.6 5.4A4 4 0 0 1 19 34a4.5 4.5 0 0 1-8 0 4 4 0 0 1-3-4Z"/>
+        <path class="popcorn-k popcorn-k3" d="M41 30a4 4 0 0 1 3-5 4.5 4.5 0 0 1 8-1 4 4 0 0 1 3.6 5.4A4 4 0 0 1 52 34a4.5 4.5 0 0 1-8 0 4 4 0 0 1-3-4Z"/>
+        <path class="popcorn-k popcorn-k3" d="M26 33a4 4 0 0 1 3.4-4.6 4.4 4.4 0 0 1 7.6-.4 4 4 0 0 1 3 5.4 4 4 0 0 1-3.4 3.4 4.4 4.4 0 0 1-7.6.2A4 4 0 0 1 26 33Z"/>
+        </g>
+        <path d="M13 32h38l-3 22.4A5 5 0 0 1 43 59H21a5 5 0 0 1-5-4.6L13 32Z" fill="url(#popcorn-g)" stroke="#a41d28" stroke-width="2" stroke-linejoin="round"/>
+        <g fill="#fff8f0">
+        <path d="M20.6 32h5l1.6 27h-5.2Z"/>
+        <path d="M30.4 32h5l.4 27h-5.2Z"/>
+        <path d="M40.2 32h5l-1.6 27h-5Z"/>
+        </g>
+        <path d="M15.4 50h33.2l-.6 4.4A5 5 0 0 1 43 59H21a5 5 0 0 1-5-4.6Z" fill="#8c1721" opacity=".35"/>
+        <path d="M17.5 36v9" stroke="#fff" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round"/>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="popcorn-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#popcorn-x-cast-g)"/>
+  <g class="popcorn-x-lift">
+    <g class="popcorn-body">
+    <g fill="#fff6dc" stroke="#e0c583" stroke-width="1.6" stroke-linejoin="round">
+    <path class="popcorn-k" d="M20 20a4.5 4.5 0 0 1 4-5 5 5 0 0 1 9-1 4.5 4.5 0 0 1 4 6 4.5 4.5 0 0 1-4 5 5 5 0 0 1-9 0 4.5 4.5 0 0 1-4-5Z"/>
+    <path class="popcorn-k popcorn-k2" d="M8 30a4 4 0 0 1 3-5 4.5 4.5 0 0 1 8-1 4 4 0 0 1 3.6 5.4A4 4 0 0 1 19 34a4.5 4.5 0 0 1-8 0 4 4 0 0 1-3-4Z"/>
+    <path class="popcorn-k popcorn-k3" d="M41 30a4 4 0 0 1 3-5 4.5 4.5 0 0 1 8-1 4 4 0 0 1 3.6 5.4A4 4 0 0 1 52 34a4.5 4.5 0 0 1-8 0 4 4 0 0 1-3-4Z"/>
+    <path class="popcorn-k popcorn-k3" d="M26 33a4 4 0 0 1 3.4-4.6 4.4 4.4 0 0 1 7.6-.4 4 4 0 0 1 3 5.4 4 4 0 0 1-3.4 3.4 4.4 4.4 0 0 1-7.6.2A4 4 0 0 1 26 33Z"/>
+    </g>
+    <path d="M13 32h38l-3 22.4A5 5 0 0 1 43 59H21a5 5 0 0 1-5-4.6L13 32Z" fill="url(#popcorn-g)" stroke="#a41d28" stroke-width="2" stroke-linejoin="round"/>
+    <g fill="#fff8f0">
+    <path d="M20.6 32h5l1.6 27h-5.2Z"/>
+    <path d="M30.4 32h5l.4 27h-5.2Z"/>
+    <path d="M40.2 32h5l-1.6 27h-5Z"/>
+    </g>
+    <path d="M15.4 50h33.2l-.6 4.4A5 5 0 0 1 43 59H21a5 5 0 0 1-5-4.6Z" fill="#8c1721" opacity=".35"/>
+    <path d="M17.5 36v9" stroke="#fff" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+    <g mask="url(#popcorn-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#popcorn-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#popcorn-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#popcorn-x-rim)"/>
+      <rect class="popcorn-x-shine" x="0" y="-16" width="26" height="96" fill="url(#popcorn-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

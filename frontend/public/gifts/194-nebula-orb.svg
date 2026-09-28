@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes nebula-orb-glow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.3)}}
+    @keyframes nebula-orb-swirl{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes nebula-orb-aura{0%,100%{opacity:.3;transform:scale(.92)}50%{opacity:.8;transform:scale(1.08)}}
+    @keyframes nebula-orb-tw{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .nebula-orb-body{transform-box:fill-box;transform-origin:center;animation:nebula-orb-glow 2.2s ease-in-out infinite}
+    .nebula-orb-swirl{transform-box:fill-box;transform-origin:center;animation:nebula-orb-swirl 3s linear infinite}
+    .nebula-orb-aura{transform-box:fill-box;transform-origin:center;animation:nebula-orb-aura 2.6s ease-in-out infinite}
+    .nebula-orb-s{transform-box:fill-box;transform-origin:center;animation:nebula-orb-tw 2s ease-in-out infinite}
+    .nebula-orb-s2{animation-delay:.5s}.nebula-orb-s3{animation-delay:1s}.nebula-orb-s4{animation-delay:1.5s}
+    @keyframes nebula-orb-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes nebula-orb-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes nebula-orb-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes nebula-orb-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes nebula-orb-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .nebula-orb-x-lift{transform-box:fill-box;transform-origin:center;animation:nebula-orb-x-lift 3.4s ease-in-out infinite}
+    .nebula-orb-x-shine{animation:nebula-orb-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .nebula-orb-x-spark{transform-box:fill-box;transform-origin:center;animation:nebula-orb-x-spark 2.2s ease-in-out infinite}
+    .nebula-orb-x-aura{transform-box:fill-box;transform-origin:center;animation:nebula-orb-x-aura 3s ease-in-out infinite}
+    .nebula-orb-x-cast{transform-box:fill-box;transform-origin:center;animation:nebula-orb-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.nebula-orb-x-lift,.nebula-orb-x-shine,.nebula-orb-x-spark,.nebula-orb-x-aura,.nebula-orb-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="nebula-orb-g" cx="25" cy="24" r="28" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffd7f5"/><stop offset=".35" stop-color="#c15bff"/><stop offset=".7" stop-color="#4a2ac9"/><stop offset="1" stop-color="#160a45"/>
+    </radialGradient>
+    <linearGradient id="nebula-orb-w" x1="14" y1="18" x2="50" y2="46" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#7ff5ff"/><stop offset=".5" stop-color="#ff8ad4"/><stop offset="1" stop-color="#ffd76a"/>
+    </linearGradient>
+    <radialGradient id="nebula-orb-a" cx="32" cy="32" r="28" gradientUnits="userSpaceOnUse">
+    <stop offset=".58" stop-color="#c15bff" stop-opacity="0"/><stop offset="1" stop-color="#c15bff" stop-opacity=".5"/>
+    </radialGradient>
+    <clipPath id="nebula-orb-c"><circle cx="32" cy="32" r="23"/></clipPath>
+    <filter id="nebula-orb-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="nebula-orb-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="nebula-orb-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="nebula-orb-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="nebula-orb-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="nebula-orb-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="nebula-orb-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="nebula-orb-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="nebula-orb-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#nebula-orb-x-white)">
+        <circle class="nebula-orb-aura" cx="32" cy="32" r="28" fill="url(#nebula-orb-a)"/>
+        <g class="nebula-orb-body" filter="url(#nebula-orb-f)">
+        <circle cx="32" cy="32" r="23" fill="url(#nebula-orb-g)"/>
+        <g clip-path="url(#nebula-orb-c)">
+        <g class="nebula-orb-swirl">
+        <path d="M32 12c-9 4-13 12-11 20 2 7 9 11 17 9-8-1-13-6-14-12-1-7 2-13 8-17Z" fill="url(#nebula-orb-w)" opacity=".85"/>
+        <path d="M32 52c9-4 13-12 11-20-2-7-9-11-17-9 8 1 13 6 14 12 1 7-2 13-8 17Z" fill="url(#nebula-orb-w)" opacity=".6"/>
+        <circle cx="32" cy="32" r="5" fill="#fff8e8" opacity=".9"/>
+        </g>
+        <circle cx="22" cy="20" r="1.2" fill="#fff"/><circle cx="44" cy="24" r="1" fill="#fff"/>
+        <circle cx="41" cy="44" r="1.2" fill="#fff"/><circle cx="20" cy="42" r="1" fill="#fff"/>
+        <path d="M9 44c8 8 38 8 46 0v14H9Z" fill="#0d0530" opacity=".35"/>
+        </g>
+        <path d="M18 20c3-4 7-6 11-7" stroke="#fff" stroke-opacity=".45" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <circle cx="32" cy="32" r="23" fill="none" stroke="#f3d3ff" stroke-width="2" opacity=".6"/>
+        </g>
+        <circle class="nebula-orb-s" cx="54" cy="13" r="2.1" fill="#fff"/>
+        <circle class="nebula-orb-s nebula-orb-s2" cx="9" cy="18" r="1.7" fill="#fff"/>
+        <circle class="nebula-orb-s nebula-orb-s3" cx="56" cy="50" r="1.6" fill="#fff"/>
+        <circle class="nebula-orb-s nebula-orb-s4" cx="8" cy="48" r="1.6" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="nebula-orb-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#nebula-orb-x-cast-g)"/>
+  <circle class="nebula-orb-x-aura" cx="32" cy="32" r="29" fill="url(#nebula-orb-x-aura-g)"/>
+  <g class="nebula-orb-x-lift">
+    <circle class="nebula-orb-aura" cx="32" cy="32" r="28" fill="url(#nebula-orb-a)"/>
+    <g class="nebula-orb-body" filter="url(#nebula-orb-f)">
+    <circle cx="32" cy="32" r="23" fill="url(#nebula-orb-g)"/>
+    <g clip-path="url(#nebula-orb-c)">
+    <g class="nebula-orb-swirl">
+    <path d="M32 12c-9 4-13 12-11 20 2 7 9 11 17 9-8-1-13-6-14-12-1-7 2-13 8-17Z" fill="url(#nebula-orb-w)" opacity=".85"/>
+    <path d="M32 52c9-4 13-12 11-20-2-7-9-11-17-9 8 1 13 6 14 12 1 7-2 13-8 17Z" fill="url(#nebula-orb-w)" opacity=".6"/>
+    <circle cx="32" cy="32" r="5" fill="#fff8e8" opacity=".9"/>
+    </g>
+    <circle cx="22" cy="20" r="1.2" fill="#fff"/><circle cx="44" cy="24" r="1" fill="#fff"/>
+    <circle cx="41" cy="44" r="1.2" fill="#fff"/><circle cx="20" cy="42" r="1" fill="#fff"/>
+    <path d="M9 44c8 8 38 8 46 0v14H9Z" fill="#0d0530" opacity=".35"/>
+    </g>
+    <path d="M18 20c3-4 7-6 11-7" stroke="#fff" stroke-opacity=".45" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <circle cx="32" cy="32" r="23" fill="none" stroke="#f3d3ff" stroke-width="2" opacity=".6"/>
+    </g>
+    <circle class="nebula-orb-s" cx="54" cy="13" r="2.1" fill="#fff"/>
+    <circle class="nebula-orb-s nebula-orb-s2" cx="9" cy="18" r="1.7" fill="#fff"/>
+    <circle class="nebula-orb-s nebula-orb-s3" cx="56" cy="50" r="1.6" fill="#fff"/>
+    <circle class="nebula-orb-s nebula-orb-s4" cx="8" cy="48" r="1.6" fill="#fff"/>
+    <g mask="url(#nebula-orb-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#nebula-orb-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#nebula-orb-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#nebula-orb-x-rim)"/>
+      <rect class="nebula-orb-x-shine" x="0" y="-16" width="26" height="96" fill="url(#nebula-orb-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="nebula-orb-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="nebula-orb-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="nebula-orb-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="nebula-orb-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="nebula-orb-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes microphone-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.09)}}
+    @keyframes microphone-ring{0%{opacity:.7;transform:scale(.75)}100%{opacity:0;transform:scale(1.5)}}
+    @keyframes microphone-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .microphone-body{transform-box:fill-box;transform-origin:center;animation:microphone-pulse 1.8s ease-in-out infinite}
+    .microphone-r{transform-box:fill-box;transform-origin:center;animation:microphone-ring 1.8s ease-out infinite}
+    .microphone-r2{animation-delay:.9s}
+    .microphone-s{transform-box:fill-box;transform-origin:center;animation:microphone-tw 2.2s ease-in-out infinite}
+    .microphone-s2{animation-delay:1.1s}
+    @keyframes microphone-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes microphone-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes microphone-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes microphone-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes microphone-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .microphone-x-lift{transform-box:fill-box;transform-origin:center;animation:microphone-x-lift 3.4s ease-in-out infinite}
+    .microphone-x-shine{animation:microphone-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .microphone-x-spark{transform-box:fill-box;transform-origin:center;animation:microphone-x-spark 2.2s ease-in-out infinite}
+    .microphone-x-aura{transform-box:fill-box;transform-origin:center;animation:microphone-x-aura 3s ease-in-out infinite}
+    .microphone-x-cast{transform-box:fill-box;transform-origin:center;animation:microphone-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.microphone-x-lift,.microphone-x-shine,.microphone-x-spark,.microphone-x-aura,.microphone-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="microphone-head" x1="24" y1="7" x2="42" y2="34" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#e6ecff"/><stop offset=".5" stop-color="#8fa0d0"/><stop offset="1" stop-color="#414d77"/>
+    </linearGradient>
+    <linearGradient id="microphone-stick" x1="26" y1="34" x2="40" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffdf7d"/><stop offset=".5" stop-color="#e9a221"/><stop offset="1" stop-color="#96590a"/>
+    </linearGradient>
+    <linearGradient id="microphone-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="microphone-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="microphone-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="microphone-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="microphone-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="microphone-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="microphone-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#microphone-x-white)">
+        <circle class="microphone-r" cx="32" cy="22" r="18" fill="none" stroke="#8fd4ff" stroke-width="2.4" opacity=".6"/>
+        <circle class="microphone-r microphone-r2" cx="32" cy="22" r="18" fill="none" stroke="#8fd4ff" stroke-width="2.4" opacity=".6"/>
+        <g class="microphone-body">
+        <rect x="29" y="34" width="6" height="12" rx="3" fill="url(#microphone-stick)"/>
+        <rect x="22" y="45" width="20" height="6" rx="3" fill="url(#microphone-stick)"/>
+        <rect x="18" y="51" width="28" height="6" rx="3" fill="#c98b12"/>
+        <rect x="19" y="7" width="26" height="32" rx="13" fill="url(#microphone-head)"/>
+        <path d="M20 20h24M20 26h24M20 32h24" stroke="#333f66" stroke-width="1.8" stroke-linecap="round" opacity=".55"/>
+        <path d="M26 12c-2.4 1.8-4 4.4-4.4 7.4" stroke="#fff" stroke-opacity=".7" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M19 28c1.4 6.6 6.6 11 13 11s11.6-4.4 13-11v-2.4c0 8-6 13.4-13 13.4S19 33.6 19 25.6Z" fill="#2c3760" opacity=".4"/>
+        <rect x="21" y="53" width="10" height="2.4" rx="1.2" fill="#fff" opacity=".35"/>
+        </g>
+        <circle class="microphone-s" cx="55" cy="14" r="2.1" fill="#fff"/>
+        <circle class="microphone-s microphone-s2" cx="9" cy="42" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="microphone-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#microphone-x-cast-g)"/>
+  <g class="microphone-x-lift">
+    <circle class="microphone-r" cx="32" cy="22" r="18" fill="none" stroke="#8fd4ff" stroke-width="2.4" opacity=".6"/>
+    <circle class="microphone-r microphone-r2" cx="32" cy="22" r="18" fill="none" stroke="#8fd4ff" stroke-width="2.4" opacity=".6"/>
+    <g class="microphone-body">
+    <rect x="29" y="34" width="6" height="12" rx="3" fill="url(#microphone-stick)"/>
+    <rect x="22" y="45" width="20" height="6" rx="3" fill="url(#microphone-stick)"/>
+    <rect x="18" y="51" width="28" height="6" rx="3" fill="#c98b12"/>
+    <rect x="19" y="7" width="26" height="32" rx="13" fill="url(#microphone-head)"/>
+    <path d="M20 20h24M20 26h24M20 32h24" stroke="#333f66" stroke-width="1.8" stroke-linecap="round" opacity=".55"/>
+    <path d="M26 12c-2.4 1.8-4 4.4-4.4 7.4" stroke="#fff" stroke-opacity=".7" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M19 28c1.4 6.6 6.6 11 13 11s11.6-4.4 13-11v-2.4c0 8-6 13.4-13 13.4S19 33.6 19 25.6Z" fill="#2c3760" opacity=".4"/>
+    <rect x="21" y="53" width="10" height="2.4" rx="1.2" fill="#fff" opacity=".35"/>
+    </g>
+    <circle class="microphone-s" cx="55" cy="14" r="2.1" fill="#fff"/>
+    <circle class="microphone-s microphone-s2" cx="9" cy="42" r="1.5" fill="#fff"/>
+    <g mask="url(#microphone-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#microphone-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#microphone-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#microphone-x-rim)"/>
+      <rect class="microphone-x-shine" x="0" y="-16" width="26" height="96" fill="url(#microphone-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="microphone-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="microphone-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

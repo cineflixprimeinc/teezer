@@ -1,0 +1,30 @@
+# NATS JetStream - Teezer internal event bus.
+# Run one instance per box that runs the Go API (teezer-go.service talks to
+# its own box-local NATS - no cross-box traffic needed, unlike Centrifogo's
+# Redis engine, since each API instance only needs to reach its OWN JetStream
+# for a fire-and-forget publish; the bridge consumer runs in that same process).
+#
+#   docker compose up -d
+#
+# Compose project name (networks/volumes are prefixed with it).
+name: teezer-nats
+
+services:
+  nats:
+    image: nats:2.10-alpine
+    container_name: teezer-nats
+    restart: unless-stopped
+    command: ["-c", "/etc/nats/nats-server.conf", "-js"]
+    volumes:
+      - ./nats-server.conf:/etc/nats/nats-server.conf:ro
+      - nats-jetstream:/var/lib/nats/jetstream
+    # Host networking so the Go API reaches NATS on 127.0.0.1:4222 - same
+    # localhost-only posture as teezer-go.service itself. (Linux hosts only.)
+    network_mode: host
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+
+volumes:
+  nats-jetstream:

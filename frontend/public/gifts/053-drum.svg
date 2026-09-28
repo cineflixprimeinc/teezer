@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes drum-bounce{0%,100%{transform:translateY(0) scaleY(1)}42%{transform:translateY(-4px) scaleY(1.05)}70%{transform:translateY(0) scaleY(.95)}}
+    @keyframes drum-hitL{0%,100%{transform:rotate(-6deg)}45%{transform:rotate(22deg)}}
+    @keyframes drum-hitR{0%,100%{transform:rotate(6deg)}45%{transform:rotate(-22deg)}}
+    @keyframes drum-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .drum-body{transform-box:fill-box;transform-origin:center bottom;animation:drum-bounce 1.8s ease-in-out infinite}
+    .drum-l{transform-box:fill-box;transform-origin:bottom right;animation:drum-hitL 1.8s ease-in-out infinite}
+    .drum-r{transform-box:fill-box;transform-origin:bottom left;animation:drum-hitR 1.8s ease-in-out infinite}
+    .drum-s{transform-box:fill-box;transform-origin:center;animation:drum-tw 2.1s ease-in-out infinite}
+    .drum-s2{animation-delay:1s}
+    @keyframes drum-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes drum-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes drum-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes drum-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes drum-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .drum-x-lift{transform-box:fill-box;transform-origin:center;animation:drum-x-lift 3.4s ease-in-out infinite}
+    .drum-x-shine{animation:drum-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .drum-x-spark{transform-box:fill-box;transform-origin:center;animation:drum-x-spark 2.2s ease-in-out infinite}
+    .drum-x-aura{transform-box:fill-box;transform-origin:center;animation:drum-x-aura 3s ease-in-out infinite}
+    .drum-x-cast{transform-box:fill-box;transform-origin:center;animation:drum-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.drum-x-lift,.drum-x-shine,.drum-x-spark,.drum-x-aura,.drum-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="drum-shell" x1="12" y1="28" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff8f8f"/><stop offset=".5" stop-color="#e0333f"/><stop offset="1" stop-color="#8a0f24"/>
+    </linearGradient>
+    <linearGradient id="drum-skin" x1="14" y1="20" x2="50" y2="34" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d5dcec"/>
+    </linearGradient>
+    <linearGradient id="drum-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="drum-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="drum-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="drum-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="drum-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="drum-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="drum-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#drum-x-white)">
+        <g class="drum-l"><rect x="6" y="12" width="4" height="22" rx="2" fill="#c98b3c" transform="rotate(-16 8 34)"/><circle cx="4" cy="13" r="3.4" fill="#e8b872"/></g>
+        <g class="drum-r"><rect x="54" y="12" width="4" height="22" rx="2" fill="#c98b3c" transform="rotate(16 56 34)"/><circle cx="60" cy="13" r="3.4" fill="#e8b872"/></g>
+        <g class="drum-body">
+        <path d="M12 30h40v14c0 4.4-9 8-20 8s-20-3.6-20-8Z" fill="url(#drum-shell)"/>
+        <ellipse cx="32" cy="30" rx="20" ry="8" fill="url(#drum-skin)"/>
+        <ellipse cx="32" cy="30" rx="15" ry="5.4" fill="#eef2fb"/>
+        <path d="M19 26c3-1.6 6.4-2.4 10-2.6" stroke="#fff" stroke-opacity=".9" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <path d="M12 40c0 4.4 9 8 20 8s20-3.6 20-8v4c0 4.4-9 8-20 8s-20-3.6-20-8Z" fill="#7a0c20" opacity=".45"/>
+        <path d="M14 34l8 12M50 34l-8 12M32 36v14" stroke="#ffd97a" stroke-width="2.4" stroke-linecap="round"/>
+        <rect x="10" y="31" width="44" height="4" rx="2" fill="#ffd97a"/>
+        </g>
+        <circle class="drum-s" cx="46" cy="12" r="2.1" fill="#fff"/>
+        <circle class="drum-s drum-s2" cx="17" cy="14" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="drum-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#drum-x-cast-g)"/>
+  <g class="drum-x-lift">
+    <g class="drum-l"><rect x="6" y="12" width="4" height="22" rx="2" fill="#c98b3c" transform="rotate(-16 8 34)"/><circle cx="4" cy="13" r="3.4" fill="#e8b872"/></g>
+    <g class="drum-r"><rect x="54" y="12" width="4" height="22" rx="2" fill="#c98b3c" transform="rotate(16 56 34)"/><circle cx="60" cy="13" r="3.4" fill="#e8b872"/></g>
+    <g class="drum-body">
+    <path d="M12 30h40v14c0 4.4-9 8-20 8s-20-3.6-20-8Z" fill="url(#drum-shell)"/>
+    <ellipse cx="32" cy="30" rx="20" ry="8" fill="url(#drum-skin)"/>
+    <ellipse cx="32" cy="30" rx="15" ry="5.4" fill="#eef2fb"/>
+    <path d="M19 26c3-1.6 6.4-2.4 10-2.6" stroke="#fff" stroke-opacity=".9" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <path d="M12 40c0 4.4 9 8 20 8s20-3.6 20-8v4c0 4.4-9 8-20 8s-20-3.6-20-8Z" fill="#7a0c20" opacity=".45"/>
+    <path d="M14 34l8 12M50 34l-8 12M32 36v14" stroke="#ffd97a" stroke-width="2.4" stroke-linecap="round"/>
+    <rect x="10" y="31" width="44" height="4" rx="2" fill="#ffd97a"/>
+    </g>
+    <circle class="drum-s" cx="46" cy="12" r="2.1" fill="#fff"/>
+    <circle class="drum-s drum-s2" cx="17" cy="14" r="1.5" fill="#fff"/>
+    <g mask="url(#drum-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#drum-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#drum-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#drum-x-rim)"/>
+      <rect class="drum-x-shine" x="0" y="-16" width="26" height="96" fill="url(#drum-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="drum-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="drum-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

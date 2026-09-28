@@ -1,0 +1,644 @@
+@import "tailwindcss";
+
+/* Hand/pointer cursor on every interactive element (native <button> defaults
+   to the arrow cursor otherwise). In @layer base so explicit Tailwind cursor
+   utilities - e.g. cursor-wait on a pending button - still take precedence. */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href],
+  label[for],
+  summary,
+  select:not(:disabled),
+  [role="tab"],
+  [role="menuitem"] {
+    cursor: pointer;
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --brand: #fe2c55;
+  --muted: #5f6675;
+  --line: #eeeeee;
+
+  /* Responsive shell widths - keep homepage in viewport at 100% zoom */
+  --sidebar-w: clamp(260px, 18vw, 320px);
+  --rightbar-w: clamp(280px, 20vw, 350px);
+  --topbar-h: 64px;
+
+  /* Default Text Size = Small (0.95). Overridden per-user by applyA11y() which
+     sets --a11y-zoom on <html>. The feed video stage cancels this out so only
+     the website UI/text scales, never the player. */
+  --a11y-zoom: 0.95;
+}
+
+html, body {
+  height: 100%;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Inter, ui-sans-serif, system-ui, Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ── Full-height page scroll area ─────────────────────────────────────────
+   html/body are overflow:hidden above, so a page can never scroll the document
+   itself - each one owns a scroll box that fills the space under the topbar.
+
+   Two things a plain `height: calc(100vh - var(--topbar-h))` gets wrong:
+   - body carries `zoom: var(--a11y-zoom)` (see Accessibility Settings below),
+     and vh/dvh resolve against the UNZOOMED viewport. So the box renders short
+     at zoom < 1 and, worse, TALLER than the visual viewport at zoom > 1 - its
+     bottom edge and the end of its own scrollbar then sit off-screen, and
+     because the document can't scroll there is no way to reach the content
+     down there. Dividing by --a11y-zoom renders it at the true viewport height.
+     This is the same correction .feed-stage already applies.
+   - 100vh ignores mobile browser chrome; 100dvh tracks it.
+   ─────────────────────────────────────────────────────────────────────────── */
+.page-frame {
+  height: calc((100dvh - var(--topbar-h)) / var(--a11y-zoom, 1));
+}
+.page-scroll {
+  height: calc((100dvh - var(--topbar-h)) / var(--a11y-zoom, 1));
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+video {
+  background: #000;
+}
+
+::selection {
+  background: rgba(254, 44, 85, 0.16);
+}
+
+/* ── Hide scrollbar ──────────────────────────────────────────────────────── */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Visible custom scrollbar (More popup + lang dropdown) ────────────── */
+.more-popup-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+.more-popup-scroll::-webkit-scrollbar       { width: 6px; }
+.more-popup-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 9999px; }
+.more-popup-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+.more-popup-scroll::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ── Settings sidebar scrollbar ──────────────────────────────────────────── */
+.settings-sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #e8eaf0 transparent;
+}
+.settings-sidebar-scroll::-webkit-scrollbar       { width: 4px; }
+.settings-sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
+.settings-sidebar-scroll::-webkit-scrollbar-thumb {
+  background: #e8eaf0;
+  border-radius: 9999px;
+  transition: background 150ms;
+}
+.settings-sidebar-scroll::-webkit-scrollbar-thumb:hover { background: #fe2c55; }
+
+/* ── Auth Modal animations ───────────────────────────────────────────────── */
+@keyframes auth-overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes auth-modal-in {
+  from { opacity: 0; transform: scale(0.95) translateY(20px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+@keyframes auth-content-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #fe2c55 !important;
+  box-shadow: 0 0 0 3px rgba(254, 44, 85, 0.12);
+}
+
+@keyframes dropdown-in {
+  from { opacity: 0; transform: translateY(-6px) scaleY(0.95); }
+  to   { opacity: 1; transform: translateY(0)    scaleY(1);    }
+}
+@keyframes dropdown-up-in {
+  from { opacity: 0; transform: translateY(6px) scaleY(0.95); }
+  to   { opacity: 1; transform: translateY(0)   scaleY(1);    }
+}
+
+/* ── Double-tap like heart animation ─────────────────────────────────────── */
+@keyframes reelsooHeartPop {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(var(--rotate, 0deg)); }
+  18%  { opacity: 1; transform: translate(-50%, -50%) scale(1.45) rotate(var(--rotate, 0deg)); }
+  45%  { opacity: 1; transform: translate(-50%, -65%) scale(1.15) rotate(var(--rotate, 0deg)); }
+  100% { opacity: 0; transform: translate(-50%, -130%) scale(0.90) rotate(var(--rotate, 0deg)); }
+}
+.reelsoo-heart-pop {
+  animation: reelsooHeartPop 850ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   DARK MODE
+   Applied via:  document.documentElement.setAttribute('data-theme', 'dark')
+   Set in:       ui.store.ts → setTheme()  +  layout.tsx inline script
+   ════════════════════════════════════════════════════════════════════════════ */
+
+[data-theme="dark"] {
+  --background: #0f1117;
+  --foreground: #f1f5f9;
+  --muted: #9ca3af;
+  --line: #2a2f3a;
+  color-scheme: dark;
+}
+
+/* ── Body / Root ── */
+[data-theme="dark"] body {
+  background-color: #0f1117 !important;
+  color: #f1f5f9 !important;
+}
+
+/* ── Main layout wrappers ── */
+[data-theme="dark"] .min-h-screen {
+  background-color: #0f1117 !important;
+}
+
+/* ── Sidebar ── */
+[data-theme="dark"] aside {
+  background-color: #13161f !important;
+  border-color: #2a2f3a !important;
+}
+
+/* ── Topbar / Header ── */
+[data-theme="dark"] header {
+  background-color: rgba(13, 15, 23, 0.97) !important;
+  border-bottom-color: #2a2f3a !important;
+}
+
+/* ── Main content area ── */
+[data-theme="dark"] main {
+  background-color: #0f1117;
+}
+
+/* ── White & light-gray backgrounds ── */
+[data-theme="dark"] .bg-white {
+  background-color: #171c28 !important;
+}
+[data-theme="dark"] .bg-\[\#f8f9fb\] {
+  background-color: #0f1117 !important;
+}
+[data-theme="dark"] .bg-\[\#fafafa\] {
+  background-color: #13161f !important;
+}
+[data-theme="dark"] .bg-\[\#f5f5f5\] {
+  background-color: #13161f !important;
+}
+[data-theme="dark"] .bg-\[\#f4f4f5\] {
+  background-color: #1f2430 !important;
+}
+/* Topbar semi-transparent bg */
+[data-theme="dark"] .bg-\[\#f8f9fb\]\/95 {
+  background-color: rgba(13, 15, 23, 0.97) !important;
+}
+
+/* ── Text colors ── */
+[data-theme="dark"] .text-black {
+  color: #f1f5f9 !important;
+}
+[data-theme="dark"] .text-\[\#111827\] {
+  color: #f1f5f9 !important;
+}
+[data-theme="dark"] .text-\[\#1a1a1a\] {
+  color: #f1f5f9 !important;
+}
+[data-theme="dark"] .text-\[\#374151\] {
+  color: #d1d5db !important;
+}
+[data-theme="dark"] .text-\[\#5f6675\] {
+  color: #9ca3af !important;
+}
+[data-theme="dark"] .text-\[\#6b7280\] {
+  color: #9ca3af !important;
+}
+[data-theme="dark"] .text-\[\#8b95a5\] {
+  color: #6b7280 !important;
+}
+[data-theme="dark"] .text-\[\#9ca3af\] {
+  color: #6b7280 !important;
+}
+[data-theme="dark"] .text-\[\#c4c9d4\] {
+  color: #4b5563 !important;
+}
+
+/* ── Borders ── */
+[data-theme="dark"] .border-\[\#eeeeee\] {
+  border-color: #2a2f3a !important;
+}
+[data-theme="dark"] .border-\[\#f0f0f0\] {
+  border-color: #2a2f3a !important;
+}
+[data-theme="dark"] .border-\[\#e2e5ea\] {
+  border-color: #374151 !important;
+}
+[data-theme="dark"] .border-\[\#dddddd\] {
+  border-color: #374151 !important;
+}
+[data-theme="dark"] .border-\[\#e5e7eb\] {
+  border-color: #374151 !important;
+}
+[data-theme="dark"] .divide-\[\#f0f0f0\] > * + * {
+  border-color: #2a2f3a !important;
+}
+
+/* ── Hover backgrounds ── */
+[data-theme="dark"] .hover\:bg-\[\#f8f9fb\]:hover {
+  background-color: #1f2430 !important;
+}
+[data-theme="dark"] .hover\:bg-white:hover {
+  background-color: #1f2430 !important;
+}
+[data-theme="dark"] .hover\:bg-\[\#f4f4f5\]:hover {
+  background-color: #1f2430 !important;
+}
+[data-theme="dark"] .hover\:bg-\[\#fff0f3\]:hover {
+  background-color: #2d1a22 !important;
+}
+
+/* ── Nav active state ── */
+[data-theme="dark"] .bg-\[\#fff0f4\] {
+  background-color: #2d1a22 !important;
+}
+[data-theme="dark"] .hover\:bg-\[\#fff0f4\]:hover {
+  background-color: #2d1a22 !important;
+}
+
+/* ── Gradients (profile card, etc.) ── */
+[data-theme="dark"] .from-\[\#fafafa\] {
+  --tw-gradient-from: #171c28 !important;
+}
+[data-theme="dark"] .to-\[\#f5f5f5\] {
+  --tw-gradient-to: #13161f !important;
+}
+
+/* ── Inputs & Textareas ── */
+[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]),
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background-color: #1f2430 !important;
+  border-color: #374151 !important;
+  color: #f1f5f9 !important;
+}
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #6b7280 !important;
+}
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus {
+  border-color: #fe2c55 !important;
+}
+
+/* ── Shadows (darken for dark bg) ── */
+[data-theme="dark"] .shadow-sm {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4) !important;
+}
+[data-theme="dark"] .shadow-lg {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5) !important;
+}
+[data-theme="dark"] .shadow-2xl {
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6) !important;
+}
+
+/* ── Trending hashtag card in sidebar ── */
+[data-theme="dark"] .rounded-2xl.border.border-\[\#eeeeee\].bg-white {
+  background-color: #171c28 !important;
+  border-color: #2a2f3a !important;
+}
+
+/* ── Top-right user dropdown ── */
+[data-theme="dark"] .rounded-2xl.border.border-\[\#eeeeee\].bg-white.p-2.shadow-lg {
+  background-color: #171c28 !important;
+  border-color: #2a2f3a !important;
+}
+
+/* ── Scrollbar dark mode ── */
+[data-theme="dark"] .more-popup-scroll {
+  scrollbar-color: #374151 #1a1f2e;
+}
+[data-theme="dark"] .more-popup-scroll::-webkit-scrollbar-track {
+  background: #1a1f2e;
+}
+[data-theme="dark"] .more-popup-scroll::-webkit-scrollbar-thumb {
+  background: #374151;
+}
+[data-theme="dark"] .more-popup-scroll::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
+
+/* ── Toast notifications (Sonner) - Reelsoo look ──────────────────────────
+   Clean white card with a coloured left accent + an icon chip per type. */
+[data-sonner-toaster] {
+  --width: 384px;
+  font-family: Inter, ui-sans-serif, system-ui, Arial, sans-serif;
+}
+[data-sonner-toast] {
+  border-radius: 16px !important;
+  border: 1px solid #f0f1f5 !important;
+  background: #ffffff !important;
+  color: #111827 !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16), 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+  padding: 14px 16px !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+[data-sonner-toast] [data-content] { gap: 2px !important; }
+[data-sonner-toast] [data-title] {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  color: #111827 !important;
+}
+[data-sonner-toast] [data-description] {
+  font-size: 12.5px !important;
+  line-height: 1.4 !important;
+  color: #5f6675 !important;
+}
+/* Icon chip */
+[data-sonner-toast] [data-icon] {
+  width: 34px !important;
+  height: 34px !important;
+  margin: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 11px !important;
+}
+[data-sonner-toast] [data-icon] > svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* Per-type accent (left bar) + icon chip colour */
+[data-sonner-toast][data-type="error"]   { border-left: 4px solid #fe2c55 !important; }
+[data-sonner-toast][data-type="error"]   [data-icon] { background: #fff0f4; color: #fe2c55; }
+[data-sonner-toast][data-type="success"] { border-left: 4px solid #16a34a !important; }
+[data-sonner-toast][data-type="success"] [data-icon] { background: #ecfdf5; color: #16a34a; }
+[data-sonner-toast][data-type="warning"] { border-left: 4px solid #f59e0b !important; }
+[data-sonner-toast][data-type="warning"] [data-icon] { background: #fffbeb; color: #f59e0b; }
+[data-sonner-toast][data-type="info"]    { border-left: 4px solid #1d8cff !important; }
+[data-sonner-toast][data-type="info"]    [data-icon] { background: #eff6ff; color: #1d8cff; }
+/* Default / plain toast */
+[data-sonner-toast][data-type="default"] { border-left: 4px solid #fe2c55 !important; }
+[data-sonner-toast][data-type="default"] [data-icon] { background: #fff0f4; color: #fe2c55; }
+
+/* Close button */
+[data-sonner-toast] [data-close-button] {
+  background: #f3f4f6 !important;
+  border: none !important;
+  color: #6b7280 !important;
+  border-radius: 9999px !important;
+  width: 22px !important;
+  height: 22px !important;
+  left: auto !important;
+  right: 10px !important;
+  top: 10px !important;
+  transition: background 0.15s, color 0.15s;
+}
+[data-sonner-toast] [data-close-button]:hover {
+  background: #fee2e8 !important;
+  color: #fe2c55 !important;
+}
+
+/* ================================================================
+   Accessibility Settings (html[data-a11y-*] set by A11yApplier)
+   ================================================================ */
+
+/* Larger Text / Text Size - effective page zoom */
+body { zoom: var(--a11y-zoom, 1); }
+
+/* The feed video player must stay a CONSTANT size no matter the Text Size -
+   only the surrounding website UI/text should scale. Cancelling the body zoom
+   for the video stage renders it at natural scale at every text size. */
+.feed-zoom-cancel { zoom: calc(1 / var(--a11y-zoom, 1)); }
+
+/* Feed stage height - the player sections are sized to the true viewport height
+   (window.innerHeight, zoom-immune) and rendered at natural scale via
+   .feed-zoom-cancel. This outer container, however, sits under body { zoom },
+   so a plain 100dvh renders SHORT (e.g. 95% at the default Small text size) and
+   its overflow:hidden clips the player's bottom rounded corners + action stack.
+   Divide by --a11y-zoom so it renders at the true viewport height and exactly
+   contains the zoom-immune player at every text size. */
+.feed-stage { height: calc((100dvh - var(--topbar-h)) / var(--a11y-zoom, 1)); }
+@media (min-width: 1280px) {
+  /* xl: the feed topbar is hidden, so the stage fills the full viewport. */
+  .feed-stage { height: calc(100dvh / var(--a11y-zoom, 1)); }
+}
+
+/* Reduce Motion - collapse animations, transitions and smooth scrolling */
+html[data-a11y-motion="1"] *,
+html[data-a11y-motion="1"] *::before,
+html[data-a11y-motion="1"] *::after {
+  animation-duration: 0.001s !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001s !important;
+  scroll-behavior: auto !important;
+}
+
+/* Reduce Transparency - remove blur/translucency effects */
+html[data-a11y-transparency="1"] * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* High Contrast Mode - darker text, stronger separators */
+html[data-a11y-contrast="1"] {
+  --foreground: #000000;
+  --muted: #374151;
+  --line: #9ca3af;
+}
+html[data-a11y-contrast="1"] body { color: #000000; }
+
+/* Pointer Size - larger custom cursors (arrow with white outline) */
+html[data-a11y-pointer="large"] body,
+html[data-a11y-pointer="large"] body * {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 24 24'><path d='M5 2 L5 20 L10 15.5 L13 22 L15.5 21 L12.5 14.5 L19 14 Z' fill='black' stroke='white' stroke-width='1.4'/></svg>") 4 2, auto !important;
+}
+html[data-a11y-pointer="xlarge"] body,
+html[data-a11y-pointer="xlarge"] body * {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='46' height='46' viewBox='0 0 24 24'><path d='M5 2 L5 20 L10 15.5 L13 22 L15.5 21 L12.5 14.5 L19 14 Z' fill='black' stroke='white' stroke-width='1.4'/></svg>") 5 3, auto !important;
+}
+
+/* Keyboard Navigation - prominent focus ring when tabbing */
+html[data-a11y-kbd="1"] :focus-visible {
+  outline: 3px solid #fe2c55 !important;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Toast notifications (Sonner) ─────────────────────────────────────────
+ * Sonner's own defaults (8px radius, plain white, a bare success/error
+ * icon with no card styling) is what made the "Saved"/"Removed" toasts look
+ * inconsistent with each other and with the rest of the site. This brings
+ * every toast type to one shared, branded card: same radius as the app's
+ * other cards/sheets (rounded-2xl = 16px), a soft shadow instead of
+ * Sonner's harsh default border, and Inter instead of the generic
+ * sans-serif fallback stack. Colors are the app's own tokens
+ * (globals.css :root), not new ones. */
+[data-sonner-toaster] {
+  --border-radius: 16px;
+  --normal-bg: #ffffff;
+  --normal-text: #111827;
+  --normal-border: var(--line);
+  --success-bg: #ffffff;
+  --success-text: #111827;
+  --success-border: #d1fae5;
+  --error-bg: #ffffff;
+  --error-text: #111827;
+  --error-border: #fecdd3;
+  --warning-bg: #ffffff;
+  --warning-text: #111827;
+  --warning-border: #fde68a;
+  --info-bg: #ffffff;
+  --info-text: #111827;
+  --info-border: #bfdbfe;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  /* Sonner's own default is a NEGATIVE start margin (-3px, see
+     node_modules/sonner/dist/styles.css) tuned for its 8px default
+     --border-radius above. At the app's 16px radius, that negative offset
+     pushes the success/error icon past the now-more-pronounced rounded
+     corner, so it visually pokes outside the card. Zeroed out and given a
+     clean, explicit gap instead of chasing Sonner's own nested icon/svg
+     margins with !important. */
+  --toast-icon-margin-start: 0px;
+  --toast-icon-margin-end: 10px;
+  --toast-svg-margin-start: 0px;
+  --toast-svg-margin-end: 0px;
+}
+
+.reelsoo-toast {
+  box-shadow: 0 12px 32px rgba(17, 24, 39, 0.12), 0 2px 8px rgba(17, 24, 39, 0.06) !important;
+  padding: 14px 16px !important;
+  /* Colored left accent bar - a real notification-card look, not just a
+     plain white box. Defaults to a neutral border; the four built-in
+     Sonner types below override it, and lib/notify.tsx's own action
+     categories (saved/liked/comment-deleted/deleted/followed/uploading)
+     override it per-toast via this same variable, set inline, since
+     Sonner's built-in [data-type] only covers success/error/warning/info -
+     nowhere near the categories the design calls for. */
+  --reelsoo-toast-accent: var(--normal-border);
+  border-left: 4px solid var(--reelsoo-toast-accent) !important;
+}
+
+[data-sonner-toast][data-type="success"] { --reelsoo-toast-accent: #16a34a; }
+[data-sonner-toast][data-type="error"]   { --reelsoo-toast-accent: #e11d48; }
+[data-sonner-toast][data-type="warning"] { --reelsoo-toast-accent: #d97706; }
+[data-sonner-toast][data-type="info"]    { --reelsoo-toast-accent: #2563eb; }
+
+.reelsoo-toast-title {
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+}
+
+.reelsoo-toast-time {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+.reelsoo-toast-description {
+  font-size: 12.5px !important;
+  color: var(--muted) !important;
+  margin-top: 2px !important;
+  line-height: 1.4 !important;
+}
+
+.reelsoo-toast-close {
+  /* Sonner pins this to `top: 0` with its own transform by default (a
+     floating badge that sits at the card's top edge) - looks fine on a
+     single short line, off-centre next to a title+description. Centered
+     on the card's own height instead, still right-aligned. */
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-50%) !important;
+  border-radius: 9999px !important;
+  border-color: var(--line) !important;
+}
+
+.reelsoo-toast-icon {
+  align-self: flex-start !important;
+  margin-top: 1px;
+}
+
+/* CMS-driven legal/policy page body (frontend/src/features/legal/cms-legal-page.tsx).
+   Mirrors legal-ui.tsx's H2/H3/P/UL component styles as plain selectors,
+   since this content is raw HTML from the admin's rich-text editor rather
+   than those React components - so an admin-authored page looks the same
+   as a hardcoded one. */
+.legal-cms-body h2 {
+  margin-top: 4rem;
+  scroll-margin-top: 6rem;
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #111827;
+}
+.legal-cms-body h3 {
+  margin-top: 2.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+}
+.legal-cms-body p {
+  margin-top: 1rem;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #374151;
+}
+.legal-cms-body ul,
+.legal-cms-body ol {
+  margin-top: 0.75rem;
+  padding-left: 1.5rem;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #374151;
+}
+.legal-cms-body ul {
+  list-style: disc;
+}
+.legal-cms-body ol {
+  list-style: decimal;
+}
+.legal-cms-body li + li {
+  margin-top: 0.5rem;
+}
+.legal-cms-body a {
+  color: #fe2c55;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.legal-cms-body strong {
+  font-weight: 700;
+  color: #111827;
+}

@@ -1,0 +1,64 @@
+{
+  "_admin_api_path": "/apisix/admin/routes/teezer-auth",
+  "_comment": "Login, register, password reset, OTP, 2FA. Strictest tier - these are exactly the endpoints credential-stuffing/brute-force tools target. This is a coarse per-IP outer limit; Laravel's own SecurityRateLimiter (per-account/per-device, DB-backed, with escalating blocks) still runs underneath, untouched - this just stops abusive traffic from reaching PHP at all.",
+  "name": "teezer-auth",
+  "desc": "Auth endpoints (/api/v1/auth/*) - strict rate limit",
+  "uri": "/api/v1/auth/*",
+  "priority": 10,
+  "methods": [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS"
+  ],
+  "upstream_id": "teezer-laravel",
+  "plugins": {
+    "cors": {
+      "allow_origins": "${APISIX_CORS_ORIGINS}",
+      "allow_origins_by_regex": [
+        "^https://([a-z0-9-]+\\.)?teezer\\.live$"
+      ],
+      "allow_methods": "GET,POST,PUT,PATCH,DELETE,OPTIONS",
+      "allow_headers": "Accept,Accept-Encoding,Accept-Language,Content-Language,Content-Type,Authorization,X-Requested-With,X-CSRF-TOKEN,X-XSRF-TOKEN,X-Socket-Id,X-Turnstile-Token,X-Request-Id,X-Reelsoo-SSO-CSRF,X-Playout-Limit,X-Restrict,X-Request-URL,X-Device-Fingerprint,X-Device-Id,X-Device-Type,X-Fingerprint,X-App-Version,X-Platform,X-Timezone,X-Client,X-Locale,X-Session-Id,Cache-Control,Pragma,If-Modified-Since,If-None-Match,Range,DNT",
+      "expose_headers": "X-RateLimit-Limit,X-RateLimit-Remaining,X-Request-Id,Retry-After,Content-Length,Content-Range",
+      "allow_credential": true,
+      "max_age": 86400
+    },
+    "real-ip": {
+      "source": "http_x_forwarded_for",
+      "trusted_addresses": [
+        "127.0.0.1/32"
+      ],
+      "recursive": true
+    },
+    "limit-count": {
+      "count": ${RL_AUTH_COUNT},
+      "time_window": ${RL_AUTH_WINDOW},
+      "key_type": "var",
+      "key": "remote_addr",
+      "rejected_code": 429,
+      "rejected_msg": "Too many requests. Please slow down and try again shortly.",
+      "policy": "redis",
+      "redis_host": "${RATELIMIT_REDIS_HOST}",
+      "redis_port": ${RATELIMIT_REDIS_PORT},
+      "redis_database": ${RATELIMIT_REDIS_DATABASE},
+      "redis_timeout": ${RATELIMIT_REDIS_TIMEOUT},
+      "allow_degradation": false,
+      "show_limit_quota_header": false
+    },
+    "limit-req": {
+      "rate": ${RL_AUTH_REQ_RATE},
+      "burst": ${RL_AUTH_REQ_BURST},
+      "key_type": "var",
+      "key": "remote_addr",
+      "rejected_code": 429
+    },
+    "request-id": {
+      "include_in_response": true
+    },
+    "prometheus": {},
+    "gzip": {}
+  }
+}

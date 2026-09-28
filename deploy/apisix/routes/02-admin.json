@@ -1,0 +1,57 @@
+{
+  "_admin_api_path": "/apisix/admin/routes/teezer-admin",
+  "_comment": "Admin panel + Ads Manager admin-side API (/api/v1/admin/*, includes /admin/ads/*). Already gated by Laravel's api.admin middleware (Sanctum + role check) - this adds a restricted outer rate limit and an OPTIONAL ip-restriction, disabled by default. Enabling ip-restriction blind (without knowing the admin team's real static IPs) would risk locking out legitimate admins on a production system - see README for the one-line enable once IPs are known.",
+  "name": "teezer-admin",
+  "desc": "Admin API (/api/v1/admin/*) - restricted rate limit, optional IP allowlist",
+  "uri": "/api/v1/admin/*",
+  "priority": 10,
+  "methods": [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS"
+  ],
+  "upstream_id": "teezer-laravel",
+  "plugins": {
+    "cors": {
+      "allow_origins": "${APISIX_CORS_ORIGINS}",
+      "allow_origins_by_regex": [
+        "^https://([a-z0-9-]+\\.)?teezer\\.live$"
+      ],
+      "allow_methods": "GET,POST,PUT,PATCH,DELETE,OPTIONS",
+      "allow_headers": "Accept,Accept-Encoding,Accept-Language,Content-Language,Content-Type,Authorization,X-Requested-With,X-CSRF-TOKEN,X-XSRF-TOKEN,X-Socket-Id,X-Turnstile-Token,X-Request-Id,X-Reelsoo-SSO-CSRF,X-Playout-Limit,X-Restrict,X-Request-URL,X-Device-Fingerprint,X-Device-Id,X-Device-Type,X-Fingerprint,X-App-Version,X-Platform,X-Timezone,X-Client,X-Locale,X-Session-Id,Cache-Control,Pragma,If-Modified-Since,If-None-Match,Range,DNT",
+      "expose_headers": "X-RateLimit-Limit,X-RateLimit-Remaining,X-Request-Id,Retry-After,Content-Length,Content-Range",
+      "allow_credential": true,
+      "max_age": 86400
+    },
+    "real-ip": {
+      "source": "http_x_forwarded_for",
+      "trusted_addresses": [
+        "127.0.0.1/32"
+      ],
+      "recursive": true
+    },
+    "limit-count": {
+      "count": ${RL_ADMIN_COUNT},
+      "time_window": ${RL_ADMIN_WINDOW},
+      "key_type": "var",
+      "key": "remote_addr",
+      "rejected_code": 429,
+      "rejected_msg": "Too many requests. Please slow down and try again shortly.",
+      "policy": "redis",
+      "redis_host": "${RATELIMIT_REDIS_HOST}",
+      "redis_port": ${RATELIMIT_REDIS_PORT},
+      "redis_database": ${RATELIMIT_REDIS_DATABASE},
+      "redis_timeout": ${RATELIMIT_REDIS_TIMEOUT},
+      "allow_degradation": true,
+      "show_limit_quota_header": false
+    },
+    "request-id": {
+      "include_in_response": true
+    },
+    "prometheus": {},
+    "gzip": {}
+  }
+}

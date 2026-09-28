@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes rose-bouquet-sway{0%,100%{transform:rotate(-5deg) translateY(1px)}50%{transform:rotate(5deg) translateY(-2px)}}
+    @keyframes rose-bouquet-aura{0%,100%{opacity:.2;transform:scale(.85)}50%{opacity:.6;transform:scale(1.05)}}
+    @keyframes rose-bouquet-tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    @keyframes rose-bouquet-shine{0%,100%{opacity:.25}50%{opacity:.9}}
+    .rose-bouquet-body{transform-box:fill-box;transform-origin:50% 90%;animation:rose-bouquet-sway 2.6s ease-in-out infinite}
+    .rose-bouquet-ring{transform-box:fill-box;transform-origin:center;animation:rose-bouquet-aura 2.8s ease-in-out infinite}
+    .rose-bouquet-wrap{animation:rose-bouquet-shine 2s ease-in-out infinite}
+    .rose-bouquet-s{transform-box:fill-box;transform-origin:center;animation:rose-bouquet-tw 2.2s ease-in-out infinite}
+    .rose-bouquet-s2{animation-delay:.5s}.rose-bouquet-s3{animation-delay:1s}.rose-bouquet-s4{animation-delay:1.5s}
+    @keyframes rose-bouquet-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes rose-bouquet-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes rose-bouquet-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes rose-bouquet-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes rose-bouquet-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .rose-bouquet-x-lift{transform-box:fill-box;transform-origin:center;animation:rose-bouquet-x-lift 3.4s ease-in-out infinite}
+    .rose-bouquet-x-shine{animation:rose-bouquet-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .rose-bouquet-x-spark{transform-box:fill-box;transform-origin:center;animation:rose-bouquet-x-spark 2.2s ease-in-out infinite}
+    .rose-bouquet-x-aura{transform-box:fill-box;transform-origin:center;animation:rose-bouquet-x-aura 3s ease-in-out infinite}
+    .rose-bouquet-x-cast{transform-box:fill-box;transform-origin:center;animation:rose-bouquet-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.rose-bouquet-x-lift,.rose-bouquet-x-shine,.rose-bouquet-x-spark,.rose-bouquet-x-aura,.rose-bouquet-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="rose-bouquet-r1" cx=".35" cy=".3" r=".8">
+    <stop offset="0" stop-color="#ff9ec2"/><stop offset=".55" stop-color="#e8386f"/><stop offset="1" stop-color="#96103e"/>
+    </radialGradient>
+    <radialGradient id="rose-bouquet-r2" cx=".35" cy=".3" r=".8">
+    <stop offset="0" stop-color="#fff0c4"/><stop offset=".55" stop-color="#f5c33f"/><stop offset="1" stop-color="#a9761a"/>
+    </radialGradient>
+    <linearGradient id="rose-bouquet-w" x1="18" y1="36" x2="46" y2="60" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff3c9"/><stop offset=".5" stop-color="#eec24a"/><stop offset="1" stop-color="#96690f"/>
+    </linearGradient>
+    <filter id="rose-bouquet-f" x="-45%" y="-45%" width="190%" height="190%">
+    <feGaussianBlur stdDeviation="2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="rose-bouquet-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="rose-bouquet-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rose-bouquet-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="rose-bouquet-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rose-bouquet-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="rose-bouquet-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="rose-bouquet-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="rose-bouquet-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#rose-bouquet-x-white)">
+        <ellipse class="rose-bouquet-ring" cx="32" cy="28" rx="24" ry="22" fill="none" stroke="#ffd979" stroke-width="1.8" opacity=".5"/>
+        <g class="rose-bouquet-body" filter="url(#rose-bouquet-f)">
+        <path d="M22 36c-2 6-3 12-3 18M32 34v20M42 36c2 6 3 12 3 18" stroke="#2f8f4e" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M24 40c-4-1-7-4-8-8 5-1 9 1 11 5Z" fill="#37a85c"/>
+        <path d="M40 42c4-1 7-4 8-8-5-1-9 1-11 5Z" fill="#2f8f4e"/>
+        <circle cx="19" cy="26" r="9" fill="url(#rose-bouquet-r1)"/>
+        <circle cx="45" cy="26" r="9" fill="url(#rose-bouquet-r1)"/>
+        <circle cx="32" cy="17" r="10" fill="url(#rose-bouquet-r2)"/>
+        <circle cx="32" cy="30" r="9" fill="url(#rose-bouquet-r1)"/>
+        <circle cx="19" cy="26" r="4.6" fill="#b31a52"/><circle cx="45" cy="26" r="4.6" fill="#b31a52"/>
+        <circle cx="32" cy="30" r="4.6" fill="#b31a52"/><circle cx="32" cy="17" r="5" fill="#c48c14"/>
+        <circle cx="32" cy="17" r="2.2" fill="#ffe9a8"/>
+        <circle cx="17" cy="23" r="2" fill="#ffc0d8" opacity=".7"/>
+        <circle cx="43" cy="23" r="2" fill="#ffc0d8" opacity=".7"/>
+        <path class="rose-bouquet-wrap" d="M18 40h28l-6 18H24Z" fill="url(#rose-bouquet-w)"/>
+        <path d="M24 58h16l1.6-5H22.4Z" fill="#7c5409" opacity=".45"/>
+        <path d="M21 43c1 4 2 8 3 11" stroke="#fff8dd" stroke-opacity=".6" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <rect x="22" y="46" width="20" height="4" rx="2" fill="#e8386f"/>
+        <circle cx="32" cy="48" r="2.4" fill="#8ee6ff"/>
+        </g>
+        <path class="rose-bouquet-s" d="M56 12l1.2 3 3 1.2-3 1.2L56 21.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+        <circle class="rose-bouquet-s rose-bouquet-s2" cx="8" cy="16" r="1.9" fill="#ffe9a3"/>
+        <circle class="rose-bouquet-s rose-bouquet-s3" cx="55" cy="44" r="1.7" fill="#fff"/>
+        <circle class="rose-bouquet-s rose-bouquet-s4" cx="9" cy="47" r="1.5" fill="#ffe9a3"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="rose-bouquet-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#rose-bouquet-x-cast-g)"/>
+  <circle class="rose-bouquet-x-aura" cx="32" cy="32" r="29" fill="url(#rose-bouquet-x-aura-g)"/>
+  <g class="rose-bouquet-x-lift">
+    <ellipse class="rose-bouquet-ring" cx="32" cy="28" rx="24" ry="22" fill="none" stroke="#ffd979" stroke-width="1.8" opacity=".5"/>
+    <g class="rose-bouquet-body" filter="url(#rose-bouquet-f)">
+    <path d="M22 36c-2 6-3 12-3 18M32 34v20M42 36c2 6 3 12 3 18" stroke="#2f8f4e" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M24 40c-4-1-7-4-8-8 5-1 9 1 11 5Z" fill="#37a85c"/>
+    <path d="M40 42c4-1 7-4 8-8-5-1-9 1-11 5Z" fill="#2f8f4e"/>
+    <circle cx="19" cy="26" r="9" fill="url(#rose-bouquet-r1)"/>
+    <circle cx="45" cy="26" r="9" fill="url(#rose-bouquet-r1)"/>
+    <circle cx="32" cy="17" r="10" fill="url(#rose-bouquet-r2)"/>
+    <circle cx="32" cy="30" r="9" fill="url(#rose-bouquet-r1)"/>
+    <circle cx="19" cy="26" r="4.6" fill="#b31a52"/><circle cx="45" cy="26" r="4.6" fill="#b31a52"/>
+    <circle cx="32" cy="30" r="4.6" fill="#b31a52"/><circle cx="32" cy="17" r="5" fill="#c48c14"/>
+    <circle cx="32" cy="17" r="2.2" fill="#ffe9a8"/>
+    <circle cx="17" cy="23" r="2" fill="#ffc0d8" opacity=".7"/>
+    <circle cx="43" cy="23" r="2" fill="#ffc0d8" opacity=".7"/>
+    <path class="rose-bouquet-wrap" d="M18 40h28l-6 18H24Z" fill="url(#rose-bouquet-w)"/>
+    <path d="M24 58h16l1.6-5H22.4Z" fill="#7c5409" opacity=".45"/>
+    <path d="M21 43c1 4 2 8 3 11" stroke="#fff8dd" stroke-opacity=".6" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <rect x="22" y="46" width="20" height="4" rx="2" fill="#e8386f"/>
+    <circle cx="32" cy="48" r="2.4" fill="#8ee6ff"/>
+    </g>
+    <path class="rose-bouquet-s" d="M56 12l1.2 3 3 1.2-3 1.2L56 21.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+    <circle class="rose-bouquet-s rose-bouquet-s2" cx="8" cy="16" r="1.9" fill="#ffe9a3"/>
+    <circle class="rose-bouquet-s rose-bouquet-s3" cx="55" cy="44" r="1.7" fill="#fff"/>
+    <circle class="rose-bouquet-s rose-bouquet-s4" cx="9" cy="47" r="1.5" fill="#ffe9a3"/>
+    <g mask="url(#rose-bouquet-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#rose-bouquet-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#rose-bouquet-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#rose-bouquet-x-rim)"/>
+      <rect class="rose-bouquet-x-shine" x="0" y="-16" width="26" height="96" fill="url(#rose-bouquet-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="rose-bouquet-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="rose-bouquet-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="rose-bouquet-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="rose-bouquet-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="rose-bouquet-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes fire-dragon-rise{0%,100%{transform:translateY(2px) scale(1)}50%{transform:translateY(-3px) scale(1.05)}}
+    @keyframes fire-dragon-fl{0%,100%{transform:scaleY(.85) scaleX(1);opacity:.85}50%{transform:scaleY(1.15) scaleX(.92);opacity:1}}
+    @keyframes fire-dragon-aura{0%,100%{opacity:.25;transform:scale(.9)}50%{opacity:.7;transform:scale(1.08)}}
+    @keyframes fire-dragon-tw{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .fire-dragon-body{transform-box:fill-box;transform-origin:bottom center;animation:fire-dragon-rise 1.9s ease-in-out infinite}
+    .fire-dragon-flame{transform-box:fill-box;transform-origin:left center;animation:fire-dragon-fl 0.9s ease-in-out infinite}
+    .fire-dragon-aura{transform-box:fill-box;transform-origin:center;animation:fire-dragon-aura 2.2s ease-in-out infinite}
+    .fire-dragon-s{transform-box:fill-box;transform-origin:center;animation:fire-dragon-tw 2s ease-in-out infinite}
+    .fire-dragon-s2{animation-delay:.5s}.fire-dragon-s3{animation-delay:1s}.fire-dragon-s4{animation-delay:1.5s}
+    @keyframes fire-dragon-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes fire-dragon-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes fire-dragon-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes fire-dragon-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes fire-dragon-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .fire-dragon-x-lift{transform-box:fill-box;transform-origin:center;animation:fire-dragon-x-lift 3.4s ease-in-out infinite}
+    .fire-dragon-x-shine{animation:fire-dragon-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .fire-dragon-x-spark{transform-box:fill-box;transform-origin:center;animation:fire-dragon-x-spark 2.2s ease-in-out infinite}
+    .fire-dragon-x-aura{transform-box:fill-box;transform-origin:center;animation:fire-dragon-x-aura 3s ease-in-out infinite}
+    .fire-dragon-x-cast{transform-box:fill-box;transform-origin:center;animation:fire-dragon-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.fire-dragon-x-lift,.fire-dragon-x-shine,.fire-dragon-x-spark,.fire-dragon-x-aura,.fire-dragon-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="fire-dragon-g" x1="14" y1="10" x2="44" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffbe7a"/><stop offset=".45" stop-color="#f2542d"/><stop offset="1" stop-color="#8c1007"/>
+    </linearGradient>
+    <linearGradient id="fire-dragon-w" x1="10" y1="14" x2="30" y2="40" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff8a5b"/><stop offset="1" stop-color="#a01f10"/>
+    </linearGradient>
+    <linearGradient id="fire-dragon-b" x1="40" y1="20" x2="60" y2="26" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff3a8"/><stop offset=".5" stop-color="#ffa62b"/><stop offset="1" stop-color="#ff3d21"/>
+    </linearGradient>
+    <radialGradient id="fire-dragon-a" cx="32" cy="32" r="27" gradientUnits="userSpaceOnUse">
+    <stop offset=".6" stop-color="#ff6a2b" stop-opacity="0"/><stop offset="1" stop-color="#ff6a2b" stop-opacity=".5"/>
+    </radialGradient>
+    <filter id="fire-dragon-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="fire-dragon-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="fire-dragon-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fire-dragon-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="fire-dragon-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fire-dragon-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="fire-dragon-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="fire-dragon-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="fire-dragon-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#fire-dragon-x-white)">
+        <circle class="fire-dragon-aura" cx="32" cy="32" r="27" fill="url(#fire-dragon-a)"/>
+        <g class="fire-dragon-body" filter="url(#fire-dragon-f)">
+        <path d="M22 26C12 20 8 12 9 6c6 6 12 8 17 7-3 5-4 9-4 13Z" fill="url(#fire-dragon-w)"/>
+        <path d="M20 34c-6 2-10 7-12 13 8-2 13-1 16 2Z" fill="url(#fire-dragon-w)"/>
+        <path d="M24 56c-4-6-5-12-3-18 2-7 7-11 13-11 3 0 5 1 5 4 0 5-6 5-6 10 0 4 3 6 3 10 0 3-2 5-6 5Z" fill="url(#fire-dragon-g)"/>
+        <path d="M28 40c-2 5-2 10 0 16" stroke="#ffd8a8" stroke-opacity=".35" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M33 12l-3 6 7-1Z" fill="#ffd27a"/><path d="M45 11l1 7-6-3Z" fill="#ffd27a"/>
+        <path d="M32 24c0-6 5-10 11-10 6 0 10 4 10 8 0 3-2 5-5 5h-9c-4 0-7-1-7-3Z" fill="url(#fire-dragon-g)"/>
+        <path d="M37 17c-2 1-3 3-3 5" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <circle cx="43" cy="20" r="2.6" fill="#fff"/><circle cx="43" cy="20" r="1.3" fill="#7a1408"/>
+        <g class="fire-dragon-flame">
+        <path d="M50 24c4-2 8-1 11 2-3 1-4 2-4 4-4-1-7-3-9-4Z" fill="url(#fire-dragon-b)"/>
+        <path d="M51 25c3 0 5 1 7 2" stroke="#fff8d0" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        </g>
+        <path d="M24 50c5 3 10 3 14 0-1 5-6 8-14 6Z" fill="#7c1206" opacity=".45"/>
+        </g>
+        <circle class="fire-dragon-s" cx="14" cy="14" r="2.2" fill="#fff"/>
+        <circle class="fire-dragon-s fire-dragon-s2" cx="55" cy="40" r="1.7" fill="#fff"/>
+        <circle class="fire-dragon-s fire-dragon-s3" cx="8" cy="34" r="1.6" fill="#fff"/>
+        <circle class="fire-dragon-s fire-dragon-s4" cx="50" cy="54" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="fire-dragon-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#fire-dragon-x-cast-g)"/>
+  <circle class="fire-dragon-x-aura" cx="32" cy="32" r="29" fill="url(#fire-dragon-x-aura-g)"/>
+  <g class="fire-dragon-x-lift">
+    <circle class="fire-dragon-aura" cx="32" cy="32" r="27" fill="url(#fire-dragon-a)"/>
+    <g class="fire-dragon-body" filter="url(#fire-dragon-f)">
+    <path d="M22 26C12 20 8 12 9 6c6 6 12 8 17 7-3 5-4 9-4 13Z" fill="url(#fire-dragon-w)"/>
+    <path d="M20 34c-6 2-10 7-12 13 8-2 13-1 16 2Z" fill="url(#fire-dragon-w)"/>
+    <path d="M24 56c-4-6-5-12-3-18 2-7 7-11 13-11 3 0 5 1 5 4 0 5-6 5-6 10 0 4 3 6 3 10 0 3-2 5-6 5Z" fill="url(#fire-dragon-g)"/>
+    <path d="M28 40c-2 5-2 10 0 16" stroke="#ffd8a8" stroke-opacity=".35" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M33 12l-3 6 7-1Z" fill="#ffd27a"/><path d="M45 11l1 7-6-3Z" fill="#ffd27a"/>
+    <path d="M32 24c0-6 5-10 11-10 6 0 10 4 10 8 0 3-2 5-5 5h-9c-4 0-7-1-7-3Z" fill="url(#fire-dragon-g)"/>
+    <path d="M37 17c-2 1-3 3-3 5" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="43" cy="20" r="2.6" fill="#fff"/><circle cx="43" cy="20" r="1.3" fill="#7a1408"/>
+    <g class="fire-dragon-flame">
+    <path d="M50 24c4-2 8-1 11 2-3 1-4 2-4 4-4-1-7-3-9-4Z" fill="url(#fire-dragon-b)"/>
+    <path d="M51 25c3 0 5 1 7 2" stroke="#fff8d0" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    </g>
+    <path d="M24 50c5 3 10 3 14 0-1 5-6 8-14 6Z" fill="#7c1206" opacity=".45"/>
+    </g>
+    <circle class="fire-dragon-s" cx="14" cy="14" r="2.2" fill="#fff"/>
+    <circle class="fire-dragon-s fire-dragon-s2" cx="55" cy="40" r="1.7" fill="#fff"/>
+    <circle class="fire-dragon-s fire-dragon-s3" cx="8" cy="34" r="1.6" fill="#fff"/>
+    <circle class="fire-dragon-s fire-dragon-s4" cx="50" cy="54" r="1.5" fill="#fff"/>
+    <g mask="url(#fire-dragon-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#fire-dragon-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#fire-dragon-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#fire-dragon-x-rim)"/>
+      <rect class="fire-dragon-x-shine" x="0" y="-16" width="26" height="96" fill="url(#fire-dragon-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="fire-dragon-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="fire-dragon-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="fire-dragon-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="fire-dragon-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="fire-dragon-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

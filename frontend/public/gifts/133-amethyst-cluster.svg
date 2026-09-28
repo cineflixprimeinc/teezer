@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes amethyst-cluster-glow{0%,100%{filter:drop-shadow(0 0 2px #7c3aed) brightness(1)}50%{filter:drop-shadow(0 0 9px #c084fc) brightness(1.28)}}
+    @keyframes amethyst-cluster-mote{0%{opacity:0;transform:translateY(2px) scale(.5)}40%{opacity:1}100%{opacity:0;transform:translateY(-14px) scale(1)}}
+    @keyframes amethyst-cluster-tw{0%,100%{opacity:.2;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    .amethyst-cluster-body{transform-box:fill-box;transform-origin:center;animation:amethyst-cluster-glow 2.5s ease-in-out infinite}
+    .amethyst-cluster-m{transform-box:fill-box;transform-origin:center;animation:amethyst-cluster-mote 2.3s ease-out infinite}
+    .amethyst-cluster-m2{animation-delay:.9s}.amethyst-cluster-m3{animation-delay:1.6s}
+    .amethyst-cluster-s{transform-box:fill-box;transform-origin:center;animation:amethyst-cluster-tw 1.9s ease-in-out infinite}
+    .amethyst-cluster-s2{animation-delay:.9s}
+    @keyframes amethyst-cluster-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes amethyst-cluster-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes amethyst-cluster-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes amethyst-cluster-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes amethyst-cluster-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .amethyst-cluster-x-lift{transform-box:fill-box;transform-origin:center;animation:amethyst-cluster-x-lift 3.4s ease-in-out infinite}
+    .amethyst-cluster-x-shine{animation:amethyst-cluster-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .amethyst-cluster-x-spark{transform-box:fill-box;transform-origin:center;animation:amethyst-cluster-x-spark 2.2s ease-in-out infinite}
+    .amethyst-cluster-x-aura{transform-box:fill-box;transform-origin:center;animation:amethyst-cluster-x-aura 3s ease-in-out infinite}
+    .amethyst-cluster-x-cast{transform-box:fill-box;transform-origin:center;animation:amethyst-cluster-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.amethyst-cluster-x-lift,.amethyst-cluster-x-shine,.amethyst-cluster-x-spark,.amethyst-cluster-x-aura,.amethyst-cluster-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="amethyst-cluster-g" x1="16" y1="8" x2="48" y2="54" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#f3e8ff"/><stop offset=".4" stop-color="#a855f7"/><stop offset="1" stop-color="#4c1d95"/>
+    </linearGradient>
+    <linearGradient id="amethyst-cluster-g2" x1="14" y1="24" x2="34" y2="54" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#e9d5ff"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#3b1178"/>
+    </linearGradient>
+    <linearGradient id="amethyst-cluster-r" x1="12" y1="46" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#6b7280"/><stop offset="1" stop-color="#2f3542"/>
+    </linearGradient>
+    <filter id="amethyst-cluster-f" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="amethyst-cluster-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="amethyst-cluster-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="amethyst-cluster-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="amethyst-cluster-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="amethyst-cluster-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="amethyst-cluster-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="amethyst-cluster-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="amethyst-cluster-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#amethyst-cluster-x-white)">
+        <path d="M10 52c0-3 3-5 8-5h28c5 0 8 2 8 5v3a3 3 0 0 1-3 3H13a3 3 0 0 1-3-3Z" fill="url(#amethyst-cluster-r)"/>
+        <g class="amethyst-cluster-body" filter="url(#amethyst-cluster-f)">
+        <path d="M20 26 14 48h13l-2-22Z" fill="url(#amethyst-cluster-g2)"/>
+        <path d="M45 24l7 24H38l3-24Z" fill="url(#amethyst-cluster-g2)"/>
+        <path d="M32 6 22 24l4 24h13l4-24Z" fill="url(#amethyst-cluster-g)"/>
+        <path d="M32 6v42" stroke="#fff" stroke-opacity=".45" stroke-width="2" />
+        <path d="M28 12c-2 3-3 6-3 10" stroke="#fff" stroke-opacity=".65" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M36 24h7l-4 24h-6Z" fill="#3b1178" opacity=".45"/>
+        <path d="M20 26l5 3-1 19h-4Z" fill="#3b1178" opacity=".35"/>
+        </g>
+        <circle class="amethyst-cluster-m" cx="18" cy="44" r="1.8" fill="#e9d5ff"/>
+        <circle class="amethyst-cluster-m amethyst-cluster-m2" cx="46" cy="44" r="1.6" fill="#d8b4fe"/>
+        <circle class="amethyst-cluster-m amethyst-cluster-m3" cx="32" cy="42" r="1.4" fill="#f3e8ff"/>
+        <circle class="amethyst-cluster-s" cx="53" cy="14" r="2" fill="#fff"/>
+        <circle class="amethyst-cluster-s amethyst-cluster-s2" cx="11" cy="22" r="1.6" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="amethyst-cluster-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#amethyst-cluster-x-cast-g)"/>
+  <circle class="amethyst-cluster-x-aura" cx="32" cy="32" r="29" fill="url(#amethyst-cluster-x-aura-g)"/>
+  <g class="amethyst-cluster-x-lift">
+    <path d="M10 52c0-3 3-5 8-5h28c5 0 8 2 8 5v3a3 3 0 0 1-3 3H13a3 3 0 0 1-3-3Z" fill="url(#amethyst-cluster-r)"/>
+    <g class="amethyst-cluster-body" filter="url(#amethyst-cluster-f)">
+    <path d="M20 26 14 48h13l-2-22Z" fill="url(#amethyst-cluster-g2)"/>
+    <path d="M45 24l7 24H38l3-24Z" fill="url(#amethyst-cluster-g2)"/>
+    <path d="M32 6 22 24l4 24h13l4-24Z" fill="url(#amethyst-cluster-g)"/>
+    <path d="M32 6v42" stroke="#fff" stroke-opacity=".45" stroke-width="2" />
+    <path d="M28 12c-2 3-3 6-3 10" stroke="#fff" stroke-opacity=".65" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M36 24h7l-4 24h-6Z" fill="#3b1178" opacity=".45"/>
+    <path d="M20 26l5 3-1 19h-4Z" fill="#3b1178" opacity=".35"/>
+    </g>
+    <circle class="amethyst-cluster-m" cx="18" cy="44" r="1.8" fill="#e9d5ff"/>
+    <circle class="amethyst-cluster-m amethyst-cluster-m2" cx="46" cy="44" r="1.6" fill="#d8b4fe"/>
+    <circle class="amethyst-cluster-m amethyst-cluster-m3" cx="32" cy="42" r="1.4" fill="#f3e8ff"/>
+    <circle class="amethyst-cluster-s" cx="53" cy="14" r="2" fill="#fff"/>
+    <circle class="amethyst-cluster-s amethyst-cluster-s2" cx="11" cy="22" r="1.6" fill="#fff"/>
+    <g mask="url(#amethyst-cluster-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#amethyst-cluster-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#amethyst-cluster-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#amethyst-cluster-x-rim)"/>
+      <rect class="amethyst-cluster-x-shine" x="0" y="-16" width="26" height="96" fill="url(#amethyst-cluster-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="amethyst-cluster-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="amethyst-cluster-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="amethyst-cluster-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="amethyst-cluster-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

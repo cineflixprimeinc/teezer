@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes planet-earth-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes planet-earth-drift{0%{transform:translateX(0)}100%{transform:translateX(-28px)}}
+    @keyframes planet-earth-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .planet-earth-body{transform-box:fill-box;transform-origin:center;animation:planet-earth-spin 8s linear infinite}
+    .planet-earth-land{animation:planet-earth-drift 6s linear infinite}
+    .planet-earth-s{transform-box:fill-box;transform-origin:center;animation:planet-earth-tw 2.2s ease-in-out infinite}
+    .planet-earth-s2{animation-delay:1.1s}
+    @keyframes planet-earth-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes planet-earth-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes planet-earth-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes planet-earth-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes planet-earth-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .planet-earth-x-lift{transform-box:fill-box;transform-origin:center;animation:planet-earth-x-lift 3.4s ease-in-out infinite}
+    .planet-earth-x-shine{animation:planet-earth-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .planet-earth-x-spark{transform-box:fill-box;transform-origin:center;animation:planet-earth-x-spark 2.2s ease-in-out infinite}
+    .planet-earth-x-aura{transform-box:fill-box;transform-origin:center;animation:planet-earth-x-aura 3s ease-in-out infinite}
+    .planet-earth-x-cast{transform-box:fill-box;transform-origin:center;animation:planet-earth-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.planet-earth-x-lift,.planet-earth-x-shine,.planet-earth-x-spark,.planet-earth-x-aura,.planet-earth-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="planet-earth-sea" x1="14" y1="10" x2="50" y2="54" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#7fd4ff"/><stop offset=".5" stop-color="#2b8fe6"/><stop offset="1" stop-color="#12428f"/>
+    </linearGradient>
+    <linearGradient id="planet-earth-gr" x1="18" y1="14" x2="46" y2="50" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#8ef2a4"/><stop offset="1" stop-color="#219a52"/>
+    </linearGradient>
+    <clipPath id="planet-earth-clip"><circle cx="32" cy="32" r="24"/></clipPath>
+    <linearGradient id="planet-earth-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="planet-earth-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="planet-earth-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="planet-earth-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="planet-earth-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="planet-earth-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="planet-earth-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#planet-earth-x-white)">
+        <g class="planet-earth-body">
+        <circle cx="32" cy="32" r="24" fill="url(#planet-earth-sea)"/>
+        <g clip-path="url(#planet-earth-clip)">
+        <g class="planet-earth-land">
+        <path d="M12 20c5-4 12-3 15 1 3 4-1 8-6 8-4 0-8-1-9-4-1-2-1-4 0-5Zm10 18c6-2 12 1 13 6 1 4-3 8-8 7-6-1-10-5-9-9 0-2 2-3 4-4Zm18-22c5-1 9 2 9 6s-4 6-8 5c-3-1-5-4-4-7 0-2 1-4 3-4Zm7 20c6-1 11 3 11 8 0 4-4 7-8 6-5-1-8-5-7-9 0-2 2-4 4-5Z" fill="url(#planet-earth-gr)"/>
+        <path d="M40 20c5-1 9 2 9 6s-4 6-8 5c-3-1-5-4-4-7 0-2 1-4 3-4Z" fill="#2fb765" opacity=".55" transform="translate(56)"/>
+        <path d="M12 20c5-4 12-3 15 1 3 4-1 8-6 8-4 0-8-1-9-4-1-2-1-4 0-5Z" fill="url(#planet-earth-gr)" transform="translate(56)"/>
+        <path d="M22 38c6-2 12 1 13 6 1 4-3 8-8 7-6-1-10-5-9-9 0-2 2-3 4-4Z" fill="url(#planet-earth-gr)" transform="translate(56)"/>
+        </g>
+        </g>
+        <path d="M18 16c-3 2-5 5-6 9" stroke="#fff" stroke-opacity=".5" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M32 56c11 0 20-8 22-19 1 13-9 23-22 23S9 50 10 37c2 11 11 19 22 19Z" fill="#0a2a5e" opacity=".38"/>
+        </g>
+        <circle class="planet-earth-s" cx="55" cy="13" r="2.2" fill="#fff"/>
+        <circle class="planet-earth-s planet-earth-s2" cx="9" cy="48" r="1.6" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="planet-earth-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#planet-earth-x-cast-g)"/>
+  <g class="planet-earth-x-lift">
+    <g class="planet-earth-body">
+    <circle cx="32" cy="32" r="24" fill="url(#planet-earth-sea)"/>
+    <g clip-path="url(#planet-earth-clip)">
+    <g class="planet-earth-land">
+    <path d="M12 20c5-4 12-3 15 1 3 4-1 8-6 8-4 0-8-1-9-4-1-2-1-4 0-5Zm10 18c6-2 12 1 13 6 1 4-3 8-8 7-6-1-10-5-9-9 0-2 2-3 4-4Zm18-22c5-1 9 2 9 6s-4 6-8 5c-3-1-5-4-4-7 0-2 1-4 3-4Zm7 20c6-1 11 3 11 8 0 4-4 7-8 6-5-1-8-5-7-9 0-2 2-4 4-5Z" fill="url(#planet-earth-gr)"/>
+    <path d="M40 20c5-1 9 2 9 6s-4 6-8 5c-3-1-5-4-4-7 0-2 1-4 3-4Z" fill="#2fb765" opacity=".55" transform="translate(56)"/>
+    <path d="M12 20c5-4 12-3 15 1 3 4-1 8-6 8-4 0-8-1-9-4-1-2-1-4 0-5Z" fill="url(#planet-earth-gr)" transform="translate(56)"/>
+    <path d="M22 38c6-2 12 1 13 6 1 4-3 8-8 7-6-1-10-5-9-9 0-2 2-3 4-4Z" fill="url(#planet-earth-gr)" transform="translate(56)"/>
+    </g>
+    </g>
+    <path d="M18 16c-3 2-5 5-6 9" stroke="#fff" stroke-opacity=".5" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M32 56c11 0 20-8 22-19 1 13-9 23-22 23S9 50 10 37c2 11 11 19 22 19Z" fill="#0a2a5e" opacity=".38"/>
+    </g>
+    <circle class="planet-earth-s" cx="55" cy="13" r="2.2" fill="#fff"/>
+    <circle class="planet-earth-s planet-earth-s2" cx="9" cy="48" r="1.6" fill="#fff"/>
+    <g mask="url(#planet-earth-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#planet-earth-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#planet-earth-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#planet-earth-x-rim)"/>
+      <rect class="planet-earth-x-shine" x="0" y="-16" width="26" height="96" fill="url(#planet-earth-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="planet-earth-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="planet-earth-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

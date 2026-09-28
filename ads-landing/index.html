@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teezer - Grow Your Business with Teezer Ads.</title>
+<meta name="description" content="Reach millions of engaged users across the Teezer App and Web with powerful AI-powered advertising. Create campaigns, target the right audience, optimize performance, and turn every scroll into measurable business growth.">
+<meta name="theme-color" content="#f31e5e">
+<meta property="og:title" content="Teezer - Grow Your Business with Teezer Ads.">
+<meta property="og:description" content="Reach millions of engaged users across the Teezer App and Web with powerful AI-powered advertising. Create campaigns, target the right audience, optimize performance, and turn every scroll into measurable business growth.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ads.teezer.live/">
+<meta property="og:site_name" content="Teezer Ads">
+<meta property="og:image" content="https://ads.teezer.live/reelsoostudioadslogo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Teezer - Grow Your Business with Teezer Ads.">
+<meta name="twitter:description" content="Reach millions of engaged users across the Teezer App and Web with powerful AI-powered advertising. Create campaigns, target the right audience, optimize performance, and turn every scroll into measurable business growth.">
+<meta name="twitter:image" content="https://ads.teezer.live/reelsoostudioadslogo.png">
+<link rel="icon" type="image/png" href="/reelsooadslogo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --pink: #f31e5e; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #fdfcfb; color: #12141c; font-family: 'Manrope', system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: #12141c; text-decoration: none; }
+  a:hover { color: #000; }
+  ::selection { background: rgba(243,30,94,0.18); }
+  summary { list-style: none; cursor: pointer; }
+  summary::-webkit-details-marker { display: none; }
+  details[open] .faq-plus { transform: rotate(45deg); }
+  .faq-plus { transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-13px); } }
+  @keyframes floaty2 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+  @keyframes rsFade { from { opacity: 0; } to { opacity: 1; } }
+  /* Auth overlay: preloaded + revealed with a smooth fade (no load flash). */
+  #rs-auth-overlay { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .2s ease, visibility .2s ease; }
+  #rs-auth-overlay.rs-open { opacity: 1; visibility: visible; pointer-events: auto; }
+  @keyframes mqA { to { transform: translateX(-50%); } }
+  @keyframes mqB { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+  @keyframes dash { to { stroke-dashoffset: 0; } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes gpan { to { background-position: 200% center; } }
+  @keyframes pulseDot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .4; transform: scale(.7); } }
+
+  /* Responsive layer (the source design was desktop-only). Inline styles are
+     overridden with !important via attribute-substring selectors. */
+  @media (max-width: 1000px) {
+    [style*="grid-template-columns: repeat(5"] { grid-template-columns: repeat(2, 1fr) !important; }
+    [style*="grid-template-columns: repeat(4"] { grid-template-columns: repeat(2, 1fr) !important; }
+    [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 1.7fr"]    { grid-template-columns: 1fr 1fr !important; }
+    [style*="font-size: 60px"] { font-size: 52px !important; }
+  }
+  @media (max-width: 820px) {
+    nav > div:nth-of-type(2) { display: none !important; }
+    [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 640px) {
+    [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+    [style*="font-size: 60px"] { font-size: 31px !important; letter-spacing: -0.02em !important; line-height: 1.08 !important; }
+    [style*="font-size: 40px"] { font-size: 27px !important; }
+    [style*="font-size: 42px"] { font-size: 30px !important; }
+    [style*="font-size: 38px"] { font-size: 26px !important; }
+    [style*="font-size: 36px"] { font-size: 25px !important; }
+    [style*="font-size: 34px"] { font-size: 24px !important; }
+    [style*="font-size: 19px"] { font-size: 16px !important; }
+    /* hero eyebrow pill: let it wrap + shrink so it never overflows */
+    [style*="#f2d7e0"] { flex-wrap: wrap !important; justify-content: center !important; font-size: 12px !important; text-align: center !important; }
+    /* section paddings → tighter gutters */
+    [style*="padding: 74px 44px 44px"] { padding: 40px 18px 24px !important; }
+    [style*="padding: 60px 44px"] { padding: 38px 20px !important; }
+    [style*="padding: 60px 46px"] { padding: 38px 20px !important; }
+    [style*="padding: 90px 44px 20px"] { padding: 52px 18px 10px !important; }
+    [style*="padding: 74px 44px"] { padding: 44px 18px !important; }
+    [style*="padding: 80px 44px 30px"] { padding: 48px 18px 20px !important; }
+    [style*="padding: 0 44px"] { padding: 0 18px !important; }
+    [style*="margin: 60px auto 0; padding: 0 44px"] { padding: 0 18px !important; }
+    /* nav: keep logo + auth buttons on one row without clipping */
+    nav[style] { padding: 11px 14px !important; gap: 10px !important; }
+    nav > div:nth-of-type(3) { gap: 8px !important; }
+    nav > div:nth-of-type(3) a { padding: 8px 13px !important; font-size: 13px !important; }
+  }
+  @media (max-width: 400px) {
+    [style*="font-size: 60px"] { font-size: 27px !important; }
+    nav > div:nth-of-type(3) a[style*="border: 1px solid #e3e1dd"] { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 15px 44px; background: rgba(253,252,251,0.82); backdrop-filter: blur(16px); border-bottom: 1px solid #f0eeeb;">
+  <div style="display: flex; align-items: center; flex-shrink: 0;">
+    <a href="/" style="display: flex; align-items: center;"><img src="/reelsoostudioadslogo.png" alt="Teezer Ads" style="height: 32px; width: auto; display: block;"></a>
+  </div>
+  <div style="display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 600; color: #5b5f6b; white-space: nowrap;">
+    <a href="#top" style="color: var(--pink, #f31e5e); font-weight: 700;">Overview</a>
+    <a href="#solutions" style="color: #5b5f6b;">Ad Solutions</a>
+    <a href="#formats" style="color: #5b5f6b;">Formats</a>
+    <a href="#stories" style="color: #5b5f6b;">Success Stories</a>
+    <a href="#faq" style="color: #5b5f6b;">FAQ</a>
+  </div>
+  <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+    <a href="/ads-manager" data-auth="login" style="font-size: 15px; font-weight: 700; padding: 11px 22px; border-radius: 10px; color: #fff; background: var(--pink, #f31e5e); box-shadow: 0 6px 18px rgba(243,30,94,0.3);" style-hover="transform: translateY(-1px); box-shadow: 0 10px 24px rgba(243,30,94,0.42);">Log in</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="top" style="position: relative; overflow: hidden;">
+  <div style="position: absolute; inset: 0; z-index: 0; pointer-events: none;">
+    <div style="position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 900px; height: 560px; border-radius: 50%; background: radial-gradient(ellipse, #ffe4ec, transparent 62%); opacity: 0.9;"></div>
+    <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(18,20,28,0.04) 1px, transparent 1px); background-size: 30px 30px; -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000, transparent); mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000, transparent);"></div>
+  </div>
+  <div style="position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 74px 44px 44px; text-align: center;">
+    <div data-reveal style="display: inline-flex; align-items: center; gap: 9px; padding: 7px 15px 7px 9px; border-radius: 999px; background: #fff; border: 1px solid #f2d7e0; box-shadow: 0 4px 16px rgba(243,30,94,0.08); font-size: 13.5px; font-weight: 600; color: #5b5f6b; margin-bottom: 26px;">
+      <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: var(--pink, #f31e5e); color: #fff; font-size: 12px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: pulseDot 1.6s infinite;"></span> LIVE</span>
+      Advertise on Teezer — reach 50M+ daily viewers
+    </div>
+    <h1 data-reveal data-delay="80" style="font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 60px; line-height: 1.05; letter-spacing: -0.035em; margin: 0 0 22px; text-wrap: balance;">
+      Teezer - Grow Your Business with <span style="background: linear-gradient(100deg, #ff6b8f, #f31e5e, #ff8a5c, #f31e5e); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: gpan 6s linear infinite;">Teezer Ads.</span>
+    </h1>
+    <p data-reveal data-delay="160" style="font-size: 19px; line-height: 1.55; color: #5b5f6b; margin: 0 auto 32px; max-width: 640px; text-wrap: pretty;">
+      Reach millions of engaged users across the Teezer App and Web with powerful AI-powered advertising. Create campaigns, target the right audience, optimize performance, and turn every scroll into measurable business growth.
+    </p>
+    <div data-reveal data-delay="240" style="display: flex; align-items: center; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 22px;">
+      <a href="/ads-manager" data-auth="login" style="display: inline-flex; align-items: center; gap: 9px; font-size: 16px; font-weight: 700; padding: 16px 28px; border-radius: 12px; color: #fff; background: var(--pink, #f31e5e); box-shadow: 0 12px 32px rgba(243,30,94,0.34);" style-hover="transform: translateY(-2px); box-shadow: 0 18px 44px rgba(243,30,94,0.48);">Start Advertising <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      <a href="#solutions" style="display: inline-flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; padding: 16px 24px; border-radius: 12px; color: #12141c; background: #fff; border: 1px solid #e3e1dd;" style-hover="border-color: #12141c;"><span style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #ffe9f0; color: var(--pink, #f31e5e);"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="m6 3 14 9-14 9V3Z"/></svg></span> Watch how it works</a>
+    </div>
+    <div data-reveal data-delay="320" style="display: flex; align-items: center; gap: 22px; justify-content: center; flex-wrap: wrap; font-size: 13.5px; font-weight: 600; color: #6a6d77;">
+      <span style="display: inline-flex; align-items: center; gap: 7px;"><span style="display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:50%; background:var(--pink,#f31e5e); color:#fff;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Easy setup</span>
+      <span style="display: inline-flex; align-items: center; gap: 7px;"><span style="display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:50%; background:var(--pink,#f31e5e); color:#fff;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Advanced targeting</span>
+      <span style="display: inline-flex; align-items: center; gap: 7px;"><span style="display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:50%; background:var(--pink,#f31e5e); color:#fff;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Trusted platform</span>
+    </div>
+  </div>
+  <!-- reel marquee -->
+  <div data-reveal data-delay="200" style="position: relative; z-index: 1; padding: 20px 0 60px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);">
+    <div id="reel-marquee"></div>
+  </div>
+</header>
+
+<!-- TRUSTED MARQUEE -->
+<section style="border-top: 1px solid #f0eeeb; border-bottom: 1px solid #f0eeeb; background: #fff; overflow: hidden;">
+  <div style="display: flex; align-items: center;">
+    <span style="flex-shrink: 0; padding: 22px 26px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #a2a5ad; border-right: 1px solid #f0eeeb;">Trusted by</span>
+    <div style="overflow: hidden; flex: 1; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);">
+      <div style="display: flex; width: max-content; gap: 56px; padding: 22px 30px; animation: mqA 26s linear infinite; align-items: center; opacity: 0.55;">
+        <span style="font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 21px;">Northwind</span>
+        <span style="font-family: 'Poppins',sans-serif; font-weight: 600; font-size: 21px; letter-spacing: 0.08em;">LUMEN</span>
+        <span style="font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 21px;">Acme&nbsp;Co</span>
+        <span style="font-family: 'Poppins',sans-serif; font-weight: 600; font-size: 21px;">Vertex</span>
+        <span style="font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 21px;">Halcyon</span>
+        <span style="font-family: 'Poppins',sans-serif; font-weight: 600; font-size: 21px; letter-spacing: 0.1em;">ORBIT</span>
+        <span style="font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 21px;">Meridian</span>
+        <span style="font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 21px;">Northwind</span>
+        <span style="font-family: 'Poppins',sans-serif; font-weight: 600; font-size: 21px; letter-spacing: 0.08em;">LUMEN</span>
+        <span style="font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 21px;">Acme&nbsp;Co</span>
+        <span style="font-family: 'Poppins',sans-serif; font-weight: 600; font-size: 21px;">Vertex</span>
+        <span style="font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 21px;">Halcyon</span>
+        <span style="font-family: 'Poppins',sans-serif; font-weight: 600; font-size: 21px; letter-spacing: 0.1em;">ORBIT</span>
+        <span style="font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 21px;">Meridian</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section data-reveal style="max-width: 1140px; margin: 60px auto 0; padding: 0 44px;">
+  <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;">
+    <div style="text-align: center;"><div style="font-family: 'Poppins',sans-serif; font-size: 38px; font-weight: 800; color: var(--pink,#f31e5e);"><span data-count-to="50" data-suffix="M+">50M+</span></div><div style="font-size: 13px; color: #8a8d97; margin-top: 4px;">Monthly Active Users</div></div>
+    <div style="text-align: center;"><div style="font-family: 'Poppins',sans-serif; font-size: 38px; font-weight: 800; color: var(--pink,#f31e5e);"><span data-count-to="2" data-suffix="B+">2B+</span></div><div style="font-size: 13px; color: #8a8d97; margin-top: 4px;">Video Views Daily</div></div>
+    <div style="text-align: center;"><div style="font-family: 'Poppins',sans-serif; font-size: 38px; font-weight: 800; color: var(--pink,#f31e5e);"><span data-count-to="200" data-suffix="K+">200K+</span></div><div style="font-size: 13px; color: #8a8d97; margin-top: 4px;">Creators &amp; Influencers</div></div>
+    <div style="text-align: center;"><div style="font-family: 'Poppins',sans-serif; font-size: 38px; font-weight: 800; color: var(--pink,#f31e5e);"><span data-count-to="150" data-suffix="+">150+</span></div><div style="font-size: 13px; color: #8a8d97; margin-top: 4px;">Countries Reached</div></div>
+    <div style="text-align: center;"><div style="font-family: 'Poppins',sans-serif; font-size: 38px; font-weight: 800; color: var(--pink,#f31e5e);"><span data-count-to="3" data-suffix="X">3X</span></div><div style="font-size: 13px; color: #8a8d97; margin-top: 4px;">Higher Engagement</div></div>
+  </div>
+</section>
+
+<!-- SOLUTIONS: alternating showcases -->
+<section id="solutions" style="max-width: 1140px; margin: 0 auto; padding: 90px 44px 20px;">
+  <div data-reveal style="text-align: center; margin-bottom: 60px;">
+    <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--pink, #f31e5e); margin-bottom: 10px;">Why Teezer Ads</div>
+    <h2 style="font-family: 'Poppins',sans-serif; font-size: 40px; font-weight: 700; letter-spacing: -0.025em; margin: 0 0 10px;">Everything you need to grow</h2>
+    <p style="font-size: 17px; color: #6a6d77; margin: 0 auto; max-width: 520px;">Powerful targeting, effortless creation, and insights that turn views into revenue.</p>
+  </div>
+
+  <!-- Row 1 -->
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin-bottom: 90px;">
+    <div data-reveal data-dir="left">
+      <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #ffe9f0; color: var(--pink, #f31e5e); font-size: 13px; font-weight: 700; margin-bottom: 18px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Precision Targeting</div>
+      <h3 style="font-family: 'Poppins',sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 16px;">Reach exactly the right audience</h3>
+      <p style="font-size: 17px; line-height: 1.6; color: #5b5f6b; margin: 0 0 22px;">Target by age, interests, location, and behavior — then let our engine optimize delivery toward the people most likely to act.</p>
+      <div style="display: flex; flex-direction: column; gap: 13px;">
+        <div style="display: flex; align-items: center; gap: 11px; font-size: 15px; font-weight: 600; color: #2a2d38;"><span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:#ffe9f0; color:var(--pink,#f31e5e);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Interest &amp; behavior signals</div>
+        <div style="display: flex; align-items: center; gap: 11px; font-size: 15px; font-weight: 600; color: #2a2d38;"><span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:#ffe9f0; color:var(--pink,#f31e5e);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Lookalike audiences</div>
+        <div style="display: flex; align-items: center; gap: 11px; font-size: 15px; font-weight: 600; color: #2a2d38;"><span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:#ffe9f0; color:var(--pink,#f31e5e);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Reach in 150+ countries</div>
+      </div>
+    </div>
+    <div data-reveal data-dir="right" style="position: relative;">
+      <div style="border-radius: 22px; overflow: hidden; border: 1px solid #f0eeeb; box-shadow: 0 30px 60px -30px rgba(18,20,28,0.3); aspect-ratio: 4/3; background: #fff;"><div style="width:100%;height:100%;background:#fff;padding:18px 18px 0;font-family:'Manrope',sans-serif;position:relative;overflow:hidden;">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:16px;"><span style="width:9px;height:9px;border-radius:50%;background:#ff5f57;"></span><span style="width:9px;height:9px;border-radius:50%;background:#febc2e;"></span><span style="width:9px;height:9px;border-radius:50%;background:#28c840;"></span><span style="margin-left:8px;font-size:11.5px;font-weight:800;color:#8a8d97;font-family:'Poppins',sans-serif;">Audience Builder</span><span style="margin-left:auto;font-size:11px;font-weight:800;color:#f31e5e;background:#ffe9f0;padding:4px 9px;border-radius:999px;">94% match</span></div>
+  <div style="display:flex;gap:16px;">
+    <div style="flex:1;"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px;"><span style="font-size:11.5px;font-weight:600;color:#4a4d58;">Age 18–34</span><div style="flex:1;max-width:120px;"><div style="height:7px;width:88%;background:#ffe0ea;border-radius:5px;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;width:88%;background:linear-gradient(90deg,#ff6b8f,#f31e5e);border-radius:5px;"></div></div></div></div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px;"><span style="font-size:11.5px;font-weight:600;color:#4a4d58;">Interests</span><div style="flex:1;max-width:120px;"><div style="height:7px;width:72%;background:#ffe0ea;border-radius:5px;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;width:72%;background:linear-gradient(90deg,#ff6b8f,#f31e5e);border-radius:5px;"></div></div></div></div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px;"><span style="font-size:11.5px;font-weight:600;color:#4a4d58;">Location</span><div style="flex:1;max-width:120px;"><div style="height:7px;width:64%;background:#ffe0ea;border-radius:5px;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;width:64%;background:linear-gradient(90deg,#ff6b8f,#f31e5e);border-radius:5px;"></div></div></div></div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px;"><span style="font-size:11.5px;font-weight:600;color:#4a4d58;">Behavior</span><div style="flex:1;max-width:120px;"><div style="height:7px;width:80%;background:#ffe0ea;border-radius:5px;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;width:80%;background:linear-gradient(90deg,#ff6b8f,#f31e5e);border-radius:5px;"></div></div></div></div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px;"><span style="font-size:11.5px;font-weight:600;color:#4a4d58;">Lookalikes</span><div style="flex:1;max-width:120px;"><div style="height:7px;width:56%;background:#ffe0ea;border-radius:5px;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;width:56%;background:linear-gradient(90deg,#ff6b8f,#f31e5e);border-radius:5px;"></div></div></div></div></div>
+    <div style="width:88px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+      <div style="position:relative;width:76px;height:76px;border-radius:50%;background:conic-gradient(#f31e5e 0 84%, #ffe0ea 84% 100%);display:flex;align-items:center;justify-content:center;"><div style="width:54px;height:54px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:800;font-size:16px;color:#12141c;">8.4M</div></div>
+      <span style="font-size:10.5px;font-weight:600;color:#8a8d97;">Est. reach</span>
+    </div>
+  </div>
+</div></div>
+      <div style="position: absolute; bottom: -18px; left: -18px; padding: 13px 16px; border-radius: 15px; background: #fff; border: 1px solid #f0eeeb; box-shadow: 0 16px 40px -14px rgba(18,20,28,0.28); animation: floaty 6s ease-in-out infinite; display: flex; align-items: center; gap: 11px;"><span style="display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:11px; background:#ffe9f0; color:var(--pink,#f31e5e);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><div><div style="font-size: 11px; color: #8a8d97; font-weight: 600;">Match rate</div><div style="font-family: 'Poppins',sans-serif; font-size: 18px; font-weight: 800;">94.2%</div></div></div>
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;">
+    <div data-reveal data-dir="left" style="position: relative; order: 0;">
+      <div style="border-radius: 22px; overflow: hidden; border: 1px solid #f0eeeb; box-shadow: 0 30px 60px -30px rgba(18,20,28,0.3); aspect-ratio: 4/3; background: #fff; position: relative;"><div style="width:100%;height:100%;background:linear-gradient(180deg,#fff,#fbfafc);padding:18px;font-family:'Manrope',sans-serif;position:relative;">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;"><span style="font-size:11.5px;font-weight:800;color:#8a8d97;font-family:'Poppins',sans-serif;">Campaign Performance</span><span style="font-size:10.5px;font-weight:700;color:#22a06b;background:#e7f7ef;padding:3px 8px;border-radius:999px;">● Live</span></div>
+  <div style="display:flex;gap:8px;"><div style="flex:1;background:#fff;border:1px solid #f0eeeb;border-radius:11px;padding:9px 11px;"><div style="font-size:10px;font-weight:600;color:#8a8d97;margin-bottom:3px;">Views</div><div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:15px;color:#12141c;">8.45M</div></div><div style="flex:1;background:#fff;border:1px solid #f0eeeb;border-radius:11px;padding:9px 11px;"><div style="font-size:10px;font-weight:600;color:#8a8d97;margin-bottom:3px;">Engagement</div><div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:15px;color:#12141c;">3.2×</div></div><div style="flex:1;background:#fff;border:1px solid #f0eeeb;border-radius:11px;padding:9px 11px;"><div style="font-size:10px;font-weight:600;color:#8a8d97;margin-bottom:3px;">CPV</div><div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:15px;color:#12141c;">-40%</div></div></div>
+</div>
+        <svg viewBox="0 0 320 120" style="position: absolute; left: 20px; right: 20px; bottom: 20px; width: calc(100% - 40px); height: 90px; pointer-events: none;"><defs><linearGradient id="fillA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(243,30,94,0.28)"/><stop offset="1" stop-color="rgba(243,30,94,0)"/></linearGradient></defs><path d="M0 100 L45 90 L90 94 L135 70 L180 60 L225 36 L270 28 L320 8 L320 120 L0 120Z" fill="url(#fillA)"/><path data-line d="M0 100 L45 90 L90 94 L135 70 L180 60 L225 36 L270 28 L320 8" fill="none" stroke="var(--pink,#f31e5e)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <div data-reveal data-dir="right">
+      <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #ffe9f0; color: var(--pink, #f31e5e); font-size: 13px; font-weight: 700; margin-bottom: 18px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg> Real-time Analytics</div>
+      <h3 style="font-family: 'Poppins',sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 16px;">Measure every view, optimize instantly</h3>
+      <p style="font-size: 17px; line-height: 1.6; color: #5b5f6b; margin: 0 0 22px;">Track watch-time, engagement, and conversions live. Get one-click recommendations to scale what's working and cut what isn't.</p>
+      <div style="display: flex; flex-direction: column; gap: 13px;">
+        <div style="display: flex; align-items: center; gap: 11px; font-size: 15px; font-weight: 600; color: #2a2d38;"><span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:#ffe9f0; color:var(--pink,#f31e5e);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Live performance dashboard</div>
+        <div style="display: flex; align-items: center; gap: 11px; font-size: 15px; font-weight: 600; color: #2a2d38;"><span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:#ffe9f0; color:var(--pink,#f31e5e);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> A/B testing built in</div>
+        <div style="display: flex; align-items: center; gap: 11px; font-size: 15px; font-weight: 600; color: #2a2d38;"><span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:#ffe9f0; color:var(--pink,#f31e5e);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Export &amp; API access</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE GRID -->
+<section style="max-width: 1140px; margin: 0 auto; padding: 90px 44px 20px;">
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;">
+    <div data-reveal style="padding: 28px 24px; border-radius: 18px; background: #fff; border: 1px solid #f0eeeb; box-shadow: 0 8px 26px -18px rgba(18,20,28,0.14); transition: transform .3s, box-shadow .3s;" style-hover="transform: translateY(-6px); box-shadow: 0 22px 44px -22px rgba(18,20,28,0.24);">
+      <span style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:13px; background:#ffe9f0; color:var(--pink,#f31e5e); margin-bottom:16px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+      <h3 style="font-family: 'Poppins',sans-serif; font-size: 17px; font-weight: 700; margin: 0 0 8px;">Precision Targeting</h3>
+      <p style="font-size: 14px; line-height: 1.55; color: #6a6d77; margin: 0;">Reach the right audience by age, interests, location, and behavior.</p>
+    </div>
+    <div data-reveal data-delay="80" style="padding: 28px 24px; border-radius: 18px; background: #fff; border: 1px solid #f0eeeb; box-shadow: 0 8px 26px -18px rgba(18,20,28,0.14); transition: transform .3s, box-shadow .3s;" style-hover="transform: translateY(-6px); box-shadow: 0 22px 44px -22px rgba(18,20,28,0.24);">
+      <span style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:13px; background:#ffe9f0; color:var(--pink,#f31e5e); margin-bottom:16px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="m6 3 14 9-14 9V3Z"/></svg></span>
+      <h3 style="font-family: 'Poppins',sans-serif; font-size: 17px; font-weight: 700; margin: 0 0 8px;">High Engagement</h3>
+      <p style="font-size: 14px; line-height: 1.55; color: #6a6d77; margin: 0;">Short videos capture attention and drive meaningful interactions.</p>
+    </div>
+    <div data-reveal data-delay="160" style="padding: 28px 24px; border-radius: 18px; background: #fff; border: 1px solid #f0eeeb; box-shadow: 0 8px 26px -18px rgba(18,20,28,0.14); transition: transform .3s, box-shadow .3s;" style-hover="transform: translateY(-6px); box-shadow: 0 22px 44px -22px rgba(18,20,28,0.24);">
+      <span style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:13px; background:#ffe9f0; color:var(--pink,#f31e5e); margin-bottom:16px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+      <h3 style="font-family: 'Poppins',sans-serif; font-size: 17px; font-weight: 700; margin: 0 0 8px;">Shoppable Video</h3>
+      <p style="font-size: 14px; line-height: 1.55; color: #6a6d77; margin: 0;">Tag products in-frame and let viewers check out in the feed.</p>
+    </div>
+    <div data-reveal data-delay="240" style="padding: 28px 24px; border-radius: 18px; background: #fff; border: 1px solid #f0eeeb; box-shadow: 0 8px 26px -18px rgba(18,20,28,0.14); transition: transform .3s, box-shadow .3s;" style-hover="transform: translateY(-6px); box-shadow: 0 22px 44px -22px rgba(18,20,28,0.24);">
+      <span style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:13px; background:#ffe9f0; color:var(--pink,#f31e5e); margin-bottom:16px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+      <h3 style="font-family: 'Poppins',sans-serif; font-size: 17px; font-weight: 700; margin: 0 0 8px;">Easy &amp; Fast Setup</h3>
+      <p style="font-size: 14px; line-height: 1.55; color: #6a6d77; margin: 0;">Launch your campaign in minutes with an intuitive platform.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AD FORMATS -->
+<section id="formats" style="background: #fff; border-top: 1px solid #f0eeeb; border-bottom: 1px solid #f0eeeb; margin-top: 70px;">
+  <div style="max-width: 1140px; margin: 0 auto; padding: 74px 44px;">
+    <div data-reveal style="text-align: center; margin-bottom: 46px;">
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--pink, #f31e5e); margin-bottom: 10px;">Ad Formats</div>
+      <h2 style="font-family: 'Poppins',sans-serif; font-size: 36px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 10px;">Solutions for every goal</h2>
+      <p style="font-size: 16px; color: #6a6d77; margin: 0;">Choose the right format to connect with your audience and maximize results.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;">
+      <div data-reveal style="position: relative; overflow: hidden; border-radius: 18px; background: #faf9f7; border: 1px solid #f0eeeb; padding: 22px 20px 0; height: 236px; transition: transform .3s, box-shadow .3s;" style-hover="transform: translateY(-5px); box-shadow: 0 20px 40px -22px rgba(18,20,28,0.24);">
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:11px; background:#ffe9f0; color:var(--pink,#f31e5e); margin-bottom:14px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></span>
+        <h3 style="font-family: 'Poppins',sans-serif; font-size: 16px; font-weight: 700; margin: 0 0 7px;">In-Feed Ads</h3>
+        <p style="font-size: 12.5px; line-height: 1.5; color: #6a6d77; margin: 0; max-width: 108px;">Native short video ads that blend into the feed.</p>
+        <div style="position: absolute; right: 8px; bottom: -18px; width: 92px; height: 168px; border-radius: 16px 16px 0 0; padding: 5px 5px 0; background: #12141c; box-shadow: -8px 12px 30px -12px rgba(18,20,28,0.4);"><div style="width:100%; height:100%; border-radius:12px 12px 0 0; overflow:hidden;"><div style="width:100%;height:100%;background:linear-gradient(160deg,#ffd9e4,#ff9dbb);position:relative;display:flex;align-items:center;justify-content:center;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.30);border:1px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;"><div style="width:0;height:0;border-left:10px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:2px;"></div></div><div style="position:absolute;left:8px;right:8px;bottom:8px;"><div style="height:5px;width:62%;background:rgba(255,255,255,0.9);border-radius:3px;margin-bottom:4px;"></div><div style="height:5px;width:40%;background:rgba(255,255,255,0.55);border-radius:3px;"></div></div></div></div></div>
+      </div>
+      <div data-reveal data-delay="80" style="position: relative; overflow: hidden; border-radius: 18px; background: #faf9f7; border: 1px solid #f0eeeb; padding: 22px 20px 0; height: 236px; transition: transform .3s, box-shadow .3s;" style-hover="transform: translateY(-5px); box-shadow: 0 20px 40px -22px rgba(18,20,28,0.24);">
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:11px; background:#ffe9f0; color:var(--pink,#f31e5e); margin-bottom:14px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg></span>
+        <h3 style="font-family: 'Poppins',sans-serif; font-size: 16px; font-weight: 700; margin: 0 0 7px;">Branded Hashtag</h3>
+        <p style="font-size: 12.5px; line-height: 1.5; color: #6a6d77; margin: 0; max-width: 108px;">Spark trends and user-generated content.</p>
+        <div style="position: absolute; right: 8px; bottom: -18px; width: 92px; height: 168px; border-radius: 16px 16px 0 0; padding: 5px 5px 0; background: #12141c; box-shadow: -8px 12px 30px -12px rgba(18,20,28,0.4);"><div style="width:100%; height:100%; border-radius:12px 12px 0 0; overflow:hidden;"><div style="width:100%;height:100%;background:linear-gradient(160deg,#dfe4ff,#aeb9ff);position:relative;display:flex;align-items:center;justify-content:center;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.30);border:1px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;"><div style="width:0;height:0;border-left:10px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:2px;"></div></div><div style="position:absolute;left:8px;right:8px;bottom:8px;"><div style="height:5px;width:62%;background:rgba(255,255,255,0.9);border-radius:3px;margin-bottom:4px;"></div><div style="height:5px;width:40%;background:rgba(255,255,255,0.55);border-radius:3px;"></div></div></div></div></div>
+      </div>
+      <div data-reveal data-delay="160" style="position: relative; overflow: hidden; border-radius: 18px; background: #faf9f7; border: 1px solid #f0eeeb; padding: 22px 20px 0; height: 236px; transition: transform .3s, box-shadow .3s;" style-hover="transform: translateY(-5px); box-shadow: 0 20px 40px -22px rgba(18,20,28,0.24);">
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:11px; background:#ffe9f0; color:var(--pink,#f31e5e); margin-bottom:14px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <h3 style="font-family: 'Poppins',sans-serif; font-size: 16px; font-weight: 700; margin: 0 0 7px;">TopView Ads</h3>
+        <p style="font-size: 12.5px; line-height: 1.5; color: #6a6d77; margin: 0; max-width: 108px;">Be the first thing users see on open.</p>
+        <div style="position: absolute; right: 8px; bottom: -18px; width: 92px; height: 168px; border-radius: 16px 16px 0 0; padding: 5px 5px 0; background: #12141c; box-shadow: -8px 12px 30px -12px rgba(18,20,28,0.4);"><div style="width:100%; height:100%; border-radius:12px 12px 0 0; overflow:hidden; background: linear-gradient(180deg,var(--pink,#f31e5e),#c00a45); display:flex; align-items:center; justify-content:center;"><span style="font-family:'Poppins',sans-serif;font-weight:800;font-size:15px;color:#fff;letter-spacing:-0.02em;">Teezer</span></div></div>
+      </div>
+      <div data-reveal data-delay="240" style="position: relative; overflow: hidden; border-radius: 18px; background: #faf9f7; border: 1px solid #f0eeeb; padding: 22px 20px 0; height: 236px; transition: transform .3s, box-shadow .3s;" style-hover="transform: translateY(-5px); box-shadow: 0 20px 40px -22px rgba(18,20,28,0.24);">
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:11px; background:#ffe9f0; color:var(--pink,#f31e5e); margin-bottom:14px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg></span>
+        <h3 style="font-family: 'Poppins',sans-serif; font-size: 16px; font-weight: 700; margin: 0 0 7px;">Branded Effects</h3>
+        <p style="font-size: 12.5px; line-height: 1.5; color: #6a6d77; margin: 0; max-width: 108px;">Filters and effects that boost recall.</p>
+        <div style="position: absolute; right: 8px; bottom: -18px; width: 92px; height: 168px; border-radius: 16px 16px 0 0; padding: 5px 5px 0; background: #12141c; box-shadow: -8px 12px 30px -12px rgba(18,20,28,0.4);"><div style="width:100%; height:100%; border-radius:12px 12px 0 0; overflow:hidden;"><div style="width:100%;height:100%;background:linear-gradient(160deg,#ffe7d1,#ffbf94);position:relative;display:flex;align-items:center;justify-content:center;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.30);border:1px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;"><div style="width:0;height:0;border-left:10px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:2px;"></div></div><div style="position:absolute;left:8px;right:8px;bottom:8px;"><div style="height:5px;width:62%;background:rgba(255,255,255,0.9);border-radius:3px;margin-bottom:4px;"></div><div style="height:5px;width:40%;background:rgba(255,255,255,0.55);border-radius:3px;"></div></div></div></div></div>
+      </div>
+      <div data-reveal data-delay="320" style="position: relative; overflow: hidden; border-radius: 18px; background: #faf9f7; border: 1px solid #f0eeeb; padding: 22px 20px 0; height: 236px; transition: transform .3s, box-shadow .3s;" style-hover="transform: translateY(-5px); box-shadow: 0 20px 40px -22px rgba(18,20,28,0.24);">
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:11px; background:#ffe9f0; color:var(--pink,#f31e5e); margin-bottom:14px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></span>
+        <h3 style="font-family: 'Poppins',sans-serif; font-size: 16px; font-weight: 700; margin: 0 0 7px;">Branded Mission</h3>
+        <p style="font-size: 12.5px; line-height: 1.5; color: #6a6d77; margin: 0; max-width: 108px;">Drive action with challenge campaigns.</p>
+        <div style="position: absolute; right: 8px; bottom: -18px; width: 92px; height: 168px; border-radius: 16px 16px 0 0; padding: 5px 5px 0; background: #12141c; box-shadow: -8px 12px 30px -12px rgba(18,20,28,0.4);"><div style="width:100%; height:100%; border-radius:12px 12px 0 0; overflow:hidden;"><div style="width:100%;height:100%;background:linear-gradient(160deg,#d6f5e6,#93e3bf);position:relative;display:flex;align-items:center;justify-content:center;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.30);border:1px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;"><div style="width:0;height:0;border-left:10px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:2px;"></div></div><div style="position:absolute;left:8px;right:8px;bottom:8px;"><div style="height:5px;width:62%;background:rgba(255,255,255,0.9);border-radius:3px;margin-bottom:4px;"></div><div style="height:5px;width:40%;background:rgba(255,255,255,0.55);border-radius:3px;"></div></div></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DARK BAND -->
+<section style="max-width: 1140px; margin: 70px auto; padding: 0 44px;">
+  <div data-reveal style="position: relative; overflow: hidden; background: #0d1424; border-radius: 24px; padding: 60px 44px; text-align: center;">
+    <div style="position: absolute; top: -120px; right: -60px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(243,30,94,0.4), transparent 66%); filter: blur(20px);"></div>
+    <h2 style="position: relative; font-family: 'Poppins',sans-serif; font-size: 34px; font-weight: 700; color: #fff; letter-spacing: -0.02em; margin: 0 0 34px;">Brands see real results with Teezer Ads</h2>
+    <div style="position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+      <div><div style="font-family: 'Poppins',sans-serif; font-size: 42px; font-weight: 800; color: #fff;"><span data-count-to="248" data-suffix="%">248%</span></div><div style="font-size: 13px; color: #9a9da8; margin-top: 4px;">Avg. reach increase</div></div>
+      <div><div style="font-family: 'Poppins',sans-serif; font-size: 42px; font-weight: 800; color: #fff;"><span data-count-to="3" data-suffix="X">3X</span></div><div style="font-size: 13px; color: #9a9da8; margin-top: 4px;">Higher engagement</div></div>
+      <div><div style="font-family: 'Poppins',sans-serif; font-size: 42px; font-weight: 800; color: #fff;"><span data-count-to="40" data-suffix="%">40%</span></div><div style="font-size: 13px; color: #9a9da8; margin-top: 4px;">Lower cost per view</div></div>
+      <div><div style="font-family: 'Poppins',sans-serif; font-size: 42px; font-weight: 800; color: var(--pink,#f31e5e);"><span data-count-to="8.45" data-decimals="2" data-suffix="M">8.45M</span></div><div style="font-size: 13px; color: #9a9da8; margin-top: 4px;">Views per campaign</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS STORIES -->
+<section id="stories" style="max-width: 1140px; margin: 0 auto; padding: 20px 44px 40px;">
+  <div data-reveal style="text-align: center; margin-bottom: 44px;">
+    <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--pink, #f31e5e); margin-bottom: 10px;">Success Stories</div>
+    <h2 style="font-family: 'Poppins',sans-serif; font-size: 36px; font-weight: 700; letter-spacing: -0.02em; margin: 0;">Brands love Teezer Ads</h2>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;">
+    <div data-reveal style="padding: 30px; border-radius: 18px; background: #fff; border: 1px solid #f0eeeb; box-shadow: 0 8px 26px -18px rgba(18,20,28,0.14);">
+      <div style="font-family: 'Poppins',sans-serif; font-size: 44px; font-weight: 800; line-height: 0.6; color: var(--pink, #f31e5e); margin-bottom: 12px;">&ldquo;</div>
+      <p style="font-size: 15.5px; line-height: 1.6; color: #3a3d47; margin: 0 0 26px; text-wrap: pretty;">Teezer Ads helped us connect with a younger audience like never before. The engagement was beyond our expectations.</p>
+      <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f0eeeb; padding-top: 18px;"><div><div style="font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 15px; color: var(--pink, #f31e5e);">Brand One</div><div style="font-size: 12.5px; color: #8a8d97;">Marketing Team</div></div><div style="width: 84px; height: 30px;"><div style="width:100%;height:100%;display:flex;align-items:center;gap:7px;color:#c2c4cb;"><span style="width:22px;height:22px;border-radius:6px;background:#efedf1;display:flex;align-items:center;justify-content:center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#b9bbc3"><path d="M12 2 22 12 12 22 2 12Z"/></svg></span><span style="font-family:'Poppins',sans-serif;font-weight:800;font-size:14px;letter-spacing:-0.02em;color:#b7b9c1;">Northwind</span></div></div></div>
+    </div>
+    <div data-reveal data-delay="120" style="padding: 30px; border-radius: 18px; background: #fff; border: 1px solid #f0eeeb; box-shadow: 0 8px 26px -18px rgba(18,20,28,0.14);">
+      <div style="font-family: 'Poppins',sans-serif; font-size: 44px; font-weight: 800; line-height: 0.6; color: var(--pink, #f31e5e); margin-bottom: 12px;">&ldquo;</div>
+      <p style="font-size: 15.5px; line-height: 1.6; color: #3a3d47; margin: 0 0 26px; text-wrap: pretty;">Our campaign went viral! The reach, targeting, and insights on Teezer Ads are simply outstanding.</p>
+      <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f0eeeb; padding-top: 18px;"><div><div style="font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 15px; color: var(--pink, #f31e5e);">Brand Two</div><div style="font-size: 12.5px; color: #8a8d97;">Digital Marketing Lead</div></div><div style="width: 84px; height: 30px;"><div style="width:100%;height:100%;display:flex;align-items:center;gap:7px;color:#c2c4cb;"><span style="width:22px;height:22px;border-radius:6px;background:#efedf1;display:flex;align-items:center;justify-content:center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#b9bbc3"><path d="M12 2 22 12 12 22 2 12Z"/></svg></span><span style="font-family:'Poppins',sans-serif;font-weight:800;font-size:14px;letter-spacing:-0.02em;color:#b7b9c1;">Lumen</span></div></div></div>
+    </div>
+    <div data-reveal data-delay="240" style="padding: 30px; border-radius: 18px; background: #fff; border: 1px solid #f0eeeb; box-shadow: 0 8px 26px -18px rgba(18,20,28,0.14);">
+      <div style="font-family: 'Poppins',sans-serif; font-size: 44px; font-weight: 800; line-height: 0.6; color: var(--pink, #f31e5e); margin-bottom: 12px;">&ldquo;</div>
+      <p style="font-size: 15.5px; line-height: 1.6; color: #3a3d47; margin: 0 0 26px; text-wrap: pretty;">A highly effective platform for brand awareness and performance marketing at scale.</p>
+      <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f0eeeb; padding-top: 18px;"><div><div style="font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 15px; color: var(--pink, #f31e5e);">Brand Three</div><div style="font-size: 12.5px; color: #8a8d97;">Brand Manager</div></div><div style="width: 84px; height: 30px;"><div style="width:100%;height:100%;display:flex;align-items:center;gap:7px;color:#c2c4cb;"><span style="width:22px;height:22px;border-radius:6px;background:#efedf1;display:flex;align-items:center;justify-content:center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#b9bbc3"><path d="M12 2 22 12 12 22 2 12Z"/></svg></span><span style="font-family:'Poppins',sans-serif;font-weight:800;font-size:14px;letter-spacing:-0.02em;color:#b7b9c1;">Vertex</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="max-width: 800px; margin: 0 auto; padding: 80px 44px 30px;">
+  <div data-reveal style="text-align: center; margin-bottom: 40px;">
+    <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--pink, #f31e5e); margin-bottom: 10px;">FAQ</div>
+    <h2 style="font-family: 'Poppins',sans-serif; font-size: 36px; font-weight: 700; letter-spacing: -0.02em; margin: 0;">Questions, answered</h2>
+  </div>
+  <div data-reveal style="display: flex; flex-direction: column; gap: 12px;">
+    <details style="padding: 20px 24px; border-radius: 14px; background: #fff; border: 1px solid #f0eeeb; box-shadow: 0 2px 12px rgba(18,20,28,0.03);">
+      <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: 'Poppins',sans-serif; font-size: 17px; font-weight: 600;">How do I get started with Teezer Ads? <span class="faq-plus" style="color: var(--pink,#f31e5e); font-size: 24px; line-height: 1; flex-shrink: 0;">+</span></summary>
+      <p style="font-size: 15px; line-height: 1.6; color: #5b5f6b; margin: 15px 0 0;">Create a free account, upload or build a video in the studio, set your audience and goal, and launch. Your first campaign can be live in minutes.</p>
+    </details>
+    <details style="padding: 20px 24px; border-radius: 14px; background: #fff; border: 1px solid #f0eeeb; box-shadow: 0 2px 12px rgba(18,20,28,0.03);">
+      <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: 'Poppins',sans-serif; font-size: 17px; font-weight: 600;">How precise is the audience targeting? <span class="faq-plus" style="color: var(--pink,#f31e5e); font-size: 24px; line-height: 1; flex-shrink: 0;">+</span></summary>
+      <p style="font-size: 15px; line-height: 1.6; color: #5b5f6b; margin: 15px 0 0;">Target by age, gender, location, language, interests, and on-platform behavior. Our engine optimizes delivery toward the people most likely to convert.</p>
+    </details>
+    <details style="padding: 20px 24px; border-radius: 14px; background: #fff; border: 1px solid #f0eeeb; box-shadow: 0 2px 12px rgba(18,20,28,0.03);">
+      <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: 'Poppins',sans-serif; font-size: 17px; font-weight: 600;">Do I need to create the videos myself? <span class="faq-plus" style="color: var(--pink,#f31e5e); font-size: 24px; line-height: 1; flex-shrink: 0;">+</span></summary>
+      <p style="font-size: 15px; line-height: 1.6; color: #5b5f6b; margin: 15px 0 0;">No. Use the built-in creator studio, tap our creator marketplace, or upload your own assets — whatever fits your workflow.</p>
+    </details>
+    <details style="padding: 20px 24px; border-radius: 14px; background: #fff; border: 1px solid #f0eeeb; box-shadow: 0 2px 12px rgba(18,20,28,0.03);">
+      <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: 'Poppins',sans-serif; font-size: 17px; font-weight: 600;">How do I measure results? <span class="faq-plus" style="color: var(--pink,#f31e5e); font-size: 24px; line-height: 1; flex-shrink: 0;">+</span></summary>
+      <p style="font-size: 15px; line-height: 1.6; color: #5b5f6b; margin: 15px 0 0;">A real-time dashboard tracks views, watch-time, engagement, and conversions per campaign, with export and API access available.</p>
+    </details>
+    <details style="padding: 20px 24px; border-radius: 14px; background: #fff; border: 1px solid #f0eeeb; box-shadow: 0 2px 12px rgba(18,20,28,0.03);">
+      <summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: 'Poppins',sans-serif; font-size: 17px; font-weight: 600;">Is my brand and data safe? <span class="faq-plus" style="color: var(--pink,#f31e5e); font-size: 24px; line-height: 1; flex-shrink: 0;">+</span></summary>
+      <p style="font-size: 15px; line-height: 1.6; color: #5b5f6b; margin: 15px 0 0;">Teezer is SOC 2 Type II compliant with brand-safety controls, granular permissions, and encryption in transit and at rest.</p>
+    </details>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" style="max-width: 1140px; margin: 30px auto 70px; padding: 0 44px;">
+  <div data-reveal style="position: relative; overflow: hidden; border-radius: 24px; padding: 60px 46px; text-align: center; background: linear-gradient(120deg, #ff3d75, #f31e5e 55%, #d80f4c);">
+    <div style="position: absolute; top: -140px; left: 50%; transform: translateX(-50%); width: 520px; height: 320px; background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 65%); filter: blur(20px); pointer-events: none;"></div>
+    <h2 style="position: relative; font-family: 'Poppins',sans-serif; font-size: 40px; font-weight: 700; color: #fff; letter-spacing: -0.025em; line-height: 1.1; margin: 0 0 14px;">Ready to grow your brand with Teezer Ads?</h2>
+    <p style="position: relative; font-size: 16.5px; line-height: 1.55; color: rgba(255,255,255,0.92); margin: 0 auto 30px; max-width: 520px;">Join thousands of brands already reaching millions of engaged users on Teezer.</p>
+    <div style="position: relative; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+      <a href="/ads-manager" data-auth="login" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; padding: 15px 26px; border-radius: 12px; color: var(--pink, #f31e5e); background: #fff;" style-hover="transform: translateY(-2px);">Create Your First Campaign <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      <a href="#" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; padding: 15px 26px; border-radius: 12px; color: #fff; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.4);" style-hover="background: rgba(255,255,255,0.26);">Talk to our ad experts</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: #0d1424; color: #fff;">
+  <div style="max-width: 1140px; margin: 0 auto; padding: 60px 44px 30px; display: grid; grid-template-columns: 1.7fr 1fr 1fr 1fr 1.4fr; gap: 30px;">
+    <div>
+      <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 16px;"><span style="font-family:'Poppins',sans-serif;font-weight:800;font-size:21px;letter-spacing:-0.03em;color:#ffffff;line-height:1;">Teezer</span><span style="padding: 2px 8px; border-radius: 6px; background: var(--pink, #f31e5e); color: #fff; font-size: 11px; font-weight: 700; font-family: 'Poppins',sans-serif;">Ads</span></div>
+      <p style="font-size: 13.5px; color: #9a9da8; line-height: 1.6; max-width: 240px; margin: 0 0 18px;">Teezer Ads helps brands connect with millions of engaged audiences through the power of short videos.</p>
+      <div style="display: flex; gap: 10px;">
+        <span style="width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #c8cbd2; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
+        <span style="width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #c8cbd2; cursor: pointer; font-weight: 800; font-size: 14px;">X</span>
+        <span style="width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #c8cbd2; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></span>
+        <span style="width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #c8cbd2; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 0 0 1 7.5 31 31 0 0 0 .6 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.4 12 31 31 0 0 0 23 7.5zM10 15V9l5 3z"/></svg></span>
+      </div>
+    </div>
+    <div>
+      <div style="font-family: 'Poppins',sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 16px;">Platform</div>
+      <div style="display: flex; flex-direction: column; gap: 11px; font-size: 13.5px;"><a href="#top" style="color: #9a9da8;">Overview</a><a href="#solutions" style="color: #9a9da8;">Ad Solutions</a><a href="#formats" style="color: #9a9da8;">Formats</a><a href="#stories" style="color: #9a9da8;">Success Stories</a></div>
+    </div>
+    <div>
+      <div style="font-family: 'Poppins',sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 16px;">Resources</div>
+      <div style="display: flex; flex-direction: column; gap: 11px; font-size: 13.5px;"><a href="#" style="color: #9a9da8;">Help Center</a><a href="#" style="color: #9a9da8;">Blog</a><a href="#" style="color: #9a9da8;">Guides</a><a href="#faq" style="color: #9a9da8;">FAQ</a></div>
+    </div>
+    <div>
+      <div style="font-family: 'Poppins',sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 16px;">Company</div>
+      <div style="display: flex; flex-direction: column; gap: 11px; font-size: 13.5px;"><a href="#" style="color: #9a9da8;">About Us</a><a href="#" style="color: #9a9da8;">Careers</a><a href="#" style="color: #9a9da8;">Contact</a><a href="#" style="color: #9a9da8;">Press Kit</a></div>
+    </div>
+    <div>
+      <div style="font-family: 'Poppins',sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 14px;">Stay Updated</div>
+      <p style="font-size: 13px; color: #9a9da8; line-height: 1.5; margin: 0 0 14px;">Get the latest tips, insights, and product updates.</p>
+      <div style="display: flex; gap: 8px;">
+        <input type="email" placeholder="Enter your email" style="flex: 1; min-width: 0; padding: 10px 12px; border-radius: 9px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.06); color: #fff; font-size: 13px; font-family: 'Manrope',sans-serif;">
+        <button style="padding: 10px 16px; border-radius: 9px; border: none; background: var(--pink, #f31e5e); color: #fff; font-size: 13.5px; font-weight: 700; cursor: pointer; font-family: 'Manrope',sans-serif;">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div style="max-width: 1140px; margin: 0 auto; padding: 20px 44px 40px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; color: #7d808b;">
+    <span>&copy; <span data-year>2026</span> Teezer Ads. All rights reserved.</span>
+    <span>Made for short video.</span>
+  </div>
+</footer>
+<script>
+(function(){
+  // Evergreen year
+  var y = new Date().getFullYear();
+  document.querySelectorAll('[data-year]').forEach(function(e){ e.textContent = y; });
+
+  // style-hover → apply on hover, restore on leave (replaces dc-runtime behavior)
+  document.querySelectorAll('[style-hover]').forEach(function(el){
+    var base = el.getAttribute('style') || '';
+    var hov = el.getAttribute('style-hover') || '';
+    el.style.transition = (el.style.transition ? el.style.transition + ', ' : '') + 'transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease';
+    var b = el.getAttribute('style');
+    el.addEventListener('mouseenter', function(){ el.setAttribute('style', b + ';' + hov); });
+    el.addEventListener('mouseleave', function(){ el.setAttribute('style', b); });
+  });
+
+  // Reel marquee (hero)
+  (function(){
+    var mount = document.getElementById('reel-marquee'); if(!mount) return;
+    var grads = ['linear-gradient(160deg,#ffd9e4,#ffb9cd)','linear-gradient(160deg,#dfe4ff,#c3ccff)','linear-gradient(160deg,#ffe7d1,#ffcba6)','linear-gradient(160deg,#f31e5e,#c00a45)','linear-gradient(160deg,#d6f5e6,#aee9cd)','linear-gradient(160deg,#efe0ff,#d7bdff)'];
+    var handles = ['@studioreel','@northwind','@lumen','@vertex','@maya.k','@halcyon','@orbit','@devin','@priya','@meridian'];
+    var views = ['1.2M','842K','3.4M','560K','2.1M','988K','4.7M','230K','1.9M','675K'];
+    var n = 0;
+    function tile(){
+      var i = n++; var g = grads[i % grads.length]; var accent = (i % grads.length) === 3;
+      return '<div style="position:relative;width:150px;height:244px;border-radius:18px;background:'+g+';overflow:hidden;flex-shrink:0;border:1px solid rgba(18,20,28,0.06);box-shadow:0 14px 34px -16px rgba(18,20,28,0.34)">'
+        + '<div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,0.42) 100%)"></div>'
+        + '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.32);border:1px solid rgba(255,255,255,0.55);display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:11px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px"></div></div>'
+        + '<div style="position:absolute;left:10px;right:10px;bottom:10px;color:#fff"><div style="font-size:11px;font-weight:700;margin-bottom:3px">'+handles[i % handles.length]+'</div><div style="display:flex;align-items:center;gap:4px;font-size:10px;opacity:0.9"><span style="width:5px;height:5px;border-radius:50%;background:'+(accent?'#fff':'#f31e5e')+'"></span>'+views[i % views.length]+' views</div></div>'
+        + '</div>';
+    }
+    function row(count, anim, dur){
+      var t = ''; for (var k=0;k<count;k++) t += tile();
+      return '<div style="overflow:hidden"><div style="display:flex;gap:16px;width:max-content;padding:8px;animation:'+anim+' '+dur+'s linear infinite">'+t+t+'</div></div>';
+    }
+    mount.style.display='flex'; mount.style.flexDirection='column'; mount.style.gap='16px';
+    mount.innerHTML = row(8,'mqA',42) + row(8,'mqB',50);
+  })();
+
+  // Scroll reveal + dash line
+  var items = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  items.forEach(function(el){
+    var dir = el.getAttribute('data-dir');
+    var off = dir==='left' ? 'translateX(-44px)' : dir==='right' ? 'translateX(44px)' : 'translateY(28px)';
+    el.style.opacity='0'; el.style.transform=off;
+    el.style.transition='opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)';
+    el.style.willChange='opacity, transform';
+  });
+  function reveal(el){
+    var d = parseInt(el.getAttribute('data-delay')||'0',10);
+    setTimeout(function(){
+      el.style.opacity='1'; el.style.transform='none';
+      el.querySelectorAll('[data-line]').forEach(function(line){
+        if(line._done) return; line._done=true;
+        var len = line.getTotalLength ? line.getTotalLength() : 320;
+        line.style.strokeDasharray=len; line.style.strokeDashoffset=len;
+        line.style.animation='dash 1.4s ease-out .15s forwards';
+      });
+    }, d);
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ reveal(e.target); io.unobserve(e.target); } }); }, { threshold:0.12, rootMargin:'0px 0px -6% 0px' });
+    items.forEach(function(el){ io.observe(el); });
+  } else { items.forEach(reveal); }
+  setTimeout(function(){ items.forEach(function(el){ el.style.opacity='1'; el.style.transform='none'; }); }, 3500);
+
+  // Count-up
+  var counters = Array.prototype.slice.call(document.querySelectorAll('[data-count-to]'));
+  function runCount(el){
+    var target = parseFloat(el.getAttribute('data-count-to'));
+    var dec = parseInt(el.getAttribute('data-decimals')||'0',10);
+    var suffix = el.getAttribute('data-suffix')||'';
+    var dur = 1400, s = performance.now();
+    function step(now){
+      var p = Math.min(1,(now-s)/dur); var e = 1 - Math.pow(1-p,3);
+      el.textContent = (target*e).toFixed(dec) + suffix;
+      if(p<1) requestAnimationFrame(step); else el.textContent = target.toFixed(dec) + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var io2 = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ runCount(e.target); io2.unobserve(e.target); } }); }, { threshold:0.5 });
+    counters.forEach(function(el){ io2.observe(el); });
+  }
+})();
+</script>
+
+<!-- ── Auth popup ──────────────────────────────────────────────────────────
+     Log in / Get Started open the SAME Reelsoo login/signup modal used on
+     reelsoo.com, loaded in a transparent same-origin iframe (/ads-login).
+     Progressive enhancement: if JS is off the anchors still open /ads-manager. -->
+<div id="rs-auth-overlay" style="position:fixed; inset:0; z-index:2147483000;">
+  <!-- Dark backdrop under the (transparent) iframe; clicking it closes. -->
+  <div id="rs-auth-backdrop" style="position:absolute; inset:0; background:rgba(0,0,0,0.55); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);"></div>
+  <!-- Always-visible close, ABOVE the iframe, so a blocked/blank iframe can never trap the page. -->
+  <button id="rs-auth-close" type="button" aria-label="Close"
+          style="position:absolute; top:16px; right:16px; z-index:2; width:42px; height:42px; border-radius:50%; border:none; background:#fff; color:#12141c; font-size:24px; line-height:1; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,0.28);">&times;</button>
+  <iframe id="rs-auth-frame" title="Log in or sign up to Teezer Ads" loading="eager"
+          style="border:0; width:100%; height:100%; background:transparent; position:relative; z-index:1;"></iframe>
+</div>
+<script>
+(function(){
+  var overlay  = document.getElementById('rs-auth-overlay');
+  var frame    = document.getElementById('rs-auth-frame');
+  var backdrop = document.getElementById('rs-auth-backdrop');
+  var closeBtn = document.getElementById('rs-auth-close');
+  if (!overlay || !frame) return;
+
+  var preloaded = false;
+  var opened    = false;
+  var wantMode  = 'login';
+
+  function activate(){
+    try { frame.contentWindow.postMessage({ type: 'rs-activate', mode: wantMode }, window.location.origin); } catch (e) {}
+  }
+
+  // Load the popup in the (hidden) iframe ahead of time so the click reveal is
+  // instant — no black-flash while the app boots. Neutral "/auth-popup" path so
+  // ad blockers don't kill it.
+  function preload(){
+    if (preloaded) return;
+    preloaded = true;
+    frame.src = '/auth-popup?mode=login&t=' + Date.now();
+  }
+  // If the user opened before the iframe finished loading, activate on load.
+  frame.addEventListener('load', function(){ if (opened) activate(); });
+
+  function openAuth(mode){
+    wantMode = (mode === 'signup') ? 'signup' : 'login';
+    opened = true;
+    preload();
+    activate();
+    overlay.classList.add('rs-open');
+    document.documentElement.style.overflow = 'hidden';
+  }
+  function closeAuth(){
+    overlay.classList.remove('rs-open');
+    document.documentElement.style.overflow = '';
+    // Keep the iframe loaded so the next open is instant too.
+  }
+
+  // Warm up the iframe on the first sign of engagement (and a 3s fallback).
+  ['pointerdown','mousemove','touchstart','scroll','keydown'].forEach(function(ev){
+    window.addEventListener(ev, preload, { once: true, passive: true });
+  });
+  setTimeout(preload, 3000);
+
+  if (backdrop) backdrop.addEventListener('click', closeAuth);
+  if (closeBtn) closeBtn.addEventListener('click', closeAuth);
+
+  document.querySelectorAll('[data-auth]').forEach(function(el){
+    el.addEventListener('click', function(ev){
+      ev.preventDefault();
+      openAuth(el.getAttribute('data-auth'));
+    });
+  });
+
+  window.addEventListener('message', function(e){
+    if (e.origin !== window.location.origin) return;
+    var t = e.data && e.data.type;
+    if (t === 'reelsoo-auth-success'){ closeAuth(); window.location.assign('/ads-manager'); }
+    else if (t === 'reelsoo-auth-close'){ closeAuth(); }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && overlay.style.display === 'block') closeAuth();
+  });
+})();
+</script>
+</body>
+</html>

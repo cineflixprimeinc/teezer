@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes portal-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes portal-rspin{0%{transform:rotate(0)}100%{transform:rotate(-360deg)}}
+    @keyframes portal-core{0%,100%{opacity:.55;transform:scale(.85)}50%{opacity:1;transform:scale(1.08)}}
+    @keyframes portal-tw{0%,100%{opacity:.2;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    .portal-ring{transform-box:fill-box;transform-origin:center;animation:portal-spin 3s linear infinite}
+    .portal-swirl{transform-box:fill-box;transform-origin:center;animation:portal-rspin 2.6s linear infinite}
+    .portal-core{transform-box:fill-box;transform-origin:center;animation:portal-core 1.8s ease-in-out infinite}
+    .portal-s{transform-box:fill-box;transform-origin:center;animation:portal-tw 2s ease-in-out infinite}
+    .portal-s2{animation-delay:.8s}.portal-s3{animation-delay:1.4s}
+    @keyframes portal-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes portal-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes portal-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes portal-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes portal-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .portal-x-lift{transform-box:fill-box;transform-origin:center;animation:portal-x-lift 3.4s ease-in-out infinite}
+    .portal-x-shine{animation:portal-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .portal-x-spark{transform-box:fill-box;transform-origin:center;animation:portal-x-spark 2.2s ease-in-out infinite}
+    .portal-x-aura{transform-box:fill-box;transform-origin:center;animation:portal-x-aura 3s ease-in-out infinite}
+    .portal-x-cast{transform-box:fill-box;transform-origin:center;animation:portal-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.portal-x-lift,.portal-x-shine,.portal-x-spark,.portal-x-aura,.portal-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="portal-g" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#67e8f9"/>
+    <stop offset=".72" stop-color="#8b5cf6"/><stop offset="1" stop-color="#3b0d6b"/>
+    </radialGradient>
+    <linearGradient id="portal-r" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#f0abfc"/><stop offset=".5" stop-color="#a855f7"/><stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <filter id="portal-f" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="portal-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="portal-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="portal-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="portal-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="portal-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="portal-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="portal-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="portal-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#portal-x-white)">
+        <g filter="url(#portal-f)">
+        <ellipse cx="32" cy="32" rx="24" ry="26" fill="url(#portal-g)"/>
+        <g class="portal-swirl">
+        <path d="M32 12c11 0 18 9 18 20 0 7-5 12-11 12-5 0-8-3-8-8 0-4 3-6 6-6" stroke="#e9d5ff" stroke-opacity=".75" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M32 52c-11 0-18-9-18-20 0-7 5-12 11-12" stroke="#a5f3fc" stroke-opacity=".6" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+        </g>
+        <g class="portal-ring">
+        <ellipse cx="32" cy="32" rx="24" ry="26" fill="none" stroke="url(#portal-r)" stroke-width="5"/>
+        <path d="M15 18c-2 4-3 8-3 12" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <circle class="portal-s" cx="32" cy="6" r="2.4" fill="#fff"/>
+        <circle class="portal-s portal-s2" cx="56" cy="32" r="1.8" fill="#e0f2fe"/>
+        <circle class="portal-s portal-s3" cx="32" cy="58" r="1.8" fill="#f5d0fe"/>
+        </g>
+        <circle class="portal-core" cx="32" cy="32" r="7" fill="#fff" opacity=".85"/>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="portal-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#portal-x-cast-g)"/>
+  <circle class="portal-x-aura" cx="32" cy="32" r="29" fill="url(#portal-x-aura-g)"/>
+  <g class="portal-x-lift">
+    <g filter="url(#portal-f)">
+    <ellipse cx="32" cy="32" rx="24" ry="26" fill="url(#portal-g)"/>
+    <g class="portal-swirl">
+    <path d="M32 12c11 0 18 9 18 20 0 7-5 12-11 12-5 0-8-3-8-8 0-4 3-6 6-6" stroke="#e9d5ff" stroke-opacity=".75" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M32 52c-11 0-18-9-18-20 0-7 5-12 11-12" stroke="#a5f3fc" stroke-opacity=".6" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    </g>
+    <g class="portal-ring">
+    <ellipse cx="32" cy="32" rx="24" ry="26" fill="none" stroke="url(#portal-r)" stroke-width="5"/>
+    <path d="M15 18c-2 4-3 8-3 12" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle class="portal-s" cx="32" cy="6" r="2.4" fill="#fff"/>
+    <circle class="portal-s portal-s2" cx="56" cy="32" r="1.8" fill="#e0f2fe"/>
+    <circle class="portal-s portal-s3" cx="32" cy="58" r="1.8" fill="#f5d0fe"/>
+    </g>
+    <circle class="portal-core" cx="32" cy="32" r="7" fill="#fff" opacity=".85"/>
+    </g>
+    <g mask="url(#portal-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#portal-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#portal-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#portal-x-rim)"/>
+      <rect class="portal-x-shine" x="0" y="-16" width="26" height="96" fill="url(#portal-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="portal-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="portal-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="portal-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="portal-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

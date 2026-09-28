@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes baby-dino-hop{0%,100%{transform:translateY(0) scale(1,1)}22%{transform:translateY(1px) scale(1.08,.92)}55%{transform:translateY(-5px) scale(.94,1.07)}80%{transform:translateY(0) scale(1.03,.97)}}
+    @keyframes baby-dino-tail{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+    .baby-dino-b{transform-box:fill-box;transform-origin:center bottom;animation:baby-dino-hop 1.8s ease-in-out infinite}
+    .baby-dino-t{transform-box:fill-box;transform-origin:100% 50%;animation:baby-dino-tail 1.2s ease-in-out infinite}
+    @keyframes baby-dino-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes baby-dino-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes baby-dino-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes baby-dino-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes baby-dino-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .baby-dino-x-lift{transform-box:fill-box;transform-origin:center;animation:baby-dino-x-lift 3.4s ease-in-out infinite}
+    .baby-dino-x-shine{animation:baby-dino-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .baby-dino-x-spark{transform-box:fill-box;transform-origin:center;animation:baby-dino-x-spark 2.2s ease-in-out infinite}
+    .baby-dino-x-aura{transform-box:fill-box;transform-origin:center;animation:baby-dino-x-aura 3s ease-in-out infinite}
+    .baby-dino-x-cast{transform-box:fill-box;transform-origin:center;animation:baby-dino-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.baby-dino-x-lift,.baby-dino-x-shine,.baby-dino-x-spark,.baby-dino-x-aura,.baby-dino-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="baby-dino-g" x1="12" y1="8" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#b7f0a8"/><stop offset=".5" stop-color="#5ec46b"/><stop offset="1" stop-color="#2c8442"/>
+    </linearGradient>
+    <linearGradient id="baby-dino-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="baby-dino-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="baby-dino-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="baby-dino-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="baby-dino-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="baby-dino-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="baby-dino-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#baby-dino-x-white)">
+        <g class="baby-dino-b">
+        <path class="baby-dino-t" d="M46 44c8 1 12-4 12-11 4 10-2 20-12 18Z" fill="url(#baby-dino-g)"/>
+        <path d="M20 14 24 6l4 8ZM28 11l4-6 4 6ZM36 14l4-8 4 8Z" fill="#ffd45e"/>
+        <path d="M32 57c-13 0-20-8-20-21S19 12 32 12s20 11 20 24-7 21-20 21Z" fill="url(#baby-dino-g)"/>
+        <ellipse cx="32" cy="46" rx="11" ry="8" fill="#dcf7c9" opacity=".8"/>
+        <path d="M22 21c-4 3-6 8-6 12" stroke="#fff" stroke-opacity=".5" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+        <path d="M32 57c10 0 17-6 19-16 0 14-8 18-19 18Z" fill="#1f6733" opacity=".4"/>
+        <circle cx="24" cy="30" r="3" fill="#1f3a25"/><circle cx="23" cy="29" r="1.2" fill="#fff"/>
+        <circle cx="40" cy="30" r="3" fill="#1f3a25"/><circle cx="39" cy="29" r="1.2" fill="#fff"/>
+        <circle cx="28.5" cy="39" r="1.4" fill="#1f3a25"/><circle cx="35.5" cy="39" r="1.4" fill="#1f3a25"/>
+        <path d="M26 43c2 3 4 4 6 4s4-1 6-4" stroke="#1f3a25" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <ellipse cx="18" cy="38" rx="3.2" ry="2.2" fill="#ff8fa8" opacity=".55"/>
+        <ellipse cx="46" cy="38" rx="3.2" ry="2.2" fill="#ff8fa8" opacity=".55"/>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="baby-dino-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#baby-dino-x-cast-g)"/>
+  <g class="baby-dino-x-lift">
+    <g class="baby-dino-b">
+    <path class="baby-dino-t" d="M46 44c8 1 12-4 12-11 4 10-2 20-12 18Z" fill="url(#baby-dino-g)"/>
+    <path d="M20 14 24 6l4 8ZM28 11l4-6 4 6ZM36 14l4-8 4 8Z" fill="#ffd45e"/>
+    <path d="M32 57c-13 0-20-8-20-21S19 12 32 12s20 11 20 24-7 21-20 21Z" fill="url(#baby-dino-g)"/>
+    <ellipse cx="32" cy="46" rx="11" ry="8" fill="#dcf7c9" opacity=".8"/>
+    <path d="M22 21c-4 3-6 8-6 12" stroke="#fff" stroke-opacity=".5" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+    <path d="M32 57c10 0 17-6 19-16 0 14-8 18-19 18Z" fill="#1f6733" opacity=".4"/>
+    <circle cx="24" cy="30" r="3" fill="#1f3a25"/><circle cx="23" cy="29" r="1.2" fill="#fff"/>
+    <circle cx="40" cy="30" r="3" fill="#1f3a25"/><circle cx="39" cy="29" r="1.2" fill="#fff"/>
+    <circle cx="28.5" cy="39" r="1.4" fill="#1f3a25"/><circle cx="35.5" cy="39" r="1.4" fill="#1f3a25"/>
+    <path d="M26 43c2 3 4 4 6 4s4-1 6-4" stroke="#1f3a25" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <ellipse cx="18" cy="38" rx="3.2" ry="2.2" fill="#ff8fa8" opacity=".55"/>
+    <ellipse cx="46" cy="38" rx="3.2" ry="2.2" fill="#ff8fa8" opacity=".55"/>
+    </g>
+    <g mask="url(#baby-dino-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#baby-dino-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#baby-dino-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#baby-dino-x-rim)"/>
+      <rect class="baby-dino-x-shine" x="0" y="-16" width="26" height="96" fill="url(#baby-dino-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

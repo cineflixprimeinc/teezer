@@ -1,0 +1,39 @@
+# Exact snapshot of the LIVE /etc/nginx/sites-available/teezer-api on VPS1
+# immediately before the APISIX cutover (captured 2026-07-29). Rollback path:
+# `cp teezer-api.conf.pre-apisix /etc/nginx/sites-available/teezer-api &&
+# nginx -t && systemctl reload nginx` instantly restores direct-to-php-fpm
+# service with zero APISIX involvement. The repo copy of this file had
+# drifted out of sync with the real, manually-edited-on-VPS1 config before
+# this - this snapshot is the accurate baseline, not the stale prior repo copy.
+server {
+    server_name api.teezer.live;
+    root /var/www/teezer/server/public;
+    index index.php;
+    client_max_body_size 100M;
+
+    location / { try_files $uri $uri/ /index.php?$query_string; }
+    location ~ \.php$ {
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+        fastcgi_hide_header X-Powered-By;
+    }
+    location ~ /\.env { deny all; }
+    location ~ /\.ht  { deny all; }
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/teezer.live/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/teezer.live/privkey.pem; # managed by Certbot
+    ssl_protocols TLSv1.2 TLSv1.3;
+}
+server {
+    if ($host = api.teezer.live) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    listen 80;
+    listen [::]:80;
+    server_name api.teezer.live;
+    return 404; # managed by Certbot
+}

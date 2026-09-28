@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes ring-box-glow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.22)}}
+    @keyframes ring-box-lid{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(-12deg)}}
+    @keyframes ring-box-gem{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.12)}}
+    @keyframes ring-box-tw{0%,100%{opacity:.15;transform:scale(.55)}50%{opacity:1;transform:scale(1)}}
+    .ring-box-body{transform-box:fill-box;transform-origin:center;animation:ring-box-glow 2.2s ease-in-out infinite}
+    .ring-box-lid{transform-box:fill-box;transform-origin:left bottom;animation:ring-box-lid 2.6s ease-in-out infinite}
+    .ring-box-gem{transform-box:fill-box;transform-origin:center;animation:ring-box-gem 1.7s ease-in-out infinite}
+    .ring-box-s{transform-box:fill-box;transform-origin:center;animation:ring-box-tw 2s ease-in-out infinite}
+    .ring-box-s2{animation-delay:.7s}.ring-box-s3{animation-delay:1.4s}
+    @keyframes ring-box-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes ring-box-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes ring-box-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes ring-box-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes ring-box-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .ring-box-x-lift{transform-box:fill-box;transform-origin:center;animation:ring-box-x-lift 3.4s ease-in-out infinite}
+    .ring-box-x-shine{animation:ring-box-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .ring-box-x-spark{transform-box:fill-box;transform-origin:center;animation:ring-box-x-spark 2.2s ease-in-out infinite}
+    .ring-box-x-aura{transform-box:fill-box;transform-origin:center;animation:ring-box-x-aura 3s ease-in-out infinite}
+    .ring-box-x-cast{transform-box:fill-box;transform-origin:center;animation:ring-box-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.ring-box-x-lift,.ring-box-x-shine,.ring-box-x-spark,.ring-box-x-aura,.ring-box-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="ring-box-g" x1="12" y1="36" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff8fb4"/><stop offset=".5" stop-color="#d5265f"/><stop offset="1" stop-color="#7d0f38"/>
+    </linearGradient>
+    <linearGradient id="ring-box-gl" x1="12" y1="20" x2="52" y2="38" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffb6d0"/><stop offset="1" stop-color="#b81a52"/>
+    </linearGradient>
+    <linearGradient id="ring-box-gm" x1="26" y1="10" x2="40" y2="24" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#e6ffff"/><stop offset=".5" stop-color="#8fe6ff"/><stop offset="1" stop-color="#3d9de0"/>
+    </linearGradient>
+    <filter id="ring-box-f" x="-45%" y="-45%" width="190%" height="190%">
+    <feGaussianBlur stdDeviation="2.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="ring-box-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="ring-box-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ring-box-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="ring-box-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ring-box-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="ring-box-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="ring-box-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="ring-box-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#ring-box-x-white)">
+        <g class="ring-box-body" filter="url(#ring-box-f)">
+        <g class="ring-box-lid">
+        <path d="M13 30a3 3 0 0 1 3-3h32a3 3 0 0 1 3 3v6H13z" fill="url(#ring-box-gl)"/>
+        <path d="M16 29h12c1 0-8 4-13 5z" fill="#fff" opacity=".35"/>
+        </g>
+        <circle cx="32" cy="27" r="7" fill="none" stroke="#f5d472" stroke-width="3"/>
+        <circle cx="32" cy="27" r="7" fill="none" stroke="#fff8dc" stroke-width="1" opacity=".7"/>
+        <g class="ring-box-gem">
+        <path d="M32 12l6 6-6 7-6-7z" fill="url(#ring-box-gm)"/>
+        <path d="M26 18h12l-6 7z" fill="#2f86c9" opacity=".5"/>
+        <path d="M32 12l-6 6h5z" fill="#fff" opacity=".7"/>
+        </g>
+        <path d="M12 36h40a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V40a4 4 0 0 1 4-4Z" fill="url(#ring-box-g)"/>
+        <rect x="8" y="36" width="48" height="5" rx="2.4" fill="#ffd9e6" opacity=".35"/>
+        <path d="M11 40c3-1 7-1.6 11-1.8" stroke="#fff" stroke-opacity=".5" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <path d="M8 49h48v3a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4z" fill="#6b0c2f" opacity=".45"/>
+        <rect x="28" y="41" width="8" height="15" rx="2" fill="#ffe6f0" opacity=".25"/>
+        </g>
+        <circle class="ring-box-s" cx="49" cy="12" r="2.3" fill="#fff"/>
+        <circle class="ring-box-s ring-box-s2" cx="14" cy="15" r="1.8" fill="#fff"/>
+        <circle class="ring-box-s ring-box-s3" cx="57" cy="26" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="ring-box-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#ring-box-x-cast-g)"/>
+  <circle class="ring-box-x-aura" cx="32" cy="32" r="29" fill="url(#ring-box-x-aura-g)"/>
+  <g class="ring-box-x-lift">
+    <g class="ring-box-body" filter="url(#ring-box-f)">
+    <g class="ring-box-lid">
+    <path d="M13 30a3 3 0 0 1 3-3h32a3 3 0 0 1 3 3v6H13z" fill="url(#ring-box-gl)"/>
+    <path d="M16 29h12c1 0-8 4-13 5z" fill="#fff" opacity=".35"/>
+    </g>
+    <circle cx="32" cy="27" r="7" fill="none" stroke="#f5d472" stroke-width="3"/>
+    <circle cx="32" cy="27" r="7" fill="none" stroke="#fff8dc" stroke-width="1" opacity=".7"/>
+    <g class="ring-box-gem">
+    <path d="M32 12l6 6-6 7-6-7z" fill="url(#ring-box-gm)"/>
+    <path d="M26 18h12l-6 7z" fill="#2f86c9" opacity=".5"/>
+    <path d="M32 12l-6 6h5z" fill="#fff" opacity=".7"/>
+    </g>
+    <path d="M12 36h40a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V40a4 4 0 0 1 4-4Z" fill="url(#ring-box-g)"/>
+    <rect x="8" y="36" width="48" height="5" rx="2.4" fill="#ffd9e6" opacity=".35"/>
+    <path d="M11 40c3-1 7-1.6 11-1.8" stroke="#fff" stroke-opacity=".5" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path d="M8 49h48v3a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4z" fill="#6b0c2f" opacity=".45"/>
+    <rect x="28" y="41" width="8" height="15" rx="2" fill="#ffe6f0" opacity=".25"/>
+    </g>
+    <circle class="ring-box-s" cx="49" cy="12" r="2.3" fill="#fff"/>
+    <circle class="ring-box-s ring-box-s2" cx="14" cy="15" r="1.8" fill="#fff"/>
+    <circle class="ring-box-s ring-box-s3" cx="57" cy="26" r="1.5" fill="#fff"/>
+    <g mask="url(#ring-box-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#ring-box-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#ring-box-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#ring-box-x-rim)"/>
+      <rect class="ring-box-x-shine" x="0" y="-16" width="26" height="96" fill="url(#ring-box-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="ring-box-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="ring-box-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="ring-box-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

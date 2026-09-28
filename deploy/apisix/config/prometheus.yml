@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "apisix"
+    metrics_path: /apisix/prometheus/metrics
+    static_configs:
+      # Host networking (see docker-compose.yml) - no bridge-network service
+      # name to resolve, apisix's metrics port is reached the same way any
+      # loopback-bound service on this box is.
+      - targets: ["127.0.0.1:9091"]

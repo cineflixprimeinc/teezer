@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes luxury-watch-shim{0%{opacity:0;transform:translateX(-14px) rotate(20deg)}40%{opacity:.85}100%{opacity:0;transform:translateX(14px) rotate(20deg)}}
+    @keyframes luxury-watch-tilt{0%,100%{transform:rotate(-3deg) scale(1)}50%{transform:rotate(3deg) scale(1.04)}}
+    @keyframes luxury-watch-hand{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes luxury-watch-tw{0%,100%{opacity:.15;transform:scale(.55)}50%{opacity:1;transform:scale(1)}}
+    .luxury-watch-body{transform-box:fill-box;transform-origin:center;animation:luxury-watch-tilt 2.6s ease-in-out infinite}
+    .luxury-watch-sh{transform-box:fill-box;transform-origin:center;animation:luxury-watch-shim 2.4s ease-in-out infinite}
+    .luxury-watch-h{transform-box:fill-box;transform-origin:center bottom;animation:luxury-watch-hand 3s linear infinite}
+    .luxury-watch-h2{animation-duration:6s}
+    .luxury-watch-s{transform-box:fill-box;transform-origin:center;animation:luxury-watch-tw 2.1s ease-in-out infinite}
+    .luxury-watch-s2{animation-delay:.7s}.luxury-watch-s3{animation-delay:1.4s}
+    @keyframes luxury-watch-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes luxury-watch-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes luxury-watch-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes luxury-watch-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes luxury-watch-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .luxury-watch-x-lift{transform-box:fill-box;transform-origin:center;animation:luxury-watch-x-lift 3.4s ease-in-out infinite}
+    .luxury-watch-x-shine{animation:luxury-watch-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .luxury-watch-x-spark{transform-box:fill-box;transform-origin:center;animation:luxury-watch-x-spark 2.2s ease-in-out infinite}
+    .luxury-watch-x-aura{transform-box:fill-box;transform-origin:center;animation:luxury-watch-x-aura 3s ease-in-out infinite}
+    .luxury-watch-x-cast{transform-box:fill-box;transform-origin:center;animation:luxury-watch-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.luxury-watch-x-lift,.luxury-watch-x-shine,.luxury-watch-x-spark,.luxury-watch-x-aura,.luxury-watch-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="luxury-watch-g" x1="18" y1="16" x2="46" y2="48" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff3c4"/><stop offset=".45" stop-color="#f0c02f"/><stop offset="1" stop-color="#9c6a06"/>
+    </linearGradient>
+    <linearGradient id="luxury-watch-gb" x1="22" y1="6" x2="42" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#5b6478"/><stop offset=".5" stop-color="#2c3242"/><stop offset="1" stop-color="#171b26"/>
+    </linearGradient>
+    <radialGradient id="luxury-watch-gd" cx=".35" cy=".3" r=".85">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#dfe9f7"/><stop offset="1" stop-color="#94a6c0"/>
+    </radialGradient>
+    <filter id="luxury-watch-f" x="-45%" y="-45%" width="190%" height="190%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="luxury-watch-c"><circle cx="32" cy="32" r="14"/></clipPath>
+    <radialGradient id="luxury-watch-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="luxury-watch-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="luxury-watch-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="luxury-watch-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="luxury-watch-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="luxury-watch-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="luxury-watch-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="luxury-watch-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#luxury-watch-x-white)">
+        <g class="luxury-watch-body" filter="url(#luxury-watch-f)">
+        <rect x="24" y="6" width="16" height="20" rx="4" fill="url(#luxury-watch-gb)"/>
+        <rect x="24" y="38" width="16" height="20" rx="4" fill="url(#luxury-watch-gb)"/>
+        <rect x="24" y="10" width="16" height="2.6" fill="#7c879c" opacity=".7"/><rect x="24" y="16" width="16" height="2.6" fill="#7c879c" opacity=".7"/>
+        <rect x="24" y="44" width="16" height="2.6" fill="#7c879c" opacity=".7"/><rect x="24" y="50" width="16" height="2.6" fill="#7c879c" opacity=".7"/>
+        <circle cx="32" cy="32" r="17" fill="url(#luxury-watch-g)"/>
+        <circle cx="32" cy="32" r="14" fill="url(#luxury-watch-gd)"/>
+        <circle cx="32" cy="32" r="14" fill="none" stroke="#b98a12" stroke-width="1.4" opacity=".5"/>
+        <path d="M32 20v2.6M44 32h-2.6M32 44v-2.6M20 32h2.6" stroke="#5b6478" stroke-width="2" stroke-linecap="round"/>
+        <rect class="luxury-watch-h luxury-watch-h2" x="31.1" y="24" width="1.8" height="8.5" rx=".9" fill="#2c3242"/>
+        <rect class="luxury-watch-h" x="31.3" y="21" width="1.4" height="11.5" rx=".7" fill="#d9354f"/>
+        <circle cx="32" cy="32" r="2" fill="#c8a01c"/>
+        <rect x="47" y="29" width="4" height="6" rx="1.6" fill="#e0b52a"/>
+        <path d="M22 22c2-2.4 4.6-4 7.4-4.6" stroke="#fff" stroke-opacity=".7" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <path d="M20 40c3 5 8 8 14 8-6 3-13 0-16-5z" fill="#7a5405" opacity=".4"/>
+        <g clip-path="url(#luxury-watch-c)"><rect class="luxury-watch-sh" x="26" y="14" width="7" height="36" fill="#fff"/></g>
+        </g>
+        <circle class="luxury-watch-s" cx="52" cy="14" r="2.2" fill="#fff"/>
+        <circle class="luxury-watch-s luxury-watch-s2" cx="11" cy="24" r="1.8" fill="#fff"/>
+        <circle class="luxury-watch-s luxury-watch-s3" cx="53" cy="50" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="luxury-watch-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#luxury-watch-x-cast-g)"/>
+  <circle class="luxury-watch-x-aura" cx="32" cy="32" r="29" fill="url(#luxury-watch-x-aura-g)"/>
+  <g class="luxury-watch-x-lift">
+    <g class="luxury-watch-body" filter="url(#luxury-watch-f)">
+    <rect x="24" y="6" width="16" height="20" rx="4" fill="url(#luxury-watch-gb)"/>
+    <rect x="24" y="38" width="16" height="20" rx="4" fill="url(#luxury-watch-gb)"/>
+    <rect x="24" y="10" width="16" height="2.6" fill="#7c879c" opacity=".7"/><rect x="24" y="16" width="16" height="2.6" fill="#7c879c" opacity=".7"/>
+    <rect x="24" y="44" width="16" height="2.6" fill="#7c879c" opacity=".7"/><rect x="24" y="50" width="16" height="2.6" fill="#7c879c" opacity=".7"/>
+    <circle cx="32" cy="32" r="17" fill="url(#luxury-watch-g)"/>
+    <circle cx="32" cy="32" r="14" fill="url(#luxury-watch-gd)"/>
+    <circle cx="32" cy="32" r="14" fill="none" stroke="#b98a12" stroke-width="1.4" opacity=".5"/>
+    <path d="M32 20v2.6M44 32h-2.6M32 44v-2.6M20 32h2.6" stroke="#5b6478" stroke-width="2" stroke-linecap="round"/>
+    <rect class="luxury-watch-h luxury-watch-h2" x="31.1" y="24" width="1.8" height="8.5" rx=".9" fill="#2c3242"/>
+    <rect class="luxury-watch-h" x="31.3" y="21" width="1.4" height="11.5" rx=".7" fill="#d9354f"/>
+    <circle cx="32" cy="32" r="2" fill="#c8a01c"/>
+    <rect x="47" y="29" width="4" height="6" rx="1.6" fill="#e0b52a"/>
+    <path d="M22 22c2-2.4 4.6-4 7.4-4.6" stroke="#fff" stroke-opacity=".7" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path d="M20 40c3 5 8 8 14 8-6 3-13 0-16-5z" fill="#7a5405" opacity=".4"/>
+    <g clip-path="url(#luxury-watch-c)"><rect class="luxury-watch-sh" x="26" y="14" width="7" height="36" fill="#fff"/></g>
+    </g>
+    <circle class="luxury-watch-s" cx="52" cy="14" r="2.2" fill="#fff"/>
+    <circle class="luxury-watch-s luxury-watch-s2" cx="11" cy="24" r="1.8" fill="#fff"/>
+    <circle class="luxury-watch-s luxury-watch-s3" cx="53" cy="50" r="1.5" fill="#fff"/>
+    <g mask="url(#luxury-watch-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#luxury-watch-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#luxury-watch-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#luxury-watch-x-rim)"/>
+      <rect class="luxury-watch-x-shine" x="0" y="-16" width="26" height="96" fill="url(#luxury-watch-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="luxury-watch-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="luxury-watch-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="luxury-watch-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

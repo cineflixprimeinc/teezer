@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes sky-castle-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+    @keyframes sky-castle-drift{0%{transform:translateX(-3px);opacity:.3}50%{opacity:.8}100%{transform:translateX(4px);opacity:.3}}
+    @keyframes sky-castle-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .sky-castle-b{transform-box:fill-box;transform-origin:center;animation:sky-castle-float 2.8s ease-in-out infinite}
+    .sky-castle-c{transform-box:fill-box;transform-origin:center;animation:sky-castle-drift 2.6s ease-in-out infinite}
+    .sky-castle-c2{animation-delay:1.3s}
+    .sky-castle-s{transform-box:fill-box;transform-origin:center;animation:sky-castle-tw 2.1s ease-in-out infinite}
+    .sky-castle-s2{animation-delay:.8s}
+    .sky-castle-s3{animation-delay:1.5s}
+    @keyframes sky-castle-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes sky-castle-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes sky-castle-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes sky-castle-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes sky-castle-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .sky-castle-x-lift{transform-box:fill-box;transform-origin:center;animation:sky-castle-x-lift 3.4s ease-in-out infinite}
+    .sky-castle-x-shine{animation:sky-castle-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .sky-castle-x-spark{transform-box:fill-box;transform-origin:center;animation:sky-castle-x-spark 2.2s ease-in-out infinite}
+    .sky-castle-x-aura{transform-box:fill-box;transform-origin:center;animation:sky-castle-x-aura 3s ease-in-out infinite}
+    .sky-castle-x-cast{transform-box:fill-box;transform-origin:center;animation:sky-castle-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.sky-castle-x-lift,.sky-castle-x-shine,.sky-castle-x-spark,.sky-castle-x-aura,.sky-castle-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="sky-castle-g" x1="16" y1="14" x2="48" y2="42" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#f2f7ff"/><stop offset=".55" stop-color="#b9d0f2"/><stop offset="1" stop-color="#6a8ccd"/>
+    </linearGradient>
+    <linearGradient id="sky-castle-r" x1="20" y1="5" x2="44" y2="24" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#7ad9ff"/><stop offset="1" stop-color="#2d63bd"/>
+    </linearGradient>
+    <linearGradient id="sky-castle-k" x1="18" y1="40" x2="42" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#8b7ab0"/><stop offset="1" stop-color="#3c3159"/>
+    </linearGradient>
+    <filter id="sky-castle-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="sky-castle-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="sky-castle-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sky-castle-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="sky-castle-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sky-castle-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="sky-castle-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="sky-castle-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="sky-castle-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#sky-castle-x-white)">
+        <g class="sky-castle-b" filter="url(#sky-castle-f)">
+        <path d="M17 40h30l-5 8-4 4-6 7-6-7-5-5Z" fill="url(#sky-castle-k)"/>
+        <path d="M20 41c2 6 6 11 12 18-8-3-13-9-15-18Z" fill="#2a2242" opacity=".55"/>
+        <rect x="16" y="22" width="10" height="19" rx="2" fill="url(#sky-castle-g)"/>
+        <rect x="38" y="24" width="10" height="17" rx="2" fill="url(#sky-castle-g)"/>
+        <rect x="16" y="33" width="32" height="8" rx="2" fill="url(#sky-castle-g)"/>
+        <rect x="27" y="14" width="11" height="27" rx="2" fill="url(#sky-castle-g)"/>
+        <path d="M15 22l6-9 6 9Z" fill="url(#sky-castle-r)"/>
+        <path d="M37 24l6-8 6 8Z" fill="url(#sky-castle-r)"/>
+        <path d="M26 14l6.5-10L39 14Z" fill="url(#sky-castle-r)"/>
+        <path d="M19 25v13" stroke="#fff" stroke-opacity=".55" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M29.5 17v9" stroke="#fff" stroke-opacity=".45" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M16 38h32v3H16Z" fill="#4a68a8" opacity=".5"/>
+        <rect x="30.5" y="28" width="4" height="6" rx="2" fill="#ffd35c"/>
+        <rect x="19" y="28" width="3.5" height="5" rx="1.7" fill="#ffd35c"/>
+        <rect x="41" y="30" width="3.5" height="5" rx="1.7" fill="#ffd35c"/>
+        </g>
+        <ellipse class="sky-castle-c" cx="14" cy="47" rx="8" ry="3.2" fill="#dbe9ff" opacity=".6"/>
+        <ellipse class="sky-castle-c sky-castle-c2" cx="49" cy="51" rx="9" ry="3.4" fill="#c8dcff" opacity=".55"/>
+        <circle class="sky-castle-s" cx="54" cy="14" r="2.1" fill="#fff"/>
+        <circle class="sky-castle-s sky-castle-s2" cx="9" cy="17" r="1.6" fill="#fff"/>
+        <circle class="sky-castle-s sky-castle-s3" cx="57" cy="34" r="1.4" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="sky-castle-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#sky-castle-x-cast-g)"/>
+  <circle class="sky-castle-x-aura" cx="32" cy="32" r="29" fill="url(#sky-castle-x-aura-g)"/>
+  <g class="sky-castle-x-lift">
+    <g class="sky-castle-b" filter="url(#sky-castle-f)">
+    <path d="M17 40h30l-5 8-4 4-6 7-6-7-5-5Z" fill="url(#sky-castle-k)"/>
+    <path d="M20 41c2 6 6 11 12 18-8-3-13-9-15-18Z" fill="#2a2242" opacity=".55"/>
+    <rect x="16" y="22" width="10" height="19" rx="2" fill="url(#sky-castle-g)"/>
+    <rect x="38" y="24" width="10" height="17" rx="2" fill="url(#sky-castle-g)"/>
+    <rect x="16" y="33" width="32" height="8" rx="2" fill="url(#sky-castle-g)"/>
+    <rect x="27" y="14" width="11" height="27" rx="2" fill="url(#sky-castle-g)"/>
+    <path d="M15 22l6-9 6 9Z" fill="url(#sky-castle-r)"/>
+    <path d="M37 24l6-8 6 8Z" fill="url(#sky-castle-r)"/>
+    <path d="M26 14l6.5-10L39 14Z" fill="url(#sky-castle-r)"/>
+    <path d="M19 25v13" stroke="#fff" stroke-opacity=".55" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M29.5 17v9" stroke="#fff" stroke-opacity=".45" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M16 38h32v3H16Z" fill="#4a68a8" opacity=".5"/>
+    <rect x="30.5" y="28" width="4" height="6" rx="2" fill="#ffd35c"/>
+    <rect x="19" y="28" width="3.5" height="5" rx="1.7" fill="#ffd35c"/>
+    <rect x="41" y="30" width="3.5" height="5" rx="1.7" fill="#ffd35c"/>
+    </g>
+    <ellipse class="sky-castle-c" cx="14" cy="47" rx="8" ry="3.2" fill="#dbe9ff" opacity=".6"/>
+    <ellipse class="sky-castle-c sky-castle-c2" cx="49" cy="51" rx="9" ry="3.4" fill="#c8dcff" opacity=".55"/>
+    <circle class="sky-castle-s" cx="54" cy="14" r="2.1" fill="#fff"/>
+    <circle class="sky-castle-s sky-castle-s2" cx="9" cy="17" r="1.6" fill="#fff"/>
+    <circle class="sky-castle-s sky-castle-s3" cx="57" cy="34" r="1.4" fill="#fff"/>
+    <g mask="url(#sky-castle-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#sky-castle-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#sky-castle-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#sky-castle-x-rim)"/>
+      <rect class="sky-castle-x-shine" x="0" y="-16" width="26" height="96" fill="url(#sky-castle-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="sky-castle-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="sky-castle-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="sky-castle-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="sky-castle-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

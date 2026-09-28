@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes piano-bounce{0%,100%{transform:translateY(0) scaleY(1)}45%{transform:translateY(-4px) scaleY(1.05)}72%{transform:translateY(0) scaleY(.96)}}
+    @keyframes piano-key{0%,100%{transform:translateY(0)}50%{transform:translateY(2.5px)}}
+    @keyframes piano-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .piano-body{transform-box:fill-box;transform-origin:center bottom;animation:piano-bounce 1.8s ease-in-out infinite}
+    .piano-k{transform-box:fill-box;transform-origin:top;animation:piano-key 1.8s ease-in-out infinite}
+    .piano-k2{animation-delay:.6s}
+    .piano-k3{animation-delay:1.2s}
+    .piano-s{transform-box:fill-box;transform-origin:center;animation:piano-tw 2.1s ease-in-out infinite}
+    .piano-s2{animation-delay:1s}
+    @keyframes piano-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes piano-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes piano-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes piano-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes piano-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .piano-x-lift{transform-box:fill-box;transform-origin:center;animation:piano-x-lift 3.4s ease-in-out infinite}
+    .piano-x-shine{animation:piano-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .piano-x-spark{transform-box:fill-box;transform-origin:center;animation:piano-x-spark 2.2s ease-in-out infinite}
+    .piano-x-aura{transform-box:fill-box;transform-origin:center;animation:piano-x-aura 3s ease-in-out infinite}
+    .piano-x-cast{transform-box:fill-box;transform-origin:center;animation:piano-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.piano-x-lift,.piano-x-shine,.piano-x-spark,.piano-x-aura,.piano-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="piano-case" x1="8" y1="14" x2="56" y2="34" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#7b88ad"/><stop offset=".5" stop-color="#3b4468"/><stop offset="1" stop-color="#1b2038"/>
+    </linearGradient>
+    <linearGradient id="piano-key" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d3d8e6"/>
+    </linearGradient>
+    <linearGradient id="piano-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="piano-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="piano-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="piano-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="piano-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="piano-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="piano-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#piano-x-white)">
+        <g class="piano-body">
+        <rect x="7" y="14" width="50" height="16" rx="5" fill="url(#piano-case)"/>
+        <rect x="11" y="17" width="20" height="4" rx="2" fill="#fff" opacity=".3"/>
+        <rect x="7" y="28" width="50" height="6" rx="3" fill="#242c4a"/>
+        <rect x="7" y="30" width="50" height="20" rx="4" fill="url(#piano-key)"/>
+        <path d="M14 30v20M21 30v20M28 30v20M35 30v20M42 30v20M49 30v20" stroke="#a9b1c6" stroke-width="1.4"/>
+        <rect class="piano-k" x="11" y="30" width="4.5" height="12" rx="1.6" fill="#212841"/>
+        <rect x="18.5" y="30" width="4.5" height="12" rx="1.6" fill="#212841"/>
+        <rect class="piano-k piano-k2" x="32.5" y="30" width="4.5" height="12" rx="1.6" fill="#212841"/>
+        <rect x="39.5" y="30" width="4.5" height="12" rx="1.6" fill="#212841"/>
+        <rect class="piano-k piano-k3" x="46.5" y="30" width="4.5" height="12" rx="1.6" fill="#212841"/>
+        <rect x="7" y="45" width="50" height="5" rx="2.5" fill="#8f97ad" opacity=".45"/>
+        <rect x="12" y="50" width="6" height="6" rx="2" fill="#2a3252"/>
+        <rect x="46" y="50" width="6" height="6" rx="2" fill="#2a3252"/>
+        </g>
+        <path d="M50 12c0-2 1-3 3-3v6" stroke="#ffd45e" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <circle class="piano-s" cx="54" cy="9" r="2.1" fill="#fff"/>
+        <circle class="piano-s piano-s2" cx="10" cy="9" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="piano-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#piano-x-cast-g)"/>
+  <g class="piano-x-lift">
+    <g class="piano-body">
+    <rect x="7" y="14" width="50" height="16" rx="5" fill="url(#piano-case)"/>
+    <rect x="11" y="17" width="20" height="4" rx="2" fill="#fff" opacity=".3"/>
+    <rect x="7" y="28" width="50" height="6" rx="3" fill="#242c4a"/>
+    <rect x="7" y="30" width="50" height="20" rx="4" fill="url(#piano-key)"/>
+    <path d="M14 30v20M21 30v20M28 30v20M35 30v20M42 30v20M49 30v20" stroke="#a9b1c6" stroke-width="1.4"/>
+    <rect class="piano-k" x="11" y="30" width="4.5" height="12" rx="1.6" fill="#212841"/>
+    <rect x="18.5" y="30" width="4.5" height="12" rx="1.6" fill="#212841"/>
+    <rect class="piano-k piano-k2" x="32.5" y="30" width="4.5" height="12" rx="1.6" fill="#212841"/>
+    <rect x="39.5" y="30" width="4.5" height="12" rx="1.6" fill="#212841"/>
+    <rect class="piano-k piano-k3" x="46.5" y="30" width="4.5" height="12" rx="1.6" fill="#212841"/>
+    <rect x="7" y="45" width="50" height="5" rx="2.5" fill="#8f97ad" opacity=".45"/>
+    <rect x="12" y="50" width="6" height="6" rx="2" fill="#2a3252"/>
+    <rect x="46" y="50" width="6" height="6" rx="2" fill="#2a3252"/>
+    </g>
+    <path d="M50 12c0-2 1-3 3-3v6" stroke="#ffd45e" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <circle class="piano-s" cx="54" cy="9" r="2.1" fill="#fff"/>
+    <circle class="piano-s piano-s2" cx="10" cy="9" r="1.5" fill="#fff"/>
+    <g mask="url(#piano-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#piano-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#piano-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#piano-x-rim)"/>
+      <rect class="piano-x-shine" x="0" y="-16" width="26" height="96" fill="url(#piano-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="piano-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="piano-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

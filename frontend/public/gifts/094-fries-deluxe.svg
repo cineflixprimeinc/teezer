@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes fries-deluxe-wig{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+    @keyframes fries-deluxe-pop{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+    @keyframes fries-deluxe-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .fries-deluxe-body{transform-box:fill-box;transform-origin:center bottom;animation:fries-deluxe-wig 2.1s ease-in-out infinite}
+    .fries-deluxe-p{transform-box:fill-box;transform-origin:center bottom;animation:fries-deluxe-pop 1.7s ease-in-out infinite}
+    .fries-deluxe-p2{animation-delay:.55s}
+    .fries-deluxe-s{transform-box:fill-box;transform-origin:center;animation:fries-deluxe-tw 2.3s ease-in-out infinite}
+    .fries-deluxe-s2{animation-delay:.8s}
+    .fries-deluxe-s3{animation-delay:1.5s}
+    @keyframes fries-deluxe-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes fries-deluxe-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes fries-deluxe-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes fries-deluxe-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes fries-deluxe-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .fries-deluxe-x-lift{transform-box:fill-box;transform-origin:center;animation:fries-deluxe-x-lift 3.4s ease-in-out infinite}
+    .fries-deluxe-x-shine{animation:fries-deluxe-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .fries-deluxe-x-spark{transform-box:fill-box;transform-origin:center;animation:fries-deluxe-x-spark 2.2s ease-in-out infinite}
+    .fries-deluxe-x-aura{transform-box:fill-box;transform-origin:center;animation:fries-deluxe-x-aura 3s ease-in-out infinite}
+    .fries-deluxe-x-cast{transform-box:fill-box;transform-origin:center;animation:fries-deluxe-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.fries-deluxe-x-lift,.fries-deluxe-x-shine,.fries-deluxe-x-spark,.fries-deluxe-x-aura,.fries-deluxe-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="fries-deluxe-gc" x1="14" y1="32" x2="50" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff8a8a"/><stop offset=".5" stop-color="#e23434"/><stop offset="1" stop-color="#960d14"/>
+    </linearGradient>
+    <linearGradient id="fries-deluxe-gf" x1="20" y1="8" x2="44" y2="36" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff0b0"/><stop offset=".5" stop-color="#fbc94a"/><stop offset="1" stop-color="#d18f10"/>
+    </linearGradient>
+    <filter id="fries-deluxe-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="fries-deluxe-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="fries-deluxe-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fries-deluxe-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="fries-deluxe-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fries-deluxe-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="fries-deluxe-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="fries-deluxe-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="fries-deluxe-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#fries-deluxe-x-white)">
+        <g class="fries-deluxe-body" filter="url(#fries-deluxe-f)">
+        <g class="fries-deluxe-p">
+        <rect x="16" y="12" width="5.6" height="26" rx="2.6" fill="url(#fries-deluxe-gf)" transform="rotate(-13 18.8 25)"/>
+        <rect x="29" y="7" width="5.6" height="31" rx="2.6" fill="url(#fries-deluxe-gf)"/>
+        <rect x="41" y="12" width="5.6" height="26" rx="2.6" fill="url(#fries-deluxe-gf)" transform="rotate(13 43.8 25)"/>
+        </g>
+        <g class="fries-deluxe-p fries-deluxe-p2">
+        <rect x="22.5" y="10" width="5.6" height="28" rx="2.6" fill="url(#fries-deluxe-gf)" transform="rotate(-6 25.3 24)"/>
+        <rect x="35" y="10" width="5.6" height="28" rx="2.6" fill="url(#fries-deluxe-gf)" transform="rotate(6 37.8 24)"/>
+        </g>
+        <path d="M20 15v10M32 10v10M44 16v9M26 13v9M38 13v9" stroke="#fff" stroke-opacity=".45" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M14 33h36l-3.4 21.4A4 4 0 0 1 42.6 58H21.4a4 4 0 0 1-4-3.6L14 33Z" fill="url(#fries-deluxe-gc)"/>
+        <path d="M17.6 50h28.8l-.6 4.4A4 4 0 0 1 42.6 58H21.4a4 4 0 0 1-4-3.6L17.6 50Z" fill="#7c0913" opacity=".45"/>
+        <rect x="12.5" y="30" width="39" height="6" rx="3" fill="#ff6b6b"/>
+        <path d="M15 32h9" stroke="#fff" stroke-opacity=".6" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M13.5 36c4 6 8 2 12 8s8 0 12 4 6-4 11-6" stroke="#ffd85c" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".9"/>
+        <path d="M19 41c-1.6 4-2 8-1.4 12" stroke="#fff" stroke-opacity=".3" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <path d="M28 44c2 0 3.4 1.6 3.4 3.6 0 2-1.4 3.4-3.4 3.4s-3.4-1.4-3.4-3.4c0-2 1.4-3.6 3.4-3.6Z" fill="#ffe27a" opacity=".85"/>
+        </g>
+        <circle class="fries-deluxe-s" cx="55" cy="14" r="2.2" fill="#fff"/>
+        <circle class="fries-deluxe-s fries-deluxe-s2" cx="8" cy="24" r="1.7" fill="#ffe6a1"/>
+        <circle class="fries-deluxe-s fries-deluxe-s3" cx="56" cy="44" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="fries-deluxe-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#fries-deluxe-x-cast-g)"/>
+  <circle class="fries-deluxe-x-aura" cx="32" cy="32" r="29" fill="url(#fries-deluxe-x-aura-g)"/>
+  <g class="fries-deluxe-x-lift">
+    <g class="fries-deluxe-body" filter="url(#fries-deluxe-f)">
+    <g class="fries-deluxe-p">
+    <rect x="16" y="12" width="5.6" height="26" rx="2.6" fill="url(#fries-deluxe-gf)" transform="rotate(-13 18.8 25)"/>
+    <rect x="29" y="7" width="5.6" height="31" rx="2.6" fill="url(#fries-deluxe-gf)"/>
+    <rect x="41" y="12" width="5.6" height="26" rx="2.6" fill="url(#fries-deluxe-gf)" transform="rotate(13 43.8 25)"/>
+    </g>
+    <g class="fries-deluxe-p fries-deluxe-p2">
+    <rect x="22.5" y="10" width="5.6" height="28" rx="2.6" fill="url(#fries-deluxe-gf)" transform="rotate(-6 25.3 24)"/>
+    <rect x="35" y="10" width="5.6" height="28" rx="2.6" fill="url(#fries-deluxe-gf)" transform="rotate(6 37.8 24)"/>
+    </g>
+    <path d="M20 15v10M32 10v10M44 16v9M26 13v9M38 13v9" stroke="#fff" stroke-opacity=".45" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M14 33h36l-3.4 21.4A4 4 0 0 1 42.6 58H21.4a4 4 0 0 1-4-3.6L14 33Z" fill="url(#fries-deluxe-gc)"/>
+    <path d="M17.6 50h28.8l-.6 4.4A4 4 0 0 1 42.6 58H21.4a4 4 0 0 1-4-3.6L17.6 50Z" fill="#7c0913" opacity=".45"/>
+    <rect x="12.5" y="30" width="39" height="6" rx="3" fill="#ff6b6b"/>
+    <path d="M15 32h9" stroke="#fff" stroke-opacity=".6" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M13.5 36c4 6 8 2 12 8s8 0 12 4 6-4 11-6" stroke="#ffd85c" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".9"/>
+    <path d="M19 41c-1.6 4-2 8-1.4 12" stroke="#fff" stroke-opacity=".3" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <path d="M28 44c2 0 3.4 1.6 3.4 3.6 0 2-1.4 3.4-3.4 3.4s-3.4-1.4-3.4-3.4c0-2 1.4-3.6 3.4-3.6Z" fill="#ffe27a" opacity=".85"/>
+    </g>
+    <circle class="fries-deluxe-s" cx="55" cy="14" r="2.2" fill="#fff"/>
+    <circle class="fries-deluxe-s fries-deluxe-s2" cx="8" cy="24" r="1.7" fill="#ffe6a1"/>
+    <circle class="fries-deluxe-s fries-deluxe-s3" cx="56" cy="44" r="1.5" fill="#fff"/>
+    <g mask="url(#fries-deluxe-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#fries-deluxe-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#fries-deluxe-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#fries-deluxe-x-rim)"/>
+      <rect class="fries-deluxe-x-shine" x="0" y="-16" width="26" height="96" fill="url(#fries-deluxe-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="fries-deluxe-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="fries-deluxe-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="fries-deluxe-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

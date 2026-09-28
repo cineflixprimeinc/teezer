@@ -1,0 +1,31 @@
+# systemd unit - dedicated Redis instance for LiveKit + Egress coordination.
+# A second instance of the OS redis-server package, not a new install - reuses
+# the same binary the app's own Redis already uses, just a separate config,
+# port, data dir, and unit so the two can never collide or be confused for
+# each other in `systemctl status`.
+#
+# Install (Debian/Ubuntu, apt's redis-server package already provides the binary):
+#   1. apt install redis-server   (skip if already installed for anything else)
+#   2. mkdir -p /var/lib/redis-livekit /run/redis
+#      chown redis:redis /var/lib/redis-livekit /run/redis
+#   3. cp redis-livekit.conf /etc/redis/redis-livekit.conf
+#   4. cp redis-livekit.service /etc/systemd/system/redis-livekit.service
+#   5. systemctl daemon-reload && systemctl enable --now redis-livekit
+#   6. redis-cli -p 6400 ping   -> PONG
+#
+[Unit]
+Description=Redis instance dedicated to LiveKit + Egress coordination
+After=network.target
+
+[Service]
+Type=notify
+User=redis
+Group=redis
+ExecStart=/usr/bin/redis-server /etc/redis/redis-livekit.conf
+Restart=on-failure
+RestartSec=2
+RuntimeDirectory=redis
+RuntimeDirectoryMode=0755
+
+[Install]
+WantedBy=multi-user.target

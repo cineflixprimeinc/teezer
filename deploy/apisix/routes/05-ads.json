@@ -1,0 +1,62 @@
+{
+  "_admin_api_path": "/apisix/admin/routes/teezer-ads",
+  "_comment": "Ads Manager's creator/advertiser-facing API (studio promotions, ad campaigns/groups/creatives). The admin-side ad routes live under /api/v1/admin/ads/* and are already covered by 02-admin.json's broader /api/v1/admin/* match at equal priority + more specific uri length, so they're handled there, not duplicated here.",
+  "name": "teezer-ads",
+  "desc": "Ads Manager API - authenticated-tier rate limit",
+  "uris": [
+    "/api/v1/studio/promotions*",
+    "/api/v1/studio/ad-campaigns*",
+    "/api/v1/studio/ad-groups*",
+    "/api/v1/studio/ad-creatives*"
+  ],
+  "priority": 8,
+  "methods": [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS"
+  ],
+  "upstream_id": "teezer-laravel",
+  "plugins": {
+    "cors": {
+      "allow_origins": "${APISIX_CORS_ORIGINS}",
+      "allow_origins_by_regex": [
+        "^https://([a-z0-9-]+\\.)?teezer\\.live$"
+      ],
+      "allow_methods": "GET,POST,PUT,PATCH,DELETE,OPTIONS",
+      "allow_headers": "Accept,Accept-Encoding,Accept-Language,Content-Language,Content-Type,Authorization,X-Requested-With,X-CSRF-TOKEN,X-XSRF-TOKEN,X-Socket-Id,X-Turnstile-Token,X-Request-Id,X-Reelsoo-SSO-CSRF,X-Playout-Limit,X-Restrict,X-Request-URL,X-Device-Fingerprint,X-Device-Id,X-Device-Type,X-Fingerprint,X-App-Version,X-Platform,X-Timezone,X-Client,X-Locale,X-Session-Id,Cache-Control,Pragma,If-Modified-Since,If-None-Match,Range,DNT",
+      "expose_headers": "X-RateLimit-Limit,X-RateLimit-Remaining,X-Request-Id,Retry-After,Content-Length,Content-Range",
+      "allow_credential": true,
+      "max_age": 86400
+    },
+    "real-ip": {
+      "source": "http_x_forwarded_for",
+      "trusted_addresses": [
+        "127.0.0.1/32"
+      ],
+      "recursive": true
+    },
+    "limit-count": {
+      "count": ${RL_ADS_COUNT},
+      "time_window": ${RL_ADS_WINDOW},
+      "key_type": "var",
+      "key": "remote_addr",
+      "rejected_code": 429,
+      "rejected_msg": "Too many requests. Please slow down and try again shortly.",
+      "policy": "redis",
+      "redis_host": "${RATELIMIT_REDIS_HOST}",
+      "redis_port": ${RATELIMIT_REDIS_PORT},
+      "redis_database": ${RATELIMIT_REDIS_DATABASE},
+      "redis_timeout": ${RATELIMIT_REDIS_TIMEOUT},
+      "allow_degradation": true,
+      "show_limit_quota_header": false
+    },
+    "request-id": {
+      "include_in_response": true
+    },
+    "prometheus": {},
+    "gzip": {}
+  }
+}

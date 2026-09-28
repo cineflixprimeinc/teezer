@@ -1,0 +1,72 @@
+# livekit-server config - self-hosted media engine behind StreamHub
+# (App\StreamHub\StreamHubService). Non-secret fields only conceptually - the
+# `keys` block below actually carries the real API key/secret pair, which is
+# WHY this is an `.example` template like nats-server.conf/config.json
+# elsewhere in deploy/, not something committed with real values. Copy to
+# /etc/livekit/livekit.yaml, fill in the placeholders, chmod 600.
+#
+# Single-node for Phase 1 (Spaces only) - redis below exists ONLY because
+# livekit-egress needs it to receive job dispatches from this server, even
+# with exactly one livekit-server node running. It is NOT here for clustering
+# yet - that's a later phase (see deploy/livekit/README.md).
+
+port: 7880
+
+rtc:
+  tcp_port: 7881
+  # UDP media port range - opened directly in the VPS firewall (nginx can't
+  # proxy raw UDP). See README.md §3.
+  port_range_start: 50000
+  port_range_end: 60000
+  # The VPS's own public IP - LiveKit advertises this in ICE candidates so
+  # clients behind NAT (i.e. everyone on mobile) can reach it directly.
+  use_external_ip: true
+
+# Deliberately OFF for Phase 1. The original plan here was TURN-over-TLS
+# multiplexed onto the same 443 port as WSS signaling (LiveKit's
+# "restrictive-network" single-port mode) - it was live-tested against a
+# real deployment and did NOT work: the TLS layer negotiated but the
+# WS-signaling layer on top of it never completed a request, even over
+# loopback (same box talking to itself, zero network/firewall involved),
+# which points at either a version-specific bug or a config knob beyond
+# turn.external_tls that wasn't found in the time spent on it. This is NOT a
+# regression versus the previous Cloudflare SFU setup, which also had no
+# TURN at all - Phase 1 ships at parity. Revisit as an explicit fast-follow,
+# most likely by running TURN on its own standard port (5349) instead of
+# trying to share 443 with signaling - do not re-attempt the single-port
+# multiplexed mode without a working reference deployment to compare against.
+turn:
+  enabled: false
+
+# One key/secret pair, used for: room-service Twirp auth, participant JWTs,
+# AND webhook signing (Agence104\LiveKit\WebhookReceiver verifies against the
+# SAME pair - see server/config/services.php's livekit block). Generate with:
+#   livekit-server generate-keys
+# The same pair goes into Laravel's LIVEKIT_API_KEY/LIVEKIT_API_SECRET.
+keys:
+  REPLACE_WITH_GENERATED_KEY: REPLACE_WITH_GENERATED_SECRET
+
+# Dedicated to LiveKit+Egress - deliberately NOT the app's own Redis (which
+# VPS2 only reaches via an SSH tunnel to VPS1, documented elsewhere as
+# fragile). Core live-media job dispatch should not depend on that tunnel.
+# See README.md §2 for the standalone redis-server setup this points at.
+redis:
+  address: 127.0.0.1:6400
+
+# StreamHub's webhook receiver - see App\StreamHub\LiveKitWebhookController
+# and the /api/v1/streamhub/webhook route (public, verified by its own signed
+# Authorization header, not Sanctum).
+webhook:
+  api_key: REPLACE_WITH_GENERATED_KEY
+  urls:
+    - https://api.teezer.live/api/v1/streamhub/webhook
+
+room:
+  auto_create: true
+  # No participants for 5 minutes -> LiveKit closes the room itself. A safety
+  # net alongside StreamHubService::createRoom()'s own emptyTimeout setting
+  # and the app's own end/leave bookkeeping, not a replacement for either.
+  empty_timeout: 300
+
+logging:
+  level: info

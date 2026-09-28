@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reelsoo - Two-VPS Setup Plan</title>
+<style>
+  @page { size: A4; margin: 16mm 14mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1a1a1a; line-height: 1.55; font-size: 12px; margin: 0;
+  }
+  h1 { font-size: 24px; color: #0b1a3a; margin: 0 0 4px; }
+  h2 { font-size: 16px; color: #0b1a3a; margin: 26px 0 8px; padding-bottom: 4px;
+       border-bottom: 2px solid #1d8cff; page-break-after: avoid; }
+  h3 { font-size: 13px; color: #14306b; margin: 16px 0 6px; page-break-after: avoid; }
+  .sub { color: #5a6478; font-size: 12px; margin: 0 0 2px; }
+  .meta { color: #8a93a6; font-size: 11px; margin: 0 0 14px; }
+  p { margin: 6px 0; }
+  ul, ol { margin: 6px 0 6px 18px; padding: 0; }
+  li { margin: 3px 0; }
+  code { font-family: "Consolas","SFMono-Regular",Menlo,monospace; font-size: 11px;
+         background: #eef2f8; padding: 1px 4px; border-radius: 3px; color: #0b3d91; }
+  pre { background: #0e1726; color: #e6edf7; border-radius: 6px; padding: 11px 13px;
+        overflow-x: auto; font-size: 10.5px; line-height: 1.5; page-break-inside: avoid;
+        font-family: "Consolas","SFMono-Regular",Menlo,monospace; }
+  pre code { background: none; color: inherit; padding: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0; font-size: 11px; page-break-inside: avoid; }
+  th, td { border: 1px solid #d4dbe8; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #14306b; color: #fff; font-weight: 600; }
+  tr:nth-child(even) td { background: #f4f7fc; }
+  blockquote { border-left: 4px solid #1d8cff; background: #f0f6ff; margin: 10px 0;
+               padding: 8px 13px; color: #243; border-radius: 0 5px 5px 0; }
+  .warn { border-left: 4px solid #e23b3b; background: #fdf0f0; margin: 10px 0;
+          padding: 8px 13px; border-radius: 0 5px 5px 0; }
+  .warn strong { color: #c0392b; }
+  hr { border: none; border-top: 1px solid #e0e4ec; margin: 22px 0; }
+  .pill { display:inline-block; background:#1d8cff; color:#fff; font-size:10px;
+          padding:2px 8px; border-radius:10px; vertical-align:middle; }
+  .footer { color:#8a93a6; font-size:10px; font-style:italic; margin-top:18px; }
+  ul.check { list-style: none; margin-left: 0; }
+  ul.check li::before { content: "\2610  "; color:#1d8cff; font-weight:bold; }
+</style>
+</head>
+<body>
+
+<h1>Reelsoo - Two-VPS Setup Plan</h1>
+<p class="sub">Single website, load balanced across two servers - with auto-failover, one shared database, and a private secure link.</p>
+<p class="meta">Generated 2026-06-23 &nbsp;·&nbsp; Keep this document private - it describes server topology.</p>
+
+<h2>Current situation</h2>
+<table>
+  <tr><th style="width:22%">Component</th><th>Detail</th></tr>
+  <tr><td><b>VPS-1</b></td><td><code>167.233.204.183</code> (Hostinger) - has MySQL, DNS points here, gets all traffic</td></tr>
+  <tr><td><b>VPS-2</b></td><td><code>75.119.156.93</code> (Contabo) - runs the app, connects to shared DB, <b>currently gets no traffic</b></td></tr>
+  <tr><td><b>Media</b></td><td>Cloudflare R2 (external, already shared)</td></tr>
+  <tr><td><b>DNS / CDN</b></td><td>Cloudflare</td></tr>
+</table>
+<p><b>Two problems this plan fixes:</b></p>
+<ol>
+  <li>VPS-2 receives no traffic (DNS points only to VPS-1) → it's idle.</li>
+  <li>The cross-provider DB link likely exposes MySQL to the public internet → security risk.</li>
+</ol>
+
+<h2>Target architecture</h2>
+<pre><code>                    +----------------------+
+   Visitors ------&gt; | Cloudflare Load Bal. |  (health checks + splits traffic)
+                    +----------+-----------+
+                  +------------+------------+
+                  v                         v
+        VPS-1 (167.233.204.183)      VPS-2 (75.119.156.93)
+        - App (web/admin/api)      - App (web/admin/api)
+        - MySQL  &lt;----------------- DB_HOST = 10.0.0.1
+        - Redis (optional) &lt;------- REDIS_HOST = 10.0.0.1
+                  +---- WireGuard private tunnel ----+
+                         (10.0.0.1  &lt;-&gt;  10.0.0.2)
+
+        Media/uploads -&gt; Cloudflare R2 (already shared)</code></pre>
+
+<p><b>Golden rule of multi-server:</b> anything stateful must be <i>shared</i>, not duplicated.</p>
+<table>
+  <tr><th>State</th><th>Solution</th><th style="width:20%">Status</th></tr>
+  <tr><td>Database</td><td>One MySQL on VPS-1, both connect over WireGuard</td><td>to set up</td></tr>
+  <tr><td>Sessions</td><td><code>database</code> driver - shared DB makes it automatic</td><td>already shared</td></tr>
+  <tr><td>Cache / rate-limits</td><td><code>database</code> driver (or shared Redis for performance)</td><td>already shared</td></tr>
+  <tr><td>Queue jobs</td><td><code>database</code> driver (shared)</td><td>already shared</td></tr>
+  <tr><td>Uploaded media</td><td>Cloudflare R2 (external)</td><td>already done</td></tr>
+  <tr><td>Cron / scheduler</td><td>Must run on ONE server only</td><td>to set up</td></tr>
+</table>
+<blockquote>Because sessions, cache, and queue all use the <code>database</code> driver and the DB is shared, they are automatically consistent across both servers with no extra work. Only the DB link, the load balancer, and the scheduler rule need setup.</blockquote>
+
+<h2>Step 0 - SECURITY FIRST: close any public MySQL exposure (VPS-1)</h2>
+<p>Before anything, check whether yesterday's setup exposed MySQL publicly:</p>
+<pre><code>ss -tlnp | grep 3306          # DANGER if you see 0.0.0.0:3306
+ufw status | grep 3306        # DANGER if it shows 'ALLOW Anywhere'</code></pre>
+<div class="warn"><strong>If exposed,</strong> it will be replaced by the private WireGuard tunnel below. Do not leave 3306 open to the internet.</div>
+
+<h2>Step 1 - WireGuard private tunnel between the two VPS</h2>
+<p>Gives a private <code>10.0.0.x</code> network so DB/Redis traffic never crosses the public internet.</p>
+<h3>On BOTH servers</h3>
+<pre><code>apt update &amp;&amp; apt install -y wireguard
+wg genkey | tee /etc/wireguard/privatekey | wg pubkey &gt; /etc/wireguard/publickey
+cat /etc/wireguard/publickey   # note each server's PUBLIC key</code></pre>
+<h3>On VPS-1 - /etc/wireguard/wg0.conf (uses VPS-2's public key)</h3>
+<pre><code>[Interface]
+Address = 10.0.0.1/24
+PrivateKey = &lt;VPS-1 privatekey&gt;
+ListenPort = 51820
+
+[Peer]
+PublicKey = &lt;VPS-2 publickey&gt;
+AllowedIPs = 10.0.0.2/32
+Endpoint = 75.119.156.93:51820
+PersistentKeepalive = 25</code></pre>
+<h3>On VPS-2 - /etc/wireguard/wg0.conf (uses VPS-1's public key)</h3>
+<pre><code>[Interface]
+Address = 10.0.0.2/24
+PrivateKey = &lt;VPS-2 privatekey&gt;
+ListenPort = 51820
+
+[Peer]
+PublicKey = &lt;VPS-1 publickey&gt;
+AllowedIPs = 10.0.0.1/32
+Endpoint = 167.233.204.183:51820
+PersistentKeepalive = 25</code></pre>
+<h3>On BOTH - allow the WG port to each other, then start</h3>
+<pre><code># VPS-1:  ufw allow from 75.119.156.93 to any port 51820 proto udp
+# VPS-2:  ufw allow from 167.233.204.183 to any port 51820 proto udp
+systemctl enable --now wg-quick@wg0
+ping -c2 10.0.0.1   # run from VPS-2 - should reply</code></pre>
+
+<h2>Step 2 - Bind MySQL to the tunnel (VPS-1)</h2>
+<pre><code># Edit /etc/mysql/mysql.conf.d/mysqld.cnf  -&gt;  set:
+#   bind-address = 127.0.0.1,10.0.0.1
+systemctl restart mysql
+
+# Allow the app user to connect from VPS-2 over the tunnel:
+mysql -u root -e "CREATE USER IF NOT EXISTS 'reelsoo'@'10.0.0.2' IDENTIFIED BY 'STRONG_DB_PASSWORD'; \
+GRANT ALL PRIVILEGES ON reelsoo.* TO 'reelsoo'@'10.0.0.2'; FLUSH PRIVILEGES;"
+
+# Firewall: allow ONLY VPS-2 over the tunnel; public 3306 stays closed
+ufw allow from 10.0.0.2 to any port 3306
+ufw status | grep 3306   # must NOT show 'Anywhere'</code></pre>
+
+<h2>Step 3 - Point VPS-2's app at the tunnel</h2>
+<p>In <b>VPS-2's</b> <code>/var/www/reelsoo/server/.env</code>:</p>
+<pre><code>DB_HOST=10.0.0.1
+DB_USERNAME=reelsoo
+DB_PASSWORD=STRONG_DB_PASSWORD</code></pre>
+<p>Then on VPS-2:</p>
+<pre><code>php artisan config:cache
+php artisan migrate:status   # confirms it reads the shared DB</code></pre>
+<p>Sessions/cache/queue stay on <code>database</code> - no change needed.</p>
+
+<h2>Step 4 - Cloudflare Load Balancer</h2>
+<p>Cloudflare dashboard → <b>Traffic → Load Balancing</b>:</p>
+<ol>
+  <li><b>Create an origin pool</b> with two origins: <code>167.233.204.183</code> and <code>75.119.156.93</code>.</li>
+  <li><b>Health check (monitor):</b> Type <code>HTTPS</code>, Path <code>/api/v1/health</code>, expected code <code>200</code>, interval 60s. Cloudflare auto-removes a server that fails.</li>
+  <li><b>Session affinity:</b> ON (cookie) - keeps each visitor on one server.</li>
+  <li><b>Attach the LB</b> to <code>reelsoo.com</code>, <code>www</code>, and <code>api</code> hostnames. The LB replaces the single A record.</li>
+</ol>
+<p>Ensure <b>both</b> servers' Nginx serves all hostnames (web, admin, api) and has the origin TLS cert, since traffic can now land on either.</p>
+
+<h2>Step 5 - Scheduler on ONE server only</h2>
+<p>The app has 4 scheduled jobs (token purge, analytics aggregation, sanctum prune, restrictions:expire). If both servers run them, they fire twice.</p>
+<pre><code># VPS-1 - KEEP this cron entry:
+* * * * * cd /var/www/reelsoo/server &amp;&amp; php artisan schedule:run &gt;&gt; /dev/null 2&gt;&amp;1
+
+# VPS-2 - REMOVE that cron line entirely (crontab -e).
+# Queue workers may run on both servers safely.</code></pre>
+
+<h2>Step 6 - Deploy to BOTH servers from now on</h2>
+<p>Every future deploy must hit both. Save as <code>deploy.sh</code>:</p>
+<pre><code>for H in 167.233.204.183 75.119.156.93; do
+  ssh root@$H 'cd /var/www/reelsoo &amp;&amp; git pull &amp;&amp; \
+    cd server &amp;&amp; composer install --no-dev -o &amp;&amp; php artisan migrate --force &amp;&amp; php artisan config:cache &amp;&amp; \
+    cd ../frontend &amp;&amp; npm ci &amp;&amp; npm run build &amp;&amp; pm2 reload reelsoo-web &amp;&amp; \
+    cd ../admin &amp;&amp; npm ci &amp;&amp; npm run build &amp;&amp; pm2 reload reelsoo-admin'
+done</code></pre>
+<p><code>migrate</code> is idempotent - the second run simply reports nothing to migrate.</p>
+
+<h2>Recommended order</h2>
+<ol>
+  <li><b>Step 0</b> - close any public MySQL exposure (security first).</li>
+  <li><b>Step 1</b> - WireGuard tunnel; verify <code>ping 10.0.0.1</code> works.</li>
+  <li><b>Step 2</b> - bind DB, grant user, firewall.</li>
+  <li><b>Step 3</b> - repoint VPS-2 <code>.env</code>; confirm it reads the DB.</li>
+  <li><b>Step 4</b> - Cloudflare Load Balancer; VPS-2 finally gets traffic.</li>
+  <li><b>Step 5</b> - scheduler fix.</li>
+  <li><b>Step 6</b> - adopt the two-server deploy script.</li>
+</ol>
+
+<h2>Verification checklist</h2>
+<ul class="check">
+  <li><code>ping 10.0.0.1</code> from VPS-2 replies (tunnel up)</li>
+  <li>VPS-1 <code>ss -tlnp | grep 3306</code> shows <code>127.0.0.1</code> and <code>10.0.0.1</code> only - NOT <code>0.0.0.0</code></li>
+  <li>VPS-1 <code>ufw status</code> does NOT show <code>3306 ALLOW Anywhere</code></li>
+  <li>VPS-2 <code>php artisan migrate:status</code> reads the shared DB</li>
+  <li>Cloudflare LB health check is green for both origins</li>
+  <li>Cron <code>schedule:run</code> exists on VPS-1 only</li>
+  <li>A test request lands on each server (check Nginx access logs on both)</li>
+</ul>
+
+<h2>Future hardening (optional, for true high availability)</h2>
+<ul>
+  <li><b>MySQL replication</b> - VPS-2 runs a read replica so the DB isn't a single point of failure.</li>
+  <li><b>Redis</b> - move sessions/cache to a shared Redis (bound to <code>10.0.0.1</code>) for performance at higher traffic.</li>
+  <li><b>Automated DB failover</b> - promote the replica if VPS-1's MySQL dies.</li>
+</ul>
+
+<p class="footer">Reelsoo infrastructure plan · Generated 2026-06-23 · Keep private.</p>
+
+</body>
+</html>

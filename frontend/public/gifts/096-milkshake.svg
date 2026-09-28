@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes milkshake-sway{0%,100%{transform:rotate(-5deg) translateY(1px)}50%{transform:rotate(5deg) translateY(-2px)}}
+    @keyframes milkshake-ch{0%,100%{transform:scale(1) rotate(-4deg)}50%{transform:scale(1.12) rotate(4deg)}}
+    @keyframes milkshake-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .milkshake-body{transform-box:fill-box;transform-origin:center bottom;animation:milkshake-sway 2.4s ease-in-out infinite}
+    .milkshake-c{transform-box:fill-box;transform-origin:center bottom;animation:milkshake-ch 2.4s ease-in-out infinite}
+    .milkshake-s{transform-box:fill-box;transform-origin:center;animation:milkshake-tw 2.2s ease-in-out infinite}
+    .milkshake-s2{animation-delay:.75s}
+    .milkshake-s3{animation-delay:1.4s}
+    @keyframes milkshake-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes milkshake-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes milkshake-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes milkshake-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes milkshake-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .milkshake-x-lift{transform-box:fill-box;transform-origin:center;animation:milkshake-x-lift 3.4s ease-in-out infinite}
+    .milkshake-x-shine{animation:milkshake-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .milkshake-x-spark{transform-box:fill-box;transform-origin:center;animation:milkshake-x-spark 2.2s ease-in-out infinite}
+    .milkshake-x-aura{transform-box:fill-box;transform-origin:center;animation:milkshake-x-aura 3s ease-in-out infinite}
+    .milkshake-x-cast{transform-box:fill-box;transform-origin:center;animation:milkshake-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.milkshake-x-lift,.milkshake-x-shine,.milkshake-x-spark,.milkshake-x-aura,.milkshake-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="milkshake-gm" x1="20" y1="24" x2="44" y2="54" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffd9ec"/><stop offset=".5" stop-color="#ff9ccd"/><stop offset="1" stop-color="#d84e97"/>
+    </linearGradient>
+    <linearGradient id="milkshake-gg" x1="16" y1="20" x2="48" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#bcd8e8" stop-opacity=".35"/>
+    </linearGradient>
+    <linearGradient id="milkshake-gst" x1="36" y1="6" x2="46" y2="26" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff8a8a"/><stop offset="1" stop-color="#d02a2a"/>
+    </linearGradient>
+    <filter id="milkshake-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="milkshake-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="milkshake-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="milkshake-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="milkshake-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="milkshake-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="milkshake-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="milkshake-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="milkshake-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#milkshake-x-white)">
+        <g class="milkshake-body" filter="url(#milkshake-f)">
+        <rect x="37" y="6" width="4.6" height="20" rx="2.2" fill="url(#milkshake-gst)" transform="rotate(14 39 16)"/>
+        <path d="M19 27h26l-3.6 27.6A4 4 0 0 1 37.4 58H26.6a4 4 0 0 1-4-3.4L19 27Z" fill="url(#milkshake-gm)"/>
+        <path d="M22 48h20l-.6 6.6a4 4 0 0 1-4 3.4H26.6a4 4 0 0 1-4-3.4L22 48Z" fill="#a52a70" opacity=".4"/>
+        <path d="M19 27h26l-3.6 27.6A4 4 0 0 1 37.4 58H26.6a4 4 0 0 1-4-3.4L19 27Z" fill="url(#milkshake-gg)"/>
+        <path d="M23.5 32c-1 7-1.2 14-.6 21" stroke="#fff" stroke-opacity=".55" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <path d="M17.5 26c0-7 6-8 14.5-8s14.5 1 14.5 8c-3 2-6-1-9 .6s-6-1.6-9 0-8 1.4-11-.6Z" fill="#fff8f2"/>
+        <path d="M19 21.5c3 2 6-1 9 .6s6-1.6 9 0 5 1 7 0" stroke="#fff" stroke-opacity=".9" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <circle cx="24" cy="20" r="1.5" fill="#ff6d9d"/><circle cx="33" cy="21.5" r="1.4" fill="#5ad1ff"/>
+        <circle cx="41" cy="20" r="1.4" fill="#ffd85c"/><circle cx="28" cy="23" r="1.3" fill="#7bf08a"/>
+        <rect x="16" y="24.5" width="32" height="4.5" rx="2.2" fill="#ffe3f0"/>
+        <g class="milkshake-c">
+        <path d="M32 14c0-3 2-4.6 5-5" stroke="#4caf50" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <circle cx="32" cy="11" r="4.4" fill="#e8264a"/>
+        <circle cx="30.5" cy="9.6" r="1.4" fill="#fff" opacity=".6"/>
+        </g>
+        </g>
+        <circle class="milkshake-s" cx="53" cy="16" r="2.2" fill="#fff"/>
+        <circle class="milkshake-s milkshake-s2" cx="10" cy="30" r="1.7" fill="#ffd6ea"/>
+        <circle class="milkshake-s milkshake-s3" cx="54" cy="46" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="milkshake-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#milkshake-x-cast-g)"/>
+  <circle class="milkshake-x-aura" cx="32" cy="32" r="29" fill="url(#milkshake-x-aura-g)"/>
+  <g class="milkshake-x-lift">
+    <g class="milkshake-body" filter="url(#milkshake-f)">
+    <rect x="37" y="6" width="4.6" height="20" rx="2.2" fill="url(#milkshake-gst)" transform="rotate(14 39 16)"/>
+    <path d="M19 27h26l-3.6 27.6A4 4 0 0 1 37.4 58H26.6a4 4 0 0 1-4-3.4L19 27Z" fill="url(#milkshake-gm)"/>
+    <path d="M22 48h20l-.6 6.6a4 4 0 0 1-4 3.4H26.6a4 4 0 0 1-4-3.4L22 48Z" fill="#a52a70" opacity=".4"/>
+    <path d="M19 27h26l-3.6 27.6A4 4 0 0 1 37.4 58H26.6a4 4 0 0 1-4-3.4L19 27Z" fill="url(#milkshake-gg)"/>
+    <path d="M23.5 32c-1 7-1.2 14-.6 21" stroke="#fff" stroke-opacity=".55" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path d="M17.5 26c0-7 6-8 14.5-8s14.5 1 14.5 8c-3 2-6-1-9 .6s-6-1.6-9 0-8 1.4-11-.6Z" fill="#fff8f2"/>
+    <path d="M19 21.5c3 2 6-1 9 .6s6-1.6 9 0 5 1 7 0" stroke="#fff" stroke-opacity=".9" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <circle cx="24" cy="20" r="1.5" fill="#ff6d9d"/><circle cx="33" cy="21.5" r="1.4" fill="#5ad1ff"/>
+    <circle cx="41" cy="20" r="1.4" fill="#ffd85c"/><circle cx="28" cy="23" r="1.3" fill="#7bf08a"/>
+    <rect x="16" y="24.5" width="32" height="4.5" rx="2.2" fill="#ffe3f0"/>
+    <g class="milkshake-c">
+    <path d="M32 14c0-3 2-4.6 5-5" stroke="#4caf50" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <circle cx="32" cy="11" r="4.4" fill="#e8264a"/>
+    <circle cx="30.5" cy="9.6" r="1.4" fill="#fff" opacity=".6"/>
+    </g>
+    </g>
+    <circle class="milkshake-s" cx="53" cy="16" r="2.2" fill="#fff"/>
+    <circle class="milkshake-s milkshake-s2" cx="10" cy="30" r="1.7" fill="#ffd6ea"/>
+    <circle class="milkshake-s milkshake-s3" cx="54" cy="46" r="1.5" fill="#fff"/>
+    <g mask="url(#milkshake-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#milkshake-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#milkshake-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#milkshake-x-rim)"/>
+      <rect class="milkshake-x-shine" x="0" y="-16" width="26" height="96" fill="url(#milkshake-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="milkshake-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="milkshake-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="milkshake-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

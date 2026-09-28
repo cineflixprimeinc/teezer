@@ -1,0 +1,92 @@
+# Paths excluded from the marketplace release package.
+#
+# Read by scripts/build-marketplace-release.sh. Every line is a path prefix or
+# glob relative to the repository root. Comments and blank lines are ignored.
+#
+# The package is built from `git archive`, so anything already untracked or
+# gitignored (a real .env, node_modules, storage contents, the signing key)
+# never enters the archive in the first place. THIS file is the second layer:
+# it removes things that ARE committed but must not reach a customer.
+#
+# Three categories, and it is worth keeping them separate in your head:
+#
+#   1. LICENSOR CODE - the licence server. Shipping it would hand a customer
+#      the machinery that mints licences. It is inert without the private key,
+#      which never leaves our server, but there is no reason to ship it.
+#
+#   2. OUR INFRASTRUCTURE - deploy configs, runbooks and internal docs that
+#      describe reelsoo.com's own servers. Not secret in themselves, but a
+#      free map of our production estate.
+#
+#   3. NOISE - development-only files that make the package larger and
+#      confusing without helping anyone.
+
+# ── 1. Licensor-side code ────────────────────────────────────────────────────
+server/app/Licensing/Server/
+server/app/Http/Controllers/Api/License/ActivationController.php
+server/app/Http/Controllers/Api/License/InstallationController.php
+server/app/Http/Controllers/Api/Admin/AdminLicenseController.php
+server/app/Console/Commands/LicenseKeygen.php
+server/app/Console/Commands/LicenseReleasePublish.php
+server/app/Models/PurchaseCode.php
+server/app/Models/License.php
+server/app/Models/LicenseActivation.php
+server/app/Models/LicenseAuditLog.php
+server/app/Models/LicenseRelease.php
+server/database/migrations/2026_09_08_100001_create_purchase_codes_table.php
+server/database/migrations/2026_09_08_100002_create_licenses_table.php
+server/database/migrations/2026_09_08_100003_create_license_activations_table.php
+server/database/migrations/2026_09_08_100004_create_license_audit_logs_table.php
+server/database/migrations/2026_09_08_100005_create_license_releases_table.php
+frontend/src/app/activate-license/
+frontend/src/features/admin/license-manager.tsx
+frontend/src/app/(admin)/admin/licenses/
+
+# The installer and the packaging pipeline are ours, not the customer's.
+install/
+scripts/build-marketplace-release.sh
+scripts/check-release-secrets.sh
+.marketplace-exclude
+
+# ── 2. Our infrastructure ────────────────────────────────────────────────────
+deploy/
+cloudflare-worker/
+cloudflare-security-worker.js
+DEPLOYMENT.md
+PROJECT_MEMORY.md
+CLAUDE.md
+CHAT_INFRASTRUCTURE_SUMMARY.md
+CHAT_INTEGRATION.md
+backups/
+crashlogs/
+
+# The whole docs/ tree, not just docs/internal/.
+#
+# These are OUR runbooks - deployment-plan.md, scaling-plan.md,
+# two-vps-setup-plan.md/html - and they describe the reelsoo.com production
+# estate: host roles, the two-VPS split, tunnel layout, which services run
+# where. That is a map of our infrastructure, and it is category 2 above.
+#
+# They also carry placeholder credential lines (DB_PASSWORD=STRONG_DB_PASSWORD,
+# APP_KEY=base64:GENERATED_BY_KEY_GENERATE) which trip the release secret scan.
+# The right fix is not to loosen the scanner - it is that these files have no
+# business in a customer package.
+#
+# docs/LICENSING.md is licensor documentation too: it covers keygen, release
+# publishing and the private signing key. Customers get INSTALL.md instead,
+# which the build script generates into the package.
+docs/
+
+# ── 3. Development noise ─────────────────────────────────────────────────────
+.github/
+.claude/
+mobile-app/
+ads-landing/
+design/
+music/
+assets/samples/
+diff_output.txt
+show_diff2.bat
+show_story_diff.bat
+deploy_photo.py
+*.log

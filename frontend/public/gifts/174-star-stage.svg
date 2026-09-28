@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes star-stage-tw{0%,100%{opacity:.2;transform:scale(.55)}50%{opacity:1;transform:scale(1.15)}}
+    @keyframes star-stage-aura{0%,100%{opacity:.18;transform:scale(.86)}50%{opacity:.62;transform:scale(1.08)}}
+    @keyframes star-stage-hero{0%,100%{transform:translateY(1.5px) rotate(-4deg);filter:brightness(1)}50%{transform:translateY(-2px) rotate(4deg);filter:brightness(1.35)}}
+    @keyframes star-stage-bulb{0%,100%{opacity:.35}50%{opacity:1}}
+    .star-stage-hero{transform-box:fill-box;transform-origin:center;animation:star-stage-hero 2.4s ease-in-out infinite}
+    .star-stage-ring{transform-box:fill-box;transform-origin:center;animation:star-stage-aura 2.7s ease-in-out infinite}
+    .star-stage-b{animation:star-stage-bulb 1.6s ease-in-out infinite}
+    .star-stage-b2{animation-delay:.4s}.star-stage-b3{animation-delay:.8s}.star-stage-b4{animation-delay:1.2s}
+    .star-stage-s{transform-box:fill-box;transform-origin:center;animation:star-stage-tw 2s ease-in-out infinite}
+    .star-stage-s2{animation-delay:.5s}.star-stage-s3{animation-delay:1s}.star-stage-s4{animation-delay:1.5s}
+    @keyframes star-stage-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes star-stage-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes star-stage-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes star-stage-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes star-stage-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .star-stage-x-lift{transform-box:fill-box;transform-origin:center;animation:star-stage-x-lift 3.4s ease-in-out infinite}
+    .star-stage-x-shine{animation:star-stage-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .star-stage-x-spark{transform-box:fill-box;transform-origin:center;animation:star-stage-x-spark 2.2s ease-in-out infinite}
+    .star-stage-x-aura{transform-box:fill-box;transform-origin:center;animation:star-stage-x-aura 3s ease-in-out infinite}
+    .star-stage-x-cast{transform-box:fill-box;transform-origin:center;animation:star-stage-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.star-stage-x-lift,.star-stage-x-shine,.star-stage-x-spark,.star-stage-x-aura,.star-stage-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="star-stage-g" x1="14" y1="6" x2="50" y2="42" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff8d6"/><stop offset=".5" stop-color="#f9cd3e"/><stop offset="1" stop-color="#b47b09"/>
+    </linearGradient>
+    <linearGradient id="star-stage-p" x1="8" y1="44" x2="56" y2="60" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#c9b5ff"/><stop offset=".5" stop-color="#7c53e8"/><stop offset="1" stop-color="#3b1e86"/>
+    </linearGradient>
+    <radialGradient id="star-stage-a" cx=".5" cy=".5" r=".5">
+    <stop offset=".5" stop-color="#ffd979" stop-opacity="0"/><stop offset="1" stop-color="#ffd979" stop-opacity=".5"/>
+    </radialGradient>
+    <filter id="star-stage-f" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="star-stage-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="star-stage-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="star-stage-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="star-stage-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="star-stage-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="star-stage-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="star-stage-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="star-stage-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#star-stage-x-white)">
+        <circle class="star-stage-ring" cx="32" cy="26" r="25" fill="url(#star-stage-a)"/>
+        <g filter="url(#star-stage-f)">
+        <ellipse cx="32" cy="48" rx="26" ry="7.5" fill="url(#star-stage-p)"/>
+        <path d="M6 48v4c0 4.1 11.6 7.5 26 7.5S58 56.1 58 52v-4Z" fill="#341a75"/>
+        <ellipse cx="32" cy="48" rx="26" ry="7.5" fill="url(#star-stage-p)"/>
+        <ellipse cx="32" cy="48" rx="17" ry="4.6" fill="#e2d6ff" opacity=".35"/>
+        <path d="M12 45c3-1.6 8-2.8 13-3.2" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M6 52c0 4.1 11.6 7.5 26 7.5S58 56.1 58 52" fill="none" stroke="url(#star-stage-g)" stroke-width="2.4" stroke-linecap="round"/>
+        <ellipse cx="32" cy="48" rx="26" ry="7.5" fill="none" stroke="url(#star-stage-g)" stroke-width="2"/>
+        </g>
+        <circle class="star-stage-b" cx="9" cy="53" r="2" fill="#ffe27a"/>
+        <circle class="star-stage-b star-stage-b2" cx="21" cy="57" r="2" fill="#ffe27a"/>
+        <circle class="star-stage-b star-stage-b3" cx="43" cy="57" r="2" fill="#ffe27a"/>
+        <circle class="star-stage-b star-stage-b4" cx="55" cy="53" r="2" fill="#ffe27a"/>
+        <g class="star-stage-hero" filter="url(#star-stage-f)">
+        <path d="M32 6l7 14.4 16 2.3-11.6 11.2 2.8 15.8L32 42.3 17.8 49.7l2.8-15.8L9 22.7l16-2.3Z" fill="url(#star-stage-g)"/>
+        <path d="M32 12l4.6 9.6 10.6 1.6-7.7 7.4L32 26.6Z" fill="#fff6cf" opacity=".55"/>
+        <path d="M32 42.3l14.2 7.4-2.8-15.8L55 22.7c-4 14-11.6 21-23 26Z" fill="#8f5f05" opacity=".4"/>
+        <circle cx="32" cy="27" r="4.4" fill="#fff3c4"/>
+        <circle cx="32" cy="27" r="2" fill="#ff7ba8"/>
+        <path d="M20 20c2.4-1.6 5-2.6 7.6-3" stroke="#fff" stroke-opacity=".7" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        </g>
+        <path class="star-stage-s" d="M56 12l1.2 3 3 1.2-3 1.2L56 21.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+        <path class="star-stage-s star-stage-s2" d="M7 14l1.1 2.7 2.7 1.1-2.7 1.1L7 22.6l-1.1-2.7L3.2 18.8l2.7-.9Z" fill="#ffe9a3"/>
+        <circle class="star-stage-s star-stage-s3" cx="57" cy="34" r="1.7" fill="#fff"/>
+        <circle class="star-stage-s star-stage-s4" cx="6" cy="34" r="1.5" fill="#ffe9a3"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="star-stage-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#star-stage-x-cast-g)"/>
+  <circle class="star-stage-x-aura" cx="32" cy="32" r="29" fill="url(#star-stage-x-aura-g)"/>
+  <g class="star-stage-x-lift">
+    <circle class="star-stage-ring" cx="32" cy="26" r="25" fill="url(#star-stage-a)"/>
+    <g filter="url(#star-stage-f)">
+    <ellipse cx="32" cy="48" rx="26" ry="7.5" fill="url(#star-stage-p)"/>
+    <path d="M6 48v4c0 4.1 11.6 7.5 26 7.5S58 56.1 58 52v-4Z" fill="#341a75"/>
+    <ellipse cx="32" cy="48" rx="26" ry="7.5" fill="url(#star-stage-p)"/>
+    <ellipse cx="32" cy="48" rx="17" ry="4.6" fill="#e2d6ff" opacity=".35"/>
+    <path d="M12 45c3-1.6 8-2.8 13-3.2" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M6 52c0 4.1 11.6 7.5 26 7.5S58 56.1 58 52" fill="none" stroke="url(#star-stage-g)" stroke-width="2.4" stroke-linecap="round"/>
+    <ellipse cx="32" cy="48" rx="26" ry="7.5" fill="none" stroke="url(#star-stage-g)" stroke-width="2"/>
+    </g>
+    <circle class="star-stage-b" cx="9" cy="53" r="2" fill="#ffe27a"/>
+    <circle class="star-stage-b star-stage-b2" cx="21" cy="57" r="2" fill="#ffe27a"/>
+    <circle class="star-stage-b star-stage-b3" cx="43" cy="57" r="2" fill="#ffe27a"/>
+    <circle class="star-stage-b star-stage-b4" cx="55" cy="53" r="2" fill="#ffe27a"/>
+    <g class="star-stage-hero" filter="url(#star-stage-f)">
+    <path d="M32 6l7 14.4 16 2.3-11.6 11.2 2.8 15.8L32 42.3 17.8 49.7l2.8-15.8L9 22.7l16-2.3Z" fill="url(#star-stage-g)"/>
+    <path d="M32 12l4.6 9.6 10.6 1.6-7.7 7.4L32 26.6Z" fill="#fff6cf" opacity=".55"/>
+    <path d="M32 42.3l14.2 7.4-2.8-15.8L55 22.7c-4 14-11.6 21-23 26Z" fill="#8f5f05" opacity=".4"/>
+    <circle cx="32" cy="27" r="4.4" fill="#fff3c4"/>
+    <circle cx="32" cy="27" r="2" fill="#ff7ba8"/>
+    <path d="M20 20c2.4-1.6 5-2.6 7.6-3" stroke="#fff" stroke-opacity=".7" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    </g>
+    <path class="star-stage-s" d="M56 12l1.2 3 3 1.2-3 1.2L56 21.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+    <path class="star-stage-s star-stage-s2" d="M7 14l1.1 2.7 2.7 1.1-2.7 1.1L7 22.6l-1.1-2.7L3.2 18.8l2.7-.9Z" fill="#ffe9a3"/>
+    <circle class="star-stage-s star-stage-s3" cx="57" cy="34" r="1.7" fill="#fff"/>
+    <circle class="star-stage-s star-stage-s4" cx="6" cy="34" r="1.5" fill="#ffe9a3"/>
+    <g mask="url(#star-stage-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#star-stage-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#star-stage-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#star-stage-x-rim)"/>
+      <rect class="star-stage-x-shine" x="0" y="-16" width="26" height="96" fill="url(#star-stage-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="star-stage-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="star-stage-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="star-stage-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="star-stage-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="star-stage-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

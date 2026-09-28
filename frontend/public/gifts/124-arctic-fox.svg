@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes arctic-fox-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+    @keyframes arctic-fox-tail{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(11deg)}}
+    @keyframes arctic-fox-tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    .arctic-fox-body{transform-box:fill-box;transform-origin:center;animation:arctic-fox-float 2.4s ease-in-out infinite}
+    .arctic-fox-t{transform-box:fill-box;transform-origin:85% 80%;animation:arctic-fox-tail 1.7s ease-in-out infinite}
+    .arctic-fox-s{transform-box:fill-box;transform-origin:center;animation:arctic-fox-tw 2s ease-in-out infinite}
+    .arctic-fox-s2{animation-delay:.7s}.arctic-fox-s3{animation-delay:1.3s}
+    @keyframes arctic-fox-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes arctic-fox-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes arctic-fox-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes arctic-fox-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes arctic-fox-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .arctic-fox-x-lift{transform-box:fill-box;transform-origin:center;animation:arctic-fox-x-lift 3.4s ease-in-out infinite}
+    .arctic-fox-x-shine{animation:arctic-fox-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .arctic-fox-x-spark{transform-box:fill-box;transform-origin:center;animation:arctic-fox-x-spark 2.2s ease-in-out infinite}
+    .arctic-fox-x-aura{transform-box:fill-box;transform-origin:center;animation:arctic-fox-x-aura 3s ease-in-out infinite}
+    .arctic-fox-x-cast{transform-box:fill-box;transform-origin:center;animation:arctic-fox-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.arctic-fox-x-lift,.arctic-fox-x-shine,.arctic-fox-x-spark,.arctic-fox-x-aura,.arctic-fox-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="arctic-fox-g" x1="18" y1="14" x2="46" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#dbeafe"/><stop offset="1" stop-color="#7aa8e0"/>
+    </linearGradient>
+    <filter id="arctic-fox-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="arctic-fox-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="arctic-fox-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="arctic-fox-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="arctic-fox-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="arctic-fox-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="arctic-fox-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="arctic-fox-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="arctic-fox-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#arctic-fox-x-white)">
+        <ellipse cx="32" cy="58" rx="14" ry="3" fill="#4a76b8" opacity=".35"/>
+        <g class="arctic-fox-body" filter="url(#arctic-fox-f)">
+        <path class="arctic-fox-t" d="M46 46c8-2 12-10 9-17 5 8 3 20-9 22Z" fill="url(#arctic-fox-g)"/>
+        <rect x="16" y="34" width="30" height="17" rx="8" fill="url(#arctic-fox-g)"/>
+        <path d="M18 22l3 9 7-3Z" fill="url(#arctic-fox-g)"/>
+        <path d="M42 22l-3 9-7-3Z" fill="url(#arctic-fox-g)"/>
+        <path d="M30 20c7 0 12 5 12 11 0 6-5 9-12 9s-12-3-12-9c0-6 5-11 12-11Z" fill="url(#arctic-fox-g)"/>
+        <path d="M22 25c-2 2-3 4-3 7" stroke="#fff" stroke-opacity=".8" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M18 47c8 5 20 5 28 0-4 6-24 7-28 0Z" fill="#5a86c4" opacity=".4"/>
+        <circle cx="25" cy="30" r="1.8" fill="#243b6b"/><circle cx="35" cy="30" r="1.8" fill="#243b6b"/>
+        <path d="M27 35h6l-3 3Z" fill="#5b7bb5"/>
+        </g>
+        <circle class="arctic-fox-s" cx="52" cy="14" r="2" fill="#e0f2fe"/>
+        <circle class="arctic-fox-s arctic-fox-s2" cx="10" cy="24" r="1.6" fill="#fff"/>
+        <circle class="arctic-fox-s arctic-fox-s3" cx="48" cy="54" r="1.4" fill="#bae6fd"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="arctic-fox-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#arctic-fox-x-cast-g)"/>
+  <circle class="arctic-fox-x-aura" cx="32" cy="32" r="29" fill="url(#arctic-fox-x-aura-g)"/>
+  <g class="arctic-fox-x-lift">
+    <ellipse cx="32" cy="58" rx="14" ry="3" fill="#4a76b8" opacity=".35"/>
+    <g class="arctic-fox-body" filter="url(#arctic-fox-f)">
+    <path class="arctic-fox-t" d="M46 46c8-2 12-10 9-17 5 8 3 20-9 22Z" fill="url(#arctic-fox-g)"/>
+    <rect x="16" y="34" width="30" height="17" rx="8" fill="url(#arctic-fox-g)"/>
+    <path d="M18 22l3 9 7-3Z" fill="url(#arctic-fox-g)"/>
+    <path d="M42 22l-3 9-7-3Z" fill="url(#arctic-fox-g)"/>
+    <path d="M30 20c7 0 12 5 12 11 0 6-5 9-12 9s-12-3-12-9c0-6 5-11 12-11Z" fill="url(#arctic-fox-g)"/>
+    <path d="M22 25c-2 2-3 4-3 7" stroke="#fff" stroke-opacity=".8" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M18 47c8 5 20 5 28 0-4 6-24 7-28 0Z" fill="#5a86c4" opacity=".4"/>
+    <circle cx="25" cy="30" r="1.8" fill="#243b6b"/><circle cx="35" cy="30" r="1.8" fill="#243b6b"/>
+    <path d="M27 35h6l-3 3Z" fill="#5b7bb5"/>
+    </g>
+    <circle class="arctic-fox-s" cx="52" cy="14" r="2" fill="#e0f2fe"/>
+    <circle class="arctic-fox-s arctic-fox-s2" cx="10" cy="24" r="1.6" fill="#fff"/>
+    <circle class="arctic-fox-s arctic-fox-s3" cx="48" cy="54" r="1.4" fill="#bae6fd"/>
+    <g mask="url(#arctic-fox-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#arctic-fox-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#arctic-fox-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#arctic-fox-x-rim)"/>
+      <rect class="arctic-fox-x-shine" x="0" y="-16" width="26" height="96" fill="url(#arctic-fox-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="arctic-fox-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="arctic-fox-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="arctic-fox-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="arctic-fox-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

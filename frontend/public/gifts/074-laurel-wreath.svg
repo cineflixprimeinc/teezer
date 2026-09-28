@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes laurel-wreath-glow{0%,100%{filter:drop-shadow(0 0 2px #b8770d);opacity:.95}50%{filter:drop-shadow(0 0 8px #ffd869);opacity:1}}
+    @keyframes laurel-wreath-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .laurel-wreath-body{transform-box:fill-box;transform-origin:center;animation:laurel-wreath-glow 2.5s ease-in-out infinite}
+    .laurel-wreath-s{transform-box:fill-box;transform-origin:center;animation:laurel-wreath-tw 1.9s ease-in-out infinite}
+    .laurel-wreath-s2{animation-delay:.9s}
+    @keyframes laurel-wreath-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes laurel-wreath-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes laurel-wreath-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes laurel-wreath-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes laurel-wreath-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .laurel-wreath-x-lift{transform-box:fill-box;transform-origin:center;animation:laurel-wreath-x-lift 3.4s ease-in-out infinite}
+    .laurel-wreath-x-shine{animation:laurel-wreath-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .laurel-wreath-x-spark{transform-box:fill-box;transform-origin:center;animation:laurel-wreath-x-spark 2.2s ease-in-out infinite}
+    .laurel-wreath-x-aura{transform-box:fill-box;transform-origin:center;animation:laurel-wreath-x-aura 3s ease-in-out infinite}
+    .laurel-wreath-x-cast{transform-box:fill-box;transform-origin:center;animation:laurel-wreath-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.laurel-wreath-x-lift,.laurel-wreath-x-shine,.laurel-wreath-x-spark,.laurel-wreath-x-aura,.laurel-wreath-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="laurel-wreath-g1" x1="8" y1="12" x2="30" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff3c4"/><stop offset=".5" stop-color="#f5b942"/><stop offset="1" stop-color="#b8770d"/>
+    </linearGradient>
+    <linearGradient id="laurel-wreath-g2" x1="56" y1="12" x2="34" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#f0cf7a"/><stop offset=".55" stop-color="#dfa128"/><stop offset="1" stop-color="#8f5a04"/>
+    </linearGradient>
+    <linearGradient id="laurel-wreath-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="laurel-wreath-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="laurel-wreath-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="laurel-wreath-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="laurel-wreath-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="laurel-wreath-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="laurel-wreath-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#laurel-wreath-x-white)">
+        <g class="laurel-wreath-body">
+        <path d="M27 55C15 50 9 39 11 26c1-7 4-12 8-16" stroke="url(#laurel-wreath-g1)" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+        <path d="M37 55c12-5 18-16 16-29-1-7-4-12-8-16" stroke="url(#laurel-wreath-g2)" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+        <g fill="url(#laurel-wreath-g1)">
+        <ellipse cx="11" cy="20" rx="5" ry="3" transform="rotate(-40 11 20)"/>
+        <ellipse cx="8" cy="31" rx="5.5" ry="3.2" transform="rotate(-12 8 31)"/>
+        <ellipse cx="11" cy="42" rx="5.5" ry="3.2" transform="rotate(22 11 42)"/>
+        <ellipse cx="19" cy="51" rx="5" ry="3" transform="rotate(48 19 51)"/>
+        <ellipse cx="21" cy="16" rx="4.5" ry="2.8" transform="rotate(-58 21 16)"/>
+        </g>
+        <g fill="url(#laurel-wreath-g2)">
+        <ellipse cx="53" cy="20" rx="5" ry="3" transform="rotate(40 53 20)"/>
+        <ellipse cx="56" cy="31" rx="5.5" ry="3.2" transform="rotate(12 56 31)"/>
+        <ellipse cx="53" cy="42" rx="5.5" ry="3.2" transform="rotate(-22 53 42)"/>
+        <ellipse cx="45" cy="51" rx="5" ry="3" transform="rotate(-48 45 51)"/>
+        <ellipse cx="43" cy="16" rx="4.5" ry="2.8" transform="rotate(58 43 16)"/>
+        </g>
+        <path d="M13 21a12 12 0 0 0-2 8" stroke="#fff" stroke-opacity=".55" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <path d="M32 22l3 6.5 7 1-5 5 1.2 7-6.2-3.4-6.2 3.4L27 34.5l-5-5 7-1Z" fill="url(#laurel-wreath-g1)"/>
+        <path d="M32 26l1.6 3.6 3.7.6-2.7 2.6.7 3.8-3.3-1.9Z" fill="#fff8e0" opacity=".85"/>
+        </g>
+        <circle class="laurel-wreath-s" cx="32" cy="8" r="2.2" fill="#fff"/>
+        <circle class="laurel-wreath-s laurel-wreath-s2" cx="32" cy="56" r="1.6" fill="#ffeaa8"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="laurel-wreath-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#laurel-wreath-x-cast-g)"/>
+  <g class="laurel-wreath-x-lift">
+    <g class="laurel-wreath-body">
+    <path d="M27 55C15 50 9 39 11 26c1-7 4-12 8-16" stroke="url(#laurel-wreath-g1)" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+    <path d="M37 55c12-5 18-16 16-29-1-7-4-12-8-16" stroke="url(#laurel-wreath-g2)" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+    <g fill="url(#laurel-wreath-g1)">
+    <ellipse cx="11" cy="20" rx="5" ry="3" transform="rotate(-40 11 20)"/>
+    <ellipse cx="8" cy="31" rx="5.5" ry="3.2" transform="rotate(-12 8 31)"/>
+    <ellipse cx="11" cy="42" rx="5.5" ry="3.2" transform="rotate(22 11 42)"/>
+    <ellipse cx="19" cy="51" rx="5" ry="3" transform="rotate(48 19 51)"/>
+    <ellipse cx="21" cy="16" rx="4.5" ry="2.8" transform="rotate(-58 21 16)"/>
+    </g>
+    <g fill="url(#laurel-wreath-g2)">
+    <ellipse cx="53" cy="20" rx="5" ry="3" transform="rotate(40 53 20)"/>
+    <ellipse cx="56" cy="31" rx="5.5" ry="3.2" transform="rotate(12 56 31)"/>
+    <ellipse cx="53" cy="42" rx="5.5" ry="3.2" transform="rotate(-22 53 42)"/>
+    <ellipse cx="45" cy="51" rx="5" ry="3" transform="rotate(-48 45 51)"/>
+    <ellipse cx="43" cy="16" rx="4.5" ry="2.8" transform="rotate(58 43 16)"/>
+    </g>
+    <path d="M13 21a12 12 0 0 0-2 8" stroke="#fff" stroke-opacity=".55" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <path d="M32 22l3 6.5 7 1-5 5 1.2 7-6.2-3.4-6.2 3.4L27 34.5l-5-5 7-1Z" fill="url(#laurel-wreath-g1)"/>
+    <path d="M32 26l1.6 3.6 3.7.6-2.7 2.6.7 3.8-3.3-1.9Z" fill="#fff8e0" opacity=".85"/>
+    </g>
+    <circle class="laurel-wreath-s" cx="32" cy="8" r="2.2" fill="#fff"/>
+    <circle class="laurel-wreath-s laurel-wreath-s2" cx="32" cy="56" r="1.6" fill="#ffeaa8"/>
+    <g mask="url(#laurel-wreath-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#laurel-wreath-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#laurel-wreath-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#laurel-wreath-x-rim)"/>
+      <rect class="laurel-wreath-x-shine" x="0" y="-16" width="26" height="96" fill="url(#laurel-wreath-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="laurel-wreath-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="laurel-wreath-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

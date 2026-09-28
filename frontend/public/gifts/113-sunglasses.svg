@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes sunglasses-shim{0%{opacity:0;transform:translateX(-16px)}45%{opacity:.95}100%{opacity:0;transform:translateX(16px)}}
+    @keyframes sunglasses-tilt{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(3deg) translateY(-2px)}}
+    @keyframes sunglasses-tw{0%,100%{opacity:.15;transform:scale(.55)}50%{opacity:1;transform:scale(1)}}
+    .sunglasses-body{transform-box:fill-box;transform-origin:center;animation:sunglasses-tilt 2.6s ease-in-out infinite}
+    .sunglasses-sh{transform-box:fill-box;transform-origin:center;animation:sunglasses-shim 2.2s ease-in-out infinite}
+    .sunglasses-sh2{animation-delay:.25s}
+    .sunglasses-s{transform-box:fill-box;transform-origin:center;animation:sunglasses-tw 2.1s ease-in-out infinite}
+    .sunglasses-s2{animation-delay:.7s}.sunglasses-s3{animation-delay:1.4s}
+    @keyframes sunglasses-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes sunglasses-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes sunglasses-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes sunglasses-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes sunglasses-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .sunglasses-x-lift{transform-box:fill-box;transform-origin:center;animation:sunglasses-x-lift 3.4s ease-in-out infinite}
+    .sunglasses-x-shine{animation:sunglasses-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .sunglasses-x-spark{transform-box:fill-box;transform-origin:center;animation:sunglasses-x-spark 2.2s ease-in-out infinite}
+    .sunglasses-x-aura{transform-box:fill-box;transform-origin:center;animation:sunglasses-x-aura 3s ease-in-out infinite}
+    .sunglasses-x-cast{transform-box:fill-box;transform-origin:center;animation:sunglasses-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.sunglasses-x-lift,.sunglasses-x-shine,.sunglasses-x-spark,.sunglasses-x-aura,.sunglasses-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="sunglasses-gl" x1="8" y1="24" x2="28" y2="44" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#7dd8ff"/><stop offset=".5" stop-color="#2f6fd0"/><stop offset="1" stop-color="#13204a"/>
+    </linearGradient>
+    <linearGradient id="sunglasses-gr" x1="36" y1="24" x2="56" y2="44" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffb3e0"/><stop offset=".5" stop-color="#a03fd0"/><stop offset="1" stop-color="#2c1050"/>
+    </linearGradient>
+    <linearGradient id="sunglasses-gf" x1="6" y1="20" x2="58" y2="30" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffe9a8"/><stop offset=".5" stop-color="#e6b32a"/><stop offset="1" stop-color="#9c6a06"/>
+    </linearGradient>
+    <filter id="sunglasses-f" x="-45%" y="-45%" width="190%" height="190%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="sunglasses-cl"><rect x="7" y="23" width="21" height="19" rx="6"/></clipPath>
+    <clipPath id="sunglasses-cr"><rect x="36" y="23" width="21" height="19" rx="6"/></clipPath>
+    <radialGradient id="sunglasses-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="sunglasses-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sunglasses-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="sunglasses-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sunglasses-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="sunglasses-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="sunglasses-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="sunglasses-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#sunglasses-x-white)">
+        <g class="sunglasses-body" filter="url(#sunglasses-f)">
+        <path d="M6 20c-1.6 0-2 2.6-.4 3.2C7 23.8 8 25 8 27M58 20c1.6 0 2 2.6.4 3.2C57 23.8 56 25 56 27" stroke="url(#sunglasses-gf)" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+        <rect x="7" y="23" width="21" height="19" rx="6" fill="url(#sunglasses-gl)"/>
+        <rect x="36" y="23" width="21" height="19" rx="6" fill="url(#sunglasses-gr)"/>
+        <rect x="7" y="23" width="21" height="19" rx="6" fill="none" stroke="url(#sunglasses-gf)" stroke-width="3"/>
+        <rect x="36" y="23" width="21" height="19" rx="6" fill="none" stroke="url(#sunglasses-gf)" stroke-width="3"/>
+        <path d="M27 28c3-2.6 7-2.6 10 0" stroke="url(#sunglasses-gf)" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+        <g clip-path="url(#sunglasses-cl)"><rect class="sunglasses-sh" x="9" y="19" width="6" height="28" fill="#fff" opacity=".8"/></g>
+        <g clip-path="url(#sunglasses-cr)"><rect class="sunglasses-sh sunglasses-sh2" x="38" y="19" width="6" height="28" fill="#fff" opacity=".8"/></g>
+        <path d="M10 27c2-1.6 4-2.2 6-2.2m29 0c2 0 4 .6 6 2.2" stroke="#fff" stroke-opacity=".45" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <path d="M8 36c4 4 12 5 18 3-3 3-13 4-18-3zm29 0c4 4 12 5 18 3-3 3-13 4-18-3z" fill="#0b0b1f" opacity=".35"/>
+        </g>
+        <circle class="sunglasses-s" cx="14" cy="13" r="2.2" fill="#fff"/>
+        <circle class="sunglasses-s sunglasses-s2" cx="50" cy="13" r="1.8" fill="#fff"/>
+        <circle class="sunglasses-s sunglasses-s3" cx="32" cy="52" r="1.6" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="sunglasses-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#sunglasses-x-cast-g)"/>
+  <circle class="sunglasses-x-aura" cx="32" cy="32" r="29" fill="url(#sunglasses-x-aura-g)"/>
+  <g class="sunglasses-x-lift">
+    <g class="sunglasses-body" filter="url(#sunglasses-f)">
+    <path d="M6 20c-1.6 0-2 2.6-.4 3.2C7 23.8 8 25 8 27M58 20c1.6 0 2 2.6.4 3.2C57 23.8 56 25 56 27" stroke="url(#sunglasses-gf)" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+    <rect x="7" y="23" width="21" height="19" rx="6" fill="url(#sunglasses-gl)"/>
+    <rect x="36" y="23" width="21" height="19" rx="6" fill="url(#sunglasses-gr)"/>
+    <rect x="7" y="23" width="21" height="19" rx="6" fill="none" stroke="url(#sunglasses-gf)" stroke-width="3"/>
+    <rect x="36" y="23" width="21" height="19" rx="6" fill="none" stroke="url(#sunglasses-gf)" stroke-width="3"/>
+    <path d="M27 28c3-2.6 7-2.6 10 0" stroke="url(#sunglasses-gf)" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+    <g clip-path="url(#sunglasses-cl)"><rect class="sunglasses-sh" x="9" y="19" width="6" height="28" fill="#fff" opacity=".8"/></g>
+    <g clip-path="url(#sunglasses-cr)"><rect class="sunglasses-sh sunglasses-sh2" x="38" y="19" width="6" height="28" fill="#fff" opacity=".8"/></g>
+    <path d="M10 27c2-1.6 4-2.2 6-2.2m29 0c2 0 4 .6 6 2.2" stroke="#fff" stroke-opacity=".45" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <path d="M8 36c4 4 12 5 18 3-3 3-13 4-18-3zm29 0c4 4 12 5 18 3-3 3-13 4-18-3z" fill="#0b0b1f" opacity=".35"/>
+    </g>
+    <circle class="sunglasses-s" cx="14" cy="13" r="2.2" fill="#fff"/>
+    <circle class="sunglasses-s sunglasses-s2" cx="50" cy="13" r="1.8" fill="#fff"/>
+    <circle class="sunglasses-s sunglasses-s3" cx="32" cy="52" r="1.6" fill="#fff"/>
+    <g mask="url(#sunglasses-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#sunglasses-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#sunglasses-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#sunglasses-x-rim)"/>
+      <rect class="sunglasses-x-shine" x="0" y="-16" width="26" height="96" fill="url(#sunglasses-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="sunglasses-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="sunglasses-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="sunglasses-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

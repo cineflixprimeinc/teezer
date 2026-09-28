@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes vinyl-record-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes vinyl-record-sweep{0%{transform:translateX(-34px)}55%,100%{transform:translateX(38px)}}
+    @keyframes vinyl-record-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .vinyl-record-disc{transform-box:fill-box;transform-origin:center;animation:vinyl-record-spin 3s linear infinite}
+    .vinyl-record-shine{animation:vinyl-record-sweep 2.6s ease-in-out infinite}
+    .vinyl-record-s{transform-box:fill-box;transform-origin:center;animation:vinyl-record-tw 2.1s ease-in-out infinite}
+    .vinyl-record-s2{animation-delay:1s}
+    @keyframes vinyl-record-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes vinyl-record-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes vinyl-record-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes vinyl-record-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes vinyl-record-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .vinyl-record-x-lift{transform-box:fill-box;transform-origin:center;animation:vinyl-record-x-lift 3.4s ease-in-out infinite}
+    .vinyl-record-x-shine{animation:vinyl-record-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .vinyl-record-x-spark{transform-box:fill-box;transform-origin:center;animation:vinyl-record-x-spark 2.2s ease-in-out infinite}
+    .vinyl-record-x-aura{transform-box:fill-box;transform-origin:center;animation:vinyl-record-x-aura 3s ease-in-out infinite}
+    .vinyl-record-x-cast{transform-box:fill-box;transform-origin:center;animation:vinyl-record-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.vinyl-record-x-lift,.vinyl-record-x-shine,.vinyl-record-x-spark,.vinyl-record-x-aura,.vinyl-record-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="vinyl-record-g" cx=".35" cy=".3" r=".85">
+    <stop offset="0" stop-color="#4b5674"/><stop offset=".5" stop-color="#232a44"/><stop offset="1" stop-color="#0f1428"/>
+    </radialGradient>
+    <radialGradient id="vinyl-record-lbl" cx=".35" cy=".3" r=".8">
+    <stop offset="0" stop-color="#ffb3d1"/><stop offset=".55" stop-color="#f0459a"/><stop offset="1" stop-color="#9c1256"/>
+    </radialGradient>
+    <clipPath id="vinyl-record-clip"><circle cx="32" cy="32" r="26"/></clipPath>
+    <linearGradient id="vinyl-record-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="vinyl-record-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="vinyl-record-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="vinyl-record-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="vinyl-record-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="vinyl-record-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="vinyl-record-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#vinyl-record-x-white)">
+        <g class="vinyl-record-disc">
+        <circle cx="32" cy="32" r="26" fill="url(#vinyl-record-g)"/>
+        <circle cx="32" cy="32" r="22" fill="none" stroke="#5a6588" stroke-width="1.2" opacity=".55"/>
+        <circle cx="32" cy="32" r="18" fill="none" stroke="#5a6588" stroke-width="1.2" opacity=".5"/>
+        <circle cx="32" cy="32" r="14" fill="none" stroke="#5a6588" stroke-width="1.2" opacity=".45"/>
+        <circle cx="32" cy="32" r="10" fill="url(#vinyl-record-lbl)"/>
+        <path d="M26 27c1.6-1.6 3.6-2.4 5.8-2.6" stroke="#fff" stroke-opacity=".6" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <circle cx="32" cy="32" r="2.6" fill="#e8ecf7"/>
+        <path d="M16 15c-3.4 2.8-6 6.6-7.4 11" stroke="#fff" stroke-opacity=".28" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M32 58c13 0 23.6-9.6 25.8-22 .8 14.6-10.6 26-25.8 26S5.4 50.6 6.2 36C8.4 48.4 19 58 32 58Z" fill="#070b18" opacity=".45"/>
+        </g>
+        <g clip-path="url(#vinyl-record-clip)">
+        <rect class="vinyl-record-shine" x="4" y="0" width="9" height="64" fill="#fff" opacity=".2" transform="skewX(-18)"/>
+        </g>
+        <circle class="vinyl-record-s" cx="56" cy="12" r="2.1" fill="#fff"/>
+        <circle class="vinyl-record-s vinyl-record-s2" cx="9" cy="55" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="vinyl-record-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#vinyl-record-x-cast-g)"/>
+  <g class="vinyl-record-x-lift">
+    <g class="vinyl-record-disc">
+    <circle cx="32" cy="32" r="26" fill="url(#vinyl-record-g)"/>
+    <circle cx="32" cy="32" r="22" fill="none" stroke="#5a6588" stroke-width="1.2" opacity=".55"/>
+    <circle cx="32" cy="32" r="18" fill="none" stroke="#5a6588" stroke-width="1.2" opacity=".5"/>
+    <circle cx="32" cy="32" r="14" fill="none" stroke="#5a6588" stroke-width="1.2" opacity=".45"/>
+    <circle cx="32" cy="32" r="10" fill="url(#vinyl-record-lbl)"/>
+    <path d="M26 27c1.6-1.6 3.6-2.4 5.8-2.6" stroke="#fff" stroke-opacity=".6" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <circle cx="32" cy="32" r="2.6" fill="#e8ecf7"/>
+    <path d="M16 15c-3.4 2.8-6 6.6-7.4 11" stroke="#fff" stroke-opacity=".28" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M32 58c13 0 23.6-9.6 25.8-22 .8 14.6-10.6 26-25.8 26S5.4 50.6 6.2 36C8.4 48.4 19 58 32 58Z" fill="#070b18" opacity=".45"/>
+    </g>
+    <g clip-path="url(#vinyl-record-clip)">
+    <rect class="vinyl-record-shine" x="4" y="0" width="9" height="64" fill="#fff" opacity=".2" transform="skewX(-18)"/>
+    </g>
+    <circle class="vinyl-record-s" cx="56" cy="12" r="2.1" fill="#fff"/>
+    <circle class="vinyl-record-s vinyl-record-s2" cx="9" cy="55" r="1.5" fill="#fff"/>
+    <g mask="url(#vinyl-record-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#vinyl-record-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#vinyl-record-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#vinyl-record-x-rim)"/>
+      <rect class="vinyl-record-x-shine" x="0" y="-16" width="26" height="96" fill="url(#vinyl-record-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="vinyl-record-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="vinyl-record-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

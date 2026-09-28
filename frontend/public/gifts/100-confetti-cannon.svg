@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes confetti-cannon-hop{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-4px) rotate(-4deg)}55%{transform:translateY(1px) rotate(2deg)}}
+    @keyframes confetti-cannon-blast{0%{opacity:.3;transform:scale(.75)}45%{opacity:1;transform:scale(1.08)}100%{opacity:.3;transform:scale(.75)}}
+    @keyframes confetti-cannon-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .confetti-cannon-body{transform-box:fill-box;transform-origin:20% 90%;animation:confetti-cannon-hop 1.8s ease-in-out infinite}
+    .confetti-cannon-cf{transform-box:fill-box;transform-origin:10% 90%;animation:confetti-cannon-blast 1.8s ease-in-out infinite}
+    .confetti-cannon-s{transform-box:fill-box;transform-origin:center;animation:confetti-cannon-tw 2.3s ease-in-out infinite}
+    .confetti-cannon-s2{animation-delay:.8s}
+    .confetti-cannon-s3{animation-delay:1.5s}
+    @keyframes confetti-cannon-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes confetti-cannon-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes confetti-cannon-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes confetti-cannon-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes confetti-cannon-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .confetti-cannon-x-lift{transform-box:fill-box;transform-origin:center;animation:confetti-cannon-x-lift 3.4s ease-in-out infinite}
+    .confetti-cannon-x-shine{animation:confetti-cannon-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .confetti-cannon-x-spark{transform-box:fill-box;transform-origin:center;animation:confetti-cannon-x-spark 2.2s ease-in-out infinite}
+    .confetti-cannon-x-aura{transform-box:fill-box;transform-origin:center;animation:confetti-cannon-x-aura 3s ease-in-out infinite}
+    .confetti-cannon-x-cast{transform-box:fill-box;transform-origin:center;animation:confetti-cannon-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.confetti-cannon-x-lift,.confetti-cannon-x-shine,.confetti-cannon-x-spark,.confetti-cannon-x-aura,.confetti-cannon-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="confetti-cannon-gt" x1="8" y1="56" x2="36" y2="30" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#b98bff"/><stop offset=".5" stop-color="#7d3ff0"/><stop offset="1" stop-color="#4a12a6"/>
+    </linearGradient>
+    <linearGradient id="confetti-cannon-gr" x1="14" y1="48" x2="34" y2="30" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#e09a00"/>
+    </linearGradient>
+    <filter id="confetti-cannon-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="confetti-cannon-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="confetti-cannon-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="confetti-cannon-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="confetti-cannon-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="confetti-cannon-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="confetti-cannon-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="confetti-cannon-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="confetti-cannon-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#confetti-cannon-x-white)">
+        <g class="confetti-cannon-body" filter="url(#confetti-cannon-f)">
+        <rect x="4" y="34" width="34" height="14" rx="6" fill="url(#confetti-cannon-gt)" transform="rotate(-38 21 41)"/>
+        <path d="M8 54c-1 1-3 .4-2.6-1.4l1.6-6 7 6-6 1.4Z" fill="#3a0d88" opacity=".55"/>
+        <rect x="10" y="41" width="4" height="14" rx="2" fill="#3a0d88" opacity=".45" transform="rotate(-38 12 48)"/>
+        <rect x="19" y="30" width="12" height="15" rx="4" fill="url(#confetti-cannon-gr)" transform="rotate(-38 25 37)"/>
+        <path d="M11 44c1.4-3.6 3.6-6.6 6.6-8.6" stroke="#fff" stroke-opacity=".5" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <g class="confetti-cannon-cf">
+        <path d="M31 30c6-4 13-6 21-5" stroke="#ffd85c" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <path d="M29 26c3-7 8-12 15-15" stroke="#5ad1ff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <path d="M35 34c7 0 13 2 18 6" stroke="#7bf08a" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <rect x="49" y="6" width="5.4" height="5.4" rx="1.4" fill="#ff5f8f" transform="rotate(28 51.7 8.7)"/>
+        <rect x="55" y="26" width="5.4" height="5.4" rx="1.4" fill="#a06bff" transform="rotate(-20 57.7 28.7)"/>
+        <rect x="38" y="13" width="5" height="5" rx="1.3" fill="#ffe27a" transform="rotate(45 40.5 15.5)"/>
+        <rect x="44" y="35" width="5" height="5" rx="1.3" fill="#5ad1ff" transform="rotate(-35 46.5 37.5)"/>
+        <circle cx="57" cy="16" r="2.6" fill="#ff8fd0"/>
+        <circle cx="41" cy="24" r="2.3" fill="#ffd85c"/>
+        <circle cx="56" cy="41" r="2.3" fill="#ff6d6d"/>
+        <circle cx="33" cy="18" r="2" fill="#7bf08a"/>
+        <circle cx="48" cy="44" r="2" fill="#fff"/>
+        </g>
+        </g>
+        <circle class="confetti-cannon-s" cx="60" cy="52" r="2.1" fill="#fff"/>
+        <circle class="confetti-cannon-s confetti-cannon-s2" cx="24" cy="9" r="1.7" fill="#fff"/>
+        <circle class="confetti-cannon-s confetti-cannon-s3" cx="11" cy="24" r="1.6" fill="#ffe6a1"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="confetti-cannon-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#confetti-cannon-x-cast-g)"/>
+  <circle class="confetti-cannon-x-aura" cx="32" cy="32" r="29" fill="url(#confetti-cannon-x-aura-g)"/>
+  <g class="confetti-cannon-x-lift">
+    <g class="confetti-cannon-body" filter="url(#confetti-cannon-f)">
+    <rect x="4" y="34" width="34" height="14" rx="6" fill="url(#confetti-cannon-gt)" transform="rotate(-38 21 41)"/>
+    <path d="M8 54c-1 1-3 .4-2.6-1.4l1.6-6 7 6-6 1.4Z" fill="#3a0d88" opacity=".55"/>
+    <rect x="10" y="41" width="4" height="14" rx="2" fill="#3a0d88" opacity=".45" transform="rotate(-38 12 48)"/>
+    <rect x="19" y="30" width="12" height="15" rx="4" fill="url(#confetti-cannon-gr)" transform="rotate(-38 25 37)"/>
+    <path d="M11 44c1.4-3.6 3.6-6.6 6.6-8.6" stroke="#fff" stroke-opacity=".5" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+    <g class="confetti-cannon-cf">
+    <path d="M31 30c6-4 13-6 21-5" stroke="#ffd85c" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M29 26c3-7 8-12 15-15" stroke="#5ad1ff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M35 34c7 0 13 2 18 6" stroke="#7bf08a" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <rect x="49" y="6" width="5.4" height="5.4" rx="1.4" fill="#ff5f8f" transform="rotate(28 51.7 8.7)"/>
+    <rect x="55" y="26" width="5.4" height="5.4" rx="1.4" fill="#a06bff" transform="rotate(-20 57.7 28.7)"/>
+    <rect x="38" y="13" width="5" height="5" rx="1.3" fill="#ffe27a" transform="rotate(45 40.5 15.5)"/>
+    <rect x="44" y="35" width="5" height="5" rx="1.3" fill="#5ad1ff" transform="rotate(-35 46.5 37.5)"/>
+    <circle cx="57" cy="16" r="2.6" fill="#ff8fd0"/>
+    <circle cx="41" cy="24" r="2.3" fill="#ffd85c"/>
+    <circle cx="56" cy="41" r="2.3" fill="#ff6d6d"/>
+    <circle cx="33" cy="18" r="2" fill="#7bf08a"/>
+    <circle cx="48" cy="44" r="2" fill="#fff"/>
+    </g>
+    </g>
+    <circle class="confetti-cannon-s" cx="60" cy="52" r="2.1" fill="#fff"/>
+    <circle class="confetti-cannon-s confetti-cannon-s2" cx="24" cy="9" r="1.7" fill="#fff"/>
+    <circle class="confetti-cannon-s confetti-cannon-s3" cx="11" cy="24" r="1.6" fill="#ffe6a1"/>
+    <g mask="url(#confetti-cannon-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#confetti-cannon-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#confetti-cannon-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#confetti-cannon-x-rim)"/>
+      <rect class="confetti-cannon-x-shine" x="0" y="-16" width="26" height="96" fill="url(#confetti-cannon-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="confetti-cannon-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="confetti-cannon-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="confetti-cannon-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

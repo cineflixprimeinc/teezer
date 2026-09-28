@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes wedding-cake-tw{0%,100%{opacity:.18;transform:scale(.5)}50%{opacity:1;transform:scale(1.15)}}
+    @keyframes wedding-cake-aura{0%,100%{opacity:.18;transform:scale(.88)}50%{opacity:.58;transform:scale(1.06)}}
+    @keyframes wedding-cake-ring{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-2.5px) rotate(6deg)}}
+    .wedding-cake-ring-g{transform-box:fill-box;transform-origin:center;animation:wedding-cake-ring 2.4s ease-in-out infinite}
+    .wedding-cake-aura{transform-box:fill-box;transform-origin:center;animation:wedding-cake-aura 2.7s ease-in-out infinite}
+    .wedding-cake-s{transform-box:fill-box;transform-origin:center;animation:wedding-cake-tw 1.8s ease-in-out infinite}
+    .wedding-cake-s2{animation-delay:.45s}.wedding-cake-s3{animation-delay:.9s}.wedding-cake-s4{animation-delay:1.35s}
+    @keyframes wedding-cake-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes wedding-cake-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes wedding-cake-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes wedding-cake-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes wedding-cake-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .wedding-cake-x-lift{transform-box:fill-box;transform-origin:center;animation:wedding-cake-x-lift 3.4s ease-in-out infinite}
+    .wedding-cake-x-shine{animation:wedding-cake-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .wedding-cake-x-spark{transform-box:fill-box;transform-origin:center;animation:wedding-cake-x-spark 2.2s ease-in-out infinite}
+    .wedding-cake-x-aura{transform-box:fill-box;transform-origin:center;animation:wedding-cake-x-aura 3s ease-in-out infinite}
+    .wedding-cake-x-cast{transform-box:fill-box;transform-origin:center;animation:wedding-cake-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.wedding-cake-x-lift,.wedding-cake-x-shine,.wedding-cake-x-spark,.wedding-cake-x-aura,.wedding-cake-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="wedding-cake-w" x1="12" y1="24" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f3e7e2"/><stop offset="1" stop-color="#c4aca6"/>
+    </linearGradient>
+    <linearGradient id="wedding-cake-g" x1="10" y1="16" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff5c8"/><stop offset=".5" stop-color="#f2c542"/><stop offset="1" stop-color="#a1710f"/>
+    </linearGradient>
+    <filter id="wedding-cake-f" x="-45%" y="-45%" width="190%" height="190%">
+    <feGaussianBlur stdDeviation="2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="wedding-cake-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="wedding-cake-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="wedding-cake-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="wedding-cake-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="wedding-cake-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="wedding-cake-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="wedding-cake-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="wedding-cake-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#wedding-cake-x-white)">
+        <ellipse class="wedding-cake-aura" cx="32" cy="36" rx="26" ry="24" fill="none" stroke="#ffd979" stroke-width="1.8" opacity=".5"/>
+        <g filter="url(#wedding-cake-f)">
+        <rect x="9" y="46" width="46" height="14" rx="5" fill="url(#wedding-cake-w)"/>
+        <rect x="16" y="34" width="32" height="13" rx="5" fill="url(#wedding-cake-w)"/>
+        <rect x="22" y="23" width="20" height="12" rx="5" fill="url(#wedding-cake-w)"/>
+        <rect x="9" y="46" width="46" height="3.4" rx="1.7" fill="url(#wedding-cake-g)"/>
+        <rect x="16" y="34" width="32" height="3.2" rx="1.6" fill="url(#wedding-cake-g)"/>
+        <rect x="22" y="23" width="20" height="3" rx="1.5" fill="url(#wedding-cake-g)"/>
+        <rect x="9" y="55" width="46" height="5" rx="2.5" fill="#a08882" opacity=".4"/>
+        <rect x="16" y="43" width="32" height="4" rx="2" fill="#a08882" opacity=".32"/>
+        <rect x="12" y="50" width="5" height="7" rx="2.5" fill="#fff" opacity=".55"/>
+        <rect x="19" y="39" width="4" height="5" rx="2" fill="#fff" opacity=".5"/>
+        <path d="M14 51h36" stroke="#f2c542" stroke-width="1.6" stroke-dasharray="1.6 3" stroke-linecap="round" fill="none"/>
+        <path d="M20 39h24" stroke="#f2c542" stroke-width="1.4" stroke-dasharray="1.4 2.8" stroke-linecap="round" fill="none"/>
+        <circle cx="18" cy="53" r="1.8" fill="#ff7ba8"/><circle cx="32" cy="53" r="1.8" fill="#8ee6ff"/><circle cx="46" cy="53" r="1.8" fill="#ff7ba8"/>
+        <circle cx="26" cy="30" r="1.6" fill="#ff7ba8"/><circle cx="38" cy="30" r="1.6" fill="#ff7ba8"/>
+        </g>
+        <g class="wedding-cake-ring-g">
+        <circle cx="27" cy="14" r="5.4" fill="none" stroke="url(#wedding-cake-g)" stroke-width="2.6"/>
+        <circle cx="37" cy="14" r="5.4" fill="none" stroke="url(#wedding-cake-g)" stroke-width="2.6"/>
+        <path d="M24 11c.6-1.4 1.8-2.4 3.2-2.8" stroke="#fff8dd" stroke-opacity=".8" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        <path d="M32 6l1.6 3 3.4.5-2.5 2.4.6 3.4-3.1-1.6-3.1 1.6.6-3.4-2.5-2.4 3.4-.5Z" fill="#8ee6ff"/>
+        </g>
+        <path class="wedding-cake-s" d="M56 24l1.2 3 3 1.2-3 1.2L56 33.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+        <path class="wedding-cake-s wedding-cake-s2" d="M7 26l1.1 2.7 2.7 1.1-2.7 1.1L7 34.6l-1.1-2.7L3.2 30.8l2.7-.9Z" fill="#ffe9a3"/>
+        <circle class="wedding-cake-s wedding-cake-s3" cx="52" cy="12" r="1.8" fill="#fff"/>
+        <circle class="wedding-cake-s wedding-cake-s4" cx="12" cy="12" r="1.6" fill="#ffe9a3"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="wedding-cake-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#wedding-cake-x-cast-g)"/>
+  <circle class="wedding-cake-x-aura" cx="32" cy="32" r="29" fill="url(#wedding-cake-x-aura-g)"/>
+  <g class="wedding-cake-x-lift">
+    <ellipse class="wedding-cake-aura" cx="32" cy="36" rx="26" ry="24" fill="none" stroke="#ffd979" stroke-width="1.8" opacity=".5"/>
+    <g filter="url(#wedding-cake-f)">
+    <rect x="9" y="46" width="46" height="14" rx="5" fill="url(#wedding-cake-w)"/>
+    <rect x="16" y="34" width="32" height="13" rx="5" fill="url(#wedding-cake-w)"/>
+    <rect x="22" y="23" width="20" height="12" rx="5" fill="url(#wedding-cake-w)"/>
+    <rect x="9" y="46" width="46" height="3.4" rx="1.7" fill="url(#wedding-cake-g)"/>
+    <rect x="16" y="34" width="32" height="3.2" rx="1.6" fill="url(#wedding-cake-g)"/>
+    <rect x="22" y="23" width="20" height="3" rx="1.5" fill="url(#wedding-cake-g)"/>
+    <rect x="9" y="55" width="46" height="5" rx="2.5" fill="#a08882" opacity=".4"/>
+    <rect x="16" y="43" width="32" height="4" rx="2" fill="#a08882" opacity=".32"/>
+    <rect x="12" y="50" width="5" height="7" rx="2.5" fill="#fff" opacity=".55"/>
+    <rect x="19" y="39" width="4" height="5" rx="2" fill="#fff" opacity=".5"/>
+    <path d="M14 51h36" stroke="#f2c542" stroke-width="1.6" stroke-dasharray="1.6 3" stroke-linecap="round" fill="none"/>
+    <path d="M20 39h24" stroke="#f2c542" stroke-width="1.4" stroke-dasharray="1.4 2.8" stroke-linecap="round" fill="none"/>
+    <circle cx="18" cy="53" r="1.8" fill="#ff7ba8"/><circle cx="32" cy="53" r="1.8" fill="#8ee6ff"/><circle cx="46" cy="53" r="1.8" fill="#ff7ba8"/>
+    <circle cx="26" cy="30" r="1.6" fill="#ff7ba8"/><circle cx="38" cy="30" r="1.6" fill="#ff7ba8"/>
+    </g>
+    <g class="wedding-cake-ring-g">
+    <circle cx="27" cy="14" r="5.4" fill="none" stroke="url(#wedding-cake-g)" stroke-width="2.6"/>
+    <circle cx="37" cy="14" r="5.4" fill="none" stroke="url(#wedding-cake-g)" stroke-width="2.6"/>
+    <path d="M24 11c.6-1.4 1.8-2.4 3.2-2.8" stroke="#fff8dd" stroke-opacity=".8" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    <path d="M32 6l1.6 3 3.4.5-2.5 2.4.6 3.4-3.1-1.6-3.1 1.6.6-3.4-2.5-2.4 3.4-.5Z" fill="#8ee6ff"/>
+    </g>
+    <path class="wedding-cake-s" d="M56 24l1.2 3 3 1.2-3 1.2L56 33.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+    <path class="wedding-cake-s wedding-cake-s2" d="M7 26l1.1 2.7 2.7 1.1-2.7 1.1L7 34.6l-1.1-2.7L3.2 30.8l2.7-.9Z" fill="#ffe9a3"/>
+    <circle class="wedding-cake-s wedding-cake-s3" cx="52" cy="12" r="1.8" fill="#fff"/>
+    <circle class="wedding-cake-s wedding-cake-s4" cx="12" cy="12" r="1.6" fill="#ffe9a3"/>
+    <g mask="url(#wedding-cake-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#wedding-cake-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#wedding-cake-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#wedding-cake-x-rim)"/>
+      <rect class="wedding-cake-x-shine" x="0" y="-16" width="26" height="96" fill="url(#wedding-cake-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="wedding-cake-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="wedding-cake-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="wedding-cake-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="wedding-cake-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="wedding-cake-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

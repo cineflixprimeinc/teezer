@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes snow-mountain-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+    @keyframes snow-mountain-sun{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.06)}}
+    @keyframes snow-mountain-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .snow-mountain-body{transform-box:fill-box;transform-origin:center;animation:snow-mountain-float 2.6s ease-in-out infinite}
+    .snow-mountain-sun{transform-box:fill-box;transform-origin:center;animation:snow-mountain-sun 2.4s ease-in-out infinite}
+    .snow-mountain-s{transform-box:fill-box;transform-origin:center;animation:snow-mountain-tw 2.1s ease-in-out infinite}
+    .snow-mountain-s2{animation-delay:1s}
+    @keyframes snow-mountain-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes snow-mountain-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes snow-mountain-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes snow-mountain-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes snow-mountain-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .snow-mountain-x-lift{transform-box:fill-box;transform-origin:center;animation:snow-mountain-x-lift 3.4s ease-in-out infinite}
+    .snow-mountain-x-shine{animation:snow-mountain-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .snow-mountain-x-spark{transform-box:fill-box;transform-origin:center;animation:snow-mountain-x-spark 2.2s ease-in-out infinite}
+    .snow-mountain-x-aura{transform-box:fill-box;transform-origin:center;animation:snow-mountain-x-aura 3s ease-in-out infinite}
+    .snow-mountain-x-cast{transform-box:fill-box;transform-origin:center;animation:snow-mountain-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.snow-mountain-x-lift,.snow-mountain-x-shine,.snow-mountain-x-spark,.snow-mountain-x-aura,.snow-mountain-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="snow-mountain-rock" x1="14" y1="18" x2="48" y2="54" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#8fb6e8"/><stop offset=".55" stop-color="#4a6fb5"/><stop offset="1" stop-color="#28407a"/>
+    </linearGradient>
+    <linearGradient id="snow-mountain-cap" x1="24" y1="10" x2="38" y2="28" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#cfe4ff"/>
+    </linearGradient>
+    <linearGradient id="snow-mountain-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="snow-mountain-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="snow-mountain-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="snow-mountain-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="snow-mountain-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="snow-mountain-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="snow-mountain-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#snow-mountain-x-white)">
+        <circle class="snow-mountain-sun" cx="49" cy="16" r="6" fill="#ffd166"/>
+        <g class="snow-mountain-body">
+        <path d="M30 11c1.4-1.6 3.8-1.5 5 .3l19 32c1.4 2.3-.2 5.2-2.9 5.2H12.4c-2.7 0-4.3-2.9-2.9-5.2Z" fill="url(#snow-mountain-rock)"/>
+        <path d="M32.5 11.6 41 26c-2 1.5-4 .4-5.6-.7-1.5-1-3-.6-4.4.4-1.6 1.2-3.4 1.6-5.4.3l6.9-14.4c.3-.6 1.1-.6 1.5 0Z" fill="url(#snow-mountain-cap)"/>
+        <path d="M25 20c-1.4 1.8-2.4 3.8-3 6" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M34 15 51.5 44c1 1.7-.1 3.8-2.1 3.8H30Z" fill="#1d2f5e" opacity=".35"/>
+        <path d="M12 48h40" stroke="#1d2f5e" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <circle class="snow-mountain-s" cx="14" cy="15" r="2" fill="#fff"/>
+        <circle class="snow-mountain-s snow-mountain-s2" cx="56" cy="34" r="1.6" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="snow-mountain-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#snow-mountain-x-cast-g)"/>
+  <g class="snow-mountain-x-lift">
+    <circle class="snow-mountain-sun" cx="49" cy="16" r="6" fill="#ffd166"/>
+    <g class="snow-mountain-body">
+    <path d="M30 11c1.4-1.6 3.8-1.5 5 .3l19 32c1.4 2.3-.2 5.2-2.9 5.2H12.4c-2.7 0-4.3-2.9-2.9-5.2Z" fill="url(#snow-mountain-rock)"/>
+    <path d="M32.5 11.6 41 26c-2 1.5-4 .4-5.6-.7-1.5-1-3-.6-4.4.4-1.6 1.2-3.4 1.6-5.4.3l6.9-14.4c.3-.6 1.1-.6 1.5 0Z" fill="url(#snow-mountain-cap)"/>
+    <path d="M25 20c-1.4 1.8-2.4 3.8-3 6" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M34 15 51.5 44c1 1.7-.1 3.8-2.1 3.8H30Z" fill="#1d2f5e" opacity=".35"/>
+    <path d="M12 48h40" stroke="#1d2f5e" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <circle class="snow-mountain-s" cx="14" cy="15" r="2" fill="#fff"/>
+    <circle class="snow-mountain-s snow-mountain-s2" cx="56" cy="34" r="1.6" fill="#fff"/>
+    <g mask="url(#snow-mountain-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#snow-mountain-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#snow-mountain-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#snow-mountain-x-rim)"/>
+      <rect class="snow-mountain-x-shine" x="0" y="-16" width="26" height="96" fill="url(#snow-mountain-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="snow-mountain-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="snow-mountain-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

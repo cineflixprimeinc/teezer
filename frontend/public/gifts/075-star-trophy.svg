@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes star-trophy-tw{0%,100%{opacity:.85;transform:scale(.96)}50%{opacity:1;transform:scale(1.07)}}
+    @keyframes star-trophy-sp{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    .star-trophy-star{transform-box:fill-box;transform-origin:center;animation:star-trophy-tw 2s ease-in-out infinite}
+    .star-trophy-s{transform-box:fill-box;transform-origin:center;animation:star-trophy-sp 1.8s ease-in-out infinite}
+    .star-trophy-s2{animation-delay:.6s}
+    .star-trophy-s3{animation-delay:1.2s}
+    @keyframes star-trophy-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes star-trophy-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes star-trophy-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes star-trophy-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes star-trophy-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .star-trophy-x-lift{transform-box:fill-box;transform-origin:center;animation:star-trophy-x-lift 3.4s ease-in-out infinite}
+    .star-trophy-x-shine{animation:star-trophy-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .star-trophy-x-spark{transform-box:fill-box;transform-origin:center;animation:star-trophy-x-spark 2.2s ease-in-out infinite}
+    .star-trophy-x-aura{transform-box:fill-box;transform-origin:center;animation:star-trophy-x-aura 3s ease-in-out infinite}
+    .star-trophy-x-cast{transform-box:fill-box;transform-origin:center;animation:star-trophy-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.star-trophy-x-lift,.star-trophy-x-shine,.star-trophy-x-spark,.star-trophy-x-aura,.star-trophy-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="star-trophy-g2" x1="18" y1="42" x2="46" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#8fd4ff"/><stop offset=".5" stop-color="#3f78d8"/><stop offset="1" stop-color="#16337d"/>
+    </linearGradient>
+    <linearGradient id="star-trophy-g3" x1="16" y1="6" x2="46" y2="38" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff8d6"/><stop offset=".5" stop-color="#ffcf49"/><stop offset="1" stop-color="#d18f0c"/>
+    </linearGradient>
+    <linearGradient id="star-trophy-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="star-trophy-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="star-trophy-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="star-trophy-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="star-trophy-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="star-trophy-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="star-trophy-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#star-trophy-x-white)">
+        <g class="star-trophy-star">
+        <path d="M32 5l7.4 14.6L56 21.9 44 33.4l2.9 16.2L32 42 17.1 49.6 20 33.4 8 21.9l16.6-2.3Z" fill="url(#star-trophy-g3)"/>
+        <path d="M32 5l7.4 14.6L56 21.9 44 33.4l2.9 16.2L32 42Z" fill="#c98209" opacity=".25"/>
+        <path d="M32 12l3.9 7.8 8.6 1.2-6.2 6 1.5 8.5L32 31.5Z" fill="#fff8dc" opacity=".35"/>
+        <path d="M24 15 20 22" stroke="#fff" stroke-opacity=".7" stroke-width="3" stroke-linecap="round" fill="none"/>
+        </g>
+        <g>
+        <rect x="28" y="44" width="8" height="7" fill="#2a55a8"/>
+        <rect x="18" y="50" width="28" height="9" rx="4" fill="url(#star-trophy-g2)"/>
+        <path d="M22 54h20" stroke="#0f2a63" stroke-opacity=".5" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M21 52c4-1 9-1 12-1" stroke="#fff" stroke-opacity=".4" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </g>
+        <circle class="star-trophy-s" cx="54" cy="10" r="2.2" fill="#fff"/>
+        <circle class="star-trophy-s star-trophy-s2" cx="9" cy="38" r="1.6" fill="#ffeaa8"/>
+        <circle class="star-trophy-s star-trophy-s3" cx="56" cy="42" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="star-trophy-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#star-trophy-x-cast-g)"/>
+  <g class="star-trophy-x-lift">
+    <g class="star-trophy-star">
+    <path d="M32 5l7.4 14.6L56 21.9 44 33.4l2.9 16.2L32 42 17.1 49.6 20 33.4 8 21.9l16.6-2.3Z" fill="url(#star-trophy-g3)"/>
+    <path d="M32 5l7.4 14.6L56 21.9 44 33.4l2.9 16.2L32 42Z" fill="#c98209" opacity=".25"/>
+    <path d="M32 12l3.9 7.8 8.6 1.2-6.2 6 1.5 8.5L32 31.5Z" fill="#fff8dc" opacity=".35"/>
+    <path d="M24 15 20 22" stroke="#fff" stroke-opacity=".7" stroke-width="3" stroke-linecap="round" fill="none"/>
+    </g>
+    <g>
+    <rect x="28" y="44" width="8" height="7" fill="#2a55a8"/>
+    <rect x="18" y="50" width="28" height="9" rx="4" fill="url(#star-trophy-g2)"/>
+    <path d="M22 54h20" stroke="#0f2a63" stroke-opacity=".5" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M21 52c4-1 9-1 12-1" stroke="#fff" stroke-opacity=".4" stroke-width="2" stroke-linecap="round" fill="none"/>
+    </g>
+    <circle class="star-trophy-s" cx="54" cy="10" r="2.2" fill="#fff"/>
+    <circle class="star-trophy-s star-trophy-s2" cx="9" cy="38" r="1.6" fill="#ffeaa8"/>
+    <circle class="star-trophy-s star-trophy-s3" cx="56" cy="42" r="1.5" fill="#fff"/>
+    <g mask="url(#star-trophy-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#star-trophy-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#star-trophy-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#star-trophy-x-rim)"/>
+      <rect class="star-trophy-x-shine" x="0" y="-16" width="26" height="96" fill="url(#star-trophy-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="star-trophy-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="star-trophy-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

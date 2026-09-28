@@ -1,0 +1,60 @@
+{
+  "_admin_api_path": "/apisix/admin/routes/teezer-auth-qr-status",
+  "_comment": "QR-login status polling (/api/v1/auth/qr/status/*) - carved out of teezer-auth's 30/60s IP cap. This endpoint is polled every 3s by design (login-content.tsx's QR_POLL_MS / QrLoginController::status()) and is keyed on an opaque, unguessable, 2-minute ticket id, not an account - the strict tier's budget exists for credential-stuffing-sensitive routes (login/OTP/2FA). Normal polling alone is ~20 req/min, which left almost no headroom under teezer-auth's shared 30/60s IP cap for the initial qr/create call or any other auth activity on the same IP within the same 60s window - real users saw 'This code has expired' + a 429 toast within seconds of opening the QR modal, not because the ticket had actually expired but because qrCreate()/subsequent polls were being rejected by APISIX before ever reaching Laravel. Laravel's own qr-login-status limiter (40/min, keyed per-ticket, AppServiceProvider.php) is still the real per-ticket abuse guard underneath this - this route only widens the blunt IP-wide gate for this one legitimately-chatty path. qr/create itself stays under the original teezer-auth strict tier (priority 10) - it's called once per attempt, not polled, so the strict budget is still appropriate there. Added 2026-08-25. Brought into git 2026-09-03: it had been applied by hand and existed only on VPS1 (root-owned, mode 600), so a gateway rebuild would have silently dropped it and QR login would have started 429ing under teezer-auth's strict tier again. It was also the last route still counting with policy: local.",
+  "name": "teezer-auth-qr-status",
+  "desc": "QR-login status polling - carved out of teezer-auth's 30/60s IP cap, which real 3s polling was exhausting alone (see /home/ubuntu/config-changes/apisix-routes/07-auth-qr-status.json for the full comment).",
+  "uri": "/api/v1/auth/qr/status/*",
+  "priority": 20,
+  "methods": [
+    "GET",
+    "OPTIONS"
+  ],
+  "upstream_id": "teezer-laravel",
+  "plugins": {
+    "cors": {
+      "allow_origins": "${APISIX_CORS_ORIGINS}",
+      "allow_origins_by_regex": [
+        "^https://([a-z0-9-]+\\.)?teezer\\.live$"
+      ],
+      "allow_methods": "GET,POST,PUT,PATCH,DELETE,OPTIONS",
+      "allow_headers": "Accept,Accept-Encoding,Accept-Language,Content-Language,Content-Type,Authorization,X-Requested-With,X-CSRF-TOKEN,X-XSRF-TOKEN,X-Socket-Id,X-Turnstile-Token,X-Request-Id,X-Reelsoo-SSO-CSRF,X-Playout-Limit,X-Restrict,X-Request-URL,X-Device-Fingerprint,X-Device-Id,X-Device-Type,X-Fingerprint,X-App-Version,X-Platform,X-Timezone,X-Client,X-Locale,X-Session-Id,Cache-Control,Pragma,If-Modified-Since,If-None-Match,Range,DNT",
+      "expose_headers": "X-RateLimit-Limit,X-RateLimit-Remaining,X-Request-Id,Retry-After,Content-Length,Content-Range",
+      "allow_credential": true,
+      "max_age": 86400
+    },
+    "real-ip": {
+      "source": "http_x_forwarded_for",
+      "trusted_addresses": [
+        "127.0.0.1/32"
+      ],
+      "recursive": true
+    },
+    "limit-count": {
+      "count": ${RL_AUTH_QR_STATUS_COUNT},
+      "time_window": ${RL_AUTH_QR_STATUS_WINDOW},
+      "key_type": "var",
+      "key": "remote_addr",
+      "rejected_code": 429,
+      "rejected_msg": "Too many requests. Please slow down and try again shortly.",
+      "policy": "redis",
+      "redis_host": "${RATELIMIT_REDIS_HOST}",
+      "redis_port": ${RATELIMIT_REDIS_PORT},
+      "redis_database": ${RATELIMIT_REDIS_DATABASE},
+      "redis_timeout": ${RATELIMIT_REDIS_TIMEOUT},
+      "allow_degradation": true,
+      "show_limit_quota_header": false
+    },
+    "limit-req": {
+      "rate": 6,
+      "burst": 20,
+      "key_type": "var",
+      "key": "remote_addr",
+      "rejected_code": 429
+    },
+    "request-id": {
+      "include_in_response": true
+    },
+    "prometheus": {},
+    "gzip": {}
+  }
+}

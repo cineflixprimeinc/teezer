@@ -1,0 +1,61 @@
+{
+  "_admin_api_path": "/apisix/admin/routes/teezer-catchall",
+  "_comment": "Safety net, lowest priority. routes/api.php has far more route groups than the five tiers above enumerate individually (stories, wallet, gifts, verification, screen-time, devices, location, music/audio, two-factor, account, profile, suggestions, history, device-scoped realtime state, etc.) - without this, anything not explicitly tiered would 404 at the gateway, which would be a real functionality regression. This catches everything else under /api/v1/*, plus the framework health check (/up) and Sanctum's CSRF-cookie route, at a default rate limit matching Laravel's own existing global throttle:api (300/min) for parity - so nothing here is any stricter than what the app already enforces itself.",
+  "name": "teezer-catchall",
+  "desc": "Default tier for every /api/v1/* route not explicitly tiered above",
+  "uris": [
+    "/api/v1/*",
+    "/up",
+    "/sanctum/csrf-cookie"
+  ],
+  "priority": 0,
+  "methods": [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS"
+  ],
+  "upstream_id": "teezer-laravel",
+  "plugins": {
+    "cors": {
+      "allow_origins": "${APISIX_CORS_ORIGINS}",
+      "allow_origins_by_regex": [
+        "^https://([a-z0-9-]+\\.)?teezer\\.live$"
+      ],
+      "allow_methods": "GET,POST,PUT,PATCH,DELETE,OPTIONS",
+      "allow_headers": "Accept,Accept-Encoding,Accept-Language,Content-Language,Content-Type,Authorization,X-Requested-With,X-CSRF-TOKEN,X-XSRF-TOKEN,X-Socket-Id,X-Turnstile-Token,X-Request-Id,X-Reelsoo-SSO-CSRF,X-Playout-Limit,X-Restrict,X-Request-URL,X-Device-Fingerprint,X-Device-Id,X-Device-Type,X-Fingerprint,X-App-Version,X-Platform,X-Timezone,X-Client,X-Locale,X-Session-Id,Cache-Control,Pragma,If-Modified-Since,If-None-Match,Range,DNT",
+      "expose_headers": "X-RateLimit-Limit,X-RateLimit-Remaining,X-Request-Id,Retry-After,Content-Length,Content-Range",
+      "allow_credential": true,
+      "max_age": 86400
+    },
+    "real-ip": {
+      "source": "http_x_forwarded_for",
+      "trusted_addresses": [
+        "127.0.0.1/32"
+      ],
+      "recursive": true
+    },
+    "limit-count": {
+      "count": ${RL_CATCHALL_COUNT},
+      "time_window": ${RL_CATCHALL_WINDOW},
+      "key_type": "var",
+      "key": "remote_addr",
+      "rejected_code": 429,
+      "rejected_msg": "Too many requests. Please slow down and try again shortly.",
+      "policy": "redis",
+      "redis_host": "${RATELIMIT_REDIS_HOST}",
+      "redis_port": ${RATELIMIT_REDIS_PORT},
+      "redis_database": ${RATELIMIT_REDIS_DATABASE},
+      "redis_timeout": ${RATELIMIT_REDIS_TIMEOUT},
+      "allow_degradation": true,
+      "show_limit_quota_header": false
+    },
+    "request-id": {
+      "include_in_response": true
+    },
+    "prometheus": {},
+    "gzip": {}
+  }
+}

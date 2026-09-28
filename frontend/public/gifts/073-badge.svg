@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes badge-sweep{0%{transform:translateX(-26px)}55%,100%{transform:translateX(56px)}}
+    @keyframes badge-pop{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+    @keyframes badge-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .badge-body{transform-box:fill-box;transform-origin:center;animation:badge-pop 2.5s ease-in-out infinite}
+    .badge-shine{animation:badge-sweep 2.5s ease-in-out infinite}
+    .badge-s{transform-box:fill-box;transform-origin:center;animation:badge-tw 1.9s ease-in-out infinite}
+    .badge-s2{animation-delay:.9s}
+    @keyframes badge-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes badge-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes badge-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes badge-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes badge-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .badge-x-lift{transform-box:fill-box;transform-origin:center;animation:badge-x-lift 3.4s ease-in-out infinite}
+    .badge-x-shine{animation:badge-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .badge-x-spark{transform-box:fill-box;transform-origin:center;animation:badge-x-spark 2.2s ease-in-out infinite}
+    .badge-x-aura{transform-box:fill-box;transform-origin:center;animation:badge-x-aura 3s ease-in-out infinite}
+    .badge-x-cast{transform-box:fill-box;transform-origin:center;animation:badge-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.badge-x-lift,.badge-x-shine,.badge-x-spark,.badge-x-aura,.badge-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="badge-g1" x1="14" y1="6" x2="48" y2="42" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#c6e4ff"/><stop offset=".45" stop-color="#4f8ff0"/><stop offset="1" stop-color="#1c3f9e"/>
+    </linearGradient>
+    <linearGradient id="badge-g2" x1="22" y1="14" x2="42" y2="36" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff3c4"/><stop offset=".5" stop-color="#f5b942"/><stop offset="1" stop-color="#b8770d"/>
+    </linearGradient>
+    <clipPath id="badge-clip"><circle cx="32" cy="25" r="19"/></clipPath>
+    <linearGradient id="badge-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="badge-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="badge-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="badge-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="badge-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="badge-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="badge-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#badge-x-white)">
+        <g class="badge-body">
+        <path d="M22 36h8v22l-8-5-1-9Z" fill="#c02742"/>
+        <path d="M42 36h-8v22l8-5 1-9Z" fill="#8a1229"/>
+        <circle cx="32" cy="25" r="19" fill="url(#badge-g1)"/>
+        <circle cx="32" cy="25" r="19" fill="none" stroke="#1a3480" stroke-width="2" opacity=".45"/>
+        <circle cx="32" cy="25" r="14" fill="url(#badge-g2)"/>
+        <path d="M32 15l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9Z" fill="#fff8e0"/>
+        <path d="M20 16a19 19 0 0 1 9-7" stroke="#fff" stroke-opacity=".55" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+        <path d="M45 36a19 19 0 0 1-9 7" stroke="#12276b" stroke-opacity=".45" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+        <g clip-path="url(#badge-clip)">
+        <rect class="badge-shine" x="-4" y="0" width="9" height="50" fill="#fff" opacity=".4" transform="skewX(-16)"/>
+        </g>
+        </g>
+        <circle class="badge-s" cx="54" cy="10" r="2.1" fill="#fff"/>
+        <circle class="badge-s badge-s2" cx="10" cy="44" r="1.6" fill="#dceaff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="badge-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#badge-x-cast-g)"/>
+  <g class="badge-x-lift">
+    <g class="badge-body">
+    <path d="M22 36h8v22l-8-5-1-9Z" fill="#c02742"/>
+    <path d="M42 36h-8v22l8-5 1-9Z" fill="#8a1229"/>
+    <circle cx="32" cy="25" r="19" fill="url(#badge-g1)"/>
+    <circle cx="32" cy="25" r="19" fill="none" stroke="#1a3480" stroke-width="2" opacity=".45"/>
+    <circle cx="32" cy="25" r="14" fill="url(#badge-g2)"/>
+    <path d="M32 15l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9Z" fill="#fff8e0"/>
+    <path d="M20 16a19 19 0 0 1 9-7" stroke="#fff" stroke-opacity=".55" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+    <path d="M45 36a19 19 0 0 1-9 7" stroke="#12276b" stroke-opacity=".45" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+    <g clip-path="url(#badge-clip)">
+    <rect class="badge-shine" x="-4" y="0" width="9" height="50" fill="#fff" opacity=".4" transform="skewX(-16)"/>
+    </g>
+    </g>
+    <circle class="badge-s" cx="54" cy="10" r="2.1" fill="#fff"/>
+    <circle class="badge-s badge-s2" cx="10" cy="44" r="1.6" fill="#dceaff"/>
+    <g mask="url(#badge-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#badge-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#badge-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#badge-x-rim)"/>
+      <rect class="badge-x-shine" x="0" y="-16" width="26" height="96" fill="url(#badge-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="badge-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="badge-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

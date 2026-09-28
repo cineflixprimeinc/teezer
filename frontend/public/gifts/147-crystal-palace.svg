@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes crystal-palace-glow{0%,100%{filter:drop-shadow(0 0 2px #4fd0ff) brightness(1)}50%{filter:drop-shadow(0 0 7px #b7f0ff) brightness(1.18)}}
+    @keyframes crystal-palace-sweep{0%{transform:translateX(-24px)}100%{transform:translateX(28px)}}
+    @keyframes crystal-palace-tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    .crystal-palace-b{transform-box:fill-box;transform-origin:center;animation:crystal-palace-glow 2.5s ease-in-out infinite}
+    .crystal-palace-w{transform-box:fill-box;transform-origin:center;animation:crystal-palace-sweep 2.6s ease-in-out infinite}
+    .crystal-palace-s{transform-box:fill-box;transform-origin:center;animation:crystal-palace-tw 2.2s ease-in-out infinite}
+    .crystal-palace-s2{animation-delay:.75s}.crystal-palace-s3{animation-delay:1.5s}
+    @keyframes crystal-palace-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes crystal-palace-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes crystal-palace-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes crystal-palace-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes crystal-palace-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .crystal-palace-x-lift{transform-box:fill-box;transform-origin:center;animation:crystal-palace-x-lift 3.4s ease-in-out infinite}
+    .crystal-palace-x-shine{animation:crystal-palace-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .crystal-palace-x-spark{transform-box:fill-box;transform-origin:center;animation:crystal-palace-x-spark 2.2s ease-in-out infinite}
+    .crystal-palace-x-aura{transform-box:fill-box;transform-origin:center;animation:crystal-palace-x-aura 3s ease-in-out infinite}
+    .crystal-palace-x-cast{transform-box:fill-box;transform-origin:center;animation:crystal-palace-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.crystal-palace-x-lift,.crystal-palace-x-shine,.crystal-palace-x-spark,.crystal-palace-x-aura,.crystal-palace-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="crystal-palace-g" x1="14" y1="8" x2="50" y2="54" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#f0fdff"/><stop offset=".45" stop-color="#8fe1ff"/><stop offset="1" stop-color="#2c74c9"/>
+    </linearGradient>
+    <linearGradient id="crystal-palace-g2" x1="24" y1="4" x2="40" y2="30" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#5cc6f5"/>
+    </linearGradient>
+    <clipPath id="crystal-palace-cp">
+    <path d="M32 4l8 16 6-8 6 14 4 6v18H8V32l4-6 6-14 6 8Z"/>
+    </clipPath>
+    <radialGradient id="crystal-palace-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="crystal-palace-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="crystal-palace-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="crystal-palace-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="crystal-palace-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="crystal-palace-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="crystal-palace-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="crystal-palace-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#crystal-palace-x-white)">
+        <g class="crystal-palace-b">
+        <path d="M32 4l8 16h-16Z" fill="url(#crystal-palace-g2)"/>
+        <path d="M46 12l6 14h-12Z" fill="url(#crystal-palace-g2)"/>
+        <path d="M18 12l6 14H12Z" fill="url(#crystal-palace-g2)"/>
+        <path d="M12 26h40l4 6v20a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V32Z" fill="url(#crystal-palace-g)"/>
+        <path d="M24 20h16l4 6H20Z" fill="url(#crystal-palace-g)"/>
+        <path d="M32 38a7 7 0 0 1 7 7v9H25v-9a7 7 0 0 1 7-7Z" fill="#1e5ba8" opacity=".7"/>
+        <path d="M15 32h6v10h-6Z" fill="#fff" opacity=".35"/>
+        <path d="M43 32h6v10h-6Z" fill="#fff" opacity=".22"/>
+        <path d="M14 30l-3 5v14" stroke="#fff" stroke-opacity=".55" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <path d="M8 49h48v5a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2Z" fill="#1c4a86" opacity=".55"/>
+        <g clip-path="url(#crystal-palace-cp)">
+        <path class="crystal-palace-w" d="M16 2h7L11 60H4Z" fill="#fff" opacity=".4"/>
+        </g>
+        </g>
+        <circle class="crystal-palace-s" cx="55" cy="10" r="2" fill="#fff"/>
+        <circle class="crystal-palace-s crystal-palace-s2" cx="8" cy="14" r="1.5" fill="#dff6ff"/>
+        <circle class="crystal-palace-s crystal-palace-s3" cx="50" cy="34" r="1.3" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="crystal-palace-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#crystal-palace-x-cast-g)"/>
+  <circle class="crystal-palace-x-aura" cx="32" cy="32" r="29" fill="url(#crystal-palace-x-aura-g)"/>
+  <g class="crystal-palace-x-lift">
+    <g class="crystal-palace-b">
+    <path d="M32 4l8 16h-16Z" fill="url(#crystal-palace-g2)"/>
+    <path d="M46 12l6 14h-12Z" fill="url(#crystal-palace-g2)"/>
+    <path d="M18 12l6 14H12Z" fill="url(#crystal-palace-g2)"/>
+    <path d="M12 26h40l4 6v20a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V32Z" fill="url(#crystal-palace-g)"/>
+    <path d="M24 20h16l4 6H20Z" fill="url(#crystal-palace-g)"/>
+    <path d="M32 38a7 7 0 0 1 7 7v9H25v-9a7 7 0 0 1 7-7Z" fill="#1e5ba8" opacity=".7"/>
+    <path d="M15 32h6v10h-6Z" fill="#fff" opacity=".35"/>
+    <path d="M43 32h6v10h-6Z" fill="#fff" opacity=".22"/>
+    <path d="M14 30l-3 5v14" stroke="#fff" stroke-opacity=".55" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <path d="M8 49h48v5a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2Z" fill="#1c4a86" opacity=".55"/>
+    <g clip-path="url(#crystal-palace-cp)">
+    <path class="crystal-palace-w" d="M16 2h7L11 60H4Z" fill="#fff" opacity=".4"/>
+    </g>
+    </g>
+    <circle class="crystal-palace-s" cx="55" cy="10" r="2" fill="#fff"/>
+    <circle class="crystal-palace-s crystal-palace-s2" cx="8" cy="14" r="1.5" fill="#dff6ff"/>
+    <circle class="crystal-palace-s crystal-palace-s3" cx="50" cy="34" r="1.3" fill="#fff"/>
+    <g mask="url(#crystal-palace-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#crystal-palace-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#crystal-palace-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#crystal-palace-x-rim)"/>
+      <rect class="crystal-palace-x-shine" x="0" y="-16" width="26" height="96" fill="url(#crystal-palace-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="crystal-palace-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="crystal-palace-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="crystal-palace-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="crystal-palace-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

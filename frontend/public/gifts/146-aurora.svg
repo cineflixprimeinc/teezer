@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes aurora-shimmer{0%,100%{opacity:.55;transform:translateX(-2px) scaleY(.94)}50%{opacity:1;transform:translateX(2px) scaleY(1.06)}}
+    @keyframes aurora-sweep{0%{transform:translateX(-26px)}100%{transform:translateX(30px)}}
+    @keyframes aurora-tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    .aurora-r{transform-box:fill-box;transform-origin:center;animation:aurora-shimmer 2.4s ease-in-out infinite}
+    .aurora-r2{animation-delay:.5s}.aurora-r3{animation-delay:1s}
+    .aurora-w{transform-box:fill-box;transform-origin:center;animation:aurora-sweep 2.8s ease-in-out infinite}
+    .aurora-s{transform-box:fill-box;transform-origin:center;animation:aurora-tw 2.1s ease-in-out infinite}
+    .aurora-s2{animation-delay:.8s}.aurora-s3{animation-delay:1.5s}
+    @keyframes aurora-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes aurora-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes aurora-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes aurora-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes aurora-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .aurora-x-lift{transform-box:fill-box;transform-origin:center;animation:aurora-x-lift 3.4s ease-in-out infinite}
+    .aurora-x-shine{animation:aurora-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .aurora-x-spark{transform-box:fill-box;transform-origin:center;animation:aurora-x-spark 2.2s ease-in-out infinite}
+    .aurora-x-aura{transform-box:fill-box;transform-origin:center;animation:aurora-x-aura 3s ease-in-out infinite}
+    .aurora-x-cast{transform-box:fill-box;transform-origin:center;animation:aurora-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.aurora-x-lift,.aurora-x-shine,.aurora-x-spark,.aurora-x-aura,.aurora-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="aurora-g1" x1="14" y1="6" x2="20" y2="44" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#8affd6" stop-opacity=".2"/><stop offset=".45" stop-color="#3ff2a8"/><stop offset="1" stop-color="#0b8f6a" stop-opacity=".25"/>
+    </linearGradient>
+    <linearGradient id="aurora-g2" x1="30" y1="4" x2="34" y2="44" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#bff6ff" stop-opacity=".2"/><stop offset=".45" stop-color="#4fd7f5"/><stop offset="1" stop-color="#1b62c9" stop-opacity=".25"/>
+    </linearGradient>
+    <linearGradient id="aurora-g3" x1="44" y1="6" x2="49" y2="44" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#f3c6ff" stop-opacity=".2"/><stop offset=".45" stop-color="#b06bff"/><stop offset="1" stop-color="#5a1fa8" stop-opacity=".25"/>
+    </linearGradient>
+    <linearGradient id="aurora-gm" x1="10" y1="42" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#4a5b86"/><stop offset="1" stop-color="#1a1f3c"/>
+    </linearGradient>
+    <filter id="aurora-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="1.9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="aurora-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="aurora-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="aurora-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="aurora-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="aurora-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="aurora-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="aurora-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="aurora-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#aurora-x-white)">
+        <g filter="url(#aurora-f)">
+        <path class="aurora-r" d="M13 6c5 4 4 12 1 18-3 7-4 14-2 20h-6c-2-8 0-16 3-23 2-5 3-10 4-15Z" fill="url(#aurora-g1)"/>
+        <path class="aurora-r aurora-r2" d="M28 4c6 5 6 13 3 20-3 8-4 14-2 20h-7c-2-9 0-17 3-24 2-5 3-10 3-16Z" fill="url(#aurora-g2)"/>
+        <path class="aurora-r aurora-r3" d="M44 6c6 4 7 13 4 20-3 7-4 12-2 18h-7c-2-8-1-15 2-22 2-5 3-11 3-16Z" fill="url(#aurora-g3)"/>
+        </g>
+        <path class="aurora-w" d="M20 4l5 0-9 42h-5Z" fill="#fff" opacity=".22"/>
+        <path d="M5 56l12-13 8 8 9-11 12 16Z" fill="url(#aurora-gm)"/>
+        <path d="M17 43l5 5-9 8h-8Z" fill="#7b8dc0" opacity=".4"/>
+        <path d="M5 56h54v3H5Z" fill="#141731" opacity=".6"/>
+        <circle class="aurora-s" cx="55" cy="12" r="1.9" fill="#fff"/>
+        <circle class="aurora-s aurora-s2" cx="8" cy="16" r="1.4" fill="#dff6ff"/>
+        <circle class="aurora-s aurora-s3" cx="58" cy="30" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="aurora-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#aurora-x-cast-g)"/>
+  <circle class="aurora-x-aura" cx="32" cy="32" r="29" fill="url(#aurora-x-aura-g)"/>
+  <g class="aurora-x-lift">
+    <g filter="url(#aurora-f)">
+    <path class="aurora-r" d="M13 6c5 4 4 12 1 18-3 7-4 14-2 20h-6c-2-8 0-16 3-23 2-5 3-10 4-15Z" fill="url(#aurora-g1)"/>
+    <path class="aurora-r aurora-r2" d="M28 4c6 5 6 13 3 20-3 8-4 14-2 20h-7c-2-9 0-17 3-24 2-5 3-10 3-16Z" fill="url(#aurora-g2)"/>
+    <path class="aurora-r aurora-r3" d="M44 6c6 4 7 13 4 20-3 7-4 12-2 18h-7c-2-8-1-15 2-22 2-5 3-11 3-16Z" fill="url(#aurora-g3)"/>
+    </g>
+    <path class="aurora-w" d="M20 4l5 0-9 42h-5Z" fill="#fff" opacity=".22"/>
+    <path d="M5 56l12-13 8 8 9-11 12 16Z" fill="url(#aurora-gm)"/>
+    <path d="M17 43l5 5-9 8h-8Z" fill="#7b8dc0" opacity=".4"/>
+    <path d="M5 56h54v3H5Z" fill="#141731" opacity=".6"/>
+    <circle class="aurora-s" cx="55" cy="12" r="1.9" fill="#fff"/>
+    <circle class="aurora-s aurora-s2" cx="8" cy="16" r="1.4" fill="#dff6ff"/>
+    <circle class="aurora-s aurora-s3" cx="58" cy="30" r="1.5" fill="#fff"/>
+    <g mask="url(#aurora-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#aurora-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#aurora-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#aurora-x-rim)"/>
+      <rect class="aurora-x-shine" x="0" y="-16" width="26" height="96" fill="url(#aurora-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="aurora-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="aurora-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="aurora-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="aurora-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

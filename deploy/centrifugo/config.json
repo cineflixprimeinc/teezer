@@ -1,0 +1,38 @@
+{
+  "admin": true,
+  "allowed_origins": [
+    "https://teezer.live",
+    "https://www.teezer.live",
+    "https://realtime.teezer.live"
+  ],
+
+  "allow_subscribe_for_client": false,
+  "client_channel_limit": 128,
+
+  "namespaces": [
+    {
+      "name": "video",
+      "allow_subscribe_for_client": true,
+      "presence": false,
+      "history_size": 0,
+      "history_ttl": "0s"
+    },
+    {
+      "name": "user",
+      "allow_subscribe_for_client": false,
+      "presence": true,
+      "history_size": 20,
+      "history_ttl": "300s",
+      "force_recovery": true
+    },
+    {
+      "name": "conv",
+      "allow_subscribe_for_client": false,
+      "presence": true,
+      "join_leave": true,
+      "history_size": 50,
+      "history_ttl": "720h",
+      "force_recovery": true
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes golden-tree-shim{0%,100%{filter:brightness(1)}50%{filter:brightness(1.25)}}
+    @keyframes golden-tree-sweep{0%{transform:translateX(-26px) }100%{transform:translateX(30px)}}
+    @keyframes golden-tree-leaf{0%{opacity:0;transform:translate(0,0) rotate(0)}20%{opacity:1}100%{opacity:0;transform:translate(-5px,20px) rotate(160deg)}}
+    @keyframes golden-tree-tw{0%,100%{opacity:.2;transform:scale(.55)}50%{opacity:1;transform:scale(1)}}
+    .golden-tree-b{transform-box:fill-box;transform-origin:center;animation:golden-tree-shim 2.4s ease-in-out infinite}
+    .golden-tree-w{transform-box:fill-box;transform-origin:center;animation:golden-tree-sweep 2.8s ease-in-out infinite}
+    .golden-tree-l{transform-box:fill-box;transform-origin:center;animation:golden-tree-leaf 2.6s ease-in-out infinite}
+    .golden-tree-l2{animation-delay:1.3s}
+    .golden-tree-s{transform-box:fill-box;transform-origin:center;animation:golden-tree-tw 2s ease-in-out infinite}
+    .golden-tree-s2{animation-delay:.9s}
+    @keyframes golden-tree-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes golden-tree-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes golden-tree-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes golden-tree-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes golden-tree-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .golden-tree-x-lift{transform-box:fill-box;transform-origin:center;animation:golden-tree-x-lift 3.4s ease-in-out infinite}
+    .golden-tree-x-shine{animation:golden-tree-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .golden-tree-x-spark{transform-box:fill-box;transform-origin:center;animation:golden-tree-x-spark 2.2s ease-in-out infinite}
+    .golden-tree-x-aura{transform-box:fill-box;transform-origin:center;animation:golden-tree-x-aura 3s ease-in-out infinite}
+    .golden-tree-x-cast{transform-box:fill-box;transform-origin:center;animation:golden-tree-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.golden-tree-x-lift,.golden-tree-x-shine,.golden-tree-x-spark,.golden-tree-x-aura,.golden-tree-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="golden-tree-g" cx=".36" cy=".28" r=".8">
+    <stop offset="0" stop-color="#fff6c9"/><stop offset=".45" stop-color="#ffd23f"/><stop offset="1" stop-color="#b8730a"/>
+    </radialGradient>
+    <linearGradient id="golden-tree-t" x1="26" y1="30" x2="40" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#e0a94b"/><stop offset=".55" stop-color="#9a6a1e"/><stop offset="1" stop-color="#4d3208"/>
+    </linearGradient>
+    <filter id="golden-tree-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="golden-tree-cp"><ellipse cx="32" cy="24" rx="22" ry="18"/></clipPath>
+    <radialGradient id="golden-tree-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="golden-tree-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="golden-tree-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="golden-tree-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="golden-tree-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="golden-tree-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="golden-tree-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="golden-tree-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#golden-tree-x-white)">
+        <g class="golden-tree-b" filter="url(#golden-tree-f)">
+        <path d="M29 34h6l1 8 6 8H23l6-8Z" fill="url(#golden-tree-t)"/>
+        <path d="M20 52h24a2 2 0 0 1 0 4H20a2 2 0 0 1 0-4Z" fill="url(#golden-tree-t)"/>
+        <path d="M32 6c12 0 22 8 22 18s-10 16-22 16-22-6-22-16S20 6 32 6Z" fill="url(#golden-tree-g)"/>
+        <path d="M18 16c3-4 8-7 13-7" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M12 30c5 6 12 10 20 10s15-4 20-10c-2 8-11 13-20 13s-18-5-20-13Z" fill="#a06405" opacity=".45"/>
+        <path d="M26 20l2 4 4 1-4 2-2 4-2-4-4-2 4-1Z" fill="#fff8d0" opacity=".8"/>
+        <path d="M42 26l1.5 3 3 1-3 1.5-1.5 3-1.5-3-3-1.5 3-1Z" fill="#fff8d0" opacity=".65"/>
+        <g clip-path="url(#golden-tree-cp)">
+        <path class="golden-tree-w" d="M18 2h8L14 48H6Z" fill="#fff" opacity=".45"/>
+        </g>
+        </g>
+        <ellipse class="golden-tree-l" cx="47" cy="38" rx="3" ry="1.8" fill="#ffd23f"/>
+        <ellipse class="golden-tree-l golden-tree-l2" cx="17" cy="40" rx="2.4" ry="1.5" fill="#ffe680"/>
+        <circle class="golden-tree-s" cx="55" cy="14" r="1.9" fill="#fff"/>
+        <circle class="golden-tree-s golden-tree-s2" cx="9" cy="20" r="1.5" fill="#fff3bb"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="golden-tree-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#golden-tree-x-cast-g)"/>
+  <circle class="golden-tree-x-aura" cx="32" cy="32" r="29" fill="url(#golden-tree-x-aura-g)"/>
+  <g class="golden-tree-x-lift">
+    <g class="golden-tree-b" filter="url(#golden-tree-f)">
+    <path d="M29 34h6l1 8 6 8H23l6-8Z" fill="url(#golden-tree-t)"/>
+    <path d="M20 52h24a2 2 0 0 1 0 4H20a2 2 0 0 1 0-4Z" fill="url(#golden-tree-t)"/>
+    <path d="M32 6c12 0 22 8 22 18s-10 16-22 16-22-6-22-16S20 6 32 6Z" fill="url(#golden-tree-g)"/>
+    <path d="M18 16c3-4 8-7 13-7" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M12 30c5 6 12 10 20 10s15-4 20-10c-2 8-11 13-20 13s-18-5-20-13Z" fill="#a06405" opacity=".45"/>
+    <path d="M26 20l2 4 4 1-4 2-2 4-2-4-4-2 4-1Z" fill="#fff8d0" opacity=".8"/>
+    <path d="M42 26l1.5 3 3 1-3 1.5-1.5 3-1.5-3-3-1.5 3-1Z" fill="#fff8d0" opacity=".65"/>
+    <g clip-path="url(#golden-tree-cp)">
+    <path class="golden-tree-w" d="M18 2h8L14 48H6Z" fill="#fff" opacity=".45"/>
+    </g>
+    </g>
+    <ellipse class="golden-tree-l" cx="47" cy="38" rx="3" ry="1.8" fill="#ffd23f"/>
+    <ellipse class="golden-tree-l golden-tree-l2" cx="17" cy="40" rx="2.4" ry="1.5" fill="#ffe680"/>
+    <circle class="golden-tree-s" cx="55" cy="14" r="1.9" fill="#fff"/>
+    <circle class="golden-tree-s golden-tree-s2" cx="9" cy="20" r="1.5" fill="#fff3bb"/>
+    <g mask="url(#golden-tree-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#golden-tree-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#golden-tree-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#golden-tree-x-rim)"/>
+      <rect class="golden-tree-x-shine" x="0" y="-16" width="26" height="96" fill="url(#golden-tree-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="golden-tree-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="golden-tree-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="golden-tree-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="golden-tree-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

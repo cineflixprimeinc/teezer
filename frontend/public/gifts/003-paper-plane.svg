@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes paper-plane-float{0%,100%{transform:translate(0,0) rotate(-3deg)}50%{transform:translate(1px,-4px) rotate(2deg)}}
+    @keyframes paper-plane-trail{0%,100%{opacity:.15;stroke-dashoffset:14}50%{opacity:.7;stroke-dashoffset:0}}
+    .paper-plane-body{transform-box:fill-box;transform-origin:center;animation:paper-plane-float 2.6s ease-in-out infinite}
+    .paper-plane-t{stroke-dasharray:8 8;animation:paper-plane-trail 2.6s ease-in-out infinite}
+    .paper-plane-t2{animation-delay:.5s}
+    @keyframes paper-plane-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes paper-plane-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes paper-plane-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes paper-plane-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes paper-plane-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .paper-plane-x-lift{transform-box:fill-box;transform-origin:center;animation:paper-plane-x-lift 3.4s ease-in-out infinite}
+    .paper-plane-x-shine{animation:paper-plane-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .paper-plane-x-spark{transform-box:fill-box;transform-origin:center;animation:paper-plane-x-spark 2.2s ease-in-out infinite}
+    .paper-plane-x-aura{transform-box:fill-box;transform-origin:center;animation:paper-plane-x-aura 3s ease-in-out infinite}
+    .paper-plane-x-cast{transform-box:fill-box;transform-origin:center;animation:paper-plane-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.paper-plane-x-lift,.paper-plane-x-shine,.paper-plane-x-spark,.paper-plane-x-aura,.paper-plane-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="paper-plane-g" x1="12" y1="8" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#dff2ff"/><stop offset=".5" stop-color="#6fc0ff"/><stop offset="1" stop-color="#2b6fd6"/>
+    </linearGradient>
+    <linearGradient id="paper-plane-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="paper-plane-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="paper-plane-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="paper-plane-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="paper-plane-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="paper-plane-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="paper-plane-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#paper-plane-x-white)">
+        <path class="paper-plane-t" d="M8 44c6 2 11 3 16 3" stroke="#7fd0ff" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <path class="paper-plane-t paper-plane-t2" d="M6 53c7 1 13 1 18 0" stroke="#7fd0ff" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <g class="paper-plane-body">
+        <path d="M57 7 7 28c-1.6.7-1.5 3 .2 3.5L22 36l4.6 15c.5 1.7 2.8 1.9 3.6.3L57 7Z" fill="url(#paper-plane-g)" stroke="#2b6fd6" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M57 7 22 36l4.6 15c.5 1.7 2.8 1.9 3.6.3L57 7Z" fill="#1f57ae" opacity=".45"/>
+        <path d="M57 7 22 36l14 3Z" fill="#0e3f8c" opacity=".35"/>
+        <path d="M13 27 44 14" stroke="#fff" stroke-opacity=".5" stroke-width="2.6" stroke-linecap="round"/>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="paper-plane-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#paper-plane-x-cast-g)"/>
+  <g class="paper-plane-x-lift">
+    <path class="paper-plane-t" d="M8 44c6 2 11 3 16 3" stroke="#7fd0ff" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path class="paper-plane-t paper-plane-t2" d="M6 53c7 1 13 1 18 0" stroke="#7fd0ff" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <g class="paper-plane-body">
+    <path d="M57 7 7 28c-1.6.7-1.5 3 .2 3.5L22 36l4.6 15c.5 1.7 2.8 1.9 3.6.3L57 7Z" fill="url(#paper-plane-g)" stroke="#2b6fd6" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M57 7 22 36l4.6 15c.5 1.7 2.8 1.9 3.6.3L57 7Z" fill="#1f57ae" opacity=".45"/>
+    <path d="M57 7 22 36l14 3Z" fill="#0e3f8c" opacity=".35"/>
+    <path d="M13 27 44 14" stroke="#fff" stroke-opacity=".5" stroke-width="2.6" stroke-linecap="round"/>
+    </g>
+    <g mask="url(#paper-plane-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#paper-plane-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#paper-plane-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#paper-plane-x-rim)"/>
+      <rect class="paper-plane-x-shine" x="0" y="-16" width="26" height="96" fill="url(#paper-plane-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

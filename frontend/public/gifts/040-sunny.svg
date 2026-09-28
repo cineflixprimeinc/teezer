@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes sunny-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes sunny-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+    .sunny-r{transform-box:fill-box;transform-origin:center;animation:sunny-spin 8s linear infinite}
+    .sunny-f{transform-box:fill-box;transform-origin:center;animation:sunny-pulse 2.2s ease-in-out infinite}
+    @keyframes sunny-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes sunny-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes sunny-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes sunny-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes sunny-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .sunny-x-lift{transform-box:fill-box;transform-origin:center;animation:sunny-x-lift 3.4s ease-in-out infinite}
+    .sunny-x-shine{animation:sunny-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .sunny-x-spark{transform-box:fill-box;transform-origin:center;animation:sunny-x-spark 2.2s ease-in-out infinite}
+    .sunny-x-aura{transform-box:fill-box;transform-origin:center;animation:sunny-x-aura 3s ease-in-out infinite}
+    .sunny-x-cast{transform-box:fill-box;transform-origin:center;animation:sunny-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.sunny-x-lift,.sunny-x-shine,.sunny-x-spark,.sunny-x-aura,.sunny-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="sunny-g" cx=".35" cy=".3" r=".85">
+    <stop offset="0" stop-color="#fff3b8"/><stop offset=".5" stop-color="#ffc61f"/><stop offset="1" stop-color="#f0870c"/>
+    </radialGradient>
+    <linearGradient id="sunny-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sunny-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="sunny-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sunny-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="sunny-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="sunny-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="sunny-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#sunny-x-white)">
+        <g class="sunny-r" fill="#ffb115">
+        <path d="M32 4l3.4 8h-6.8Z"/>
+        <path d="M32 60l-3.4-8h6.8Z"/>
+        <path d="M4 32l8-3.4v6.8Z"/>
+        <path d="M60 32l-8 3.4v-6.8Z"/>
+        <path d="M12.2 12.2l8.2 3.2-4.8 4.8Z"/>
+        <path d="M51.8 51.8l-8.2-3.2 4.8-4.8Z"/>
+        <path d="M51.8 12.2l-3.2 8.2-4.8-4.8Z"/>
+        <path d="M12.2 51.8l3.2-8.2 4.8 4.8Z"/>
+        </g>
+        <g class="sunny-f">
+        <circle cx="32" cy="32" r="18" fill="url(#sunny-g)"/>
+        <path d="M22 20c-4 3-6 7-6 12" stroke="#fff" stroke-opacity=".5" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+        <path d="M50 32c0 10-8 18-18 18 12 3 21-6 18-18Z" fill="#d9760a" opacity=".4"/>
+        <circle cx="25" cy="29" r="3" fill="#7a4406"/><circle cx="24" cy="28" r="1.2" fill="#fff"/>
+        <circle cx="39" cy="29" r="3" fill="#7a4406"/><circle cx="38" cy="28" r="1.2" fill="#fff"/>
+        <path d="M26 37c3 4 9 4 12 0" stroke="#7a4406" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <ellipse cx="19" cy="36" rx="3.2" ry="2.2" fill="#ff7a95" opacity=".6"/>
+        <ellipse cx="45" cy="36" rx="3.2" ry="2.2" fill="#ff7a95" opacity=".6"/>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="sunny-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#sunny-x-cast-g)"/>
+  <g class="sunny-x-lift">
+    <g class="sunny-r" fill="#ffb115">
+    <path d="M32 4l3.4 8h-6.8Z"/>
+    <path d="M32 60l-3.4-8h6.8Z"/>
+    <path d="M4 32l8-3.4v6.8Z"/>
+    <path d="M60 32l-8 3.4v-6.8Z"/>
+    <path d="M12.2 12.2l8.2 3.2-4.8 4.8Z"/>
+    <path d="M51.8 51.8l-8.2-3.2 4.8-4.8Z"/>
+    <path d="M51.8 12.2l-3.2 8.2-4.8-4.8Z"/>
+    <path d="M12.2 51.8l3.2-8.2 4.8 4.8Z"/>
+    </g>
+    <g class="sunny-f">
+    <circle cx="32" cy="32" r="18" fill="url(#sunny-g)"/>
+    <path d="M22 20c-4 3-6 7-6 12" stroke="#fff" stroke-opacity=".5" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+    <path d="M50 32c0 10-8 18-18 18 12 3 21-6 18-18Z" fill="#d9760a" opacity=".4"/>
+    <circle cx="25" cy="29" r="3" fill="#7a4406"/><circle cx="24" cy="28" r="1.2" fill="#fff"/>
+    <circle cx="39" cy="29" r="3" fill="#7a4406"/><circle cx="38" cy="28" r="1.2" fill="#fff"/>
+    <path d="M26 37c3 4 9 4 12 0" stroke="#7a4406" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <ellipse cx="19" cy="36" rx="3.2" ry="2.2" fill="#ff7a95" opacity=".6"/>
+    <ellipse cx="45" cy="36" rx="3.2" ry="2.2" fill="#ff7a95" opacity=".6"/>
+    </g>
+    <g mask="url(#sunny-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#sunny-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#sunny-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#sunny-x-rim)"/>
+      <rect class="sunny-x-shine" x="0" y="-16" width="26" height="96" fill="url(#sunny-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

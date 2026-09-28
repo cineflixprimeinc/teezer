@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes cash-stack-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+    @keyframes cash-stack-fly{0%,100%{transform:translateY(0) rotate(-10deg);opacity:.9}50%{transform:translateY(-5px) rotate(8deg);opacity:1}}
+    @keyframes cash-stack-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .cash-stack-body{transform-box:fill-box;transform-origin:center;animation:cash-stack-float 2.4s ease-in-out infinite}
+    .cash-stack-note{transform-box:fill-box;transform-origin:center;animation:cash-stack-fly 2.6s ease-in-out infinite}
+    .cash-stack-s{transform-box:fill-box;transform-origin:center;animation:cash-stack-tw 1.9s ease-in-out infinite}
+    .cash-stack-s2{animation-delay:.9s}
+    @keyframes cash-stack-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes cash-stack-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes cash-stack-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes cash-stack-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes cash-stack-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .cash-stack-x-lift{transform-box:fill-box;transform-origin:center;animation:cash-stack-x-lift 3.4s ease-in-out infinite}
+    .cash-stack-x-shine{animation:cash-stack-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .cash-stack-x-spark{transform-box:fill-box;transform-origin:center;animation:cash-stack-x-spark 2.2s ease-in-out infinite}
+    .cash-stack-x-aura{transform-box:fill-box;transform-origin:center;animation:cash-stack-x-aura 3s ease-in-out infinite}
+    .cash-stack-x-cast{transform-box:fill-box;transform-origin:center;animation:cash-stack-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.cash-stack-x-lift,.cash-stack-x-shine,.cash-stack-x-spark,.cash-stack-x-aura,.cash-stack-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="cash-stack-g1" x1="8" y1="32" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#a8f0c6"/><stop offset=".5" stop-color="#43b878"/><stop offset="1" stop-color="#166b41"/>
+    </linearGradient>
+    <linearGradient id="cash-stack-g2" x1="14" y1="20" x2="50" y2="40" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#c8f7dc"/><stop offset=".55" stop-color="#5ecb8d"/><stop offset="1" stop-color="#268a56"/>
+    </linearGradient>
+    <linearGradient id="cash-stack-gold" x1="26" y1="30" x2="40" y2="44" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff3c4"/><stop offset=".5" stop-color="#f5b942"/><stop offset="1" stop-color="#b8770d"/>
+    </linearGradient>
+    <linearGradient id="cash-stack-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cash-stack-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="cash-stack-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cash-stack-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="cash-stack-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="cash-stack-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="cash-stack-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#cash-stack-x-white)">
+        <g class="cash-stack-body">
+        <rect x="8" y="46" width="48" height="10" rx="4" fill="#14603a"/>
+        <rect x="8" y="41" width="48" height="10" rx="4" fill="url(#cash-stack-g1)"/>
+        <rect x="10" y="36" width="44" height="10" rx="4" fill="#1e7a4c"/>
+        <rect x="10" y="24" width="44" height="20" rx="5" fill="url(#cash-stack-g2)"/>
+        <rect x="14" y="28" width="36" height="12" rx="3" fill="none" stroke="#eafff2" stroke-opacity=".55" stroke-width="2"/>
+        <circle cx="32" cy="34" r="7" fill="url(#cash-stack-gold)"/>
+        <path d="M32 30v8M30 32h4M30 36h4" stroke="#8a5405" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M14 28c8-2 18-2 24 0" stroke="#fff" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <rect x="10" y="42" width="44" height="4" rx="2" fill="#0f5433" opacity=".4"/>
+        </g>
+        <g class="cash-stack-note">
+        <rect x="38" y="8" width="18" height="11" rx="3" fill="url(#cash-stack-g2)"/>
+        <circle cx="47" cy="13.5" r="3" fill="url(#cash-stack-gold)"/>
+        <rect x="40" y="10" width="14" height="3" rx="1.5" fill="#fff" opacity=".3"/>
+        </g>
+        <circle class="cash-stack-s" cx="12" cy="12" r="2.1" fill="#fff"/>
+        <circle class="cash-stack-s cash-stack-s2" cx="58" cy="30" r="1.5" fill="#c8ffe2"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="cash-stack-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#cash-stack-x-cast-g)"/>
+  <g class="cash-stack-x-lift">
+    <g class="cash-stack-body">
+    <rect x="8" y="46" width="48" height="10" rx="4" fill="#14603a"/>
+    <rect x="8" y="41" width="48" height="10" rx="4" fill="url(#cash-stack-g1)"/>
+    <rect x="10" y="36" width="44" height="10" rx="4" fill="#1e7a4c"/>
+    <rect x="10" y="24" width="44" height="20" rx="5" fill="url(#cash-stack-g2)"/>
+    <rect x="14" y="28" width="36" height="12" rx="3" fill="none" stroke="#eafff2" stroke-opacity=".55" stroke-width="2"/>
+    <circle cx="32" cy="34" r="7" fill="url(#cash-stack-gold)"/>
+    <path d="M32 30v8M30 32h4M30 36h4" stroke="#8a5405" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M14 28c8-2 18-2 24 0" stroke="#fff" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <rect x="10" y="42" width="44" height="4" rx="2" fill="#0f5433" opacity=".4"/>
+    </g>
+    <g class="cash-stack-note">
+    <rect x="38" y="8" width="18" height="11" rx="3" fill="url(#cash-stack-g2)"/>
+    <circle cx="47" cy="13.5" r="3" fill="url(#cash-stack-gold)"/>
+    <rect x="40" y="10" width="14" height="3" rx="1.5" fill="#fff" opacity=".3"/>
+    </g>
+    <circle class="cash-stack-s" cx="12" cy="12" r="2.1" fill="#fff"/>
+    <circle class="cash-stack-s cash-stack-s2" cx="58" cy="30" r="1.5" fill="#c8ffe2"/>
+    <g mask="url(#cash-stack-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#cash-stack-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#cash-stack-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#cash-stack-x-rim)"/>
+      <rect class="cash-stack-x-shine" x="0" y="-16" width="26" height="96" fill="url(#cash-stack-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="cash-stack-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="cash-stack-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes polaroid-wig{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+    @keyframes polaroid-shim{0%{transform:translateX(-26px)}55%,100%{transform:translateX(30px)}}
+    @keyframes polaroid-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .polaroid-body{transform-box:fill-box;transform-origin:center;animation:polaroid-wig 2.4s ease-in-out infinite}
+    .polaroid-shine{animation:polaroid-shim 2.6s ease-in-out infinite}
+    .polaroid-s{transform-box:fill-box;transform-origin:center;animation:polaroid-tw 2s ease-in-out infinite}
+    .polaroid-s2{animation-delay:1s}
+    @keyframes polaroid-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes polaroid-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes polaroid-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes polaroid-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes polaroid-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .polaroid-x-lift{transform-box:fill-box;transform-origin:center;animation:polaroid-x-lift 3.4s ease-in-out infinite}
+    .polaroid-x-shine{animation:polaroid-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .polaroid-x-spark{transform-box:fill-box;transform-origin:center;animation:polaroid-x-spark 2.2s ease-in-out infinite}
+    .polaroid-x-aura{transform-box:fill-box;transform-origin:center;animation:polaroid-x-aura 3s ease-in-out infinite}
+    .polaroid-x-cast{transform-box:fill-box;transform-origin:center;animation:polaroid-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.polaroid-x-lift,.polaroid-x-shine,.polaroid-x-spark,.polaroid-x-aura,.polaroid-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="polaroid-frame" x1="12" y1="8" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#e6e9f2"/><stop offset="1" stop-color="#b6bccc"/>
+    </linearGradient>
+    <linearGradient id="polaroid-photo" x1="16" y1="12" x2="48" y2="40" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff9ec7"/><stop offset=".45" stop-color="#a06bff"/><stop offset="1" stop-color="#3ec7ff"/>
+    </linearGradient>
+    <clipPath id="polaroid-clip"><rect x="11" y="8" width="42" height="48" rx="5"/></clipPath>
+    <linearGradient id="polaroid-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="polaroid-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="polaroid-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="polaroid-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="polaroid-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="polaroid-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="polaroid-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#polaroid-x-white)">
+        <g class="polaroid-body">
+        <rect x="11" y="8" width="42" height="48" rx="5" fill="url(#polaroid-frame)"/>
+        <rect x="16" y="13" width="32" height="27" rx="3" fill="url(#polaroid-photo)"/>
+        <circle cx="24" cy="21" r="3.4" fill="#fff36b"/>
+        <path d="M16 40v-6l7-8 7 8 5-5 13 11H19a3 3 0 0 1-3-3Z" fill="#2f8f5b" opacity=".85"/>
+        <path d="M15 12h30" stroke="#fff" stroke-opacity=".7" stroke-width="2.4" stroke-linecap="round"/>
+        <rect x="19" y="45" width="18" height="3.4" rx="1.7" fill="#c3c9d8"/>
+        <rect x="11" y="50" width="42" height="6" rx="3" fill="#98a0b5" opacity=".5" clip-path="url(#polaroid-clip)"/>
+        <g clip-path="url(#polaroid-clip)">
+        <rect class="polaroid-shine" x="8" y="4" width="6" height="58" fill="#fff" opacity=".55" transform="skewX(-16)"/>
+        </g>
+        </g>
+        <circle class="polaroid-s" cx="56" cy="14" r="2" fill="#fff"/>
+        <circle class="polaroid-s polaroid-s2" cx="8" cy="46" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="polaroid-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#polaroid-x-cast-g)"/>
+  <g class="polaroid-x-lift">
+    <g class="polaroid-body">
+    <rect x="11" y="8" width="42" height="48" rx="5" fill="url(#polaroid-frame)"/>
+    <rect x="16" y="13" width="32" height="27" rx="3" fill="url(#polaroid-photo)"/>
+    <circle cx="24" cy="21" r="3.4" fill="#fff36b"/>
+    <path d="M16 40v-6l7-8 7 8 5-5 13 11H19a3 3 0 0 1-3-3Z" fill="#2f8f5b" opacity=".85"/>
+    <path d="M15 12h30" stroke="#fff" stroke-opacity=".7" stroke-width="2.4" stroke-linecap="round"/>
+    <rect x="19" y="45" width="18" height="3.4" rx="1.7" fill="#c3c9d8"/>
+    <rect x="11" y="50" width="42" height="6" rx="3" fill="#98a0b5" opacity=".5" clip-path="url(#polaroid-clip)"/>
+    <g clip-path="url(#polaroid-clip)">
+    <rect class="polaroid-shine" x="8" y="4" width="6" height="58" fill="#fff" opacity=".55" transform="skewX(-16)"/>
+    </g>
+    </g>
+    <circle class="polaroid-s" cx="56" cy="14" r="2" fill="#fff"/>
+    <circle class="polaroid-s polaroid-s2" cx="8" cy="46" r="1.5" fill="#fff"/>
+    <g mask="url(#polaroid-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#polaroid-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#polaroid-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#polaroid-x-rim)"/>
+      <rect class="polaroid-x-shine" x="0" y="-16" width="26" height="96" fill="url(#polaroid-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="polaroid-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="polaroid-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

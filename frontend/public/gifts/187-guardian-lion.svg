@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes guardian-lion-glow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.28)}}
+    @keyframes guardian-lion-ball{0%,100%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes guardian-lion-ring{0%,100%{opacity:.3;transform:scale(.92)}50%{opacity:.8;transform:scale(1.07)}}
+    @keyframes guardian-lion-tw{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .guardian-lion-body{transform-box:fill-box;transform-origin:center;animation:guardian-lion-glow 2.4s ease-in-out infinite}
+    .guardian-lion-ball{transform-box:fill-box;transform-origin:center;animation:guardian-lion-ball 3s linear infinite}
+    .guardian-lion-ring{transform-box:fill-box;transform-origin:center;animation:guardian-lion-ring 2.6s ease-in-out infinite}
+    .guardian-lion-s{transform-box:fill-box;transform-origin:center;animation:guardian-lion-tw 2s ease-in-out infinite}
+    .guardian-lion-s2{animation-delay:.5s}.guardian-lion-s3{animation-delay:1s}.guardian-lion-s4{animation-delay:1.5s}
+    @keyframes guardian-lion-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes guardian-lion-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes guardian-lion-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes guardian-lion-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes guardian-lion-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .guardian-lion-x-lift{transform-box:fill-box;transform-origin:center;animation:guardian-lion-x-lift 3.4s ease-in-out infinite}
+    .guardian-lion-x-shine{animation:guardian-lion-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .guardian-lion-x-spark{transform-box:fill-box;transform-origin:center;animation:guardian-lion-x-spark 2.2s ease-in-out infinite}
+    .guardian-lion-x-aura{transform-box:fill-box;transform-origin:center;animation:guardian-lion-x-aura 3s ease-in-out infinite}
+    .guardian-lion-x-cast{transform-box:fill-box;transform-origin:center;animation:guardian-lion-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.guardian-lion-x-lift,.guardian-lion-x-shine,.guardian-lion-x-spark,.guardian-lion-x-aura,.guardian-lion-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="guardian-lion-m" cx="30" cy="24" r="20" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff0bf"/><stop offset=".55" stop-color="#f0b429"/><stop offset="1" stop-color="#9c5f04"/>
+    </radialGradient>
+    <linearGradient id="guardian-lion-g" x1="18" y1="24" x2="46" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffe9a8"/><stop offset=".5" stop-color="#e8a317"/><stop offset="1" stop-color="#8b5303"/>
+    </linearGradient>
+    <linearGradient id="guardian-lion-j" x1="40" y1="42" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#bff2ff"/><stop offset="1" stop-color="#1f8fd6"/>
+    </linearGradient>
+    <filter id="guardian-lion-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="guardian-lion-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="guardian-lion-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="guardian-lion-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="guardian-lion-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="guardian-lion-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="guardian-lion-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="guardian-lion-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="guardian-lion-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#guardian-lion-x-white)">
+        <circle class="guardian-lion-ring" cx="30" cy="30" r="25" fill="none" stroke="#ffd76a" stroke-width="2" opacity=".5"/>
+        <g class="guardian-lion-body" filter="url(#guardian-lion-f)">
+        <path d="M30 6c13 0 22 9 22 21S43 48 30 48 8 39 8 27 17 6 30 6Z" fill="url(#guardian-lion-m)"/>
+        <path d="M30 6l5 4 5-3 1 6 6 0-2 6 5 3-4 5 4 5-5 3 2 6-6 0-1 6-5-3-5 4-5-4-5 3-1-6-6 0 2-6-5-3 4-5-4-5 5-3-2-6 6 0 1-6 5 3Z" fill="url(#guardian-lion-m)"/>
+        <path d="M16 14c-3 3-5 7-5 12" stroke="#fff" stroke-opacity=".4" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <ellipse cx="30" cy="30" rx="13" ry="12" fill="url(#guardian-lion-g)"/>
+        <path d="M21 24c-2 2-3 4-3 7" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <circle cx="25" cy="28" r="2.6" fill="#fff"/><circle cx="25" cy="28.5" r="1.4" fill="#5b2c02"/>
+        <circle cx="35" cy="28" r="2.6" fill="#fff"/><circle cx="35" cy="28.5" r="1.4" fill="#5b2c02"/>
+        <path d="M26 36h8l-4 4Z" fill="#c0392b"/>
+        <path d="M30 34l-3-2h6Z" fill="#6b3a05"/>
+        <path d="M19 38c6 5 16 5 22 0-2 6-20 6-22 0Z" fill="#7a4802" opacity=".4"/>
+        <path d="M40 52c0-6 5-10 10-10s10 4 10 10Z" fill="#8b5303" opacity=".0"/>
+        </g>
+        <g class="guardian-lion-ball" filter="url(#guardian-lion-f)">
+        <circle cx="48" cy="49" r="9" fill="url(#guardian-lion-j)"/>
+        <circle cx="45" cy="46" r="3" fill="#fff" opacity=".5"/>
+        <path d="M39 49h18M48 40v18" stroke="#0d5f96" stroke-width="1.6" opacity=".5"/>
+        </g>
+        <circle class="guardian-lion-s" cx="55" cy="12" r="2.1" fill="#fff"/>
+        <circle class="guardian-lion-s guardian-lion-s2" cx="9" cy="48" r="1.7" fill="#fff"/>
+        <circle class="guardian-lion-s guardian-lion-s3" cx="58" cy="30" r="1.6" fill="#fff"/>
+        <circle class="guardian-lion-s guardian-lion-s4" cx="6" cy="14" r="1.6" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="guardian-lion-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#guardian-lion-x-cast-g)"/>
+  <circle class="guardian-lion-x-aura" cx="32" cy="32" r="29" fill="url(#guardian-lion-x-aura-g)"/>
+  <g class="guardian-lion-x-lift">
+    <circle class="guardian-lion-ring" cx="30" cy="30" r="25" fill="none" stroke="#ffd76a" stroke-width="2" opacity=".5"/>
+    <g class="guardian-lion-body" filter="url(#guardian-lion-f)">
+    <path d="M30 6c13 0 22 9 22 21S43 48 30 48 8 39 8 27 17 6 30 6Z" fill="url(#guardian-lion-m)"/>
+    <path d="M30 6l5 4 5-3 1 6 6 0-2 6 5 3-4 5 4 5-5 3 2 6-6 0-1 6-5-3-5 4-5-4-5 3-1-6-6 0 2-6-5-3 4-5-4-5 5-3-2-6 6 0 1-6 5 3Z" fill="url(#guardian-lion-m)"/>
+    <path d="M16 14c-3 3-5 7-5 12" stroke="#fff" stroke-opacity=".4" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <ellipse cx="30" cy="30" rx="13" ry="12" fill="url(#guardian-lion-g)"/>
+    <path d="M21 24c-2 2-3 4-3 7" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="25" cy="28" r="2.6" fill="#fff"/><circle cx="25" cy="28.5" r="1.4" fill="#5b2c02"/>
+    <circle cx="35" cy="28" r="2.6" fill="#fff"/><circle cx="35" cy="28.5" r="1.4" fill="#5b2c02"/>
+    <path d="M26 36h8l-4 4Z" fill="#c0392b"/>
+    <path d="M30 34l-3-2h6Z" fill="#6b3a05"/>
+    <path d="M19 38c6 5 16 5 22 0-2 6-20 6-22 0Z" fill="#7a4802" opacity=".4"/>
+    <path d="M40 52c0-6 5-10 10-10s10 4 10 10Z" fill="#8b5303" opacity=".0"/>
+    </g>
+    <g class="guardian-lion-ball" filter="url(#guardian-lion-f)">
+    <circle cx="48" cy="49" r="9" fill="url(#guardian-lion-j)"/>
+    <circle cx="45" cy="46" r="3" fill="#fff" opacity=".5"/>
+    <path d="M39 49h18M48 40v18" stroke="#0d5f96" stroke-width="1.6" opacity=".5"/>
+    </g>
+    <circle class="guardian-lion-s" cx="55" cy="12" r="2.1" fill="#fff"/>
+    <circle class="guardian-lion-s guardian-lion-s2" cx="9" cy="48" r="1.7" fill="#fff"/>
+    <circle class="guardian-lion-s guardian-lion-s3" cx="58" cy="30" r="1.6" fill="#fff"/>
+    <circle class="guardian-lion-s guardian-lion-s4" cx="6" cy="14" r="1.6" fill="#fff"/>
+    <g mask="url(#guardian-lion-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#guardian-lion-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#guardian-lion-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#guardian-lion-x-rim)"/>
+      <rect class="guardian-lion-x-shine" x="0" y="-16" width="26" height="96" fill="url(#guardian-lion-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="guardian-lion-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="guardian-lion-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="guardian-lion-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="guardian-lion-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="guardian-lion-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

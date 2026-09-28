@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes sunflower-sway{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-2px)}}
+    @keyframes sunflower-turn{0%,100%{transform:rotate(0)}50%{transform:rotate(9deg)}}
+    .sunflower-b{transform-box:fill-box;transform-origin:50% 100%;animation:sunflower-sway 2.8s ease-in-out infinite}
+    .sunflower-p{transform-box:fill-box;transform-origin:center;animation:sunflower-turn 2.8s ease-in-out infinite}
+    @keyframes sunflower-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes sunflower-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes sunflower-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes sunflower-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes sunflower-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .sunflower-x-lift{transform-box:fill-box;transform-origin:center;animation:sunflower-x-lift 3.4s ease-in-out infinite}
+    .sunflower-x-shine{animation:sunflower-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .sunflower-x-spark{transform-box:fill-box;transform-origin:center;animation:sunflower-x-spark 2.2s ease-in-out infinite}
+    .sunflower-x-aura{transform-box:fill-box;transform-origin:center;animation:sunflower-x-aura 3s ease-in-out infinite}
+    .sunflower-x-cast{transform-box:fill-box;transform-origin:center;animation:sunflower-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.sunflower-x-lift,.sunflower-x-shine,.sunflower-x-spark,.sunflower-x-aura,.sunflower-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="sunflower-g" x1="12" y1="6" x2="52" y2="42" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffe487"/><stop offset=".55" stop-color="#ffb31f"/><stop offset="1" stop-color="#d97a06"/>
+    </linearGradient>
+    <linearGradient id="sunflower-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sunflower-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="sunflower-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sunflower-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="sunflower-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="sunflower-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="sunflower-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#sunflower-x-white)">
+        <g class="sunflower-b">
+        <path d="M32 60V38" stroke="#2f7a3c" stroke-width="4" stroke-linecap="round"/>
+        <path d="M32 55c-6 1-11-2-13-7 7-3 12 0 13 7Z" fill="#3f9a4c"/>
+        <path d="M32 48c5 1 9-1 11-6-6-2-10 0-11 6Z" fill="#347f3f"/>
+        <g class="sunflower-p">
+        <g fill="url(#sunflower-g)">
+        <ellipse cx="32" cy="11" rx="5" ry="7"/>
+        <ellipse cx="42" cy="15" rx="5" ry="7" transform="rotate(45 42 15)"/>
+        <ellipse cx="46" cy="25" rx="7" ry="5"/>
+        <ellipse cx="42" cy="35" rx="5" ry="7" transform="rotate(-45 42 35)"/>
+        <ellipse cx="32" cy="39" rx="5" ry="7"/>
+        <ellipse cx="22" cy="35" rx="5" ry="7" transform="rotate(45 22 35)"/>
+        <ellipse cx="18" cy="25" rx="7" ry="5"/>
+        <ellipse cx="22" cy="15" rx="5" ry="7" transform="rotate(-45 22 15)"/>
+        </g>
+        <circle cx="32" cy="25" r="11.5" fill="#7a4418"/>
+        <circle cx="32" cy="25" r="11.5" fill="none" stroke="#5c2f0e" stroke-width="2" opacity=".5"/>
+        <path d="M25 18c-2 2-3 4-3 7" stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <circle cx="27" cy="23" r="2.6" fill="#241205"/><circle cx="26.1" cy="22.1" r="1" fill="#fff"/>
+        <circle cx="37" cy="23" r="2.6" fill="#241205"/><circle cx="36.1" cy="22.1" r="1" fill="#fff"/>
+        <path d="M28 29c2 3 6 3 8 0" stroke="#241205" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <ellipse cx="22" cy="28" rx="2.6" ry="1.8" fill="#ff7a9c" opacity=".55"/>
+        <ellipse cx="42" cy="28" rx="2.6" ry="1.8" fill="#ff7a9c" opacity=".55"/>
+        </g>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="sunflower-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#sunflower-x-cast-g)"/>
+  <g class="sunflower-x-lift">
+    <g class="sunflower-b">
+    <path d="M32 60V38" stroke="#2f7a3c" stroke-width="4" stroke-linecap="round"/>
+    <path d="M32 55c-6 1-11-2-13-7 7-3 12 0 13 7Z" fill="#3f9a4c"/>
+    <path d="M32 48c5 1 9-1 11-6-6-2-10 0-11 6Z" fill="#347f3f"/>
+    <g class="sunflower-p">
+    <g fill="url(#sunflower-g)">
+    <ellipse cx="32" cy="11" rx="5" ry="7"/>
+    <ellipse cx="42" cy="15" rx="5" ry="7" transform="rotate(45 42 15)"/>
+    <ellipse cx="46" cy="25" rx="7" ry="5"/>
+    <ellipse cx="42" cy="35" rx="5" ry="7" transform="rotate(-45 42 35)"/>
+    <ellipse cx="32" cy="39" rx="5" ry="7"/>
+    <ellipse cx="22" cy="35" rx="5" ry="7" transform="rotate(45 22 35)"/>
+    <ellipse cx="18" cy="25" rx="7" ry="5"/>
+    <ellipse cx="22" cy="15" rx="5" ry="7" transform="rotate(-45 22 15)"/>
+    </g>
+    <circle cx="32" cy="25" r="11.5" fill="#7a4418"/>
+    <circle cx="32" cy="25" r="11.5" fill="none" stroke="#5c2f0e" stroke-width="2" opacity=".5"/>
+    <path d="M25 18c-2 2-3 4-3 7" stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="27" cy="23" r="2.6" fill="#241205"/><circle cx="26.1" cy="22.1" r="1" fill="#fff"/>
+    <circle cx="37" cy="23" r="2.6" fill="#241205"/><circle cx="36.1" cy="22.1" r="1" fill="#fff"/>
+    <path d="M28 29c2 3 6 3 8 0" stroke="#241205" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <ellipse cx="22" cy="28" rx="2.6" ry="1.8" fill="#ff7a9c" opacity=".55"/>
+    <ellipse cx="42" cy="28" rx="2.6" ry="1.8" fill="#ff7a9c" opacity=".55"/>
+    </g>
+    </g>
+    <g mask="url(#sunflower-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#sunflower-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#sunflower-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#sunflower-x-rim)"/>
+      <rect class="sunflower-x-shine" x="0" y="-16" width="26" height="96" fill="url(#sunflower-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

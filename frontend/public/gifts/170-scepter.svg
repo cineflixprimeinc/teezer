@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes scepter-sheen{0%{opacity:0;transform:translate(-10px,10px)}45%{opacity:.9}100%{opacity:0;transform:translate(12px,-12px)}}
+    @keyframes scepter-tilt{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+    @keyframes scepter-aura{0%,100%{opacity:.2;transform:scale(.86)}50%{opacity:.65;transform:scale(1.08)}}
+    @keyframes scepter-tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1.1)}}
+    .scepter-body{transform-box:fill-box;transform-origin:50% 90%;animation:scepter-tilt 2.6s ease-in-out infinite}
+    .scepter-sheen{transform-box:fill-box;transform-origin:center;animation:scepter-sheen 2.4s ease-in-out infinite}
+    .scepter-ring{transform-box:fill-box;transform-origin:center;animation:scepter-aura 2.8s ease-in-out infinite}
+    .scepter-s{transform-box:fill-box;transform-origin:center;animation:scepter-tw 2s ease-in-out infinite}
+    .scepter-s2{animation-delay:.5s}.scepter-s3{animation-delay:1s}.scepter-s4{animation-delay:1.5s}
+    @keyframes scepter-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes scepter-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes scepter-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes scepter-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes scepter-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .scepter-x-lift{transform-box:fill-box;transform-origin:center;animation:scepter-x-lift 3.4s ease-in-out infinite}
+    .scepter-x-shine{animation:scepter-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .scepter-x-spark{transform-box:fill-box;transform-origin:center;animation:scepter-x-spark 2.2s ease-in-out infinite}
+    .scepter-x-aura{transform-box:fill-box;transform-origin:center;animation:scepter-x-aura 3s ease-in-out infinite}
+    .scepter-x-cast{transform-box:fill-box;transform-origin:center;animation:scepter-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.scepter-x-lift,.scepter-x-shine,.scepter-x-spark,.scepter-x-aura,.scepter-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="scepter-g" x1="20" y1="8" x2="46" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff7d2"/><stop offset=".5" stop-color="#f2c542"/><stop offset="1" stop-color="#8f6108"/>
+    </linearGradient>
+    <radialGradient id="scepter-j" cx=".35" cy=".3" r=".85">
+    <stop offset="0" stop-color="#d7c2ff"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#4a1e9e"/>
+    </radialGradient>
+    <radialGradient id="scepter-a" cx=".5" cy=".5" r=".5">
+    <stop offset=".55" stop-color="#c4a6ff" stop-opacity="0"/><stop offset="1" stop-color="#c4a6ff" stop-opacity=".5"/>
+    </radialGradient>
+    <filter id="scepter-f" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="scepter-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="scepter-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="scepter-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="scepter-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="scepter-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="scepter-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="scepter-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="scepter-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#scepter-x-white)">
+        <circle class="scepter-ring" cx="32" cy="20" r="20" fill="url(#scepter-a)"/>
+        <g class="scepter-body" filter="url(#scepter-f)">
+        <rect x="29" y="26" width="6" height="32" rx="3" fill="url(#scepter-g)"/>
+        <rect x="30.4" y="28" width="1.8" height="26" rx=".9" fill="#fff8dd" opacity=".55"/>
+        <rect x="29" y="52" width="6" height="6" rx="2" fill="#7d5205" opacity=".5"/>
+        <rect x="25" y="30" width="14" height="5" rx="2.5" fill="url(#scepter-g)"/>
+        <rect x="26" y="44" width="12" height="4.5" rx="2.2" fill="url(#scepter-g)"/>
+        <circle cx="32" cy="18" r="12" fill="none" stroke="url(#scepter-g)" stroke-width="2.4"/>
+        <circle cx="32" cy="18" r="9" fill="url(#scepter-j)"/>
+        <path d="M26 14c1.6-2.4 4-3.6 6.6-3.8" stroke="#fff" stroke-opacity=".5" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <path d="M32 24c4 0 7-2.4 8.4-6-.6 6-4 9-8.4 9Z" fill="#3a1580" opacity=".55"/>
+        <path d="M32 4l2 4 4 .6-3 2.9.7 4-3.7-1.9-3.7 1.9.7-4-3-2.9 4-.6Z" fill="url(#scepter-g)"/>
+        <circle cx="20" cy="24" r="2.6" fill="#ff6f9c"/><circle cx="44" cy="24" r="2.6" fill="#6ee7ff"/>
+        <circle cx="19.3" cy="23.2" r=".9" fill="#fff"/><circle cx="43.3" cy="23.2" r=".9" fill="#fff"/>
+        <circle cx="32" cy="47" r="2.6" fill="#e0355f"/><circle cx="31.2" cy="46.2" r=".9" fill="#fff"/>
+        </g>
+        <rect class="scepter-sheen" x="20" y="10" width="5" height="18" rx="2.5" fill="#fff" opacity=".4" transform="rotate(38 22 19)"/>
+        <path class="scepter-s" d="M55 30l1.2 3 3 1.2-3 1.2L55 39.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+        <circle class="scepter-s scepter-s2" cx="9" cy="16" r="1.9" fill="#ffe9a3"/>
+        <circle class="scepter-s scepter-s3" cx="52" cy="10" r="1.7" fill="#fff"/>
+        <circle class="scepter-s scepter-s4" cx="8" cy="44" r="1.5" fill="#d9c2ff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="scepter-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#scepter-x-cast-g)"/>
+  <circle class="scepter-x-aura" cx="32" cy="32" r="29" fill="url(#scepter-x-aura-g)"/>
+  <g class="scepter-x-lift">
+    <circle class="scepter-ring" cx="32" cy="20" r="20" fill="url(#scepter-a)"/>
+    <g class="scepter-body" filter="url(#scepter-f)">
+    <rect x="29" y="26" width="6" height="32" rx="3" fill="url(#scepter-g)"/>
+    <rect x="30.4" y="28" width="1.8" height="26" rx=".9" fill="#fff8dd" opacity=".55"/>
+    <rect x="29" y="52" width="6" height="6" rx="2" fill="#7d5205" opacity=".5"/>
+    <rect x="25" y="30" width="14" height="5" rx="2.5" fill="url(#scepter-g)"/>
+    <rect x="26" y="44" width="12" height="4.5" rx="2.2" fill="url(#scepter-g)"/>
+    <circle cx="32" cy="18" r="12" fill="none" stroke="url(#scepter-g)" stroke-width="2.4"/>
+    <circle cx="32" cy="18" r="9" fill="url(#scepter-j)"/>
+    <path d="M26 14c1.6-2.4 4-3.6 6.6-3.8" stroke="#fff" stroke-opacity=".5" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+    <path d="M32 24c4 0 7-2.4 8.4-6-.6 6-4 9-8.4 9Z" fill="#3a1580" opacity=".55"/>
+    <path d="M32 4l2 4 4 .6-3 2.9.7 4-3.7-1.9-3.7 1.9.7-4-3-2.9 4-.6Z" fill="url(#scepter-g)"/>
+    <circle cx="20" cy="24" r="2.6" fill="#ff6f9c"/><circle cx="44" cy="24" r="2.6" fill="#6ee7ff"/>
+    <circle cx="19.3" cy="23.2" r=".9" fill="#fff"/><circle cx="43.3" cy="23.2" r=".9" fill="#fff"/>
+    <circle cx="32" cy="47" r="2.6" fill="#e0355f"/><circle cx="31.2" cy="46.2" r=".9" fill="#fff"/>
+    </g>
+    <rect class="scepter-sheen" x="20" y="10" width="5" height="18" rx="2.5" fill="#fff" opacity=".4" transform="rotate(38 22 19)"/>
+    <path class="scepter-s" d="M55 30l1.2 3 3 1.2-3 1.2L55 39.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+    <circle class="scepter-s scepter-s2" cx="9" cy="16" r="1.9" fill="#ffe9a3"/>
+    <circle class="scepter-s scepter-s3" cx="52" cy="10" r="1.7" fill="#fff"/>
+    <circle class="scepter-s scepter-s4" cx="8" cy="44" r="1.5" fill="#d9c2ff"/>
+    <g mask="url(#scepter-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#scepter-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#scepter-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#scepter-x-rim)"/>
+      <rect class="scepter-x-shine" x="0" y="-16" width="26" height="96" fill="url(#scepter-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="scepter-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="scepter-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="scepter-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="scepter-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="scepter-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

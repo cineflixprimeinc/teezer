@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes headphones-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+    @keyframes headphones-wave{0%,100%{opacity:.15;transform:scale(.85)}50%{opacity:.85;transform:scale(1.1)}}
+    @keyframes headphones-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .headphones-body{transform-box:fill-box;transform-origin:center;animation:headphones-pulse 1.8s ease-in-out infinite}
+    .headphones-w{transform-box:fill-box;transform-origin:center;animation:headphones-wave 1.8s ease-in-out infinite}
+    .headphones-w2{animation-delay:.35s}
+    .headphones-s{transform-box:fill-box;transform-origin:center;animation:headphones-tw 2.2s ease-in-out infinite}
+    .headphones-s2{animation-delay:1.1s}
+    @keyframes headphones-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes headphones-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes headphones-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes headphones-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes headphones-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .headphones-x-lift{transform-box:fill-box;transform-origin:center;animation:headphones-x-lift 3.4s ease-in-out infinite}
+    .headphones-x-shine{animation:headphones-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .headphones-x-spark{transform-box:fill-box;transform-origin:center;animation:headphones-x-spark 2.2s ease-in-out infinite}
+    .headphones-x-aura{transform-box:fill-box;transform-origin:center;animation:headphones-x-aura 3s ease-in-out infinite}
+    .headphones-x-cast{transform-box:fill-box;transform-origin:center;animation:headphones-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.headphones-x-lift,.headphones-x-shine,.headphones-x-spark,.headphones-x-aura,.headphones-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="headphones-band" x1="16" y1="8" x2="48" y2="34" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#a78bfa"/><stop offset=".55" stop-color="#7c3aed"/><stop offset="1" stop-color="#4a1e9e"/>
+    </linearGradient>
+    <linearGradient id="headphones-cup" x1="12" y1="30" x2="26" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff9ecb"/><stop offset=".55" stop-color="#f0479a"/><stop offset="1" stop-color="#9c1f5c"/>
+    </linearGradient>
+    <linearGradient id="headphones-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="headphones-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="headphones-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="headphones-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="headphones-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="headphones-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="headphones-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#headphones-x-white)">
+        <g class="headphones-body">
+        <path d="M11 38v-4c0-11.6 9.4-21 21-21s21 9.4 21 21v4" stroke="url(#headphones-band)" stroke-width="7" stroke-linecap="round" fill="none"/>
+        <path d="M18 21c-3.4 2.8-5.6 6.6-6.4 11" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <rect x="7" y="33" width="13" height="21" rx="6.5" fill="url(#headphones-cup)"/>
+        <rect x="44" y="33" width="13" height="21" rx="6.5" fill="url(#headphones-cup)"/>
+        <rect x="9.5" y="36" width="4" height="7" rx="2" fill="#fff" opacity=".45"/>
+        <rect x="46.5" y="36" width="4" height="7" rx="2" fill="#fff" opacity=".4"/>
+        <path d="M7 47h13v.5c0 3.6-2.9 6.5-6.5 6.5S7 51.1 7 47.5Zm37 0h13v.5c0 3.6-2.9 6.5-6.5 6.5S44 51.1 44 47.5Z" fill="#7d1247" opacity=".4"/>
+        </g>
+        <g class="headphones-w">
+        <path d="M58 32c2.4 3.4 2.4 8.6 0 12" stroke="#5eead4" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="headphones-w headphones-w2">
+        <path d="M6 32c-2.4 3.4-2.4 8.6 0 12" stroke="#5eead4" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        </g>
+        <circle class="headphones-s" cx="53" cy="12" r="2.1" fill="#fff"/>
+        <circle class="headphones-s headphones-s2" cx="12" cy="14" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="headphones-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#headphones-x-cast-g)"/>
+  <g class="headphones-x-lift">
+    <g class="headphones-body">
+    <path d="M11 38v-4c0-11.6 9.4-21 21-21s21 9.4 21 21v4" stroke="url(#headphones-band)" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path d="M18 21c-3.4 2.8-5.6 6.6-6.4 11" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <rect x="7" y="33" width="13" height="21" rx="6.5" fill="url(#headphones-cup)"/>
+    <rect x="44" y="33" width="13" height="21" rx="6.5" fill="url(#headphones-cup)"/>
+    <rect x="9.5" y="36" width="4" height="7" rx="2" fill="#fff" opacity=".45"/>
+    <rect x="46.5" y="36" width="4" height="7" rx="2" fill="#fff" opacity=".4"/>
+    <path d="M7 47h13v.5c0 3.6-2.9 6.5-6.5 6.5S7 51.1 7 47.5Zm37 0h13v.5c0 3.6-2.9 6.5-6.5 6.5S44 51.1 44 47.5Z" fill="#7d1247" opacity=".4"/>
+    </g>
+    <g class="headphones-w">
+    <path d="M58 32c2.4 3.4 2.4 8.6 0 12" stroke="#5eead4" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    </g>
+    <g class="headphones-w headphones-w2">
+    <path d="M6 32c-2.4 3.4-2.4 8.6 0 12" stroke="#5eead4" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    </g>
+    <circle class="headphones-s" cx="53" cy="12" r="2.1" fill="#fff"/>
+    <circle class="headphones-s headphones-s2" cx="12" cy="14" r="1.5" fill="#fff"/>
+    <g mask="url(#headphones-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#headphones-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#headphones-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#headphones-x-rim)"/>
+      <rect class="headphones-x-shine" x="0" y="-16" width="26" height="96" fill="url(#headphones-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="headphones-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="headphones-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

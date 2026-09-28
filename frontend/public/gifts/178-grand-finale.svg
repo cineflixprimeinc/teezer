@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes grand-finale-glow{0%,100%{filter:brightness(1);transform:scale(1)}50%{filter:brightness(1.45);transform:scale(1.07)}}
+    @keyframes grand-finale-aura{0%,100%{opacity:.15;transform:scale(.84) rotate(0)}50%{opacity:.6;transform:scale(1.08) rotate(20deg)}}
+    @keyframes grand-finale-curtain{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.94)}}
+    @keyframes grand-finale-tw{0%,100%{opacity:.15;transform:scale(.45)}50%{opacity:1;transform:scale(1.2)}}
+    .grand-finale-star{transform-box:fill-box;transform-origin:center;animation:grand-finale-glow 2.2s ease-in-out infinite}
+    .grand-finale-ring{transform-box:fill-box;transform-origin:center;animation:grand-finale-aura 2.8s ease-in-out infinite}
+    .grand-finale-cl{transform-box:fill-box;transform-origin:0% 50%;animation:grand-finale-curtain 2.6s ease-in-out infinite}
+    .grand-finale-cr{transform-box:fill-box;transform-origin:100% 50%;animation:grand-finale-curtain 2.6s ease-in-out infinite}
+    .grand-finale-s{transform-box:fill-box;transform-origin:center;animation:grand-finale-tw 1.9s ease-in-out infinite}
+    .grand-finale-s2{animation-delay:.48s}.grand-finale-s3{animation-delay:.96s}.grand-finale-s4{animation-delay:1.44s}
+    @keyframes grand-finale-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes grand-finale-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes grand-finale-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes grand-finale-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes grand-finale-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .grand-finale-x-lift{transform-box:fill-box;transform-origin:center;animation:grand-finale-x-lift 3.4s ease-in-out infinite}
+    .grand-finale-x-shine{animation:grand-finale-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .grand-finale-x-spark{transform-box:fill-box;transform-origin:center;animation:grand-finale-x-spark 2.2s ease-in-out infinite}
+    .grand-finale-x-aura{transform-box:fill-box;transform-origin:center;animation:grand-finale-x-aura 3s ease-in-out infinite}
+    .grand-finale-x-cast{transform-box:fill-box;transform-origin:center;animation:grand-finale-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.grand-finale-x-lift,.grand-finale-x-shine,.grand-finale-x-spark,.grand-finale-x-aura,.grand-finale-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="grand-finale-c" x1="6" y1="12" x2="24" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff7f96"/><stop offset=".5" stop-color="#d51e3e"/><stop offset="1" stop-color="#75081c"/>
+    </linearGradient>
+    <linearGradient id="grand-finale-g" x1="8" y1="6" x2="56" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff8d6"/><stop offset=".5" stop-color="#f7cb45"/><stop offset="1" stop-color="#a3700c"/>
+    </linearGradient>
+    <radialGradient id="grand-finale-burst" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#fffdf2"/><stop offset=".5" stop-color="#ffd24d"/><stop offset="1" stop-color="#ff6bb0" stop-opacity=".25"/>
+    </radialGradient>
+    <radialGradient id="grand-finale-a" cx=".5" cy=".5" r=".5">
+    <stop offset=".55" stop-color="#ffd979" stop-opacity="0"/><stop offset="1" stop-color="#ffd979" stop-opacity=".5"/>
+    </radialGradient>
+    <filter id="grand-finale-f" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="grand-finale-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="grand-finale-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="grand-finale-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="grand-finale-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="grand-finale-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="grand-finale-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grand-finale-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="grand-finale-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#grand-finale-x-white)">
+        <circle class="grand-finale-ring" cx="32" cy="32" r="27" fill="url(#grand-finale-a)"/>
+        <g filter="url(#grand-finale-f)">
+        <g class="grand-finale-cl">
+        <path d="M6 12h16c-3 14-3 30 0 46H6Z" fill="url(#grand-finale-c)"/>
+        <path d="M11 14c-1 14-1 28 1 42" stroke="#ff9fb0" stroke-opacity=".5" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <path d="M17 14c0 14 0 28 1 42" stroke="#8c0f24" stroke-opacity=".55" stroke-width="2.6" fill="none"/>
+        </g>
+        <g class="grand-finale-cr">
+        <path d="M58 12H42c3 14 3 30 0 46h16Z" fill="url(#grand-finale-c)"/>
+        <path d="M53 14c1 14 1 28-1 42" stroke="#ff9fb0" stroke-opacity=".4" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <path d="M47 14c0 14 0 28-1 42" stroke="#8c0f24" stroke-opacity=".55" stroke-width="2.6" fill="none"/>
+        </g>
+        <rect x="4" y="8" width="56" height="6" rx="3" fill="url(#grand-finale-g)"/>
+        <rect x="4" y="11.5" width="56" height="2.5" rx="1.2" fill="#8a5c07" opacity=".45"/>
+        <rect x="7" y="9.2" width="16" height="1.8" rx=".9" fill="#fff8dd" opacity=".7"/>
+        </g>
+        <g class="grand-finale-star" filter="url(#grand-finale-f)">
+        <circle cx="32" cy="34" r="15" fill="url(#grand-finale-burst)"/>
+        <path d="M32 16l4.6 12.4L49 33l-12.4 4.6L32 50l-4.6-12.4L15 33l12.4-4.6Z" fill="url(#grand-finale-g)"/>
+        <path d="M32 16l4.6 12.4L49 33l-17-4Z" fill="#fff7d2" opacity=".6"/>
+        <path d="M32 50l-4.6-12.4L15 33l17 4Z" fill="#9a680a" opacity=".45"/>
+        <circle cx="32" cy="33" r="4.4" fill="#fff3c4"/>
+        <circle cx="32" cy="33" r="2" fill="#ff5fa8"/>
+        <path d="M22 27c2-2 4.6-3.4 7.2-4" stroke="#fff" stroke-opacity=".7" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        </g>
+        <path class="grand-finale-s" d="M50 20l1.3 3.2 3.2 1.3-3.2 1.3L50 29l-1.3-3.2-3.2-1.3 3.2-1.3Z" fill="#fff"/>
+        <path class="grand-finale-s grand-finale-s2" d="M14 22l1.1 2.7 2.7 1.1-2.7 1.1L14 30.6l-1.1-2.7-2.7-1.1 2.7-1.1Z" fill="#ffe9a3"/>
+        <circle class="grand-finale-s grand-finale-s3" cx="46" cy="47" r="1.7" fill="#fff"/>
+        <circle class="grand-finale-s grand-finale-s4" cx="18" cy="47" r="1.5" fill="#ffb6f0"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="grand-finale-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#grand-finale-x-cast-g)"/>
+  <circle class="grand-finale-x-aura" cx="32" cy="32" r="29" fill="url(#grand-finale-x-aura-g)"/>
+  <g class="grand-finale-x-lift">
+    <circle class="grand-finale-ring" cx="32" cy="32" r="27" fill="url(#grand-finale-a)"/>
+    <g filter="url(#grand-finale-f)">
+    <g class="grand-finale-cl">
+    <path d="M6 12h16c-3 14-3 30 0 46H6Z" fill="url(#grand-finale-c)"/>
+    <path d="M11 14c-1 14-1 28 1 42" stroke="#ff9fb0" stroke-opacity=".5" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path d="M17 14c0 14 0 28 1 42" stroke="#8c0f24" stroke-opacity=".55" stroke-width="2.6" fill="none"/>
+    </g>
+    <g class="grand-finale-cr">
+    <path d="M58 12H42c3 14 3 30 0 46h16Z" fill="url(#grand-finale-c)"/>
+    <path d="M53 14c1 14 1 28-1 42" stroke="#ff9fb0" stroke-opacity=".4" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path d="M47 14c0 14 0 28-1 42" stroke="#8c0f24" stroke-opacity=".55" stroke-width="2.6" fill="none"/>
+    </g>
+    <rect x="4" y="8" width="56" height="6" rx="3" fill="url(#grand-finale-g)"/>
+    <rect x="4" y="11.5" width="56" height="2.5" rx="1.2" fill="#8a5c07" opacity=".45"/>
+    <rect x="7" y="9.2" width="16" height="1.8" rx=".9" fill="#fff8dd" opacity=".7"/>
+    </g>
+    <g class="grand-finale-star" filter="url(#grand-finale-f)">
+    <circle cx="32" cy="34" r="15" fill="url(#grand-finale-burst)"/>
+    <path d="M32 16l4.6 12.4L49 33l-12.4 4.6L32 50l-4.6-12.4L15 33l12.4-4.6Z" fill="url(#grand-finale-g)"/>
+    <path d="M32 16l4.6 12.4L49 33l-17-4Z" fill="#fff7d2" opacity=".6"/>
+    <path d="M32 50l-4.6-12.4L15 33l17 4Z" fill="#9a680a" opacity=".45"/>
+    <circle cx="32" cy="33" r="4.4" fill="#fff3c4"/>
+    <circle cx="32" cy="33" r="2" fill="#ff5fa8"/>
+    <path d="M22 27c2-2 4.6-3.4 7.2-4" stroke="#fff" stroke-opacity=".7" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    </g>
+    <path class="grand-finale-s" d="M50 20l1.3 3.2 3.2 1.3-3.2 1.3L50 29l-1.3-3.2-3.2-1.3 3.2-1.3Z" fill="#fff"/>
+    <path class="grand-finale-s grand-finale-s2" d="M14 22l1.1 2.7 2.7 1.1-2.7 1.1L14 30.6l-1.1-2.7-2.7-1.1 2.7-1.1Z" fill="#ffe9a3"/>
+    <circle class="grand-finale-s grand-finale-s3" cx="46" cy="47" r="1.7" fill="#fff"/>
+    <circle class="grand-finale-s grand-finale-s4" cx="18" cy="47" r="1.5" fill="#ffb6f0"/>
+    <g mask="url(#grand-finale-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#grand-finale-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#grand-finale-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#grand-finale-x-rim)"/>
+      <rect class="grand-finale-x-shine" x="0" y="-16" width="26" height="96" fill="url(#grand-finale-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="grand-finale-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="grand-finale-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="grand-finale-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="grand-finale-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="grand-finale-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

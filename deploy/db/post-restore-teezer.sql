@@ -1,0 +1,188 @@
+-- =============================================================================
+-- post-restore-teezer.sql  -  REVIEW-ONLY. NOT RUN BY ANY SCRIPT.
+-- =============================================================================
+--
+-- Checklist of SQL to run BY HAND against the freshly restored `teezer`
+-- database (see deploy/db/restore-reelsoo-dump.sh and DEPLOYMENT.md).
+--
+-- Every statement below is commented out on purpose. Read each block, decide,
+-- then copy the statement into an interactive session and run it yourself:
+--
+--     sudo -u postgres psql -d teezer
+--     teezer=# BEGIN;
+--     teezer=# <statement>;          -- check the reported row count
+--     teezer=# COMMIT;               -- or ROLLBACK;
+--
+-- Take a backup first:  sudo -u postgres pg_dump -Fc -d teezer -f /root/teezer-pre-cleanup.dump
+--
+-- Never run this file with `psql -f` blindly: several blocks are alternatives,
+-- and the URL rewrite must be reviewed column by column.
+-- =============================================================================
+
+
+-- -----------------------------------------------------------------------------
+-- 1. Licensing tables  (licensor-side data of the source platform)
+-- -----------------------------------------------------------------------------
+-- These hold the source platform's purchase codes, licences, activations and
+-- signed release records. They mean nothing for Teezer and must not be carried
+-- over. Licensing is disabled for Teezer. TRUNCATE ... CASCADE only follows
+-- foreign keys INTO these tables (license_activations, license_audit_logs);
+-- users are not affected (the FKs point from these tables to users).
+--
+-- Inspect first:
+--   SELECT 'licenses', count(*) FROM licenses
+--   UNION ALL SELECT 'purchase_codes', count(*) FROM purchase_codes
+--   UNION ALL SELECT 'license_activations', count(*) FROM license_activations
+--   UNION ALL SELECT 'license_audit_logs', count(*) FROM license_audit_logs
+--   UNION ALL SELECT 'license_releases', count(*) FROM license_releases;
+--
+-- Clear:
+--   TRUNCATE TABLE license_audit_logs, license_activations, licenses,
+--                  purchase_codes, license_releases RESTART IDENTITY CASCADE;
+--
+-- Also look for licence state stored as settings (installation id, cached
+-- licence token, etc.) and delete what you find after reading it:
+--   SELECT key, left(value, 60) FROM app_settings WHERE key ILIKE '%licen%' OR key ILIKE '%install%';
+--   -- DELETE FROM app_settings WHERE key IN ( ...keys you reviewed... );
+
+
+-- -----------------------------------------------------------------------------
+-- 2. API tokens and sessions
+-- -----------------------------------------------------------------------------
+-- Revoke every Sanctum token minted by the source platform. All users (and
+-- admins) will simply have to log in again on Teezer. This is the single most
+-- important line in this file: without it, a token issued by the source
+-- platform keeps working against Teezer (same APP_KEY is irrelevant here -
+-- Sanctum tokens are looked up by hash in this table).
+--   TRUNCATE TABLE personal_access_tokens RESTART IDENTITY;
+--
+-- Web SSO sessions, DB sessions, pending password-reset / email-verify tokens:
+--   TRUNCATE TABLE sso_sessions RESTART IDENTITY;
+--   TRUNCATE TABLE sessions;
+--   TRUNCATE TABLE password_reset_tokens;
+--   TRUNCATE TABLE email_verification_tokens RESTART IDENTITY;
+--
+-- Push tokens belong to the source platform's Firebase / APNs apps and will not
+-- work with Teezer's own app ids; they are re-registered on next app login.
+--   TRUNCATE TABLE user_devices RESTART IDENTITY;
+-- App Attest keys are bound to the source app's bundle id / team id:
+--   TRUNCATE TABLE app_attest_devices RESTART IDENTITY;
+
+
+-- -----------------------------------------------------------------------------
+-- 3. Third-party integration credentials  (integration_settings)
+-- -----------------------------------------------------------------------------
+-- One row per provider; `credentials` is encrypted with APP_KEY. Because Teezer
+-- reuses the source APP_KEY (so user 2FA secrets and other encrypted columns
+-- still decrypt), these rows would otherwise keep using the SOURCE platform's
+-- API accounts. Disable and wipe them; re-enter Teezer's own credentials in the
+-- admin panel.
+--
+-- Inspect:
+--   SELECT id, provider, enabled, status, settings FROM integration_settings ORDER BY provider;
+--
+-- Wipe secrets, keep the rows (admin UI shows them as "not configured"):
+--   UPDATE integration_settings
+--      SET enabled = false, credentials = NULL, status = 'untested',
+--          last_connected_at = NULL, last_tested_at = NULL, last_error = NULL,
+--          token_expires_at = NULL, usage = NULL, updated_at = now();
+--
+-- `settings` is plaintext but may contain source-platform callback URLs /
+-- client ids; review per row and fix in the admin UI.
+
+
+-- -----------------------------------------------------------------------------
+-- 4. Mail + social-login secrets  (app_settings)
+-- -----------------------------------------------------------------------------
+-- SMTP settings of the source platform. Teezer must send mail from its own
+-- account/domain (@teezer.live).
+--   SELECT key, CASE WHEN key = 'mail_password' THEN '***' ELSE value END FROM app_settings WHERE key LIKE 'mail\_%';
+--   UPDATE app_settings SET value = NULL, updated_at = now()
+--    WHERE key IN ('mail_host','mail_port','mail_username','mail_password','mail_encryption');
+--   UPDATE app_settings SET value = 'noreply@teezer.live', updated_at = now() WHERE key = 'mail_from_address';
+--   UPDATE app_settings SET value = 'Teezer', updated_at = now()               WHERE key = 'mail_from_name';
+--
+-- Social login (Google / Apple / Facebook / TikTok) - stored in app_settings
+-- with group 'social_login' (see App\Services\SocialLoginConfig). Client ids
+-- and secrets belong to the source platform's OAuth apps.
+--   SELECT key, "group" FROM app_settings WHERE "group" = 'social_login' OR key LIKE 'social\_login%';
+--   UPDATE app_settings SET value = NULL, updated_at = now()
+--    WHERE "group" = 'social_login' OR key LIKE 'social\_login%';
+--
+-- Any other secret-looking settings (e.g. sightengine_api_secret):
+--   SELECT key, "group" FROM app_settings
+--    WHERE key ILIKE ANY (ARRAY['%secret%','%password%','%token%','%api\_key%','%private%']);
+--   -- UPDATE app_settings SET value = NULL, updated_at = now() WHERE key IN ( ...reviewed keys... );
+
+
+-- -----------------------------------------------------------------------------
+-- 5. Payment secrets  (admin_coin_settings)
+-- -----------------------------------------------------------------------------
+-- PayPal / Stripe / Razorpay / Apple IAP / Google Play credentials of the
+-- source platform (AdminCoinSetting::SECRET_KEYS). Leaving them would route
+-- Teezer's payments into the source platform's merchant accounts.
+-- `value` is NOT NULL on this table, so blank them with ''.
+--   SELECT key, CASE WHEN key LIKE '%secret%' OR key LIKE '%json' THEN '***' ELSE value END
+--     FROM admin_coin_settings ORDER BY key;
+--   UPDATE admin_coin_settings SET value = '', updated_at = now()
+--    WHERE key IN ('paypal_client_secret','stripe_secret_key','stripe_webhook_secret',
+--                  'razorpay_key_secret','apple_shared_secret','google_service_account_json');
+-- Public halves (paypal_client_id, stripe publishable key, razorpay key id,
+-- apple_bundle_id, google_package_name, product ids) are account-specific too;
+-- review them and re-enter Teezer's values in Admin > Payment settings:
+--   SELECT key, value FROM admin_coin_settings
+--    WHERE key ILIKE ANY (ARRAY['%client\_id%','%publishable%','%key\_id%','%bundle%','%package%','%product%']);
+
+
+-- -----------------------------------------------------------------------------
+-- 6. Absolute media URLs  ->  https://cdn.teezer.live
+-- -----------------------------------------------------------------------------
+-- Most media columns store object KEYS (e.g. "avatars/abc.jpg") and are turned
+-- into URLs at request time from MEDIA_URL - those need nothing. Some rows may
+-- hold absolute URLs to the source CDN (cdn.reelsoo.com / media.reelsoo.com).
+-- Only rewrite them AFTER the media has been copied to Teezer's bucket
+-- (deploy/b2-migration/copy-reelsoo-to-teezer.sh --run and --check).
+--
+-- Step A - find affected columns (read-only; generates statements, runs nothing).
+-- Each output row is an UPDATE for you to review; it counts rows first.
+--
+--   SELECT format(
+--     'SELECT %L AS col, count(*) FROM %I.%I WHERE %I LIKE %L;',
+--     table_name || '.' || column_name, table_schema, table_name, column_name, '%reelsoo.com%')
+--   FROM information_schema.columns
+--   WHERE table_schema = 'public'
+--     AND data_type IN ('text', 'character varying')
+--   ORDER BY table_name, column_name;
+--   -- then:  \gexec   to run the generated COUNT queries and see where hits are.
+--
+-- Step B - for each column with hits, rewrite both source media hosts. Example
+-- for users.avatar (adjust table/column; run inside BEGIN/COMMIT):
+--   UPDATE users
+--      SET avatar = replace(replace(avatar,
+--            'https://cdn.reelsoo.com/',   'https://cdn.teezer.live/'),
+--            'https://media.reelsoo.com/', 'https://cdn.teezer.live/')
+--    WHERE avatar LIKE 'https://cdn.reelsoo.com/%'
+--       OR avatar LIKE 'https://media.reelsoo.com/%';
+--
+-- json / jsonb columns (settings, payload, metadata ...) need a text round-trip;
+-- find them the same way with data_type IN ('json','jsonb') and, per column:
+--   UPDATE <table> SET <col> = replace(replace(<col>::text,
+--            'https://cdn.reelsoo.com/',   'https://cdn.teezer.live/'),
+--            'https://media.reelsoo.com/', 'https://cdn.teezer.live/')::jsonb
+--    WHERE <col>::text LIKE '%reelsoo.com/%';
+--
+-- Signed URLs (?expires=&token=) stored anywhere are dead after the move -
+-- the signature was made with the source MEDIA_SIGNING_SECRET for a different
+-- host. Prefer rewriting them to plain keys, or leave them to be regenerated.
+--
+-- Non-media links to reelsoo.com (e.g. in posts, bios, page content) are user
+-- content: review rather than rewrite them wholesale.
+
+
+-- -----------------------------------------------------------------------------
+-- 7. Afterwards
+-- -----------------------------------------------------------------------------
+--   ANALYZE;
+--   cd /var/www/teezer/server && php artisan cache:clear && php artisan config:cache
+-- (Settings are cached in Redis for ~5 minutes; clearing the cache makes the
+-- admin panel show the wiped values immediately.)

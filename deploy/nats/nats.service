@@ -1,0 +1,30 @@
+# systemd unit - NATS JetStream server (Teezer internal event bus).
+# Alternative to docker-compose for a bare-binary install.
+#
+# Install:
+#   1. Download the NATS server binary → /usr/local/bin/nats-server (chmod +x)
+#      https://github.com/nats-io/nats-server/releases (or `go install
+#      github.com/nats-io/nats-server/v2@latest` if Go is on the box)
+#   2. useradd --system --no-create-home --shell /usr/sbin/nologin nats
+#   3. mkdir -p /etc/nats /var/lib/nats/jetstream /var/log/nats
+#      chown -R nats:nats /var/lib/nats /var/log/nats
+#   4. cp nats-server.conf /etc/nats/nats-server.conf
+#   5. cp nats.service /etc/systemd/system/nats.service
+#   6. systemctl daemon-reload && systemctl enable --now nats
+#
+[Unit]
+Description=NATS JetStream server (Teezer internal event bus)
+After=network.target
+Before=teezer-go.service
+
+[Service]
+Type=simple
+User=nats
+Group=nats
+ExecStart=/usr/local/bin/nats-server -c /etc/nats/nats-server.conf
+Restart=on-failure
+RestartSec=2
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

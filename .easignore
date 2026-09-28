@@ -1,0 +1,59 @@
+# What EAS Build uploads.
+#
+# When this file exists EAS uses it INSTEAD of .gitignore to decide what goes
+# into the build archive, so it has to repeat the ordinary ignores as well as
+# the extra exclusions below.
+#
+# This exists because build 12's first attempt failed outright: the archive
+# reached 1.3 GB and EAS rejected the upload with a 400. Only mobile/ is needed
+# to build the app, but the archive was carrying the Laravel API, both Next.js
+# apps, the Go service, and above all the stray nested reelsoo/ checkout - a
+# second complete copy of this repository, its own node_modules included.
+#
+# mobile/ is self-contained (its own package.json and lockfile, no root
+# workspace), so excluding every sibling is safe.
+
+# ── The other projects in this monorepo. None builds the iOS app. ───────────
+server/
+frontend/
+admin/
+backend-go/
+chat-server/
+
+# ── The stray nested duplicate checkout. Not a submodule (there is no
+#    .gitmodules), just a second copy of the repo that was never removed - and
+#    the single biggest contributor to that 1.3 GB.
+reelsoo/
+
+# ── Local-only artefacts ───────────────────────────────────────────────────
+crashlogs/
+*.ips
+*.log
+
+# ── Dependencies and build output. The builder installs from the lockfile, so
+#    shipping node_modules only makes the upload slower.
+**/node_modules/
+**/vendor/
+**/.next/
+**/dist/
+**/build/
+**/.expo/
+
+# The repository's own history: 123 MB, and nothing the builder reads. Written
+# as a rooted path on purpose - a leading "**/" only matches .git directories
+# NESTED under some parent, so it silently skipped the one at the root, which
+# is the only one that mattered.
+.git/
+
+# Android build output. The sources stay (an Android build still needs them);
+# these are regenerated artefacts that only inflate the upload.
+mobile/android/build/
+mobile/android/.gradle/
+mobile/android/app/build/
+
+# ── Secrets. EAS injects real values from its own environment, so a local
+#    file must never travel in the archive. The example stays: it documents
+#    the variable names and holds no values.
+.env
+.env.*
+!.env.example

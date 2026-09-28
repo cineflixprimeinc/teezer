@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes ice-dragon-float{0%,100%{transform:translateY(2px) rotate(-2deg)}50%{transform:translateY(-3px) rotate(2deg)}}
+    @keyframes ice-dragon-flap{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.72)}}
+    @keyframes ice-dragon-breath{0%{opacity:0;transform:translateX(0) scale(.7)}40%{opacity:.9}100%{opacity:0;transform:translateX(7px) scale(1.2)}}
+    @keyframes ice-dragon-aura{0%,100%{opacity:.25;transform:scale(.92)}50%{opacity:.6;transform:scale(1.06)}}
+    @keyframes ice-dragon-tw{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .ice-dragon-body{transform-box:fill-box;transform-origin:center;animation:ice-dragon-float 2.8s ease-in-out infinite}
+    .ice-dragon-wing{transform-box:fill-box;transform-origin:bottom center;animation:ice-dragon-flap 1.6s ease-in-out infinite}
+    .ice-dragon-br{transform-box:fill-box;transform-origin:left center;animation:ice-dragon-breath 1.8s ease-out infinite}
+    .ice-dragon-br2{animation-delay:.6s}
+    .ice-dragon-aura{transform-box:fill-box;transform-origin:center;animation:ice-dragon-aura 2.6s ease-in-out infinite}
+    .ice-dragon-s{transform-box:fill-box;transform-origin:center;animation:ice-dragon-tw 2s ease-in-out infinite}
+    .ice-dragon-s2{animation-delay:.5s}.ice-dragon-s3{animation-delay:1s}.ice-dragon-s4{animation-delay:1.5s}
+    @keyframes ice-dragon-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes ice-dragon-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes ice-dragon-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes ice-dragon-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes ice-dragon-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .ice-dragon-x-lift{transform-box:fill-box;transform-origin:center;animation:ice-dragon-x-lift 3.4s ease-in-out infinite}
+    .ice-dragon-x-shine{animation:ice-dragon-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .ice-dragon-x-spark{transform-box:fill-box;transform-origin:center;animation:ice-dragon-x-spark 2.2s ease-in-out infinite}
+    .ice-dragon-x-aura{transform-box:fill-box;transform-origin:center;animation:ice-dragon-x-aura 3s ease-in-out infinite}
+    .ice-dragon-x-cast{transform-box:fill-box;transform-origin:center;animation:ice-dragon-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.ice-dragon-x-lift,.ice-dragon-x-shine,.ice-dragon-x-spark,.ice-dragon-x-aura,.ice-dragon-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="ice-dragon-g" x1="14" y1="16" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#f2fdff"/><stop offset=".5" stop-color="#8ee0f7"/><stop offset="1" stop-color="#2a6fbe"/>
+    </linearGradient>
+    <linearGradient id="ice-dragon-w" x1="14" y1="12" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#dff6ff"/><stop offset="1" stop-color="#4aa8dd"/>
+    </linearGradient>
+    <radialGradient id="ice-dragon-a" cx="32" cy="32" r="27" gradientUnits="userSpaceOnUse">
+    <stop offset=".6" stop-color="#7fdcff" stop-opacity="0"/><stop offset="1" stop-color="#7fdcff" stop-opacity=".5"/>
+    </radialGradient>
+    <filter id="ice-dragon-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="ice-dragon-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="ice-dragon-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ice-dragon-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="ice-dragon-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ice-dragon-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="ice-dragon-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="ice-dragon-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="ice-dragon-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#ice-dragon-x-white)">
+        <circle class="ice-dragon-aura" cx="32" cy="32" r="27" fill="url(#ice-dragon-a)"/>
+        <g class="ice-dragon-body" filter="url(#ice-dragon-f)">
+        <g class="ice-dragon-wing">
+        <path d="M26 30c-4-9-4-17 1-22 1 7 5 12 10 14-4 2-7 5-11 8Z" fill="url(#ice-dragon-w)"/>
+        <path d="M27 12c1 6 4 11 8 13" stroke="#fff" stroke-opacity=".6" stroke-width="1.8" fill="none"/>
+        </g>
+        <path d="M8 50c4-8 10-12 18-12l10 1c4 0 7 2 7 5s-3 5-8 5c-6 0-11 1-16 4-4 2-8 2-11-3Z" fill="url(#ice-dragon-g)"/>
+        <path d="M14 44c4-3 8-4 13-4" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M8 50c6 1 12 0 18-3-2 5-9 8-18 3Z" fill="#1f5490" opacity=".4"/>
+        <path d="M28 32l4-8 3 8Z" fill="#dff6ff"/><path d="M36 30l3-7 3 7Z" fill="#dff6ff"/>
+        <path d="M38 34c0-5 4-9 9-9 5 0 9 3 9 7 0 4-3 6-7 6h-6c-3 0-5-2-5-4Z" fill="url(#ice-dragon-g)"/>
+        <path d="M42 28c-2 1-3 3-3 5" stroke="#fff" stroke-opacity=".55" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <path d="M45 25l-2-7 6 4Z" fill="#e6faff"/><path d="M52 25l3-6 1 7Z" fill="#e6faff"/>
+        <circle cx="48" cy="31" r="2.5" fill="#fff"/><circle cx="48" cy="31" r="1.2" fill="#1a5fa8"/>
+        <g class="ice-dragon-br"><path d="M56 36l5 2-5 2-1-2Z" fill="#eafcff"/></g>
+        <g class="ice-dragon-br ice-dragon-br2"><path d="M55 40l5 3-6 1Z" fill="#bfefff"/></g>
+        </g>
+        <circle class="ice-dragon-s" cx="14" cy="14" r="2.2" fill="#fff"/>
+        <circle class="ice-dragon-s ice-dragon-s2" cx="55" cy="14" r="1.7" fill="#fff"/>
+        <circle class="ice-dragon-s ice-dragon-s3" cx="8" cy="30" r="1.6" fill="#fff"/>
+        <circle class="ice-dragon-s ice-dragon-s4" cx="52" cy="55" r="1.6" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="ice-dragon-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#ice-dragon-x-cast-g)"/>
+  <circle class="ice-dragon-x-aura" cx="32" cy="32" r="29" fill="url(#ice-dragon-x-aura-g)"/>
+  <g class="ice-dragon-x-lift">
+    <circle class="ice-dragon-aura" cx="32" cy="32" r="27" fill="url(#ice-dragon-a)"/>
+    <g class="ice-dragon-body" filter="url(#ice-dragon-f)">
+    <g class="ice-dragon-wing">
+    <path d="M26 30c-4-9-4-17 1-22 1 7 5 12 10 14-4 2-7 5-11 8Z" fill="url(#ice-dragon-w)"/>
+    <path d="M27 12c1 6 4 11 8 13" stroke="#fff" stroke-opacity=".6" stroke-width="1.8" fill="none"/>
+    </g>
+    <path d="M8 50c4-8 10-12 18-12l10 1c4 0 7 2 7 5s-3 5-8 5c-6 0-11 1-16 4-4 2-8 2-11-3Z" fill="url(#ice-dragon-g)"/>
+    <path d="M14 44c4-3 8-4 13-4" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M8 50c6 1 12 0 18-3-2 5-9 8-18 3Z" fill="#1f5490" opacity=".4"/>
+    <path d="M28 32l4-8 3 8Z" fill="#dff6ff"/><path d="M36 30l3-7 3 7Z" fill="#dff6ff"/>
+    <path d="M38 34c0-5 4-9 9-9 5 0 9 3 9 7 0 4-3 6-7 6h-6c-3 0-5-2-5-4Z" fill="url(#ice-dragon-g)"/>
+    <path d="M42 28c-2 1-3 3-3 5" stroke="#fff" stroke-opacity=".55" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path d="M45 25l-2-7 6 4Z" fill="#e6faff"/><path d="M52 25l3-6 1 7Z" fill="#e6faff"/>
+    <circle cx="48" cy="31" r="2.5" fill="#fff"/><circle cx="48" cy="31" r="1.2" fill="#1a5fa8"/>
+    <g class="ice-dragon-br"><path d="M56 36l5 2-5 2-1-2Z" fill="#eafcff"/></g>
+    <g class="ice-dragon-br ice-dragon-br2"><path d="M55 40l5 3-6 1Z" fill="#bfefff"/></g>
+    </g>
+    <circle class="ice-dragon-s" cx="14" cy="14" r="2.2" fill="#fff"/>
+    <circle class="ice-dragon-s ice-dragon-s2" cx="55" cy="14" r="1.7" fill="#fff"/>
+    <circle class="ice-dragon-s ice-dragon-s3" cx="8" cy="30" r="1.6" fill="#fff"/>
+    <circle class="ice-dragon-s ice-dragon-s4" cx="52" cy="55" r="1.6" fill="#fff"/>
+    <g mask="url(#ice-dragon-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#ice-dragon-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#ice-dragon-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#ice-dragon-x-rim)"/>
+      <rect class="ice-dragon-x-shine" x="0" y="-16" width="26" height="96" fill="url(#ice-dragon-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="ice-dragon-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="ice-dragon-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="ice-dragon-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="ice-dragon-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="ice-dragon-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes sakura-tree-sway{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(4deg) translateY(-2px)}}
+    @keyframes sakura-tree-fall{0%{opacity:0;transform:translate(0,0) rotate(0)}20%{opacity:1}100%{opacity:0;transform:translate(-6px,20px) rotate(160deg)}}
+    @keyframes sakura-tree-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .sakura-tree-crown{transform-box:fill-box;transform-origin:50% 90%;animation:sakura-tree-sway 2.6s ease-in-out infinite}
+    .sakura-tree-p{transform-box:fill-box;transform-origin:center;animation:sakura-tree-fall 2.4s ease-in-out infinite}
+    .sakura-tree-p2{animation-delay:.9s}
+    .sakura-tree-p3{animation-delay:1.6s}
+    .sakura-tree-s{transform-box:fill-box;transform-origin:center;animation:sakura-tree-tw 2s ease-in-out infinite}
+    .sakura-tree-s2{animation-delay:1s}
+    @keyframes sakura-tree-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes sakura-tree-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes sakura-tree-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes sakura-tree-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes sakura-tree-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .sakura-tree-x-lift{transform-box:fill-box;transform-origin:center;animation:sakura-tree-x-lift 3.4s ease-in-out infinite}
+    .sakura-tree-x-shine{animation:sakura-tree-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .sakura-tree-x-spark{transform-box:fill-box;transform-origin:center;animation:sakura-tree-x-spark 2.2s ease-in-out infinite}
+    .sakura-tree-x-aura{transform-box:fill-box;transform-origin:center;animation:sakura-tree-x-aura 3s ease-in-out infinite}
+    .sakura-tree-x-cast{transform-box:fill-box;transform-origin:center;animation:sakura-tree-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.sakura-tree-x-lift,.sakura-tree-x-shine,.sakura-tree-x-spark,.sakura-tree-x-aura,.sakura-tree-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="sakura-tree-g" cx=".35" cy=".3" r=".8">
+    <stop offset="0" stop-color="#ffe3f0"/><stop offset=".5" stop-color="#ff9ec9"/><stop offset="1" stop-color="#e2478f"/>
+    </radialGradient>
+    <linearGradient id="sakura-tree-t" x1="26" y1="36" x2="40" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#a9703f"/><stop offset="1" stop-color="#5c3517"/>
+    </linearGradient>
+    <filter id="sakura-tree-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="sakura-tree-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="sakura-tree-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sakura-tree-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="sakura-tree-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sakura-tree-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="sakura-tree-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="sakura-tree-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="sakura-tree-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#sakura-tree-x-white)">
+        <path d="M30 56c0-9-1-14-6-19 6 3 7 6 8 10 1-6 3-9 8-12-4 5-5 9-5 21Z" fill="url(#sakura-tree-t)"/>
+        <rect x="28" y="48" width="9" height="10" rx="3" fill="url(#sakura-tree-t)"/>
+        <ellipse cx="32" cy="58" rx="15" ry="3" fill="#8a2f61" opacity=".35"/>
+        <g class="sakura-tree-crown" filter="url(#sakura-tree-f)">
+        <circle cx="22" cy="24" r="10" fill="url(#sakura-tree-g)"/>
+        <circle cx="42" cy="24" r="10" fill="url(#sakura-tree-g)"/>
+        <circle cx="32" cy="16" r="10.5" fill="url(#sakura-tree-g)"/>
+        <circle cx="32" cy="28" r="9" fill="url(#sakura-tree-g)"/>
+        <path d="M20 15c-3 2-5 5-5 8" stroke="#fff" stroke-opacity=".55" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <path d="M20 33c8 4 17 4 24-1-5 5-19 7-24 1Z" fill="#b32d6e" opacity=".4"/>
+        </g>
+        <path class="sakura-tree-p" d="M14 32c2-2 4-1 4 1s-3 3-4 1Z" fill="#ffc0dc"/>
+        <path class="sakura-tree-p sakura-tree-p2" d="M48 30c2-2 4-1 4 1s-3 3-4 1Z" fill="#ffd6e8"/>
+        <path class="sakura-tree-p sakura-tree-p3" d="M35 34c2-2 4-1 4 1s-3 3-4 1Z" fill="#ffaed2"/>
+        <circle class="sakura-tree-s" cx="53" cy="14" r="2" fill="#fff"/>
+        <circle class="sakura-tree-s sakura-tree-s2" cx="11" cy="19" r="1.6" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="sakura-tree-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#sakura-tree-x-cast-g)"/>
+  <circle class="sakura-tree-x-aura" cx="32" cy="32" r="29" fill="url(#sakura-tree-x-aura-g)"/>
+  <g class="sakura-tree-x-lift">
+    <path d="M30 56c0-9-1-14-6-19 6 3 7 6 8 10 1-6 3-9 8-12-4 5-5 9-5 21Z" fill="url(#sakura-tree-t)"/>
+    <rect x="28" y="48" width="9" height="10" rx="3" fill="url(#sakura-tree-t)"/>
+    <ellipse cx="32" cy="58" rx="15" ry="3" fill="#8a2f61" opacity=".35"/>
+    <g class="sakura-tree-crown" filter="url(#sakura-tree-f)">
+    <circle cx="22" cy="24" r="10" fill="url(#sakura-tree-g)"/>
+    <circle cx="42" cy="24" r="10" fill="url(#sakura-tree-g)"/>
+    <circle cx="32" cy="16" r="10.5" fill="url(#sakura-tree-g)"/>
+    <circle cx="32" cy="28" r="9" fill="url(#sakura-tree-g)"/>
+    <path d="M20 15c-3 2-5 5-5 8" stroke="#fff" stroke-opacity=".55" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <path d="M20 33c8 4 17 4 24-1-5 5-19 7-24 1Z" fill="#b32d6e" opacity=".4"/>
+    </g>
+    <path class="sakura-tree-p" d="M14 32c2-2 4-1 4 1s-3 3-4 1Z" fill="#ffc0dc"/>
+    <path class="sakura-tree-p sakura-tree-p2" d="M48 30c2-2 4-1 4 1s-3 3-4 1Z" fill="#ffd6e8"/>
+    <path class="sakura-tree-p sakura-tree-p3" d="M35 34c2-2 4-1 4 1s-3 3-4 1Z" fill="#ffaed2"/>
+    <circle class="sakura-tree-s" cx="53" cy="14" r="2" fill="#fff"/>
+    <circle class="sakura-tree-s sakura-tree-s2" cx="11" cy="19" r="1.6" fill="#fff"/>
+    <g mask="url(#sakura-tree-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#sakura-tree-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#sakura-tree-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#sakura-tree-x-rim)"/>
+      <rect class="sakura-tree-x-shine" x="0" y="-16" width="26" height="96" fill="url(#sakura-tree-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="sakura-tree-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="sakura-tree-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="sakura-tree-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="sakura-tree-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

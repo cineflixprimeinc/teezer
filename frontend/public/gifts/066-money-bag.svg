@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes money-bag-hop{0%,100%{transform:translateY(0) scale(1,1)}20%{transform:translateY(0) scale(1.09,.92)}55%{transform:translateY(-5px) scale(.95,1.06)}80%{transform:translateY(0) scale(1.05,.96)}}
+    @keyframes money-bag-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .money-bag-body{transform-box:fill-box;transform-origin:50% 95%;animation:money-bag-hop 1.8s ease-in-out infinite}
+    .money-bag-s{transform-box:fill-box;transform-origin:center;animation:money-bag-tw 2s ease-in-out infinite}
+    .money-bag-s2{animation-delay:.8s}
+    @keyframes money-bag-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes money-bag-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes money-bag-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes money-bag-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes money-bag-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .money-bag-x-lift{transform-box:fill-box;transform-origin:center;animation:money-bag-x-lift 3.4s ease-in-out infinite}
+    .money-bag-x-shine{animation:money-bag-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .money-bag-x-spark{transform-box:fill-box;transform-origin:center;animation:money-bag-x-spark 2.2s ease-in-out infinite}
+    .money-bag-x-aura{transform-box:fill-box;transform-origin:center;animation:money-bag-x-aura 3s ease-in-out infinite}
+    .money-bag-x-cast{transform-box:fill-box;transform-origin:center;animation:money-bag-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.money-bag-x-lift,.money-bag-x-shine,.money-bag-x-spark,.money-bag-x-aura,.money-bag-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="money-bag-g1" cx=".35" cy=".3" r=".85">
+    <stop offset="0" stop-color="#fffaf0"/><stop offset=".5" stop-color="#e8ddc4"/><stop offset="1" stop-color="#a89468"/>
+    </radialGradient>
+    <linearGradient id="money-bag-g2" x1="24" y1="8" x2="42" y2="20" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#d9cba8"/><stop offset="1" stop-color="#8f7c4d"/>
+    </linearGradient>
+    <linearGradient id="money-bag-gold" x1="24" y1="32" x2="42" y2="48" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff3c4"/><stop offset=".5" stop-color="#f5b942"/><stop offset="1" stop-color="#b8770d"/>
+    </linearGradient>
+    <linearGradient id="money-bag-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="money-bag-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="money-bag-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="money-bag-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="money-bag-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="money-bag-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="money-bag-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#money-bag-x-white)">
+        <g class="money-bag-body">
+        <path d="M32 17c11 0 22 13 22 26 0 8-9 13-22 13s-22-5-22-13c0-13 11-26 22-26Z" fill="url(#money-bag-g1)"/>
+        <path d="M40 22c8 6 14 16 14 21 0 8-9 13-22 13 16-2 20-8 20-15 0-7-5-14-12-19Z" fill="#7d6b41" opacity=".35"/>
+        <path d="M20 30c2-5 6-8 9-9" stroke="#fff" stroke-opacity=".7" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M22 18c1-4 4-6 10-6s9 2 10 6c-3 2-7 3-10 3s-7-1-10-3Z" fill="url(#money-bag-g2)"/>
+        <path d="M23 13h18" stroke="#6f5e33" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M32 30c-4 0-6 2-6 4.5S29 39 32 40s6 1.5 6 4-2 4.5-6 4.5-6-2-6-4" stroke="url(#money-bag-gold)" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M32 26v3M32 49v3" stroke="url(#money-bag-gold)" stroke-width="4" stroke-linecap="round"/>
+        </g>
+        <circle class="money-bag-s" cx="52" cy="14" r="2.2" fill="#fff"/>
+        <circle class="money-bag-s money-bag-s2" cx="11" cy="24" r="1.6" fill="#ffeaa8"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="money-bag-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#money-bag-x-cast-g)"/>
+  <g class="money-bag-x-lift">
+    <g class="money-bag-body">
+    <path d="M32 17c11 0 22 13 22 26 0 8-9 13-22 13s-22-5-22-13c0-13 11-26 22-26Z" fill="url(#money-bag-g1)"/>
+    <path d="M40 22c8 6 14 16 14 21 0 8-9 13-22 13 16-2 20-8 20-15 0-7-5-14-12-19Z" fill="#7d6b41" opacity=".35"/>
+    <path d="M20 30c2-5 6-8 9-9" stroke="#fff" stroke-opacity=".7" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M22 18c1-4 4-6 10-6s9 2 10 6c-3 2-7 3-10 3s-7-1-10-3Z" fill="url(#money-bag-g2)"/>
+    <path d="M23 13h18" stroke="#6f5e33" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M32 30c-4 0-6 2-6 4.5S29 39 32 40s6 1.5 6 4-2 4.5-6 4.5-6-2-6-4" stroke="url(#money-bag-gold)" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M32 26v3M32 49v3" stroke="url(#money-bag-gold)" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <circle class="money-bag-s" cx="52" cy="14" r="2.2" fill="#fff"/>
+    <circle class="money-bag-s money-bag-s2" cx="11" cy="24" r="1.6" fill="#ffeaa8"/>
+    <g mask="url(#money-bag-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#money-bag-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#money-bag-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#money-bag-x-rim)"/>
+      <rect class="money-bag-x-shine" x="0" y="-16" width="26" height="96" fill="url(#money-bag-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="money-bag-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="money-bag-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

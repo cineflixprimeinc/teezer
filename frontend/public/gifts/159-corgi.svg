@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes corgi-bounce{0%,100%{transform:translateY(0) scale(1,1)}25%{transform:translateY(-5px) scale(.96,1.06)}55%{transform:translateY(1px) scale(1.07,.93)}}
+    @keyframes corgi-ear{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(7deg)}}
+    @keyframes corgi-tongue{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(1.5px) scaleY(1.18)}}
+    @keyframes corgi-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .corgi-b{transform-box:fill-box;transform-origin:center bottom;animation:corgi-bounce 1.7s ease-in-out infinite}
+    .corgi-e{transform-box:fill-box;transform-origin:bottom center;animation:corgi-ear 1.9s ease-in-out infinite}
+    .corgi-e2{animation-delay:.5s}
+    .corgi-t{transform-box:fill-box;transform-origin:top center;animation:corgi-tongue 1.2s ease-in-out infinite}
+    .corgi-s{transform-box:fill-box;transform-origin:center;animation:corgi-tw 2.2s ease-in-out infinite}
+    .corgi-s2{animation-delay:1s}
+    @keyframes corgi-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes corgi-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes corgi-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes corgi-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes corgi-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .corgi-x-lift{transform-box:fill-box;transform-origin:center;animation:corgi-x-lift 3.4s ease-in-out infinite}
+    .corgi-x-shine{animation:corgi-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .corgi-x-spark{transform-box:fill-box;transform-origin:center;animation:corgi-x-spark 2.2s ease-in-out infinite}
+    .corgi-x-aura{transform-box:fill-box;transform-origin:center;animation:corgi-x-aura 3s ease-in-out infinite}
+    .corgi-x-cast{transform-box:fill-box;transform-origin:center;animation:corgi-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.corgi-x-lift,.corgi-x-shine,.corgi-x-spark,.corgi-x-aura,.corgi-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="corgi-g" cx=".35" cy=".28" r=".82">
+    <stop offset="0" stop-color="#ffd9a3"/><stop offset=".5" stop-color="#f09b46"/><stop offset="1" stop-color="#b4590f"/>
+    </radialGradient>
+    <linearGradient id="corgi-gw" x1="24" y1="30" x2="40" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fffaf2"/><stop offset="1" stop-color="#dcc7ae"/>
+    </linearGradient>
+    <filter id="corgi-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="corgi-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="corgi-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="corgi-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="corgi-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="corgi-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="corgi-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="corgi-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="corgi-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#corgi-x-white)">
+        <g class="corgi-b" filter="url(#corgi-f)">
+        <ellipse cx="32" cy="46" rx="16" ry="12" fill="url(#corgi-g)"/>
+        <path d="M32 36c6 0 10 6 10 13 0 4-4 7-10 7s-10-3-10-7c0-7 4-13 10-13Z" fill="url(#corgi-gw)"/>
+        <ellipse cx="19" cy="55" rx="5" ry="3.4" fill="url(#corgi-gw)"/>
+        <ellipse cx="45" cy="55" rx="5" ry="3.4" fill="url(#corgi-gw)"/>
+        <g class="corgi-e"><path d="M17 8l4 16-11-3Z" fill="url(#corgi-g)"/><path d="M17.5 12l2.4 9.5-6.5-1.8Z" fill="#f7b3a0"/></g>
+        <g class="corgi-e corgi-e2"><path d="M47 8l-4 16 11-3Z" fill="url(#corgi-g)"/><path d="M46.5 12l-2.4 9.5 6.5-1.8Z" fill="#f7b3a0"/></g>
+        <ellipse cx="32" cy="26" rx="17" ry="14" fill="url(#corgi-g)"/>
+        <path d="M32 20c5 0 9 5 9 10s-4 8-9 8-9-3-9-8 4-10 9-10Z" fill="url(#corgi-gw)"/>
+        <path d="M20 17c-3 2-4 5-4 8" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M17 33c4 5 9 7 15 7s11-2 15-7c-2 8-8 11-15 11s-13-3-15-11Z" fill="#b3620f" opacity=".4"/>
+        <ellipse cx="24" cy="24" rx="2.6" ry="3" fill="#3a2413"/><ellipse cx="40" cy="24" rx="2.6" ry="3" fill="#3a2413"/>
+        <circle cx="23.2" cy="23" r="1.1" fill="#fff"/><circle cx="39.2" cy="23" r="1.1" fill="#fff"/>
+        <ellipse cx="32" cy="30" rx="3.4" ry="2.6" fill="#31200f"/>
+        <path class="corgi-t" d="M29 34h6a3 3 0 0 1-3 6 3 3 0 0 1-3-6Z" fill="#ff7f9e"/>
+        <path d="M13 26l-6-2M13 30l-6 2M51 26l6-2M51 30l6 2" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity=".7"/>
+        </g>
+        <circle class="corgi-s" cx="8" cy="44" r="1.6" fill="#fff"/>
+        <circle class="corgi-s corgi-s2" cx="56" cy="42" r="1.7" fill="#ffe3b8"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="corgi-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#corgi-x-cast-g)"/>
+  <circle class="corgi-x-aura" cx="32" cy="32" r="29" fill="url(#corgi-x-aura-g)"/>
+  <g class="corgi-x-lift">
+    <g class="corgi-b" filter="url(#corgi-f)">
+    <ellipse cx="32" cy="46" rx="16" ry="12" fill="url(#corgi-g)"/>
+    <path d="M32 36c6 0 10 6 10 13 0 4-4 7-10 7s-10-3-10-7c0-7 4-13 10-13Z" fill="url(#corgi-gw)"/>
+    <ellipse cx="19" cy="55" rx="5" ry="3.4" fill="url(#corgi-gw)"/>
+    <ellipse cx="45" cy="55" rx="5" ry="3.4" fill="url(#corgi-gw)"/>
+    <g class="corgi-e"><path d="M17 8l4 16-11-3Z" fill="url(#corgi-g)"/><path d="M17.5 12l2.4 9.5-6.5-1.8Z" fill="#f7b3a0"/></g>
+    <g class="corgi-e corgi-e2"><path d="M47 8l-4 16 11-3Z" fill="url(#corgi-g)"/><path d="M46.5 12l-2.4 9.5 6.5-1.8Z" fill="#f7b3a0"/></g>
+    <ellipse cx="32" cy="26" rx="17" ry="14" fill="url(#corgi-g)"/>
+    <path d="M32 20c5 0 9 5 9 10s-4 8-9 8-9-3-9-8 4-10 9-10Z" fill="url(#corgi-gw)"/>
+    <path d="M20 17c-3 2-4 5-4 8" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M17 33c4 5 9 7 15 7s11-2 15-7c-2 8-8 11-15 11s-13-3-15-11Z" fill="#b3620f" opacity=".4"/>
+    <ellipse cx="24" cy="24" rx="2.6" ry="3" fill="#3a2413"/><ellipse cx="40" cy="24" rx="2.6" ry="3" fill="#3a2413"/>
+    <circle cx="23.2" cy="23" r="1.1" fill="#fff"/><circle cx="39.2" cy="23" r="1.1" fill="#fff"/>
+    <ellipse cx="32" cy="30" rx="3.4" ry="2.6" fill="#31200f"/>
+    <path class="corgi-t" d="M29 34h6a3 3 0 0 1-3 6 3 3 0 0 1-3-6Z" fill="#ff7f9e"/>
+    <path d="M13 26l-6-2M13 30l-6 2M51 26l6-2M51 30l6 2" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity=".7"/>
+    </g>
+    <circle class="corgi-s" cx="8" cy="44" r="1.6" fill="#fff"/>
+    <circle class="corgi-s corgi-s2" cx="56" cy="42" r="1.7" fill="#ffe3b8"/>
+    <g mask="url(#corgi-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#corgi-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#corgi-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#corgi-x-rim)"/>
+      <rect class="corgi-x-shine" x="0" y="-16" width="26" height="96" fill="url(#corgi-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="corgi-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="corgi-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="corgi-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="corgi-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

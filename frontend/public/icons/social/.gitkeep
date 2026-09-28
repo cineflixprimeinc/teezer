@@ -1,0 +1,6 @@
+# Drop your brand icon PNGs here. Expected filenames (all lowercase):
+#   instagram.png  facebook.png  youtube.png
+#   twitter.png    telegram.png  whatsapp.png
+#
+# Recommended size: 64x64 or 128x128 PNG with transparent background.
+# If a file is missing, the page falls back to the inline SVG icon.

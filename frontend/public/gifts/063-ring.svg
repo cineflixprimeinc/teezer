@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes ring-sweep{0%{transform:translateX(-26px) rotate(18deg)}55%,100%{transform:translateX(30px) rotate(18deg)}}
+    @keyframes ring-lift{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+    @keyframes ring-tw{0%,100%{opacity:.2;transform:scale(.55)}50%{opacity:1;transform:scale(1)}}
+    .ring-body{transform-box:fill-box;transform-origin:center;animation:ring-lift 2.6s ease-in-out infinite}
+    .ring-shine{animation:ring-sweep 2.6s ease-in-out infinite}
+    .ring-s{transform-box:fill-box;transform-origin:center;animation:ring-tw 1.8s ease-in-out infinite}
+    .ring-s2{animation-delay:.9s}
+    @keyframes ring-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes ring-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes ring-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes ring-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes ring-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .ring-x-lift{transform-box:fill-box;transform-origin:center;animation:ring-x-lift 3.4s ease-in-out infinite}
+    .ring-x-shine{animation:ring-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .ring-x-spark{transform-box:fill-box;transform-origin:center;animation:ring-x-spark 2.2s ease-in-out infinite}
+    .ring-x-aura{transform-box:fill-box;transform-origin:center;animation:ring-x-aura 3s ease-in-out infinite}
+    .ring-x-cast{transform-box:fill-box;transform-origin:center;animation:ring-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.ring-x-lift,.ring-x-shine,.ring-x-spark,.ring-x-aura,.ring-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="ring-gold" x1="16" y1="26" x2="48" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff3c4"/><stop offset=".5" stop-color="#f5b942"/><stop offset="1" stop-color="#b8770d"/>
+    </linearGradient>
+    <linearGradient id="ring-gem" x1="24" y1="8" x2="40" y2="26" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#a6ecff"/><stop offset="1" stop-color="#3f8fd6"/>
+    </linearGradient>
+    <clipPath id="ring-clip"><circle cx="32" cy="41" r="15"/></clipPath>
+    <linearGradient id="ring-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ring-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="ring-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ring-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="ring-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="ring-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="ring-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#ring-x-white)">
+        <g class="ring-body">
+        <circle cx="32" cy="41" r="15" fill="none" stroke="url(#ring-gold)" stroke-width="7"/>
+        <path d="M22 31a14 14 0 0 0-4 8" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M43 51a14 14 0 0 1-9 5" stroke="#8a5405" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <g clip-path="url(#ring-clip)">
+        <rect class="ring-shine" x="8" y="20" width="7" height="46" fill="#fff" opacity=".5"/>
+        </g>
+        <path d="M26 24h12l-6 8Z" fill="#c98d13"/>
+        <path d="M24 15 32 6l8 9-8 11Z" fill="url(#ring-gem)"/>
+        <path d="M24 15h16l-8 11Z" fill="#2f78c0" opacity=".35"/>
+        <path d="M32 6 24 15h8Z" fill="#fff" opacity=".65"/>
+        </g>
+        <circle class="ring-s" cx="47" cy="12" r="2.2" fill="#fff"/>
+        <circle class="ring-s ring-s2" cx="13" cy="20" r="1.5" fill="#fff2c9"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="ring-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#ring-x-cast-g)"/>
+  <g class="ring-x-lift">
+    <g class="ring-body">
+    <circle cx="32" cy="41" r="15" fill="none" stroke="url(#ring-gold)" stroke-width="7"/>
+    <path d="M22 31a14 14 0 0 0-4 8" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M43 51a14 14 0 0 1-9 5" stroke="#8a5405" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <g clip-path="url(#ring-clip)">
+    <rect class="ring-shine" x="8" y="20" width="7" height="46" fill="#fff" opacity=".5"/>
+    </g>
+    <path d="M26 24h12l-6 8Z" fill="#c98d13"/>
+    <path d="M24 15 32 6l8 9-8 11Z" fill="url(#ring-gem)"/>
+    <path d="M24 15h16l-8 11Z" fill="#2f78c0" opacity=".35"/>
+    <path d="M32 6 24 15h8Z" fill="#fff" opacity=".65"/>
+    </g>
+    <circle class="ring-s" cx="47" cy="12" r="2.2" fill="#fff"/>
+    <circle class="ring-s ring-s2" cx="13" cy="20" r="1.5" fill="#fff2c9"/>
+    <g mask="url(#ring-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#ring-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#ring-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#ring-x-rim)"/>
+      <rect class="ring-x-shine" x="0" y="-16" width="26" height="96" fill="url(#ring-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="ring-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="ring-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes diamond-stage-glow{0%,100%{filter:brightness(1);transform:translateY(1px)}50%{filter:brightness(1.45);transform:translateY(-2px)}}
+    @keyframes diamond-stage-aura{0%,100%{opacity:.15;transform:scale(.85)}50%{opacity:.6;transform:scale(1.08)}}
+    @keyframes diamond-stage-beam{0%,100%{opacity:.2}50%{opacity:.6}}
+    @keyframes diamond-stage-tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1.15)}}
+    .diamond-stage-gem{transform-box:fill-box;transform-origin:center;animation:diamond-stage-glow 2.2s ease-in-out infinite}
+    .diamond-stage-ring{transform-box:fill-box;transform-origin:center;animation:diamond-stage-aura 2.6s ease-in-out infinite}
+    .diamond-stage-beam{animation:diamond-stage-beam 2s ease-in-out infinite}
+    .diamond-stage-beam2{animation-delay:1s}
+    .diamond-stage-s{transform-box:fill-box;transform-origin:center;animation:diamond-stage-tw 1.9s ease-in-out infinite}
+    .diamond-stage-s2{animation-delay:.48s}.diamond-stage-s3{animation-delay:.96s}.diamond-stage-s4{animation-delay:1.44s}
+    @keyframes diamond-stage-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes diamond-stage-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes diamond-stage-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes diamond-stage-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes diamond-stage-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .diamond-stage-x-lift{transform-box:fill-box;transform-origin:center;animation:diamond-stage-x-lift 3.4s ease-in-out infinite}
+    .diamond-stage-x-shine{animation:diamond-stage-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .diamond-stage-x-spark{transform-box:fill-box;transform-origin:center;animation:diamond-stage-x-spark 2.2s ease-in-out infinite}
+    .diamond-stage-x-aura{transform-box:fill-box;transform-origin:center;animation:diamond-stage-x-aura 3s ease-in-out infinite}
+    .diamond-stage-x-cast{transform-box:fill-box;transform-origin:center;animation:diamond-stage-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.diamond-stage-x-lift,.diamond-stage-x-shine,.diamond-stage-x-spark,.diamond-stage-x-aura,.diamond-stage-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="diamond-stage-d" x1="20" y1="10" x2="44" y2="38" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#a6e9ff"/><stop offset="1" stop-color="#4a9cd6"/>
+    </linearGradient>
+    <linearGradient id="diamond-stage-p" x1="8" y1="40" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff5c8"/><stop offset=".5" stop-color="#f0c141"/><stop offset="1" stop-color="#8f6108"/>
+    </linearGradient>
+    <radialGradient id="diamond-stage-a" cx=".5" cy=".5" r=".5">
+    <stop offset=".5" stop-color="#8fd8ff" stop-opacity="0"/><stop offset="1" stop-color="#bfe9ff" stop-opacity=".55"/>
+    </radialGradient>
+    <filter id="diamond-stage-f" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="diamond-stage-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="diamond-stage-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="diamond-stage-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="diamond-stage-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="diamond-stage-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="diamond-stage-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="diamond-stage-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="diamond-stage-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#diamond-stage-x-white)">
+        <circle class="diamond-stage-ring" cx="32" cy="26" r="24" fill="url(#diamond-stage-a)"/>
+        <path class="diamond-stage-beam" d="M32 24 8 6h6l18 18Z" fill="#bfe9ff" opacity=".35"/>
+        <path class="diamond-stage-beam diamond-stage-beam2" d="M32 24 56 6h-6L32 24Z" fill="#bfe9ff" opacity=".35"/>
+        <g filter="url(#diamond-stage-f)">
+        <ellipse cx="32" cy="47" rx="26" ry="8" fill="url(#diamond-stage-p)"/>
+        <path d="M6 47v4c0 4.4 11.6 8 26 8s26-3.6 26-8v-4Z" fill="#8f6108"/>
+        <ellipse cx="32" cy="47" rx="26" ry="8" fill="url(#diamond-stage-p)"/>
+        <ellipse cx="32" cy="47" rx="18" ry="5" fill="#fff3cd" opacity=".5"/>
+        <ellipse cx="32" cy="47" rx="18" ry="5" fill="none" stroke="#fff8dd" stroke-width="1.6" opacity=".7"/>
+        <path d="M12 44c3-1.8 8-3 13-3.4" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <circle cx="10" cy="52" r="2" fill="#ffe27a"/><circle cx="22" cy="56" r="2" fill="#ffe27a"/>
+        <circle cx="42" cy="56" r="2" fill="#ffe27a"/><circle cx="54" cy="52" r="2" fill="#ffe27a"/>
+        </g>
+        <g class="diamond-stage-gem" filter="url(#diamond-stage-f)">
+        <path d="M22 20h20l6 8-16 16-16-16Z" fill="url(#diamond-stage-d)"/>
+        <path d="M22 20l-6 8h32l-6-8Z" fill="#dff6ff"/>
+        <path d="M16 28h32L32 44Z" fill="#7ec8ec" opacity=".55"/>
+        <path d="M22 20l4 8-6 0Z" fill="#fff" opacity=".8"/>
+        <path d="M32 44 26 28h12Z" fill="#eafaff" opacity=".9"/>
+        <path d="M26 28 32 20l6 8Z" fill="#c7edff"/>
+        <path d="M20 22c1.4-1 3-1.6 4.6-1.8" stroke="#fff" stroke-opacity=".9" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </g>
+        <path class="diamond-stage-s" d="M54 12l1.3 3.2 3.2 1.3-3.2 1.3L54 21l-1.3-3.2-3.2-1.3 3.2-1.3Z" fill="#fff"/>
+        <path class="diamond-stage-s diamond-stage-s2" d="M9 14l1.1 2.7 2.7 1.1-2.7 1.1L9 22.6l-1.1-2.7L5.2 18.8l2.7-.9Z" fill="#bfe9ff"/>
+        <circle class="diamond-stage-s diamond-stage-s3" cx="49" cy="32" r="1.7" fill="#fff"/>
+        <circle class="diamond-stage-s diamond-stage-s4" cx="14" cy="34" r="1.5" fill="#ffe9a3"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="diamond-stage-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#diamond-stage-x-cast-g)"/>
+  <circle class="diamond-stage-x-aura" cx="32" cy="32" r="29" fill="url(#diamond-stage-x-aura-g)"/>
+  <g class="diamond-stage-x-lift">
+    <circle class="diamond-stage-ring" cx="32" cy="26" r="24" fill="url(#diamond-stage-a)"/>
+    <path class="diamond-stage-beam" d="M32 24 8 6h6l18 18Z" fill="#bfe9ff" opacity=".35"/>
+    <path class="diamond-stage-beam diamond-stage-beam2" d="M32 24 56 6h-6L32 24Z" fill="#bfe9ff" opacity=".35"/>
+    <g filter="url(#diamond-stage-f)">
+    <ellipse cx="32" cy="47" rx="26" ry="8" fill="url(#diamond-stage-p)"/>
+    <path d="M6 47v4c0 4.4 11.6 8 26 8s26-3.6 26-8v-4Z" fill="#8f6108"/>
+    <ellipse cx="32" cy="47" rx="26" ry="8" fill="url(#diamond-stage-p)"/>
+    <ellipse cx="32" cy="47" rx="18" ry="5" fill="#fff3cd" opacity=".5"/>
+    <ellipse cx="32" cy="47" rx="18" ry="5" fill="none" stroke="#fff8dd" stroke-width="1.6" opacity=".7"/>
+    <path d="M12 44c3-1.8 8-3 13-3.4" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <circle cx="10" cy="52" r="2" fill="#ffe27a"/><circle cx="22" cy="56" r="2" fill="#ffe27a"/>
+    <circle cx="42" cy="56" r="2" fill="#ffe27a"/><circle cx="54" cy="52" r="2" fill="#ffe27a"/>
+    </g>
+    <g class="diamond-stage-gem" filter="url(#diamond-stage-f)">
+    <path d="M22 20h20l6 8-16 16-16-16Z" fill="url(#diamond-stage-d)"/>
+    <path d="M22 20l-6 8h32l-6-8Z" fill="#dff6ff"/>
+    <path d="M16 28h32L32 44Z" fill="#7ec8ec" opacity=".55"/>
+    <path d="M22 20l4 8-6 0Z" fill="#fff" opacity=".8"/>
+    <path d="M32 44 26 28h12Z" fill="#eafaff" opacity=".9"/>
+    <path d="M26 28 32 20l6 8Z" fill="#c7edff"/>
+    <path d="M20 22c1.4-1 3-1.6 4.6-1.8" stroke="#fff" stroke-opacity=".9" stroke-width="2" stroke-linecap="round" fill="none"/>
+    </g>
+    <path class="diamond-stage-s" d="M54 12l1.3 3.2 3.2 1.3-3.2 1.3L54 21l-1.3-3.2-3.2-1.3 3.2-1.3Z" fill="#fff"/>
+    <path class="diamond-stage-s diamond-stage-s2" d="M9 14l1.1 2.7 2.7 1.1-2.7 1.1L9 22.6l-1.1-2.7L5.2 18.8l2.7-.9Z" fill="#bfe9ff"/>
+    <circle class="diamond-stage-s diamond-stage-s3" cx="49" cy="32" r="1.7" fill="#fff"/>
+    <circle class="diamond-stage-s diamond-stage-s4" cx="14" cy="34" r="1.5" fill="#ffe9a3"/>
+    <g mask="url(#diamond-stage-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#diamond-stage-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#diamond-stage-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#diamond-stage-x-rim)"/>
+      <rect class="diamond-stage-x-shine" x="0" y="-16" width="26" height="96" fill="url(#diamond-stage-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="diamond-stage-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="diamond-stage-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="diamond-stage-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="diamond-stage-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="diamond-stage-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

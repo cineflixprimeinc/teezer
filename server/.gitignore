@@ -1,0 +1,30 @@
+/.phpunit.cache
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+__pycache__/
+*.pyc
+/.fleet
+/.idea
+/.vscode
+
+# Licence signing key. Belongs outside the repo entirely (see
+# config/licensing.php), but ignored here as well so an accidental copy into
+# the working tree can never be committed. A leaked private key lets anyone
+# mint licences for the product.
+*.pem
+!resources/licensing/public.pem
+license-signing-key*
+storage/app/license/

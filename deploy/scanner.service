@@ -1,0 +1,24 @@
+[Unit]
+Description=Teezer Media Safety Scanner
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/teezer/scanner
+EnvironmentFile=/var/www/teezer/scanner/.env
+ExecStart=/var/www/teezer/scanner/venv/bin/uvicorn app:app --host 127.0.0.1 --port 7891 --workers 1 --log-level info --no-access-log
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=teezer-scanner
+
+# Limits
+LimitNOFILE=65536
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

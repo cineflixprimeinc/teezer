@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes rose-sway{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-2px)}}
+    @keyframes rose-lf{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(7deg)}}
+    .rose-b{transform-box:fill-box;transform-origin:50% 100%;animation:rose-sway 2.8s ease-in-out infinite}
+    .rose-l{transform-box:fill-box;transform-origin:100% 50%;animation:rose-lf 2.2s ease-in-out infinite}
+    @keyframes rose-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes rose-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes rose-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes rose-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes rose-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .rose-x-lift{transform-box:fill-box;transform-origin:center;animation:rose-x-lift 3.4s ease-in-out infinite}
+    .rose-x-shine{animation:rose-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .rose-x-spark{transform-box:fill-box;transform-origin:center;animation:rose-x-spark 2.2s ease-in-out infinite}
+    .rose-x-aura{transform-box:fill-box;transform-origin:center;animation:rose-x-aura 3s ease-in-out infinite}
+    .rose-x-cast{transform-box:fill-box;transform-origin:center;animation:rose-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.rose-x-lift,.rose-x-shine,.rose-x-spark,.rose-x-aura,.rose-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="rose-g" cx=".35" cy=".3" r=".8">
+    <stop offset="0" stop-color="#ffb3c9"/><stop offset=".5" stop-color="#ec3f6d"/><stop offset="1" stop-color="#9c1338"/>
+    </radialGradient>
+    <linearGradient id="rose-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rose-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="rose-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rose-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="rose-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="rose-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="rose-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#rose-x-white)">
+        <g class="rose-b">
+        <path d="M32 60V33" stroke="#2f7a3c" stroke-width="4" stroke-linecap="round"/>
+        <path class="rose-l" d="M32 46c-6 0-11-3-13-8 7-2 12 1 13 8Z" fill="#3f9a4c"/>
+        <path d="M32 52c6 0 10-3 12-8-7-1-11 2-12 8Z" fill="#347f3f"/>
+        <path d="M32 4c11 0 19 8 19 18S43 42 32 42 13 32 13 22 21 4 32 4Z" fill="url(#rose-g)"/>
+        <path d="M32 12c6 0 10 4 10 9 0 4-3 8-8 8-4 0-8-3-8-7 0-3 2-5 5-5s5 2 4 5c-1 2-3 2-4 1" fill="none" stroke="#ffd6e0" stroke-opacity=".55" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M22 11c-4 3-6 7-6 11" stroke="#fff" stroke-opacity=".45" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+        <path d="M51 24c-2 10-9 18-19 18 15 3 21-6 19-18Z" fill="#8a0f31" opacity=".45"/>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="rose-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#rose-x-cast-g)"/>
+  <g class="rose-x-lift">
+    <g class="rose-b">
+    <path d="M32 60V33" stroke="#2f7a3c" stroke-width="4" stroke-linecap="round"/>
+    <path class="rose-l" d="M32 46c-6 0-11-3-13-8 7-2 12 1 13 8Z" fill="#3f9a4c"/>
+    <path d="M32 52c6 0 10-3 12-8-7-1-11 2-12 8Z" fill="#347f3f"/>
+    <path d="M32 4c11 0 19 8 19 18S43 42 32 42 13 32 13 22 21 4 32 4Z" fill="url(#rose-g)"/>
+    <path d="M32 12c6 0 10 4 10 9 0 4-3 8-8 8-4 0-8-3-8-7 0-3 2-5 5-5s5 2 4 5c-1 2-3 2-4 1" fill="none" stroke="#ffd6e0" stroke-opacity=".55" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M22 11c-4 3-6 7-6 11" stroke="#fff" stroke-opacity=".45" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+    <path d="M51 24c-2 10-9 18-19 18 15 3 21-6 19-18Z" fill="#8a0f31" opacity=".45"/>
+    </g>
+    <g mask="url(#rose-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#rose-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#rose-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#rose-x-rim)"/>
+      <rect class="rose-x-shine" x="0" y="-16" width="26" height="96" fill="url(#rose-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

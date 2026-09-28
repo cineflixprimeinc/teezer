@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes eternal-rose-glow{0%,100%{filter:brightness(1);opacity:.92}50%{filter:brightness(1.35);opacity:1}}
+    @keyframes eternal-rose-aura{0%,100%{opacity:.18;transform:scale(.88)}50%{opacity:.6;transform:scale(1.08)}}
+    @keyframes eternal-rose-drift{0%{opacity:0;transform:translateY(4px)}30%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
+    @keyframes eternal-rose-tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    .eternal-rose-body{transform-box:fill-box;transform-origin:center;animation:eternal-rose-glow 2.2s ease-in-out infinite}
+    .eternal-rose-ring{transform-box:fill-box;transform-origin:center;animation:eternal-rose-aura 2.7s ease-in-out infinite}
+    .eternal-rose-p{transform-box:fill-box;transform-origin:center;animation:eternal-rose-drift 2.6s ease-in-out infinite}
+    .eternal-rose-p2{animation-delay:1.3s}
+    .eternal-rose-s{transform-box:fill-box;transform-origin:center;animation:eternal-rose-tw 2s ease-in-out infinite}
+    .eternal-rose-s2{animation-delay:.5s}.eternal-rose-s3{animation-delay:1s}.eternal-rose-s4{animation-delay:1.5s}
+    @keyframes eternal-rose-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes eternal-rose-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes eternal-rose-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes eternal-rose-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes eternal-rose-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .eternal-rose-x-lift{transform-box:fill-box;transform-origin:center;animation:eternal-rose-x-lift 3.4s ease-in-out infinite}
+    .eternal-rose-x-shine{animation:eternal-rose-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .eternal-rose-x-spark{transform-box:fill-box;transform-origin:center;animation:eternal-rose-x-spark 2.2s ease-in-out infinite}
+    .eternal-rose-x-aura{transform-box:fill-box;transform-origin:center;animation:eternal-rose-x-aura 3s ease-in-out infinite}
+    .eternal-rose-x-cast{transform-box:fill-box;transform-origin:center;animation:eternal-rose-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.eternal-rose-x-lift,.eternal-rose-x-shine,.eternal-rose-x-spark,.eternal-rose-x-aura,.eternal-rose-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="eternal-rose-dome" x1="16" y1="8" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#eafbff" stop-opacity=".55"/><stop offset=".55" stop-color="#9fd4ee" stop-opacity=".22"/>
+    <stop offset="1" stop-color="#4f8fb5" stop-opacity=".35"/>
+    </linearGradient>
+    <linearGradient id="eternal-rose-gold" x1="12" y1="46" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff5c8"/><stop offset=".5" stop-color="#f0c141"/><stop offset="1" stop-color="#9d6f12"/>
+    </linearGradient>
+    <radialGradient id="eternal-rose-r" cx=".35" cy=".3" r=".8">
+    <stop offset="0" stop-color="#ff9db8"/><stop offset=".5" stop-color="#e02c58"/><stop offset="1" stop-color="#8c0d2e"/>
+    </radialGradient>
+    <filter id="eternal-rose-f" x="-45%" y="-45%" width="190%" height="190%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="eternal-rose-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="eternal-rose-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="eternal-rose-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="eternal-rose-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="eternal-rose-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="eternal-rose-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="eternal-rose-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="eternal-rose-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#eternal-rose-x-white)">
+        <ellipse class="eternal-rose-ring" cx="32" cy="32" rx="26" ry="27" fill="none" stroke="#ffd979" stroke-width="1.8" opacity=".5"/>
+        <g class="eternal-rose-body" filter="url(#eternal-rose-f)">
+        <path d="M18 46V26c0-8 6-14 14-14s14 6 14 14v20Z" fill="url(#eternal-rose-dome)" stroke="#cfeeff" stroke-opacity=".55" stroke-width="2"/>
+        <path d="M27 40c-2-4-3-8-3-13" stroke="#2f8f4e" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M24 33c-3 0-5-2-6-5 4-1 6 0 7 3Z" fill="#37a85c"/>
+        <circle cx="30" cy="24" r="8.5" fill="url(#eternal-rose-r)"/>
+        <path d="M30 17c4 0 7 3 7 6" stroke="#ffc2d2" stroke-opacity=".55" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <circle cx="30" cy="24" r="4.4" fill="#a91437"/>
+        <circle cx="30" cy="24" r="1.9" fill="#ff8fae"/>
+        <path d="M22 14c2-2 5-3 8-3" stroke="#fff" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <rect x="12" y="46" width="40" height="7" rx="3.5" fill="url(#eternal-rose-gold)"/>
+        <rect x="15" y="53" width="34" height="6" rx="3" fill="url(#eternal-rose-gold)"/>
+        <rect x="15" y="56" width="34" height="3" rx="1.5" fill="#7d5709" opacity=".5"/>
+        <rect x="16" y="47.5" width="10" height="2" rx="1" fill="#fff8dd" opacity=".65"/>
+        </g>
+        <circle class="eternal-rose-p" cx="40" cy="36" r="1.6" fill="#ffd979"/>
+        <circle class="eternal-rose-p eternal-rose-p2" cx="24" cy="38" r="1.4" fill="#ffe9a3"/>
+        <path class="eternal-rose-s" d="M56 20l1.2 3 3 1.2-3 1.2L56 29.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+        <circle class="eternal-rose-s eternal-rose-s2" cx="7" cy="26" r="1.9" fill="#ffe9a3"/>
+        <circle class="eternal-rose-s eternal-rose-s3" cx="57" cy="44" r="1.7" fill="#fff"/>
+        <circle class="eternal-rose-s eternal-rose-s4" cx="9" cy="46" r="1.5" fill="#ffe9a3"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="eternal-rose-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#eternal-rose-x-cast-g)"/>
+  <circle class="eternal-rose-x-aura" cx="32" cy="32" r="29" fill="url(#eternal-rose-x-aura-g)"/>
+  <g class="eternal-rose-x-lift">
+    <ellipse class="eternal-rose-ring" cx="32" cy="32" rx="26" ry="27" fill="none" stroke="#ffd979" stroke-width="1.8" opacity=".5"/>
+    <g class="eternal-rose-body" filter="url(#eternal-rose-f)">
+    <path d="M18 46V26c0-8 6-14 14-14s14 6 14 14v20Z" fill="url(#eternal-rose-dome)" stroke="#cfeeff" stroke-opacity=".55" stroke-width="2"/>
+    <path d="M27 40c-2-4-3-8-3-13" stroke="#2f8f4e" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M24 33c-3 0-5-2-6-5 4-1 6 0 7 3Z" fill="#37a85c"/>
+    <circle cx="30" cy="24" r="8.5" fill="url(#eternal-rose-r)"/>
+    <path d="M30 17c4 0 7 3 7 6" stroke="#ffc2d2" stroke-opacity=".55" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <circle cx="30" cy="24" r="4.4" fill="#a91437"/>
+    <circle cx="30" cy="24" r="1.9" fill="#ff8fae"/>
+    <path d="M22 14c2-2 5-3 8-3" stroke="#fff" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <rect x="12" y="46" width="40" height="7" rx="3.5" fill="url(#eternal-rose-gold)"/>
+    <rect x="15" y="53" width="34" height="6" rx="3" fill="url(#eternal-rose-gold)"/>
+    <rect x="15" y="56" width="34" height="3" rx="1.5" fill="#7d5709" opacity=".5"/>
+    <rect x="16" y="47.5" width="10" height="2" rx="1" fill="#fff8dd" opacity=".65"/>
+    </g>
+    <circle class="eternal-rose-p" cx="40" cy="36" r="1.6" fill="#ffd979"/>
+    <circle class="eternal-rose-p eternal-rose-p2" cx="24" cy="38" r="1.4" fill="#ffe9a3"/>
+    <path class="eternal-rose-s" d="M56 20l1.2 3 3 1.2-3 1.2L56 29.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+    <circle class="eternal-rose-s eternal-rose-s2" cx="7" cy="26" r="1.9" fill="#ffe9a3"/>
+    <circle class="eternal-rose-s eternal-rose-s3" cx="57" cy="44" r="1.7" fill="#fff"/>
+    <circle class="eternal-rose-s eternal-rose-s4" cx="9" cy="46" r="1.5" fill="#ffe9a3"/>
+    <g mask="url(#eternal-rose-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#eternal-rose-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#eternal-rose-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#eternal-rose-x-rim)"/>
+      <rect class="eternal-rose-x-shine" x="0" y="-16" width="26" height="96" fill="url(#eternal-rose-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="eternal-rose-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="eternal-rose-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="eternal-rose-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="eternal-rose-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="eternal-rose-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

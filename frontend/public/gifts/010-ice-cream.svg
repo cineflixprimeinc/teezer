@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes ice-cream-bounce{0%,100%{transform:translateY(0) scale(1,1)}25%{transform:translateY(-5px) scale(.96,1.05)}55%{transform:translateY(0) scale(1.05,.95)}75%{transform:translateY(-1px) scale(1,1)}}
+    @keyframes ice-cream-cw{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+    .ice-cream-body{transform-box:fill-box;transform-origin:center bottom;animation:ice-cream-bounce 1.9s ease-in-out infinite}
+    .ice-cream-cherry{transform-box:fill-box;transform-origin:center bottom;animation:ice-cream-cw 1.9s ease-in-out infinite}
+    @keyframes ice-cream-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes ice-cream-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes ice-cream-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes ice-cream-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes ice-cream-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .ice-cream-x-lift{transform-box:fill-box;transform-origin:center;animation:ice-cream-x-lift 3.4s ease-in-out infinite}
+    .ice-cream-x-shine{animation:ice-cream-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .ice-cream-x-spark{transform-box:fill-box;transform-origin:center;animation:ice-cream-x-spark 2.2s ease-in-out infinite}
+    .ice-cream-x-aura{transform-box:fill-box;transform-origin:center;animation:ice-cream-x-aura 3s ease-in-out infinite}
+    .ice-cream-x-cast{transform-box:fill-box;transform-origin:center;animation:ice-cream-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.ice-cream-x-lift,.ice-cream-x-shine,.ice-cream-x-spark,.ice-cream-x-aura,.ice-cream-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="ice-cream-g" x1="14" y1="8" x2="48" y2="40" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff0f7"/><stop offset=".45" stop-color="#ffb8d8"/><stop offset="1" stop-color="#e56aa8"/>
+    </linearGradient>
+    <linearGradient id="ice-cream-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ice-cream-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="ice-cream-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ice-cream-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="ice-cream-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="ice-cream-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="ice-cream-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#ice-cream-x-white)">
+        <g class="ice-cream-body">
+        <path d="M20 34h24L34.6 58.4c-1 2.5-4.2 2.5-5.2 0L20 34Z" fill="#e0a558" stroke="#b57a34" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M23 38l14 14M30 36l10 10M23 46l6 6" stroke="#b57a34" stroke-opacity=".55" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M20 34h24l-2.5 6.5h-19Z" fill="#fff" opacity=".25"/>
+        <path d="M17 34c-1-3 .5-6 3-7-1.5-3.5.5-8 4.6-8.8C25 12.6 29 9 34 9c5.5 0 10 4.3 10 9.6 0 .8-.1 1.5-.3 2.2 2.9 1 4.7 4 3.8 7C50 29 51 32 49.5 34Z"
+        fill="url(#ice-cream-g)" stroke="#d15f9c" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M25 21c-1.6 1.4-2.4 3.3-2.3 5.3" stroke="#fff" stroke-opacity=".7" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <path d="M20 30c8 3 20 3 27-1l1.5 5H18Z" fill="#c9518d" opacity=".3"/>
+        <g class="ice-cream-cherry">
+        <path d="M34 11c0-3 2-4.6 5.5-4.6" stroke="#4f9b3a" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <circle cx="34" cy="11" r="4.5" fill="#e8384f"/>
+        <circle cx="32.4" cy="9.6" r="1.4" fill="#fff" opacity=".75"/>
+        </g>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="ice-cream-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#ice-cream-x-cast-g)"/>
+  <g class="ice-cream-x-lift">
+    <g class="ice-cream-body">
+    <path d="M20 34h24L34.6 58.4c-1 2.5-4.2 2.5-5.2 0L20 34Z" fill="#e0a558" stroke="#b57a34" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M23 38l14 14M30 36l10 10M23 46l6 6" stroke="#b57a34" stroke-opacity=".55" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M20 34h24l-2.5 6.5h-19Z" fill="#fff" opacity=".25"/>
+    <path d="M17 34c-1-3 .5-6 3-7-1.5-3.5.5-8 4.6-8.8C25 12.6 29 9 34 9c5.5 0 10 4.3 10 9.6 0 .8-.1 1.5-.3 2.2 2.9 1 4.7 4 3.8 7C50 29 51 32 49.5 34Z"
+    fill="url(#ice-cream-g)" stroke="#d15f9c" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M25 21c-1.6 1.4-2.4 3.3-2.3 5.3" stroke="#fff" stroke-opacity=".7" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+    <path d="M20 30c8 3 20 3 27-1l1.5 5H18Z" fill="#c9518d" opacity=".3"/>
+    <g class="ice-cream-cherry">
+    <path d="M34 11c0-3 2-4.6 5.5-4.6" stroke="#4f9b3a" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <circle cx="34" cy="11" r="4.5" fill="#e8384f"/>
+    <circle cx="32.4" cy="9.6" r="1.4" fill="#fff" opacity=".75"/>
+    </g>
+    </g>
+    <g mask="url(#ice-cream-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#ice-cream-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#ice-cream-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#ice-cream-x-rim)"/>
+      <rect class="ice-cream-x-shine" x="0" y="-16" width="26" height="96" fill="url(#ice-cream-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

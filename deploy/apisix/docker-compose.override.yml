@@ -1,0 +1,20 @@
+# Local override: the bitnamilegacy/etcd:3.5.11 image hangs in its setup.sh
+# wrapper on this host (never binds 2379, then crash-loops). The official
+# CoreOS image runs etcd directly with no wrapper and honours the same ETCD_*
+# env vars already set in docker-compose.yml.
+services:
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.11
+    entrypoint: /usr/local/bin/etcd
+    environment:
+      ETCD_NAME: teezer-etcd
+      ETCD_DATA_DIR: /etcd-data
+      ETCD_ENABLE_V2: "true"
+      ETCD_LISTEN_CLIENT_URLS: "http://127.0.0.1:2379"
+      ETCD_ADVERTISE_CLIENT_URLS: "http://127.0.0.1:2379"
+      ETCD_LISTEN_PEER_URLS: "http://127.0.0.1:2380"
+      ETCD_INITIAL_ADVERTISE_PEER_URLS: "http://127.0.0.1:2380"
+      ETCD_INITIAL_CLUSTER: "teezer-etcd=http://127.0.0.1:2380"
+      ETCD_INITIAL_CLUSTER_STATE: "new"
+    volumes:
+      - etcd_data:/etcd-data

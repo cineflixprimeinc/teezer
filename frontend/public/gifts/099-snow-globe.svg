@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes snow-globe-tw{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    @keyframes snow-globe-fall{0%{opacity:0;transform:translateY(-8px)}25%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+    @keyframes snow-globe-bob{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-2px) rotate(1.5deg)}}
+    .snow-globe-body{transform-box:fill-box;transform-origin:center bottom;animation:snow-globe-bob 2.6s ease-in-out infinite}
+    .snow-globe-fl{transform-box:fill-box;transform-origin:center;animation:snow-globe-fall 2.4s linear infinite}
+    .snow-globe-f2{animation-delay:.6s}
+    .snow-globe-f3{animation-delay:1.2s}
+    .snow-globe-f4{animation-delay:1.8s}
+    .snow-globe-s{transform-box:fill-box;transform-origin:center;animation:snow-globe-tw 2s ease-in-out infinite}
+    .snow-globe-s2{animation-delay:.7s}
+    .snow-globe-s3{animation-delay:1.35s}
+    @keyframes snow-globe-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes snow-globe-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes snow-globe-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes snow-globe-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes snow-globe-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .snow-globe-x-lift{transform-box:fill-box;transform-origin:center;animation:snow-globe-x-lift 3.4s ease-in-out infinite}
+    .snow-globe-x-shine{animation:snow-globe-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .snow-globe-x-spark{transform-box:fill-box;transform-origin:center;animation:snow-globe-x-spark 2.2s ease-in-out infinite}
+    .snow-globe-x-aura{transform-box:fill-box;transform-origin:center;animation:snow-globe-x-aura 3s ease-in-out infinite}
+    .snow-globe-x-cast{transform-box:fill-box;transform-origin:center;animation:snow-globe-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.snow-globe-x-lift,.snow-globe-x-shine,.snow-globe-x-spark,.snow-globe-x-aura,.snow-globe-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="snow-globe-gd" cx="34%" cy="28%" r="75%">
+    <stop offset="0" stop-color="#ffffff" stop-opacity=".65"/><stop offset=".55" stop-color="#8fd6ff" stop-opacity=".3"/>
+    <stop offset="1" stop-color="#2a6cb5" stop-opacity=".45"/>
+    </radialGradient>
+    <linearGradient id="snow-globe-gb" x1="14" y1="44" x2="50" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffe27a"/><stop offset=".5" stop-color="#e0a41e"/><stop offset="1" stop-color="#96650a"/>
+    </linearGradient>
+    <clipPath id="snow-globe-cp"><circle cx="32" cy="27" r="21"/></clipPath>
+    <filter id="snow-globe-f" x="-45%" y="-45%" width="190%" height="190%">
+    <feGaussianBlur stdDeviation="2.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="snow-globe-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="snow-globe-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="snow-globe-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="snow-globe-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="snow-globe-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="snow-globe-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="snow-globe-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="snow-globe-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#snow-globe-x-white)">
+        <g class="snow-globe-body" filter="url(#snow-globe-f)">
+        <circle cx="32" cy="27" r="21" fill="#0f3d66" opacity=".55"/>
+        <g clip-path="url(#snow-globe-cp)">
+        <path d="M8 40c6-3 12-2 18 0s14 2 22-1v11H8V40Z" fill="#eaf6ff"/>
+        <path d="M32 16l7 11h-4l5 9H24l5-9h-4l7-11Z" fill="#2f9e50"/>
+        <path d="M32 16l7 11h-4l5 9h-8V16Z" fill="#1f7a3a"/>
+        <rect x="30" y="34" width="4" height="6" rx="1.4" fill="#7a4a1c"/>
+        <circle cx="32" cy="14.5" r="2.6" fill="#ffd85c"/>
+        <circle cx="20" cy="41" r="3.4" fill="#fff"/><circle cx="45" cy="42" r="2.6" fill="#fff"/>
+        <circle class="snow-globe-fl" cx="18" cy="22" r="1.7" fill="#fff"/>
+        <circle class="snow-globe-fl snow-globe-f2" cx="44" cy="18" r="1.5" fill="#fff"/>
+        <circle class="snow-globe-fl snow-globe-f3" cx="26" cy="30" r="1.4" fill="#fff"/>
+        <circle class="snow-globe-fl snow-globe-f4" cx="40" cy="32" r="1.5" fill="#fff"/>
+        <circle class="snow-globe-fl snow-globe-f2" cx="49" cy="28" r="1.3" fill="#fff"/>
+        </g>
+        <circle cx="32" cy="27" r="21" fill="url(#snow-globe-gd)"/>
+        <path d="M19 16c-2.6 2.6-4.4 6-5 9.6" stroke="#fff" stroke-opacity=".7" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+        <path d="M14 45h36l-2.4 9.6A4 4 0 0 1 43.7 58H20.3a4 4 0 0 1-3.9-3.4L14 45Z" fill="url(#snow-globe-gb)"/>
+        <path d="M16.4 53h31.2l-.4 1.6A4 4 0 0 1 43.7 58H20.3a4 4 0 0 1-3.9-3.4L16.4 53Z" fill="#7d5306" opacity=".5"/>
+        <rect x="12" y="43" width="40" height="5" rx="2.4" fill="#ffea9e"/>
+        <path d="M15 44.6h9" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        <circle class="snow-globe-s" cx="56" cy="12" r="2.2" fill="#fff"/>
+        <circle class="snow-globe-s snow-globe-s2" cx="7" cy="18" r="1.7" fill="#cfeaff"/>
+        <circle class="snow-globe-s snow-globe-s3" cx="57" cy="40" r="1.6" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="snow-globe-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#snow-globe-x-cast-g)"/>
+  <circle class="snow-globe-x-aura" cx="32" cy="32" r="29" fill="url(#snow-globe-x-aura-g)"/>
+  <g class="snow-globe-x-lift">
+    <g class="snow-globe-body" filter="url(#snow-globe-f)">
+    <circle cx="32" cy="27" r="21" fill="#0f3d66" opacity=".55"/>
+    <g clip-path="url(#snow-globe-cp)">
+    <path d="M8 40c6-3 12-2 18 0s14 2 22-1v11H8V40Z" fill="#eaf6ff"/>
+    <path d="M32 16l7 11h-4l5 9H24l5-9h-4l7-11Z" fill="#2f9e50"/>
+    <path d="M32 16l7 11h-4l5 9h-8V16Z" fill="#1f7a3a"/>
+    <rect x="30" y="34" width="4" height="6" rx="1.4" fill="#7a4a1c"/>
+    <circle cx="32" cy="14.5" r="2.6" fill="#ffd85c"/>
+    <circle cx="20" cy="41" r="3.4" fill="#fff"/><circle cx="45" cy="42" r="2.6" fill="#fff"/>
+    <circle class="snow-globe-fl" cx="18" cy="22" r="1.7" fill="#fff"/>
+    <circle class="snow-globe-fl snow-globe-f2" cx="44" cy="18" r="1.5" fill="#fff"/>
+    <circle class="snow-globe-fl snow-globe-f3" cx="26" cy="30" r="1.4" fill="#fff"/>
+    <circle class="snow-globe-fl snow-globe-f4" cx="40" cy="32" r="1.5" fill="#fff"/>
+    <circle class="snow-globe-fl snow-globe-f2" cx="49" cy="28" r="1.3" fill="#fff"/>
+    </g>
+    <circle cx="32" cy="27" r="21" fill="url(#snow-globe-gd)"/>
+    <path d="M19 16c-2.6 2.6-4.4 6-5 9.6" stroke="#fff" stroke-opacity=".7" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+    <path d="M14 45h36l-2.4 9.6A4 4 0 0 1 43.7 58H20.3a4 4 0 0 1-3.9-3.4L14 45Z" fill="url(#snow-globe-gb)"/>
+    <path d="M16.4 53h31.2l-.4 1.6A4 4 0 0 1 43.7 58H20.3a4 4 0 0 1-3.9-3.4L16.4 53Z" fill="#7d5306" opacity=".5"/>
+    <rect x="12" y="43" width="40" height="5" rx="2.4" fill="#ffea9e"/>
+    <path d="M15 44.6h9" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <circle class="snow-globe-s" cx="56" cy="12" r="2.2" fill="#fff"/>
+    <circle class="snow-globe-s snow-globe-s2" cx="7" cy="18" r="1.7" fill="#cfeaff"/>
+    <circle class="snow-globe-s snow-globe-s3" cx="57" cy="40" r="1.6" fill="#fff"/>
+    <g mask="url(#snow-globe-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#snow-globe-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#snow-globe-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#snow-globe-x-rim)"/>
+      <rect class="snow-globe-x-shine" x="0" y="-16" width="26" height="96" fill="url(#snow-globe-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="snow-globe-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="snow-globe-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="snow-globe-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

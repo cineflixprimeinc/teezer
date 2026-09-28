@@ -1,0 +1,39 @@
+# Centrifugo realtime server - Teezer.
+# Run one instance per box; the Redis engine gives cross-node channels,
+# presence and history across the whole fleet (this is what the old Socket.IO
+# setup lacked - it had no Redis adapter, so socket-origin events were node-local).
+#
+# Secrets come from a local .env (copy .env.centrifugo.example → .env and fill in).
+# NEVER commit real secrets.
+#
+#   docker compose --env-file .env up -d
+#
+# Compose project name (networks/volumes are prefixed with it).
+name: teezer-centrifugo
+
+services:
+  centrifugo:
+    image: centrifugo/centrifugo:v5
+    container_name: teezer-centrifugo
+    restart: unless-stopped
+    command: centrifugo --config=/centrifugo/config.json
+    volumes:
+      - ./config.json:/centrifugo/config.json:ro
+    environment:
+      # HMAC secret shared with Laravel services.centrifugo.token_secret.
+      CENTRIFUGO_TOKEN_HMAC_SECRET_KEY: ${CENTRIFUGO_TOKEN_SECRET}
+      # Server publish API key shared with Laravel services.centrifugo.api_key.
+      CENTRIFUGO_API_KEY: ${CENTRIFUGO_API_KEY}
+      # Web admin UI at http://<host>:8000/ (keep 8000 firewalled to localhost + app boxes).
+      CENTRIFUGO_ADMIN_PASSWORD: ${CENTRIFUGO_ADMIN_PASSWORD}
+      CENTRIFUGO_ADMIN_SECRET: ${CENTRIFUGO_ADMIN_SECRET}
+      # Redis engine → cross-node fan-out, presence, history.
+      CENTRIFUGO_ENGINE: redis
+      CENTRIFUGO_REDIS_ADDRESS: ${CENTRIFUGO_REDIS_ADDRESS:-redis://127.0.0.1:6379}
+    # Host networking so Centrifugo reaches the box-local Redis on 127.0.0.1 and
+    # serves on :8000 for nginx to reverse-proxy. (Linux hosts only.)
+    network_mode: host
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536

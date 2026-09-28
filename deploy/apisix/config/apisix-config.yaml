@@ -1,0 +1,102 @@
+# APISIX runtime config. Mounted read-only into the container at
+# /usr/local/apisix/conf/config.yaml. ${{VAR}} placeholders are resolved from
+# the container's environment (set via .env / docker-compose `environment:`
+# or `env_file:`) - no secret is ever committed here.
+
+deployment:
+  role: traditional
+  role_traditional:
+    config_provider: etcd
+  etcd:
+    # host networking (see docker-compose.yml) - this container shares the
+    # host's network namespace, so etcd is reached the same way anything
+    # else on this box reaches a loopback-bound service: 127.0.0.1, not a
+    # bridge-network service name.
+    host:
+      - "http://127.0.0.1:2379"
+    prefix: /apisix
+    timeout: 30
+  admin:
+    admin_key:
+      - name: admin
+        key: ${{APISIX_ADMIN_KEY}}
+        role: admin
+    # Host networking means Docker's port-publish layer no longer provides
+    # any isolation at all (see docker-compose.yml's top comment) - this
+    # admin_listen bind IS the actual, only control over who can reach the
+    # Admin API, not a second layer on top of a port mapping.
+    admin_listen:
+      ip: 127.0.0.1
+      port: 9180
+    allow_admin:
+      - 127.0.0.1/32
+
+apisix:
+  # Same reasoning as admin_listen above: under host networking this bind
+  # address is the real, sole boundary - not backed by a Docker port mapping.
+  node_listen:
+    - ip: 127.0.0.1
+      port: 9080
+  enable_admin: true
+  enable_admin_cors: false
+  enable_ipv6: false
+  # APISIX's OWN default control-plane API (health/plugin introspection, not
+  # the Admin API) binds 127.0.0.1:9090 out of the box - moved off it
+  # explicitly, since host networking puts this container in the same
+  # network namespace as the Prometheus container, which conventionally
+  # owns 9090. Confirmed live: leaving this unset crash-looped APISIX with
+  # "bind() to 127.0.0.1:9090 failed (Address already in use)".
+  enable_control: true
+  control:
+    ip: 127.0.0.1
+    port: 9092
+  # Strips the version off the "Server: APISIX/x.x.x" header the gateway
+  # itself adds, same as vanilla nginx's server_tokens off - hides the
+  # version, not the software name (confirmed live: response now reads
+  # "Server: APISIX" with no version, which is the correct, standard
+  # behavior for this setting, not a partial fix). Laravel's own
+  # SecurityHeaders middleware already strips X-Powered-By/Server from the
+  # app response, and nginx's existing fastcgi_hide_header X-Powered-By
+  # (carried over verbatim into the new internal vhost) handles the PHP
+  # layer. Key name confirmed against conf/config-default.yaml directly -
+  # it's enable_server_tokens, not server_tokens (that's the raw-nginx
+  # directive name, not APISIX's own key).
+  enable_server_tokens: false
+
+nginx_config:
+  http:
+    client_max_body_size: 100m
+    real_ip_header: "X-Forwarded-For"
+    real_ip_recursive: "on"
+    # Only the loopback-bound outer nginx (the actual public entrypoint) ever
+    # connects to APISIX, so it's the only address that needs trusting for
+    # X-Forwarded-For to resolve to the real Cloudflare-forwarded client IP
+    # (see the real-ip plugin config in routes/*.json for the per-route side
+    # of this).
+    real_ip_from:
+      - 127.0.0.1
+
+plugin_attr:
+  prometheus:
+    export_addr:
+      ip: 127.0.0.1
+      port: 9091
+
+plugins:
+  # Deliberately NOT enabling jwt-auth: Teezer's auth is Laravel Sanctum
+  # (opaque, DB-validated bearer tokens), not self-contained JWT. APISIX
+  # passes the Authorization header through untouched and Laravel keeps
+  # deciding auth exactly as it does today - enabling jwt-auth here would
+  # do nothing useful and risks masking real 401s behind a gateway-level
+  # token-format check that doesn't match what's actually issued.
+  - key-auth          # "API Key support" from the spec - opt-in per route, for future server-to-server callers only; nothing user-facing uses it yet
+  - limit-count
+  - limit-req
+  - cors
+  - proxy-rewrite
+  - prometheus
+  - request-id
+  - real-ip
+  - response-rewrite
+  - gzip
+  - ip-restriction    # wired but unused until a route explicitly enables it (see admin.json)

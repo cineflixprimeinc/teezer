@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes red-carpet-sheen{0%{opacity:0;transform:translateY(18px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-20px)}}
+    @keyframes red-carpet-aura{0%,100%{opacity:.18;transform:scale(.88)}50%{opacity:.6;transform:scale(1.06)}}
+    @keyframes red-carpet-flash{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1.1)}}
+    @keyframes red-carpet-tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1.15)}}
+    .red-carpet-sheen{transform-box:fill-box;transform-origin:center;animation:red-carpet-sheen 2.4s ease-in-out infinite}
+    .red-carpet-ring{transform-box:fill-box;transform-origin:center;animation:red-carpet-aura 2.8s ease-in-out infinite}
+    .red-carpet-fl{transform-box:fill-box;transform-origin:center;animation:red-carpet-flash 1.8s ease-in-out infinite}
+    .red-carpet-fl2{animation-delay:.6s}
+    .red-carpet-s{transform-box:fill-box;transform-origin:center;animation:red-carpet-tw 2.1s ease-in-out infinite}
+    .red-carpet-s2{animation-delay:.5s}.red-carpet-s3{animation-delay:1s}.red-carpet-s4{animation-delay:1.5s}
+    @keyframes red-carpet-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes red-carpet-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes red-carpet-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes red-carpet-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes red-carpet-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .red-carpet-x-lift{transform-box:fill-box;transform-origin:center;animation:red-carpet-x-lift 3.4s ease-in-out infinite}
+    .red-carpet-x-shine{animation:red-carpet-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .red-carpet-x-spark{transform-box:fill-box;transform-origin:center;animation:red-carpet-x-spark 2.2s ease-in-out infinite}
+    .red-carpet-x-aura{transform-box:fill-box;transform-origin:center;animation:red-carpet-x-aura 3s ease-in-out infinite}
+    .red-carpet-x-cast{transform-box:fill-box;transform-origin:center;animation:red-carpet-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.red-carpet-x-lift,.red-carpet-x-shine,.red-carpet-x-spark,.red-carpet-x-aura,.red-carpet-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="red-carpet-c" x1="18" y1="18" x2="46" y2="60" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff8095"/><stop offset=".45" stop-color="#e01f3d"/><stop offset="1" stop-color="#830a20"/>
+    </linearGradient>
+    <linearGradient id="red-carpet-g" x1="8" y1="10" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff5c8"/><stop offset=".5" stop-color="#f2c542"/><stop offset="1" stop-color="#9d6c0d"/>
+    </linearGradient>
+    <radialGradient id="red-carpet-a" cx=".5" cy=".5" r=".5">
+    <stop offset=".55" stop-color="#ffd979" stop-opacity="0"/><stop offset="1" stop-color="#ffd979" stop-opacity=".45"/>
+    </radialGradient>
+    <clipPath id="red-carpet-cp"><path d="M27 16h10l12 44H15Z"/></clipPath>
+    <filter id="red-carpet-f" x="-45%" y="-45%" width="190%" height="190%">
+    <feGaussianBlur stdDeviation="2.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="red-carpet-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="red-carpet-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="red-carpet-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="red-carpet-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="red-carpet-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="red-carpet-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="red-carpet-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="red-carpet-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#red-carpet-x-white)">
+        <ellipse class="red-carpet-ring" cx="32" cy="34" rx="27" ry="26" fill="url(#red-carpet-a)"/>
+        <g filter="url(#red-carpet-f)">
+        <path d="M27 16h10l12 44H15Z" fill="url(#red-carpet-c)"/>
+        <path d="M37 16l12 44H35c6-14 6-30 2-44Z" fill="#6f0819" opacity=".4"/>
+        <path d="M28.4 18h2.6l-7 40h-3Z" fill="#fff" opacity=".22"/>
+        <path d="M27 16h10l.7 2.6H26.3Z" fill="url(#red-carpet-g)"/>
+        <path d="M15 60h34l-.6-2.4H15.6Z" fill="url(#red-carpet-g)"/>
+        <g clip-path="url(#red-carpet-cp)">
+        <rect class="red-carpet-sheen" x="10" y="16" width="44" height="6" fill="#fff" opacity=".3"/>
+        </g>
+        <rect x="8" y="20" width="4.5" height="34" rx="2.2" fill="url(#red-carpet-g)"/>
+        <rect x="51.5" y="20" width="4.5" height="34" rx="2.2" fill="url(#red-carpet-g)"/>
+        <circle cx="10.2" cy="18" r="3.4" fill="url(#red-carpet-g)"/>
+        <circle cx="53.8" cy="18" r="3.4" fill="url(#red-carpet-g)"/>
+        <circle cx="9.2" cy="17" r="1.2" fill="#fff8dd"/><circle cx="52.8" cy="17" r="1.2" fill="#fff8dd"/>
+        <path d="M13 22c6 5 6 11 0 16" fill="none" stroke="url(#red-carpet-g)" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M51 22c-6 5-6 11 0 16" fill="none" stroke="url(#red-carpet-g)" stroke-width="2.6" stroke-linecap="round"/>
+        <rect x="8.8" y="48" width="3" height="6" rx="1.5" fill="#7d5205" opacity=".5"/>
+        <rect x="52.2" y="48" width="3" height="6" rx="1.5" fill="#7d5205" opacity=".5"/>
+        </g>
+        <circle class="red-carpet-fl" cx="14" cy="10" r="3" fill="#fff"/>
+        <circle class="red-carpet-fl red-carpet-fl2" cx="50" cy="10" r="3" fill="#fff"/>
+        <path class="red-carpet-s" d="M32 4l1.4 3.4L36.8 8.8l-3.4 1.4L32 13.6l-1.4-3.4-3.4-1.4 3.4-1.4Z" fill="#fff"/>
+        <circle class="red-carpet-s red-carpet-s2" cx="59" cy="30" r="1.8" fill="#ffe9a3"/>
+        <circle class="red-carpet-s red-carpet-s3" cx="5" cy="30" r="1.7" fill="#fff"/>
+        <circle class="red-carpet-s red-carpet-s4" cx="58" cy="44" r="1.5" fill="#ffe9a3"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="red-carpet-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#red-carpet-x-cast-g)"/>
+  <circle class="red-carpet-x-aura" cx="32" cy="32" r="29" fill="url(#red-carpet-x-aura-g)"/>
+  <g class="red-carpet-x-lift">
+    <ellipse class="red-carpet-ring" cx="32" cy="34" rx="27" ry="26" fill="url(#red-carpet-a)"/>
+    <g filter="url(#red-carpet-f)">
+    <path d="M27 16h10l12 44H15Z" fill="url(#red-carpet-c)"/>
+    <path d="M37 16l12 44H35c6-14 6-30 2-44Z" fill="#6f0819" opacity=".4"/>
+    <path d="M28.4 18h2.6l-7 40h-3Z" fill="#fff" opacity=".22"/>
+    <path d="M27 16h10l.7 2.6H26.3Z" fill="url(#red-carpet-g)"/>
+    <path d="M15 60h34l-.6-2.4H15.6Z" fill="url(#red-carpet-g)"/>
+    <g clip-path="url(#red-carpet-cp)">
+    <rect class="red-carpet-sheen" x="10" y="16" width="44" height="6" fill="#fff" opacity=".3"/>
+    </g>
+    <rect x="8" y="20" width="4.5" height="34" rx="2.2" fill="url(#red-carpet-g)"/>
+    <rect x="51.5" y="20" width="4.5" height="34" rx="2.2" fill="url(#red-carpet-g)"/>
+    <circle cx="10.2" cy="18" r="3.4" fill="url(#red-carpet-g)"/>
+    <circle cx="53.8" cy="18" r="3.4" fill="url(#red-carpet-g)"/>
+    <circle cx="9.2" cy="17" r="1.2" fill="#fff8dd"/><circle cx="52.8" cy="17" r="1.2" fill="#fff8dd"/>
+    <path d="M13 22c6 5 6 11 0 16" fill="none" stroke="url(#red-carpet-g)" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M51 22c-6 5-6 11 0 16" fill="none" stroke="url(#red-carpet-g)" stroke-width="2.6" stroke-linecap="round"/>
+    <rect x="8.8" y="48" width="3" height="6" rx="1.5" fill="#7d5205" opacity=".5"/>
+    <rect x="52.2" y="48" width="3" height="6" rx="1.5" fill="#7d5205" opacity=".5"/>
+    </g>
+    <circle class="red-carpet-fl" cx="14" cy="10" r="3" fill="#fff"/>
+    <circle class="red-carpet-fl red-carpet-fl2" cx="50" cy="10" r="3" fill="#fff"/>
+    <path class="red-carpet-s" d="M32 4l1.4 3.4L36.8 8.8l-3.4 1.4L32 13.6l-1.4-3.4-3.4-1.4 3.4-1.4Z" fill="#fff"/>
+    <circle class="red-carpet-s red-carpet-s2" cx="59" cy="30" r="1.8" fill="#ffe9a3"/>
+    <circle class="red-carpet-s red-carpet-s3" cx="5" cy="30" r="1.7" fill="#fff"/>
+    <circle class="red-carpet-s red-carpet-s4" cx="58" cy="44" r="1.5" fill="#ffe9a3"/>
+    <g mask="url(#red-carpet-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#red-carpet-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#red-carpet-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#red-carpet-x-rim)"/>
+      <rect class="red-carpet-x-shine" x="0" y="-16" width="26" height="96" fill="url(#red-carpet-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="red-carpet-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="red-carpet-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="red-carpet-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="red-carpet-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="red-carpet-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

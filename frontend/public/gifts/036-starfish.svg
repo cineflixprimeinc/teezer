@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes starfish-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes starfish-tw{0%,100%{opacity:.25;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .starfish-b{transform-box:fill-box;transform-origin:center;animation:starfish-spin 6s linear infinite}
+    .starfish-f{transform-box:fill-box;transform-origin:center;animation:starfish-spin 6s linear infinite reverse}
+    .starfish-s{transform-box:fill-box;transform-origin:center;animation:starfish-tw 2.2s ease-in-out infinite}
+    @keyframes starfish-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes starfish-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes starfish-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes starfish-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes starfish-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .starfish-x-lift{transform-box:fill-box;transform-origin:center;animation:starfish-x-lift 3.4s ease-in-out infinite}
+    .starfish-x-shine{animation:starfish-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .starfish-x-spark{transform-box:fill-box;transform-origin:center;animation:starfish-x-spark 2.2s ease-in-out infinite}
+    .starfish-x-aura{transform-box:fill-box;transform-origin:center;animation:starfish-x-aura 3s ease-in-out infinite}
+    .starfish-x-cast{transform-box:fill-box;transform-origin:center;animation:starfish-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.starfish-x-lift,.starfish-x-shine,.starfish-x-spark,.starfish-x-aura,.starfish-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="starfish-g" cx=".35" cy=".3" r=".85">
+    <stop offset="0" stop-color="#ffd9a0"/><stop offset=".5" stop-color="#ff9d3f"/><stop offset="1" stop-color="#d55f16"/>
+    </radialGradient>
+    <linearGradient id="starfish-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="starfish-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="starfish-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="starfish-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="starfish-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="starfish-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="starfish-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#starfish-x-white)">
+        <g class="starfish-b">
+        <path d="M32 5c2 0 3 1 4 3l5 12 13 1c4 0 5 3 2 6l-10 9 3 13c1 4-2 6-5 4l-12-7-12 7c-3 2-6 0-5-4l3-13-10-9c-3-3-2-6 2-6l13-1 5-12c1-2 2-3 4-3Z" fill="url(#starfish-g)"/>
+        <path d="M23 15c-2 3-3 5-3 8" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M32 46 20 53c-3 2-6 0-5-4 6 3 12 2 17-3Z" fill="#b64c0d" opacity=".4"/>
+        <circle cx="26" cy="24" r="1.6" fill="#e07a1f" opacity=".7"/>
+        <circle cx="38" cy="28" r="1.6" fill="#e07a1f" opacity=".7"/>
+        <circle cx="30" cy="38" r="1.6" fill="#e07a1f" opacity=".7"/>
+        <g class="starfish-f">
+        <circle cx="26" cy="30" r="2.7" fill="#5c2f0d"/><circle cx="25.1" cy="29.1" r="1.05" fill="#fff"/>
+        <circle cx="38" cy="30" r="2.7" fill="#5c2f0d"/><circle cx="37.1" cy="29.1" r="1.05" fill="#fff"/>
+        <path d="M28 35c2 3 6 3 8 0" stroke="#5c2f0d" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <ellipse cx="21.5" cy="34" rx="2.6" ry="1.8" fill="#ff6f8f" opacity=".6"/>
+        <ellipse cx="42.5" cy="34" rx="2.6" ry="1.8" fill="#ff6f8f" opacity=".6"/>
+        </g>
+        </g>
+        <circle class="starfish-s" cx="56" cy="52" r="1.8" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="starfish-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#starfish-x-cast-g)"/>
+  <g class="starfish-x-lift">
+    <g class="starfish-b">
+    <path d="M32 5c2 0 3 1 4 3l5 12 13 1c4 0 5 3 2 6l-10 9 3 13c1 4-2 6-5 4l-12-7-12 7c-3 2-6 0-5-4l3-13-10-9c-3-3-2-6 2-6l13-1 5-12c1-2 2-3 4-3Z" fill="url(#starfish-g)"/>
+    <path d="M23 15c-2 3-3 5-3 8" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M32 46 20 53c-3 2-6 0-5-4 6 3 12 2 17-3Z" fill="#b64c0d" opacity=".4"/>
+    <circle cx="26" cy="24" r="1.6" fill="#e07a1f" opacity=".7"/>
+    <circle cx="38" cy="28" r="1.6" fill="#e07a1f" opacity=".7"/>
+    <circle cx="30" cy="38" r="1.6" fill="#e07a1f" opacity=".7"/>
+    <g class="starfish-f">
+    <circle cx="26" cy="30" r="2.7" fill="#5c2f0d"/><circle cx="25.1" cy="29.1" r="1.05" fill="#fff"/>
+    <circle cx="38" cy="30" r="2.7" fill="#5c2f0d"/><circle cx="37.1" cy="29.1" r="1.05" fill="#fff"/>
+    <path d="M28 35c2 3 6 3 8 0" stroke="#5c2f0d" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <ellipse cx="21.5" cy="34" rx="2.6" ry="1.8" fill="#ff6f8f" opacity=".6"/>
+    <ellipse cx="42.5" cy="34" rx="2.6" ry="1.8" fill="#ff6f8f" opacity=".6"/>
+    </g>
+    </g>
+    <circle class="starfish-s" cx="56" cy="52" r="1.8" fill="#fff"/>
+    <g mask="url(#starfish-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#starfish-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#starfish-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#starfish-x-rim)"/>
+      <rect class="starfish-x-shine" x="0" y="-16" width="26" height="96" fill="url(#starfish-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

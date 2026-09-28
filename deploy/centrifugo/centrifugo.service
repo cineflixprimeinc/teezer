@@ -1,0 +1,29 @@
+# systemd unit - Centrifugo realtime server (Teezer).
+# Alternative to docker-compose for a bare-binary install.
+#
+# Install:
+#   1. Download the Centrifugo v5 binary → /usr/local/bin/centrifugo (chmod +x)
+#   2. useradd --system --no-create-home --shell /usr/sbin/nologin centrifugo
+#   3. mkdir -p /etc/centrifugo && cp config.json /etc/centrifugo/config.json
+#   4. cp .env.centrifugo.example /etc/centrifugo/centrifugo.env  (fill secrets, chmod 600, chown root)
+#   5. cp centrifugo.service /etc/systemd/system/centrifugo.service
+#   6. systemctl daemon-reload && systemctl enable --now centrifugo
+#
+[Unit]
+Description=Centrifugo realtime server (Teezer)
+After=network.target redis-server.service
+Wants=redis-server.service
+
+[Service]
+Type=simple
+User=centrifugo
+Group=centrifugo
+# Secrets + engine/redis config injected as CENTRIFUGO_* env (see the env file).
+EnvironmentFile=/etc/centrifugo/centrifugo.env
+ExecStart=/usr/local/bin/centrifugo --config=/etc/centrifugo/config.json
+Restart=on-failure
+RestartSec=2
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

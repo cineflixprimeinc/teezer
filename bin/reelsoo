@@ -1,0 +1,280 @@
+#!/usr/bin/env bash
+#
+# TEEZER NOTE: not used for the Teezer deployment - do NOT install this on the
+# Teezer servers (DEPLOYMENT.md). Licensing is disabled for Teezer. If it is
+# ever run, `update`/`verify` refuse unless server/.env has an explicit
+# LICENSE_SERVER_URL that is not the source platform's (reelsoo) server, and
+# database migrations only run with an explicit `update --migrate`.
+#
+# `reelsoo` — the customer-facing command on an installed server (marketplace updater).
+#
+#   reelsoo status     licence and service status
+#   reelsoo update     check for, download and apply an update
+#   reelsoo verify     re-verify the licence with the licence server
+#   reelsoo rollback   restore the previous version
+#
+# The file-level work lives here rather than in an artisan command on purpose:
+# unpacking a new copy of the application over the top of the PHP process that
+# is currently executing it swaps class files underneath a running interpreter.
+# So artisan authorises and verifies the download, and this script swaps the
+# files while PHP is not the thing holding them open.
+#
+# CLIENT-SIDE — ships in the marketplace package.
+#
+set -euo pipefail
+
+readonly APP_DIR="${TEEZER_INSTALL_DIR:-${REELSOO_INSTALL_DIR:-/var/www/teezer}}"
+readonly BACKUP_DIR="${TEEZER_BACKUP_DIR:-${REELSOO_BACKUP_DIR:-/var/backups/teezer}}"
+readonly SERVER_DIR="$APP_DIR/server"
+
+if [[ -t 1 ]]; then
+    readonly BOLD=$'\033[1m' RED=$'\033[31m' GREEN=$'\033[32m' YELLOW=$'\033[33m' RESET=$'\033[0m'
+else
+    readonly BOLD='' RED='' GREEN='' YELLOW='' RESET=''
+fi
+
+info() { printf '  %s\n' "$*"; }
+ok()   { printf '  %s✓%s %s\n' "$GREEN" "$RESET" "$*"; }
+warn() { printf '  %s!%s %s\n' "$YELLOW" "$RESET" "$*"; }
+die()  { printf '\n  %sError:%s %s\n\n' "$RED" "$RESET" "$*" >&2; exit 1; }
+
+require_root() { [[ $EUID -eq 0 ]] || die "This command needs root. Try: sudo reelsoo $*"; }
+artisan() { ( cd "$SERVER_DIR" && sudo -u www-data php artisan "$@" ); }
+
+# The updater must never talk to the source platform's licence/update server,
+# and there is no default server: LICENSE_SERVER_URL must be set explicitly.
+require_licence_server() {
+    local url
+    url=$(grep -E '^LICENSE_SERVER_URL=' "$SERVER_DIR/.env" 2>/dev/null | tail -n1 | cut -d= -f2- | tr -d '"'"'"' ') || true
+    [[ -n "$url" ]] || die "LICENSE_SERVER_URL is not set in $SERVER_DIR/.env. There is no default licence server; refusing."
+    case "${url,,}" in
+        *reelsoo*) die "LICENSE_SERVER_URL points at the Reelsoo licence server ($url). Refusing." ;;
+    esac
+}
+
+usage() {
+    cat <<'USAGE'
+
+  reelsoo — manage this installation (marketplace updater; not used for Teezer)
+
+    reelsoo status              Licence and service status
+    reelsoo update [--check] [--migrate]
+                                Update to the latest release (migrations only with --migrate)
+    reelsoo verify              Re-verify the licence now
+    reelsoo rollback            Restore the previous version
+    reelsoo help                This message
+
+USAGE
+}
+
+cmd_status() {
+    printf '\n  %sLicence%s\n' "$BOLD" "$RESET"
+    artisan license:status || true
+
+    printf '\n  %sServices%s\n' "$BOLD" "$RESET"
+    for unit in teezer-web teezer-queue nginx php8.2-fpm postgresql redis-server; do
+        if systemctl is-active --quiet "$unit" 2>/dev/null; then
+            ok "$unit"
+        else
+            warn "$unit is not running"
+        fi
+    done
+    printf '\n'
+}
+
+cmd_verify() {
+    require_root verify
+    require_licence_server
+    printf '\n  Contacting the licence server...\n'
+    artisan license:heartbeat
+    printf '\n'
+}
+
+cmd_update() {
+    require_root update
+    require_licence_server
+
+    local run_migrate=0 check_only=0 arg
+    for arg in "$@"; do
+        case "$arg" in
+            --check)   check_only=1 ;;
+            --migrate) run_migrate=1 ;;
+            *) die "Unknown option for update: $arg" ;;
+        esac
+    done
+
+    if [[ $check_only -eq 1 ]]; then
+        artisan reelsoo:update --check
+        return
+    fi
+
+    printf '\n  %sChecking for updates%s\n' "$BOLD" "$RESET"
+
+    local result version package
+    result=$(artisan reelsoo:update --json --download-to=/tmp 2>/dev/null | tail -n1)
+
+    case "$result" in
+        *'"status":"up_to_date"'*)
+            ok "Already on the latest version."
+            printf '\n'
+            return
+            ;;
+        *'"status":"downloaded"'*) ;;
+        *)
+            die "$(printf '%s' "$result" | sed 's/.*"message":"\([^"]*\)".*/\1/')"
+            ;;
+    esac
+
+    version=$(printf '%s' "$result" | sed 's/.*"version":"\([^"]*\)".*/\1/')
+    package=$(printf '%s' "$result" | sed 's/.*"path":"\([^"]*\)".*/\1/')
+
+    [[ -f "$package" ]] || die "The downloaded package is missing: $package"
+    ok "Downloaded and verified $version"
+
+    # ── Backup FIRST. Nothing below is allowed to run without one. ──────────
+    printf '\n  %sBacking up%s\n' "$BOLD" "$RESET"
+
+    local stamp backup
+    stamp=$(date +%Y%m%d-%H%M%S)
+    backup="$BACKUP_DIR/$stamp"
+    mkdir -p "$backup"
+
+    tar -czf "$backup/app.tar.gz" -C "$(dirname "$APP_DIR")" "$(basename "$APP_DIR")" \
+        || die "Backup failed. The update has been abandoned and nothing was changed."
+    ok "Files: $backup/app.tar.gz"
+
+    # The database dump matters more than the files: the files can be
+    # re-downloaded, the customer's data cannot.
+    if sudo -u www-data php "$SERVER_DIR/artisan" db:show >/dev/null 2>&1; then
+        local db_name db_user db_pass
+        db_name=$(grep -E '^DB_PGSQL_DATABASE=' "$SERVER_DIR/.env" | cut -d= -f2-)
+        db_user=$(grep -E '^DB_PGSQL_USERNAME=' "$SERVER_DIR/.env" | cut -d= -f2-)
+        db_pass=$(grep -E '^DB_PGSQL_PASSWORD=' "$SERVER_DIR/.env" | cut -d= -f2-)
+
+        # Password via the environment, never on the command line, where it
+        # would be visible to every user on the box through /proc.
+        if PGPASSWORD="$db_pass" pg_dump -h 127.0.0.1 -U "$db_user" "$db_name" \
+            | gzip > "$backup/database.sql.gz"; then
+            chmod 600 "$backup/database.sql.gz"
+            ok "Database: $backup/database.sql.gz"
+        else
+            rm -f "$backup/database.sql.gz"
+            die "Database backup failed. The update has been abandoned; your site is untouched."
+        fi
+    else
+        warn "Could not reach the database to back it up."
+        read -rp "  Continue without a database backup? [y/N] " reply
+        [[ "$reply" =~ ^[Yy]$ ]] || die "Aborted. Nothing was changed."
+    fi
+
+    printf '%s\n' "$version" > "$backup/version"
+    ln -sfn "$backup" "$BACKUP_DIR/latest"
+
+    # ── Apply ───────────────────────────────────────────────────────────────
+    printf '\n  %sApplying %s%s\n' "$BOLD" "$version" "$RESET"
+
+    artisan down --render=errors::503 >/dev/null 2>&1 || true
+
+    local staging
+    staging=$(mktemp -d)
+    tar -xzf "$package" -C "$staging" --strip-components=1
+
+    # Preserve everything that belongs to THIS installation and must survive an
+    # update: configuration, the licence, and user uploads.
+    cp "$SERVER_DIR/.env" "$staging/server/.env"
+    if [[ -d "$SERVER_DIR/storage/app/license" ]]; then
+        mkdir -p "$staging/server/storage/app/license"
+        cp -a "$SERVER_DIR/storage/app/license/." "$staging/server/storage/app/license/"
+    fi
+    for keep in storage/app/public storage/app/uploads; do
+        [[ -d "$SERVER_DIR/$keep" ]] && { mkdir -p "$staging/server/$keep"; cp -a "$SERVER_DIR/$keep/." "$staging/server/$keep/"; }
+    done
+
+    rsync -a --delete \
+        --exclude 'server/storage/app/' \
+        --exclude 'server/storage/logs/' \
+        "$staging/" "$APP_DIR/"
+    rm -rf "$staging" "$package"
+
+    chown -R www-data:www-data "$APP_DIR"
+    chmod 600 "$SERVER_DIR/.env"
+    [[ -f "$SERVER_DIR/storage/app/license/license.json" ]] && chmod 600 "$SERVER_DIR/storage/app/license/license.json"
+
+    ( cd "$SERVER_DIR" && sudo -u www-data composer install --no-dev --optimize-autoloader --no-interaction --quiet )
+    if [[ $run_migrate -eq 1 ]]; then
+        warn "Running database migrations (--migrate given). A database backup was taken above."
+        artisan migrate --force --no-interaction
+    else
+        warn "Skipping database migrations. Review with 'php artisan migrate:status' and re-run with --migrate if intended."
+    fi
+    artisan config:cache
+    artisan route:cache
+
+    ( cd "$APP_DIR/frontend" && sudo -u www-data npm ci --omit=dev --silent && sudo -u www-data npm run build --silent )
+
+    systemctl restart php8.2-fpm teezer-web teezer-queue
+    artisan up >/dev/null 2>&1 || true
+
+    # ── Health check ────────────────────────────────────────────────────────
+    printf '\n  %sHealth check%s\n' "$BOLD" "$RESET"
+
+    local healthy=0
+    for _ in $(seq 1 20); do
+        if curl -fsS -o /dev/null --max-time 5 http://127.0.0.1:3000/ 2>/dev/null; then
+            healthy=1
+            break
+        fi
+        sleep 3
+    done
+
+    if [[ $healthy -eq 1 ]]; then
+        ok "Site is responding"
+        printf '\n  %sUpdated to %s%s\n\n' "$GREEN" "$version" "$RESET"
+    else
+        warn "The site is not responding after the update."
+        info "Roll back with:  sudo reelsoo rollback"
+        printf '\n'
+        exit 1
+    fi
+}
+
+cmd_rollback() {
+    require_root rollback
+
+    local backup="$BACKUP_DIR/latest"
+    [[ -d "$backup" ]] || die "No backup found in $BACKUP_DIR."
+
+    printf '\n  Rolling back to %s\n' "$(cat "$backup/version" 2>/dev/null || echo 'the previous version')"
+    read -rp "  This replaces the current files and database. Continue? [y/N] " reply
+    [[ "$reply" =~ ^[Yy]$ ]] || die "Aborted."
+
+    artisan down >/dev/null 2>&1 || true
+
+    tar -xzf "$backup/app.tar.gz" -C "$(dirname "$APP_DIR")"
+
+    if [[ -f "$backup/database.sql.gz" ]]; then
+        local db_name db_user db_pass
+        db_name=$(grep -E '^DB_PGSQL_DATABASE=' "$SERVER_DIR/.env" | cut -d= -f2-)
+        db_user=$(grep -E '^DB_PGSQL_USERNAME=' "$SERVER_DIR/.env" | cut -d= -f2-)
+        db_pass=$(grep -E '^DB_PGSQL_PASSWORD=' "$SERVER_DIR/.env" | cut -d= -f2-)
+
+        gunzip -c "$backup/database.sql.gz" | PGPASSWORD="$db_pass" psql -h 127.0.0.1 -U "$db_user" "$db_name" >/dev/null
+        ok "Database restored"
+    fi
+
+    chown -R www-data:www-data "$APP_DIR"
+    systemctl restart php8.2-fpm teezer-web teezer-queue
+    artisan up >/dev/null 2>&1 || true
+
+    ok "Rollback complete"
+    printf '\n'
+}
+
+case "${1:-help}" in
+    status)   cmd_status ;;
+    update)   shift; cmd_update "$@" ;;
+    verify)   cmd_verify ;;
+    rollback) cmd_rollback ;;
+    help|--help|-h) usage ;;
+    *) usage; exit 1 ;;
+esac

@@ -1,0 +1,14 @@
+.env
+.env.local
+.env.*.local
+.next/
+out/
+node_modules/
+npm-debug.log*
+
+# TypeScript incremental build cache - regenerated on every typecheck.
+# frontend/.gitignore already excludes this; admin missed it.
+*.tsbuildinfo
+
+# Committed on purpose: holds PUBLIC NEXT_PUBLIC_* build values only (no secrets).
+!.env.production

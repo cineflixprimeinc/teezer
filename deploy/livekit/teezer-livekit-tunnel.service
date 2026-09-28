@@ -1,0 +1,38 @@
+# systemd unit - runs on Teezer VPS1 (77.237.242.249), NOT VPS2.
+#
+# Laravel lives on VPS1; livekit-server lives on VPS2 (77.237.243.122). Laravel's
+# room-service Twirp calls go to LIVEKIT_HOST=http://127.0.0.1:7880 on VPS1, and
+# this SSH port-forward carries them to livekit-server's loopback-only :7880 on
+# VPS2. (If the Teezer provider lets VPS1 reach VPS2:7880 directly over a private
+# network you could skip the tunnel, but livekit-server binds 127.0.0.1 by design,
+# so the tunnel is the supported path.)
+#
+# VPS placeholders (Teezer hosts ONLY - never a Reelsoo address):
+#   TEEZER_VPS2 = 77.237.243.122   (the SSH target below)
+#
+# One-time key setup (on VPS1), a dedicated key restricted to this one forward:
+#   ssh-keygen -t ed25519 -f /root/.ssh/teezer_tunnel -N "" -C teezer-tunnel
+#   on VPS2, append to /root/.ssh/authorized_keys:
+#     restrict,port-forwarding,permitopen="127.0.0.1:7880" ssh-ed25519 AAAA... teezer-tunnel
+#   (add further permitopen="127.0.0.1:<port>" entries if ClickHouse or other
+#   tunnels reuse the same key)
+#
+# Install (on VPS1):
+#   cp teezer-livekit-tunnel.service /etc/systemd/system/
+#   systemctl daemon-reload && systemctl enable --now teezer-livekit-tunnel
+#   curl http://127.0.0.1:7880   # from VPS1 - should reach livekit-server on VPS2
+#
+[Unit]
+Description=Teezer LiveKit SSH tunnel VPS1 -> VPS2 (StreamHub room-service Twirp API)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=root
+Environment=TEEZER_VPS2=77.237.243.122
+ExecStart=/usr/bin/ssh -N -o StrictHostKeyChecking=accept-new -o ExitOnForwardFailure=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o ConnectTimeout=10 -o TCPKeepAlive=yes -i /root/.ssh/teezer_tunnel -L 127.0.0.1:7880:127.0.0.1:7880 root@${TEEZER_VPS2}
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

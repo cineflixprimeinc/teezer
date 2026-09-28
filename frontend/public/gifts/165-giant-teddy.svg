@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes giant-teddy-sway{0%,100%{transform:rotate(-5deg) translateY(1px)}50%{transform:rotate(5deg) translateY(-2px)}}
+    @keyframes giant-teddy-aura{0%,100%{opacity:.18;transform:scale(.88)}50%{opacity:.58;transform:scale(1.06)}}
+    @keyframes giant-teddy-beat{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+    @keyframes giant-teddy-tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    .giant-teddy-body{transform-box:fill-box;transform-origin:50% 92%;animation:giant-teddy-sway 2.8s ease-in-out infinite}
+    .giant-teddy-ring{transform-box:fill-box;transform-origin:center;animation:giant-teddy-aura 2.6s ease-in-out infinite}
+    .giant-teddy-heart{transform-box:fill-box;transform-origin:center;animation:giant-teddy-beat 1.6s ease-in-out infinite}
+    .giant-teddy-s{transform-box:fill-box;transform-origin:center;animation:giant-teddy-tw 2.1s ease-in-out infinite}
+    .giant-teddy-s2{animation-delay:.5s}.giant-teddy-s3{animation-delay:1s}.giant-teddy-s4{animation-delay:1.5s}
+    @keyframes giant-teddy-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes giant-teddy-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes giant-teddy-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes giant-teddy-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes giant-teddy-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .giant-teddy-x-lift{transform-box:fill-box;transform-origin:center;animation:giant-teddy-x-lift 3.4s ease-in-out infinite}
+    .giant-teddy-x-shine{animation:giant-teddy-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .giant-teddy-x-spark{transform-box:fill-box;transform-origin:center;animation:giant-teddy-x-spark 2.2s ease-in-out infinite}
+    .giant-teddy-x-aura{transform-box:fill-box;transform-origin:center;animation:giant-teddy-x-aura 3s ease-in-out infinite}
+    .giant-teddy-x-cast{transform-box:fill-box;transform-origin:center;animation:giant-teddy-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.giant-teddy-x-lift,.giant-teddy-x-shine,.giant-teddy-x-spark,.giant-teddy-x-aura,.giant-teddy-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="giant-teddy-b" cx=".35" cy=".28" r=".85">
+    <stop offset="0" stop-color="#f0cfa6"/><stop offset=".55" stop-color="#c68d55"/><stop offset="1" stop-color="#7d4f26"/>
+    </radialGradient>
+    <linearGradient id="giant-teddy-g" x1="18" y1="6" x2="46" y2="24" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff5c8"/><stop offset=".5" stop-color="#f2c542"/><stop offset="1" stop-color="#a1710f"/>
+    </linearGradient>
+    <filter id="giant-teddy-f" x="-45%" y="-45%" width="190%" height="190%">
+    <feGaussianBlur stdDeviation="2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="giant-teddy-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="giant-teddy-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="giant-teddy-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="giant-teddy-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="giant-teddy-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="giant-teddy-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="giant-teddy-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="giant-teddy-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#giant-teddy-x-white)">
+        <ellipse class="giant-teddy-ring" cx="32" cy="34" rx="25" ry="25" fill="none" stroke="#ffd979" stroke-width="1.8" opacity=".5"/>
+        <g class="giant-teddy-body" filter="url(#giant-teddy-f)">
+        <circle cx="19" cy="20" r="7" fill="url(#giant-teddy-b)"/>
+        <circle cx="45" cy="20" r="7" fill="url(#giant-teddy-b)"/>
+        <circle cx="19" cy="20" r="3.4" fill="#f3b6a0"/><circle cx="45" cy="20" r="3.4" fill="#f3b6a0"/>
+        <ellipse cx="32" cy="47" rx="16" ry="13" fill="url(#giant-teddy-b)"/>
+        <ellipse cx="32" cy="49" rx="9" ry="8" fill="#f0d3ae"/>
+        <ellipse cx="14" cy="45" rx="5" ry="7" fill="#a9713d"/>
+        <ellipse cx="50" cy="45" rx="5" ry="7" fill="#a9713d"/>
+        <circle cx="32" cy="26" r="14" fill="url(#giant-teddy-b)"/>
+        <ellipse cx="32" cy="31" rx="7.5" ry="6" fill="#f0d3ae"/>
+        <ellipse cx="32" cy="28.5" rx="2.6" ry="2" fill="#4a2c12"/>
+        <path d="M32 31v2.4M32 33.4c-1.2 1.2-3 1-3.6-.4M32 33.4c1.2 1.2 3 1 3.6-.4" stroke="#4a2c12" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        <circle cx="26" cy="23" r="2.3" fill="#3a2210"/><circle cx="38" cy="23" r="2.3" fill="#3a2210"/>
+        <circle cx="25.2" cy="22.2" r=".9" fill="#fff"/><circle cx="37.2" cy="22.2" r=".9" fill="#fff"/>
+        <path d="M22 15c2-3 5-4.6 8-4.8" stroke="#fff" stroke-opacity=".38" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="32" cy="57" rx="13" ry="3.5" fill="#5f3a19" opacity=".4"/>
+        <path d="M32 8l4-5 2 6-6 2-6-2 2-6Z" fill="url(#giant-teddy-g)"/>
+        <path d="M20 39h24l-2 4H22Z" fill="url(#giant-teddy-g)"/>
+        <path d="M24 39c0-2 1.6-3.6 3.6-3.6 2 0 3.4 1.4 4.4 3.6 1-2.2 2.4-3.6 4.4-3.6 2 0 3.6 1.6 3.6 3.6Z" fill="#e23a68"/>
+        </g>
+        <g class="giant-teddy-heart"><path d="M32 44c-4-2.8-6-4.6-6-7 0-1.9 1.5-3.4 3.3-3.4 1.1 0 2.1.6 2.7 1.5.6-.9 1.6-1.5 2.7-1.5C36.5 33.6 38 35.1 38 37c0 2.4-2 4.2-6 7Z" fill="#ff4d7d"/></g>
+        <path class="giant-teddy-s" d="M56 12l1.2 3 3 1.2-3 1.2L56 21.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+        <circle class="giant-teddy-s giant-teddy-s2" cx="7" cy="18" r="1.9" fill="#ffe9a3"/>
+        <circle class="giant-teddy-s giant-teddy-s3" cx="58" cy="42" r="1.7" fill="#fff"/>
+        <circle class="giant-teddy-s giant-teddy-s4" cx="6" cy="40" r="1.5" fill="#ffe9a3"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="giant-teddy-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#giant-teddy-x-cast-g)"/>
+  <circle class="giant-teddy-x-aura" cx="32" cy="32" r="29" fill="url(#giant-teddy-x-aura-g)"/>
+  <g class="giant-teddy-x-lift">
+    <ellipse class="giant-teddy-ring" cx="32" cy="34" rx="25" ry="25" fill="none" stroke="#ffd979" stroke-width="1.8" opacity=".5"/>
+    <g class="giant-teddy-body" filter="url(#giant-teddy-f)">
+    <circle cx="19" cy="20" r="7" fill="url(#giant-teddy-b)"/>
+    <circle cx="45" cy="20" r="7" fill="url(#giant-teddy-b)"/>
+    <circle cx="19" cy="20" r="3.4" fill="#f3b6a0"/><circle cx="45" cy="20" r="3.4" fill="#f3b6a0"/>
+    <ellipse cx="32" cy="47" rx="16" ry="13" fill="url(#giant-teddy-b)"/>
+    <ellipse cx="32" cy="49" rx="9" ry="8" fill="#f0d3ae"/>
+    <ellipse cx="14" cy="45" rx="5" ry="7" fill="#a9713d"/>
+    <ellipse cx="50" cy="45" rx="5" ry="7" fill="#a9713d"/>
+    <circle cx="32" cy="26" r="14" fill="url(#giant-teddy-b)"/>
+    <ellipse cx="32" cy="31" rx="7.5" ry="6" fill="#f0d3ae"/>
+    <ellipse cx="32" cy="28.5" rx="2.6" ry="2" fill="#4a2c12"/>
+    <path d="M32 31v2.4M32 33.4c-1.2 1.2-3 1-3.6-.4M32 33.4c1.2 1.2 3 1 3.6-.4" stroke="#4a2c12" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    <circle cx="26" cy="23" r="2.3" fill="#3a2210"/><circle cx="38" cy="23" r="2.3" fill="#3a2210"/>
+    <circle cx="25.2" cy="22.2" r=".9" fill="#fff"/><circle cx="37.2" cy="22.2" r=".9" fill="#fff"/>
+    <path d="M22 15c2-3 5-4.6 8-4.8" stroke="#fff" stroke-opacity=".38" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <ellipse cx="32" cy="57" rx="13" ry="3.5" fill="#5f3a19" opacity=".4"/>
+    <path d="M32 8l4-5 2 6-6 2-6-2 2-6Z" fill="url(#giant-teddy-g)"/>
+    <path d="M20 39h24l-2 4H22Z" fill="url(#giant-teddy-g)"/>
+    <path d="M24 39c0-2 1.6-3.6 3.6-3.6 2 0 3.4 1.4 4.4 3.6 1-2.2 2.4-3.6 4.4-3.6 2 0 3.6 1.6 3.6 3.6Z" fill="#e23a68"/>
+    </g>
+    <g class="giant-teddy-heart"><path d="M32 44c-4-2.8-6-4.6-6-7 0-1.9 1.5-3.4 3.3-3.4 1.1 0 2.1.6 2.7 1.5.6-.9 1.6-1.5 2.7-1.5C36.5 33.6 38 35.1 38 37c0 2.4-2 4.2-6 7Z" fill="#ff4d7d"/></g>
+    <path class="giant-teddy-s" d="M56 12l1.2 3 3 1.2-3 1.2L56 21.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+    <circle class="giant-teddy-s giant-teddy-s2" cx="7" cy="18" r="1.9" fill="#ffe9a3"/>
+    <circle class="giant-teddy-s giant-teddy-s3" cx="58" cy="42" r="1.7" fill="#fff"/>
+    <circle class="giant-teddy-s giant-teddy-s4" cx="6" cy="40" r="1.5" fill="#ffe9a3"/>
+    <g mask="url(#giant-teddy-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#giant-teddy-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#giant-teddy-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#giant-teddy-x-rim)"/>
+      <rect class="giant-teddy-x-shine" x="0" y="-16" width="26" height="96" fill="url(#giant-teddy-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="giant-teddy-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="giant-teddy-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="giant-teddy-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="giant-teddy-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="giant-teddy-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

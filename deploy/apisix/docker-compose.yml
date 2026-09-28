@@ -1,0 +1,130 @@
+# Apache APISIX API gateway stack (VPS1, in front of the Laravel monolith).
+#
+# All five services run with `network_mode: host` - not bridge networking.
+# This isn't a style choice: APISIX has to reach the internal nginx vhost
+# (127.0.0.1:8091, fastcgi_pass to php-fpm) and etcd/dashboard/prometheus/
+# grafana all need to reach each other, and every one of those is bound to
+# the HOST's loopback interface specifically (nothing in this repo binds
+# 0.0.0.0 anywhere - see teezer-api-internal.conf, redis-livekit.conf,
+# nats-server.conf, all loopback-only by the same convention). A bridge
+# network's gateway IP is a DIFFERENT interface from the host's 127.0.0.1 -
+# traffic arriving over it can never reach a strictly-loopback-bound service,
+# no matter what `extra_hosts: host-gateway` or `host.docker.internal` do
+# (confirmed live: APISIX 502'd on every request until this changed to host
+# networking). Host networking puts every container in the SAME network
+# namespace as the host, so "127.0.0.1" inside a container IS the host's
+# loopback - matching how every other service on this box already talks to
+# every other service.
+#
+# Host networking also means Docker's `ports:` publish/remap layer doesn't
+# apply at all - a service's own config is now the ONLY thing enforcing
+# loopback-only exposure (see the explicit bind-address settings called out
+# per service below, and in config/apisix-config.yaml /
+# config/dashboard-conf.yaml.template).
+#
+# Start with:  cp .env.apisix.example .env && docker compose up -d
+# (env values documented in .env.apisix.example)
+
+# Compose project name (networks/volumes are prefixed with it).
+name: teezer-apisix
+
+services:
+  etcd:
+    # bitnami/etcd (plain) stopped publishing free tags on Docker Hub in
+    # 2025's Bitnami catalog restructuring - bitnamilegacy/* is where the
+    # same free images live now.
+    image: bitnamilegacy/etcd:3.5.11
+    container_name: teezer-apisix-etcd
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      ETCD_ENABLE_V2: "true"
+      ALLOW_NONE_AUTHENTICATION: "yes"
+      ETCD_ADVERTISE_CLIENT_URLS: "http://127.0.0.1:2379"
+      ETCD_LISTEN_CLIENT_URLS: "http://127.0.0.1:2379"
+      # Host networking means etcd's default peer port (2380) also binds
+      # host-wide, unused here (single-node, no clustering) - fine, but
+      # pinned to loopback too for consistency rather than left implicit.
+      ETCD_LISTEN_PEER_URLS: "http://127.0.0.1:2380"
+      ETCD_INITIAL_ADVERTISE_PEER_URLS: "http://127.0.0.1:2380"
+    volumes:
+      - etcd_data:/bitnami/etcd
+
+  apisix:
+    image: apache/apisix:3.9.1-debian
+    container_name: teezer-apisix
+    restart: unless-stopped
+    depends_on: [etcd]
+    network_mode: host
+    env_file: .env
+    volumes:
+      - ./config/apisix-config.yaml:/usr/local/apisix/conf/config.yaml:ro
+    healthcheck:
+      # Neither curl nor wget exist inside apache/apisix:3.9.1-debian
+      # (confirmed live - `which curl` fails) - a healthcheck that shells out
+      # to either always fails regardless of APISIX's actual state. bash's
+      # /dev/tcp needs nothing else installed: a successful TCP connect to
+      # the proxy port proves nginx/APISIX's Lua runtime is accepting
+      # connections. Not probing a specific path (e.g. /apisix/status) since
+      # that's not a real built-in endpoint in 3.x without the separate
+      # control-plane API, and depending on a configured route would make
+      # this fail before apply-routes.sh has run for no real reason.
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/9080' 2>/dev/null"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  apisix-dashboard:
+    image: apache/apisix-dashboard:3.0.1-alpine
+    container_name: teezer-apisix-dashboard
+    restart: unless-stopped
+    depends_on: [etcd]
+    network_mode: host
+    volumes:
+      # Rendered from config/dashboard-conf.yaml.template by render-config.sh
+      # (envsubst) before `docker compose up` - see README. Listens on 9002
+      # directly (not the dashboard's native 9000) - VPS1's port 9000 is
+      # already the ClickHouse SSH tunnel's local end
+      # (teezer-clickhouse-tunnel.service, ClickHouse's native protocol
+      # port), and host networking means there's no host-port remapping to
+      # fall back on - the config's own listen port has to be the real one.
+      - ./config/dashboard-conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml:ro
+
+  prometheus:
+    image: prom/prometheus:v2.53.0
+    container_name: teezer-apisix-prometheus
+    restart: unless-stopped
+    depends_on: [apisix]
+    network_mode: host
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --web.listen-address=127.0.0.1:9090
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+
+  grafana:
+    image: grafana/grafana:11.1.0
+    container_name: teezer-apisix-grafana
+    restart: unless-stopped
+    depends_on: [prometheus]
+    network_mode: host
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD_FILE: /run/secrets/grafana_admin_password
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_SERVER_HTTP_ADDR: 127.0.0.1
+      GF_SERVER_HTTP_PORT: "3005"
+    secrets: [grafana_admin_password]
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./config/grafana-datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml:ro
+
+volumes:
+  etcd_data:
+  prometheus_data:
+  grafana_data:
+
+secrets:
+  grafana_admin_password:
+    file: ./secrets/grafana_admin_password.txt

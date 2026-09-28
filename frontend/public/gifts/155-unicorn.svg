@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes unicorn-glow{0%,100%{filter:drop-shadow(0 0 2px #b07cff) brightness(1)}50%{filter:drop-shadow(0 0 7px #ffd6f5) brightness(1.15)}}
+    @keyframes unicorn-horn{0%,100%{opacity:.35;transform:scale(.7)}50%{opacity:1;transform:scale(1.15)}}
+    @keyframes unicorn-mane{0%,100%{transform:skewY(0deg)}50%{transform:skewY(4deg)}}
+    .unicorn-b{transform-box:fill-box;transform-origin:center;animation:unicorn-glow 2.6s ease-in-out infinite}
+    .unicorn-h{transform-box:fill-box;transform-origin:center;animation:unicorn-horn 1.7s ease-in-out infinite}
+    .unicorn-h2{animation-delay:.6s}.unicorn-h3{animation-delay:1.2s}
+    .unicorn-m{transform-box:fill-box;transform-origin:top left;animation:unicorn-mane 2.4s ease-in-out infinite}
+    @keyframes unicorn-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes unicorn-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes unicorn-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes unicorn-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes unicorn-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .unicorn-x-lift{transform-box:fill-box;transform-origin:center;animation:unicorn-x-lift 3.4s ease-in-out infinite}
+    .unicorn-x-shine{animation:unicorn-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .unicorn-x-spark{transform-box:fill-box;transform-origin:center;animation:unicorn-x-spark 2.2s ease-in-out infinite}
+    .unicorn-x-aura{transform-box:fill-box;transform-origin:center;animation:unicorn-x-aura 3s ease-in-out infinite}
+    .unicorn-x-cast{transform-box:fill-box;transform-origin:center;animation:unicorn-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.unicorn-x-lift,.unicorn-x-shine,.unicorn-x-spark,.unicorn-x-aura,.unicorn-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="unicorn-g" x1="14" y1="18" x2="44" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f2e7ff"/><stop offset="1" stop-color="#b39ad6"/>
+    </linearGradient>
+    <linearGradient id="unicorn-gh" x1="34" y1="5" x2="42" y2="18" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff3b8"/><stop offset="1" stop-color="#e59a11"/>
+    </linearGradient>
+    <radialGradient id="unicorn-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="unicorn-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="unicorn-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="unicorn-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="unicorn-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="unicorn-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="unicorn-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="unicorn-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#unicorn-x-white)">
+        <g class="unicorn-b">
+        <g class="unicorn-m">
+        <path d="M36 20c9 4 14 13 14 24l-6 1c0-9-4-16-11-20Z" fill="#ff5c8a"/>
+        <path d="M33 22c8 5 12 13 12 23h-6c0-8-3-15-9-19Z" fill="#ffb03b"/>
+        <path d="M30 24c7 5 10 12 10 21h-6c0-7-2-13-8-17Z" fill="#3fd18a"/>
+        <path d="M27 26c6 5 8 11 8 19h-6c0-6-1-12-6-15Z" fill="#4aa8ff"/>
+        <path d="M24 28c5 5 6 10 6 17h-6c0-6 0-11-4-14Z" fill="#a06bff"/>
+        </g>
+        <path d="M34 22c-4-3-11-3-16 1l-6 6c-2 2-2 5 0 6l6 3c2 1 5 1 7 0l6-4c4-3 5-7 3-12Z" fill="url(#unicorn-g)"/>
+        <path d="M31 20l1-8 5 6Z" fill="url(#unicorn-g)"/>
+        <path d="M32.5 14l.7-4.5 2.6 3.4Z" fill="#f5b8d8"/>
+        <path d="M22 24c-3 1-5 3-6 6" stroke="#fff" stroke-opacity=".7" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M14 33l7 3c3 1 7 1 10-1-2 4-7 6-12 5l-6-3Z" fill="#a48ccb" opacity=".45"/>
+        <path d="M35 17l3-12 3 12Z" fill="url(#unicorn-gh)"/>
+        <path d="M35.6 15h4.8M36.4 12h3.2M37.2 9h1.6" stroke="#a86a06" stroke-width="1.1" stroke-linecap="round"/>
+        <ellipse cx="24" cy="28" rx="2.4" ry="2.8" fill="#3a2a55"/>
+        <circle cx="23.2" cy="27" r="1" fill="#fff"/>
+        <path d="M20 24c-2-1-4-1-5 0" stroke="#3a2a55" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <ellipse cx="14" cy="33" rx="1.6" ry="1.2" fill="#d99ec0"/>
+        <rect x="30" y="44" width="9" height="12" rx="3" fill="url(#unicorn-g)"/>
+        </g>
+        <path class="unicorn-h" d="M46 8l1.4 3.2L51 12.6l-3.6 1.4L46 17.6l-1.4-3.6L41 12.6l3.6-1.4Z" fill="#fff"/>
+        <path class="unicorn-h unicorn-h2" d="M53 25l1 2.4 2.4 1-2.4 1-1 2.4-1-2.4-2.4-1 2.4-1Z" fill="#ffe6a8"/>
+        <path class="unicorn-h unicorn-h3" d="M10 16l1 2.3 2.3 1-2.3 1-1 2.3-1-2.3L6.7 19.3l2.3-1Z" fill="#ffd6f5"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="unicorn-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#unicorn-x-cast-g)"/>
+  <circle class="unicorn-x-aura" cx="32" cy="32" r="29" fill="url(#unicorn-x-aura-g)"/>
+  <g class="unicorn-x-lift">
+    <g class="unicorn-b">
+    <g class="unicorn-m">
+    <path d="M36 20c9 4 14 13 14 24l-6 1c0-9-4-16-11-20Z" fill="#ff5c8a"/>
+    <path d="M33 22c8 5 12 13 12 23h-6c0-8-3-15-9-19Z" fill="#ffb03b"/>
+    <path d="M30 24c7 5 10 12 10 21h-6c0-7-2-13-8-17Z" fill="#3fd18a"/>
+    <path d="M27 26c6 5 8 11 8 19h-6c0-6-1-12-6-15Z" fill="#4aa8ff"/>
+    <path d="M24 28c5 5 6 10 6 17h-6c0-6 0-11-4-14Z" fill="#a06bff"/>
+    </g>
+    <path d="M34 22c-4-3-11-3-16 1l-6 6c-2 2-2 5 0 6l6 3c2 1 5 1 7 0l6-4c4-3 5-7 3-12Z" fill="url(#unicorn-g)"/>
+    <path d="M31 20l1-8 5 6Z" fill="url(#unicorn-g)"/>
+    <path d="M32.5 14l.7-4.5 2.6 3.4Z" fill="#f5b8d8"/>
+    <path d="M22 24c-3 1-5 3-6 6" stroke="#fff" stroke-opacity=".7" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M14 33l7 3c3 1 7 1 10-1-2 4-7 6-12 5l-6-3Z" fill="#a48ccb" opacity=".45"/>
+    <path d="M35 17l3-12 3 12Z" fill="url(#unicorn-gh)"/>
+    <path d="M35.6 15h4.8M36.4 12h3.2M37.2 9h1.6" stroke="#a86a06" stroke-width="1.1" stroke-linecap="round"/>
+    <ellipse cx="24" cy="28" rx="2.4" ry="2.8" fill="#3a2a55"/>
+    <circle cx="23.2" cy="27" r="1" fill="#fff"/>
+    <path d="M20 24c-2-1-4-1-5 0" stroke="#3a2a55" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <ellipse cx="14" cy="33" rx="1.6" ry="1.2" fill="#d99ec0"/>
+    <rect x="30" y="44" width="9" height="12" rx="3" fill="url(#unicorn-g)"/>
+    </g>
+    <path class="unicorn-h" d="M46 8l1.4 3.2L51 12.6l-3.6 1.4L46 17.6l-1.4-3.6L41 12.6l3.6-1.4Z" fill="#fff"/>
+    <path class="unicorn-h unicorn-h2" d="M53 25l1 2.4 2.4 1-2.4 1-1 2.4-1-2.4-2.4-1 2.4-1Z" fill="#ffe6a8"/>
+    <path class="unicorn-h unicorn-h3" d="M10 16l1 2.3 2.3 1-2.3 1-1 2.3-1-2.3L6.7 19.3l2.3-1Z" fill="#ffd6f5"/>
+    <g mask="url(#unicorn-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#unicorn-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#unicorn-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#unicorn-x-rim)"/>
+      <rect class="unicorn-x-shine" x="0" y="-16" width="26" height="96" fill="url(#unicorn-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="unicorn-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="unicorn-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="unicorn-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="unicorn-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

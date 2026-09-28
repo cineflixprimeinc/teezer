@@ -1,0 +1,56 @@
+{
+  "_admin_api_path": "/apisix/admin/routes/teezer-knowledge",
+  "_comment": "Wikipedia knowledge cards - the first route served by the Go backend rather than Laravel. Kept as its own route (not folded into teezer-public) precisely because it has a different upstream: if the Go service is down, only this route's health check fails and only the knowledge card disappears, while every Laravel route carries on. Priority is above teezer-public so the more specific /api/v1/knowledge path wins over that route's broader patterns.",
+  "name": "teezer-knowledge",
+  "desc": "Wikipedia knowledge card - Go upstream, heavily cached",
+  "uris": [
+    "/api/v1/knowledge"
+  ],
+  "priority": 8,
+  "methods": [
+    "GET",
+    "OPTIONS"
+  ],
+  "upstream_id": "teezer-go",
+  "plugins": {
+    "cors": {
+      "allow_origins": "${APISIX_CORS_ORIGINS}",
+      "allow_origins_by_regex": [
+        "^https://([a-z0-9-]+\\.)?teezer\\.live$"
+      ],
+      "allow_methods": "GET,OPTIONS",
+      "allow_headers": "Accept,Accept-Encoding,Accept-Language,Content-Language,Content-Type,Authorization,X-Requested-With,X-CSRF-TOKEN,X-XSRF-TOKEN,X-Socket-Id,X-Turnstile-Token,X-Request-Id,X-Reelsoo-SSO-CSRF,X-Playout-Limit,X-Restrict,X-Request-URL,X-Device-Fingerprint,X-Device-Id,X-Device-Type,X-Fingerprint,X-App-Version,X-Platform,X-Timezone,X-Client,X-Locale,X-Session-Id,Cache-Control,Pragma,If-Modified-Since,If-None-Match,Range,DNT",
+      "expose_headers": "X-RateLimit-Limit,X-RateLimit-Remaining,X-Request-Id,Retry-After,Content-Length,Content-Range",
+      "allow_credential": true,
+      "max_age": 86400
+    },
+    "real-ip": {
+      "source": "http_x_forwarded_for",
+      "trusted_addresses": [
+        "127.0.0.1/32"
+      ],
+      "recursive": true
+    },
+    "limit-count": {
+      "_comment": "Edge ceiling, deliberately above the Go handler's own 30/min per IP so the application limit is the one that normally applies and returns a useful JSON body. This exists to shed a flood before it reaches the process at all.",
+      "count": ${RL_KNOWLEDGE_COUNT},
+      "time_window": ${RL_KNOWLEDGE_WINDOW},
+      "key_type": "var",
+      "key": "remote_addr",
+      "rejected_code": 429,
+      "rejected_msg": "Too many requests. Please slow down and try again shortly.",
+      "policy": "redis",
+      "redis_host": "${RATELIMIT_REDIS_HOST}",
+      "redis_port": ${RATELIMIT_REDIS_PORT},
+      "redis_database": ${RATELIMIT_REDIS_DATABASE},
+      "redis_timeout": ${RATELIMIT_REDIS_TIMEOUT},
+      "allow_degradation": true,
+      "show_limit_quota_header": false
+    },
+    "request-id": {
+      "include_in_response": true
+    },
+    "prometheus": {},
+    "gzip": {}
+  }
+}

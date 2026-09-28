@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes cherry-blossom-sway{0%,100%{transform:rotate(-7deg) translateY(1px)}50%{transform:rotate(7deg) translateY(-2px)}}
+    @keyframes cherry-blossom-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:.9;transform:scale(1)}}
+    .cherry-blossom-body{transform-box:fill-box;transform-origin:center;animation:cherry-blossom-sway 2.8s ease-in-out infinite}
+    .cherry-blossom-s{transform-box:fill-box;transform-origin:center;animation:cherry-blossom-tw 2.4s ease-in-out infinite}
+    .cherry-blossom-s2{animation-delay:1.2s}
+    @keyframes cherry-blossom-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes cherry-blossom-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes cherry-blossom-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes cherry-blossom-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes cherry-blossom-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .cherry-blossom-x-lift{transform-box:fill-box;transform-origin:center;animation:cherry-blossom-x-lift 3.4s ease-in-out infinite}
+    .cherry-blossom-x-shine{animation:cherry-blossom-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .cherry-blossom-x-spark{transform-box:fill-box;transform-origin:center;animation:cherry-blossom-x-spark 2.2s ease-in-out infinite}
+    .cherry-blossom-x-aura{transform-box:fill-box;transform-origin:center;animation:cherry-blossom-x-aura 3s ease-in-out infinite}
+    .cherry-blossom-x-cast{transform-box:fill-box;transform-origin:center;animation:cherry-blossom-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.cherry-blossom-x-lift,.cherry-blossom-x-shine,.cherry-blossom-x-spark,.cherry-blossom-x-aura,.cherry-blossom-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="cherry-blossom-g" x1="16" y1="12" x2="48" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff0f6"/><stop offset=".5" stop-color="#ffaed0"/><stop offset="1" stop-color="#f06fa8"/>
+    </linearGradient>
+    <linearGradient id="cherry-blossom-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cherry-blossom-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="cherry-blossom-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cherry-blossom-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="cherry-blossom-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="cherry-blossom-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="cherry-blossom-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#cherry-blossom-x-white)">
+        <g class="cherry-blossom-body">
+        <g fill="url(#cherry-blossom-g)" stroke="#e2649c" stroke-width="1.6" stroke-linejoin="round">
+        <path d="M32 6c5 0 9 4 9 9 0 5-4 8-9 12-5-4-9-7-9-12 0-5 4-9 9-9Z"/>
+        <path d="M58 25c1.5 4.7-.9 9.8-5.6 11.3-4.7 1.5-8.5-.7-13.6-3.9 1.3-6 2.4-10.2 7-11.7 4.7-1.6 10.7-.4 12.2 4.3Z"/>
+        <path d="M48 56c-4 2.9-9.6 2-12.5-2-2.9-4-2.4-8.3-1.4-14.3 6-.9 10.3-1.5 13.2 2.5 2.9 4 4.7 10.9.7 13.8Z"/>
+        <path d="M16 56c-4-2.9-2.2-9.8.7-13.8 2.9-4 7.2-3.4 13.2-2.5 1 6 1.5 10.3-1.4 14.3-2.9 4-8.5 4.9-12.5 2Z"/>
+        <path d="M6 25c1.5-4.7 7.5-5.9 12.2-4.3 4.6 1.5 5.7 5.7 7 11.7-5.1 3.2-8.9 5.4-13.6 3.9C6.9 34.8 4.5 29.7 6 25Z"/>
+        </g>
+        <path d="M25 13c-2 2-3 4-3 7" stroke="#fff" stroke-opacity=".7" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <path d="M40 49c3-2 5-5 5-8" stroke="#c94d84" stroke-opacity=".35" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <circle cx="32" cy="32" r="6" fill="#ffd868"/>
+        <circle cx="30" cy="30" r="2.2" fill="#fff3c4"/>
+        <circle cx="35" cy="34" r="1.6" fill="#e8a92c"/>
+        </g>
+        <circle class="cherry-blossom-s" cx="55" cy="12" r="1.8" fill="#fff"/>
+        <circle class="cherry-blossom-s cherry-blossom-s2" cx="9" cy="50" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="cherry-blossom-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#cherry-blossom-x-cast-g)"/>
+  <g class="cherry-blossom-x-lift">
+    <g class="cherry-blossom-body">
+    <g fill="url(#cherry-blossom-g)" stroke="#e2649c" stroke-width="1.6" stroke-linejoin="round">
+    <path d="M32 6c5 0 9 4 9 9 0 5-4 8-9 12-5-4-9-7-9-12 0-5 4-9 9-9Z"/>
+    <path d="M58 25c1.5 4.7-.9 9.8-5.6 11.3-4.7 1.5-8.5-.7-13.6-3.9 1.3-6 2.4-10.2 7-11.7 4.7-1.6 10.7-.4 12.2 4.3Z"/>
+    <path d="M48 56c-4 2.9-9.6 2-12.5-2-2.9-4-2.4-8.3-1.4-14.3 6-.9 10.3-1.5 13.2 2.5 2.9 4 4.7 10.9.7 13.8Z"/>
+    <path d="M16 56c-4-2.9-2.2-9.8.7-13.8 2.9-4 7.2-3.4 13.2-2.5 1 6 1.5 10.3-1.4 14.3-2.9 4-8.5 4.9-12.5 2Z"/>
+    <path d="M6 25c1.5-4.7 7.5-5.9 12.2-4.3 4.6 1.5 5.7 5.7 7 11.7-5.1 3.2-8.9 5.4-13.6 3.9C6.9 34.8 4.5 29.7 6 25Z"/>
+    </g>
+    <path d="M25 13c-2 2-3 4-3 7" stroke="#fff" stroke-opacity=".7" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <path d="M40 49c3-2 5-5 5-8" stroke="#c94d84" stroke-opacity=".35" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="32" cy="32" r="6" fill="#ffd868"/>
+    <circle cx="30" cy="30" r="2.2" fill="#fff3c4"/>
+    <circle cx="35" cy="34" r="1.6" fill="#e8a92c"/>
+    </g>
+    <circle class="cherry-blossom-s" cx="55" cy="12" r="1.8" fill="#fff"/>
+    <circle class="cherry-blossom-s cherry-blossom-s2" cx="9" cy="50" r="1.5" fill="#fff"/>
+    <g mask="url(#cherry-blossom-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#cherry-blossom-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#cherry-blossom-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#cherry-blossom-x-rim)"/>
+      <rect class="cherry-blossom-x-shine" x="0" y="-16" width="26" height="96" fill="url(#cherry-blossom-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

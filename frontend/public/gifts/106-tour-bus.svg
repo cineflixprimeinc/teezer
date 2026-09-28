@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes tour-bus-hop{0%,100%{transform:translateY(0) scaleY(1)}20%{transform:translateY(1.4px) scaleY(.95)}52%{transform:translateY(-3.4px) scaleY(1.04)}}
+    @keyframes tour-bus-roll{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes tour-bus-lamp{0%,100%{opacity:.4}50%{opacity:1}}
+    @keyframes tour-bus-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .tour-bus-body{transform-box:fill-box;transform-origin:center bottom;animation:tour-bus-hop 1.9s ease-in-out infinite}
+    .tour-bus-w{transform-box:fill-box;transform-origin:center;animation:tour-bus-roll 1.9s linear infinite}
+    .tour-bus-l{animation:tour-bus-lamp 1.5s ease-in-out infinite}
+    .tour-bus-l2{animation-delay:.5s}
+    .tour-bus-s{transform-box:fill-box;transform-origin:center;animation:tour-bus-tw 2.2s ease-in-out infinite}
+    .tour-bus-s2{animation-delay:.75s}.tour-bus-s3{animation-delay:1.5s}
+    @keyframes tour-bus-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes tour-bus-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes tour-bus-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes tour-bus-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes tour-bus-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .tour-bus-x-lift{transform-box:fill-box;transform-origin:center;animation:tour-bus-x-lift 3.4s ease-in-out infinite}
+    .tour-bus-x-shine{animation:tour-bus-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .tour-bus-x-spark{transform-box:fill-box;transform-origin:center;animation:tour-bus-x-spark 2.2s ease-in-out infinite}
+    .tour-bus-x-aura{transform-box:fill-box;transform-origin:center;animation:tour-bus-x-aura 3s ease-in-out infinite}
+    .tour-bus-x-cast{transform-box:fill-box;transform-origin:center;animation:tour-bus-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.tour-bus-x-lift,.tour-bus-x-shine,.tour-bus-x-spark,.tour-bus-x-aura,.tour-bus-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="tour-bus-g" x1="6" y1="16" x2="56" y2="48" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffd0e6"/><stop offset=".45" stop-color="#e0479a"/><stop offset="1" stop-color="#8d1b60"/>
+    </linearGradient>
+    <linearGradient id="tour-bus-gg" x1="10" y1="20" x2="52" y2="30" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#dff6ff"/><stop offset="1" stop-color="#5fb3e0"/>
+    </linearGradient>
+    <filter id="tour-bus-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="tour-bus-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="tour-bus-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="tour-bus-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="tour-bus-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="tour-bus-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="tour-bus-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="tour-bus-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="tour-bus-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#tour-bus-x-white)">
+        <g class="tour-bus-body" filter="url(#tour-bus-f)">
+        <rect x="14" y="10" width="36" height="3" rx="1.5" fill="#c22d7d"/>
+        <rect x="6" y="13" width="52" height="34" rx="7" fill="url(#tour-bus-g)"/>
+        <rect x="10" y="18" width="44" height="10" rx="3" fill="url(#tour-bus-gg)"/>
+        <rect x="22.5" y="18" width="2.5" height="10" fill="#e88ec0" opacity=".8"/>
+        <rect x="38" y="18" width="2.5" height="10" fill="#e88ec0" opacity=".8"/>
+        <rect x="10" y="32" width="44" height="6" rx="3" fill="#fff" opacity=".28"/>
+        <rect x="6" y="39" width="52" height="8" rx="5" fill="#7a1153" opacity=".45"/>
+        <rect x="12" y="41" width="6" height="4" rx="2" fill="#ffe27a" class="tour-bus-l"/>
+        <rect x="46" y="41" width="6" height="4" rx="2" fill="#ffe27a" class="tour-bus-l tour-bus-l2"/>
+        <path d="M9 19c2-2 5-3 8-3.4" stroke="#fff" stroke-opacity=".6" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <g class="tour-bus-w"><circle cx="18" cy="49" r="6" fill="#2c3242"/><circle cx="18" cy="49" r="2.6" fill="#d8dfe9"/><rect x="17" y="44.5" width="2" height="9" rx="1" fill="#8f98a8"/></g>
+        <g class="tour-bus-w"><circle cx="46" cy="49" r="6" fill="#2c3242"/><circle cx="46" cy="49" r="2.6" fill="#d8dfe9"/><rect x="45" y="44.5" width="2" height="9" rx="1" fill="#8f98a8"/></g>
+        </g>
+        <circle class="tour-bus-s" cx="56" cy="9" r="2.1" fill="#fff"/>
+        <circle class="tour-bus-s tour-bus-s2" cx="8" cy="8" r="1.7" fill="#fff"/>
+        <circle class="tour-bus-s tour-bus-s3" cx="59" cy="56" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="tour-bus-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#tour-bus-x-cast-g)"/>
+  <circle class="tour-bus-x-aura" cx="32" cy="32" r="29" fill="url(#tour-bus-x-aura-g)"/>
+  <g class="tour-bus-x-lift">
+    <g class="tour-bus-body" filter="url(#tour-bus-f)">
+    <rect x="14" y="10" width="36" height="3" rx="1.5" fill="#c22d7d"/>
+    <rect x="6" y="13" width="52" height="34" rx="7" fill="url(#tour-bus-g)"/>
+    <rect x="10" y="18" width="44" height="10" rx="3" fill="url(#tour-bus-gg)"/>
+    <rect x="22.5" y="18" width="2.5" height="10" fill="#e88ec0" opacity=".8"/>
+    <rect x="38" y="18" width="2.5" height="10" fill="#e88ec0" opacity=".8"/>
+    <rect x="10" y="32" width="44" height="6" rx="3" fill="#fff" opacity=".28"/>
+    <rect x="6" y="39" width="52" height="8" rx="5" fill="#7a1153" opacity=".45"/>
+    <rect x="12" y="41" width="6" height="4" rx="2" fill="#ffe27a" class="tour-bus-l"/>
+    <rect x="46" y="41" width="6" height="4" rx="2" fill="#ffe27a" class="tour-bus-l tour-bus-l2"/>
+    <path d="M9 19c2-2 5-3 8-3.4" stroke="#fff" stroke-opacity=".6" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <g class="tour-bus-w"><circle cx="18" cy="49" r="6" fill="#2c3242"/><circle cx="18" cy="49" r="2.6" fill="#d8dfe9"/><rect x="17" y="44.5" width="2" height="9" rx="1" fill="#8f98a8"/></g>
+    <g class="tour-bus-w"><circle cx="46" cy="49" r="6" fill="#2c3242"/><circle cx="46" cy="49" r="2.6" fill="#d8dfe9"/><rect x="45" y="44.5" width="2" height="9" rx="1" fill="#8f98a8"/></g>
+    </g>
+    <circle class="tour-bus-s" cx="56" cy="9" r="2.1" fill="#fff"/>
+    <circle class="tour-bus-s tour-bus-s2" cx="8" cy="8" r="1.7" fill="#fff"/>
+    <circle class="tour-bus-s tour-bus-s3" cx="59" cy="56" r="1.5" fill="#fff"/>
+    <g mask="url(#tour-bus-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#tour-bus-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#tour-bus-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#tour-bus-x-rim)"/>
+      <rect class="tour-bus-x-shine" x="0" y="-16" width="26" height="96" fill="url(#tour-bus-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="tour-bus-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="tour-bus-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="tour-bus-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

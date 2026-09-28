@@ -1,0 +1,44 @@
+# livekit-egress - handles StreamHubService::startRecording()/stopRecording().
+#
+# Docker here, unlike livekit-server's bare-systemd install: room-composite
+# egress (what Spaces recording uses - see StreamHubService's doc comment on
+# why room-composite, not the lighter track-composite, is required) runs
+# through a headless-Chrome compositor internally even for audio-only output.
+# Chrome's dependency chain (fonts, GTK libs, sandboxing flags) is exactly the
+# kind of fragile bare-Linux install this repo's own deploy conventions
+# already treat Docker as the pragmatic answer for (see deploy/nats,
+# deploy/centrifugo) - the official image bundles a known-working Chrome, so
+# this is the ONE piece of the LiveKit stack that goes through Docker while
+# livekit-server itself stays a plain systemd binary.
+#
+#   docker compose -f docker-compose.egress.yml up -d
+#
+# Compose project name (networks/volumes are prefixed with it).
+name: teezer-livekit
+
+services:
+  egress:
+    image: livekit/egress:latest
+    container_name: teezer-livekit-egress
+    restart: unless-stopped
+    # Host networking so Egress reaches livekit-server (127.0.0.1:7880) and
+    # the dedicated Redis (127.0.0.1:6400) the same way every other box-local
+    # process does - same posture as deploy/nats's docker-compose.yml.
+    network_mode: host
+    environment:
+      # Points Egress at the SAME Redis livekit-server uses to dispatch jobs -
+      # must match livekit.yaml.example's redis.address.
+      EGRESS_CONFIG_BODY: |
+        redis:
+          address: 127.0.0.1:6400
+        api_key: ${LIVEKIT_API_KEY}
+        api_secret: ${LIVEKIT_API_SECRET}
+        ws_url: ws://127.0.0.1:7880
+    cap_add:
+      # Chrome's sandbox needs this under Docker; standard for the official image.
+      - SYS_ADMIN
+    shm_size: 1gb
+
+# LIVEKIT_API_KEY / LIVEKIT_API_SECRET are read from a .env file next to this
+# compose file (docker compose auto-loads .env) - copy .env.livekit.example,
+# fill in the SAME key/secret pair as livekit.yaml's `keys` block, chmod 600.

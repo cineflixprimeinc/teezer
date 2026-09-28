@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes macaron-tower-sway{0%,100%{transform:rotate(-4.5deg) translateY(1px)}50%{transform:rotate(4.5deg) translateY(-2px)}}
+    @keyframes macaron-tower-top{0%,100%{transform:rotate(4deg)}50%{transform:rotate(-6deg)}}
+    @keyframes macaron-tower-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .macaron-tower-body{transform-box:fill-box;transform-origin:center bottom;animation:macaron-tower-sway 2.5s ease-in-out infinite}
+    .macaron-tower-t{transform-box:fill-box;transform-origin:center bottom;animation:macaron-tower-top 2.5s ease-in-out infinite}
+    .macaron-tower-s{transform-box:fill-box;transform-origin:center;animation:macaron-tower-tw 2.2s ease-in-out infinite}
+    .macaron-tower-s2{animation-delay:.75s}
+    .macaron-tower-s3{animation-delay:1.4s}
+    @keyframes macaron-tower-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes macaron-tower-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes macaron-tower-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes macaron-tower-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes macaron-tower-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .macaron-tower-x-lift{transform-box:fill-box;transform-origin:center;animation:macaron-tower-x-lift 3.4s ease-in-out infinite}
+    .macaron-tower-x-shine{animation:macaron-tower-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .macaron-tower-x-spark{transform-box:fill-box;transform-origin:center;animation:macaron-tower-x-spark 2.2s ease-in-out infinite}
+    .macaron-tower-x-aura{transform-box:fill-box;transform-origin:center;animation:macaron-tower-x-aura 3s ease-in-out infinite}
+    .macaron-tower-x-cast{transform-box:fill-box;transform-origin:center;animation:macaron-tower-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.macaron-tower-x-lift,.macaron-tower-x-shine,.macaron-tower-x-spark,.macaron-tower-x-aura,.macaron-tower-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="macaron-tower-gp" x1="10" y1="44" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffd0e4"/><stop offset=".5" stop-color="#ff8bbc"/><stop offset="1" stop-color="#d13d84"/>
+    </linearGradient>
+    <linearGradient id="macaron-tower-gg" x1="14" y1="32" x2="50" y2="42" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#d8f7c2"/><stop offset=".5" stop-color="#95dd6d"/><stop offset="1" stop-color="#4d9a2c"/>
+    </linearGradient>
+    <linearGradient id="macaron-tower-gy" x1="18" y1="20" x2="46" y2="30" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff3c2"/><stop offset=".5" stop-color="#ffd259"/><stop offset="1" stop-color="#dd9200"/>
+    </linearGradient>
+    <linearGradient id="macaron-tower-gv" x1="24" y1="10" x2="42" y2="18" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#e3d0ff"/><stop offset=".5" stop-color="#b285f5"/><stop offset="1" stop-color="#6f37cf"/>
+    </linearGradient>
+    <filter id="macaron-tower-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="macaron-tower-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="macaron-tower-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="macaron-tower-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="macaron-tower-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="macaron-tower-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="macaron-tower-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="macaron-tower-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="macaron-tower-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#macaron-tower-x-white)">
+        <g class="macaron-tower-body" filter="url(#macaron-tower-f)">
+        <g>
+        <rect x="10" y="43" width="44" height="8" rx="4" fill="url(#macaron-tower-gp)"/>
+        <rect x="12" y="50" width="40" height="7" rx="3.5" fill="url(#macaron-tower-gp)"/>
+        <rect x="11" y="49" width="42" height="3" rx="1.5" fill="#fff6ea"/>
+        <path d="M14 45.5h9" stroke="#fff" stroke-opacity=".55" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M13 55.5h38" stroke="#a02a63" stroke-opacity=".4" stroke-width="2.4" stroke-linecap="round"/>
+        </g>
+        <g>
+        <rect x="15" y="31" width="34" height="7" rx="3.5" fill="url(#macaron-tower-gg)"/>
+        <rect x="16" y="37" width="32" height="6.5" rx="3.2" fill="url(#macaron-tower-gg)"/>
+        <rect x="15.5" y="36.5" width="33" height="2.8" rx="1.4" fill="#fff2c8"/>
+        <path d="M19 33.5h7" stroke="#fff" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>
+        <path d="M17 42h30" stroke="#33731a" stroke-opacity=".4" stroke-width="2.2" stroke-linecap="round"/>
+        </g>
+        <g>
+        <rect x="20" y="21" width="24" height="6.4" rx="3.2" fill="url(#macaron-tower-gy)"/>
+        <rect x="21" y="26.8" width="22" height="6" rx="3" fill="url(#macaron-tower-gy)"/>
+        <rect x="20.5" y="26.2" width="23" height="2.6" rx="1.3" fill="#ffe8f2"/>
+        <path d="M23.5 23.2h5" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/>
+        <path d="M22.5 31.5h19" stroke="#a86c00" stroke-opacity=".4" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        <g class="macaron-tower-t">
+        <rect x="25" y="11" width="14" height="5.6" rx="2.8" fill="url(#macaron-tower-gv)"/>
+        <rect x="25.6" y="16.4" width="12.8" height="5.2" rx="2.6" fill="url(#macaron-tower-gv)"/>
+        <rect x="24.8" y="15.6" width="14.4" height="2.4" rx="1.2" fill="#fff0d6"/>
+        <path d="M27.5 13h3.4" stroke="#fff" stroke-opacity=".6" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="32" cy="7.5" r="2.6" fill="#ffd85c"/>
+        </g>
+        </g>
+        <circle class="macaron-tower-s" cx="55" cy="18" r="2.1" fill="#fff"/>
+        <circle class="macaron-tower-s macaron-tower-s2" cx="9" cy="30" r="1.7" fill="#ffd6ea"/>
+        <circle class="macaron-tower-s macaron-tower-s3" cx="56" cy="36" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="macaron-tower-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#macaron-tower-x-cast-g)"/>
+  <circle class="macaron-tower-x-aura" cx="32" cy="32" r="29" fill="url(#macaron-tower-x-aura-g)"/>
+  <g class="macaron-tower-x-lift">
+    <g class="macaron-tower-body" filter="url(#macaron-tower-f)">
+    <g>
+    <rect x="10" y="43" width="44" height="8" rx="4" fill="url(#macaron-tower-gp)"/>
+    <rect x="12" y="50" width="40" height="7" rx="3.5" fill="url(#macaron-tower-gp)"/>
+    <rect x="11" y="49" width="42" height="3" rx="1.5" fill="#fff6ea"/>
+    <path d="M14 45.5h9" stroke="#fff" stroke-opacity=".55" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M13 55.5h38" stroke="#a02a63" stroke-opacity=".4" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+    <g>
+    <rect x="15" y="31" width="34" height="7" rx="3.5" fill="url(#macaron-tower-gg)"/>
+    <rect x="16" y="37" width="32" height="6.5" rx="3.2" fill="url(#macaron-tower-gg)"/>
+    <rect x="15.5" y="36.5" width="33" height="2.8" rx="1.4" fill="#fff2c8"/>
+    <path d="M19 33.5h7" stroke="#fff" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>
+    <path d="M17 42h30" stroke="#33731a" stroke-opacity=".4" stroke-width="2.2" stroke-linecap="round"/>
+    </g>
+    <g>
+    <rect x="20" y="21" width="24" height="6.4" rx="3.2" fill="url(#macaron-tower-gy)"/>
+    <rect x="21" y="26.8" width="22" height="6" rx="3" fill="url(#macaron-tower-gy)"/>
+    <rect x="20.5" y="26.2" width="23" height="2.6" rx="1.3" fill="#ffe8f2"/>
+    <path d="M23.5 23.2h5" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/>
+    <path d="M22.5 31.5h19" stroke="#a86c00" stroke-opacity=".4" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <g class="macaron-tower-t">
+    <rect x="25" y="11" width="14" height="5.6" rx="2.8" fill="url(#macaron-tower-gv)"/>
+    <rect x="25.6" y="16.4" width="12.8" height="5.2" rx="2.6" fill="url(#macaron-tower-gv)"/>
+    <rect x="24.8" y="15.6" width="14.4" height="2.4" rx="1.2" fill="#fff0d6"/>
+    <path d="M27.5 13h3.4" stroke="#fff" stroke-opacity=".6" stroke-width="1.8" stroke-linecap="round"/>
+    <circle cx="32" cy="7.5" r="2.6" fill="#ffd85c"/>
+    </g>
+    </g>
+    <circle class="macaron-tower-s" cx="55" cy="18" r="2.1" fill="#fff"/>
+    <circle class="macaron-tower-s macaron-tower-s2" cx="9" cy="30" r="1.7" fill="#ffd6ea"/>
+    <circle class="macaron-tower-s macaron-tower-s3" cx="56" cy="36" r="1.5" fill="#fff"/>
+    <g mask="url(#macaron-tower-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#macaron-tower-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#macaron-tower-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#macaron-tower-x-rim)"/>
+      <rect class="macaron-tower-x-shine" x="0" y="-16" width="26" height="96" fill="url(#macaron-tower-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="macaron-tower-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="macaron-tower-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="macaron-tower-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

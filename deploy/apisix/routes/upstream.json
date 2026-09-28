@@ -1,0 +1,22 @@
+{
+  "_admin_api_path": "/apisix/admin/upstreams/teezer-laravel",
+  "_comment": "The one Laravel monolith. Every route below shares this same upstream_id. type=roundrobin + an active health check is set up from day one even though there's a single node today, so adding a second instance later (e.g. once the Go backend takes real traffic) is a one-line 'nodes' edit, not a redesign.",
+
+  "type": "roundrobin",
+  "scheme": "http",
+  "pass_host": "pass",
+  "nodes": {
+    "${UPSTREAM_HOST}:${UPSTREAM_PORT}": 1
+  },
+  "checks": {
+    "active": {
+      "type": "http",
+      "http_path": "/up",
+      "timeout": 3,
+      "healthy": { "interval": 5, "successes": 2 },
+      "unhealthy": { "interval": 5, "http_failures": 3, "timeouts": 3 }
+    }
+  },
+  "retries": 2,
+  "timeout": { "connect": 5, "send": 30, "read": 60 }
+}

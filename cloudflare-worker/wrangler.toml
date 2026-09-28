@@ -1,0 +1,30 @@
+# LEGACY / UNUSED FOR TEEZER: Teezer is on the Cloudflare free plan and serves
+# media from the nginx signed-URL origin on cdn.teezer.live. Kept for reference
+# only; fill in the placeholders below before any deploy.
+name               = "teezer-media"
+main               = "src/index.js"
+compatibility_date = "2024-01-01"
+# TODO(teezer): the Teezer Cloudflare account id (Dashboard -> Workers & Pages -> Account ID).
+account_id         = "<TEEZER_CLOUDFLARE_ACCOUNT_ID>"
+
+routes = [
+  { pattern = "media.teezer.live/*", zone_name = "teezer.live" }
+]
+
+# No storage binding. Objects live in Backblaze B2, which has no Workers
+# binding, so the Worker signs an HTTPS request per object instead (SigV4, see
+# src/index.js). The former [[r2_buckets]] binding and the [[queues.consumers]]
+# block for reelsoo-transcoding are both gone with R2:
+#
+#   • the R2 bucket binding has no B2 equivalent
+#   • the queue was fed exclusively by R2 upload events, so it can never receive
+#     another message; transcoding is now dispatched by the API at
+#     completeUpload time instead
+#
+# Secrets (set via: npx wrangler secret put <NAME>)
+#   SIGNING_SECRET        - HMAC key for signed media URLs (matches MEDIA_SIGNING_SECRET on the API)
+#   B2_APPLICATION_KEY_ID - Backblaze application key id
+#   B2_APPLICATION_KEY    - Backblaze application key
+#   B2_BUCKET             - e.g. <TEEZER_B2_BUCKET>
+#   B2_ENDPOINT           - https://s3.<region>.backblazeb2.com
+#   B2_REGION             - optional; inferred from B2_ENDPOINT when omitted

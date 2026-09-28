@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes faberge-egg-glow{0%,100%{filter:drop-shadow(0 0 2px #b8770d) brightness(1)}50%{filter:drop-shadow(0 0 8px #f5b942) brightness(1.25)}}
+    @keyframes faberge-egg-sweep{0%{opacity:0;transform:translateX(-16px)}35%{opacity:.9}100%{opacity:0;transform:translateX(18px)}}
+    @keyframes faberge-egg-tw{0%,100%{opacity:.2;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    .faberge-egg-body{transform-box:fill-box;transform-origin:center;animation:faberge-egg-glow 2.5s ease-in-out infinite}
+    .faberge-egg-sh{transform-box:fill-box;transform-origin:center;animation:faberge-egg-sweep 2.2s ease-in-out infinite}
+    .faberge-egg-s{transform-box:fill-box;transform-origin:center;animation:faberge-egg-tw 1.9s ease-in-out infinite}
+    .faberge-egg-s2{animation-delay:.8s}.faberge-egg-s3{animation-delay:1.4s}
+    @keyframes faberge-egg-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes faberge-egg-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes faberge-egg-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes faberge-egg-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes faberge-egg-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .faberge-egg-x-lift{transform-box:fill-box;transform-origin:center;animation:faberge-egg-x-lift 3.4s ease-in-out infinite}
+    .faberge-egg-x-shine{animation:faberge-egg-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .faberge-egg-x-spark{transform-box:fill-box;transform-origin:center;animation:faberge-egg-x-spark 2.2s ease-in-out infinite}
+    .faberge-egg-x-aura{transform-box:fill-box;transform-origin:center;animation:faberge-egg-x-aura 3s ease-in-out infinite}
+    .faberge-egg-x-cast{transform-box:fill-box;transform-origin:center;animation:faberge-egg-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.faberge-egg-x-lift,.faberge-egg-x-shine,.faberge-egg-x-spark,.faberge-egg-x-aura,.faberge-egg-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="faberge-egg-g" cx=".35" cy=".28" r=".8">
+    <stop offset="0" stop-color="#fdf2ff"/><stop offset=".45" stop-color="#c084fc"/><stop offset="1" stop-color="#5b21b6"/>
+    </radialGradient>
+    <linearGradient id="faberge-egg-b" x1="14" y1="18" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff3c4"/><stop offset=".5" stop-color="#f5b942"/><stop offset="1" stop-color="#b8770d"/>
+    </linearGradient>
+    <filter id="faberge-egg-f" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="faberge-egg-c"><ellipse cx="32" cy="29" rx="16" ry="21"/></clipPath>
+    <radialGradient id="faberge-egg-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="faberge-egg-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="faberge-egg-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="faberge-egg-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="faberge-egg-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="faberge-egg-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="faberge-egg-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="faberge-egg-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#faberge-egg-x-white)">
+        <path d="M18 50h28l3 6a2 2 0 0 1-2 3H17a2 2 0 0 1-2-3Z" fill="url(#faberge-egg-b)"/>
+        <g class="faberge-egg-body" filter="url(#faberge-egg-f)">
+        <ellipse cx="32" cy="29" rx="16" ry="21" fill="url(#faberge-egg-g)"/>
+        <g clip-path="url(#faberge-egg-c)">
+        <path d="M16 29h32M32 8v42" stroke="url(#faberge-egg-b)" stroke-width="2.6"/>
+        <path d="M32 8c9 6 9 36 0 42M32 8c-9 6-9 36 0 42" fill="none" stroke="url(#faberge-egg-b)" stroke-width="2"/>
+        <rect class="faberge-egg-sh" x="16" y="4" width="7" height="52" fill="#fff" opacity=".7" transform="skewX(-18)"/>
+        </g>
+        <ellipse cx="32" cy="29" rx="16" ry="21" fill="none" stroke="url(#faberge-egg-b)" stroke-width="2.4"/>
+        <circle cx="32" cy="29" r="4.6" fill="url(#faberge-egg-b)"/>
+        <circle cx="32" cy="29" r="2" fill="#fffbe6"/>
+        <path d="M24 15c-3 3-4 6-4 10" stroke="#fff" stroke-opacity=".65" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+        <path d="M40 40c4-4 6-9 6-15 2 10-1 17-6 19Z" fill="#3b1178" opacity=".45"/>
+        </g>
+        <circle class="faberge-egg-s" cx="52" cy="14" r="2.2" fill="#fff"/>
+        <circle class="faberge-egg-s faberge-egg-s2" cx="11" cy="24" r="1.7" fill="#fff3c4"/>
+        <circle class="faberge-egg-s faberge-egg-s3" cx="51" cy="40" r="1.5" fill="#f5d0fe"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="faberge-egg-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#faberge-egg-x-cast-g)"/>
+  <circle class="faberge-egg-x-aura" cx="32" cy="32" r="29" fill="url(#faberge-egg-x-aura-g)"/>
+  <g class="faberge-egg-x-lift">
+    <path d="M18 50h28l3 6a2 2 0 0 1-2 3H17a2 2 0 0 1-2-3Z" fill="url(#faberge-egg-b)"/>
+    <g class="faberge-egg-body" filter="url(#faberge-egg-f)">
+    <ellipse cx="32" cy="29" rx="16" ry="21" fill="url(#faberge-egg-g)"/>
+    <g clip-path="url(#faberge-egg-c)">
+    <path d="M16 29h32M32 8v42" stroke="url(#faberge-egg-b)" stroke-width="2.6"/>
+    <path d="M32 8c9 6 9 36 0 42M32 8c-9 6-9 36 0 42" fill="none" stroke="url(#faberge-egg-b)" stroke-width="2"/>
+    <rect class="faberge-egg-sh" x="16" y="4" width="7" height="52" fill="#fff" opacity=".7" transform="skewX(-18)"/>
+    </g>
+    <ellipse cx="32" cy="29" rx="16" ry="21" fill="none" stroke="url(#faberge-egg-b)" stroke-width="2.4"/>
+    <circle cx="32" cy="29" r="4.6" fill="url(#faberge-egg-b)"/>
+    <circle cx="32" cy="29" r="2" fill="#fffbe6"/>
+    <path d="M24 15c-3 3-4 6-4 10" stroke="#fff" stroke-opacity=".65" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+    <path d="M40 40c4-4 6-9 6-15 2 10-1 17-6 19Z" fill="#3b1178" opacity=".45"/>
+    </g>
+    <circle class="faberge-egg-s" cx="52" cy="14" r="2.2" fill="#fff"/>
+    <circle class="faberge-egg-s faberge-egg-s2" cx="11" cy="24" r="1.7" fill="#fff3c4"/>
+    <circle class="faberge-egg-s faberge-egg-s3" cx="51" cy="40" r="1.5" fill="#f5d0fe"/>
+    <g mask="url(#faberge-egg-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#faberge-egg-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#faberge-egg-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#faberge-egg-x-rim)"/>
+      <rect class="faberge-egg-x-shine" x="0" y="-16" width="26" height="96" fill="url(#faberge-egg-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="faberge-egg-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="faberge-egg-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="faberge-egg-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="faberge-egg-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

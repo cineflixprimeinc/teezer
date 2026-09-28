@@ -1,0 +1,55 @@
+# ClickHouse - Teezer analytics / event store.
+#
+# Owns the append-only analytical history (video_events, video_views,
+# video_watch_events) and the rollups the Studio + Admin dashboards read.
+# Postgres remains the source of truth for everything transactional:
+# denormalized counters (videos.views_count), profile_views, and every table
+# a request needs to read back immediately after writing it.
+#
+# Secrets come from a local .env (copy .env.clickhouse.example → .env and fill in).
+# NEVER commit real secrets.
+#
+#   docker compose --env-file .env up -d
+#
+# Schema is applied from ./schema/ - files in /docker-entrypoint-initdb.d run
+# ONCE, on first boot against an empty data volume. For an existing instance,
+# apply changes with deploy/clickhouse/apply-schema.sh instead.
+# Compose project name (networks/volumes are prefixed with it).
+name: teezer-clickhouse
+
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server:24.8
+    container_name: teezer-clickhouse
+    restart: unless-stopped
+    environment:
+      CLICKHOUSE_DB: ${CLICKHOUSE_DB:-reelsoo}
+      CLICKHOUSE_USER: ${CLICKHOUSE_USER:-teezer}
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:?set CLICKHOUSE_PASSWORD in .env}
+      # Make the app user a plain user, not an admin - it only ever needs to
+      # INSERT into events and SELECT from the rollups.
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 0
+    volumes:
+      - clickhouse-data:/var/lib/clickhouse
+      - clickhouse-logs:/var/log/clickhouse-server
+      - ./schema:/docker-entrypoint-initdb.d:ro
+      - ./config/low-mem.xml:/etc/clickhouse-server/config.d/low-mem.xml:ro
+    ports:
+      # 8123 = HTTP, 9000 = native protocol (what the Go driver uses).
+      # Bind to loopback only. Cross-VPS access goes over the private network
+      # or a WireGuard tunnel - NEVER expose 9000 to the public internet.
+      - "127.0.0.1:8123:8123"
+      - "127.0.0.1:9000:9000"
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    healthcheck:
+      test: ["CMD", "clickhouse-client", "--query", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  clickhouse-data:
+  clickhouse-logs:

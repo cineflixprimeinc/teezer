@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes octopus-sway{0%,100%{transform:rotate(-5deg) translateY(1px)}50%{transform:rotate(5deg) translateY(-2px)}}
+    @keyframes octopus-leg{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+    .octopus-b{transform-box:fill-box;transform-origin:center;animation:octopus-sway 2.8s ease-in-out infinite}
+    .octopus-l{transform-box:fill-box;transform-origin:center top;animation:octopus-leg 1.5s ease-in-out infinite}
+    .octopus-l2{animation-delay:.5s}
+    @keyframes octopus-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes octopus-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes octopus-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes octopus-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes octopus-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .octopus-x-lift{transform-box:fill-box;transform-origin:center;animation:octopus-x-lift 3.4s ease-in-out infinite}
+    .octopus-x-shine{animation:octopus-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .octopus-x-spark{transform-box:fill-box;transform-origin:center;animation:octopus-x-spark 2.2s ease-in-out infinite}
+    .octopus-x-aura{transform-box:fill-box;transform-origin:center;animation:octopus-x-aura 3s ease-in-out infinite}
+    .octopus-x-cast{transform-box:fill-box;transform-origin:center;animation:octopus-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.octopus-x-lift,.octopus-x-shine,.octopus-x-spark,.octopus-x-aura,.octopus-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="octopus-g" x1="14" y1="8" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffc4e7"/><stop offset=".5" stop-color="#f472c0"/><stop offset="1" stop-color="#b53a89"/>
+    </linearGradient>
+    <linearGradient id="octopus-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="octopus-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="octopus-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="octopus-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="octopus-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="octopus-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="octopus-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#octopus-x-white)">
+        <g class="octopus-b">
+        <g class="octopus-l">
+        <path d="M18 38c-4 5-7 9-6 14 0 3 4 3 5 0 1-4 2-8 4-11Z" fill="url(#octopus-g)"/>
+        <path d="M27 40c-2 6-3 11-2 15 1 3 4 2 4-1 0-4 0-9 1-13Z" fill="url(#octopus-g)"/>
+        </g>
+        <g class="octopus-l octopus-l2">
+        <path d="M37 40c2 6 3 11 2 15-1 3-4 2-4-1 0-4 0-9-1-13Z" fill="url(#octopus-g)"/>
+        <path d="M46 38c4 5 7 9 6 14 0 3-4 3-5 0-1-4-2-8-4-11Z" fill="url(#octopus-g)"/>
+        </g>
+        <path d="M32 8c11 0 18 8 18 19 0 8-4 14-18 14S14 35 14 27C14 16 21 8 32 8Z" fill="url(#octopus-g)"/>
+        <path d="M23 15c-4 3-6 7-6 12" stroke="#fff" stroke-opacity=".5" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+        <path d="M50 28c-1 8-8 13-18 13 14 3 19-3 18-13Z" fill="#962b71" opacity=".4"/>
+        <circle cx="25" cy="26" r="3.2" fill="#3d1233"/><circle cx="23.9" cy="24.9" r="1.25" fill="#fff"/>
+        <circle cx="39" cy="26" r="3.2" fill="#3d1233"/><circle cx="37.9" cy="24.9" r="1.25" fill="#fff"/>
+        <ellipse cx="32" cy="34" rx="3.6" ry="2.8" fill="#8e2560"/>
+        <ellipse cx="18" cy="33" rx="3.2" ry="2.2" fill="#ff6f9c" opacity=".65"/>
+        <ellipse cx="46" cy="33" rx="3.2" ry="2.2" fill="#ff6f9c" opacity=".65"/>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="octopus-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#octopus-x-cast-g)"/>
+  <g class="octopus-x-lift">
+    <g class="octopus-b">
+    <g class="octopus-l">
+    <path d="M18 38c-4 5-7 9-6 14 0 3 4 3 5 0 1-4 2-8 4-11Z" fill="url(#octopus-g)"/>
+    <path d="M27 40c-2 6-3 11-2 15 1 3 4 2 4-1 0-4 0-9 1-13Z" fill="url(#octopus-g)"/>
+    </g>
+    <g class="octopus-l octopus-l2">
+    <path d="M37 40c2 6 3 11 2 15-1 3-4 2-4-1 0-4 0-9-1-13Z" fill="url(#octopus-g)"/>
+    <path d="M46 38c4 5 7 9 6 14 0 3-4 3-5 0-1-4-2-8-4-11Z" fill="url(#octopus-g)"/>
+    </g>
+    <path d="M32 8c11 0 18 8 18 19 0 8-4 14-18 14S14 35 14 27C14 16 21 8 32 8Z" fill="url(#octopus-g)"/>
+    <path d="M23 15c-4 3-6 7-6 12" stroke="#fff" stroke-opacity=".5" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+    <path d="M50 28c-1 8-8 13-18 13 14 3 19-3 18-13Z" fill="#962b71" opacity=".4"/>
+    <circle cx="25" cy="26" r="3.2" fill="#3d1233"/><circle cx="23.9" cy="24.9" r="1.25" fill="#fff"/>
+    <circle cx="39" cy="26" r="3.2" fill="#3d1233"/><circle cx="37.9" cy="24.9" r="1.25" fill="#fff"/>
+    <ellipse cx="32" cy="34" rx="3.6" ry="2.8" fill="#8e2560"/>
+    <ellipse cx="18" cy="33" rx="3.2" ry="2.2" fill="#ff6f9c" opacity=".65"/>
+    <ellipse cx="46" cy="33" rx="3.2" ry="2.2" fill="#ff6f9c" opacity=".65"/>
+    </g>
+    <g mask="url(#octopus-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#octopus-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#octopus-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#octopus-x-rim)"/>
+      <rect class="octopus-x-shine" x="0" y="-16" width="26" height="96" fill="url(#octopus-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

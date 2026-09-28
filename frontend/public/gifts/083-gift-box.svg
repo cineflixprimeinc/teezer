@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes gift-box-wig{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+    @keyframes gift-box-bow{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+    @keyframes gift-box-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .gift-box-body{transform-box:fill-box;transform-origin:center bottom;animation:gift-box-wig 2s ease-in-out infinite}
+    .gift-box-bw{transform-box:fill-box;transform-origin:center;animation:gift-box-bow 2s ease-in-out infinite}
+    .gift-box-s{transform-box:fill-box;transform-origin:center;animation:gift-box-tw 2.3s ease-in-out infinite}
+    .gift-box-s2{animation-delay:.8s}
+    .gift-box-s3{animation-delay:1.5s}
+    @keyframes gift-box-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes gift-box-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes gift-box-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes gift-box-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes gift-box-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .gift-box-x-lift{transform-box:fill-box;transform-origin:center;animation:gift-box-x-lift 3.4s ease-in-out infinite}
+    .gift-box-x-shine{animation:gift-box-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .gift-box-x-spark{transform-box:fill-box;transform-origin:center;animation:gift-box-x-spark 2.2s ease-in-out infinite}
+    .gift-box-x-aura{transform-box:fill-box;transform-origin:center;animation:gift-box-x-aura 3s ease-in-out infinite}
+    .gift-box-x-cast{transform-box:fill-box;transform-origin:center;animation:gift-box-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.gift-box-x-lift,.gift-box-x-shine,.gift-box-x-spark,.gift-box-x-aura,.gift-box-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="gift-box-g" x1="12" y1="28" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#a06bff"/><stop offset=".55" stop-color="#7534e8"/><stop offset="1" stop-color="#4a13a8"/>
+    </linearGradient>
+    <linearGradient id="gift-box-gl" x1="10" y1="20" x2="54" y2="34" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#c79bff"/><stop offset="1" stop-color="#8b4bf0"/>
+    </linearGradient>
+    <linearGradient id="gift-box-gr" x1="20" y1="8" x2="46" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffe27a"/><stop offset=".5" stop-color="#ffbe1f"/><stop offset="1" stop-color="#e08a00"/>
+    </linearGradient>
+    <filter id="gift-box-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="gift-box-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="gift-box-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gift-box-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="gift-box-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gift-box-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="gift-box-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gift-box-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="gift-box-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#gift-box-x-white)">
+        <g class="gift-box-body" filter="url(#gift-box-f)">
+        <rect x="12" y="29" width="40" height="27" rx="4" fill="url(#gift-box-g)"/>
+        <path d="M12 48h40v4a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4v-4Z" fill="#3a0d88" opacity=".45"/>
+        <rect x="9" y="20" width="46" height="12" rx="3.5" fill="url(#gift-box-gl)"/>
+        <rect x="27" y="20" width="10" height="36" fill="url(#gift-box-gr)"/>
+        <path d="M13 22.5h10" stroke="#fff" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M16 34v14" stroke="#fff" stroke-opacity=".2" stroke-width="2.4" stroke-linecap="round"/>
+        <g class="gift-box-bw">
+        <path d="M32 20c-6 0-11-2-11-6.5S25 7 28 9c2.5 1.6 4 5 4 11Z" fill="url(#gift-box-gr)"/>
+        <path d="M32 20c6 0 11-2 11-6.5S39 7 36 9c-2.5 1.6-4 5-4 11Z" fill="url(#gift-box-gr)"/>
+        <circle cx="32" cy="18" r="3.6" fill="#ffd85c"/>
+        <path d="M25.5 10.5c-1.6.6-2.6 1.8-2.6 3.2" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </g>
+        </g>
+        <circle class="gift-box-s" cx="56" cy="14" r="2.2" fill="#fff"/>
+        <circle class="gift-box-s gift-box-s2" cx="7" cy="40" r="1.7" fill="#ffe6a1"/>
+        <circle class="gift-box-s gift-box-s3" cx="55" cy="44" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="gift-box-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#gift-box-x-cast-g)"/>
+  <circle class="gift-box-x-aura" cx="32" cy="32" r="29" fill="url(#gift-box-x-aura-g)"/>
+  <g class="gift-box-x-lift">
+    <g class="gift-box-body" filter="url(#gift-box-f)">
+    <rect x="12" y="29" width="40" height="27" rx="4" fill="url(#gift-box-g)"/>
+    <path d="M12 48h40v4a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4v-4Z" fill="#3a0d88" opacity=".45"/>
+    <rect x="9" y="20" width="46" height="12" rx="3.5" fill="url(#gift-box-gl)"/>
+    <rect x="27" y="20" width="10" height="36" fill="url(#gift-box-gr)"/>
+    <path d="M13 22.5h10" stroke="#fff" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M16 34v14" stroke="#fff" stroke-opacity=".2" stroke-width="2.4" stroke-linecap="round"/>
+    <g class="gift-box-bw">
+    <path d="M32 20c-6 0-11-2-11-6.5S25 7 28 9c2.5 1.6 4 5 4 11Z" fill="url(#gift-box-gr)"/>
+    <path d="M32 20c6 0 11-2 11-6.5S39 7 36 9c-2.5 1.6-4 5-4 11Z" fill="url(#gift-box-gr)"/>
+    <circle cx="32" cy="18" r="3.6" fill="#ffd85c"/>
+    <path d="M25.5 10.5c-1.6.6-2.6 1.8-2.6 3.2" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" fill="none"/>
+    </g>
+    </g>
+    <circle class="gift-box-s" cx="56" cy="14" r="2.2" fill="#fff"/>
+    <circle class="gift-box-s gift-box-s2" cx="7" cy="40" r="1.7" fill="#ffe6a1"/>
+    <circle class="gift-box-s gift-box-s3" cx="55" cy="44" r="1.5" fill="#fff"/>
+    <g mask="url(#gift-box-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#gift-box-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#gift-box-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#gift-box-x-rim)"/>
+      <rect class="gift-box-x-shine" x="0" y="-16" width="26" height="96" fill="url(#gift-box-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="gift-box-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="gift-box-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="gift-box-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

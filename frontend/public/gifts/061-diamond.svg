@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes diamond-sweep{0%{transform:translateX(-30px)}55%,100%{transform:translateX(34px)}}
+    @keyframes diamond-bob{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-2px) scale(1.04)}}
+    @keyframes diamond-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .diamond-body{transform-box:fill-box;transform-origin:center;animation:diamond-bob 2.4s ease-in-out infinite}
+    .diamond-shine{animation:diamond-sweep 2.4s ease-in-out infinite}
+    .diamond-s{transform-box:fill-box;transform-origin:center;animation:diamond-tw 2s ease-in-out infinite}
+    .diamond-s2{animation-delay:.9s}
+    @keyframes diamond-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes diamond-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes diamond-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes diamond-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes diamond-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .diamond-x-lift{transform-box:fill-box;transform-origin:center;animation:diamond-x-lift 3.4s ease-in-out infinite}
+    .diamond-x-shine{animation:diamond-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .diamond-x-spark{transform-box:fill-box;transform-origin:center;animation:diamond-x-spark 2.2s ease-in-out infinite}
+    .diamond-x-aura{transform-box:fill-box;transform-origin:center;animation:diamond-x-aura 3s ease-in-out infinite}
+    .diamond-x-cast{transform-box:fill-box;transform-origin:center;animation:diamond-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.diamond-x-lift,.diamond-x-shine,.diamond-x-spark,.diamond-x-aura,.diamond-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="diamond-gtop" x1="14" y1="12" x2="50" y2="26" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#eafcff"/><stop offset=".5" stop-color="#8fe4ff"/><stop offset="1" stop-color="#3fa9e8"/>
+    </linearGradient>
+    <linearGradient id="diamond-gbot" x1="18" y1="24" x2="44" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#63c8f2"/><stop offset=".6" stop-color="#2b7fd0"/><stop offset="1" stop-color="#12457f"/>
+    </linearGradient>
+    <clipPath id="diamond-clip">
+    <path d="M12 25 20 11h24l8 14-20 32Z"/>
+    </clipPath>
+    <linearGradient id="diamond-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="diamond-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="diamond-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="diamond-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="diamond-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="diamond-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="diamond-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#diamond-x-white)">
+        <g class="diamond-body">
+        <path d="M12 25 20 11h24l8 14-20 32Z" fill="url(#diamond-gbot)"/>
+        <path d="M12 25h40L32 57Z" fill="url(#diamond-gbot)"/>
+        <path d="M12 25 20 11h24l8 14Z" fill="url(#diamond-gtop)"/>
+        <path d="M24 25 20 11h12Z" fill="#ffffff" opacity=".5"/>
+        <path d="M40 25 44 11H32Z" fill="#0f4d8c" opacity=".28"/>
+        <path d="M24 25 32 57 40 25Z" fill="#bdeeff" opacity=".42"/>
+        <path d="M40 25 52 25 32 57Z" fill="#0d3f74" opacity=".38"/>
+        <path d="M15 24 21 13" stroke="#fff" stroke-opacity=".75" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <g clip-path="url(#diamond-clip)">
+        <rect class="diamond-shine" x="-2" y="6" width="9" height="56" fill="#fff" opacity=".38" transform-origin="center"/>
+        </g>
+        </g>
+        <circle class="diamond-s" cx="53" cy="14" r="2.2" fill="#fff"/>
+        <circle class="diamond-s diamond-s2" cx="10" cy="40" r="1.6" fill="#dff6ff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="diamond-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#diamond-x-cast-g)"/>
+  <g class="diamond-x-lift">
+    <g class="diamond-body">
+    <path d="M12 25 20 11h24l8 14-20 32Z" fill="url(#diamond-gbot)"/>
+    <path d="M12 25h40L32 57Z" fill="url(#diamond-gbot)"/>
+    <path d="M12 25 20 11h24l8 14Z" fill="url(#diamond-gtop)"/>
+    <path d="M24 25 20 11h12Z" fill="#ffffff" opacity=".5"/>
+    <path d="M40 25 44 11H32Z" fill="#0f4d8c" opacity=".28"/>
+    <path d="M24 25 32 57 40 25Z" fill="#bdeeff" opacity=".42"/>
+    <path d="M40 25 52 25 32 57Z" fill="#0d3f74" opacity=".38"/>
+    <path d="M15 24 21 13" stroke="#fff" stroke-opacity=".75" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <g clip-path="url(#diamond-clip)">
+    <rect class="diamond-shine" x="-2" y="6" width="9" height="56" fill="#fff" opacity=".38" transform-origin="center"/>
+    </g>
+    </g>
+    <circle class="diamond-s" cx="53" cy="14" r="2.2" fill="#fff"/>
+    <circle class="diamond-s diamond-s2" cx="10" cy="40" r="1.6" fill="#dff6ff"/>
+    <g mask="url(#diamond-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#diamond-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#diamond-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#diamond-x-rim)"/>
+      <rect class="diamond-x-shine" x="0" y="-16" width="26" height="96" fill="url(#diamond-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="diamond-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="diamond-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

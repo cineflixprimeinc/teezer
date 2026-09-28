@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--
+  Teezer ClickHouse tuning.
+
+  ClickHouse's stock config assumes it owns the machine: it sizes the mark
+  cache, uncompressed cache and per-query memory ceiling against total RAM.
+  We are a guest on a VPS that is also running the queue/transcoding workers
+  (and, if it ever moves to VPS-1, Postgres). Left alone, a single wide
+  GROUP BY over the events table can balloon and get the OOM killer to shoot
+  something that matters more than an analytics query.
+
+  So: cap everything, and prefer "query fails" over "box dies". A failed
+  Studio chart is an annoyance; a reaped Postgres is an outage.
+-->
+<clickhouse>
+    <!-- Hard ceiling for the whole server. Tune to ~40% of box RAM. -->
+    <max_server_memory_usage>4000000000</max_server_memory_usage>
+
+    <!-- Caches: small. Our hot queries hit the rollups, which are tiny. -->
+    <mark_cache_size>536870912</mark_cache_size>
+    <uncompressed_cache_size>0</uncompressed_cache_size>
+
+    <!-- Background merges are the other memory/IO hog. Keep the pool modest so
+         merges never starve the transcoder of CPU.
+
+         Do NOT lower this below 10: ClickHouse refuses to start unless
+         background_pool_size * background_merges_mutations_concurrency_ratio is
+         at least number_of_free_entries_in_pool_to_execute_mutation (20 by
+         default), because below that threshold mutations could never be
+         scheduled. 8 * 2 = 16 < 20 and the server aborts on boot. 16 * 2 = 32. -->
+    <background_pool_size>16</background_pool_size>
+    <background_merges_mutations_concurrency_ratio>2</background_merges_mutations_concurrency_ratio>
+
+    <profiles>
+        <default>
+            <!-- Any single query that wants more than 2G is a bug in our SQL,
+                 not a legitimate need. Fail it loudly. -->
+            <max_memory_usage>2000000000</max_memory_usage>
+            <max_execution_time>30</max_execution_time>
+
+            <!-- async_insert is what makes the ingest path cheap: ClickHouse
+                 buffers small INSERTs server-side and flushes them as one
+                 part, so we are not creating a part per batch. We still batch
+                 in the Go writer - this is belt and braces, and it also covers
+                 the backfill and any ad-hoc inserts.
+
+                 wait_for_async_insert=0 => INSERT returns as soon as the row is
+                 in the server-side buffer, NOT once it is durable. That is the
+                 right trade for analytics events (we can afford to lose the
+                 last ~second of views in a hard crash) and the wrong one for
+                 anything transactional - which is exactly why money, counters
+                 and notifications stay in Postgres. -->
+            <async_insert>1</async_insert>
+            <wait_for_async_insert>0</wait_for_async_insert>
+            <async_insert_busy_timeout_ms>1000</async_insert_busy_timeout_ms>
+            <async_insert_max_data_size>10485760</async_insert_max_data_size>
+        </default>
+    </profiles>
+</clickhouse>

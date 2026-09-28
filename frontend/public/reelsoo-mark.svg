@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 48">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff4d8d"/>
+      <stop offset="0.5" stop-color="#fe2c55"/>
+      <stop offset="1" stop-color="#f00646"/>
+    </linearGradient>
+  </defs>
+  <!-- Icon square -->
+  <rect x="0" y="0" width="48" height="48" rx="11" fill="url(#bg)"/>
+  <!-- Vertical bar -->
+  <rect x="10" y="9" width="6" height="30" rx="3" fill="white"/>
+  <!-- Upper bowl -->
+  <path d="M16 9h7a7.5 7.5 0 0 1 0 15h-7z" fill="white"/>
+  <!-- Diagonal leg -->
+  <line x1="22" y1="24" x2="35" y2="39" stroke="white" stroke-width="6" stroke-linecap="round"/>
+  <!-- Brand name text -->
+  <text x="60" y="34" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#0f172a">Reelsoo</text>
+</svg>

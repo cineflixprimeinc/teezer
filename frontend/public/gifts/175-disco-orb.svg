@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes disco-orb-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes disco-orb-aura{0%,100%{opacity:.18;transform:scale(.86)}50%{opacity:.62;transform:scale(1.08)}}
+    @keyframes disco-orb-flash{0%,100%{opacity:.25}50%{opacity:1}}
+    @keyframes disco-orb-tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1.15)}}
+    .disco-orb-tiles{transform-box:fill-box;transform-origin:center;animation:disco-orb-spin 3s linear infinite}
+    .disco-orb-ring{transform-box:fill-box;transform-origin:center;animation:disco-orb-aura 2.6s ease-in-out infinite}
+    .disco-orb-f{animation:disco-orb-flash 1.6s ease-in-out infinite}
+    .disco-orb-f2{animation-delay:.4s}.disco-orb-f3{animation-delay:.8s}.disco-orb-f4{animation-delay:1.2s}
+    .disco-orb-s{transform-box:fill-box;transform-origin:center;animation:disco-orb-tw 2s ease-in-out infinite}
+    .disco-orb-s2{animation-delay:.5s}.disco-orb-s3{animation-delay:1s}.disco-orb-s4{animation-delay:1.5s}
+    @keyframes disco-orb-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes disco-orb-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes disco-orb-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes disco-orb-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes disco-orb-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .disco-orb-x-lift{transform-box:fill-box;transform-origin:center;animation:disco-orb-x-lift 3.4s ease-in-out infinite}
+    .disco-orb-x-shine{animation:disco-orb-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .disco-orb-x-spark{transform-box:fill-box;transform-origin:center;animation:disco-orb-x-spark 2.2s ease-in-out infinite}
+    .disco-orb-x-aura{transform-box:fill-box;transform-origin:center;animation:disco-orb-x-aura 3s ease-in-out infinite}
+    .disco-orb-x-cast{transform-box:fill-box;transform-origin:center;animation:disco-orb-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.disco-orb-x-lift,.disco-orb-x-shine,.disco-orb-x-spark,.disco-orb-x-aura,.disco-orb-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="disco-orb-b" cx=".34" cy=".28" r=".85">
+    <stop offset="0" stop-color="#f0fbff"/><stop offset=".45" stop-color="#93b7d6"/><stop offset="1" stop-color="#33526e"/>
+    </radialGradient>
+    <linearGradient id="disco-orb-g" x1="26" y1="4" x2="40" y2="16" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff5c8"/><stop offset=".5" stop-color="#f2c542"/><stop offset="1" stop-color="#9d6c0d"/>
+    </linearGradient>
+    <radialGradient id="disco-orb-a" cx=".5" cy=".5" r=".5">
+    <stop offset=".5" stop-color="#a8dcff" stop-opacity="0"/><stop offset="1" stop-color="#d3b6ff" stop-opacity=".5"/>
+    </radialGradient>
+    <clipPath id="disco-orb-cp"><circle cx="32" cy="38" r="19"/></clipPath>
+    <filter id="disco-orb-f" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="disco-orb-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="disco-orb-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="disco-orb-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="disco-orb-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="disco-orb-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="disco-orb-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="disco-orb-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="disco-orb-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#disco-orb-x-white)">
+        <circle class="disco-orb-ring" cx="32" cy="36" r="27" fill="url(#disco-orb-a)"/>
+        <path class="disco-orb-f" d="M32 38 4 26v6l28 6Z" fill="#8ee6ff" opacity=".3"/>
+        <path class="disco-orb-f disco-orb-f2" d="M32 38l28-12v6l-28 6Z" fill="#ff8fd0" opacity=".3"/>
+        <path class="disco-orb-f disco-orb-f3" d="M32 38 10 60h8l14-22Z" fill="#c9a6ff" opacity=".3"/>
+        <path class="disco-orb-f disco-orb-f4" d="M32 38l22 22h-8L32 38Z" fill="#ffe27a" opacity=".3"/>
+        <g filter="url(#disco-orb-f)">
+        <rect x="30" y="4" width="4" height="14" rx="2" fill="url(#disco-orb-g)"/>
+        <rect x="24" y="2" width="16" height="4" rx="2" fill="url(#disco-orb-g)"/>
+        <circle cx="32" cy="38" r="19" fill="url(#disco-orb-b)"/>
+        <g clip-path="url(#disco-orb-cp)" class="disco-orb-tiles">
+        <path d="M13 26h38M13 32h38M13 38h38M13 44h38M13 50h38" stroke="#2c4a63" stroke-width="1.2" opacity=".7"/>
+        <path d="M20 19v38M28 19v38M36 19v38M44 19v38" stroke="#2c4a63" stroke-width="1.2" opacity=".7"/>
+        <rect x="21" y="27" width="6" height="5" fill="#8ee6ff" opacity=".85"/>
+        <rect x="37" y="33" width="6" height="5" fill="#ff8fd0" opacity=".85"/>
+        <rect x="29" y="45" width="6" height="5" fill="#ffe27a" opacity=".85"/>
+        <rect x="21" y="39" width="6" height="5" fill="#c9a6ff" opacity=".8"/>
+        <rect x="37" y="45" width="6" height="5" fill="#7bf1a8" opacity=".7"/>
+        </g>
+        <circle cx="32" cy="38" r="19" fill="none" stroke="#dff2ff" stroke-opacity=".35" stroke-width="1.6"/>
+        <path d="M22 28c2.4-2.6 5.4-4.2 8.6-4.8" stroke="#fff" stroke-opacity=".55" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+        <path d="M32 57c9 0 16-6 18-14-1 11-8 17-18 17Z" fill="#1e3a4f" opacity=".4"/>
+        </g>
+        <path class="disco-orb-s" d="M56 18l1.2 3 3 1.2-3 1.2L56 27.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+        <circle class="disco-orb-s disco-orb-s2" cx="8" cy="18" r="1.9" fill="#ffe9a3"/>
+        <circle class="disco-orb-s disco-orb-s3" cx="57" cy="50" r="1.7" fill="#fff"/>
+        <circle class="disco-orb-s disco-orb-s4" cx="7" cy="50" r="1.5" fill="#8ee6ff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="disco-orb-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#disco-orb-x-cast-g)"/>
+  <circle class="disco-orb-x-aura" cx="32" cy="32" r="29" fill="url(#disco-orb-x-aura-g)"/>
+  <g class="disco-orb-x-lift">
+    <circle class="disco-orb-ring" cx="32" cy="36" r="27" fill="url(#disco-orb-a)"/>
+    <path class="disco-orb-f" d="M32 38 4 26v6l28 6Z" fill="#8ee6ff" opacity=".3"/>
+    <path class="disco-orb-f disco-orb-f2" d="M32 38l28-12v6l-28 6Z" fill="#ff8fd0" opacity=".3"/>
+    <path class="disco-orb-f disco-orb-f3" d="M32 38 10 60h8l14-22Z" fill="#c9a6ff" opacity=".3"/>
+    <path class="disco-orb-f disco-orb-f4" d="M32 38l22 22h-8L32 38Z" fill="#ffe27a" opacity=".3"/>
+    <g filter="url(#disco-orb-f)">
+    <rect x="30" y="4" width="4" height="14" rx="2" fill="url(#disco-orb-g)"/>
+    <rect x="24" y="2" width="16" height="4" rx="2" fill="url(#disco-orb-g)"/>
+    <circle cx="32" cy="38" r="19" fill="url(#disco-orb-b)"/>
+    <g clip-path="url(#disco-orb-cp)" class="disco-orb-tiles">
+    <path d="M13 26h38M13 32h38M13 38h38M13 44h38M13 50h38" stroke="#2c4a63" stroke-width="1.2" opacity=".7"/>
+    <path d="M20 19v38M28 19v38M36 19v38M44 19v38" stroke="#2c4a63" stroke-width="1.2" opacity=".7"/>
+    <rect x="21" y="27" width="6" height="5" fill="#8ee6ff" opacity=".85"/>
+    <rect x="37" y="33" width="6" height="5" fill="#ff8fd0" opacity=".85"/>
+    <rect x="29" y="45" width="6" height="5" fill="#ffe27a" opacity=".85"/>
+    <rect x="21" y="39" width="6" height="5" fill="#c9a6ff" opacity=".8"/>
+    <rect x="37" y="45" width="6" height="5" fill="#7bf1a8" opacity=".7"/>
+    </g>
+    <circle cx="32" cy="38" r="19" fill="none" stroke="#dff2ff" stroke-opacity=".35" stroke-width="1.6"/>
+    <path d="M22 28c2.4-2.6 5.4-4.2 8.6-4.8" stroke="#fff" stroke-opacity=".55" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+    <path d="M32 57c9 0 16-6 18-14-1 11-8 17-18 17Z" fill="#1e3a4f" opacity=".4"/>
+    </g>
+    <path class="disco-orb-s" d="M56 18l1.2 3 3 1.2-3 1.2L56 27.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+    <circle class="disco-orb-s disco-orb-s2" cx="8" cy="18" r="1.9" fill="#ffe9a3"/>
+    <circle class="disco-orb-s disco-orb-s3" cx="57" cy="50" r="1.7" fill="#fff"/>
+    <circle class="disco-orb-s disco-orb-s4" cx="7" cy="50" r="1.5" fill="#8ee6ff"/>
+    <g mask="url(#disco-orb-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#disco-orb-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#disco-orb-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#disco-orb-x-rim)"/>
+      <rect class="disco-orb-x-shine" x="0" y="-16" width="26" height="96" fill="url(#disco-orb-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="disco-orb-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="disco-orb-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="disco-orb-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="disco-orb-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="disco-orb-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

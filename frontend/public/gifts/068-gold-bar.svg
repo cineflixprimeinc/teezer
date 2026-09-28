@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes gold-bar-sweep{0%{transform:translateX(-28px)}55%,100%{transform:translateX(58px)}}
+    @keyframes gold-bar-breathe{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-2px) scale(1.03)}}
+    @keyframes gold-bar-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .gold-bar-body{transform-box:fill-box;transform-origin:center;animation:gold-bar-breathe 2.6s ease-in-out infinite}
+    .gold-bar-shine{animation:gold-bar-sweep 2.6s ease-in-out infinite}
+    .gold-bar-s{transform-box:fill-box;transform-origin:center;animation:gold-bar-tw 1.8s ease-in-out infinite}
+    .gold-bar-s2{animation-delay:.9s}
+    @keyframes gold-bar-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes gold-bar-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes gold-bar-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes gold-bar-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes gold-bar-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .gold-bar-x-lift{transform-box:fill-box;transform-origin:center;animation:gold-bar-x-lift 3.4s ease-in-out infinite}
+    .gold-bar-x-shine{animation:gold-bar-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .gold-bar-x-spark{transform-box:fill-box;transform-origin:center;animation:gold-bar-x-spark 2.2s ease-in-out infinite}
+    .gold-bar-x-aura{transform-box:fill-box;transform-origin:center;animation:gold-bar-x-aura 3s ease-in-out infinite}
+    .gold-bar-x-cast{transform-box:fill-box;transform-origin:center;animation:gold-bar-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.gold-bar-x-lift,.gold-bar-x-shine,.gold-bar-x-spark,.gold-bar-x-aura,.gold-bar-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="gold-bar-g1" x1="10" y1="24" x2="54" y2="40" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff3c4"/><stop offset=".5" stop-color="#f5b942"/><stop offset="1" stop-color="#c9840f"/>
+    </linearGradient>
+    <linearGradient id="gold-bar-g2" x1="8" y1="40" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#e8a92e"/><stop offset="1" stop-color="#8f5a04"/>
+    </linearGradient>
+    <clipPath id="gold-bar-clip">
+    <path d="M18 20h28l10 24a4 4 0 0 1-4 5H12a4 4 0 0 1-4-5Z"/>
+    </clipPath>
+    <linearGradient id="gold-bar-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gold-bar-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="gold-bar-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gold-bar-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="gold-bar-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gold-bar-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="gold-bar-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#gold-bar-x-white)">
+        <g class="gold-bar-body">
+        <path d="M14 44h36l6 5a4 4 0 0 1-3 4H11a4 4 0 0 1-3-4Z" fill="url(#gold-bar-g2)"/>
+        <path d="M18 20h28l10 24a4 4 0 0 1-4 5H12a4 4 0 0 1-4-5Z" fill="url(#gold-bar-g1)"/>
+        <path d="M18 20h28l3 7H15Z" fill="#fff8dc" opacity=".55"/>
+        <path d="M46 20l10 24a4 4 0 0 1-4 5h-8c4-9 5-19 2-29Z" fill="#8f5a04" opacity=".3"/>
+        <path d="M13 43h38" stroke="#8f5a04" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>
+        <path d="M20 24 15 40" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <rect x="24" y="31" width="16" height="9" rx="2" fill="#a86c07" opacity=".35"/>
+        <path d="M28 35h8M28 38h5" stroke="#ffe9a3" stroke-width="1.6" stroke-linecap="round"/>
+        <g clip-path="url(#gold-bar-clip)">
+        <rect class="gold-bar-shine" x="-4" y="14" width="10" height="42" fill="#fff" opacity=".45" transform="skewX(-16)"/>
+        </g>
+        </g>
+        <circle class="gold-bar-s" cx="52" cy="12" r="2.2" fill="#fff"/>
+        <circle class="gold-bar-s gold-bar-s2" cx="12" cy="12" r="1.6" fill="#ffeaa8"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="gold-bar-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#gold-bar-x-cast-g)"/>
+  <g class="gold-bar-x-lift">
+    <g class="gold-bar-body">
+    <path d="M14 44h36l6 5a4 4 0 0 1-3 4H11a4 4 0 0 1-3-4Z" fill="url(#gold-bar-g2)"/>
+    <path d="M18 20h28l10 24a4 4 0 0 1-4 5H12a4 4 0 0 1-4-5Z" fill="url(#gold-bar-g1)"/>
+    <path d="M18 20h28l3 7H15Z" fill="#fff8dc" opacity=".55"/>
+    <path d="M46 20l10 24a4 4 0 0 1-4 5h-8c4-9 5-19 2-29Z" fill="#8f5a04" opacity=".3"/>
+    <path d="M13 43h38" stroke="#8f5a04" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>
+    <path d="M20 24 15 40" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <rect x="24" y="31" width="16" height="9" rx="2" fill="#a86c07" opacity=".35"/>
+    <path d="M28 35h8M28 38h5" stroke="#ffe9a3" stroke-width="1.6" stroke-linecap="round"/>
+    <g clip-path="url(#gold-bar-clip)">
+    <rect class="gold-bar-shine" x="-4" y="14" width="10" height="42" fill="#fff" opacity=".45" transform="skewX(-16)"/>
+    </g>
+    </g>
+    <circle class="gold-bar-s" cx="52" cy="12" r="2.2" fill="#fff"/>
+    <circle class="gold-bar-s gold-bar-s2" cx="12" cy="12" r="1.6" fill="#ffeaa8"/>
+    <g mask="url(#gold-bar-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#gold-bar-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#gold-bar-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#gold-bar-x-rim)"/>
+      <rect class="gold-bar-x-shine" x="0" y="-16" width="26" height="96" fill="url(#gold-bar-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="gold-bar-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="gold-bar-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

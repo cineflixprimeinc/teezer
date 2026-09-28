@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes glazed-donut-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes glazed-donut-shine{0%,100%{opacity:.3}50%{opacity:.9}}
+    @keyframes glazed-donut-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .glazed-donut-body{transform-box:fill-box;transform-origin:center;animation:glazed-donut-spin 3s linear infinite}
+    .glazed-donut-sh{transform-box:fill-box;transform-origin:center;animation:glazed-donut-shine 2s ease-in-out infinite}
+    .glazed-donut-s{transform-box:fill-box;transform-origin:center;animation:glazed-donut-tw 2.2s ease-in-out infinite}
+    .glazed-donut-s2{animation-delay:.75s}
+    .glazed-donut-s3{animation-delay:1.4s}
+    @keyframes glazed-donut-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes glazed-donut-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes glazed-donut-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes glazed-donut-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes glazed-donut-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .glazed-donut-x-lift{transform-box:fill-box;transform-origin:center;animation:glazed-donut-x-lift 3.4s ease-in-out infinite}
+    .glazed-donut-x-shine{animation:glazed-donut-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .glazed-donut-x-spark{transform-box:fill-box;transform-origin:center;animation:glazed-donut-x-spark 2.2s ease-in-out infinite}
+    .glazed-donut-x-aura{transform-box:fill-box;transform-origin:center;animation:glazed-donut-x-aura 3s ease-in-out infinite}
+    .glazed-donut-x-cast{transform-box:fill-box;transform-origin:center;animation:glazed-donut-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.glazed-donut-x-lift,.glazed-donut-x-shine,.glazed-donut-x-spark,.glazed-donut-x-aura,.glazed-donut-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="glazed-donut-gd" cx="35%" cy="30%" r="75%">
+    <stop offset="0" stop-color="#f2c184"/><stop offset=".6" stop-color="#d9974f"/><stop offset="1" stop-color="#9a5c1c"/>
+    </radialGradient>
+    <radialGradient id="glazed-donut-gg" cx="34%" cy="28%" r="72%">
+    <stop offset="0" stop-color="#fff3fa"/><stop offset=".45" stop-color="#ffb0dc"/><stop offset="1" stop-color="#df4f9d"/>
+    </radialGradient>
+    <filter id="glazed-donut-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="glazed-donut-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="glazed-donut-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="glazed-donut-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="glazed-donut-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="glazed-donut-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glazed-donut-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glazed-donut-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="glazed-donut-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#glazed-donut-x-white)">
+        <g class="glazed-donut-body" filter="url(#glazed-donut-f)">
+        <circle cx="32" cy="32" r="26" fill="url(#glazed-donut-gd)"/>
+        <path d="M32 58c12 0 22-9 24-21-4 14-13 19-24 19S12 51 8 37c2 12 12 21 24 21Z" fill="#7c440f" opacity=".45"/>
+        <path d="M32 8c13.3 0 24 10.7 24 24 0 3-3-2-5.4 0-2.6 2.2-4-2-6.6.4-2.6 2.4-4.6-1.6-7 .8-2.4 2.4-5-1.4-7.4 1-2.4 2.4-4.6-1.2-7 1.2C20.2 37.6 18 34 15 36c-2.6 1.8-7 3-7-4C8 18.7 18.7 8 32 8Z" fill="url(#glazed-donut-gg)"/>
+        <circle cx="32" cy="32" r="9" fill="#3d2107"/>
+        <circle cx="32" cy="32" r="9" fill="none" stroke="#c88a45" stroke-width="2.4"/>
+        <rect x="20" y="16" width="6" height="2.6" rx="1.3" fill="#ffd85c" transform="rotate(-30 23 17)"/>
+        <rect x="38" y="14" width="6" height="2.6" rx="1.3" fill="#5ad1ff" transform="rotate(20 41 15)"/>
+        <rect x="48" y="26" width="6" height="2.6" rx="1.3" fill="#7bf08a" transform="rotate(70 51 27)"/>
+        <rect x="12" y="27" width="6" height="2.6" rx="1.3" fill="#ffd85c" transform="rotate(100 15 28)"/>
+        <rect x="42" y="38" width="6" height="2.6" rx="1.3" fill="#fff" transform="rotate(-40 45 39)"/>
+        <rect x="17" y="38" width="6" height="2.6" rx="1.3" fill="#a06bff" transform="rotate(35 20 39)"/>
+        <rect x="29" y="12" width="6" height="2.6" rx="1.3" fill="#ff6d6d" transform="rotate(-5 32 13)"/>
+        <path class="glazed-donut-sh" d="M17 20c3-3.6 7-6 11.4-7" stroke="#fff" stroke-opacity=".85" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+        </g>
+        <circle class="glazed-donut-s" cx="57" cy="12" r="2.2" fill="#fff"/>
+        <circle class="glazed-donut-s glazed-donut-s2" cx="7" cy="52" r="1.7" fill="#ffd6ea"/>
+        <circle class="glazed-donut-s glazed-donut-s3" cx="56" cy="52" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="glazed-donut-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#glazed-donut-x-cast-g)"/>
+  <circle class="glazed-donut-x-aura" cx="32" cy="32" r="29" fill="url(#glazed-donut-x-aura-g)"/>
+  <g class="glazed-donut-x-lift">
+    <g class="glazed-donut-body" filter="url(#glazed-donut-f)">
+    <circle cx="32" cy="32" r="26" fill="url(#glazed-donut-gd)"/>
+    <path d="M32 58c12 0 22-9 24-21-4 14-13 19-24 19S12 51 8 37c2 12 12 21 24 21Z" fill="#7c440f" opacity=".45"/>
+    <path d="M32 8c13.3 0 24 10.7 24 24 0 3-3-2-5.4 0-2.6 2.2-4-2-6.6.4-2.6 2.4-4.6-1.6-7 .8-2.4 2.4-5-1.4-7.4 1-2.4 2.4-4.6-1.2-7 1.2C20.2 37.6 18 34 15 36c-2.6 1.8-7 3-7-4C8 18.7 18.7 8 32 8Z" fill="url(#glazed-donut-gg)"/>
+    <circle cx="32" cy="32" r="9" fill="#3d2107"/>
+    <circle cx="32" cy="32" r="9" fill="none" stroke="#c88a45" stroke-width="2.4"/>
+    <rect x="20" y="16" width="6" height="2.6" rx="1.3" fill="#ffd85c" transform="rotate(-30 23 17)"/>
+    <rect x="38" y="14" width="6" height="2.6" rx="1.3" fill="#5ad1ff" transform="rotate(20 41 15)"/>
+    <rect x="48" y="26" width="6" height="2.6" rx="1.3" fill="#7bf08a" transform="rotate(70 51 27)"/>
+    <rect x="12" y="27" width="6" height="2.6" rx="1.3" fill="#ffd85c" transform="rotate(100 15 28)"/>
+    <rect x="42" y="38" width="6" height="2.6" rx="1.3" fill="#fff" transform="rotate(-40 45 39)"/>
+    <rect x="17" y="38" width="6" height="2.6" rx="1.3" fill="#a06bff" transform="rotate(35 20 39)"/>
+    <rect x="29" y="12" width="6" height="2.6" rx="1.3" fill="#ff6d6d" transform="rotate(-5 32 13)"/>
+    <path class="glazed-donut-sh" d="M17 20c3-3.6 7-6 11.4-7" stroke="#fff" stroke-opacity=".85" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+    </g>
+    <circle class="glazed-donut-s" cx="57" cy="12" r="2.2" fill="#fff"/>
+    <circle class="glazed-donut-s glazed-donut-s2" cx="7" cy="52" r="1.7" fill="#ffd6ea"/>
+    <circle class="glazed-donut-s glazed-donut-s3" cx="56" cy="52" r="1.5" fill="#fff"/>
+    <g mask="url(#glazed-donut-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#glazed-donut-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#glazed-donut-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#glazed-donut-x-rim)"/>
+      <rect class="glazed-donut-x-shine" x="0" y="-16" width="26" height="96" fill="url(#glazed-donut-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="glazed-donut-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="glazed-donut-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="glazed-donut-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

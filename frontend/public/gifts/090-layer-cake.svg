@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes layer-cake-hop{0%,100%{transform:translateY(0) scale(1,1)}25%{transform:translateY(-3.5px) scale(.97,1.04)}55%{transform:translateY(1px) scale(1.04,.96)}}
+    @keyframes layer-cake-ch{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+    @keyframes layer-cake-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .layer-cake-body{transform-box:fill-box;transform-origin:center bottom;animation:layer-cake-hop 1.9s ease-in-out infinite}
+    .layer-cake-c{transform-box:fill-box;transform-origin:center;animation:layer-cake-ch 1.9s ease-in-out infinite}
+    .layer-cake-s{transform-box:fill-box;transform-origin:center;animation:layer-cake-tw 2.3s ease-in-out infinite}
+    .layer-cake-s2{animation-delay:.8s}
+    .layer-cake-s3{animation-delay:1.5s}
+    @keyframes layer-cake-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes layer-cake-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes layer-cake-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes layer-cake-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes layer-cake-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .layer-cake-x-lift{transform-box:fill-box;transform-origin:center;animation:layer-cake-x-lift 3.4s ease-in-out infinite}
+    .layer-cake-x-shine{animation:layer-cake-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .layer-cake-x-spark{transform-box:fill-box;transform-origin:center;animation:layer-cake-x-spark 2.2s ease-in-out infinite}
+    .layer-cake-x-aura{transform-box:fill-box;transform-origin:center;animation:layer-cake-x-aura 3s ease-in-out infinite}
+    .layer-cake-x-cast{transform-box:fill-box;transform-origin:center;animation:layer-cake-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.layer-cake-x-lift,.layer-cake-x-shine,.layer-cake-x-spark,.layer-cake-x-aura,.layer-cake-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="layer-cake-g1" x1="8" y1="44" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#7c4a26"/><stop offset=".5" stop-color="#5a3115"/><stop offset="1" stop-color="#331904"/>
+    </linearGradient>
+    <linearGradient id="layer-cake-g2" x1="14" y1="30" x2="50" y2="44" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffd0e6"/><stop offset=".5" stop-color="#ff8dc0"/><stop offset="1" stop-color="#cf3d84"/>
+    </linearGradient>
+    <linearGradient id="layer-cake-g3" x1="20" y1="18" x2="44" y2="30" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff6df"/><stop offset=".5" stop-color="#ffe0a8"/><stop offset="1" stop-color="#e0a94e"/>
+    </linearGradient>
+    <filter id="layer-cake-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="layer-cake-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="layer-cake-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="layer-cake-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="layer-cake-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="layer-cake-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="layer-cake-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="layer-cake-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="layer-cake-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#layer-cake-x-white)">
+        <g class="layer-cake-body" filter="url(#layer-cake-f)">
+        <rect x="8" y="43" width="48" height="15" rx="4" fill="url(#layer-cake-g1)"/>
+        <path d="M8 52h48v2a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4v-2Z" fill="#1f0e02" opacity=".5"/>
+        <path d="M8 44c4 4 7 0 10 4s7 0 10 4 7-1 11 2 9-1 17-4v-6H8Z" fill="#fff2dc" opacity=".9"/>
+        <rect x="14" y="30" width="36" height="14" rx="3.6" fill="url(#layer-cake-g2)"/>
+        <path d="M14 39h36v1.5a3.6 3.6 0 0 1-3.6 3.6H17.6A3.6 3.6 0 0 1 14 40.5V39Z" fill="#9e2764" opacity=".4"/>
+        <path d="M14 31c4 3 6 0 9 3s6 0 9 3 6-1 10 1 6-1 8-2v-4H14v-1Z" fill="#ffe9f3" opacity=".85"/>
+        <rect x="20" y="18" width="24" height="13" rx="3.4" fill="url(#layer-cake-g3)"/>
+        <path d="M20 27h24v.6a3.4 3.4 0 0 1-3.4 3.4H23.4A3.4 3.4 0 0 1 20 27.6V27Z" fill="#b57e26" opacity=".4"/>
+        <path d="M23 21c-1.6 1-2.6 2.6-2.8 4.4" stroke="#fff" stroke-opacity=".7" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <rect x="30" y="10" width="4" height="9" rx="1.8" fill="#ff6d8f"/>
+        <path d="M12 47.5v8M24 47.5v8M40 47.5v8M52 47.5v8" stroke="#ffd85c" stroke-opacity=".45" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="20" cy="35" r="1.4" fill="#fff" opacity=".8"/><circle cx="44" cy="36" r="1.4" fill="#ffe27a" opacity=".9"/>
+        <g class="layer-cake-c">
+        <circle cx="32" cy="8.5" r="4.6" fill="#e8264a"/>
+        <path d="M32 5c1-2.4 3-3.4 5-3.2" stroke="#4caf50" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <circle cx="30.5" cy="7.2" r="1.5" fill="#fff" opacity=".6"/>
+        </g>
+        </g>
+        <circle class="layer-cake-s" cx="54" cy="16" r="2.2" fill="#fff"/>
+        <circle class="layer-cake-s layer-cake-s2" cx="9" cy="22" r="1.7" fill="#ffe6a1"/>
+        <circle class="layer-cake-s layer-cake-s3" cx="57" cy="35" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="layer-cake-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#layer-cake-x-cast-g)"/>
+  <circle class="layer-cake-x-aura" cx="32" cy="32" r="29" fill="url(#layer-cake-x-aura-g)"/>
+  <g class="layer-cake-x-lift">
+    <g class="layer-cake-body" filter="url(#layer-cake-f)">
+    <rect x="8" y="43" width="48" height="15" rx="4" fill="url(#layer-cake-g1)"/>
+    <path d="M8 52h48v2a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4v-2Z" fill="#1f0e02" opacity=".5"/>
+    <path d="M8 44c4 4 7 0 10 4s7 0 10 4 7-1 11 2 9-1 17-4v-6H8Z" fill="#fff2dc" opacity=".9"/>
+    <rect x="14" y="30" width="36" height="14" rx="3.6" fill="url(#layer-cake-g2)"/>
+    <path d="M14 39h36v1.5a3.6 3.6 0 0 1-3.6 3.6H17.6A3.6 3.6 0 0 1 14 40.5V39Z" fill="#9e2764" opacity=".4"/>
+    <path d="M14 31c4 3 6 0 9 3s6 0 9 3 6-1 10 1 6-1 8-2v-4H14v-1Z" fill="#ffe9f3" opacity=".85"/>
+    <rect x="20" y="18" width="24" height="13" rx="3.4" fill="url(#layer-cake-g3)"/>
+    <path d="M20 27h24v.6a3.4 3.4 0 0 1-3.4 3.4H23.4A3.4 3.4 0 0 1 20 27.6V27Z" fill="#b57e26" opacity=".4"/>
+    <path d="M23 21c-1.6 1-2.6 2.6-2.8 4.4" stroke="#fff" stroke-opacity=".7" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <rect x="30" y="10" width="4" height="9" rx="1.8" fill="#ff6d8f"/>
+    <path d="M12 47.5v8M24 47.5v8M40 47.5v8M52 47.5v8" stroke="#ffd85c" stroke-opacity=".45" stroke-width="1.8" stroke-linecap="round"/>
+    <circle cx="20" cy="35" r="1.4" fill="#fff" opacity=".8"/><circle cx="44" cy="36" r="1.4" fill="#ffe27a" opacity=".9"/>
+    <g class="layer-cake-c">
+    <circle cx="32" cy="8.5" r="4.6" fill="#e8264a"/>
+    <path d="M32 5c1-2.4 3-3.4 5-3.2" stroke="#4caf50" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <circle cx="30.5" cy="7.2" r="1.5" fill="#fff" opacity=".6"/>
+    </g>
+    </g>
+    <circle class="layer-cake-s" cx="54" cy="16" r="2.2" fill="#fff"/>
+    <circle class="layer-cake-s layer-cake-s2" cx="9" cy="22" r="1.7" fill="#ffe6a1"/>
+    <circle class="layer-cake-s layer-cake-s3" cx="57" cy="35" r="1.5" fill="#fff"/>
+    <g mask="url(#layer-cake-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#layer-cake-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#layer-cake-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#layer-cake-x-rim)"/>
+      <rect class="layer-cake-x-shine" x="0" y="-16" width="26" height="96" fill="url(#layer-cake-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="layer-cake-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="layer-cake-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="layer-cake-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

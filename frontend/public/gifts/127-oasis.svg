@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes oasis-sway{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(5deg) translateY(-2px)}}
+    @keyframes oasis-ripple{0%{transform:scale(.5);opacity:.9}100%{transform:scale(1.35);opacity:0}}
+    @keyframes oasis-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .oasis-palm{transform-box:fill-box;transform-origin:50% 95%;animation:oasis-sway 2.6s ease-in-out infinite}
+    .oasis-r{transform-box:fill-box;transform-origin:center;animation:oasis-ripple 2.2s ease-out infinite}
+    .oasis-r2{animation-delay:1.1s}
+    .oasis-s{transform-box:fill-box;transform-origin:center;animation:oasis-tw 1.9s ease-in-out infinite}
+    .oasis-s2{animation-delay:.9s}
+    @keyframes oasis-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes oasis-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes oasis-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes oasis-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes oasis-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .oasis-x-lift{transform-box:fill-box;transform-origin:center;animation:oasis-x-lift 3.4s ease-in-out infinite}
+    .oasis-x-shine{animation:oasis-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .oasis-x-spark{transform-box:fill-box;transform-origin:center;animation:oasis-x-spark 2.2s ease-in-out infinite}
+    .oasis-x-aura{transform-box:fill-box;transform-origin:center;animation:oasis-x-aura 3s ease-in-out infinite}
+    .oasis-x-cast{transform-box:fill-box;transform-origin:center;animation:oasis-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.oasis-x-lift,.oasis-x-shine,.oasis-x-spark,.oasis-x-aura,.oasis-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="oasis-sand" x1="8" y1="38" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffe9b0"/><stop offset=".55" stop-color="#f0c069"/><stop offset="1" stop-color="#b5822b"/>
+    </linearGradient>
+    <radialGradient id="oasis-water" cx=".4" cy=".35" r=".75">
+    <stop offset="0" stop-color="#a5f3fc"/><stop offset=".6" stop-color="#22b8d6"/><stop offset="1" stop-color="#0e6f96"/>
+    </radialGradient>
+    <linearGradient id="oasis-leaf" x1="20" y1="10" x2="44" y2="30" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#9ef2a5"/><stop offset=".5" stop-color="#2fbf62"/><stop offset="1" stop-color="#15703c"/>
+    </linearGradient>
+    <filter id="oasis-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="oasis-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="oasis-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="oasis-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="oasis-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="oasis-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="oasis-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="oasis-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="oasis-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#oasis-x-white)">
+        <g filter="url(#oasis-f)">
+        <path d="M6 46c6-8 14-10 20-6 5-4 10-4 14 0 5-3 12-2 18 6v9a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4Z" fill="url(#oasis-sand)"/>
+        <ellipse cx="34" cy="49" rx="16" ry="7" fill="url(#oasis-water)"/>
+        <ellipse class="oasis-r" cx="34" cy="49" rx="9" ry="4" fill="none" stroke="#e0feff" stroke-width="1.8"/>
+        <ellipse class="oasis-r oasis-r2" cx="34" cy="49" rx="9" ry="4" fill="none" stroke="#e0feff" stroke-width="1.6"/>
+        <path d="M10 44c4-4 9-5 13-3" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M8 58h48a4 4 0 0 1-4 2H12Z" fill="#8a5f16" opacity=".4"/>
+        <g class="oasis-palm">
+        <path d="M22 44c1-11 2-17 4-22l4 1c-3 5-4 11-4 21Z" fill="#8a5a2b"/>
+        <path d="M27 20c-6-4-12-3-15 2 5-1 9 0 12 3Z" fill="url(#oasis-leaf)"/>
+        <path d="M27 20c6-5 13-4 16 2-5-2-10-1-13 2Z" fill="url(#oasis-leaf)"/>
+        <path d="M27 20c-3-6-1-12 5-14-2 5-2 9-1 13Z" fill="url(#oasis-leaf)"/>
+        <path d="M27 20c4 5 4 10 1 14-1-5-2-9-4-12Z" fill="url(#oasis-leaf)"/>
+        <circle cx="27" cy="20" r="2.6" fill="#f0c069"/>
+        </g>
+        </g>
+        <circle class="oasis-s" cx="52" cy="14" r="2" fill="#fff"/>
+        <circle class="oasis-s oasis-s2" cx="46" cy="24" r="1.5" fill="#fff3c4"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="oasis-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#oasis-x-cast-g)"/>
+  <circle class="oasis-x-aura" cx="32" cy="32" r="29" fill="url(#oasis-x-aura-g)"/>
+  <g class="oasis-x-lift">
+    <g filter="url(#oasis-f)">
+    <path d="M6 46c6-8 14-10 20-6 5-4 10-4 14 0 5-3 12-2 18 6v9a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4Z" fill="url(#oasis-sand)"/>
+    <ellipse cx="34" cy="49" rx="16" ry="7" fill="url(#oasis-water)"/>
+    <ellipse class="oasis-r" cx="34" cy="49" rx="9" ry="4" fill="none" stroke="#e0feff" stroke-width="1.8"/>
+    <ellipse class="oasis-r oasis-r2" cx="34" cy="49" rx="9" ry="4" fill="none" stroke="#e0feff" stroke-width="1.6"/>
+    <path d="M10 44c4-4 9-5 13-3" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M8 58h48a4 4 0 0 1-4 2H12Z" fill="#8a5f16" opacity=".4"/>
+    <g class="oasis-palm">
+    <path d="M22 44c1-11 2-17 4-22l4 1c-3 5-4 11-4 21Z" fill="#8a5a2b"/>
+    <path d="M27 20c-6-4-12-3-15 2 5-1 9 0 12 3Z" fill="url(#oasis-leaf)"/>
+    <path d="M27 20c6-5 13-4 16 2-5-2-10-1-13 2Z" fill="url(#oasis-leaf)"/>
+    <path d="M27 20c-3-6-1-12 5-14-2 5-2 9-1 13Z" fill="url(#oasis-leaf)"/>
+    <path d="M27 20c4 5 4 10 1 14-1-5-2-9-4-12Z" fill="url(#oasis-leaf)"/>
+    <circle cx="27" cy="20" r="2.6" fill="#f0c069"/>
+    </g>
+    </g>
+    <circle class="oasis-s" cx="52" cy="14" r="2" fill="#fff"/>
+    <circle class="oasis-s oasis-s2" cx="46" cy="24" r="1.5" fill="#fff3c4"/>
+    <g mask="url(#oasis-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#oasis-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#oasis-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#oasis-x-rim)"/>
+      <rect class="oasis-x-shine" x="0" y="-16" width="26" height="96" fill="url(#oasis-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="oasis-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="oasis-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="oasis-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="oasis-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

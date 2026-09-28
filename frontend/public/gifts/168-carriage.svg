@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes carriage-float{0%,100%{transform:translateY(2px)}50%{transform:translateY(-2.5px)}}
+    @keyframes carriage-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes carriage-aura{0%,100%{opacity:.18;transform:scale(.88)}50%{opacity:.58;transform:scale(1.06)}}
+    @keyframes carriage-tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    .carriage-body{transform-box:fill-box;transform-origin:center;animation:carriage-float 2.6s ease-in-out infinite}
+    .carriage-w{transform-box:fill-box;transform-origin:center;animation:carriage-spin 3s linear infinite}
+    .carriage-ring{transform-box:fill-box;transform-origin:center;animation:carriage-aura 2.8s ease-in-out infinite}
+    .carriage-s{transform-box:fill-box;transform-origin:center;animation:carriage-tw 2s ease-in-out infinite}
+    .carriage-s2{animation-delay:.5s}.carriage-s3{animation-delay:1s}.carriage-s4{animation-delay:1.5s}
+    @keyframes carriage-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes carriage-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes carriage-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes carriage-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes carriage-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .carriage-x-lift{transform-box:fill-box;transform-origin:center;animation:carriage-x-lift 3.4s ease-in-out infinite}
+    .carriage-x-shine{animation:carriage-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .carriage-x-spark{transform-box:fill-box;transform-origin:center;animation:carriage-x-spark 2.2s ease-in-out infinite}
+    .carriage-x-aura{transform-box:fill-box;transform-origin:center;animation:carriage-x-aura 3s ease-in-out infinite}
+    .carriage-x-cast{transform-box:fill-box;transform-origin:center;animation:carriage-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.carriage-x-lift,.carriage-x-shine,.carriage-x-spark,.carriage-x-aura,.carriage-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="carriage-c" cx=".35" cy=".3" r=".85">
+    <stop offset="0" stop-color="#ffd9f0"/><stop offset=".5" stop-color="#d16fc4"/><stop offset="1" stop-color="#6f2b78"/>
+    </radialGradient>
+    <linearGradient id="carriage-g" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff5c8"/><stop offset=".5" stop-color="#f2c542"/><stop offset="1" stop-color="#9d6c0d"/>
+    </linearGradient>
+    <filter id="carriage-f" x="-45%" y="-45%" width="190%" height="190%">
+    <feGaussianBlur stdDeviation="2.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="carriage-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="carriage-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="carriage-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="carriage-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="carriage-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="carriage-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="carriage-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="carriage-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#carriage-x-white)">
+        <ellipse class="carriage-ring" cx="32" cy="32" rx="26" ry="25" fill="none" stroke="#ffd979" stroke-width="1.8" opacity=".5"/>
+        <g class="carriage-body" filter="url(#carriage-f)">
+        <path d="M32 46c-11 0-19-7-19-16 0-9 8-16 19-16s19 7 19 16c0 9-8 16-19 16Z" fill="url(#carriage-c)"/>
+        <path d="M32 46c9 0 16-5 18-13-1 10-9 15-18 15Z" fill="#4d1a56" opacity=".5"/>
+        <path d="M32 14v32M13 30h38" stroke="url(#carriage-g)" stroke-width="2.4" fill="none"/>
+        <path d="M20 17c-4 5-5 12-3 18M44 17c4 5 5 12 3 18" stroke="url(#carriage-g)" stroke-width="2" fill="none" opacity=".85"/>
+        <rect x="24" y="24" width="16" height="14" rx="4" fill="#fff4d6" opacity=".85"/>
+        <rect x="24" y="24" width="16" height="14" rx="4" fill="none" stroke="url(#carriage-g)" stroke-width="2.4"/>
+        <path d="M27 27c-1 1.4-1.6 3-1.6 4.8" stroke="#fff" stroke-opacity=".9" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M20 16c3-3 7-4.6 11-4.8" stroke="#fff" stroke-opacity=".4" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M28 12h8l-4-6Z" fill="url(#carriage-g)"/>
+        <circle cx="32" cy="7" r="2.4" fill="#8ee6ff"/>
+        <path d="M13 46h38" stroke="url(#carriage-g)" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="carriage-w">
+        <circle cx="19" cy="52" r="7" fill="none" stroke="url(#carriage-g)" stroke-width="2.6"/>
+        <path d="M19 46v12M13 52h12M15 48l8 8M23 48l-8 8" stroke="url(#carriage-g)" stroke-width="1.6"/>
+        <circle cx="19" cy="52" r="1.8" fill="#fff4d6"/>
+        </g>
+        <g class="carriage-w">
+        <circle cx="45" cy="52" r="7" fill="none" stroke="url(#carriage-g)" stroke-width="2.6"/>
+        <path d="M45 46v12M39 52h12M41 48l8 8M49 48l-8 8" stroke="url(#carriage-g)" stroke-width="1.6"/>
+        <circle cx="45" cy="52" r="1.8" fill="#fff4d6"/>
+        </g>
+        <path class="carriage-s" d="M56 14l1.2 3 3 1.2-3 1.2L56 23.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+        <circle class="carriage-s carriage-s2" cx="7" cy="20" r="1.9" fill="#ffe9a3"/>
+        <circle class="carriage-s carriage-s3" cx="58" cy="40" r="1.7" fill="#fff"/>
+        <circle class="carriage-s carriage-s4" cx="6" cy="40" r="1.5" fill="#ffe9a3"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="carriage-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#carriage-x-cast-g)"/>
+  <circle class="carriage-x-aura" cx="32" cy="32" r="29" fill="url(#carriage-x-aura-g)"/>
+  <g class="carriage-x-lift">
+    <ellipse class="carriage-ring" cx="32" cy="32" rx="26" ry="25" fill="none" stroke="#ffd979" stroke-width="1.8" opacity=".5"/>
+    <g class="carriage-body" filter="url(#carriage-f)">
+    <path d="M32 46c-11 0-19-7-19-16 0-9 8-16 19-16s19 7 19 16c0 9-8 16-19 16Z" fill="url(#carriage-c)"/>
+    <path d="M32 46c9 0 16-5 18-13-1 10-9 15-18 15Z" fill="#4d1a56" opacity=".5"/>
+    <path d="M32 14v32M13 30h38" stroke="url(#carriage-g)" stroke-width="2.4" fill="none"/>
+    <path d="M20 17c-4 5-5 12-3 18M44 17c4 5 5 12 3 18" stroke="url(#carriage-g)" stroke-width="2" fill="none" opacity=".85"/>
+    <rect x="24" y="24" width="16" height="14" rx="4" fill="#fff4d6" opacity=".85"/>
+    <rect x="24" y="24" width="16" height="14" rx="4" fill="none" stroke="url(#carriage-g)" stroke-width="2.4"/>
+    <path d="M27 27c-1 1.4-1.6 3-1.6 4.8" stroke="#fff" stroke-opacity=".9" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M20 16c3-3 7-4.6 11-4.8" stroke="#fff" stroke-opacity=".4" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M28 12h8l-4-6Z" fill="url(#carriage-g)"/>
+    <circle cx="32" cy="7" r="2.4" fill="#8ee6ff"/>
+    <path d="M13 46h38" stroke="url(#carriage-g)" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    </g>
+    <g class="carriage-w">
+    <circle cx="19" cy="52" r="7" fill="none" stroke="url(#carriage-g)" stroke-width="2.6"/>
+    <path d="M19 46v12M13 52h12M15 48l8 8M23 48l-8 8" stroke="url(#carriage-g)" stroke-width="1.6"/>
+    <circle cx="19" cy="52" r="1.8" fill="#fff4d6"/>
+    </g>
+    <g class="carriage-w">
+    <circle cx="45" cy="52" r="7" fill="none" stroke="url(#carriage-g)" stroke-width="2.6"/>
+    <path d="M45 46v12M39 52h12M41 48l8 8M49 48l-8 8" stroke="url(#carriage-g)" stroke-width="1.6"/>
+    <circle cx="45" cy="52" r="1.8" fill="#fff4d6"/>
+    </g>
+    <path class="carriage-s" d="M56 14l1.2 3 3 1.2-3 1.2L56 23.4l-1.2-3-3-1.2 3-1.2Z" fill="#fff"/>
+    <circle class="carriage-s carriage-s2" cx="7" cy="20" r="1.9" fill="#ffe9a3"/>
+    <circle class="carriage-s carriage-s3" cx="58" cy="40" r="1.7" fill="#fff"/>
+    <circle class="carriage-s carriage-s4" cx="6" cy="40" r="1.5" fill="#ffe9a3"/>
+    <g mask="url(#carriage-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#carriage-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#carriage-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#carriage-x-rim)"/>
+      <rect class="carriage-x-shine" x="0" y="-16" width="26" height="96" fill="url(#carriage-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="carriage-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="carriage-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="carriage-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="carriage-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="carriage-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

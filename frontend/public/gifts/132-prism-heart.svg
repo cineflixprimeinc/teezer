@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes prism-heart-shimmer{0%,100%{filter:brightness(1) drop-shadow(0 0 2px #a855f7)}50%{filter:brightness(1.25) drop-shadow(0 0 8px #22d3ee)}}
+    @keyframes prism-heart-sweep{0%{opacity:0;transform:translateX(-22px)}35%{opacity:.9}100%{opacity:0;transform:translateX(24px)}}
+    @keyframes prism-heart-tw{0%,100%{opacity:.2;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    .prism-heart-body{transform-box:fill-box;transform-origin:center;animation:prism-heart-shimmer 2.4s ease-in-out infinite}
+    .prism-heart-sh{transform-box:fill-box;transform-origin:center;animation:prism-heart-sweep 2.1s ease-in-out infinite}
+    .prism-heart-s{transform-box:fill-box;transform-origin:center;animation:prism-heart-tw 1.9s ease-in-out infinite}
+    .prism-heart-s2{animation-delay:.8s}.prism-heart-s3{animation-delay:1.4s}
+    @keyframes prism-heart-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes prism-heart-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes prism-heart-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes prism-heart-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes prism-heart-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .prism-heart-x-lift{transform-box:fill-box;transform-origin:center;animation:prism-heart-x-lift 3.4s ease-in-out infinite}
+    .prism-heart-x-shine{animation:prism-heart-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .prism-heart-x-spark{transform-box:fill-box;transform-origin:center;animation:prism-heart-x-spark 2.2s ease-in-out infinite}
+    .prism-heart-x-aura{transform-box:fill-box;transform-origin:center;animation:prism-heart-x-aura 3s ease-in-out infinite}
+    .prism-heart-x-cast{transform-box:fill-box;transform-origin:center;animation:prism-heart-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.prism-heart-x-lift,.prism-heart-x-shine,.prism-heart-x-spark,.prism-heart-x-aura,.prism-heart-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="prism-heart-g" x1="12" y1="10" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#e6fbff"/><stop offset=".3" stop-color="#67e8f9"/>
+    <stop offset=".62" stop-color="#c084fc"/><stop offset="1" stop-color="#f0439a"/>
+    </linearGradient>
+    <filter id="prism-heart-f" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="prism-heart-c">
+    <path d="M32 56C16 45 8 37 8 27 8 19 14 13 21 13c5 0 9 3 11 7 2-4 6-7 11-7 7 0 13 6 13 14 0 10-8 18-24 29Z"/>
+    </clipPath>
+    <radialGradient id="prism-heart-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="prism-heart-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="prism-heart-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="prism-heart-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="prism-heart-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="prism-heart-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="prism-heart-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="prism-heart-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#prism-heart-x-white)">
+        <g class="prism-heart-body" filter="url(#prism-heart-f)">
+        <path d="M32 56C16 45 8 37 8 27 8 19 14 13 21 13c5 0 9 3 11 7 2-4 6-7 11-7 7 0 13 6 13 14 0 10-8 18-24 29Z" fill="url(#prism-heart-g)"/>
+        <g clip-path="url(#prism-heart-c)" opacity=".38">
+        <path d="M32 20 14 30l18 26Z" fill="#fff"/>
+        <path d="M32 20l18 10-18 26Z" fill="#5b1a8c"/>
+        <path d="M8 27h48" stroke="#fff" stroke-width="1.6" stroke-opacity=".5"/>
+        </g>
+        <path d="M20 20c-3 1-5 4-5 8" stroke="#fff" stroke-opacity=".7" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+        <path d="M32 56c9-6 15-12 19-17-6 10-12 14-19 17Z" fill="#7a1560" opacity=".4"/>
+        <g clip-path="url(#prism-heart-c)">
+        <rect class="prism-heart-sh" x="18" y="6" width="8" height="56" fill="#fff" opacity=".8" transform="skewX(-20)"/>
+        </g>
+        </g>
+        <circle class="prism-heart-s" cx="53" cy="14" r="2.2" fill="#fff"/>
+        <circle class="prism-heart-s prism-heart-s2" cx="10" cy="45" r="1.7" fill="#a5f3fc"/>
+        <circle class="prism-heart-s prism-heart-s3" cx="46" cy="52" r="1.5" fill="#f5d0fe"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="prism-heart-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#prism-heart-x-cast-g)"/>
+  <circle class="prism-heart-x-aura" cx="32" cy="32" r="29" fill="url(#prism-heart-x-aura-g)"/>
+  <g class="prism-heart-x-lift">
+    <g class="prism-heart-body" filter="url(#prism-heart-f)">
+    <path d="M32 56C16 45 8 37 8 27 8 19 14 13 21 13c5 0 9 3 11 7 2-4 6-7 11-7 7 0 13 6 13 14 0 10-8 18-24 29Z" fill="url(#prism-heart-g)"/>
+    <g clip-path="url(#prism-heart-c)" opacity=".38">
+    <path d="M32 20 14 30l18 26Z" fill="#fff"/>
+    <path d="M32 20l18 10-18 26Z" fill="#5b1a8c"/>
+    <path d="M8 27h48" stroke="#fff" stroke-width="1.6" stroke-opacity=".5"/>
+    </g>
+    <path d="M20 20c-3 1-5 4-5 8" stroke="#fff" stroke-opacity=".7" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+    <path d="M32 56c9-6 15-12 19-17-6 10-12 14-19 17Z" fill="#7a1560" opacity=".4"/>
+    <g clip-path="url(#prism-heart-c)">
+    <rect class="prism-heart-sh" x="18" y="6" width="8" height="56" fill="#fff" opacity=".8" transform="skewX(-20)"/>
+    </g>
+    </g>
+    <circle class="prism-heart-s" cx="53" cy="14" r="2.2" fill="#fff"/>
+    <circle class="prism-heart-s prism-heart-s2" cx="10" cy="45" r="1.7" fill="#a5f3fc"/>
+    <circle class="prism-heart-s prism-heart-s3" cx="46" cy="52" r="1.5" fill="#f5d0fe"/>
+    <g mask="url(#prism-heart-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#prism-heart-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#prism-heart-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#prism-heart-x-rim)"/>
+      <rect class="prism-heart-x-shine" x="0" y="-16" width="26" height="96" fill="url(#prism-heart-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="prism-heart-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="prism-heart-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="prism-heart-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="prism-heart-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes angel-wings-rise{0%,100%{transform:translateY(2px) scale(.97)}50%{transform:translateY(-3px) scale(1.04)}}
+    @keyframes angel-wings-halo{0%,100%{opacity:.5;transform:scale(.92)}50%{opacity:1;transform:scale(1.08)}}
+    @keyframes angel-wings-tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+    @keyframes angel-wings-fall{0%{opacity:0;transform:translateY(-3px) rotate(0)}30%{opacity:1}100%{opacity:0;transform:translateY(12px) rotate(40deg)}}
+    .angel-wings-b{transform-box:fill-box;transform-origin:center bottom;animation:angel-wings-rise 2.4s ease-in-out infinite}
+    .angel-wings-h{transform-box:fill-box;transform-origin:center;animation:angel-wings-halo 2s ease-in-out infinite}
+    .angel-wings-s{transform-box:fill-box;transform-origin:center;animation:angel-wings-tw 2.2s ease-in-out infinite}
+    .angel-wings-s2{animation-delay:.8s}
+    .angel-wings-f{transform-box:fill-box;transform-origin:center;animation:angel-wings-fall 2.8s ease-in-out infinite}
+    .angel-wings-f2{animation-delay:1.4s}
+    @keyframes angel-wings-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes angel-wings-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes angel-wings-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes angel-wings-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes angel-wings-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .angel-wings-x-lift{transform-box:fill-box;transform-origin:center;animation:angel-wings-x-lift 3.4s ease-in-out infinite}
+    .angel-wings-x-shine{animation:angel-wings-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .angel-wings-x-spark{transform-box:fill-box;transform-origin:center;animation:angel-wings-x-spark 2.2s ease-in-out infinite}
+    .angel-wings-x-aura{transform-box:fill-box;transform-origin:center;animation:angel-wings-x-aura 3s ease-in-out infinite}
+    .angel-wings-x-cast{transform-box:fill-box;transform-origin:center;animation:angel-wings-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.angel-wings-x-lift,.angel-wings-x-shine,.angel-wings-x-spark,.angel-wings-x-aura,.angel-wings-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="angel-wings-g" x1="14" y1="14" x2="34" y2="50" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#e8f1ff"/><stop offset="1" stop-color="#a9c0e6"/>
+    </linearGradient>
+    <linearGradient id="angel-wings-g2" x1="50" y1="14" x2="30" y2="50" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#dfeaff"/><stop offset="1" stop-color="#96afd8"/>
+    </linearGradient>
+    <linearGradient id="angel-wings-gh" x1="22" y1="6" x2="42" y2="14" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff3b0"/><stop offset="1" stop-color="#f0b429"/>
+    </linearGradient>
+    <filter id="angel-wings-f1" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="angel-wings-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="angel-wings-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="angel-wings-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="angel-wings-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="angel-wings-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="angel-wings-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="angel-wings-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="angel-wings-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#angel-wings-x-white)">
+        <g class="angel-wings-b" filter="url(#angel-wings-f1)">
+        <path d="M30 22c-4-6-11-10-19-8-4 1-6 5-4 9 1 3 4 4 7 4-3 2-4 6-1 9 2 2 5 2 8 1-2 3-1 6 2 7 5 2 10-3 12-9Z" fill="url(#angel-wings-g)"/>
+        <path d="M34 22c4-6 11-10 19-8 4 1 6 5 4 9-1 3-4 4-7 4 3 2 4 6 1 9-2 2-5 2-8 1 2 3 1 6-2 7-5 2-10-3-12-9Z" fill="url(#angel-wings-g2)"/>
+        <path d="M16 17c-3 0-6 2-6 5" stroke="#fff" stroke-opacity=".85" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <path d="M30 24c-4 6-9 10-15 11 6 4 13 1 17-6Z" fill="#8ea6ce" opacity=".45"/>
+        <path d="M34 24c4 6 9 10 15 11-6 4-13 1-17-6Z" fill="#7f97c1" opacity=".45"/>
+        <rect x="30.5" y="20" width="3" height="30" rx="1.5" fill="#cfe0f7"/>
+        </g>
+        <ellipse class="angel-wings-h" cx="32" cy="10" rx="10" ry="3.6" fill="none" stroke="url(#angel-wings-gh)" stroke-width="3"/>
+        <circle class="angel-wings-s" cx="55" cy="45" r="1.9" fill="#fff"/>
+        <circle class="angel-wings-s angel-wings-s2" cx="9" cy="47" r="1.6" fill="#fff"/>
+        <ellipse class="angel-wings-f" cx="24" cy="46" rx="2" ry="3.2" fill="#fff" opacity=".9"/>
+        <ellipse class="angel-wings-f angel-wings-f2" cx="42" cy="44" rx="1.7" ry="2.8" fill="#e6efff" opacity=".9"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="angel-wings-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#angel-wings-x-cast-g)"/>
+  <circle class="angel-wings-x-aura" cx="32" cy="32" r="29" fill="url(#angel-wings-x-aura-g)"/>
+  <g class="angel-wings-x-lift">
+    <g class="angel-wings-b" filter="url(#angel-wings-f1)">
+    <path d="M30 22c-4-6-11-10-19-8-4 1-6 5-4 9 1 3 4 4 7 4-3 2-4 6-1 9 2 2 5 2 8 1-2 3-1 6 2 7 5 2 10-3 12-9Z" fill="url(#angel-wings-g)"/>
+    <path d="M34 22c4-6 11-10 19-8 4 1 6 5 4 9-1 3-4 4-7 4 3 2 4 6 1 9-2 2-5 2-8 1 2 3 1 6-2 7-5 2-10-3-12-9Z" fill="url(#angel-wings-g2)"/>
+    <path d="M16 17c-3 0-6 2-6 5" stroke="#fff" stroke-opacity=".85" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path d="M30 24c-4 6-9 10-15 11 6 4 13 1 17-6Z" fill="#8ea6ce" opacity=".45"/>
+    <path d="M34 24c4 6 9 10 15 11-6 4-13 1-17-6Z" fill="#7f97c1" opacity=".45"/>
+    <rect x="30.5" y="20" width="3" height="30" rx="1.5" fill="#cfe0f7"/>
+    </g>
+    <ellipse class="angel-wings-h" cx="32" cy="10" rx="10" ry="3.6" fill="none" stroke="url(#angel-wings-gh)" stroke-width="3"/>
+    <circle class="angel-wings-s" cx="55" cy="45" r="1.9" fill="#fff"/>
+    <circle class="angel-wings-s angel-wings-s2" cx="9" cy="47" r="1.6" fill="#fff"/>
+    <ellipse class="angel-wings-f" cx="24" cy="46" rx="2" ry="3.2" fill="#fff" opacity=".9"/>
+    <ellipse class="angel-wings-f angel-wings-f2" cx="42" cy="44" rx="1.7" ry="2.8" fill="#e6efff" opacity=".9"/>
+    <g mask="url(#angel-wings-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#angel-wings-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#angel-wings-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#angel-wings-x-rim)"/>
+      <rect class="angel-wings-x-shine" x="0" y="-16" width="26" height="96" fill="url(#angel-wings-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="angel-wings-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="angel-wings-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="angel-wings-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="angel-wings-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

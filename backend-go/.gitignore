@@ -1,0 +1,11 @@
+/bin/
+/tmp/
+*.exe
+.env
+.env.local
+/.devdb/
+
+# Compiled Go binaries built in-tree (e.g. `go build -o api-new ./cmd/api`).
+# One was committed by accident; keep them out for good.
+api-new
+/backend-go/api

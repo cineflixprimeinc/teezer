@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes castle-glow{0%,100%{filter:brightness(1);opacity:.92}50%{filter:brightness(1.25);opacity:1}}
+    @keyframes castle-flag{0%,100%{transform:scaleX(1) skewX(0)}50%{transform:scaleX(.8) skewX(-16deg)}}
+    @keyframes castle-win{0%,100%{opacity:.4}50%{opacity:1}}
+    @keyframes castle-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .castle-body{transform-box:fill-box;transform-origin:center;animation:castle-glow 2.4s ease-in-out infinite}
+    .castle-fl{transform-box:fill-box;transform-origin:left center;animation:castle-flag 1.7s ease-in-out infinite}
+    .castle-f2{animation-delay:.4s}.castle-f3{animation-delay:.8s}
+    .castle-win{animation:castle-win 2s ease-in-out infinite}
+    .castle-wb{animation-delay:.7s}.castle-wc{animation-delay:1.3s}
+    .castle-s{transform-box:fill-box;transform-origin:center;animation:castle-tw 2.2s ease-in-out infinite}
+    .castle-s2{animation-delay:.75s}.castle-s3{animation-delay:1.5s}
+    @keyframes castle-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes castle-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes castle-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes castle-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes castle-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .castle-x-lift{transform-box:fill-box;transform-origin:center;animation:castle-x-lift 3.4s ease-in-out infinite}
+    .castle-x-shine{animation:castle-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .castle-x-spark{transform-box:fill-box;transform-origin:center;animation:castle-x-spark 2.2s ease-in-out infinite}
+    .castle-x-aura{transform-box:fill-box;transform-origin:center;animation:castle-x-aura 3s ease-in-out infinite}
+    .castle-x-cast{transform-box:fill-box;transform-origin:center;animation:castle-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.castle-x-lift,.castle-x-shine,.castle-x-spark,.castle-x-aura,.castle-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="castle-g" x1="10" y1="24" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#f2f6ff"/><stop offset=".55" stop-color="#c8d6f0"/><stop offset="1" stop-color="#8b9cc4"/>
+    </linearGradient>
+    <linearGradient id="castle-gr" x1="16" y1="8" x2="48" y2="24" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#6d28d9"/>
+    </linearGradient>
+    <filter id="castle-f" x="-45%" y="-45%" width="190%" height="190%">
+    <feGaussianBlur stdDeviation="2.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="castle-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="castle-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="castle-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="castle-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="castle-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="castle-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="castle-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="castle-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#castle-x-white)">
+        <g class="castle-body" filter="url(#castle-f)">
+        <path d="M12 22l6-9 6 9z" fill="url(#castle-gr)"/>
+        <path d="M40 22l6-9 6 9z" fill="url(#castle-gr)"/>
+        <path d="M24 18l8-11 8 11z" fill="url(#castle-gr)"/>
+        <rect x="17.4" y="6" width="1.6" height="8" fill="#cbd5e1"/><path class="castle-fl" d="M19 6h6l-2 2 2 2h-6z" fill="#f472b6"/>
+        <rect x="31.4" y="4" width="1.6" height="6" fill="#cbd5e1"/><path class="castle-fl castle-f2" d="M33 4h6l-2 2 2 2h-6z" fill="#fbbf24"/>
+        <rect x="45.4" y="6" width="1.6" height="8" fill="#cbd5e1"/><path class="castle-fl castle-f3" d="M47 6h6l-2 2 2 2h-6z" fill="#f472b6"/>
+        <rect x="12" y="22" width="12" height="32" rx="2.6" fill="url(#castle-g)"/>
+        <rect x="40" y="22" width="12" height="32" rx="2.6" fill="url(#castle-g)"/>
+        <rect x="23" y="28" width="18" height="26" rx="2.6" fill="url(#castle-g)"/>
+        <path d="M23 28h18v3H23zm-11-6h12v3H12zm28 0h12v3H40z" fill="#fff" opacity=".5"/>
+        <rect x="24" y="26" width="3" height="3" fill="#aab8d6"/><rect x="30.5" y="26" width="3" height="3" fill="#aab8d6"/><rect x="37" y="26" width="3" height="3" fill="#aab8d6"/>
+        <path d="M27 44c0-2.8 2.2-5 5-5s5 2.2 5 5v10H27z" fill="#7b4fd0"/>
+        <path d="M29 45c0-1.7 1.3-3 3-3s3 1.3 3 3v9h-6z" fill="#a985f0"/>
+        <rect class="castle-win" x="15" y="30" width="5" height="7" rx="2.5" fill="#ffe27a"/>
+        <rect class="castle-win castle-wb" x="44" y="30" width="5" height="7" rx="2.5" fill="#ffe27a"/>
+        <rect class="castle-win castle-wc" x="29.5" y="32" width="5" height="6" rx="2.5" fill="#ffe27a"/>
+        <path d="M12 50h40v4a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2z" fill="#5f6f96" opacity=".35"/>
+        <path d="M14 25c1.5-.6 3.5-.8 5-.8" stroke="#fff" stroke-opacity=".75" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        </g>
+        <circle class="castle-s" cx="7" cy="16" r="2.1" fill="#fff"/>
+        <circle class="castle-s castle-s2" cx="57" cy="18" r="1.8" fill="#fff"/>
+        <circle class="castle-s castle-s3" cx="58" cy="46" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="castle-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#castle-x-cast-g)"/>
+  <circle class="castle-x-aura" cx="32" cy="32" r="29" fill="url(#castle-x-aura-g)"/>
+  <g class="castle-x-lift">
+    <g class="castle-body" filter="url(#castle-f)">
+    <path d="M12 22l6-9 6 9z" fill="url(#castle-gr)"/>
+    <path d="M40 22l6-9 6 9z" fill="url(#castle-gr)"/>
+    <path d="M24 18l8-11 8 11z" fill="url(#castle-gr)"/>
+    <rect x="17.4" y="6" width="1.6" height="8" fill="#cbd5e1"/><path class="castle-fl" d="M19 6h6l-2 2 2 2h-6z" fill="#f472b6"/>
+    <rect x="31.4" y="4" width="1.6" height="6" fill="#cbd5e1"/><path class="castle-fl castle-f2" d="M33 4h6l-2 2 2 2h-6z" fill="#fbbf24"/>
+    <rect x="45.4" y="6" width="1.6" height="8" fill="#cbd5e1"/><path class="castle-fl castle-f3" d="M47 6h6l-2 2 2 2h-6z" fill="#f472b6"/>
+    <rect x="12" y="22" width="12" height="32" rx="2.6" fill="url(#castle-g)"/>
+    <rect x="40" y="22" width="12" height="32" rx="2.6" fill="url(#castle-g)"/>
+    <rect x="23" y="28" width="18" height="26" rx="2.6" fill="url(#castle-g)"/>
+    <path d="M23 28h18v3H23zm-11-6h12v3H12zm28 0h12v3H40z" fill="#fff" opacity=".5"/>
+    <rect x="24" y="26" width="3" height="3" fill="#aab8d6"/><rect x="30.5" y="26" width="3" height="3" fill="#aab8d6"/><rect x="37" y="26" width="3" height="3" fill="#aab8d6"/>
+    <path d="M27 44c0-2.8 2.2-5 5-5s5 2.2 5 5v10H27z" fill="#7b4fd0"/>
+    <path d="M29 45c0-1.7 1.3-3 3-3s3 1.3 3 3v9h-6z" fill="#a985f0"/>
+    <rect class="castle-win" x="15" y="30" width="5" height="7" rx="2.5" fill="#ffe27a"/>
+    <rect class="castle-win castle-wb" x="44" y="30" width="5" height="7" rx="2.5" fill="#ffe27a"/>
+    <rect class="castle-win castle-wc" x="29.5" y="32" width="5" height="6" rx="2.5" fill="#ffe27a"/>
+    <path d="M12 50h40v4a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2z" fill="#5f6f96" opacity=".35"/>
+    <path d="M14 25c1.5-.6 3.5-.8 5-.8" stroke="#fff" stroke-opacity=".75" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    </g>
+    <circle class="castle-s" cx="7" cy="16" r="2.1" fill="#fff"/>
+    <circle class="castle-s castle-s2" cx="57" cy="18" r="1.8" fill="#fff"/>
+    <circle class="castle-s castle-s3" cx="58" cy="46" r="1.5" fill="#fff"/>
+    <g mask="url(#castle-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#castle-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#castle-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#castle-x-rim)"/>
+      <rect class="castle-x-shine" x="0" y="-16" width="26" height="96" fill="url(#castle-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="castle-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="castle-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="castle-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

@@ -1,0 +1,36 @@
+# systemd unit - livekit-server (self-hosted SFU behind StreamHub).
+# Bare-binary install - matches the majority pattern in this repo (teezer-go,
+# nats.service's systemd option) rather than Docker, since livekit-server is a
+# single static Go binary with no fragile runtime deps (unlike livekit-egress,
+# which needs headless Chrome - see docker-compose.egress.yml for that one).
+#
+# Install:
+#   1. curl -sSL https://get.livekit.io | bash   -> /usr/local/bin/livekit-server
+#   2. useradd --system --no-create-home --shell /usr/sbin/nologin livekit
+#   3. mkdir -p /etc/livekit && chown livekit:livekit /etc/livekit
+#   4. cp livekit.yaml.example /etc/livekit/livekit.yaml
+#      - fill in the keys/webhook.api_key placeholders (livekit-server generate-keys)
+#      - chmod 600 /etc/livekit/livekit.yaml && chown livekit:livekit /etc/livekit/livekit.yaml
+#   5. cp livekit-server.service /etc/systemd/system/livekit-server.service
+#   6. systemctl daemon-reload && systemctl enable --now livekit-server
+#   7. Deploy nginx in front for public WSS signaling - see README.md §3.
+#      livekit-server itself only binds 127.0.0.1-reachable ports (7880/7881),
+#      never a public one directly, so no firewall rule or elevated bind
+#      capability is needed for this process.
+#
+[Unit]
+Description=livekit-server (self-hosted SFU, StreamHub media engine)
+After=network.target redis-livekit.service
+Wants=redis-livekit.service
+
+[Service]
+Type=simple
+User=livekit
+Group=livekit
+ExecStart=/usr/local/bin/livekit-server --config /etc/livekit/livekit.yaml
+Restart=on-failure
+RestartSec=2
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

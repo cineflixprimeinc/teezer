@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes cosmos-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes cosmos-orbit{0%{transform:rotate(0)}100%{transform:rotate(-360deg)}}
+    @keyframes cosmos-core{0%,100%{opacity:.6;transform:scale(.9)}50%{opacity:1;transform:scale(1.12)}}
+    @keyframes cosmos-tw{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .cosmos-disc{transform-box:fill-box;transform-origin:center;animation:cosmos-spin 3s linear infinite}
+    .cosmos-orbit{transform-box:fill-box;transform-origin:center;animation:cosmos-orbit 2.6s linear infinite}
+    .cosmos-core{transform-box:fill-box;transform-origin:center;animation:cosmos-core 2s ease-in-out infinite}
+    .cosmos-s{transform-box:fill-box;transform-origin:center;animation:cosmos-tw 2s ease-in-out infinite}
+    .cosmos-s2{animation-delay:.5s}.cosmos-s3{animation-delay:1s}.cosmos-s4{animation-delay:1.5s}
+    @keyframes cosmos-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes cosmos-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes cosmos-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes cosmos-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes cosmos-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .cosmos-x-lift{transform-box:fill-box;transform-origin:center;animation:cosmos-x-lift 3.4s ease-in-out infinite}
+    .cosmos-x-shine{animation:cosmos-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .cosmos-x-spark{transform-box:fill-box;transform-origin:center;animation:cosmos-x-spark 2.2s ease-in-out infinite}
+    .cosmos-x-aura{transform-box:fill-box;transform-origin:center;animation:cosmos-x-aura 3s ease-in-out infinite}
+    .cosmos-x-cast{transform-box:fill-box;transform-origin:center;animation:cosmos-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.cosmos-x-lift,.cosmos-x-shine,.cosmos-x-spark,.cosmos-x-aura,.cosmos-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="cosmos-g" cx="32" cy="32" r="26" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff6d8"/><stop offset=".22" stop-color="#ffb84d"/><stop offset=".55" stop-color="#8a4bd8"/><stop offset=".85" stop-color="#241c6b"/><stop offset="1" stop-color="#0e0733"/>
+    </radialGradient>
+    <linearGradient id="cosmos-r" x1="8" y1="16" x2="56" y2="48" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#7ff5ff"/><stop offset=".5" stop-color="#c15bff"/><stop offset="1" stop-color="#ff8ad4"/>
+    </linearGradient>
+    <radialGradient id="cosmos-a" cx="32" cy="32" r="29" gradientUnits="userSpaceOnUse">
+    <stop offset=".6" stop-color="#8a4bd8" stop-opacity="0"/><stop offset="1" stop-color="#8a4bd8" stop-opacity=".5"/>
+    </radialGradient>
+    <clipPath id="cosmos-c"><circle cx="32" cy="32" r="24"/></clipPath>
+    <filter id="cosmos-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="cosmos-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="cosmos-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cosmos-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="cosmos-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cosmos-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="cosmos-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="cosmos-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="cosmos-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#cosmos-x-white)">
+        <circle cx="32" cy="32" r="29" fill="url(#cosmos-a)"/>
+        <g filter="url(#cosmos-f)">
+        <circle cx="32" cy="32" r="24" fill="#140a3d"/>
+        <g class="cosmos-disc" clip-path="url(#cosmos-c)">
+        <circle cx="32" cy="32" r="24" fill="url(#cosmos-g)" opacity=".9"/>
+        <path d="M32 10c-4 8-2 15 4 19 6 4 8 10 5 17-10-2-16-8-17-16-1-9 3-16 8-20Z" fill="url(#cosmos-r)" opacity=".75"/>
+        <path d="M32 54c4-8 2-15-4-19-6-4-8-10-5-17 10 2 16 8 17 16 1 9-3 16-8 20Z" fill="url(#cosmos-r)" opacity=".55"/>
+        <g fill="#fff">
+        <circle cx="20" cy="18" r="1.3"/><circle cx="45" cy="20" r="1"/><circle cx="48" cy="38" r="1.2"/>
+        <circle cx="17" cy="40" r="1"/><circle cx="30" cy="48" r="1.2"/><circle cx="38" cy="14" r=".9"/>
+        <circle cx="14" cy="30" r=".9"/><circle cx="42" cy="49" r="1"/>
+        </g>
+        <path d="M8 46c8 8 40 8 48 0v12H8Z" fill="#07031f" opacity=".4"/>
+        </g>
+        <circle class="cosmos-core" cx="32" cy="32" r="6" fill="#fff8e0"/>
+        <path d="M18 20c3-4 7-6 11-7" stroke="#fff" stroke-opacity=".4" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <g class="cosmos-orbit">
+        <ellipse cx="32" cy="32" rx="28" ry="11" fill="none" stroke="url(#cosmos-r)" stroke-width="2.2" opacity=".8"/>
+        <circle cx="60" cy="32" r="2.6" fill="#fff2c8"/>
+        </g>
+        </g>
+        <circle class="cosmos-s" cx="10" cy="12" r="2" fill="#fff"/>
+        <circle class="cosmos-s cosmos-s2" cx="54" cy="12" r="1.6" fill="#fff"/>
+        <circle class="cosmos-s cosmos-s3" cx="54" cy="54" r="1.6" fill="#fff"/>
+        <circle class="cosmos-s cosmos-s4" cx="10" cy="54" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="cosmos-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#cosmos-x-cast-g)"/>
+  <circle class="cosmos-x-aura" cx="32" cy="32" r="29" fill="url(#cosmos-x-aura-g)"/>
+  <g class="cosmos-x-lift">
+    <circle cx="32" cy="32" r="29" fill="url(#cosmos-a)"/>
+    <g filter="url(#cosmos-f)">
+    <circle cx="32" cy="32" r="24" fill="#140a3d"/>
+    <g class="cosmos-disc" clip-path="url(#cosmos-c)">
+    <circle cx="32" cy="32" r="24" fill="url(#cosmos-g)" opacity=".9"/>
+    <path d="M32 10c-4 8-2 15 4 19 6 4 8 10 5 17-10-2-16-8-17-16-1-9 3-16 8-20Z" fill="url(#cosmos-r)" opacity=".75"/>
+    <path d="M32 54c4-8 2-15-4-19-6-4-8-10-5-17 10 2 16 8 17 16 1 9-3 16-8 20Z" fill="url(#cosmos-r)" opacity=".55"/>
+    <g fill="#fff">
+    <circle cx="20" cy="18" r="1.3"/><circle cx="45" cy="20" r="1"/><circle cx="48" cy="38" r="1.2"/>
+    <circle cx="17" cy="40" r="1"/><circle cx="30" cy="48" r="1.2"/><circle cx="38" cy="14" r=".9"/>
+    <circle cx="14" cy="30" r=".9"/><circle cx="42" cy="49" r="1"/>
+    </g>
+    <path d="M8 46c8 8 40 8 48 0v12H8Z" fill="#07031f" opacity=".4"/>
+    </g>
+    <circle class="cosmos-core" cx="32" cy="32" r="6" fill="#fff8e0"/>
+    <path d="M18 20c3-4 7-6 11-7" stroke="#fff" stroke-opacity=".4" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <g class="cosmos-orbit">
+    <ellipse cx="32" cy="32" rx="28" ry="11" fill="none" stroke="url(#cosmos-r)" stroke-width="2.2" opacity=".8"/>
+    <circle cx="60" cy="32" r="2.6" fill="#fff2c8"/>
+    </g>
+    </g>
+    <circle class="cosmos-s" cx="10" cy="12" r="2" fill="#fff"/>
+    <circle class="cosmos-s cosmos-s2" cx="54" cy="12" r="1.6" fill="#fff"/>
+    <circle class="cosmos-s cosmos-s3" cx="54" cy="54" r="1.6" fill="#fff"/>
+    <circle class="cosmos-s cosmos-s4" cx="10" cy="54" r="1.5" fill="#fff"/>
+    <g mask="url(#cosmos-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#cosmos-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#cosmos-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#cosmos-x-rim)"/>
+      <rect class="cosmos-x-shine" x="0" y="-16" width="26" height="96" fill="url(#cosmos-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="cosmos-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="cosmos-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="cosmos-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="cosmos-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="cosmos-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

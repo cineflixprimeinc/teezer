@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes love-potion-glow{0%,100%{filter:brightness(1);transform:rotate(-2deg)}50%{filter:brightness(1.3);transform:rotate(2deg)}}
+    @keyframes love-potion-bub{0%{opacity:0;transform:translateY(0) scale(.4)}25%{opacity:1}100%{opacity:0;transform:translateY(-13px) scale(1.1)}}
+    @keyframes love-potion-liq{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(-1px) scaleY(1.04)}}
+    @keyframes love-potion-tw{0%,100%{opacity:.15;transform:scale(.55)}50%{opacity:1;transform:scale(1)}}
+    .love-potion-body{transform-box:fill-box;transform-origin:center bottom;animation:love-potion-glow 2.4s ease-in-out infinite}
+    .love-potion-b{transform-box:fill-box;transform-origin:center;animation:love-potion-bub 2s ease-in infinite}
+    .love-potion-b2{animation-delay:.55s}.love-potion-b3{animation-delay:1.1s}.love-potion-b4{animation-delay:1.5s}
+    .love-potion-liq{transform-box:fill-box;transform-origin:center bottom;animation:love-potion-liq 1.8s ease-in-out infinite}
+    .love-potion-s{transform-box:fill-box;transform-origin:center;animation:love-potion-tw 2.1s ease-in-out infinite}
+    .love-potion-s2{animation-delay:.7s}.love-potion-s3{animation-delay:1.4s}
+    @keyframes love-potion-x-lift{0%,100%{transform:translateY(1.8px) rotate(-.6deg)}50%{transform:translateY(-1.8px) rotate(.6deg)}}
+    @keyframes love-potion-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes love-potion-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes love-potion-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes love-potion-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .love-potion-x-lift{transform-box:fill-box;transform-origin:center;animation:love-potion-x-lift 3.4s ease-in-out infinite}
+    .love-potion-x-shine{animation:love-potion-x-shine 4.5s cubic-bezier(.5,0,.5,1) infinite}
+    .love-potion-x-spark{transform-box:fill-box;transform-origin:center;animation:love-potion-x-spark 2.2s ease-in-out infinite}
+    .love-potion-x-aura{transform-box:fill-box;transform-origin:center;animation:love-potion-x-aura 3s ease-in-out infinite}
+    .love-potion-x-cast{transform-box:fill-box;transform-origin:center;animation:love-potion-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.love-potion-x-lift,.love-potion-x-shine,.love-potion-x-spark,.love-potion-x-aura,.love-potion-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="love-potion-gl" x1="18" y1="34" x2="46" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff9fd0"/><stop offset=".5" stop-color="#f0357f"/><stop offset="1" stop-color="#8e0d55"/>
+    </linearGradient>
+    <linearGradient id="love-potion-gg" x1="16" y1="20" x2="48" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#eaf7ff" stop-opacity=".85"/><stop offset="1" stop-color="#9fc6e0" stop-opacity=".45"/>
+    </linearGradient>
+    <linearGradient id="love-potion-gc" x1="26" y1="8" x2="38" y2="18" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#e0b98a"/><stop offset="1" stop-color="#8a5a2b"/>
+    </linearGradient>
+    <filter id="love-potion-f" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.8" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="love-potion-cp"><path d="M27 26l-9 12c-3 4-4 8-4 11 0 5 4 9 9 9h18c5 0 9-4 9-9 0-3-1-7-4-11l-9-12z"/></clipPath>
+    <radialGradient id="love-potion-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#e9d5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e9d5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="love-potion-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.52"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="love-potion-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="love-potion-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9d5ff" stop-opacity="0.42"/>
+      <stop offset=".6" stop-color="#e9d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="love-potion-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="love-potion-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="love-potion-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="love-potion-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#love-potion-x-white)">
+        <g class="love-potion-body" filter="url(#love-potion-f)">
+        <rect x="26" y="7" width="12" height="7" rx="2.6" fill="url(#love-potion-gc)"/>
+        <rect x="27" y="13" width="10" height="14" rx="2" fill="url(#love-potion-gg)"/>
+        <path d="M27 26l-9 12c-3 4-4 8-4 11 0 5 4 9 9 9h18c5 0 9-4 9-9 0-3-1-7-4-11l-9-12z" fill="url(#love-potion-gg)"/>
+        <g clip-path="url(#love-potion-cp)">
+        <path class="love-potion-liq" d="M12 38h40v22H12z" fill="url(#love-potion-gl)"/>
+        <path d="M12 51h40v9H12z" fill="#7c0a4a" opacity=".4"/>
+        <circle class="love-potion-b" cx="24" cy="52" r="2.2" fill="#ffd6ec" opacity=".9"/>
+        <circle class="love-potion-b love-potion-b2" cx="33" cy="54" r="1.6" fill="#ffe3f2"/>
+        <circle class="love-potion-b love-potion-b3" cx="40" cy="52" r="2" fill="#ffd6ec"/>
+        <circle class="love-potion-b love-potion-b4" cx="29" cy="55" r="1.3" fill="#fff"/>
+        <path d="M32 40c1.6-2.4 6-2 6 1.4 0 2.6-3.4 4.6-6 6.6-2.6-2-6-4-6-6.6 0-3.4 4.4-3.8 6-1.4Z" fill="#fff2f8" opacity=".8"/>
+        </g>
+        <path d="M22 38c-2.6 3.4-4 6.6-4.4 10" stroke="#fff" stroke-opacity=".7" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <path d="M29 15c-.6 3-.6 6 0 9" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </g>
+        <circle class="love-potion-s" cx="52" cy="12" r="2.2" fill="#fff"/>
+        <circle class="love-potion-s love-potion-s2" cx="11" cy="16" r="1.8" fill="#fff"/>
+        <circle class="love-potion-s love-potion-s3" cx="56" cy="34" r="1.5" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="love-potion-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#love-potion-x-cast-g)"/>
+  <circle class="love-potion-x-aura" cx="32" cy="32" r="29" fill="url(#love-potion-x-aura-g)"/>
+  <g class="love-potion-x-lift">
+    <g class="love-potion-body" filter="url(#love-potion-f)">
+    <rect x="26" y="7" width="12" height="7" rx="2.6" fill="url(#love-potion-gc)"/>
+    <rect x="27" y="13" width="10" height="14" rx="2" fill="url(#love-potion-gg)"/>
+    <path d="M27 26l-9 12c-3 4-4 8-4 11 0 5 4 9 9 9h18c5 0 9-4 9-9 0-3-1-7-4-11l-9-12z" fill="url(#love-potion-gg)"/>
+    <g clip-path="url(#love-potion-cp)">
+    <path class="love-potion-liq" d="M12 38h40v22H12z" fill="url(#love-potion-gl)"/>
+    <path d="M12 51h40v9H12z" fill="#7c0a4a" opacity=".4"/>
+    <circle class="love-potion-b" cx="24" cy="52" r="2.2" fill="#ffd6ec" opacity=".9"/>
+    <circle class="love-potion-b love-potion-b2" cx="33" cy="54" r="1.6" fill="#ffe3f2"/>
+    <circle class="love-potion-b love-potion-b3" cx="40" cy="52" r="2" fill="#ffd6ec"/>
+    <circle class="love-potion-b love-potion-b4" cx="29" cy="55" r="1.3" fill="#fff"/>
+    <path d="M32 40c1.6-2.4 6-2 6 1.4 0 2.6-3.4 4.6-6 6.6-2.6-2-6-4-6-6.6 0-3.4 4.4-3.8 6-1.4Z" fill="#fff2f8" opacity=".8"/>
+    </g>
+    <path d="M22 38c-2.6 3.4-4 6.6-4.4 10" stroke="#fff" stroke-opacity=".7" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path d="M29 15c-.6 3-.6 6 0 9" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" fill="none"/>
+    </g>
+    <circle class="love-potion-s" cx="52" cy="12" r="2.2" fill="#fff"/>
+    <circle class="love-potion-s love-potion-s2" cx="11" cy="16" r="1.8" fill="#fff"/>
+    <circle class="love-potion-s love-potion-s3" cx="56" cy="34" r="1.5" fill="#fff"/>
+    <g mask="url(#love-potion-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#love-potion-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#love-potion-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#love-potion-x-rim)"/>
+      <rect class="love-potion-x-shine" x="0" y="-16" width="26" height="96" fill="url(#love-potion-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="love-potion-x-spark" cx="54" cy="13" r="2" fill="#e9d5ff" style="animation-delay:0s"/>
+  <circle class="love-potion-x-spark" cx="10" cy="17" r="1.6" fill="#e9d5ff" style="animation-delay:0.7s"/>
+  <circle class="love-potion-x-spark" cx="57" cy="45" r="1.7" fill="#e9d5ff" style="animation-delay:1.3s"/>
+</svg>

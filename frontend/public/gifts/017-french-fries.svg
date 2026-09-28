@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes french-fries-bounce{0%,100%{transform:translateY(0) scale(1,1)}25%{transform:translateY(-5px) scale(.96,1.05)}55%{transform:translateY(0) scale(1.05,.95)}75%{transform:translateY(-1px) scale(1,1)}}
+    @keyframes french-fries-jig{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+    .french-fries-body{transform-box:fill-box;transform-origin:center bottom;animation:french-fries-bounce 1.9s ease-in-out infinite}
+    .french-fries-f{transform-box:fill-box;transform-origin:center bottom;animation:french-fries-jig 1.9s ease-in-out infinite}
+    .french-fries-f2{animation-delay:.25s}
+    .french-fries-f3{animation-delay:.5s}
+    @keyframes french-fries-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes french-fries-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes french-fries-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes french-fries-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes french-fries-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .french-fries-x-lift{transform-box:fill-box;transform-origin:center;animation:french-fries-x-lift 3.4s ease-in-out infinite}
+    .french-fries-x-shine{animation:french-fries-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .french-fries-x-spark{transform-box:fill-box;transform-origin:center;animation:french-fries-x-spark 2.2s ease-in-out infinite}
+    .french-fries-x-aura{transform-box:fill-box;transform-origin:center;animation:french-fries-x-aura 3s ease-in-out infinite}
+    .french-fries-x-cast{transform-box:fill-box;transform-origin:center;animation:french-fries-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.french-fries-x-lift,.french-fries-x-shine,.french-fries-x-spark,.french-fries-x-aura,.french-fries-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="french-fries-g" x1="16" y1="30" x2="48" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff8a8a"/><stop offset=".5" stop-color="#ee3f45"/><stop offset="1" stop-color="#b41f2c"/>
+    </linearGradient>
+    <linearGradient id="french-fries-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="french-fries-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="french-fries-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="french-fries-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="french-fries-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="french-fries-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="french-fries-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#french-fries-x-white)">
+        <g class="french-fries-body">
+        <g fill="#ffd45e" stroke="#d9a022" stroke-width="1.8" stroke-linejoin="round">
+        <rect class="french-fries-f" x="14" y="12" width="7" height="30" rx="3" transform="rotate(-10 17.5 27)"/>
+        <rect class="french-fries-f french-fries-f3" x="42" y="12" width="7" height="30" rx="3" transform="rotate(10 45.5 27)"/>
+        <rect class="french-fries-f french-fries-f2" x="21" y="7" width="7" height="34" rx="3" transform="rotate(-4 24.5 24)"/>
+        <rect class="french-fries-f french-fries-f3" x="35" y="7" width="7" height="34" rx="3" transform="rotate(4 38.5 24)"/>
+        <rect class="french-fries-f french-fries-f2" x="28.5" y="5" width="7" height="36" rx="3"/>
+        </g>
+        <path d="M17 15v10M31 8v10M45 15v10" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/>
+        <path d="M13 32h38l-3.6 22.6A5 5 0 0 1 42.5 59h-21a5 5 0 0 1-4.9-4.4L13 32Z" fill="url(#french-fries-g)" stroke="#a81c28" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M15.4 48h33.2l-1.2 6.6A5 5 0 0 1 42.5 59h-21a5 5 0 0 1-4.9-4.4Z" fill="#8f1622" opacity=".45"/>
+        <rect x="17" y="36" width="4" height="10" rx="2" fill="#fff" opacity=".45"/>
+        <path d="M22 36h20l-1 6H23Z" fill="#fff" opacity=".85"/>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="french-fries-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#french-fries-x-cast-g)"/>
+  <g class="french-fries-x-lift">
+    <g class="french-fries-body">
+    <g fill="#ffd45e" stroke="#d9a022" stroke-width="1.8" stroke-linejoin="round">
+    <rect class="french-fries-f" x="14" y="12" width="7" height="30" rx="3" transform="rotate(-10 17.5 27)"/>
+    <rect class="french-fries-f french-fries-f3" x="42" y="12" width="7" height="30" rx="3" transform="rotate(10 45.5 27)"/>
+    <rect class="french-fries-f french-fries-f2" x="21" y="7" width="7" height="34" rx="3" transform="rotate(-4 24.5 24)"/>
+    <rect class="french-fries-f french-fries-f3" x="35" y="7" width="7" height="34" rx="3" transform="rotate(4 38.5 24)"/>
+    <rect class="french-fries-f french-fries-f2" x="28.5" y="5" width="7" height="36" rx="3"/>
+    </g>
+    <path d="M17 15v10M31 8v10M45 15v10" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/>
+    <path d="M13 32h38l-3.6 22.6A5 5 0 0 1 42.5 59h-21a5 5 0 0 1-4.9-4.4L13 32Z" fill="url(#french-fries-g)" stroke="#a81c28" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M15.4 48h33.2l-1.2 6.6A5 5 0 0 1 42.5 59h-21a5 5 0 0 1-4.9-4.4Z" fill="#8f1622" opacity=".45"/>
+    <rect x="17" y="36" width="4" height="10" rx="2" fill="#fff" opacity=".45"/>
+    <path d="M22 36h20l-1 6H23Z" fill="#fff" opacity=".85"/>
+    </g>
+    <g mask="url(#french-fries-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#french-fries-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#french-fries-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#french-fries-x-rim)"/>
+      <rect class="french-fries-x-shine" x="0" y="-16" width="26" height="96" fill="url(#french-fries-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>

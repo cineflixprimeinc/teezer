@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes target-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+    @keyframes target-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    @keyframes target-quiver{0%,100%{transform:rotate(0)}50%{transform:rotate(-4deg)}}
+    .target-body{transform-box:fill-box;transform-origin:center;animation:target-pulse 2s ease-in-out infinite}
+    .target-dart{transform-box:fill-box;transform-origin:80% 20%;animation:target-quiver 2s ease-in-out infinite}
+    .target-s{transform-box:fill-box;transform-origin:center;animation:target-tw 1.9s ease-in-out infinite}
+    .target-s2{animation-delay:.9s}
+    @keyframes target-x-lift{0%,100%{transform:translateY(1.5px) rotate(-.6deg)}50%{transform:translateY(-1.5px) rotate(.6deg)}}
+    @keyframes target-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes target-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes target-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes target-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .target-x-lift{transform-box:fill-box;transform-origin:center;animation:target-x-lift 3.4s ease-in-out infinite}
+    .target-x-shine{animation:target-x-shine 5s cubic-bezier(.5,0,.5,1) infinite}
+    .target-x-spark{transform-box:fill-box;transform-origin:center;animation:target-x-spark 2.2s ease-in-out infinite}
+    .target-x-aura{transform-box:fill-box;transform-origin:center;animation:target-x-aura 3s ease-in-out infinite}
+    .target-x-cast{transform-box:fill-box;transform-origin:center;animation:target-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.target-x-lift,.target-x-shine,.target-x-spark,.target-x-aura,.target-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="target-g1" cx=".35" cy=".3" r=".85">
+    <stop offset="0" stop-color="#fff4f2"/><stop offset=".55" stop-color="#f5e3dd"/><stop offset="1" stop-color="#b39d95"/>
+    </radialGradient>
+    <radialGradient id="target-g2" cx=".38" cy=".32" r=".8">
+    <stop offset="0" stop-color="#ff9a86"/><stop offset=".55" stop-color="#ea3f34"/><stop offset="1" stop-color="#96150f"/>
+    </radialGradient>
+    <linearGradient id="target-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.48"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="target-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="target-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.36"/>
+      <stop offset=".6" stop-color="#bae6fd" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="target-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="target-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="target-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="target-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#target-x-white)">
+        <g class="target-body">
+        <circle cx="30" cy="34" r="26" fill="url(#target-g2)"/>
+        <circle cx="30" cy="34" r="20" fill="url(#target-g1)"/>
+        <circle cx="30" cy="34" r="14" fill="url(#target-g2)"/>
+        <circle cx="30" cy="34" r="8" fill="url(#target-g1)"/>
+        <circle cx="30" cy="34" r="4" fill="#e02b1f"/>
+        <path d="M14 18a26 26 0 0 1 12-8" stroke="#fff" stroke-opacity=".55" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M48 52a26 26 0 0 1-14 8" stroke="#7d0f0a" stroke-opacity=".45" stroke-width="4" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="target-dart">
+        <path d="M30 34 52 12" stroke="#e8b23c" stroke-width="4" stroke-linecap="round"/>
+        <path d="M30 34 41 23" stroke="#fff" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>
+        <path d="M50 6h9v9l-7-3Z" fill="#4fd0a0"/>
+        <path d="M50 6h9l-6 5Z" fill="#a7f5d8"/>
+        <path d="M59 15l-7-3 1 4Z" fill="#1f8f68"/>
+        </g>
+        <circle class="target-s" cx="10" cy="10" r="2.1" fill="#fff"/>
+        <circle class="target-s target-s2" cx="57" cy="52" r="1.6" fill="#ffd7cf"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="target-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#target-x-cast-g)"/>
+  <g class="target-x-lift">
+    <g class="target-body">
+    <circle cx="30" cy="34" r="26" fill="url(#target-g2)"/>
+    <circle cx="30" cy="34" r="20" fill="url(#target-g1)"/>
+    <circle cx="30" cy="34" r="14" fill="url(#target-g2)"/>
+    <circle cx="30" cy="34" r="8" fill="url(#target-g1)"/>
+    <circle cx="30" cy="34" r="4" fill="#e02b1f"/>
+    <path d="M14 18a26 26 0 0 1 12-8" stroke="#fff" stroke-opacity=".55" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M48 52a26 26 0 0 1-14 8" stroke="#7d0f0a" stroke-opacity=".45" stroke-width="4" stroke-linecap="round" fill="none"/>
+    </g>
+    <g class="target-dart">
+    <path d="M30 34 52 12" stroke="#e8b23c" stroke-width="4" stroke-linecap="round"/>
+    <path d="M30 34 41 23" stroke="#fff" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>
+    <path d="M50 6h9v9l-7-3Z" fill="#4fd0a0"/>
+    <path d="M50 6h9l-6 5Z" fill="#a7f5d8"/>
+    <path d="M59 15l-7-3 1 4Z" fill="#1f8f68"/>
+    </g>
+    <circle class="target-s" cx="10" cy="10" r="2.1" fill="#fff"/>
+    <circle class="target-s target-s2" cx="57" cy="52" r="1.6" fill="#ffd7cf"/>
+    <g mask="url(#target-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#target-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#target-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#target-x-rim)"/>
+      <rect class="target-x-shine" x="0" y="-16" width="26" height="96" fill="url(#target-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="target-x-spark" cx="54" cy="13" r="2" fill="#bae6fd" style="animation-delay:0s"/>
+  <circle class="target-x-spark" cx="10" cy="17" r="1.6" fill="#bae6fd" style="animation-delay:0.7s"/>
+</svg>

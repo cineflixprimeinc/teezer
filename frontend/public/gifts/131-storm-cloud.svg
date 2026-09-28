@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes storm-cloud-float{0%,100%{transform:translateY(-2px)}50%{transform:translateY(3px)}}
+    @keyframes storm-cloud-zap{0%,60%,100%{opacity:.15;transform:scale(.9)}68%{opacity:1;transform:scale(1.05)}76%{opacity:.3}84%{opacity:1}}
+    @keyframes storm-cloud-rain{0%{opacity:0;transform:translateY(-4px)}30%{opacity:.9}100%{opacity:0;transform:translateY(12px)}}
+    .storm-cloud-body{transform-box:fill-box;transform-origin:center;animation:storm-cloud-float 2.6s ease-in-out infinite}
+    .storm-cloud-bolt{transform-box:fill-box;transform-origin:center;animation:storm-cloud-zap 2.2s linear infinite}
+    .storm-cloud-d{transform-box:fill-box;transform-origin:center;animation:storm-cloud-rain 1.8s linear infinite}
+    .storm-cloud-d2{animation-delay:.6s}.storm-cloud-d3{animation-delay:1.2s}
+    @keyframes storm-cloud-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes storm-cloud-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes storm-cloud-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes storm-cloud-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes storm-cloud-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .storm-cloud-x-lift{transform-box:fill-box;transform-origin:center;animation:storm-cloud-x-lift 3.4s ease-in-out infinite}
+    .storm-cloud-x-shine{animation:storm-cloud-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .storm-cloud-x-spark{transform-box:fill-box;transform-origin:center;animation:storm-cloud-x-spark 2.2s ease-in-out infinite}
+    .storm-cloud-x-aura{transform-box:fill-box;transform-origin:center;animation:storm-cloud-x-aura 3s ease-in-out infinite}
+    .storm-cloud-x-cast{transform-box:fill-box;transform-origin:center;animation:storm-cloud-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.storm-cloud-x-lift,.storm-cloud-x-shine,.storm-cloud-x-spark,.storm-cloud-x-aura,.storm-cloud-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="storm-cloud-g" x1="14" y1="12" x2="48" y2="40" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#d8d9ff"/><stop offset=".5" stop-color="#8b8fd6"/><stop offset="1" stop-color="#3d3a75"/>
+    </linearGradient>
+    <linearGradient id="storm-cloud-b" x1="26" y1="36" x2="38" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fffbdd"/><stop offset="1" stop-color="#f5b942"/>
+    </linearGradient>
+    <filter id="storm-cloud-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="storm-cloud-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="storm-cloud-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="storm-cloud-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="storm-cloud-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="storm-cloud-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="storm-cloud-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="storm-cloud-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="storm-cloud-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#storm-cloud-x-white)">
+        <g class="storm-cloud-body" filter="url(#storm-cloud-f)">
+        <path d="M18 38a10 10 0 0 1-1-20 13 13 0 0 1 25-3 10 10 0 0 1 4 23Z" fill="url(#storm-cloud-g)"/>
+        <path d="M20 20c-3 1-5 4-5 7" stroke="#fff" stroke-opacity=".6" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+        <path d="M17 35c10 4 22 4 30 1-5 4-25 6-30-1Z" fill="#2c2a5c" opacity=".5"/>
+        <g class="storm-cloud-bolt">
+        <path d="M34 36 24 51h6l-2 9 12-16h-7l4-8Z" fill="url(#storm-cloud-b)"/>
+        </g>
+        </g>
+        <circle class="storm-cloud-d" cx="17" cy="44" r="2" fill="#a5c8f5"/>
+        <circle class="storm-cloud-d storm-cloud-d2" cx="46" cy="44" r="1.8" fill="#c7dcff"/>
+        <circle class="storm-cloud-d storm-cloud-d3" cx="51" cy="40" r="1.5" fill="#a5c8f5"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="storm-cloud-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#storm-cloud-x-cast-g)"/>
+  <circle class="storm-cloud-x-aura" cx="32" cy="32" r="29" fill="url(#storm-cloud-x-aura-g)"/>
+  <g class="storm-cloud-x-lift">
+    <g class="storm-cloud-body" filter="url(#storm-cloud-f)">
+    <path d="M18 38a10 10 0 0 1-1-20 13 13 0 0 1 25-3 10 10 0 0 1 4 23Z" fill="url(#storm-cloud-g)"/>
+    <path d="M20 20c-3 1-5 4-5 7" stroke="#fff" stroke-opacity=".6" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+    <path d="M17 35c10 4 22 4 30 1-5 4-25 6-30-1Z" fill="#2c2a5c" opacity=".5"/>
+    <g class="storm-cloud-bolt">
+    <path d="M34 36 24 51h6l-2 9 12-16h-7l4-8Z" fill="url(#storm-cloud-b)"/>
+    </g>
+    </g>
+    <circle class="storm-cloud-d" cx="17" cy="44" r="2" fill="#a5c8f5"/>
+    <circle class="storm-cloud-d storm-cloud-d2" cx="46" cy="44" r="1.8" fill="#c7dcff"/>
+    <circle class="storm-cloud-d storm-cloud-d3" cx="51" cy="40" r="1.5" fill="#a5c8f5"/>
+    <g mask="url(#storm-cloud-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#storm-cloud-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#storm-cloud-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#storm-cloud-x-rim)"/>
+      <rect class="storm-cloud-x-shine" x="0" y="-16" width="26" height="96" fill="url(#storm-cloud-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="storm-cloud-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="storm-cloud-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="storm-cloud-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="storm-cloud-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

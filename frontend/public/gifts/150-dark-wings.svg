@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes dark-wings-rise{0%,100%{transform:translateY(2px) scale(.97)}50%{transform:translateY(-3px) scale(1.05)}}
+    @keyframes dark-wings-ember{0%{opacity:0;transform:translateY(4px) scale(.5)}35%{opacity:1}100%{opacity:0;transform:translateY(-13px) scale(1.1)}}
+    @keyframes dark-wings-core{0%,100%{opacity:.45;transform:scaleY(.9)}50%{opacity:1;transform:scaleY(1.06)}}
+    .dark-wings-b{transform-box:fill-box;transform-origin:center bottom;animation:dark-wings-rise 2.3s ease-in-out infinite}
+    .dark-wings-e{transform-box:fill-box;transform-origin:center;animation:dark-wings-ember 2.4s ease-in-out infinite}
+    .dark-wings-e2{animation-delay:.8s}.dark-wings-e3{animation-delay:1.6s}
+    .dark-wings-c{transform-box:fill-box;transform-origin:center;animation:dark-wings-core 1.8s ease-in-out infinite}
+    @keyframes dark-wings-x-lift{0%,100%{transform:translateY(2.1px) rotate(-.6deg)}50%{transform:translateY(-2.1px) rotate(.6deg)}}
+    @keyframes dark-wings-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes dark-wings-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes dark-wings-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes dark-wings-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .dark-wings-x-lift{transform-box:fill-box;transform-origin:center;animation:dark-wings-x-lift 3.4s ease-in-out infinite}
+    .dark-wings-x-shine{animation:dark-wings-x-shine 4s cubic-bezier(.5,0,.5,1) infinite}
+    .dark-wings-x-spark{transform-box:fill-box;transform-origin:center;animation:dark-wings-x-spark 2.2s ease-in-out infinite}
+    .dark-wings-x-aura{transform-box:fill-box;transform-origin:center;animation:dark-wings-x-aura 3s ease-in-out infinite}
+    .dark-wings-x-cast{transform-box:fill-box;transform-origin:center;animation:dark-wings-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.dark-wings-x-lift,.dark-wings-x-shine,.dark-wings-x-spark,.dark-wings-x-aura,.dark-wings-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="dark-wings-g" x1="12" y1="14" x2="32" y2="50" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#7a5cc4"/><stop offset=".5" stop-color="#3a2a68"/><stop offset="1" stop-color="#160e2c"/>
+    </linearGradient>
+    <linearGradient id="dark-wings-g2" x1="52" y1="14" x2="32" y2="50" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#6a4eb4"/><stop offset=".5" stop-color="#31235c"/><stop offset="1" stop-color="#120b26"/>
+    </linearGradient>
+    <linearGradient id="dark-wings-gc" x1="32" y1="18" x2="32" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff9a6b"/><stop offset="1" stop-color="#e0245e"/>
+    </linearGradient>
+    <filter id="dark-wings-f" x="-45%" y="-45%" width="190%" height="190%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="dark-wings-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fbcfe8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fbcfe8" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="dark-wings-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.58"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="dark-wings-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="dark-wings-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcfe8" stop-opacity="0.48"/>
+      <stop offset=".6" stop-color="#fbcfe8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="dark-wings-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="dark-wings-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="dark-wings-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="dark-wings-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#dark-wings-x-white)">
+        <g class="dark-wings-b" filter="url(#dark-wings-f)">
+        <path d="M30 21c-3-6-10-11-18-9-5 1-7 6-3 10l-4 2 5 5-3 3 6 3-2 4 7 1c4 2 9-1 12-8Z" fill="url(#dark-wings-g)"/>
+        <path d="M34 21c3-6 10-11 18-9 5 1 7 6 3 10l4 2-5 5 3 3-6 3 2 4-7 1c-4 2-9-1-12-8Z" fill="url(#dark-wings-g2)"/>
+        <path d="M14 15c-3 0-5 2-4 5" stroke="#c3a6ff" stroke-opacity=".55" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <path d="M30 24c-4 6-10 9-17 10 6 4 14 1 18-5Z" fill="#0d0720" opacity=".55"/>
+        <path d="M34 24c4 6 10 9 17 10-6 4-14 1-18-5Z" fill="#0b0620" opacity=".55"/>
+        <rect class="dark-wings-c" x="30.5" y="18" width="3" height="34" rx="1.5" fill="url(#dark-wings-gc)"/>
+        </g>
+        <circle class="dark-wings-e" cx="22" cy="48" r="1.8" fill="#ff7a4d"/>
+        <circle class="dark-wings-e dark-wings-e2" cx="43" cy="50" r="1.5" fill="#ff4d84"/>
+        <circle class="dark-wings-e dark-wings-e3" cx="32" cy="54" r="1.3" fill="#ffb36b"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="dark-wings-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#dark-wings-x-cast-g)"/>
+  <circle class="dark-wings-x-aura" cx="32" cy="32" r="29" fill="url(#dark-wings-x-aura-g)"/>
+  <g class="dark-wings-x-lift">
+    <g class="dark-wings-b" filter="url(#dark-wings-f)">
+    <path d="M30 21c-3-6-10-11-18-9-5 1-7 6-3 10l-4 2 5 5-3 3 6 3-2 4 7 1c4 2 9-1 12-8Z" fill="url(#dark-wings-g)"/>
+    <path d="M34 21c3-6 10-11 18-9 5 1 7 6 3 10l4 2-5 5 3 3-6 3 2 4-7 1c-4 2-9-1-12-8Z" fill="url(#dark-wings-g2)"/>
+    <path d="M14 15c-3 0-5 2-4 5" stroke="#c3a6ff" stroke-opacity=".55" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <path d="M30 24c-4 6-10 9-17 10 6 4 14 1 18-5Z" fill="#0d0720" opacity=".55"/>
+    <path d="M34 24c4 6 10 9 17 10-6 4-14 1-18-5Z" fill="#0b0620" opacity=".55"/>
+    <rect class="dark-wings-c" x="30.5" y="18" width="3" height="34" rx="1.5" fill="url(#dark-wings-gc)"/>
+    </g>
+    <circle class="dark-wings-e" cx="22" cy="48" r="1.8" fill="#ff7a4d"/>
+    <circle class="dark-wings-e dark-wings-e2" cx="43" cy="50" r="1.5" fill="#ff4d84"/>
+    <circle class="dark-wings-e dark-wings-e3" cx="32" cy="54" r="1.3" fill="#ffb36b"/>
+    <g mask="url(#dark-wings-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#dark-wings-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#dark-wings-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#dark-wings-x-rim)"/>
+      <rect class="dark-wings-x-shine" x="0" y="-16" width="26" height="96" fill="url(#dark-wings-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="dark-wings-x-spark" cx="54" cy="13" r="2" fill="#fbcfe8" style="animation-delay:0s"/>
+  <circle class="dark-wings-x-spark" cx="10" cy="17" r="1.6" fill="#fbcfe8" style="animation-delay:0.7s"/>
+  <circle class="dark-wings-x-spark" cx="57" cy="45" r="1.7" fill="#fbcfe8" style="animation-delay:1.3s"/>
+  <circle class="dark-wings-x-spark" cx="7" cy="43" r="1.5" fill="#fbcfe8" style="animation-delay:1.9s"/>
+</svg>

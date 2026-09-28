@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes black-hole-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes black-hole-lens{0%,100%{opacity:.5;transform:scale(.97)}50%{opacity:1;transform:scale(1.05)}}
+    @keyframes black-hole-orbit{0%{transform:rotate(0)}100%{transform:rotate(-360deg)}}
+    @keyframes black-hole-tw{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .black-hole-disc{transform-box:fill-box;transform-origin:center;animation:black-hole-spin 3s linear infinite}
+    .black-hole-lens{transform-box:fill-box;transform-origin:center;animation:black-hole-lens 2.2s ease-in-out infinite}
+    .black-hole-orbit{transform-box:fill-box;transform-origin:center;animation:black-hole-orbit 2.8s linear infinite}
+    .black-hole-s{transform-box:fill-box;transform-origin:center;animation:black-hole-tw 2s ease-in-out infinite}
+    .black-hole-s2{animation-delay:.5s}.black-hole-s3{animation-delay:1s}.black-hole-s4{animation-delay:1.5s}
+    @keyframes black-hole-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes black-hole-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes black-hole-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes black-hole-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes black-hole-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .black-hole-x-lift{transform-box:fill-box;transform-origin:center;animation:black-hole-x-lift 3.4s ease-in-out infinite}
+    .black-hole-x-shine{animation:black-hole-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .black-hole-x-spark{transform-box:fill-box;transform-origin:center;animation:black-hole-x-spark 2.2s ease-in-out infinite}
+    .black-hole-x-aura{transform-box:fill-box;transform-origin:center;animation:black-hole-x-aura 3s ease-in-out infinite}
+    .black-hole-x-cast{transform-box:fill-box;transform-origin:center;animation:black-hole-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.black-hole-x-lift,.black-hole-x-shine,.black-hole-x-spark,.black-hole-x-aura,.black-hole-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="black-hole-g" x1="6" y1="26" x2="58" y2="40" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff6a2b"/><stop offset=".3" stop-color="#ffd76a"/><stop offset=".6" stop-color="#a86bff"/><stop offset="1" stop-color="#2bd7ff"/>
+    </linearGradient>
+    <radialGradient id="black-hole-c" cx="32" cy="32" r="13" gradientUnits="userSpaceOnUse">
+    <stop offset=".62" stop-color="#0a0812"/><stop offset=".85" stop-color="#1c1030"/><stop offset="1" stop-color="#ffb459"/>
+    </radialGradient>
+    <radialGradient id="black-hole-a" cx="32" cy="32" r="28" gradientUnits="userSpaceOnUse">
+    <stop offset=".6" stop-color="#ffa02b" stop-opacity="0"/><stop offset="1" stop-color="#a86bff" stop-opacity=".45"/>
+    </radialGradient>
+    <filter id="black-hole-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="black-hole-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="black-hole-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="black-hole-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="black-hole-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="black-hole-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="black-hole-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="black-hole-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="black-hole-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#black-hole-x-white)">
+        <circle cx="32" cy="32" r="28" fill="url(#black-hole-a)"/>
+        <g filter="url(#black-hole-f)">
+        <g class="black-hole-disc">
+        <ellipse cx="32" cy="33" rx="26" ry="9" fill="none" stroke="url(#black-hole-g)" stroke-width="6"/>
+        <ellipse cx="32" cy="33" rx="26" ry="9" fill="none" stroke="#fff6d8" stroke-width="1.6" opacity=".7"/>
+        </g>
+        <path class="black-hole-lens" d="M32 10c9 0 16 6 16 13 0 3-2 5-4 5-3 0-4-2-4-5H24c0 3-1 5-4 5-2 0-4-2-4-5 0-7 7-13 16-13Z" fill="url(#black-hole-g)" opacity=".85"/>
+        <circle cx="32" cy="32" r="13" fill="url(#black-hole-c)"/>
+        <circle cx="32" cy="32" r="13" fill="none" stroke="#ffcf8a" stroke-width="1.6" opacity=".8"/>
+        <path d="M24 25c1-2 3-4 6-5" stroke="#fff" stroke-opacity=".3" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <g class="black-hole-orbit"><circle cx="32" cy="12" r="2.4" fill="#fff2c8"/></g>
+        <g class="black-hole-orbit" style="animation-duration:3.6s"><circle cx="54" cy="32" r="1.8" fill="#a8e8ff"/></g>
+        </g>
+        <circle class="black-hole-s" cx="10" cy="14" r="2.1" fill="#fff"/>
+        <circle class="black-hole-s black-hole-s2" cx="55" cy="15" r="1.7" fill="#fff"/>
+        <circle class="black-hole-s black-hole-s3" cx="52" cy="52" r="1.6" fill="#fff"/>
+        <circle class="black-hole-s black-hole-s4" cx="12" cy="52" r="1.6" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="black-hole-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#black-hole-x-cast-g)"/>
+  <circle class="black-hole-x-aura" cx="32" cy="32" r="29" fill="url(#black-hole-x-aura-g)"/>
+  <g class="black-hole-x-lift">
+    <circle cx="32" cy="32" r="28" fill="url(#black-hole-a)"/>
+    <g filter="url(#black-hole-f)">
+    <g class="black-hole-disc">
+    <ellipse cx="32" cy="33" rx="26" ry="9" fill="none" stroke="url(#black-hole-g)" stroke-width="6"/>
+    <ellipse cx="32" cy="33" rx="26" ry="9" fill="none" stroke="#fff6d8" stroke-width="1.6" opacity=".7"/>
+    </g>
+    <path class="black-hole-lens" d="M32 10c9 0 16 6 16 13 0 3-2 5-4 5-3 0-4-2-4-5H24c0 3-1 5-4 5-2 0-4-2-4-5 0-7 7-13 16-13Z" fill="url(#black-hole-g)" opacity=".85"/>
+    <circle cx="32" cy="32" r="13" fill="url(#black-hole-c)"/>
+    <circle cx="32" cy="32" r="13" fill="none" stroke="#ffcf8a" stroke-width="1.6" opacity=".8"/>
+    <path d="M24 25c1-2 3-4 6-5" stroke="#fff" stroke-opacity=".3" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <g class="black-hole-orbit"><circle cx="32" cy="12" r="2.4" fill="#fff2c8"/></g>
+    <g class="black-hole-orbit" style="animation-duration:3.6s"><circle cx="54" cy="32" r="1.8" fill="#a8e8ff"/></g>
+    </g>
+    <circle class="black-hole-s" cx="10" cy="14" r="2.1" fill="#fff"/>
+    <circle class="black-hole-s black-hole-s2" cx="55" cy="15" r="1.7" fill="#fff"/>
+    <circle class="black-hole-s black-hole-s3" cx="52" cy="52" r="1.6" fill="#fff"/>
+    <circle class="black-hole-s black-hole-s4" cx="12" cy="52" r="1.6" fill="#fff"/>
+    <g mask="url(#black-hole-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#black-hole-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#black-hole-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#black-hole-x-rim)"/>
+      <rect class="black-hole-x-shine" x="0" y="-16" width="26" height="96" fill="url(#black-hole-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="black-hole-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="black-hole-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="black-hole-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="black-hole-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="black-hole-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

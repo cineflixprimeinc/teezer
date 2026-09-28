@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes infinity-heart-beat{0%,100%{transform:scale(1)}45%{transform:scale(1.1)}}
+    @keyframes infinity-heart-trace{0%{stroke-dashoffset:120}100%{stroke-dashoffset:0}}
+    @keyframes infinity-heart-aura{0%,100%{opacity:.3;transform:scale(.93)}50%{opacity:.8;transform:scale(1.07)}}
+    @keyframes infinity-heart-tw{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .infinity-heart-body{transform-box:fill-box;transform-origin:center;animation:infinity-heart-beat 1.8s ease-in-out infinite}
+    .infinity-heart-trace{stroke-dasharray:20 100;animation:infinity-heart-trace 2.4s linear infinite}
+    .infinity-heart-aura{transform-box:fill-box;transform-origin:center;animation:infinity-heart-aura 2.4s ease-in-out infinite}
+    .infinity-heart-s{transform-box:fill-box;transform-origin:center;animation:infinity-heart-tw 2s ease-in-out infinite}
+    .infinity-heart-s2{animation-delay:.5s}.infinity-heart-s3{animation-delay:1s}.infinity-heart-s4{animation-delay:1.5s}
+    @keyframes infinity-heart-x-lift{0%,100%{transform:translateY(2.4px) rotate(-.6deg)}50%{transform:translateY(-2.4px) rotate(.6deg)}}
+    @keyframes infinity-heart-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes infinity-heart-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes infinity-heart-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes infinity-heart-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .infinity-heart-x-lift{transform-box:fill-box;transform-origin:center;animation:infinity-heart-x-lift 3.4s ease-in-out infinite}
+    .infinity-heart-x-shine{animation:infinity-heart-x-shine 3.5s cubic-bezier(.5,0,.5,1) infinite}
+    .infinity-heart-x-spark{transform-box:fill-box;transform-origin:center;animation:infinity-heart-x-spark 2.2s ease-in-out infinite}
+    .infinity-heart-x-aura{transform-box:fill-box;transform-origin:center;animation:infinity-heart-x-aura 3s ease-in-out infinite}
+    .infinity-heart-x-cast{transform-box:fill-box;transform-origin:center;animation:infinity-heart-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.infinity-heart-x-lift,.infinity-heart-x-shine,.infinity-heart-x-spark,.infinity-heart-x-aura,.infinity-heart-x-cast{animation:none}}
+  </style>
+  <defs>
+    <linearGradient id="infinity-heart-g" x1="14" y1="10" x2="50" y2="54" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ffd6f2"/><stop offset=".4" stop-color="#ff4fa3"/><stop offset=".75" stop-color="#9b3cf0"/><stop offset="1" stop-color="#3a1a9c"/>
+    </linearGradient>
+    <linearGradient id="infinity-heart-i" x1="12" y1="30" x2="52" y2="42" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#7ff5ff"/><stop offset=".5" stop-color="#fff3b0"/><stop offset="1" stop-color="#ff9ee0"/>
+    </linearGradient>
+    <radialGradient id="infinity-heart-a" cx="32" cy="32" r="28" gradientUnits="userSpaceOnUse">
+    <stop offset=".58" stop-color="#ff4fa3" stop-opacity="0"/><stop offset="1" stop-color="#9b3cf0" stop-opacity=".5"/>
+    </radialGradient>
+    <filter id="infinity-heart-f" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="infinity-heart-x-aura-g" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#fde68a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="infinity-heart-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.64"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="infinity-heart-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="infinity-heart-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset=".6" stop-color="#fde68a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="infinity-heart-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="infinity-heart-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="infinity-heart-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="infinity-heart-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#infinity-heart-x-white)">
+        <circle class="infinity-heart-aura" cx="32" cy="32" r="28" fill="url(#infinity-heart-a)"/>
+        <circle class="infinity-heart-aura" cx="32" cy="32" r="27" fill="none" stroke="#ff9ee0" stroke-width="1.6" opacity=".45"/>
+        <g class="infinity-heart-body" filter="url(#infinity-heart-f)">
+        <path d="M32 56C16 45 8 37 8 27 8 19 14 13 21 13c5 0 9 3 11 7 2-4 6-7 11-7 7 0 13 6 13 14 0 10-8 18-24 29Z" fill="url(#infinity-heart-g)"/>
+        <path d="M20 20c-3 1-5 4-5 8" stroke="#fff" stroke-opacity=".5" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <path d="M32 56c9-6 15-11 19-16-6 9-12 13-19 16Z" fill="#2a1276" opacity=".4"/>
+        <path id="infinity-heart-path" d="M22 36c-4 0-6 2-6 5s2 5 6 5 6-4 10-5c4 1 6 5 10 5s6-2 6-5-2-5-6-5-6 4-10 5c-4-1-6-5-10-5Z"
+        fill="none" stroke="url(#infinity-heart-i)" stroke-width="4" stroke-linecap="round"/>
+        <path class="infinity-heart-trace" d="M22 36c-4 0-6 2-6 5s2 5 6 5 6-4 10-5c4 1 6 5 10 5s6-2 6-5-2-5-6-5-6 4-10 5c-4-1-6-5-10-5Z"
+        fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        <circle class="infinity-heart-s" cx="53" cy="14" r="2.2" fill="#fff"/>
+        <circle class="infinity-heart-s infinity-heart-s2" cx="11" cy="16" r="1.7" fill="#fff"/>
+        <circle class="infinity-heart-s infinity-heart-s3" cx="57" cy="42" r="1.6" fill="#fff"/>
+        <circle class="infinity-heart-s infinity-heart-s4" cx="7" cy="44" r="1.6" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="infinity-heart-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#infinity-heart-x-cast-g)"/>
+  <circle class="infinity-heart-x-aura" cx="32" cy="32" r="29" fill="url(#infinity-heart-x-aura-g)"/>
+  <g class="infinity-heart-x-lift">
+    <circle class="infinity-heart-aura" cx="32" cy="32" r="28" fill="url(#infinity-heart-a)"/>
+    <circle class="infinity-heart-aura" cx="32" cy="32" r="27" fill="none" stroke="#ff9ee0" stroke-width="1.6" opacity=".45"/>
+    <g class="infinity-heart-body" filter="url(#infinity-heart-f)">
+    <path d="M32 56C16 45 8 37 8 27 8 19 14 13 21 13c5 0 9 3 11 7 2-4 6-7 11-7 7 0 13 6 13 14 0 10-8 18-24 29Z" fill="url(#infinity-heart-g)"/>
+    <path d="M20 20c-3 1-5 4-5 8" stroke="#fff" stroke-opacity=".5" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <path d="M32 56c9-6 15-11 19-16-6 9-12 13-19 16Z" fill="#2a1276" opacity=".4"/>
+    <path id="infinity-heart-path" d="M22 36c-4 0-6 2-6 5s2 5 6 5 6-4 10-5c4 1 6 5 10 5s6-2 6-5-2-5-6-5-6 4-10 5c-4-1-6-5-10-5Z"
+    fill="none" stroke="url(#infinity-heart-i)" stroke-width="4" stroke-linecap="round"/>
+    <path class="infinity-heart-trace" d="M22 36c-4 0-6 2-6 5s2 5 6 5 6-4 10-5c4 1 6 5 10 5s6-2 6-5-2-5-6-5-6 4-10 5c-4-1-6-5-10-5Z"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <circle class="infinity-heart-s" cx="53" cy="14" r="2.2" fill="#fff"/>
+    <circle class="infinity-heart-s infinity-heart-s2" cx="11" cy="16" r="1.7" fill="#fff"/>
+    <circle class="infinity-heart-s infinity-heart-s3" cx="57" cy="42" r="1.6" fill="#fff"/>
+    <circle class="infinity-heart-s infinity-heart-s4" cx="7" cy="44" r="1.6" fill="#fff"/>
+    <g mask="url(#infinity-heart-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#infinity-heart-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#infinity-heart-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#infinity-heart-x-rim)"/>
+      <rect class="infinity-heart-x-shine" x="0" y="-16" width="26" height="96" fill="url(#infinity-heart-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+  <circle class="infinity-heart-x-spark" cx="54" cy="13" r="2" fill="#fde68a" style="animation-delay:0s"/>
+  <circle class="infinity-heart-x-spark" cx="10" cy="17" r="1.6" fill="#fde68a" style="animation-delay:0.7s"/>
+  <circle class="infinity-heart-x-spark" cx="57" cy="45" r="1.7" fill="#fde68a" style="animation-delay:1.3s"/>
+  <circle class="infinity-heart-x-spark" cx="7" cy="43" r="1.5" fill="#fde68a" style="animation-delay:1.9s"/>
+  <circle class="infinity-heart-x-spark" cx="32" cy="5" r="1.8" fill="#fde68a" style="animation-delay:2.4s"/>
+</svg>

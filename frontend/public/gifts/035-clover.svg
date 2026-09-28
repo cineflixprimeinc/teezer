@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    @keyframes clover-wig{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+    @keyframes clover-tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+    .clover-b{transform-box:fill-box;transform-origin:50% 95%;animation:clover-wig 2.2s ease-in-out infinite}
+    .clover-s{transform-box:fill-box;transform-origin:center;animation:clover-tw 2s ease-in-out infinite}
+    .clover-s2{animation-delay:.8s}
+    @keyframes clover-x-lift{0%,100%{transform:translateY(1.2px) rotate(-.6deg)}50%{transform:translateY(-1.2px) rotate(.6deg)}}
+    @keyframes clover-x-shine{0%{transform:translateX(-78px)}55%,100%{transform:translateX(78px)}}
+    @keyframes clover-x-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+    @keyframes clover-x-aura{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
+    @keyframes clover-x-cast{0%,100%{transform:scaleX(1);opacity:.5}50%{transform:scaleX(.86);opacity:.32}}
+    .clover-x-lift{transform-box:fill-box;transform-origin:center;animation:clover-x-lift 3.4s ease-in-out infinite}
+    .clover-x-shine{animation:clover-x-shine 5.5s cubic-bezier(.5,0,.5,1) infinite}
+    .clover-x-spark{transform-box:fill-box;transform-origin:center;animation:clover-x-spark 2.2s ease-in-out infinite}
+    .clover-x-aura{transform-box:fill-box;transform-origin:center;animation:clover-x-aura 3s ease-in-out infinite}
+    .clover-x-cast{transform-box:fill-box;transform-origin:center;animation:clover-x-cast 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.clover-x-lift,.clover-x-shine,.clover-x-spark,.clover-x-aura,.clover-x-cast{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="clover-g" cx=".35" cy=".3" r=".85">
+    <stop offset="0" stop-color="#b6f2a0"/><stop offset=".5" stop-color="#4fc45a"/><stop offset="1" stop-color="#1f7a37"/>
+    </radialGradient>
+    <linearGradient id="clover-x-gloss" x1="18" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="clover-x-shade" x1="32" y1="30" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="clover-x-rim" x1="44" y1="52" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset=".6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="clover-x-shine-g" x1="0" y1="0" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="clover-x-cast-g" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="clover-x-white" x="-20%" y="-20%" width="140%" height="140%">
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="clover-x-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <g filter="url(#clover-x-white)">
+        <g class="clover-b">
+        <path d="M33 58c-1-8-1-14 1-20" stroke="#2f7a3c" stroke-width="3.6" stroke-linecap="round" fill="none"/>
+        <path d="M32 32C24 28 14 30 12 22c-2-7 6-12 12-8 5 3 7 10 8 18Z" fill="url(#clover-g)"/>
+        <path d="M32 32c8-4 18-2 20-10 2-7-6-12-12-8-5 3-7 10-8 18Z" fill="url(#clover-g)"/>
+        <path d="M32 32c-4 8-2 18-10 20-7 2-12-6-8-12 3-5 10-7 18-8Z" fill="url(#clover-g)"/>
+        <path d="M32 32c4 8 2 18 10 20 7 2 12-6 8-12-3-5-10-7-18-8Z" fill="url(#clover-g)"/>
+        <path d="M18 15c-4 1-6 4-5 8" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M42 52c8-2 8-11 6-16 5 5 4 18-6 16Z" fill="#166030" opacity=".45"/>
+        <circle cx="32" cy="32" r="3.2" fill="#2f8f45"/>
+        </g>
+        <circle class="clover-s" cx="55" cy="14" r="2" fill="#fff"/>
+        <circle class="clover-s clover-s2" cx="9" cy="48" r="1.6" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <ellipse class="clover-x-cast" cx="32" cy="60" rx="15" ry="3" fill="url(#clover-x-cast-g)"/>
+  <g class="clover-x-lift">
+    <g class="clover-b">
+    <path d="M33 58c-1-8-1-14 1-20" stroke="#2f7a3c" stroke-width="3.6" stroke-linecap="round" fill="none"/>
+    <path d="M32 32C24 28 14 30 12 22c-2-7 6-12 12-8 5 3 7 10 8 18Z" fill="url(#clover-g)"/>
+    <path d="M32 32c8-4 18-2 20-10 2-7-6-12-12-8-5 3-7 10-8 18Z" fill="url(#clover-g)"/>
+    <path d="M32 32c-4 8-2 18-10 20-7 2-12-6-8-12 3-5 10-7 18-8Z" fill="url(#clover-g)"/>
+    <path d="M32 32c4 8 2 18 10 20 7 2 12-6 8-12-3-5-10-7-18-8Z" fill="url(#clover-g)"/>
+    <path d="M18 15c-4 1-6 4-5 8" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M42 52c8-2 8-11 6-16 5 5 4 18-6 16Z" fill="#166030" opacity=".45"/>
+    <circle cx="32" cy="32" r="3.2" fill="#2f8f45"/>
+    </g>
+    <circle class="clover-s" cx="55" cy="14" r="2" fill="#fff"/>
+    <circle class="clover-s clover-s2" cx="9" cy="48" r="1.6" fill="#fff"/>
+    <g mask="url(#clover-x-mask)">
+      <rect x="0" y="0" width="64" height="64" fill="url(#clover-x-shade)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#clover-x-gloss)"/>
+      <rect x="0" y="0" width="64" height="64" fill="url(#clover-x-rim)"/>
+      <rect class="clover-x-shine" x="0" y="-16" width="26" height="96" fill="url(#clover-x-shine-g)" transform="rotate(18 32 32)"/>
+    </g>
+  </g>
+
+</svg>
