@@ -492,9 +492,9 @@ class AppServiceProvider extends ServiceProvider
         // shares that bucket with every other throttled route, so ordinary
         // browsing would use it up and block legitimate password changes.
         RateLimiter::for('change-password', function (Request $request) {
-            return Limit::perMinute(6)->by('pwchange:' . ($request->user()?->id ?? $request->ip()))->response(fn () =>
-                response()->json(['success' => false, 'message' => 'Too many attempts. Please wait a minute and try again.'], 429)
-            );
+            // Default 429 (ThrottleRequestsException) - the app's exception handler
+            // renders that correctly; a custom ->response() here surfaces as a 500.
+            return Limit::perMinute(6)->by('pwchange:' . ($request->user()?->id ?? $request->ip()));
         });
 
         // Login: 5 attempts per minute per account, 10 per minute per IP
