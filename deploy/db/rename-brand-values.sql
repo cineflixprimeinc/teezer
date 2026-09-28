@@ -141,3 +141,11 @@ COMMIT;
 -- created under the old name - backend-go now writes to database `teezer`):
 --   clickhouse-client --query "RENAME DATABASE reelsoo TO teezer"
 -- -----------------------------------------------------------------------------
+
+-- Hashtags created on the source platform with the old brand name.
+BEGIN;
+UPDATE hashtags h
+   SET name = regexp_replace(h.name, 'reelsoo', 'teezer', 'gi')
+ WHERE h.name ~* 'reelsoo'
+   AND NOT EXISTS (SELECT 1 FROM hashtags h2 WHERE lower(h2.name) = lower(regexp_replace(h.name, 'reelsoo', 'teezer', 'gi')));
+COMMIT;
