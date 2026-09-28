@@ -15,7 +15,7 @@ import { colors } from "@/constants/colors";
 import { font, radius, spacing } from "@/constants/theme";
 
 /**
- * Buy Reelsoo Coins - all 200 plans, banded by price, with a review-then-pay step.
+ * Buy Teezer Coins - all 200 plans, banded by price, with a review-then-pay step.
  *
  * It is a plain View, NOT a sheet - callers drop it into a BottomSheet they own.
  * That matters: only one modal can be presented at a time, so a picker that

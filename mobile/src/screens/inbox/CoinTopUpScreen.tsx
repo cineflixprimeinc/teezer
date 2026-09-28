@@ -5,7 +5,7 @@ import { colors } from "@/constants/colors";
 import { CoinPlansPanel } from "@/components/CoinPlansPanel";
 
 /**
- * Buy Reelsoo Coins, as a full screen - reached from Gifts & Coins' "Top up".
+ * Buy Teezer Coins, as a full screen - reached from Gifts & Coins' "Top up".
  *
  * The catalog, the review-then-pay step and every store rule live in
  * CoinPlansPanel, which the gift sheet drops into its own body. One

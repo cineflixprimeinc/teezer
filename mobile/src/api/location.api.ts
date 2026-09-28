@@ -26,7 +26,7 @@ export interface SavedLocation {
 /** Same slugify the website's own locationSlug() (frontend/src/lib/utils.ts)
  *  uses, so a slug built here resolves against the same backend rows
  *  (LocationFeedController::resolveSlug compares via PHP's Str::slug,
- *  which agrees with this for the plain ASCII place names Reelsoo's
+ *  which agrees with this for the plain ASCII place names Teezer's
  *  location search actually returns). */
 export function locationSlug(label: string): string {
   return label

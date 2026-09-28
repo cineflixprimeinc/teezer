@@ -8,7 +8,7 @@ import { colors } from "@/constants/colors";
 import { font, spacing } from "@/constants/theme";
 
 /**
- * Shared settings UI kit - the single source of truth for the Reelsoo settings
+ * Shared settings UI kit - the single source of truth for the Teezer settings
  * design language (heading, section labels, icon-circle rows, dividers, toggles,
  * selects). Every settings screen composes these so spacing, typography, rounded
  * corners and dividers stay identical, and all colours come from the semantic

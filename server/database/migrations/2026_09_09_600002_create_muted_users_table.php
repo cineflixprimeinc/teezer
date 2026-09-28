@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Schema;
  * Mirrors blocked_users' exact shape - see BlockedUser/BlockController for
  * the pattern this follows.
  *
- * Built for Global Reelsoo Control's mute_users_enabled - no account-wide
+ * Built for Global Teezer Control's mute_users_enabled - no account-wide
  * mute existed before this (only per-conversation DM mute and Space mic
  * mute, both unrelated).
  */

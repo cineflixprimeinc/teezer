@@ -162,7 +162,7 @@ class StudioContentController extends Controller
             'tagged_user_ids.*' => ['integer'],
             'collab_user_ids'   => ['nullable', 'array', 'max:20'],
             'collab_user_ids.*' => ['integer'],
-            // "Add link" → Reelsoo Product - see VideoService::syncFeaturedProducts
+            // "Add link" → Teezer Product - see VideoService::syncFeaturedProducts
             // for the ownership/active-status re-verification.
             'product_ids'       => ['nullable', 'array', 'max:3'],
             'product_ids.*'     => ['integer'],
@@ -213,7 +213,7 @@ class StudioContentController extends Controller
                 $this->syncHashtags($video, $data['hashtags']);
             }
 
-            // "Add link" → Reelsoo Product - add/remove, same omitted-means-
+            // "Add link" → Teezer Product - add/remove, same omitted-means-
             // unchanged contract as every other edit field here; no
             // notification side effect (unlike tag/collab below), so it's
             // safe to share this transaction with the core write.

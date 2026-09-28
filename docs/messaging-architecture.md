@@ -1,4 +1,4 @@
-# Reelsoo Messaging — Software Architecture Document
+# Teezer Messaging — Software Architecture Document
 
 **Part 1 of 4: Foundations**
 Status: draft · Written against the codebase at `59bdff6c`
@@ -10,7 +10,7 @@ ops/admin/roadmap) follow the boundaries set here.
 
 ## 0. What this document is, and is not
 
-This is not a greenfield design. Reelsoo already has a working messaging system
+This is not a greenfield design. Teezer already has a working messaging system
 carrying real traffic. Every decision below is therefore either *keep*, *extend*,
 or *replace* — never "build from scratch", because that is not an option that
 exists.
@@ -22,7 +22,7 @@ assumed rather than verified, it says so.
 
 ## 1. System Overview
 
-Reelsoo messaging today is a Laravel monolith over PostgreSQL, with realtime
+Teezer messaging today is a Laravel monolith over PostgreSQL, with realtime
 partially migrated to Centrifugo and a Go service growing alongside it.
 
 **What exists and works** (verified):
@@ -57,7 +57,7 @@ partially migrated to Centrifugo and a Go service growing alongside it.
 ## 2. The Redis constraint (read this before designing anything realtime)
 
 Presence, typing, unread counters and pub/sub all instinctively reach for Redis.
-On Reelsoo, **a key written on VPS-1 is invisible to VPS-2**.
+On Teezer, **a key written on VPS-1 is invisible to VPS-2**.
 
 Consequences, unavoidable until fixed:
 

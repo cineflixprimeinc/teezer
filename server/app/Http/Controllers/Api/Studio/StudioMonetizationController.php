@@ -226,7 +226,7 @@ class StudioMonetizationController extends Controller
                     'subscription' => round((float) ($sources['subscription']->total  ?? 0), 2),
                     'brand_collab' => round((float) ($sources['brand_collab']->total  ?? 0), 2),
                     'series'       => round((float) ($sources['series']->total        ?? 0), 2),
-                    // "Sell on Reelsoo" product sales - see ShopOrderController::creditSeller().
+                    // "Sell on Teezer" product sales - see ShopOrderController::creditSeller().
                     'shop'         => round((float) ($sources['shop']->total          ?? 0), 2),
                     'total'        => round($sourceTotal, 2),
                 ],
@@ -251,7 +251,7 @@ class StudioMonetizationController extends Controller
                     // Coins per USD, so the app can show a coin balance and its
                     // cash value with the same arithmetic the website uses.
                     'coin_usd_rate'     => GiftCommissionService::coinRate(),
-                    // Reelsoo's cut, applied at WITHDRAWAL (gifts credit in
+                    // Teezer's cut, applied at WITHDRAWAL (gifts credit in
                     // full). Sent so the withdraw screen can show what will
                     // actually be paid before the request is made, rather than
                     // the creator discovering the fee afterwards.
@@ -585,7 +585,7 @@ class StudioMonetizationController extends Controller
                 }
 
                 /*
-                 * Reelsoo's cut is taken HERE, not when the gift arrived.
+                 * Teezer's cut is taken HERE, not when the gift arrived.
                  *
                  * Gifts credit in full, so `available_balance` is everything the
                  * creator was sent; the commission applies once, on the way out.

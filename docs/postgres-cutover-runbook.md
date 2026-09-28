@@ -1,7 +1,7 @@
-# PostgreSQL Cutover Runbook (Stage f) - Reelsoo
+# PostgreSQL Cutover Runbook (Stage f) - Teezer
 
 > **Document only. Execute nothing against production from here without a human running each step deliberately.**
-> This is the runbook for migrating the live Reelsoo backend from MySQL to PostgreSQL 17 using the
+> This is the runbook for migrating the live Teezer backend from MySQL to PostgreSQL 17 using the
 > `db:transfer-to-pgsql` artisan command. It assumes Stages (a)–(e) are complete and validated locally.
 
 ---
@@ -22,7 +22,7 @@ The **app-layer query rewrites** from `docs/postgres-migration-patchset.md` Part
 ## 1. Prerequisites & pre-flight checklist
 
 - [ ] PostgreSQL 17 provisioned on the target host(s), reachable from the app VPS(es). If using the read/write split, primary + replica are up.
-- [ ] DB + role created: `CREATE ROLE reelsoo LOGIN PASSWORD '…'; CREATE DATABASE reelsoo OWNER reelsoo;` (the transfer command needs a role that can run `SET session_replication_role` - i.e. superuser **or** a role with the `pg_database_owner`/replication-capable grant; simplest is to run the transfer as a superuser, then hand day-to-day access to a normal role).
+- [ ] DB + role created: `CREATE ROLE teezer LOGIN PASSWORD '…'; CREATE DATABASE teezer OWNER teezer;` (the transfer command needs a role that can run `SET session_replication_role` - i.e. superuser **or** a role with the `pg_database_owner`/replication-capable grant; simplest is to run the transfer as a superuser, then hand day-to-day access to a normal role).
 - [ ] `DB_PGSQL_*` env values prepared (see Appendix A) - **not** committed, set on the server.
 - [ ] PG application build prepared and passing CI **with** the Part 2 query rewrites (§0.1).
 - [ ] Current MySQL build artifact tagged for instant rollback (e.g. `git tag pre-pgsql-cutover`).
@@ -72,15 +72,15 @@ mysqldump \
   --single-transaction --quick --routines --triggers \
   --default-character-set=utf8mb4 \
   -h "$PROD_MYSQL_HOST" -u "$PROD_MYSQL_USER" -p \
-  reelsoo > /backups/reelsoo-cutover-$(date +%Y%m%d%H%M).sql
+  teezer > /backups/teezer-cutover-$(date +%Y%m%d%H%M).sql
 ```
 Verify: dump completes without error; file size is sane vs. previous backups.
 
 ### B3 - Restore the dump into STAGING MySQL (never transfer from the live primary)
 ```bash
 mysql -h "$STAGING_MYSQL_HOST" -u "$STAGING_MYSQL_USER" -p \
-  -e "DROP DATABASE IF EXISTS reelsoo; CREATE DATABASE reelsoo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-mysql -h "$STAGING_MYSQL_HOST" -u "$STAGING_MYSQL_USER" -p reelsoo < /backups/reelsoo-cutover-*.sql
+  -e "DROP DATABASE IF EXISTS teezer; CREATE DATABASE teezer CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+mysql -h "$STAGING_MYSQL_HOST" -u "$STAGING_MYSQL_USER" -p teezer < /backups/teezer-cutover-*.sql
 ```
 Verify: `SELECT COUNT(*)` on a few large tables matches the source.
 
@@ -174,8 +174,8 @@ MySQL is **untouched and authoritative** throughout B1–B6 (we only ever read i
 DB_CONNECTION=pgsql
 DB_PGSQL_HOST=<pg-primary-host>
 DB_PGSQL_PORT=5432
-DB_PGSQL_DATABASE=reelsoo
-DB_PGSQL_USERNAME=reelsoo
+DB_PGSQL_DATABASE=teezer
+DB_PGSQL_USERNAME=teezer
 DB_PGSQL_PASSWORD=<secret>
 DB_PGSQL_SSLMODE=require
 # Optional read/write split (mirrors the mysql setup):

@@ -17,7 +17,7 @@ use Illuminate\Validation\Rules\Password;
  * First-run setup wizard for a fresh customer installation (section 20).
  *
  * Everything it writes is LOCAL to that installation - its own database, its own
- * settings, its own admin user. Nothing here talks to reelsoo.com, and nothing a
+ * settings, its own admin user. Nothing here talks to teezer.live, and nothing a
  * customer configures can reach our production environment. That separation is
  * section 21, enforced by there being no code path between the two at all.
  *

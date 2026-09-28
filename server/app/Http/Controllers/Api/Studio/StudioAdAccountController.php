@@ -33,7 +33,7 @@ class StudioAdAccountController extends Controller
 
         return response()->json(['success' => true, 'data' => [
             'account'        => $account,
-            // The stable, public Ad Account number (same in admin + ads.reelsoo.com).
+            // The stable, public Ad Account number (same in admin + ads.teezer.live).
             'account_number' => $account->accountNumber(),
             'balance_cents'  => $realBalance,
             // REAL lifetime spend = actual ad-delivery charges (0 until ads deliver),

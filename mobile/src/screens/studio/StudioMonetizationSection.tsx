@@ -22,8 +22,8 @@ import { formatCompact } from "@/utils/format";
 import { pct, plainUsd, usd } from "@/utils/money";
 
 /**
- * Reelsoo Studio → Monetization, drawn to the Claude Design prototype
- * "ReelSoo App.dc.html" (the `studioIsMonetization` panel, second revision).
+ * Teezer Studio → Monetization, drawn to the Claude Design prototype
+ * "Teezer App.dc.html" (the `studioIsMonetization` panel, second revision).
  *
  * The prototype replaced the lock screen with a full earnings dashboard, and
  * this follows it block for block: the balance hero, the payout timeline, the
@@ -560,7 +560,7 @@ export function StudioMonetizationSection() {
                 // Every row opens its own page. All five programmes now have
                 // a real, purpose-built destination instead of the generic
                 // requirements-checklist template (StudioProgrammeScreen) -
-                // Sell on Reelsoo's application + wizard; Gifts & Coins'
+                // Sell on Teezer's application + wizard; Gifts & Coins'
                 // pitch + live requirements + "Get Coins Now"; Creator
                 // Rewards/Subscriptions/Brand Marketplace's pitch + live
                 // requirements + a real waitlist signup. The generic

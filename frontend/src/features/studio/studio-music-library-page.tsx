@@ -50,7 +50,7 @@ const CATEGORIES = [
 
 const TABS = [
   { id: "all",               label: "All Tracks" },
-  { id: "reelsoo_originals", label: "Teezer Originals" },
+  { id: "teezer_originals", label: "Teezer Originals" },
   { id: "my_originals",      label: "My Original Sound" },
   { id: "favorites",         label: "Favorites" },
 ];
@@ -416,8 +416,8 @@ function TrackDetailsModal({ track, onClose, onPlay, isPlaying }: {
   onPlay: () => void;
   isPlaying: boolean;
 }) {
-  const isReelsoo = !!track.created_by_admin_id ||
-    (track.artist?.toLowerCase().includes("reelsoo") ?? false);
+  const isTeezer = !!track.created_by_admin_id ||
+    (track.artist?.toLowerCase().includes("teezer") ?? false);
 
   const metaFields = [
     { label: "Genre",    value: track.genre,      icon: Music2 },
@@ -461,7 +461,7 @@ function TrackDetailsModal({ track, onClose, onPlay, isPlaying }: {
 
           {/* Source badge */}
           <div className="absolute top-3 left-3">
-            {isReelsoo ? (
+            {isTeezer ? (
               <span className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#fd4605]/90 text-white text-[10px] font-bold backdrop-blur-sm">
                 <Music className="h-2.5 w-2.5" /> Teezer Original
               </span>
@@ -519,7 +519,7 @@ function TrackDetailsModal({ track, onClose, onPlay, isPlaying }: {
                 <p className="text-[11px] font-bold uppercase tracking-widest text-[#9ca3af]">Track Info</p>
               </div>
               {[
-                { label: "Uploaded by",   value: isReelsoo ? "Teezer" : (track.artist ?? "Independent Artist"), icon: Upload },
+                { label: "Uploaded by",   value: isTeezer ? "Teezer" : (track.artist ?? "Independent Artist"), icon: Upload },
                 { label: "Published",     value: fmtDate(track.created_at),   icon: Calendar },
                 { label: "Release Date",  value: fmtDate(track.release_date), icon: Calendar },
                 { label: "Total Plays",   value: fmtNum(track.usage_count),   icon: Play },
@@ -970,8 +970,8 @@ function MiniPlayer({ track, isPlaying, currentTime, duration, onToggle, onSeek,
 
 // ─── Local favorites helpers ──────────────────────────────────────────────────
 
-const FAV_IDS_KEY    = "reelsoo_music_fav_ids";
-const FAV_TRACKS_KEY = "reelsoo_music_fav_tracks";
+const FAV_IDS_KEY    = "teezer_music_fav_ids";
+const FAV_TRACKS_KEY = "teezer_music_fav_tracks";
 
 function loadLocalFavs(): { ids: Set<number>; tracks: Record<number, AudioTrack> } {
   try {
@@ -1043,7 +1043,7 @@ export function StudioMusicLibraryPage() {
     setLoading(true);
     try {
       const resolvedCategory =
-        tab === "reelsoo_originals" ? "reelsoo_originals" :
+        tab === "teezer_originals" ? "teezer_originals" :
         tab === "my_originals"      ? "artist_originals"  :
         category;
       const res = await audioService.getTracks({
@@ -1140,7 +1140,7 @@ export function StudioMusicLibraryPage() {
   }, [favIds, favTracks]);
 
   const displayTracks = tab === "favorites" ? Object.values(favTracks) : tracks;
-  const isOriginalsTab = tab === "reelsoo_originals";
+  const isOriginalsTab = tab === "teezer_originals";
   const activeFilters = [moodFilter, genreFilter, durationFilter].filter(Boolean).length;
 
   if (!authReady || !isAuthenticated) return null;

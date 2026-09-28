@@ -2,12 +2,12 @@
 
 /*
 |--------------------------------------------------------------------------
-| Reelsoo Licensing
+| Teezer Licensing
 |--------------------------------------------------------------------------
 | Two INDEPENDENT halves live in this file, and keeping them independent is
 | the whole point:
 |
-|   'server' - the licensor side. Only reelsoo.com runs this. It holds the
+|   'server' - the licensor side. Only teezer.live runs this. It holds the
 |              RSA PRIVATE key and is the only thing that can mint a valid
 |              signed licence. Every class behind it lives in
 |              App\Licensing\Server and is EXCLUDED from the marketplace
@@ -16,11 +16,11 @@
 |
 |   'client' - the licensee side. This is what a customer installation runs.
 |              It holds only the PUBLIC key and verifies a signed licence
-|              LOCALLY. It never calls reelsoo.com on a request path.
+|              LOCALLY. It never calls teezer.live on a request path.
 |
 | Both default to DISABLED. That is deliberate and load-bearing:
 |
-|   - client.enabled=false means production reelsoo.com can never be blocked
+|   - client.enabled=false means production teezer.live can never be blocked
 |     by its own licence middleware. Turning this on for the licensor would
 |     be a self-inflicted outage; the customer .env template is the only
 |     place it is ever true.
@@ -37,7 +37,7 @@ return [
         /*
          | Absolute path to the RSA private key that signs licences.
          |
-         | MUST live OUTSIDE the repository (default: /etc/reelsoo/license-signing-key.pem).
+         | MUST live OUTSIDE the repository (default: /etc/teezer/license-signing-key.pem).
          | It is never committed, never packaged, never copied to a customer VPS,
          | never logged, and never returned by any endpoint. Generate it with
          | `php artisan license:keygen`.
@@ -68,7 +68,7 @@ return [
          | The master switch for licence enforcement on THIS installation.
          |
          | false (default) = no licence is required, no middleware blocks
-         | anything, no outbound call is ever made. This is what reelsoo.com
+         | anything, no outbound call is ever made. This is what teezer.live
          | itself runs.
          */
         'enabled' => (bool) env('LICENSING_CLIENT_ENABLED', false),
@@ -153,5 +153,5 @@ return [
      | Product identity carried in the signed payload. A token minted for a
      | different product never validates here.
      */
-    'product' => env('LICENSE_PRODUCT', 'reelsoo'),
+    'product' => env('LICENSE_PRODUCT', 'teezer'),
 ];

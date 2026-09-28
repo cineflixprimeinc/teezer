@@ -1,4 +1,4 @@
-module reelsoo/backend-go
+module teezer/backend-go
 
 go 1.26.5
 

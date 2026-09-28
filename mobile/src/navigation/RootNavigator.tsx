@@ -111,7 +111,7 @@ const linking = {
  * Stripped-back shell.
  *
  * The feed, explore, spaces, inbox, profile, search, player and story surfaces,
- * the whole bottom-tab shell, and Reelsoo Studio were removed to rebuild the app
+ * the whole bottom-tab shell, and Teezer Studio were removed to rebuild the app
  * from a clean base. What is left is deliberately the smallest thing that still
  * runs:
  *
@@ -295,7 +295,7 @@ export function RootNavigator() {
             and the swiped-in creator layer both push it. */}
         <Stack.Screen name="ProfileViews" component={ProfileViewsScreen} />
 
-        {/* Reelsoo Premium, opened by the crown in the profile's top bar. Its
+        {/* Teezer Premium, opened by the crown in the profile's top bar. Its
             own full-screen route rather than a sheet: the page scrolls through
             plans, a comparison table and an FAQ, which is far more than a sheet
             should hold. */}
@@ -318,8 +318,8 @@ export function RootNavigator() {
         <Stack.Screen name="AddProduct" component={AddProductScreen} />
         <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
 
-        {/* "Sell on Reelsoo" - the seller application/onboarding flow, opened
-            from Settings -> Sell on Reelsoo (ProfileActionsScreen). NOT the
+        {/* "Sell on Teezer" - the seller application/onboarding flow, opened
+            from Settings -> Sell on Teezer (ProfileActionsScreen). NOT the
             Shop screen above - this is the application, not the storefront. */}
         <Stack.Screen name="SellerApplication" component={SellerApplicationScreen} />
         <Stack.Screen name="GiftsIntro" component={GiftsIntroScreen} />
@@ -336,7 +336,7 @@ export function RootNavigator() {
         <Stack.Screen name="AuthorizeLogin" component={AuthorizeLoginScreen} />
         <Stack.Screen name="ShopHelp" component={ShopHelpScreen} />
 
-        {/* Shop Settings - the "Reelsoo Seller Center" hub, opened from
+        {/* Shop Settings - the "Teezer Seller Center" hub, opened from
             ShopScreen's owner-only gear button. Operations/selling/products/
             customer-experience/policies/support - never shop identity, which
             stays on EditShop above. */}
@@ -367,7 +367,7 @@ export function RootNavigator() {
             rows either side of it. */}
         <Stack.Screen name="GiftsCoins" component={GiftsCoinsScreen} />
 
-        {/* Buying Reelsoo Coins. Its own screen because the store's billing is
+        {/* Buying Teezer Coins. Its own screen because the store's billing is
             the only route in the app - Apple 3.1.1 / Play policy - so it shares
             nothing with the website's card and PayPal checkouts. */}
         <Stack.Screen name="CoinTopUp" component={CoinTopUpScreen} />
@@ -377,10 +377,10 @@ export function RootNavigator() {
         <Stack.Screen name="WalletHistory" component={WalletHistoryScreen} />
 
         {/* Cash out. Gated on an approved tax form and a payout method, and the
-            only place Reelsoo's commission is charged - gifts credit in full. */}
+            only place Teezer's commission is charged - gifts credit in full. */}
         <Stack.Screen name="Withdraw" component={WithdrawScreen} />
 
-        {/* Reelsoo Studio - a standalone full-screen experience above the tab
+        {/* Teezer Studio - a standalone full-screen experience above the tab
             shell, with its own page hierarchy (StudioStack). The main app stays
             mounted underneath, so leaving Studio restores the feed exactly. */}
         <Stack.Screen name="StudioRoot" component={StudioStack} />

@@ -19,12 +19,12 @@ import { detectUserCountry } from "@/lib/country";
 import { api } from "@/services/api";
 import { StudioSidebarWrapper } from "./studio-sidebar-wrapper";
 import { StudioTopbarShared } from "./studio-topbar-shared";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 
 /* ─── Types ─────────────────────────────────────────────────────────────── */
 type Objective = "more_views" | "more_followers" | "more_profile_visits" | "more_engagement";
 type Gender    = "all" | "male" | "female";
-type PayMethod = "reelsoo_balance" | "credit_card" | "e_wallet" | "bank_transfer";
+type PayMethod = "teezer_balance" | "credit_card" | "e_wallet" | "bank_transfer";
 
 /* ─── All world countries ────────────────────────────────────────────────── */
 const COUNTRIES: { code: string; name: string; flag: string }[] = [
@@ -296,7 +296,7 @@ const OBJECTIVES: { id: Objective; label: string; desc: string; icon: React.Elem
 
 /* ─── Payment methods ────────────────────────────────────────────────────── */
 const PAY_METHODS: { id: PayMethod; label: string; sub: string; icon: React.ElementType }[] = [
-  { id:"reelsoo_balance", label:"Teezer Balance",    sub:"Available balance",        icon:Wallet     },
+  { id:"teezer_balance", label:"Teezer Balance",    sub:"Available balance",        icon:Wallet     },
   { id:"credit_card",     label:"Credit / Debit Card",sub:"Visa, Mastercard, JCB",   icon:CreditCard },
   { id:"e_wallet",        label:"E-Wallet",           sub:"eSewa, Khalti, PayPal",   icon:Zap        },
   { id:"bank_transfer",   label:"Bank Transfer",      sub:"Manual verification",     icon:Building2  },
@@ -679,13 +679,13 @@ export function StudioPromotePage({videoId}:{videoId:number}) {
     queryKey:["studio-promote-video",videoId],
     queryFn:async()=>{
       const {data}=await api.get(`/studio/content`);
-      const all:ReelsooVideo[]=data.data??[];
+      const all:TeezerVideo[]=data.data??[];
       return all.find(v=>v.id===videoId)??null;
     },
     enabled:authReady&&isAuthenticated&&!!videoId,
     staleTime:60_000,retry:1,
   });
-  const video:ReelsooVideo|null=videoData??null;
+  const video:TeezerVideo|null=videoData??null;
 
   /* validation */
   function validate(){

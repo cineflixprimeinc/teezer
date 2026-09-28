@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 /**
- * Checkout for Reelsoo Shop products - the first real order/payment system
+ * Checkout for Teezer Shop products - the first real order/payment system
  * for the Shop (see the 2026_08_19_000007 migration's docblock: before this,
  * `sold_count` had never been written and no order/cart table existed at
  * all).
@@ -35,7 +35,7 @@ use Illuminate\Support\Str;
  * real money.
  *
  * A Shop purchase pays with the product's own real currency directly, never
- * with Reelsoo Coins, so this is a parallel system to CoinOrder rather than
+ * with Teezer Coins, so this is a parallel system to CoinOrder rather than
  * built on it. Cash-on-delivery (`Product.allow_cod`) is not wired here yet
  * - it needs a seller-facing "mark delivered" surface that doesn't exist in
  * the app, and is out of scope for this pass; only the two gateway methods
@@ -84,7 +84,7 @@ class ShopOrderController extends Controller
     }
 
     /**
-     * The rate actually applied. The "Sell on Reelsoo" programme's own
+     * The rate actually applied. The "Sell on Teezer" programme's own
      * commission_rate (admin panel -> Monetization Control Center) wins when
      * an admin has set one - it was a real column nobody consumed before
      * this; falling back to a dedicated global setting otherwise, same

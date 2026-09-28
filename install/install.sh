@@ -3,9 +3,9 @@
 # ┌──────────────────────────────────────────────────────────────────────────┐
 # │ TEEZER NOTE: this marketplace installer is NOT used to deploy Teezer.   │
 # │ Teezer is deployed by hand - see DEPLOYMENT.md. Licensing is disabled.  │
-# │ This script and bin/reelsoo must never be pointed at the source         │
+# │ This script and bin/teezer must never be pointed at the source          │
 # │ platform's licence/update server. There is no default server: it exits │
-# │ unless LICENSE_SERVER_URL is set explicitly, and refuses reelsoo.com.   │
+# │ unless LICENSE_SERVER_URL is set explicitly.                            │
 # └──────────────────────────────────────────────────────────────────────────┘
 #
 # Marketplace VPS installer (inherited from the source codebase).
@@ -16,7 +16,7 @@
 #   - B2 credentials of any kind. The release is fetched through a presigned
 #     URL that the licence server mints per request and that expires in minutes.
 #   - the licence signing private key, or anything derived from it.
-#   - any secret belonging to reelsoo.com.
+#   - any secret belonging to the source platform.
 #
 # Everything secret here belongs to the CUSTOMER: their purchase code, their
 # licence key, and the database password this script generates for them.
@@ -25,7 +25,7 @@ set -euo pipefail
 
 # No default licence server - an empty value is a hard stop (see guard below).
 readonly LICENSE_SERVER="${LICENSE_SERVER_URL:-}"
-readonly INSTALL_DIR="${TEEZER_INSTALL_DIR:-${REELSOO_INSTALL_DIR:-/var/www/teezer}}"
+readonly INSTALL_DIR="${TEEZER_INSTALL_DIR:-/var/www/teezer}"
 
 if [[ -z "$LICENSE_SERVER" ]]; then
     echo "" >&2
@@ -34,13 +34,6 @@ if [[ -z "$LICENSE_SERVER" ]]; then
     echo "" >&2
     exit 1
 fi
-case "${LICENSE_SERVER,,}" in
-    *reelsoo*)
-        echo "" >&2
-        echo "  Error: refusing to use the Reelsoo licence server ($LICENSE_SERVER)." >&2
-        echo "" >&2
-        exit 1 ;;
-esac
 
 readonly PHP_VERSION="8.2"
 
@@ -397,7 +390,7 @@ set_permissions() {
     chmod 600 "$INSTALL_DIR/server/.env"
     chmod 600 "$INSTALL_DIR/server/storage/app/license/license.json"
 
-    [[ -f "$INSTALL_DIR/bin/reelsoo" ]] && install -m 755 "$INSTALL_DIR/bin/reelsoo" /usr/local/bin/reelsoo
+    [[ -f "$INSTALL_DIR/bin/teezer" ]] && install -m 755 "$INSTALL_DIR/bin/teezer" /usr/local/bin/teezer
 
     ok "Ownership and modes applied"
 }
@@ -505,8 +498,8 @@ finish() {
     info "  3. Visit http://$DOMAIN/setup and create your administrator."
     say ""
     info "Useful commands:"
-    info "  reelsoo status    licence and service status"
-    info "  reelsoo update    check for and apply updates"
+    info "  teezer status    licence and service status"
+    info "  teezer update    check for and apply updates"
     say ""
     warn "Your database password is in $INSTALL_DIR/server/.env (mode 0600). Back it up."
     say ""

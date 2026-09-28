@@ -23,7 +23,7 @@ import { apiMessage } from "@/services/api";
 import { timeAgo, cn } from "@/lib/utils";
 
 /**
- * "REELSOO COUNTRY AVAILABILITY" - Settings › Country Restriction.
+ * "TEEZER COUNTRY AVAILABILITY" - Settings › Country Restriction.
  * Backend: AdminCountryAvailabilityController, gated by
  * permission:manage_country_availability (server/app/Services/
  * CountryAvailabilityService.php is the actual policy engine this

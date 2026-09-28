@@ -38,10 +38,10 @@ import (
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgtype"
 
-	"reelsoo/backend-go/internal/auth"
-	"reelsoo/backend-go/internal/events"
-	"reelsoo/backend-go/internal/sqlc"
-	"reelsoo/backend-go/internal/textmod"
+	"teezer/backend-go/internal/auth"
+	"teezer/backend-go/internal/events"
+	"teezer/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/textmod"
 )
 
 const (

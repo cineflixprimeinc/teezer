@@ -35,7 +35,7 @@ class VideoController extends Controller
         private readonly GlobalControlService $globalControls,
     ) {}
 
-    /** Global Reelsoo Control's standard denial body for photo/video uploads. */
+    /** Global Teezer Control's standard denial body for photo/video uploads. */
     private function uploadsBlockedResponse(bool $isImage): JsonResponse
     {
         return response()->json(
@@ -234,7 +234,7 @@ class VideoController extends Controller
         $mime     = $request->input('file_type');
         $isImage  = in_array($mime, self::ALLOWED_IMAGE_MIME);
 
-        // Global Reelsoo Control - photo vs video are the same route, split
+        // Global Teezer Control - photo vs video are the same route, split
         // only by this mime check, so the per-type toggle has to live here
         // rather than as route-name middleware. The coarse uploads_enabled
         // switch (+ its emergency pair) already ran in
@@ -285,7 +285,7 @@ class VideoController extends Controller
         if (!$isImage) {
             // No video row exists yet (that happens in completeUpload) - 0
             // is the documented "not yet known" value for this column, same
-            // convention reelsoo.events already uses for video_id on
+            // convention teezer.events already uses for video_id on
             // profile_view.
             \App\Services\Video\ProcessingEventStream::push([
                 'type' => 'video_upload_started',
@@ -361,7 +361,7 @@ class VideoController extends Controller
             'category'        => ['nullable', 'string', 'max:100'],
             'location'        => ['nullable', 'string', 'max:255'],
             'link_url'        => ['nullable', 'url', 'max:500'],
-            // "Add link" → Reelsoo Product - up to 3, ownership/active-status
+            // "Add link" → Teezer Product - up to 3, ownership/active-status
             // re-verified server-side in VideoService::syncFeaturedProducts,
             // never trusted from these ids alone.
             'product_ids'     => ['nullable', 'array', 'max:3'],
@@ -413,7 +413,7 @@ class VideoController extends Controller
             'collab_users.*.username'  => ['nullable', 'string', 'max:64'],
         ]);
 
-        // Global Reelsoo Control - draft is one value of the same `status`
+        // Global Teezer Control - draft is one value of the same `status`
         // field this endpoint already accepts, not a separate endpoint, so
         // the gate has to live here rather than as route-name middleware.
         if ($request->input('status') === 'draft' && ! $this->globalControls->isEnabled('draft_creation_enabled')) {

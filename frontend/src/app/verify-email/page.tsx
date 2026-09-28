@@ -43,7 +43,7 @@ function VerifyEmailContent() {
   }, [token]);
 
   function continueSignup() {
-    sessionStorage.setItem("reelsoo_signup_draft", JSON.stringify({
+    sessionStorage.setItem("teezer_signup_draft", JSON.stringify({
       draftToken,
       email,
       emailVerified: true,
@@ -52,7 +52,7 @@ function VerifyEmailContent() {
   }
 
   function continueLogin() {
-    sessionStorage.setItem("reelsoo_login_prefill", JSON.stringify({ email }));
+    sessionStorage.setItem("teezer_login_prefill", JSON.stringify({ email }));
     router.push("/?action=login");
   }
 

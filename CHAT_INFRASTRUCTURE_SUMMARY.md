@@ -1,4 +1,4 @@
-# Reelsoo Chat Infrastructure - Complete Summary
+# Teezer Chat Infrastructure - Complete Summary
 
 ## 🎯 What Was Delivered
 
@@ -188,7 +188,7 @@ A **production-ready real-time chat system** with WebRTC audio/video calling, op
 2. `npm install`
 3. Configure `.env` (DB, Redis, R2, Firebase, Coturn)
 4. Run `migrations.sql`
-5. Start with PM2: `pm2 start server.js --name "reelsoo-chat"`
+5. Start with PM2: `pm2 start server.js --name "teezer-chat"`
 6. Configure Nginx reverse proxy
 7. Install + configure Coturn
 8. Update frontend `.env.local`
@@ -248,13 +248,13 @@ A **production-ready real-time chat system** with WebRTC audio/video calling, op
 ### Socket.IO Connection
 ```bash
 curl -H "Authorization: Bearer $TOKEN" \
-  wss://api.reelsoo.com/socket.io
+  wss://api.teezer.live/socket.io
 ```
 
 ### REST API
 ```bash
 curl -H "Authorization: Bearer $TOKEN" \
-  https://api.reelsoo.com/api/conversations
+  https://api.teezer.live/api/conversations
 ```
 
 ### WebRTC Signaling
@@ -262,7 +262,7 @@ Make a call from frontend → check DevTools Network → WS frames
 
 ### Coturn STUN
 ```bash
-turnutils_uclient -v -u admin -w password reelsoo.com
+turnutils_uclient -v -u admin -w password teezer.live
 ```
 
 ---
@@ -306,7 +306,7 @@ Follow **CHAT_INTEGRATION.md** to:
 ## 📝 File Structure
 
 ```
-reelsoo/
+teezer/
 ├── chat-server/
 │   ├── package.json
 │   ├── server.js
@@ -380,5 +380,4 @@ You now have a **production-ready real-time chat system** that:
 ---
 
 **Commit:** `55e5147`
-**Backed up to:** `github.com/cineflixprime/backup-reelsoo.git`
 

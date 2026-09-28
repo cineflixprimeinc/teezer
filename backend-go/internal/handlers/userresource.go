@@ -9,7 +9,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 
-	"reelsoo/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/sqlc"
 )
 
 // Injected stat attrs are pointers: nil means "not provided by this endpoint",

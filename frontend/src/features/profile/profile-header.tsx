@@ -26,7 +26,7 @@ import { ProfileMoreMenu } from "./profile-more-menu";
 import { FollowersModal, type FollowListTab } from "./followers-modal";
 import { useAuthStore } from "@/store/auth.store";
 import { suggestionService, type SuggestedProfile } from "@/services/suggestion.service";
-import type { ReelsooUser } from "@/types/user";
+import type { TeezerUser } from "@/types/user";
 
 /* ── Blue verified badge - scalloped rosette style ───────────────────── */
 /* ── Social icons - PNG files + SVG fallbacks ────────────────────────── */
@@ -74,7 +74,7 @@ const SOCIAL_LABELS: Record<SocialKey, string> = {
 /* ── Avatar ─────────────────────────────────────────────────────────── */
 const DEFAULT_AVATAR_SRC = "/default-avatar.svg";
 
-function AvatarImage({ user }: { user: ReelsooUser; size: number }) {
+function AvatarImage({ user }: { user: TeezerUser; size: number }) {
   const src = user.avatar || DEFAULT_AVATAR_SRC;
   return (
     // eslint-disable-next-line @next/next/no-img-element
@@ -164,7 +164,7 @@ function SuggestedAccountsButton({ open, onToggle }: { open: boolean; onToggle: 
 
 /* ── Props ──────────────────────────────────────────────────────────── */
 type Props = {
-  user: ReelsooUser;
+  user: TeezerUser;
   isOwnProfile: boolean;
   isSuggestedOpen: boolean;
   onToggleSuggested: () => void;

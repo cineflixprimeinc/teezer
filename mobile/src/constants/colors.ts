@@ -1,4 +1,4 @@
-/** Reelsoo brand palette - light theme first. Primary brand red/pink: #fe2c55. */
+/** Teezer brand palette - light theme first. Primary brand red/pink: #fe2c55. */
 export const colors = {
   brand: "#fe2c55",
   brandDark: "#e0243d",

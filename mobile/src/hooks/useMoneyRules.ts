@@ -2,11 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import { walletApi } from "@/api/wallet.api";
 
 /**
- * The platform's money rules - the coin rate, Reelsoo's cut and the payout
+ * The platform's money rules - the coin rate, Teezer's cut and the payout
  * floor - read from the server, in one place.
  *
  * Every one of these is set by an admin, and the app used to carry its own copy
- * of each. The result was that Reelsoo told a creator three different minimum
+ * of each. The result was that Teezer told a creator three different minimum
  * withdrawals depending on which screen they were looking at ($10 on the
  * Wallets card, $50 in the rules sheet, $100 in Studio settings) while the
  * Withdraw screen quietly enforced the real one. The coin rate and the
@@ -23,7 +23,7 @@ import { walletApi } from "@/api/wallet.api";
 export type MoneyRules = {
   /** Coins per USD, e.g. 100 means 100 coins = $1. */
   coinsPerUsd: number | null;
-  /** Reelsoo's cut, applied at withdrawal. Gifts credit in full. */
+  /** Teezer's cut, applied at withdrawal. Gifts credit in full. */
   commissionPct: number | null;
   /** What the creator keeps, derived - never stored separately. */
   creatorSharePct: number | null;

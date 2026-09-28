@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { taxApi } from "@/api/tax.api";
 
 /**
- * Reelsoo Studio tax forms store - production, backend-backed.
+ * Teezer Studio tax forms store - production, backend-backed.
  *
  * Forms live on the server (GET/POST/DELETE /studio/tax-forms) and are scoped to
  * the signed-in creator. There is no local seed/demo data: a new account simply

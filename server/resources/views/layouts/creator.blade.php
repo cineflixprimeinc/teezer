@@ -5,7 +5,7 @@
         {{-- Sidebar --}}
         <aside class="w-64 shrink-0 border-r border-white/10 flex flex-col">
             <div class="h-16 flex items-center px-6 border-b border-white/10">
-                <img src="{{ asset('reelsoo-icon.svg') }}" alt="" class="w-8 h-8 rounded-lg mr-3">
+                <img src="{{ asset('teezer-icon.svg') }}" alt="" class="w-8 h-8 rounded-lg mr-3">
                 <span class="text-xl font-extrabold tracking-tight text-white">Teezer</span>
                 <span class="ml-2 text-xs font-semibold text-white/40 uppercase tracking-widest">Studio</span>
             </div>

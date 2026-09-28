@@ -21,7 +21,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/jackc/pgx/v5/pgtype"
 
-	"reelsoo/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/sqlc"
 )
 
 type GiftsHandler struct {

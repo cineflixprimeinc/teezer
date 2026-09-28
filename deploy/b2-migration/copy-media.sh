@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# One-way media seed: copy objects from the source platform's (Reelsoo's) B2
+# One-way media seed: copy objects from the source platform's B2
 # bucket into Teezer's OWN B2 bucket.
 #
 #   READ-ONLY source.  `rclone copy` only - never `sync`, `move` or `delete`.
@@ -10,7 +10,7 @@
 # Credentials are NOT in this file. Configure two rclone remotes on the operator
 # machine (`rclone config`, or RCLONE_CONFIG_<NAME>_* env vars):
 #
-#   reelsoo-ro   type=b2 (or s3), using a key the source owner issued with
+#   source-ro   type=b2 (or s3), using a key the source owner issued with
 #                READ-ONLY capabilities (listBuckets, listFiles, readFiles) on
 #                the source bucket only. Never use a read/write or master key.
 #   teezer-b2    type=b2 (or s3), using a Teezer application key scoped to the
@@ -19,15 +19,15 @@
 # Then:
 #   export SRC_BUCKET=<source bucket name>        # e.g. the source media bucket
 #   export DST_BUCKET=<teezer bucket name>        # Teezer's media bucket
-#   ./copy-reelsoo-to-teezer.sh                   # dry run: lists what WOULD copy
-#   ./copy-reelsoo-to-teezer.sh --run             # real copy (resumable, re-runnable)
-#   ./copy-reelsoo-to-teezer.sh --check           # verify: every source object exists in Teezer
+#   ./copy-media.sh                   # dry run: lists what WOULD copy
+#   ./copy-media.sh --run             # real copy (resumable, re-runnable)
+#   ./copy-media.sh --check           # verify: every source object exists in Teezer
 #
 # Repeat with the private bucket (identity documents / DM media) by exporting
 # SRC_BUCKET/DST_BUCKET for that pair - it must go to Teezer's PRIVATE bucket.
 #
 # Optional env:
-#   SRC_REMOTE (default reelsoo-ro)   DST_REMOTE (default teezer-b2)
+#   SRC_REMOTE (default source-ro)   DST_REMOTE (default teezer-b2)
 #   PREFIX     (copy only this key prefix, e.g. "avatars/"; default: whole bucket)
 #   TRANSFERS  (default 16)           CHECKERS (default 32)
 #
@@ -44,7 +44,7 @@ for arg in "$@"; do
   esac
 done
 
-SRC_REMOTE="${SRC_REMOTE:-reelsoo-ro}"
+SRC_REMOTE="${SRC_REMOTE:-source-ro}"
 DST_REMOTE="${DST_REMOTE:-teezer-b2}"
 SRC_BUCKET="${SRC_BUCKET:-}"
 DST_BUCKET="${DST_BUCKET:-}"
@@ -62,7 +62,7 @@ command -v rclone >/dev/null || die "rclone not installed (https://rclone.org/in
 [ "$SRC_REMOTE" != "$DST_REMOTE" ] || die "SRC_REMOTE and DST_REMOTE are the same ($SRC_REMOTE)"
 [ "$SRC_BUCKET" != "$DST_BUCKET" ] || die "SRC_BUCKET and DST_BUCKET are the same ($SRC_BUCKET) - refusing"
 case "$DST_REMOTE" in
-  *reelsoo*|*Reelsoo*) die "DST_REMOTE '$DST_REMOTE' looks like the source platform - refusing to write there" ;;
+  "$SRC_REMOTE"|*source*) die "DST_REMOTE '$DST_REMOTE' looks like the source platform - refusing to write there" ;;
 esac
 
 rclone listremotes | grep -qx "${SRC_REMOTE}:" || [ -n "$(env | grep "^RCLONE_CONFIG_$(echo "$SRC_REMOTE" | tr 'a-z-' 'A-Z_')_TYPE=")" ] \

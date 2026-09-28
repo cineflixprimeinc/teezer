@@ -191,7 +191,7 @@ export interface Video {
   /** "Add link" on the upload/edit Details card - a single external URL the
    *  creator attached to this post, stored verbatim. */
   link_url?: string | null;
-  /** "Add link" -> Reelsoo Product - up to 3 of the creator's own Shop
+  /** "Add link" -> Teezer Product - up to 3 of the creator's own Shop
    *  products featured on this post. Read live from `products` server-side
    *  (VideoResource::featured_products / Video::featuredProducts()), so
    *  price/image here always reflect the current listing, not a copy taken

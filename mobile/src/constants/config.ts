@@ -22,14 +22,14 @@ export const config = {
   appName: extra.appName ?? "Teezer",
   googleWebClientId: extra.googleWebClientId ?? "",
   googleIosClientId: extra.googleIosClientId ?? "",
-  // Klipy powers the comment GIF picker (app "reelsoogifkey"). The key travels
+  // Klipy powers the comment GIF picker (app "teezergifkey"). The key travels
   // in the URL PATH, not a header, so it is a client key by design - it ships
   // in the bundle and is extractable, the same way Giphy/Tenor keys are. That
   // makes it non-secret at runtime, but it is still billed to our account, so
   // it comes from EXPO_PUBLIC_KLIPY_KEY rather than being committed to git.
   klipyKey: process.env.EXPO_PUBLIC_KLIPY_KEY ?? extra.klipyKey ?? "",
   // Sent on every request so the backend can bypass web-only Turnstile (decision D3).
-  clientHeader: "reelsoo-mobile",
+  clientHeader: "teezer-mobile",
 } as const;
 
 export const isDev = config.appEnv === "development";

@@ -27,7 +27,7 @@ import { colors } from "@/constants/colors";
 import { font, radius, spacing } from "@/constants/theme";
 
 /**
- * Shop Settings - the "Reelsoo Seller Center" hub, opened from the gear
+ * Shop Settings - the "Teezer Seller Center" hub, opened from the gear
  * button on ShopScreen (owner only).
  *
  * Deliberately does NOT duplicate anything Edit Shop already owns (shop

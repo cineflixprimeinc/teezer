@@ -20,7 +20,7 @@ import (
 	"github.com/jackc/pgx/v5/pgtype"
 	"github.com/jackc/pgx/v5/pgxpool"
 
-	"reelsoo/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/sqlc"
 )
 
 type Limiter struct {

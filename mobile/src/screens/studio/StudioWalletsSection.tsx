@@ -230,7 +230,7 @@ export function StudioWalletsSection() {
           />
         </View>
 
-        {/* ── Buy Reelsoo Coins ────────────────────────────────────────── */}
+        {/* ── Buy Teezer Coins ────────────────────────────────────────── */}
         <View style={s.sectionHead}>
           <View style={{ flex: 1 }}>
             <Text style={s.h2}>Buy Teezer Coins</Text>

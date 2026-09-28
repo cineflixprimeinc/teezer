@@ -15,13 +15,13 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 /**
- * Internal Reelsoo SSO — cross-subdomain recognition + OAuth-style consent.
+ * Internal Teezer SSO — cross-subdomain recognition + OAuth-style consent.
  *
- * Auth here is the shared `.reelsoo.com` SSO cookie (NOT auth:sanctum). `session`
+ * Auth here is the shared `.teezer.live` SSO cookie (NOT auth:sanctum). `session`
  * is a safe, read-only status probe; `authorize` is the single, CSRF-protected,
  * token-minting + consent-recording path (used both for first-time "Allow" and
  * for silent auto sign-in when a grant already exists). This flow NEVER creates a
- * user — it only recognizes an already-authenticated Reelsoo account.
+ * user — it only recognizes an already-authenticated Teezer account.
  */
 class SsoController extends Controller
 {
@@ -84,7 +84,7 @@ class SsoController extends Controller
             return response()->json(['success' => false, 'message' => 'SSO session required.', 'code' => 'SSO_REQUIRED'], 403);
         }
 
-        $csrfHeader = $request->header('X-Reelsoo-SSO-CSRF') ?? $request->header('X-CSRF-Token');
+        $csrfHeader = $request->header('X-Teezer-SSO-CSRF') ?? $request->header('X-CSRF-Token');
         if (! $this->sso->verifyCsrf($session, $csrfHeader)) {
             return response()->json(['success' => false, 'message' => 'Invalid request token.', 'code' => 'CSRF_INVALID'], 403);
         }
@@ -163,7 +163,7 @@ class SsoController extends Controller
         if (! $session || ! $user || ! $this->usable($user)) {
             return response()->json(['success' => false, 'message' => 'SSO session required.', 'code' => 'SSO_REQUIRED'], 403);
         }
-        $csrfHeader = $request->header('X-Reelsoo-SSO-CSRF') ?? $request->header('X-CSRF-Token');
+        $csrfHeader = $request->header('X-Teezer-SSO-CSRF') ?? $request->header('X-CSRF-Token');
         if (! $this->sso->verifyCsrf($session, $csrfHeader)) {
             return response()->json(['success' => false, 'message' => 'Invalid request token.', 'code' => 'CSRF_INVALID'], 403);
         }
@@ -258,7 +258,7 @@ class SsoController extends Controller
 
     /**
      * POST /auth/sso/promote — establish the shared SSO cookie for a Bearer-
-     * authenticated session that predates it (e.g. an existing reelsoo.com login
+     * authenticated session that predates it (e.g. an existing teezer.live login
      * hitting /connect). auth:sanctum protected.
      */
     public function promote(Request $request): JsonResponse

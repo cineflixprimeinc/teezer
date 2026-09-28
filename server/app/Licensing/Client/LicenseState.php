@@ -11,7 +11,7 @@ namespace App\Licensing\Client;
  */
 final class LicenseState implements \JsonSerializable
 {
-    /** Enforcement is switched off entirely (this is what reelsoo.com runs). */
+    /** Enforcement is switched off entirely (this is what teezer.live runs). */
     public const STATUS_DISABLED = 'disabled';
 
     /** Signature, product, domain, installation and expiry all check out. */

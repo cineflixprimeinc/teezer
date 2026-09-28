@@ -63,7 +63,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->appendToGroup('api', \App\Http\Middleware\BlockMaliciousRequests::class);
 
         // Licence gate for customer installations. COMPLETELY INERT here:
-        // licensing.client.enabled is false on reelsoo.com, so EnsureLicensed
+        // licensing.client.enabled is false on teezer.live, so EnsureLicensed
         // returns $next() on its first line and production can never be blocked
         // by its own licence check. It is appended globally rather than left as
         // an opt-in alias so that a customer package is actually enforced
@@ -81,7 +81,7 @@ return Application::configure(basePath: dirname(__DIR__))
         // not a demo. Reads, login and logout are untouched - see the class.
         $middleware->appendToGroup('api', \App\Http\Middleware\BlockDemoUploads::class);
 
-        // Global Reelsoo Control (Admin > Settings > Global Reelsoo Control).
+        // Global Teezer Control (Admin > Settings > Global Teezer Control).
         // Appended globally, same reasoning as EnsureLicensed/BlockDemoUploads
         // above it: this is the one place that guarantees a restriction holds
         // regardless of client, app version, or a direct API call bypassing
@@ -99,7 +99,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->appendToGroup('web', \App\Http\Middleware\BlockMaliciousRequests::class);
         $middleware->appendToGroup('web', \App\Http\Middleware\SecurityHeaders::class);
         // The website's own /register and /login (Web\AuthController) are not
-        // under api/v1 - same Global Reelsoo Control gate, so a restriction set
+        // under api/v1 - same Global Teezer Control gate, so a restriction set
         // from the admin panel covers the Blade auth pages too, not only the API.
         $middleware->appendToGroup('web', \App\Http\Middleware\EnsureGlobalControlEnabled::class);
 

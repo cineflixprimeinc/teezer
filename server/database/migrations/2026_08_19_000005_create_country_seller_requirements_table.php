@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Schema;
 /**
  * The configurable country-requirement system: what a seller must fill in
  * and upload is looked up dynamically as (country_code, seller_type), not
- * hard-coded per country in the wizard. Admin-managed from the "Reelsoo
+ * hard-coded per country in the wizard. Admin-managed from the "Teezer
  * Shop" admin section (same CRUD shape as shop_categories), NOT a code
  * change - adding a new country's requirements, or changing an existing
  * one's, never touches the mobile app or this migration again.

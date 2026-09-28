@@ -2,12 +2,12 @@
 
 import { create } from "zustand";
 import { authService } from "@/services/auth.service";
-import type { ReelsooUser } from "@/types/user";
+import type { TeezerUser } from "@/types/user";
 
 type LoginOutcome = { twoFactorRequired: true; challenge: string } | { twoFactorRequired: false };
 
 type AuthState = {
-  user: ReelsooUser | null;
+  user: TeezerUser | null;
   isAuthenticated: boolean;
   isLoading: boolean;
   login: (payload: { login: string; password: string; turnstile_token?: string }) => Promise<LoginOutcome>;
@@ -18,7 +18,7 @@ type AuthState = {
 };
 
 // No client-side token of any kind - the session lives entirely in the
-// httpOnly reelsoo_admin_session cookie the API sets/clears, which this app
+// httpOnly teezer_admin_session cookie the API sets/clears, which this app
 // never reads and never needs to. `isAuthenticated` can't be known
 // synchronously on page load the way a localStorage check could pretend to
 // (the cookie is invisible to JS by design) - fetchMe() is the only way to

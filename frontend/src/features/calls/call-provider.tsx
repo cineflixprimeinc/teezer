@@ -204,7 +204,7 @@ export function CallProvider({ children }: { children: React.ReactNode }) {
   /* ── Socket + call listeners while signed in ─────────────── */
   useEffect(() => {
     if (!isAuthenticated || !user?.id) return;
-    const token = typeof window !== "undefined" ? localStorage.getItem("reelsoo_token") || "" : "";
+    const token = typeof window !== "undefined" ? localStorage.getItem("teezer_token") || "" : "";
     if (!token) return;
 
     // The session's shared connection, not a second one of this provider's own:

@@ -7,8 +7,8 @@ import type { Metadata } from "next";
  * metadata system. It exists only so every route produces consistent tab titles
  * and social-preview tags without repeating the same shape on every page:
  *
- *  - `title` flows through the root layout's "%s - Reelsoo" template, so the
- *    browser tab reads e.g. "Explore - Reelsoo".
+ *  - `title` flows through the root layout's "%s - Teezer" template, so the
+ *    browser tab reads e.g. "Explore - Teezer".
  *  - Next does NOT apply that template to Open Graph / Twitter titles, so those
  *    are branded here to match the visible tab title.
  *

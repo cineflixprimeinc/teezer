@@ -12,7 +12,7 @@ use RuntimeException;
  * There is no native-protocol driver for PHP worth depending on, and the HTTP
  * interface is a first-class citizen in ClickHouse - so we speak it directly
  * rather than pull in a package. Requests go to 127.0.0.1 on VPS-1, which an
- * SSH tunnel (reelsoo-clickhouse-tunnel.service) forwards to ClickHouse's
+ * SSH tunnel (teezer-clickhouse-tunnel.service) forwards to ClickHouse's
  * loopback on VPS-2. Only port 22 is open between the boxes, so this is the
  * only way across; ClickHouse itself has no public socket.
  *

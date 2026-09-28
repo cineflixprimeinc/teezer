@@ -12,7 +12,7 @@ import { Table, Thead, Th, Tbody, Tr, Td, TableEmpty, TableLoading } from "@/adm
 import { api, apiMessage } from "@/admin-panel/services/api";
 
 /**
- * Reelsoo Shop → Marketplace Coupons.
+ * Teezer Shop → Marketplace Coupons.
  *
  * Deliberately a separate page/table from the existing /coupons (Monetization
  * → Coupons & Offers) - that one is the platform-wide subscription-plan

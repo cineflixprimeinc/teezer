@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Global Reelsoo Control — the value store behind GlobalControlRegistry.
+ * Global Teezer Control — the value store behind GlobalControlRegistry.
  *
  * One row per control key (the registry declares which keys are real; a row
  * for a key not in the registry is inert data, never read). Unlike

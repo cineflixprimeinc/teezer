@@ -19,7 +19,7 @@ use Illuminate\Http\JsonResponse;
  * the LicenseState conclusions, which are safe by construction (see that
  * class's docblock).
  *
- * On reelsoo.com this reports status 'disabled', which is accurate: the
+ * On teezer.live this reports status 'disabled', which is accurate: the
  * licensor does not license itself.
  *
  * CLIENT-SIDE - ships in the marketplace package.

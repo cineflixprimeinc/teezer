@@ -34,7 +34,7 @@ function HeartBurst({ heart, onDone }: { heart: HeartItem; onDone: () => void })
   return (
     <span
       aria-hidden
-      className="pointer-events-none absolute z-30 reelsoo-heart-pop"
+      className="pointer-events-none absolute z-30 teezer-heart-pop"
       style={
         {
           left: heart.x,

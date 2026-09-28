@@ -8,7 +8,7 @@ import { userService } from "@/services/user.service";
 import { useAuthStore } from "@/store/auth.store";
 import { apiMessage } from "@/services/api";
 import { cn } from "@/lib/utils";
-import type { ReelsooUser } from "@/types/user";
+import type { TeezerUser } from "@/types/user";
 
 type FollowStatus = "none" | "pending" | "accepted";
 
@@ -98,7 +98,7 @@ export function FollowButton({
       setOptimistic(null);
 
       if (res.followers_count !== undefined) {
-        qc.setQueryData<ReelsooUser>(["profile", username], (old) =>
+        qc.setQueryData<TeezerUser>(["profile", username], (old) =>
           old
             ? { ...old, followers_count: res.followers_count, is_following: res.following, follow_status: newStatus }
             : old,

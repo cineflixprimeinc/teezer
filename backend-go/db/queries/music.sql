@@ -32,10 +32,10 @@ WHERE source_type = 'library'
        OR @duration_bucket::text NOT IN ('short','medium','long','very_long'))
   AND (NOT @only_featured::bool OR featured = TRUE)
   AND (NOT @only_recommended::bool OR recommended = TRUE)
-  AND (NOT @only_reelsoo::bool
-       OR artist_name ILIKE '%reelsoo%' OR created_by_admin_id IS NOT NULL)
+  AND (NOT @only_teezer::bool
+       OR artist_name ILIKE '%teezer%' OR created_by_admin_id IS NOT NULL)
   AND (NOT @only_artist::bool
-       OR (artist_name NOT ILIKE '%reelsoo%' AND created_by_admin_id IS NULL))
+       OR (artist_name NOT ILIKE '%teezer%' AND created_by_admin_id IS NULL))
   AND (NULLIF(@genre_exact::text, '') IS NULL OR genre ILIKE '%' || @genre_exact::text || '%')
   AND (NULLIF(@mood_exact::text, '') IS NULL OR mood ILIKE '%' || @mood_exact::text || '%')
 ORDER BY
@@ -63,10 +63,10 @@ WHERE source_type = 'library'
        OR @duration_bucket::text NOT IN ('short','medium','long','very_long'))
   AND (NOT @only_featured::bool OR featured = TRUE)
   AND (NOT @only_recommended::bool OR recommended = TRUE)
-  AND (NOT @only_reelsoo::bool
-       OR artist_name ILIKE '%reelsoo%' OR created_by_admin_id IS NOT NULL)
+  AND (NOT @only_teezer::bool
+       OR artist_name ILIKE '%teezer%' OR created_by_admin_id IS NOT NULL)
   AND (NOT @only_artist::bool
-       OR (artist_name NOT ILIKE '%reelsoo%' AND created_by_admin_id IS NULL))
+       OR (artist_name NOT ILIKE '%teezer%' AND created_by_admin_id IS NULL))
   AND (NULLIF(@genre_exact::text, '') IS NULL OR genre ILIKE '%' || @genre_exact::text || '%')
   AND (NULLIF(@mood_exact::text, '') IS NULL OR mood ILIKE '%' || @mood_exact::text || '%');
 

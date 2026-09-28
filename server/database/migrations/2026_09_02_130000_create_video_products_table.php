@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * "Add link" → Reelsoo Product - up to 3 of the creator's OWN shop products
+ * "Add link" → Teezer Product - up to 3 of the creator's OWN shop products
  * featured on a post. A normalized pivot, not columns on `videos`: a post
  * can carry several products, and this is the same shape `comment_mentions`
  * already uses for tag/collab (a join table, not JSON on the parent row),

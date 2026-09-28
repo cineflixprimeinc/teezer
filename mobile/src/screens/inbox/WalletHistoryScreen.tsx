@@ -17,7 +17,7 @@ import { formatDayMonth, formatClock12 } from "@/utils/date-format";
  *
  * The ledger is the authority on what a gift was WORTH versus what actually
  * landed: `gross_coins` is what the sender spent, `commission_coins` is
- * Reelsoo's cut, and `net_coins` is what reached the balance. A received gift
+ * Teezer's cut, and `net_coins` is what reached the balance. A received gift
  * that only ever showed its net figure looked like the sender had sent less
  * than they did, so both are stated on the row rather than one.
  */
@@ -68,7 +68,7 @@ function Row({ t }: { t: WalletTransaction }) {
     ? `${up ? "+" : "-"}${groupNum(t.net_coins)}`
     : `${up ? "+" : "-"}${usd(t.amount_usd)}`;
 
-  /* Only worth spelling out when Reelsoo actually took a cut - a purchase or a
+  /* Only worth spelling out when Teezer actually took a cut - a purchase or a
      sent gift has none, and printing "0 deducted" on those is noise. */
   const deducted = t.commission_coins > 0;
 

@@ -7,7 +7,7 @@
 # network you could skip the tunnel, but livekit-server binds 127.0.0.1 by design,
 # so the tunnel is the supported path.)
 #
-# VPS placeholders (Teezer hosts ONLY - never a Reelsoo address):
+# VPS placeholders (Teezer hosts ONLY - never a Teezer address):
 #   TEEZER_VPS2 = 77.237.243.122   (the SSH target below)
 #
 # One-time key setup (on VPS1), a dedicated key restricted to this one forward:

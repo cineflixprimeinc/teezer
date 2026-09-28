@@ -18,7 +18,7 @@ import { api } from "@/services/api";
 import { StudioSidebarWrapper } from "./studio-sidebar-wrapper";
 import { StudioTopbarShared, StudioDateRangePicker } from "./studio-topbar-shared";
 import { StudioLineChart } from "./studio-chart";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 
 /* ── ApexCharts (SSR-safe) ──────────────────────────────────────────────── */
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
@@ -39,7 +39,7 @@ interface TrafficSrc { source: string; count: number; pct: number }
 interface LocationEntry { name: string; count: number; pct: number }
 interface TopComment { id: number; username: string; name: string; avatar: string|null; text: string; likes: number; date: string }
 interface InsightsData {
-  video: ReelsooVideo;
+  video: TeezerVideo;
   period: { start: string; end: string };
   previous_period: { start: string; end: string };
   summary: InsightSummary;

@@ -33,7 +33,7 @@ import { useAuthStore } from "@/store/auth.store";
  * tab is honest about what it can see rather than pretending to search deeper.
  */
 
-const RECENTS_KEY = "reelsoo:inbox:recents";
+const RECENTS_KEY = "teezer:inbox:recents";
 const MAX_RECENTS = 8;
 const TABS = ["All", "People", "Chats", "Messages"] as const;
 type Tab = (typeof TABS)[number];

@@ -261,7 +261,7 @@ class SpaceCreateController extends Controller
 
     /**
      * POST /spaces/{space}/invite - host or moderator invites a specific user
-     * to join. Built for Global Reelsoo Control's spaces_invitations_enabled
+     * to join. Built for Global Teezer Control's spaces_invitations_enabled
      * - no invite endpoint existed before this; the room is otherwise only
      * discoverable via the public listing or a shared link.
      *

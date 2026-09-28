@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"reelsoo/backend-go/internal/breaker"
+	"teezer/backend-go/internal/breaker"
 )
 
 // newStub returns a client pointed at a test server instead of Wikimedia, so

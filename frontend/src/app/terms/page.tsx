@@ -46,7 +46,7 @@ export default function TermsPage() {
     <CmsAwarePolicyPage slug="terms" eyebrow="Legal · Terms" fallback={
       <LegalShell eyebrow="Legal · Terms" title="Terms of Service" lastUpdated={LAST_UPDATED} toc={TOC} related={RELATED}>
       <P>
-        These Terms of Service (&quot;Terms&quot;) are a legally binding agreement between you and CineflixPrime
+        These Terms of Service (&quot;Terms&quot;) are a legally binding agreement between you and Teezer
         (&quot;Teezer&quot;, &quot;we&quot;, &quot;us&quot; or &quot;our&quot;) governing your access to and use of
         the Teezer website at teezer.live, the Teezer mobile applications, Teezer Studio creator tools, and all
         related features and services (together, the &quot;Platform&quot;). Our{" "}
@@ -293,7 +293,7 @@ export default function TermsPage() {
       {/* 15 */}
       <H2 id="indemnity" n={15}>Indemnification</H2>
       <P>
-        To the extent permitted by law, you agree to indemnify and hold harmless Teezer, CineflixPrime and their
+        To the extent permitted by law, you agree to indemnify and hold harmless Teezer and its
         officers, employees and agents from and against any claims, liabilities, damages, losses and expenses
         (including reasonable legal fees) arising out of or connected with: (a) Your Content; (b) your use of the
         Platform; (c) your violation of these Terms, the Guidelines or any law; or (d) your violation of any rights

@@ -27,8 +27,8 @@ import { api } from "@/api/client";
  * navigation, the feed or playback.
  */
 
-const KEY_ID_STORE = "reelsoo_appattest_key_id";
-const ATTESTED_STORE = "reelsoo_appattest_attested";
+const KEY_ID_STORE = "teezer_appattest_key_id";
+const ATTESTED_STORE = "teezer_appattest_attested";
 
 /** In-memory mirror so the common path does not hit the Keychain every request. */
 let cachedKeyId: string | null = null;

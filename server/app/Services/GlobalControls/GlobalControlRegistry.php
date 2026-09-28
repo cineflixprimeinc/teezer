@@ -3,8 +3,8 @@
 namespace App\Services\GlobalControls;
 
 /**
- * Declared schema for Global Reelsoo Control - the platform-wide capability
- * kill switches surfaced at Admin > Settings > Global Reelsoo Control.
+ * Declared schema for Global Teezer Control - the platform-wide capability
+ * kill switches surfaced at Admin > Settings > Global Teezer Control.
  *
  * Same rule as PlatformSettings (see its docblock): a key that isn't listed
  * here cannot be set, read as enabled, or rendered in the admin UI. This is

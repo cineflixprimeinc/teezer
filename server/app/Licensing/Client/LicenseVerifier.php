@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Cache;
  * server signs once, at activation, with a private key it never releases; the
  * installation verifies as often as it likes with the public key it was
  * shipped. Normal traffic - a page load, a login, a feed request, an upload -
- * therefore never touches reelsoo.com, license.reelsoo.com or anything else of
+ * therefore never touches teezer.live, license.teezer.live or anything else of
  * ours. Renewal and revocation discovery happen on a SCHEDULED heartbeat
  * (LicenseHeartbeat), never on a request path.
  *
@@ -111,7 +111,7 @@ class LicenseVerifier
 
         $payload = $decoded['payload'];
 
-        // Product. A token minted for something else is not a Reelsoo licence,
+        // Product. A token minted for something else is not a Teezer licence,
         // however validly it happens to be signed.
         if (! hash_equals($this->product, (string) ($payload['product'] ?? ''))) {
             return LicenseState::make(

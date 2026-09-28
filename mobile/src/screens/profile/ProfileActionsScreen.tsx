@@ -12,7 +12,7 @@ const WEB = "https://teezer.live";
 
 /** The Studio's own mark, not a generic glyph - it is a product in its own
  *  right and the website's menu badges it the same way. */
-const STUDIO_MARK = require("../../assets/reelsoo-studio-mark.png");
+const STUDIO_MARK = require("../../assets/teezer-studio-mark.png");
 
 interface Row {
   icon: React.ReactNode;
@@ -55,8 +55,8 @@ export function ProfileActionsScreen() {
         // Native now - it used to open the website's Studio because the app had
         // none. StudioRoot mounts above the tab shell with its own hierarchy.
         { icon: <Image source={STUDIO_MARK} style={styles.brandIcon} resizeMode="contain" />, title: "Teezer Studio", desc: "Create, edit and manage your content", onPress: () => navigation.navigate("StudioRoot") },
-        // "Sell on Reelsoo" moved to Studio -> Monetization (the "Sell on
-        // Reelsoo" programme row there opens this exact same screen) - it
+        // "Sell on Teezer" moved to Studio -> Monetization (the "Sell on
+        // Teezer" programme row there opens this exact same screen) - it
         // belongs alongside the other monetization programmes, not
         // duplicated here as a second, disconnected entry point.
         { icon: I("wifi-outline"), title: "Live Settings", desc: "Manage live stream options and permissions", url: `${WEB}/settings/live` },
@@ -92,7 +92,7 @@ export function ProfileActionsScreen() {
     {
       title: "ABOUT & LEGAL",
       rows: [
-        { icon: I("information-circle-outline"), title: "About Teezer", desc: "App info and company details", onPress: () => navigation.navigate("AboutReelsoo") },
+        { icon: I("information-circle-outline"), title: "About Teezer", desc: "App info and company details", onPress: () => navigation.navigate("AboutTeezer") },
       ],
     },
   ];

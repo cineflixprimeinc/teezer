@@ -23,7 +23,7 @@ import { type StudioLegalDoc } from "@/screens/studio/studio-legal-content";
 import { type ProgrammeKey } from "@/screens/studio/studio-programmes";
 
 /**
- * Reelsoo Studio is a standalone, full-screen experience (TikTok-Studio style):
+ * Teezer Studio is a standalone, full-screen experience (TikTok-Studio style):
  * it is mounted as a SINGLE root-level route ("StudioRoot" in RootNavigator),
  * ABOVE the bottom-tab shell - so no main-app AppBar or Bottom Navigation is
  * visible while it is open, and the main app (feed, scroll positions, playback)

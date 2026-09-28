@@ -26,7 +26,7 @@ import { coins, pct, usd } from "@/utils/money";
  *
  * These figures used to be constants in the app bundle - 30% / 70%, 100 coins,
  * a $50 payout floor and a $10 coin-wallet floor. They are admin settings, and
- * this sheet is the page a creator reads to find out what Reelsoo charges them,
+ * this sheet is the page a creator reads to find out what Teezer charges them,
  * so a stale copy here is worse than a moment of nothing.
  */
 function ruleValue(v: number | null, render: (v: number) => string): string {

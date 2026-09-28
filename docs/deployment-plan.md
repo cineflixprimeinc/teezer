@@ -1,4 +1,4 @@
-# Reelsoo - Deployment Plan
+# Teezer - Deployment Plan
 
 > **Status:** Planning only. Execute during Phase 9.  
 > **Version:** 2.0 - Production hosting on own VPS with custom domain.
@@ -9,7 +9,7 @@
 
 | Component | On VPS |
 |---|---|
-| Laravel app (API + Dashboard + Website) | Yes - `/var/www/reelsoo/server` |
+| Laravel app (API + Dashboard + Website) | Yes - `/var/www/teezer/server` |
 | MySQL 8 database | Yes - same machine |
 | Uploaded videos, thumbnails, avatars, documents | **No - Cloudflare R2 object storage** |
 | Nginx web server | Yes |
@@ -55,22 +55,22 @@ Providers: DigitalOcean, Linode, Vultr, Hetzner, AWS Lightsail.
 
 ## Domain & URL Structure
 
-Replace `reelsoo.com` with your actual registered domain.
+Replace `teezer.live` with your actual registered domain.
 
 | URL | Purpose | Nginx Block |
 |---|---|---|
-| `https://reelsoo.com` | **Temporary "Coming Soon" landing page** (replaced with full site later) | Block 1 |
-| `https://reelsoo.com/login` | Single login page for all roles (admin, creator, user) | Block 1 |
-| `https://reelsoo.com/register` | User registration | Block 1 |
-| `https://reelsoo.com/dashboard` | Smart redirect → sends each role to their dashboard | Block 1 |
-| `https://reelsoo.com/dashboard/admin` | Admin-only dashboard (redirects non-admins away) | Block 1 |
-| `https://reelsoo.com/dashboard/creator` | Creator Studio (creator + admin only) | Block 1 |
-| `https://reelsoo.com/dashboard/user` | User dashboard (all authenticated roles) | Block 1 |
-| `https://media.reelsoo.com` | Cloudflare R2 CDN - all uploaded media | R2 Custom Domain |
-| `https://api.reelsoo.com/api/v1` | REST API for Flutter app | Block 2 |
+| `https://teezer.live` | **Temporary "Coming Soon" landing page** (replaced with full site later) | Block 1 |
+| `https://teezer.live/login` | Single login page for all roles (admin, creator, user) | Block 1 |
+| `https://teezer.live/register` | User registration | Block 1 |
+| `https://teezer.live/dashboard` | Smart redirect → sends each role to their dashboard | Block 1 |
+| `https://teezer.live/dashboard/admin` | Admin-only dashboard (redirects non-admins away) | Block 1 |
+| `https://teezer.live/dashboard/creator` | Creator Studio (creator + admin only) | Block 1 |
+| `https://teezer.live/dashboard/user` | User dashboard (all authenticated roles) | Block 1 |
+| `https://media.teezer.live` | Cloudflare R2 CDN - all uploaded media | R2 Custom Domain |
+| `https://api.teezer.live/api/v1` | REST API for Flutter app | Block 2 |
 
 > **Routing rules:**
-> - `reelsoo.com` is the public website - the admin panel is **never** the homepage.
+> - `teezer.live` is the public website - the admin panel is **never** the homepage.
 > - After login, the server checks `user.role` and redirects: `admin` → `/dashboard/admin`, `creator` → `/dashboard/creator`, `user` → `/dashboard/user`.
 > - If a non-admin navigates directly to `/dashboard/admin`, they are redirected back to their own dashboard with an error message.
 
@@ -78,19 +78,19 @@ Replace `reelsoo.com` with your actual registered domain.
 
 ## DNS Records (Cloudflare)
 
-DNS is managed via **Cloudflare**. All records point to VPS IP `217.217.249.50`.
+DNS is managed via **Cloudflare**. All records point to VPS IP `<SOURCE_HOST5_IP>`.
 
 ### Cloudflare DNS Setup Steps
 
-1. Log in to Cloudflare → Select the `reelsoo.com` zone
+1. Log in to Cloudflare → Select the `teezer.live` zone
 2. Go to **DNS → Records**
 3. Add these records:
 
 | Type | Name | Content | Proxy | TTL |
 |------|------|---------|-------|-----|
-| A | `@` | `217.217.249.50` | Proxied ☁️ | Auto |
-| A | `www` | `217.217.249.50` | Proxied ☁️ | Auto |
-| A | `api` | `217.217.249.50` | Proxied ☁️ | Auto |
+| A | `@` | `<SOURCE_HOST5_IP>` | Proxied ☁️ | Auto |
+| A | `www` | `<SOURCE_HOST5_IP>` | Proxied ☁️ | Auto |
+| A | `api` | `<SOURCE_HOST5_IP>` | Proxied ☁️ | Auto |
 
 > **Proxy = Enabled (☁️)**: Traffic flows through Cloudflare CDN - you get DDoS protection, caching, and your real VPS IP is hidden. This is the recommended setting.
 
@@ -100,9 +100,9 @@ DNS is managed via **Cloudflare**. All records point to VPS IP `217.217.249.50`.
 
 | Pattern | Setting |
 |---------|---------|
-| `api.reelsoo.com/*` | Cache Level: Bypass (API responses must not be cached by Cloudflare) |
-| `media.reelsoo.com/*` | R2 custom domain - Cloudflare handles CDN caching automatically |
-| `reelsoo.com/build/*` | Cache Level: Cache Everything, Edge TTL: 30 days |
+| `api.teezer.live/*` | Cache Level: Bypass (API responses must not be cached by Cloudflare) |
+| `media.teezer.live/*` | R2 custom domain - Cloudflare handles CDN caching automatically |
+| `teezer.live/build/*` | Cache Level: Cache Everything, Edge TTL: 30 days |
 
 ### Cloudflare Security Settings
 
@@ -118,7 +118,7 @@ DNS is managed via **Cloudflare**. All records point to VPS IP `217.217.249.50`.
 ## VPS Directory Layout
 
 ```
-/var/www/reelsoo/                         ← Git repo root
+/var/www/teezer/                         ← Git repo root
 ├── server/                               ← Laravel application
 │   ├── app/
 │   │   ├── Http/
@@ -223,12 +223,12 @@ sudo mysql -u root -p
 ```
 
 ```sql
-CREATE DATABASE reelsoo
+CREATE DATABASE teezer
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
 
-CREATE USER 'reelsoo_user'@'localhost' IDENTIFIED BY 'USE_A_STRONG_RANDOM_PASSWORD';
-GRANT ALL PRIVILEGES ON reelsoo.* TO 'reelsoo_user'@'localhost';
+CREATE USER 'teezer_user'@'localhost' IDENTIFIED BY 'USE_A_STRONG_RANDOM_PASSWORD';
+GRANT ALL PRIVILEGES ON teezer.* TO 'teezer_user'@'localhost';
 FLUSH PRIVILEGES;
 SHOW DATABASES;
 EXIT;
@@ -242,15 +242,15 @@ EXIT;
 
 ```bash
 # Set up web directory
-sudo mkdir -p /var/www/reelsoo
-sudo chown deploy:deploy /var/www/reelsoo
+sudo mkdir -p /var/www/teezer
+sudo chown deploy:deploy /var/www/teezer
 
 # Clone the full repo
-cd /var/www/reelsoo
-git clone https://github.com/cineflixprime/reelsoo.git .
+cd /var/www/teezer
+git clone <REPOSITORY_URL> .
 
 # Enter the Laravel app
-cd /var/www/reelsoo/server
+cd /var/www/teezer/server
 
 # Install dependencies (production only)
 composer install --optimize-autoloader --no-dev
@@ -277,25 +277,25 @@ php artisan route:cache
 php artisan view:cache
 
 # Permissions
-sudo chown -R www-data:www-data /var/www/reelsoo/server
-sudo chmod -R 755 /var/www/reelsoo/server
-sudo chmod -R 775 /var/www/reelsoo/server/storage
-sudo chmod -R 775 /var/www/reelsoo/server/bootstrap/cache
+sudo chown -R www-data:www-data /var/www/teezer/server
+sudo chmod -R 755 /var/www/teezer/server
+sudo chmod -R 775 /var/www/teezer/server/storage
+sudo chmod -R 775 /var/www/teezer/server/bootstrap/cache
 ```
 
 ---
 
 ## Step 5 - Production `.env`
 
-Edit `/var/www/reelsoo/server/.env`:
+Edit `/var/www/teezer/server/.env`:
 
 ```dotenv
 # ── Application ─────────────────────────────────────
-APP_NAME=Reelsoo
+APP_NAME=Teezer
 APP_ENV=production
 APP_KEY=base64:GENERATED_BY_KEY_GENERATE
 APP_DEBUG=false
-APP_URL=https://reelsoo.com
+APP_URL=https://teezer.live
 
 # ── Logging ─────────────────────────────────────────
 LOG_CHANNEL=daily
@@ -305,20 +305,20 @@ LOG_LEVEL=error
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=reelsoo
-DB_USERNAME=reelsoo_user
+DB_DATABASE=teezer
+DB_USERNAME=teezer_user
 DB_PASSWORD=USE_A_STRONG_RANDOM_PASSWORD
 
 # ── Cache / Session / Queue ──────────────────────────
 CACHE_DRIVER=file
 SESSION_DRIVER=database
 SESSION_LIFETIME=120
-SESSION_DOMAIN=reelsoo.com
+SESSION_DOMAIN=teezer.live
 SESSION_SECURE_COOKIE=true
 QUEUE_CONNECTION=database
 
 # ── Sanctum (Flutter API token auth) ────────────────
-SANCTUM_STATEFUL_DOMAINS=reelsoo.com,www.reelsoo.com
+SANCTUM_STATEFUL_DOMAINS=teezer.live,www.teezer.live
 
 # ── Storage: Cloudflare R2 ───────────────────────────
 # All uploads (videos, thumbnails, avatars, documents) go to R2.
@@ -326,13 +326,13 @@ SANCTUM_STATEFUL_DOMAINS=reelsoo.com,www.reelsoo.com
 FILESYSTEM_DISK=r2
 CLOUDFLARE_R2_ACCESS_KEY_ID=YOUR_R2_ACCESS_KEY_ID
 CLOUDFLARE_R2_SECRET_ACCESS_KEY=YOUR_R2_SECRET_KEY
-CLOUDFLARE_R2_BUCKET=reelsoo-media
+CLOUDFLARE_R2_BUCKET=teezer-media
 CLOUDFLARE_R2_ENDPOINT=https://<account-id>.r2.cloudflarestorage.com
-CLOUDFLARE_R2_URL=https://media.reelsoo.com
+CLOUDFLARE_R2_URL=https://media.teezer.live
 CLOUDFLARE_R2_REGION=auto
 
 # ── Firebase Push Notifications (Phase 6+) ───────────
-# FIREBASE_CREDENTIALS=/var/www/reelsoo/server/storage/app/firebase-credentials.json
+# FIREBASE_CREDENTIALS=/var/www/teezer/server/storage/app/firebase-credentials.json
 # FIREBASE_PROJECT_ID=
 
 # ── Mail ─────────────────────────────────────────────
@@ -342,12 +342,12 @@ MAIL_PORT=587
 MAIL_USERNAME=
 MAIL_PASSWORD=
 MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS=noreply@reelsoo.com
-MAIL_FROM_NAME="Reelsoo"
+MAIL_FROM_ADDRESS=noreply@teezer.live
+MAIL_FROM_NAME="Teezer"
 
 # ── Admin Seeder (used by AdminUserSeeder) ────────────
-ADMIN_NAME="Reelsoo Admin"
-ADMIN_EMAIL=admin@reelsoo.com
+ADMIN_NAME="Teezer Admin"
+ADMIN_EMAIL=admin@teezer.live
 ADMIN_PASSWORD=CHANGE_THIS_IMMEDIATELY_AFTER_SEEDING
 ```
 
@@ -357,13 +357,13 @@ ADMIN_PASSWORD=CHANGE_THIS_IMMEDIATELY_AFTER_SEEDING
 
 ### Block 1 - Main Domain (Website + Dashboard + Login)
 
-**`/etc/nginx/sites-available/reelsoo`**
+**`/etc/nginx/sites-available/teezer`**
 
 ```nginx
 server {
     listen 80;
-    server_name reelsoo.com www.reelsoo.com;
-    root /var/www/reelsoo/server/public;
+    server_name teezer.live www.teezer.live;
+    root /var/www/teezer/server/public;
     index index.php index.html;
 
     # Security headers
@@ -409,13 +409,13 @@ server {
 
 ### Block 2 - API Subdomain (Flutter REST API)
 
-**`/etc/nginx/sites-available/reelsoo-api`**
+**`/etc/nginx/sites-available/teezer-api`**
 
 ```nginx
 server {
     listen 80;
-    server_name api.reelsoo.com;
-    root /var/www/reelsoo/server/public;
+    server_name api.teezer.live;
+    root /var/www/teezer/server/public;
     index index.php;
 
     add_header X-Content-Type-Options "nosniff";
@@ -452,8 +452,8 @@ server {
 ### Enable Both Sites
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/reelsoo /etc/nginx/sites-enabled/
-sudo ln -s /etc/nginx/sites-available/reelsoo-api /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/teezer /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/teezer-api /etc/nginx/sites-enabled/
 sudo rm -f /etc/nginx/sites-enabled/default
 sudo nginx -t
 sudo systemctl reload nginx
@@ -467,8 +467,8 @@ sudo systemctl reload nginx
 sudo apt install -y certbot python3-certbot-nginx
 
 # Issue certificates for both domains
-sudo certbot --nginx -d reelsoo.com -d www.reelsoo.com
-sudo certbot --nginx -d api.reelsoo.com
+sudo certbot --nginx -d teezer.live -d www.teezer.live
+sudo certbot --nginx -d api.teezer.live
 
 # Certbot auto-updates the Nginx configs to add SSL and redirect HTTP → HTTPS
 
@@ -490,12 +490,12 @@ add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" alway
 
 ## Step 8 - Supervisor Queue Worker
 
-**`/etc/supervisor/conf.d/reelsoo-worker.conf`**
+**`/etc/supervisor/conf.d/teezer-worker.conf`**
 
 ```ini
-[program:reelsoo-worker]
+[program:teezer-worker]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/www/reelsoo/server/artisan queue:work database --sleep=3 --tries=3 --max-time=3600
+command=php /var/www/teezer/server/artisan queue:work database --sleep=3 --tries=3 --max-time=3600
 autostart=true
 autorestart=true
 stopasgroup=true
@@ -503,14 +503,14 @@ killasgroup=true
 user=www-data
 numprocs=2
 redirect_stderr=true
-stdout_logfile=/var/www/reelsoo/server/storage/logs/worker.log
+stdout_logfile=/var/www/teezer/server/storage/logs/worker.log
 stopwaitsecs=3600
 ```
 
 ```bash
 sudo supervisorctl reread
 sudo supervisorctl update
-sudo supervisorctl start reelsoo-worker:*
+sudo supervisorctl start teezer-worker:*
 sudo supervisorctl status
 ```
 
@@ -518,14 +518,14 @@ sudo supervisorctl status
 
 ## Step 9 - GitHub Deployment Script
 
-**`/var/www/reelsoo/deploy.sh`**
+**`/var/www/teezer/deploy.sh`**
 
 ```bash
 #!/bin/bash
 set -e
 
-echo "=== Reelsoo Deployment ==="
-cd /var/www/reelsoo
+echo "=== Teezer Deployment ==="
+cd /var/www/teezer
 
 echo "[1/8] Pulling latest code..."
 git pull origin main
@@ -551,10 +551,10 @@ echo "[6/8] Restarting queue workers..."
 php artisan queue:restart
 
 echo "[7/8] Setting permissions..."
-sudo chown -R www-data:www-data /var/www/reelsoo/server
-sudo chmod -R 755 /var/www/reelsoo/server
-sudo chmod -R 775 /var/www/reelsoo/server/storage
-sudo chmod -R 775 /var/www/reelsoo/server/bootstrap/cache
+sudo chown -R www-data:www-data /var/www/teezer/server
+sudo chmod -R 755 /var/www/teezer/server
+sudo chmod -R 775 /var/www/teezer/server/storage
+sudo chmod -R 775 /var/www/teezer/server/bootstrap/cache
 
 echo "[8/8] Reloading Nginx..."
 sudo systemctl reload nginx
@@ -563,12 +563,12 @@ echo "=== Done. Deployment complete. ==="
 ```
 
 ```bash
-chmod +x /var/www/reelsoo/deploy.sh
+chmod +x /var/www/teezer/deploy.sh
 ```
 
 **Run on every new deployment:**
 ```bash
-cd /var/www/reelsoo && ./deploy.sh
+cd /var/www/teezer && ./deploy.sh
 ```
 
 ---
@@ -581,7 +581,7 @@ In `mobile-app/lib/utils/constants.dart`:
 class AppConstants {
   static const String apiBaseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'https://api.reelsoo.com/api/v1',
+    defaultValue: 'https://api.teezer.live/api/v1',
   );
 }
 ```
@@ -593,11 +593,11 @@ flutter run --dart-define=API_BASE_URL=http://192.168.x.x:8000/api/v1
 
 # Production APK
 flutter build apk --release \
-  --dart-define=API_BASE_URL=https://api.reelsoo.com/api/v1
+  --dart-define=API_BASE_URL=https://api.teezer.live/api/v1
 
 # Production App Bundle (Play Store)
 flutter build appbundle --release \
-  --dart-define=API_BASE_URL=https://api.reelsoo.com/api/v1
+  --dart-define=API_BASE_URL=https://api.teezer.live/api/v1
 ```
 
 ---
@@ -609,7 +609,7 @@ All uploaded media is stored in **Cloudflare R2** from launch. No user-uploaded 
 ### R2 Bucket Layout
 
 ```
-reelsoo-media/
+teezer-media/
 ├── videos/YYYY/MM/        # UUID-named .mp4 files
 ├── images/YYYY/MM/        # Thumbnails, avatars, cover images (UUID-named)
 └── documents/YYYY/MM/     # Verification documents (UUID-named)
@@ -619,7 +619,7 @@ reelsoo-media/
 
 - Laravel's `StorageService` calls `Storage::disk('r2')->putFileAs(...)` for every upload.
 - MySQL stores only the R2 object **key** (e.g. `videos/2026/05/uuid.mp4`), not the full URL.
-- At API response time, `Storage::disk('r2')->url($key)` generates the CDN URL (`https://media.reelsoo.com/...`).
+- At API response time, `Storage::disk('r2')->url($key)` generates the CDN URL (`https://media.teezer.live/...`).
 - Switching back to local disk for dev/testing: set `FILESYSTEM_DISK=public` in `.env`.
 
 ### Required `.env` on Production
@@ -628,9 +628,9 @@ reelsoo-media/
 FILESYSTEM_DISK=r2
 CLOUDFLARE_R2_ACCESS_KEY_ID=YOUR_KEY
 CLOUDFLARE_R2_SECRET_ACCESS_KEY=YOUR_SECRET
-CLOUDFLARE_R2_BUCKET=reelsoo-media
+CLOUDFLARE_R2_BUCKET=teezer-media
 CLOUDFLARE_R2_ENDPOINT=https://<account-id>.r2.cloudflarestorage.com
-CLOUDFLARE_R2_URL=https://media.reelsoo.com
+CLOUDFLARE_R2_URL=https://media.teezer.live
 CLOUDFLARE_R2_REGION=auto
 ```
 
@@ -639,7 +639,7 @@ CLOUDFLARE_R2_REGION=auto
 - R2 credentials are **never** sent to Flutter or any client. All uploads go through the Laravel API.
 - Laravel validates file type (MIME), file size, and ownership before any write to R2.
 - Verification documents use presigned/temporary URLs when served - they are never publicly listed.
-- The R2 bucket has no public `s3:GetObject` policy; public access is served through the `media.reelsoo.com` custom domain only.
+- The R2 bucket has no public `s3:GetObject` policy; public access is served through the `media.teezer.live` custom domain only.
 
 ---
 
@@ -679,7 +679,7 @@ CLOUDFLARE_R2_REGION=auto
 ### Database
 - [ ] `mysql_secure_installation` completed
 - [ ] `root` MySQL account has strong password
-- [ ] Dedicated `reelsoo_user` with database-scoped privileges only
+- [ ] Dedicated `teezer_user` with database-scoped privileges only
 - [ ] Daily backup scheduled (see below)
 
 ### Backups
@@ -691,25 +691,25 @@ crontab -e
 
 Add:
 ```cron
-0 2 * * * mysqldump -u reelsoo_user -p'DB_PASSWORD' reelsoo | gzip > /var/backups/reelsoo_$(date +\%Y\%m\%d).sql.gz
+0 2 * * * mysqldump -u teezer_user -p'DB_PASSWORD' teezer | gzip > /var/backups/teezer_$(date +\%Y\%m\%d).sql.gz
 # Keep only last 14 days
-0 3 * * * find /var/backups -name "reelsoo_*.sql.gz" -mtime +14 -delete
+0 3 * * * find /var/backups -name "teezer_*.sql.gz" -mtime +14 -delete
 ```
 
 ---
 
 ## Post-Deploy Verification Checklist
 
-- [ ] `curl https://api.reelsoo.com/api/v1/health` → returns `{"success":true}`
-- [ ] `https://reelsoo.com` loads the public website
-- [ ] `https://reelsoo.com/login` loads the login page
+- [ ] `curl https://api.teezer.live/api/v1/health` → returns `{"success":true}`
+- [ ] `https://teezer.live` loads the public website
+- [ ] `https://teezer.live/login` loads the login page
 - [ ] Login as admin → redirects to `/dashboard/admin`
 - [ ] Login as creator → redirects to `/dashboard/creator`
 - [ ] Login as user → redirects to `/dashboard/user`
 - [ ] Visiting `/dashboard/admin` while logged in as user/creator → 403
-- [ ] Flutter app connects to `api.reelsoo.com` (test with Postman or the app)
+- [ ] Flutter app connects to `api.teezer.live` (test with Postman or the app)
 - [ ] Video upload works (check storage permissions)
 - [ ] SSL padlock visible on all domains
 - [ ] Queue worker running: `sudo supervisorctl status`
 - [ ] Nginx error log clean: `sudo tail /var/log/nginx/error.log`
-- [ ] Laravel log clean: `tail /var/www/reelsoo/server/storage/logs/laravel.log`
+- [ ] Laravel log clean: `tail /var/www/teezer/server/storage/logs/laravel.log`

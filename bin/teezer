@@ -3,15 +3,15 @@
 # TEEZER NOTE: not used for the Teezer deployment - do NOT install this on the
 # Teezer servers (DEPLOYMENT.md). Licensing is disabled for Teezer. If it is
 # ever run, `update`/`verify` refuse unless server/.env has an explicit
-# LICENSE_SERVER_URL that is not the source platform's (reelsoo) server, and
+# LICENSE_SERVER_URL (never the source platform's server), and
 # database migrations only run with an explicit `update --migrate`.
 #
-# `reelsoo` — the customer-facing command on an installed server (marketplace updater).
+# `teezer` — the customer-facing command on an installed server (marketplace updater).
 #
-#   reelsoo status     licence and service status
-#   reelsoo update     check for, download and apply an update
-#   reelsoo verify     re-verify the licence with the licence server
-#   reelsoo rollback   restore the previous version
+#   teezer status     licence and service status
+#   teezer update     check for, download and apply an update
+#   teezer verify     re-verify the licence with the licence server
+#   teezer rollback   restore the previous version
 #
 # The file-level work lives here rather than in an artisan command on purpose:
 # unpacking a new copy of the application over the top of the PHP process that
@@ -23,8 +23,8 @@
 #
 set -euo pipefail
 
-readonly APP_DIR="${TEEZER_INSTALL_DIR:-${REELSOO_INSTALL_DIR:-/var/www/teezer}}"
-readonly BACKUP_DIR="${TEEZER_BACKUP_DIR:-${REELSOO_BACKUP_DIR:-/var/backups/teezer}}"
+readonly APP_DIR="${TEEZER_INSTALL_DIR:-/var/www/teezer}"
+readonly BACKUP_DIR="${TEEZER_BACKUP_DIR:-/var/backups/teezer}"
 readonly SERVER_DIR="$APP_DIR/server"
 
 if [[ -t 1 ]]; then
@@ -38,7 +38,7 @@ ok()   { printf '  %s✓%s %s\n' "$GREEN" "$RESET" "$*"; }
 warn() { printf '  %s!%s %s\n' "$YELLOW" "$RESET" "$*"; }
 die()  { printf '\n  %sError:%s %s\n\n' "$RED" "$RESET" "$*" >&2; exit 1; }
 
-require_root() { [[ $EUID -eq 0 ]] || die "This command needs root. Try: sudo reelsoo $*"; }
+require_root() { [[ $EUID -eq 0 ]] || die "This command needs root. Try: sudo teezer $*"; }
 artisan() { ( cd "$SERVER_DIR" && sudo -u www-data php artisan "$@" ); }
 
 # The updater must never talk to the source platform's licence/update server,
@@ -47,22 +47,19 @@ require_licence_server() {
     local url
     url=$(grep -E '^LICENSE_SERVER_URL=' "$SERVER_DIR/.env" 2>/dev/null | tail -n1 | cut -d= -f2- | tr -d '"'"'"' ') || true
     [[ -n "$url" ]] || die "LICENSE_SERVER_URL is not set in $SERVER_DIR/.env. There is no default licence server; refusing."
-    case "${url,,}" in
-        *reelsoo*) die "LICENSE_SERVER_URL points at the Reelsoo licence server ($url). Refusing." ;;
-    esac
 }
 
 usage() {
     cat <<'USAGE'
 
-  reelsoo — manage this installation (marketplace updater; not used for Teezer)
+  teezer — manage this installation (marketplace updater; not used for Teezer)
 
-    reelsoo status              Licence and service status
-    reelsoo update [--check] [--migrate]
+    teezer status              Licence and service status
+    teezer update [--check] [--migrate]
                                 Update to the latest release (migrations only with --migrate)
-    reelsoo verify              Re-verify the licence now
-    reelsoo rollback            Restore the previous version
-    reelsoo help                This message
+    teezer verify              Re-verify the licence now
+    teezer rollback            Restore the previous version
+    teezer help                This message
 
 USAGE
 }
@@ -104,14 +101,14 @@ cmd_update() {
     done
 
     if [[ $check_only -eq 1 ]]; then
-        artisan reelsoo:update --check
+        artisan teezer:update --check
         return
     fi
 
     printf '\n  %sChecking for updates%s\n' "$BOLD" "$RESET"
 
     local result version package
-    result=$(artisan reelsoo:update --json --download-to=/tmp 2>/dev/null | tail -n1)
+    result=$(artisan teezer:update --json --download-to=/tmp 2>/dev/null | tail -n1)
 
     case "$result" in
         *'"status":"up_to_date"'*)
@@ -232,7 +229,7 @@ cmd_update() {
         printf '\n  %sUpdated to %s%s\n\n' "$GREEN" "$version" "$RESET"
     else
         warn "The site is not responding after the update."
-        info "Roll back with:  sudo reelsoo rollback"
+        info "Roll back with:  sudo teezer rollback"
         printf '\n'
         exit 1
     fi

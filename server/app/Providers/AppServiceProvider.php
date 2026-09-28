@@ -132,7 +132,7 @@ class AppServiceProvider extends ServiceProvider
         // Two halves that must never be confused. The CLIENT half (store,
         // verifier) runs on every installation including this one, and does
         // nothing at all while licensing.client.enabled is false - which is how
-        // reelsoo.com is configured, so production can never block itself on
+        // teezer.live is configured, so production can never block itself on
         // its own licence check.
         //
         // The SERVER half (signer, issuer, key factory, release authorizer) is

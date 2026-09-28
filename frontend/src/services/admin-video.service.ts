@@ -4,7 +4,7 @@ const API = (process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000/api/v1').
 const api = axios.create({ baseURL: API, withCredentials: true });
 
 api.interceptors.request.use((config) => {
-  const token = typeof window !== 'undefined' ? localStorage.getItem('reelsoo_token') : null;
+  const token = typeof window !== 'undefined' ? localStorage.getItem('teezer_token') : null;
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });

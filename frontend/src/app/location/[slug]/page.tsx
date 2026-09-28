@@ -14,7 +14,7 @@ import { formatCompact, cn } from "@/lib/utils";
 import { VerifiedBadge } from "@/components/ui/verified-badge";
 import { FollowButton } from "@/components/user/follow-button";
 import { KnowledgeCard } from "@/components/knowledge/knowledge-card";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 
 type NearbyCreator = {
   id: number; username: string; name: string; avatar: string | null;
@@ -111,7 +111,7 @@ export default function LocationFeedPage() {
   const [sort, setSort] = useState("popular");
 
   const [header,  setHeader]  = useState<LocationHeader | null>(null);
-  const [items,   setItems]   = useState<ReelsooVideo[]>([]);
+  const [items,   setItems]   = useState<TeezerVideo[]>([]);
   const [page,    setPage]    = useState(1);
   const [hasMore, setHasMore] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -126,7 +126,7 @@ export default function LocationFeedPage() {
       const { data } = await api.get(`/locations/${slug}/videos`, {
         params: { type, time, sort: effectiveSort, page: p, per_page: 24 },
       });
-      const list: ReelsooVideo[] = data?.data ?? [];
+      const list: TeezerVideo[] = data?.data ?? [];
       setHeader(data?.location ?? null);
       setItems((prev) => (append ? [...prev, ...list] : list));
       setHasMore(Boolean(data?.meta?.next_page_url));
@@ -143,7 +143,7 @@ export default function LocationFeedPage() {
 
   // Top creators + about derived from the loaded posts (saved-location data only).
   const topCreators = useMemo(() => {
-    const seen = new Map<string, ReelsooVideo["user"]>();
+    const seen = new Map<string, TeezerVideo["user"]>();
     for (const v of items) {
       if (v.user?.username && !seen.has(v.user.username)) seen.set(v.user.username, v.user);
       if (seen.size >= 5) break;
@@ -399,7 +399,7 @@ function Stat({ label, value }: { label: string; value: number }) {
   );
 }
 
-function Card({ v, locName }: { v: ReelsooVideo; locName: string }) {
+function Card({ v, locName }: { v: TeezerVideo; locName: string }) {
   const isImage = v.media_type === "image" || v.media_type === "image_carousel";
   const cover   = v.thumbnail_url || null;
   return (

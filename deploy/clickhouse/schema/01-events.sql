@@ -27,9 +27,9 @@
 --    date-first access patterns are served by the materialized views in
 --    02-rollups.sql, never by scanning this table.
 
-CREATE DATABASE IF NOT EXISTS reelsoo;
+CREATE DATABASE IF NOT EXISTS teezer;
 
-CREATE TABLE IF NOT EXISTS reelsoo.events
+CREATE TABLE IF NOT EXISTS teezer.events
 (
     event_time      DateTime64(3, 'UTC'),
     event_date      Date MATERIALIZED toDate(event_time),
@@ -91,11 +91,11 @@ SETTINGS index_granularity = 8192;
 -- somewhere to put the data the moment we start parsing the UA properly; until
 -- then they are empty strings, and any card reading them must show an empty
 -- state rather than invent a distribution.
-ALTER TABLE reelsoo.events ADD COLUMN IF NOT EXISTS city    LowCardinality(String) DEFAULT '' AFTER country;
-ALTER TABLE reelsoo.events ADD COLUMN IF NOT EXISTS os      LowCardinality(String) DEFAULT '' AFTER platform;
-ALTER TABLE reelsoo.events ADD COLUMN IF NOT EXISTS browser LowCardinality(String) DEFAULT '' AFTER os;
-ALTER TABLE reelsoo.events ADD COLUMN IF NOT EXISTS network LowCardinality(String) DEFAULT '' AFTER browser;
-ALTER TABLE reelsoo.events ADD COLUMN IF NOT EXISTS event_id String DEFAULT '' AFTER payload;
+ALTER TABLE teezer.events ADD COLUMN IF NOT EXISTS city    LowCardinality(String) DEFAULT '' AFTER country;
+ALTER TABLE teezer.events ADD COLUMN IF NOT EXISTS os      LowCardinality(String) DEFAULT '' AFTER platform;
+ALTER TABLE teezer.events ADD COLUMN IF NOT EXISTS browser LowCardinality(String) DEFAULT '' AFTER os;
+ALTER TABLE teezer.events ADD COLUMN IF NOT EXISTS network LowCardinality(String) DEFAULT '' AFTER browser;
+ALTER TABLE teezer.events ADD COLUMN IF NOT EXISTS event_id String DEFAULT '' AFTER payload;
 
 -- ── Why deduplication is NOT done here ──────────────────────────────────────
 -- The obvious move is ReplacingMergeTree keyed on event_id. It does not work.
@@ -119,8 +119,8 @@ ALTER TABLE reelsoo.events ADD COLUMN IF NOT EXISTS event_id String DEFAULT '' A
 -- recommender filters by video. A skip index on creator_id lets the rare
 -- creator-scoped raw scan (backfill checks, debugging) skip most granules
 -- without a second ORDER BY.
-ALTER TABLE reelsoo.events
+ALTER TABLE teezer.events
     ADD INDEX IF NOT EXISTS idx_creator creator_id TYPE minmax GRANULARITY 4;
 
-ALTER TABLE reelsoo.events
+ALTER TABLE teezer.events
     ADD INDEX IF NOT EXISTS idx_user user_id TYPE bloom_filter(0.01) GRANULARITY 4;

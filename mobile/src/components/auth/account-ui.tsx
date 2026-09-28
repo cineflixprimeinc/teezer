@@ -8,7 +8,7 @@ import type { SavedAccount } from "@/utils/secure-store";
 
 /**
  * Shared UI kit for the Saved-Accounts feature (login picker + manage page).
- * Reelsoo light theme, premium spacing, rounded cards, soft shadows and the
+ * Teezer light theme, premium spacing, rounded cards, soft shadows and the
  * feature accent below. Kept dependency-free (plain Animated) so it runs at
  * 60/120fps in Expo Go with no reanimated.
  */

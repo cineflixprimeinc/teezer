@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
 /**
- * The header's "Back to Reelsoo" link - hidden only when this page is
+ * The header's "Back to Teezer" link - hidden only when this page is
  * opened inside the app's in-app policy viewer (a WebView that appends
  * ?embedded=1 - see mobile/src/screens/legal/PolicyViewerScreen.tsx). There
  * it would navigate the WebView to teezer.live/ rather than close the
@@ -12,7 +12,7 @@ import { useSearchParams } from "next/navigation";
  * that), so it doesn't belong there. A normal browser visit never sends
  * this param, so the link is unaffected on the live website.
  */
-export function BackToReelsooLink() {
+export function BackToTeezerLink() {
   const params = useSearchParams();
   if (params.get("embedded") === "1") return null;
 

@@ -2,13 +2,13 @@
 
 import { create } from "zustand";
 import { videoService } from "@/services/video.service";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 import type { VideoUser } from "@/types/video";
 
 type FeedMode = "home" | "following";
 
 type FeedState = {
-  videos:        ReelsooVideo[];
+  videos:        TeezerVideo[];
   activeIndex:   number;
   page:          number;
   hasMore:       boolean;
@@ -27,7 +27,7 @@ type FeedState = {
   setActiveIndex:(i: number) => void;
   /** Patch a single video's fields in the store so that scrolling away and
    *  back does not reset like/save state to the original feed values. */
-  updateVideo:   (id: number, patch: Partial<ReelsooVideo>) => void;
+  updateVideo:   (id: number, patch: Partial<TeezerVideo>) => void;
   /** Patch `user` fields on every video in the feed that belongs to the given
    *  username. Used to sync follow state across all of a creator's videos. */
   updateUserInVideos: (username: string, patch: Partial<VideoUser>) => void;
@@ -82,7 +82,7 @@ export const useFeedStore = create<FeedState>((set, get) => ({
       const lastPage = res.meta?.last_page ?? 1;
 
       // If user just uploaded, pin their new post at position 0.
-      const pinKey   = "reelsoo_latest_upload_id";
+      const pinKey   = "teezer_latest_upload_id";
       const pinnedId = typeof window !== "undefined"
         ? Number(window.localStorage.getItem(pinKey) ?? "0")
         : 0;

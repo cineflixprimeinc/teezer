@@ -14,7 +14,7 @@ import {
   useCreatorLayer,
 } from "@/store/creator-layer.store";
 /**
- * The feed's single horizontal gesture, ported from the ReelSoo design
+ * The feed's single horizontal gesture, ported from the Teezer design
  * prototype (`beginDrag`/`moveDrag`/`endDrag` plus `paintTab`/`settleTab`).
  *
  * It is deliberately ONE handler with several modes rather than competing

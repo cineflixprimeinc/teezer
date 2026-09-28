@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BackToReelsooLink } from "./back-to-reelsoo-link";
+import { BackToTeezerLink } from "./back-to-teezer-link";
 
 /**
  * Shared shell + typography for the public legal pages (/privacy, /terms,
@@ -45,7 +45,7 @@ export function LegalShell({
             <Image src="/teezer-logo.png" alt="Teezer" width={210} height={70} className="h-9 w-auto" priority />
           </Link>
           <Suspense fallback={null}>
-            <BackToReelsooLink />
+            <BackToTeezerLink />
           </Suspense>
         </div>
       </header>
@@ -112,7 +112,7 @@ export function LegalShell({
           {children}
 
           <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-gray-100 pt-8 text-sm text-gray-400 sm:flex-row sm:items-center">
-            <span>© {new Date().getFullYear()} Teezer · CineflixPrime</span>
+            <span>© {new Date().getFullYear()} Teezer</span>
             <span className="flex flex-wrap gap-x-2 gap-y-1">
               <Link href="/terms" className="hover:text-gray-600">Terms of Service</Link>
               <span>·</span>

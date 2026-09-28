@@ -405,7 +405,7 @@ class AdminReportsController extends Controller
      * hold a fully-qualified, already-signed URL in this column rather than a
      * bare key (a pre-existing data inconsistency, not introduced here).
      * Signing it again produced a doubled, broken URL -
-     * "https://cdn.reelsoo.com/https://cdn.reelsoo.com/…?expires=…&token=…?expires=…&token=…"
+     * "https://cdn.teezer.live/https://cdn.teezer.live/…?expires=…&token=…?expires=…&token=…"
      * - caught from a real report row (video ids 7/8) after this shipped.
      * VideoResource has the exact same gap for these two videos on the
      * live app/site; that's a wider-reaching file this fix deliberately

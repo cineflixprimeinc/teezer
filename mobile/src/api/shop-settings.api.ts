@@ -2,7 +2,7 @@ import { api } from "./client";
 import type { ShopPolicies } from "./seller-application.api";
 
 /**
- * Settings -> Sell on Reelsoo -> Shop -> Edit Shop. Editing an ALREADY-
+ * Settings -> Sell on Teezer -> Shop -> Edit Shop. Editing an ALREADY-
  * APPROVED shop's storefront fields - server-backed on
  * ShopSettingsController.php, a DIFFERENT endpoint from
  * seller-application.api.ts's onboarding one (that one refuses writes once

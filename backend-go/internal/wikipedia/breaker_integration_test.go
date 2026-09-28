@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"reelsoo/backend-go/internal/breaker"
+	"teezer/backend-go/internal/breaker"
 )
 
 // outageStub is a Wikimedia that is down: every request 503s, and every request

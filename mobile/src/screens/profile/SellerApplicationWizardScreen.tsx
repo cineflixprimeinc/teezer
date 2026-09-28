@@ -21,7 +21,7 @@ import { colors } from "@/constants/colors";
 import { font, radius, spacing } from "@/constants/theme";
 
 /**
- * The "Sell on Reelsoo" application wizard - Settings -> Sell on Reelsoo ->
+ * The "Sell on Teezer" application wizard - Settings -> Sell on Teezer ->
  * Start Selling/Continue (SellerApplicationScreen). Server-backed on
  * seller/application (SellerApplicationController.php); every step's
  * Continue PUTs that step's fields before advancing, so leaving mid-wizard

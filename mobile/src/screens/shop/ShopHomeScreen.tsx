@@ -48,11 +48,11 @@ import {
 } from "@/api/shop.api";
 
 /**
- * Reelsoo Shop - the destination behind the feed header's "Shop" menu AND a
+ * Teezer Shop - the destination behind the feed header's "Shop" menu AND a
  * swipe-right off the feed's first tab (see useFeedSwipe.ts's shop mode).
  *
  * Promo banners, coupons, deals-of-the-day, and the featured category grid
- * are all real now - admin-authored via the "Reelsoo Shop" admin panel
+ * are all real now - admin-authored via the "Teezer Shop" admin panel
  * section (AdminShopPromoBannerController/AdminShopDealController/
  * AdminShopCouponController) and read here through
  * shopApi.homeBanners/homeDeals/homeCoupons/categories. There is still no

@@ -10,7 +10,7 @@
 
     {{-- Logo / wordmark --}}
     <div class="mb-10 select-none">
-        <img src="{{ asset('reelsoo-mark.svg') }}" alt="Teezer" class="h-14 w-auto">
+        <img src="{{ asset('teezer-mark.svg') }}" alt="Teezer" class="h-14 w-auto">
     </div>
 
     {{-- Headline --}}

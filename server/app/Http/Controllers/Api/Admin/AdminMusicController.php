@@ -23,11 +23,11 @@ class AdminMusicController extends Controller
             'total_plays'     => (int) $base()->sum('plays_count'),
             'artists'         => $base()->whereNotNull('artist_name')->distinct('artist_name')->count('artist_name'),
             'new_this_week'   => $base()->where('created_at', '>=', now()->subWeek())->count(),
-            'reelsoo_count'   => $base()->where(fn ($q) =>
-                                     $q->where('artist_name', 'ilike', '%reelsoo%')
+            'teezer_count'   => $base()->where(fn ($q) =>
+                                     $q->where('artist_name', 'ilike', '%teezer%')
                                        ->orWhereNotNull('created_by_admin_id')
                                  )->count(),
-            'artist_count'    => $base()->where('artist_name', 'not ilike', '%reelsoo%')
+            'artist_count'    => $base()->where('artist_name', 'not ilike', '%teezer%')
                                         ->whereNull('created_by_admin_id')
                                         ->count(),
         ];
@@ -58,13 +58,13 @@ class AdminMusicController extends Controller
         if ($request->filled('status')) $q->where('status', $request->status);
 
         if ($request->filled('source')) {
-            if ($request->source === 'reelsoo') {
+            if ($request->source === 'teezer') {
                 $q->where(fn ($sq) =>
-                    $sq->where('artist_name', 'ilike', '%reelsoo%')
+                    $sq->where('artist_name', 'ilike', '%teezer%')
                        ->orWhereNotNull('created_by_admin_id')
                 );
             } elseif ($request->source === 'artist') {
-                $q->where('artist_name', 'not ilike', '%reelsoo%')
+                $q->where('artist_name', 'not ilike', '%teezer%')
                   ->whereNull('created_by_admin_id');
             }
         }

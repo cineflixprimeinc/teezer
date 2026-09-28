@@ -83,13 +83,14 @@ class MusicTrack extends Model
             // media host though - a genuinely external URL (a different host)
             // must be left untouched, since signing it would point at a key
             // that doesn't exist in our bucket.
-            // teezer.live is our media host; reelsoo.com hosts are still
-            // recognised because the restored database carries legacy rows
-            // written under that domain - they are reduced to a key and
+            // teezer.live is our media host; the source platform's hosts
+            // (services.media.legacy_domains) are still recognised because the
+            // restored database carries legacy rows written under those domains -
+            // they are reduced to a key and
             // re-served through our own MEDIA_URL.
             $host = strtolower(parse_url($value, PHP_URL_HOST) ?: '');
             $ours = false;
-            foreach (['teezer.live', 'reelsoo.com'] as $domain) {
+            foreach (array_merge(['teezer.live'], (array) config('services.media.legacy_domains', [])) as $domain) {
                 if ($host === $domain || str_ends_with($host, '.' . $domain)) {
                     $ours = true;
                     break;

@@ -128,7 +128,7 @@ class Video extends Model
      * Music identified inside this video's audio, if any.
      *
      * Separate from musicTrack(): that is a sound the creator CHOSE from
-     * Reelsoo's library, this is one we HEARD in what they uploaded. A video can
+     * Teezer's library, this is one we HEARD in what they uploaded. A video can
      * have both - a library track laid over a clip that already had music - and
      * they must not overwrite each other.
      */
@@ -223,7 +223,7 @@ class Video extends Model
     }
 
     /**
-     * "Add link" → Reelsoo Product - up to 3 of the creator's own shop
+     * "Add link" → Teezer Product - up to 3 of the creator's own shop
      * products featured on this post, in the order they were selected (see
      * the 2026_09_02_130000 migration and VideoService::syncFeaturedProducts).
      * Only active products are returned - a product the seller has since

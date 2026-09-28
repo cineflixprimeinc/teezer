@@ -12,7 +12,7 @@ import { Table, Thead, Th, Tbody, Tr, Td, TableEmpty, TableLoading, Pagination }
 import { api, apiMessage } from "@/services/api";
 
 /**
- * Reelsoo Shop → Applications - the "Sell on Reelsoo" review queue.
+ * Teezer Shop → Applications - the "Sell on Teezer" review queue.
  *
  * Every status transition here goes through AdminShopController's
  * application endpoints, the only place shops.status can move to/from

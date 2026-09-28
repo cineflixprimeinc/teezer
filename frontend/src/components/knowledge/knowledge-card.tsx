@@ -166,7 +166,7 @@ export function KnowledgeCard({
             loading="lazy"
             decoding="async"
             // Wikimedia sets its own referrer policy; sending none keeps the
-            // user's Reelsoo page out of their logs.
+            // user's Teezer page out of their logs.
             referrerPolicy="no-referrer"
             className={cn(
               "h-20 w-20 rounded-lg object-cover",

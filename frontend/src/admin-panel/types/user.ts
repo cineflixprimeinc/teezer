@@ -1,6 +1,6 @@
 export type UserRole = "user" | "creator" | "admin" | "super_admin";
 
-export type ReelsooUser = {
+export type TeezerUser = {
   id: number;
   name: string;
   username: string;

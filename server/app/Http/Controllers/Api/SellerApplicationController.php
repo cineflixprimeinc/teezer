@@ -18,7 +18,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 
 /**
- * The "Sell on Reelsoo" application - Settings → Sell on Reelsoo, NOT the
+ * The "Sell on Teezer" application - Settings → Sell on Teezer, NOT the
  * public Shop screen (ShopController). One Shop row per user already exists
  * as a hard DB constraint (shops.user_id is unique), so "don't create a
  * duplicate application" falls out of firstOrCreate() for free - there is
@@ -95,7 +95,7 @@ class SellerApplicationController extends Controller
         }
 
         // Admin-configurable eligibility (Admin Panel -> Monetization Control
-        // Center -> Sell on Reelsoo), for the intro screen's requirements
+        // Center -> Sell on Teezer), for the intro screen's requirements
         // checklist, computed live against the same shared metrics/rules
         // every other monetization programme uses.
         //

@@ -11,14 +11,14 @@ import { cn } from "@/lib/utils";
 export type { AudioTrack };
 
 /* ─── Constants ─────────────────────────────────────────────────────────────── */
-const RECENTLY_USED_KEY  = "reelsoo_recently_used_music";
+const RECENTLY_USED_KEY  = "teezer_recently_used_music";
 const MAX_RECENTLY_USED  = 6;
-const FAV_IDS_KEY        = "reelsoo_music_fav_ids";
-const FAV_TRACKS_KEY     = "reelsoo_music_fav_tracks";
+const FAV_IDS_KEY        = "teezer_music_fav_ids";
+const FAV_TRACKS_KEY     = "teezer_music_fav_tracks";
 
 const TABS = [
   { id: "all",               label: "All Tracks",       params: {} },
-  { id: "reelsoo_originals", label: "Teezer Originals", params: { category: "reelsoo_originals" } },
+  { id: "teezer_originals", label: "Teezer Originals", params: { category: "teezer_originals" } },
   { id: "trending",          label: "Trending",         params: { category: "trending" } },
   { id: "happy",             label: "Happy",            params: { mood: "Happy" } },
   { id: "chill",             label: "Chill",            params: { mood: "Chill" } },

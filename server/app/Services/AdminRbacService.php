@@ -59,7 +59,7 @@ class AdminRbacService
     /**
      * True when this change would remove the last way back into the platform.
      *
-     * Reelsoo must always have at least one active Super Admin; without this a
+     * Teezer must always have at least one active Super Admin; without this a
      * single click can leave the install with no administrative recovery path.
      */
     public static function wouldOrphanPlatform(User $target): bool

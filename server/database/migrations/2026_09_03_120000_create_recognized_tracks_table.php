@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 /**
  * Music recognised inside an uploaded video, and the per-video result.
  *
- * Deliberately NOT stored in music_tracks. That table is Reelsoo's own library:
+ * Deliberately NOT stored in music_tracks. That table is Teezer's own library:
  * every row is an audio file we host in R2, created by an admin, offered in the
  * upload picker and playable in the app. A recognised track is the opposite - an
  * identification of somebody else's recording, with no audio we host and no

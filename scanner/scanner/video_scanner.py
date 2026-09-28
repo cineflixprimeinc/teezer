@@ -30,7 +30,7 @@ class VideoScanner:
         frames_dir: Optional[str] = None
 
         try:
-            frames_dir = tempfile.mkdtemp(prefix="reelsoo_frames_")
+            frames_dir = tempfile.mkdtemp(prefix="teezer_frames_")
             frames = self._extract_frames(video_path, frames_dir, frame_interval, scan_duration)
 
             if not frames:

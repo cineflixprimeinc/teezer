@@ -1,5 +1,5 @@
 import { api } from "./api";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 
 export type AudioTrack = {
   id: number;
@@ -62,7 +62,7 @@ export type MusicTrackDetail = {
 
 export type MusicVideosResponse = {
   success: boolean;
-  data: ReelsooVideo[];
+  data: TeezerVideo[];
   meta: {
     current_page: number;
     last_page: number;

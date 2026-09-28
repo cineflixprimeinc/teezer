@@ -91,7 +91,7 @@ export default function RootLayout({
         {/* Apply saved theme BEFORE hydration - prevents light-flash on dark reload */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('reelsoo:theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('teezer:theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){}})();`,
           }}
         />
         {/* Self-heal from stale/failed JS chunks (e.g. a CDN-cached 404 after a
@@ -99,7 +99,7 @@ export default function RootLayout({
             app - it reloads ONCE (guarded) to fetch the fresh build. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var K='reelsoo_chunk_reloaded';function isChunk(m){return m&&/ChunkLoadError|Loading chunk|Failed to load chunk|dynamically imported module|not executable|Importing a module script failed/i.test(m);}function reloadOnce(){try{if(sessionStorage.getItem(K))return;sessionStorage.setItem(K,'1');}catch(e){}location.reload();}window.addEventListener('error',function(e){var t=e&&e.target;if(t&&(t.tagName==='SCRIPT'||t.tagName==='LINK')){var s=t.src||t.href||'';if(s.indexOf('/_next/static/')>-1){reloadOnce();return;}}if(isChunk(e&&e.message))reloadOnce();},true);window.addEventListener('unhandledrejection',function(e){var r=e&&e.reason;if(isChunk(r&&r.message||String(r)))reloadOnce();});window.addEventListener('load',function(){setTimeout(function(){try{sessionStorage.removeItem(K);}catch(e){}},8000);});})();`,
+            __html: `(function(){var K='teezer_chunk_reloaded';function isChunk(m){return m&&/ChunkLoadError|Loading chunk|Failed to load chunk|dynamically imported module|not executable|Importing a module script failed/i.test(m);}function reloadOnce(){try{if(sessionStorage.getItem(K))return;sessionStorage.setItem(K,'1');}catch(e){}location.reload();}window.addEventListener('error',function(e){var t=e&&e.target;if(t&&(t.tagName==='SCRIPT'||t.tagName==='LINK')){var s=t.src||t.href||'';if(s.indexOf('/_next/static/')>-1){reloadOnce();return;}}if(isChunk(e&&e.message))reloadOnce();},true);window.addEventListener('unhandledrejection',function(e){var r=e&&e.reason;if(isChunk(r&&r.message||String(r)))reloadOnce();});window.addEventListener('load',function(){setTimeout(function(){try{sessionStorage.removeItem(K);}catch(e){}},8000);});})();`,
           }}
         />
       </head>

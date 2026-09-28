@@ -43,8 +43,8 @@ export default function CreatorAgreementPage() {
       related={RELATED}
     >
       <P>
-        This Creator Agreement (the “Agreement”) sets out the terms between you (the “Creator”, “you”) and Teezer,
-        operated by CineflixPrime (“Teezer”, “we”, “us”), when you create, publish, distribute, or monetize content on
+        This Creator Agreement (the “Agreement”) sets out the terms between you (the “Creator”, “you”) and Teezer
+        (“Teezer”, “we”, “us”), when you create, publish, distribute, or monetize content on
         Teezer. It supplements - and does not replace - our{" "}
         <DocLink href="/terms">Terms of Service</DocLink>, <DocLink href="/privacy">Privacy Policy</DocLink>, and{" "}
         <DocLink href="/guidelines">Community Guidelines</DocLink>. If there is any conflict, the Terms of Service govern.

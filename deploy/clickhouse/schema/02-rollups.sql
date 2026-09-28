@@ -32,7 +32,7 @@
 -- ── Per video, per day ───────────────────────────────────────────────────────
 -- Serves: StudioInsightsController (per-video insights), the recommender's
 -- 30-day aggregate, top-videos lists.
-CREATE TABLE IF NOT EXISTS reelsoo.video_daily
+CREATE TABLE IF NOT EXISTS teezer.video_daily
 (
     video_id        UInt64,
     creator_id      UInt64,
@@ -50,8 +50,8 @@ ENGINE = AggregatingMergeTree
 PARTITION BY toYYYYMM(event_date)
 ORDER BY (video_id, event_date, metric);
 
-CREATE MATERIALIZED VIEW IF NOT EXISTS reelsoo.video_daily_mv
-TO reelsoo.video_daily AS
+CREATE MATERIALIZED VIEW IF NOT EXISTS teezer.video_daily_mv
+TO teezer.video_daily AS
 SELECT
     video_id,
     creator_id,
@@ -66,7 +66,7 @@ SELECT
     avgState(completion_pct)            AS completion,
     quantilesState(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0)(completion_pct) AS completion_q,
     uniqState(user_id)                  AS viewers
-FROM reelsoo.events
+FROM teezer.events
 WHERE video_id != 0
 GROUP BY video_id, creator_id, event_date, metric;
 
@@ -74,7 +74,7 @@ GROUP BY video_id, creator_id, event_date, metric;
 -- ── Per creator, per day ─────────────────────────────────────────────────────
 -- Serves: the whole Studio analytics overview (summary tiles + main charts)
 -- and the admin dashboard. This is the direct replacement for creator_analytics.
-CREATE TABLE IF NOT EXISTS reelsoo.creator_daily
+CREATE TABLE IF NOT EXISTS teezer.creator_daily
 (
     creator_id      UInt64,
     event_date      Date,
@@ -90,8 +90,8 @@ ENGINE = AggregatingMergeTree
 PARTITION BY toYYYYMM(event_date)
 ORDER BY (creator_id, event_date, metric);
 
-CREATE MATERIALIZED VIEW IF NOT EXISTS reelsoo.creator_daily_mv
-TO reelsoo.creator_daily AS
+CREATE MATERIALIZED VIEW IF NOT EXISTS teezer.creator_daily_mv
+TO teezer.creator_daily AS
 SELECT
     creator_id,
     event_date,
@@ -104,7 +104,7 @@ SELECT
     sumState(watch_seconds)     AS watch_seconds,
     avgState(completion_pct)    AS completion,
     uniqState(user_id)          AS viewers
-FROM reelsoo.events
+FROM teezer.events
 WHERE creator_id != 0
 GROUP BY creator_id, event_date, metric;
 
@@ -113,7 +113,7 @@ GROUP BY creator_id, event_date, metric;
 -- Serves: overview.audience - traffic_sources, top_countries, device_platform.
 -- Postgres served these with GROUP BY over video_views; this is the same shape,
 -- pre-aggregated. Views only - a country breakdown of `like` events is noise.
-CREATE TABLE IF NOT EXISTS reelsoo.creator_audience_daily
+CREATE TABLE IF NOT EXISTS teezer.creator_audience_daily
 (
     creator_id      UInt64,
     event_date      Date,
@@ -130,8 +130,8 @@ ENGINE = AggregatingMergeTree
 PARTITION BY toYYYYMM(event_date)
 ORDER BY (creator_id, event_date, source, country, city, device_type, platform);
 
-CREATE MATERIALIZED VIEW IF NOT EXISTS reelsoo.creator_audience_daily_mv
-TO reelsoo.creator_audience_daily AS
+CREATE MATERIALIZED VIEW IF NOT EXISTS teezer.creator_audience_daily_mv
+TO teezer.creator_audience_daily AS
 SELECT
     creator_id,
     event_date,
@@ -142,7 +142,7 @@ SELECT
     platform,
     countState()        AS views,
     uniqState(user_id)  AS viewers
-FROM reelsoo.events
+FROM teezer.events
 WHERE creator_id != 0 AND event_type = 'view'
 GROUP BY creator_id, event_date, source, country, city, device_type, platform;
 
@@ -153,7 +153,7 @@ GROUP BY creator_id, event_date, source, country, city, device_type, platform;
 -- day-of-week is derived at query time, because the caller passes its own
 -- timezone and a UTC Tuesday 23:00 is a Wednesday somewhere. Bucketing by dow
 -- here would bake UTC into the answer and quietly shift every creator's heatmap.
-CREATE TABLE IF NOT EXISTS reelsoo.creator_hourly
+CREATE TABLE IF NOT EXISTS teezer.creator_hourly
 (
     creator_id      UInt64,
     event_date      Date,
@@ -166,8 +166,8 @@ ENGINE = AggregatingMergeTree
 PARTITION BY toYYYYMM(event_date)
 ORDER BY (creator_id, event_date, hour);
 
-CREATE MATERIALIZED VIEW IF NOT EXISTS reelsoo.creator_hourly_mv
-TO reelsoo.creator_hourly AS
+CREATE MATERIALIZED VIEW IF NOT EXISTS teezer.creator_hourly_mv
+TO teezer.creator_hourly AS
 SELECT
     creator_id,
     event_date,
@@ -177,6 +177,6 @@ SELECT
     -- rather than looking like a great time to post.
     sumStateIf(delta, event_type IN ('like', 'unlike', 'comment', 'uncomment',
                                      'save', 'unsave', 'share')) AS engagements
-FROM reelsoo.events
+FROM teezer.events
 WHERE creator_id != 0
 GROUP BY creator_id, event_date, hour;

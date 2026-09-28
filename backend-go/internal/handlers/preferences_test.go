@@ -8,7 +8,7 @@ import (
 	"github.com/jackc/pgx/v5/pgtype"
 	"golang.org/x/crypto/bcrypt"
 
-	"reelsoo/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/sqlc"
 )
 
 // row builds the users-row shape defaultsFrom reads, with one preference column

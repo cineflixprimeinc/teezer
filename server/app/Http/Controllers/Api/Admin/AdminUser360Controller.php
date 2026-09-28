@@ -2094,7 +2094,7 @@ class AdminUser360Controller extends Controller
     /**
      * POST /admin/users/{id}/tax-forms/request - ask the user to submit or update
      * their tax information. Sends both an in-app system notification AND an email
-     * (inline, no queue worker) so the creator is prompted to open Reelsoo Studio →
+     * (inline, no queue worker) so the creator is prompted to open Teezer Studio →
      * Tax Forms and provide / refresh their details.
      */
     public function requestTaxInfo(Request $request, int $id): JsonResponse
@@ -2180,7 +2180,7 @@ class AdminUser360Controller extends Controller
      * ─────────────────────────────────────────────────────────────────────── */
 
     /** The account's public number (ACCT-83271-9920). Same value the advertiser
-     *  sees in ads.reelsoo.com - one derivation, on the model. */
+     *  sees in ads.teezer.live - one derivation, on the model. */
     private function accountNumber(AdAccount $a): string
     {
         return $a->accountNumber();

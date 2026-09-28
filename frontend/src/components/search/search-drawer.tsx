@@ -20,7 +20,7 @@ import {
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
-const STORAGE_KEY = "reelsoo_recent_searches";
+const STORAGE_KEY = "teezer_recent_searches";
 const MAX_RECENT  = 8;
 
 const TABS = [
@@ -429,10 +429,10 @@ export function SearchDrawer({ open, onClose }: { open: boolean; onClose: () => 
         <div className="flex-1 overflow-y-auto">
 
           {/*
-            Wikipedia context, above the Reelsoo results as specified.
+            Wikipedia context, above the Teezer results as specified.
             Deliberately outside the `loading`/`hasResults` branches below: it
             fetches on its own clock and renders nothing when the query is not
-            a real-world topic, so it must not be gated on Reelsoo's search
+            a real-world topic, so it must not be gated on Teezer's search
             finishing - nor be able to delay it.
           */}
           {isTyping && (

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Schema;
  * VideoController::completeUpload's validation and PostCameraScreenImpl.tsx's
  * submitPost) - the same "I own this or have permission to post it" gate
  * YouTube/TikTok/Instagram all require, and the actual legal record it's
- * meant to give Reelsoo: WHEN a creator attested to it, not just whether a
+ * meant to give Teezer: WHEN a creator attested to it, not just whether a
  * UI toggle happened to be on when the row was written. consent_confirmed
  * is the same shape for showing identifiable people, but is not a hard
  * gate (not every post has a person in it).

@@ -24,7 +24,7 @@ import {
 } from '@/admin-panel/components/ui/data-table';
 
 /**
- * "Reelsoo Code Purchase" - marketplace licence and purchase-code management.
+ * "Teezer Code Purchase" - marketplace licence and purchase-code management.
  *
  * Built from the admin panel's own UI kit (Card/Button/Badge/Table/ConfirmModal)
  * rather than hand-rolled styles. The first version of this component was

@@ -128,11 +128,11 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
 
 
     /* ── Marketplace licensing (LICENSOR SIDE) ─────────────────────────
-       Only reelsoo.com serves these. They are the licence server: the
+       Only teezer.live serves these. They are the licence server: the
        activation page posts to /activate, and a customer's installer and
        heartbeat post to /install, /verify and /release.
 
-       Unauthenticated by Sanctum on purpose - a customer VPS has no Reelsoo
+       Unauthenticated by Sanctum on purpose - a customer VPS has no Teezer
        user account, and section 23 forbids coupling licences to social auth.
        The credential is the purchase code / licence key, checked by hash.
 
@@ -195,7 +195,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
     Route::get('/app/menus', function () {
         return response()->json(['success' => true, 'data' => \App\Models\MenuItem::where('is_enabled', true)->orderBy('sort_order')->get()]);
     })->name('app.menus');
-    /* Global Reelsoo Control - safe key=>bool map for Website/Android/iOS.
+    /* Global Teezer Control - safe key=>bool map for Website/Android/iOS.
        Nothing here is secret, only behaviour flags, so the whole map is
        public. This is a courtesy for graceful client UI (spec §34); the
        real guarantee is EnsureGlobalControlEnabled running on every request
@@ -335,7 +335,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
         Route::get('/signup-draft/{token}', [ApiAuthController::class, 'getSignupDraft'])->middleware('throttle:20,1')->name('signup-draft');
 
         // ── Internal SSO (cross-subdomain recognition + OAuth-style consent) ──
-        // Authenticated by the shared `.reelsoo.com` cookie, NOT auth:sanctum.
+        // Authenticated by the shared `.teezer.live` cookie, NOT auth:sanctum.
         Route::get('/sso/session',   [\App\Http\Controllers\Api\Auth\SsoController::class, 'session'])->middleware('throttle:60,1')->name('sso.session');
         Route::post('/sso/login',     [\App\Http\Controllers\Api\Auth\SsoController::class, 'login'])->middleware('throttle:30,1')->name('sso.login');
         Route::post('/sso/authorize', [\App\Http\Controllers\Api\Auth\SsoController::class, 'authorize'])->middleware('throttle:20,1')->name('sso.authorize');
@@ -362,7 +362,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
     // above, just scoped to the storefront rather than the whole profile.
     // Must be before /shops/{username} or "categories" would be absorbed as a username.
     Route::get('/shops/categories',             [\App\Http\Controllers\Api\ShopController::class, 'categories'])->name('shops.categories');
-    // Shop marketplace home content - admin-authored via the "Reelsoo Shop"
+    // Shop marketplace home content - admin-authored via the "Teezer Shop"
     // admin panel section. Must be before /shops/{username} for the same
     // reason /shops/categories already is.
     Route::get('/shops/promo-banners',          [\App\Http\Controllers\Api\ShopController::class, 'promoBanners'])->name('shops.promo-banners');
@@ -686,7 +686,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
         Route::get('/shop/reviews/mine',      [\App\Http\Controllers\Api\ShopController::class, 'sellerReviews'])->name('shop.reviews.mine');
         Route::put('/shop/reviews/{id}/reply',[\App\Http\Controllers\Api\ShopController::class, 'replyToReview'])->whereNumber('id')->name('shop.reviews.reply');
 
-        // Reelsoo Shop checkout - real order + payment capture, mirroring
+        // Teezer Shop checkout - real order + payment capture, mirroring
         // studio/wallets-coins' Stripe/Razorpay create->capture pattern. See
         // ShopOrderController's own docblock.
         Route::prefix('shop/orders')->name('shop.orders.')->group(function () {
@@ -709,8 +709,8 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
             Route::patch('/{id}/status', [\App\Http\Controllers\Api\ShopOrderController::class, 'updateOrderStatus'])->whereNumber('id')->name('status');
         });
 
-        // "Sell on Reelsoo" - the seller application/onboarding wizard.
-        // Settings -> Sell on Reelsoo, NOT the public Shop screen above.
+        // "Sell on Teezer" - the seller application/onboarding wizard.
+        // Settings -> Sell on Teezer, NOT the public Shop screen above.
         Route::prefix('seller/application')->name('seller.application.')->group(function () {
             Route::get('/',                [\App\Http\Controllers\Api\SellerApplicationController::class, 'show'])->name('show');
             Route::put('/',                [\App\Http\Controllers\Api\SellerApplicationController::class, 'update'])->name('update');
@@ -1199,7 +1199,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
                 Route::delete('/{id}',[StudioPromotionController::class, 'destroy'])->name('destroy');
             });
 
-            // Reelsoo Ads — advertiser API (Campaign -> Ad Group -> Creative). Additive; the
+            // Teezer Ads — advertiser API (Campaign -> Ad Group -> Creative). Additive; the
             // promotions endpoints above still work and bridge into these tables.
             Route::prefix('ad-campaigns')->name('ad-campaigns.')->group(function () {
                 Route::get('/',             [StudioAdCampaignController::class, 'index'])->name('index');
@@ -1408,7 +1408,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
                 Route::post('/users/{id}/permissions', [\App\Http\Controllers\Api\Admin\AdminPermissionController::class, 'grant'])->whereNumber('id')->name('permissions.grant');
                 Route::delete('/users/{id}/permissions/{permission}', [\App\Http\Controllers\Api\Admin\AdminPermissionController::class, 'revoke'])->whereNumber('id')->name('permissions.revoke');
 
-                // ── REELSOO COUNTRY AVAILABILITY - stacks the new per-admin
+                // ── TEEZER COUNTRY AVAILABILITY - stacks the new per-admin
                 //    permission gate on top of the standard api.admin group. ──
                 Route::prefix('settings/country-availability')
                     ->name('settings.country-availability.')
@@ -1425,7 +1425,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
 
 
                 /* ── Marketplace licence management ────────────────────────
-                   "Reelsoo Code Purchase" in the admin panel. Stacks the
+                   "Teezer Code Purchase" in the admin panel. Stacks the
                    per-admin manage_licenses grant on top of the api.admin
                    group, exactly as country-availability does above, so an
                    ordinary user cannot reach it and neither can an admin who
@@ -1504,7 +1504,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
                     Route::delete('/{id}',        [AdminGiftCoinController::class, 'destroyPackage'])->name('destroy')->where('id', '[0-9]+');
                 });
 
-                // ── Reelsoo Shop → Categories + shop visibility ───────────
+                // ── Teezer Shop → Categories + shop visibility ───────────
                 Route::prefix('shop')->name('shop.')->group(function () {
                     Route::prefix('categories')->name('categories.')->group(function () {
                         Route::get('/',        [\App\Http\Controllers\Api\Admin\AdminShopController::class, 'categories'])->name('index');
@@ -1514,7 +1514,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
                     });
                     Route::get('/shops', [\App\Http\Controllers\Api\Admin\AdminShopController::class, 'shops'])->name('shops.index');
 
-                    // "Sell on Reelsoo" seller application review queue.
+                    // "Sell on Teezer" seller application review queue.
                     Route::prefix('applications')->name('applications.')->group(function () {
                         Route::get('/',     [\App\Http\Controllers\Api\Admin\AdminShopController::class, 'applications'])->name('index');
                         Route::get('/{id}', [\App\Http\Controllers\Api\Admin\AdminShopController::class, 'applicationShow'])->name('show')->where('id', '[0-9]+');
@@ -1605,7 +1605,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
                     Route::delete('/{id}', [\App\Http\Controllers\Api\Admin\AdminPremiumPlanController::class, 'destroy'])->name('destroy')->where('id', '[0-9]+');
                 });
 
-                // ── Reelsoo Ads management ────────────────────────────────
+                // ── Teezer Ads management ────────────────────────────────
                 Route::prefix('ads')->name('ads.')->group(function () {
                     Route::get('/overview',                [AdminAdController::class, 'overview'])->name('overview');
                     Route::get('/overview/performance',    [AdminAdController::class, 'performance'])->name('overview.performance');
@@ -1893,7 +1893,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
                 Route::post('/features/{key}',           [AdminSettingsController::class, 'toggleFeature'])->name('features.toggle');
                 Route::get('/system-health',             [AdminSettingsController::class, 'systemHealth'])->name('system-health');
 
-                // ── Global Reelsoo Control ──────────────────────────────────
+                // ── Global Teezer Control ──────────────────────────────────
                 Route::prefix('global-controls')->name('global-controls.')->group(function () {
                     Route::get('/',                    [AdminGlobalControlsController::class, 'index'])
                         ->middleware('permission:global_controls.view')->name('index');

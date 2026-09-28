@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Schema;
  *
  * `username` here is a LICENCE OWNER identifier and is deliberately NOT a
  * foreign key to `users`. Per the spec, the licence system is independent of
- * Reelsoo's social auth: buying the code must never create or imply a social
+ * Teezer's social auth: buying the code must never create or imply a social
  * account, and the two namespaces are allowed to collide harmlessly.
  *
  * LICENSOR-SIDE ONLY. Never exists on a customer installation.

@@ -19,7 +19,7 @@ import * as Location from "expo-location";
  * this GPS hint is purely an optional refinement, never something to ask for.
  */
 
-const CACHE_KEY = "reelsoo:country-gps-hint";
+const CACHE_KEY = "teezer:country-gps-hint";
 /** "Actual physical country" doesn't need re-deriving more often than this -
  *  cheap enough to keep GPS off the hot path on every app open/tab swipe. */
 const TTL_MS = 24 * 60 * 60 * 1000;

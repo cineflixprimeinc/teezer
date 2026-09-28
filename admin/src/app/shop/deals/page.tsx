@@ -12,7 +12,7 @@ import { Table, Thead, Th, Tbody, Tr, Td, TableEmpty, TableLoading } from "@/com
 import { api, apiMessage } from "@/services/api";
 
 /**
- * Reelsoo Shop → Deals of the Day.
+ * Teezer Shop → Deals of the Day.
  *
  * Each deal points at ONE real, existing product (picked via an admin-only
  * cross-shop search - there is still no public "browse all products"

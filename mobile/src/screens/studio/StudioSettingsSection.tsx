@@ -6,7 +6,7 @@ import { sd, sr } from "./studio-design";
 import { font, spacing, TAB_BAR_HEIGHT } from "@/constants/theme";
 
 /* ────────────────────────────────────────────────────────────────────────────
- * Reelsoo Studio → Settings  (menu)
+ * Teezer Studio → Settings  (menu)
  *
  * A grouped menu of rows (icon + title + description + chevron). Tapping a row
  * opens that category on its OWN page (StudioSettingsDetailScreen) with a back

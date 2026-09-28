@@ -3,7 +3,7 @@
 namespace App\Services\Video\Contracts;
 
 /**
- * Everything Reelsoo needs from an external transcoding provider, kept
+ * Everything Teezer needs from an external transcoding provider, kept
  * deliberately small. VideoProcessingService is the only caller; nothing
  * else in the app should type-hint a concrete provider. Swapping providers
  * later means writing one new class against this interface, not touching

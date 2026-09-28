@@ -62,4 +62,4 @@ src/
 **Phase 1 (project setup) - done.** Auth gating, the 7-tab custom bar (pink
 center Create FAB), env config, secure-token axios client, and placeholder
 screens are in place. Next: **Phase 2 - Authentication** (needs the backend
-`X-Client: reelsoo-mobile` Turnstile bypass + `/auth/social/*` endpoints).
+`X-Client: teezer-mobile` Turnstile bypass + `/auth/social/*` endpoints).

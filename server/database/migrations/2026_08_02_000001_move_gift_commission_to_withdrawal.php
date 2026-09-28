@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Reelsoo's cut moves from GIFT TIME to WITHDRAWAL TIME.
+ * Teezer's cut moves from GIFT TIME to WITHDRAWAL TIME.
  *
  * Until now a gift was split the moment it landed: the receiver was credited
  * 70% and the platform booked its 30% immediately. Creators saw a balance that

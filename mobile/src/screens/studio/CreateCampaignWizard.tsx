@@ -108,7 +108,7 @@ const PAY_TABS: { id: string; label: string; method: CreatePromotion["payment_me
   { id: "card",   label: "Credit / Debit Card", method: "credit_card" },
   { id: "apple",  label: "Apple Pay",           method: "credit_card" },
   { id: "google", label: "Google Pay",          method: "credit_card" },
-  { id: "wallet", label: "Wallet",              method: "reelsoo_balance" },
+  { id: "wallet", label: "Wallet",              method: "teezer_balance" },
 ];
 
 const SAVED_CARDS = [
@@ -117,14 +117,14 @@ const SAVED_CARDS = [
   { id: "amex", brand: "American Express", last4: "3005", exp: "11/26" },
 ];
 
-// Payment methods shown on the goal flows' Review & Payment step. Reelsoo Coins
+// Payment methods shown on the goal flows' Review & Payment step. Teezer Coins
 // (earned/received) can pay for ads at 100 coins = $1.
 const COINS_PER_USD = 100;
 const GOAL_PAY_METHODS: { id: string; label: string; icon: any; method: CreatePromotion["payment_method"] }[] = [
-  { id: "coins",  label: "Teezer Coins",  icon: Coins,      method: "reelsoo_balance" },
+  { id: "coins",  label: "Teezer Coins",  icon: Coins,      method: "teezer_balance" },
   { id: "card",   label: "Card",           icon: CreditCard, method: "credit_card" },
   { id: "apple",  label: "Apple Pay",      icon: Apple,      method: "credit_card" },
-  { id: "wallet", label: "Wallet",         icon: Wallet,     method: "reelsoo_balance" },
+  { id: "wallet", label: "Wallet",         icon: Wallet,     method: "teezer_balance" },
 ];
 
 const STEP_TITLES = [
@@ -566,7 +566,7 @@ export function CreateCampaignWizard({
   const goalPerDay = goalBudgetType === "daily" ? amount : Math.max(1, Math.round(amount / Math.max(1, followDays)));
   const goalTotal = goalBudgetType === "daily" ? amount * followDays : amount;
 
-  // Reelsoo coin wallet - earned/received coins can pay for ads (100 coins = $1).
+  // Teezer coin wallet - earned/received coins can pay for ads (100 coins = $1).
   const walletQ = useQuery({ queryKey: ["studioCoinWallet"], queryFn: giftApi.wallet, enabled: visible, staleTime: 60_000 });
   const coinBalance = walletQ.data?.coin_balance ?? 0;
   const goalTotalUsd = toUsdApprox(goalTotal, currency);

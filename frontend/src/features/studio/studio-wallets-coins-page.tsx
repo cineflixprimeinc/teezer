@@ -1361,7 +1361,7 @@ export function StudioWalletsCoinsPage() {
                     </div>
                   )}
 
-                  {/* Buy Reelsoo Coins */}
+                  {/* Buy Teezer Coins */}
                   <div ref={buySectionRef} className="scroll-mt-4 rounded-[16px] border border-[#f0f1f5] bg-white shadow-sm">
                     <div className="flex items-center justify-between border-b border-[#f3f4f6] px-5 py-4">
                       <div>

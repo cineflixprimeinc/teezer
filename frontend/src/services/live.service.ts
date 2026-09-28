@@ -3,7 +3,7 @@ import { api } from "./api";
 /**
  * The Live page's data - GET /spaces.
  *
- * Reelsoo has no live-VIDEO backend: there is no streams table, no stream
+ * Teezer has no live-VIDEO backend: there is no streams table, no stream
  * routes and no playback URL anywhere. What it does have is Spaces - live
  * AUDIO rooms with a real host, a real listener count, a topic and real
  * participants - so that is what this page lists. Every number on the page is

@@ -38,7 +38,7 @@ return [
         | Backblaze B2 - S3-compatible object storage
         |----------------------------------------------------------------------
         | All production uploads (videos, thumbnails, avatars, documents) go
-        | here, and are read back through the media.reelsoo.com Cloudflare
+        | here, and are read back through the media.teezer.live Cloudflare
         | Worker. Never expose these credentials to the mobile app or browser -
         | uploads go through a presigned URL minted by the API, never with the
         | bucket key in the client.
@@ -46,10 +46,10 @@ return [
         | Required .env keys:
         |   B2_APPLICATION_KEY_ID
         |   B2_APPLICATION_KEY
-        |   B2_BUCKET                (e.g. reelsoo-media-prod)
+        |   B2_BUCKET                (e.g. teezer-media-prod)
         |   B2_ENDPOINT              (https://s3.<region>.backblazeb2.com)
         |   B2_REGION                (e.g. us-west-004 - must match the endpoint)
-        |   MEDIA_URL                (https://media.reelsoo.com - public CDN host)
+        |   MEDIA_URL                (https://media.teezer.live - public CDN host)
         |
         | visibility is 'private' and that is NOT a typo to be "fixed" later.
         | Laravel's 'public' visibility puts `x-amz-acl: public-read` on every
@@ -129,8 +129,8 @@ return [
         | Deliberately NOT the 'b2' disk above, and the separation is a security
         | boundary rather than tidiness.
         |
-        | The media bucket is fronted by cdn.reelsoo.com / media.reelsoo.com, and
-        | deploy/nginx/reelsoo-media.conf proxies requests straight through as
+        | The media bucket is fronted by cdn.teezer.live / media.teezer.live, and
+        | deploy/nginx/teezer-media.conf proxies requests straight through as
         |     proxy_pass https://b2_origin/file/$b2_bucket$uri;
         | Any object in that bucket is therefore reachable at a predictable URL
         | the moment that origin is enabled. A release package sitting there

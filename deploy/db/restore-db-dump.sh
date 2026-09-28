@@ -3,7 +3,7 @@
 # Restore a pg_dump custom-format file (taken read-only on the source platform)
 # into a NEW, LOCAL PostgreSQL database `teezer` owned by role `teezer`.
 #
-#   sudo bash deploy/db/restore-reelsoo-dump.sh /root/reelsoo.dump [--force-empty-check] [--jobs N] [--port 5432]
+#   sudo bash deploy/db/restore-db-dump.sh /root/source.dump [--force-empty-check] [--jobs N] [--port 5432]
 #
 # What it does:
 #   1. validates the dump (pg_restore --list)
@@ -23,7 +23,7 @@
 #   - drop or overwrite an existing database.
 #
 # The dump itself is produced by the operator on the source server with:
-#   pg_dump -Fc --no-owner --no-acl -d <source_db> -f reelsoo.dump
+#   pg_dump -Fc --no-owner --no-acl -d <source_db> -f source.dump
 # and copied here by the operator. This script has no knowledge of that server.
 set -euo pipefail
 

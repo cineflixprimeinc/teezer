@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Http;
  *   - Content-Type allowed (the browser sets it to the file's MIME type)
  *
  * Only UPLOADS need this. Downloads never touch the bucket origin - they go
- * through media.reelsoo.com, where the Worker sets its own CORS headers - so a
+ * through media.teezer.live, where the Worker sets its own CORS headers - so a
  * missing rule here breaks uploads while playback carries on working, which is
  * a confusing way to find out the rule is missing.
  *
@@ -31,7 +31,7 @@ class MediaSetCors extends Command
     protected $description = 'Apply CORS rules to the B2 bucket so browsers can upload directly';
 
     private const AUTH_URL  = 'https://api.backblazeb2.com/b2api/v3/b2_authorize_account';
-    private const RULE_NAME = 'reelsooDirectUpload';
+    private const RULE_NAME = 'teezerDirectUpload';
 
     public function handle(): int
     {

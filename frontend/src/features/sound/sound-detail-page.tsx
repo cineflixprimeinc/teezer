@@ -11,14 +11,14 @@ import { useQuery } from "@tanstack/react-query";
 import { AppShell } from "@/components/layout/app-shell";
 import { audioService, type MusicTrackDetail } from "@/services/audio.service";
 import type { AudioTrack } from "@/services/audio.service";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 import { cn, formatCompact } from "@/lib/utils";
 import { VerifiedBadge } from "@/components/ui/verified-badge";
 
 /* ─── localStorage keys ── */
-const PENDING_SOUND_KEY = "reelsoo_pending_sound";
-const FAV_IDS_KEY       = "reelsoo_music_fav_ids";
-const FAV_TRACKS_KEY    = "reelsoo_music_fav_tracks";
+const PENDING_SOUND_KEY = "teezer_pending_sound";
+const FAV_IDS_KEY       = "teezer_music_fav_ids";
+const FAV_TRACKS_KEY    = "teezer_music_fav_tracks";
 
 type SortOption = "popular" | "recent" | "likes";
 
@@ -314,7 +314,7 @@ function TrackCover({ coverUrl, title, audioUrl }: {
 }
 
 /* ─── Video card ─────────────────────────────────────────────────────────── */
-function VideoCard({ video, showOriginal }: { video: ReelsooVideo; showOriginal?: boolean }) {
+function VideoCard({ video, showOriginal }: { video: TeezerVideo; showOriginal?: boolean }) {
   const username     = video.user?.username ?? "user";
   const avatarLetter = (username[0] ?? "U").toUpperCase();
 
@@ -388,7 +388,7 @@ export function SoundDetailPage({ id }: { id: number }) {
   const router = useRouter();
 
   const [sort,        setSort]        = useState<SortOption>("popular");
-  const [allVideos,   setAllVideos]   = useState<ReelsooVideo[]>([]);
+  const [allVideos,   setAllVideos]   = useState<TeezerVideo[]>([]);
   const [page,        setPage]        = useState(1);
   const [hasMore,     setHasMore]     = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);

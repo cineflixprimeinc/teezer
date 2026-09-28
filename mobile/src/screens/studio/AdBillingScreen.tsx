@@ -30,7 +30,7 @@ export function AdBillingScreen() {
   const addFunds = useAdAccountStore((s) => s.addFunds);
   useEffect(() => { void useAdAccountStore.getState().hydrate(); }, []);
 
-  // Real tax info = the form the user submitted in Reelsoo Studio → Tax Forms
+  // Real tax info = the form the user submitted in Teezer Studio → Tax Forms
   // (approved one if any, else the latest). We show THAT here instead of a
   // separate, conflicting set of billing tax fields.
   const taxForms = useTaxFormsStore((s) => s.forms);
@@ -109,7 +109,7 @@ export function AdBillingScreen() {
         </Card>
 
         {/* Tax Information - pulled from the user's submitted Tax Form, managed in
-            Reelsoo Studio → Tax Forms (not a separate set of billing tax fields). */}
+            Teezer Studio → Tax Forms (not a separate set of billing tax fields). */}
         <Card>
           <CardTitle title="Tax Information" action={taxForm ? "Manage" : "Add"} onAction={() => navigation.navigate("TaxForms")} />
           {taxForm ? (

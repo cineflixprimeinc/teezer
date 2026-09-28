@@ -207,7 +207,7 @@ const NAV_GROUPS: NavGroup[] = [
      Monetization or Security, because it is neither. Monetization is platform
      revenue - gifts, payouts, subscriptions, money moving between OUR users.
      Security & Access is about who may administer THIS install. Selling the
-     Reelsoo source code to other operators is a third business, with its own
+     Teezer source code to other operators is a third business, with its own
      customers, its own credentials and its own support workload, so it reads
      more clearly as its own section than buried in either of those. */
   {

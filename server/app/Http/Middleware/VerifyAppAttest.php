@@ -34,7 +34,7 @@ use Symfony\Component\HttpFoundation\Response;
  * ── Layering ────────────────────────────────────────────────────────────
  * This runs AFTER authentication and rate limiting, and replaces neither. A
  * genuine app instance can still be driven abusively, so the rate limiters stay
- * exactly as they are; this only answers "is this a real Reelsoo build".
+ * exactly as they are; this only answers "is this a real Teezer build".
  * Unsupported devices (every Android handset, older iPhones, simulators) never
  * present a key and are deliberately allowed through to the existing controls -
  * failing closed on them would lock out most of the userbase to stop a threat
@@ -118,7 +118,7 @@ class VerifyAppAttest
      */
     private function requiresKey(Request $request): bool
     {
-        return strtolower((string) $request->header('X-Client')) === 'reelsoo-mobile'
+        return strtolower((string) $request->header('X-Client')) === 'teezer-mobile'
             && strtolower((string) $request->header('X-Platform')) === 'ios';
     }
 

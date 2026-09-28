@@ -10,7 +10,7 @@ import { FollowButton } from "@/components/user/follow-button";
 import { userService } from "@/services/user.service";
 import { suggestionService, type SuggestedProfile } from "@/services/suggestion.service";
 import { useAuthStore } from "@/store/auth.store";
-import type { ReelsooUser } from "@/types/user";
+import type { TeezerUser } from "@/types/user";
 
 export type FollowListTab = "followers" | "following" | "suggested";
 
@@ -66,7 +66,7 @@ export function FollowersModal({
   const isPrivateLocked = listQ.isError &&
     (listQ.error as { response?: { data?: { private?: boolean } } })?.response?.data?.private === true;
 
-  const items    = (listQ.data?.data ?? []) as ReelsooUser[];
+  const items    = (listQ.data?.data ?? []) as TeezerUser[];
   const filtered = query.trim()
     ? items.filter((u) => {
         const q = query.toLowerCase();
@@ -163,7 +163,7 @@ export function FollowersModal({
 }
 
 /* ═══════════════ Followers / Following row ══════════════════════════════ */
-function FollowRow({ user, onNavigate }: { user: ReelsooUser; onNavigate: () => void }) {
+function FollowRow({ user, onNavigate }: { user: TeezerUser; onNavigate: () => void }) {
   const authUser = useAuthStore((s) => s.user);
   const isOwnRow = !!authUser && authUser.id === user.id;
   const initial  = (user.name?.[0] ?? user.username?.[0] ?? "U").toUpperCase();

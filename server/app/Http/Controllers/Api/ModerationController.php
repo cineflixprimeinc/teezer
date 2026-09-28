@@ -80,7 +80,7 @@ class ModerationController extends Controller
      * POST /api/v1/moderation/appeal - submit an appeal against the caller's
      * own most recent active strike.
      *
-     * Built for Global Reelsoo Control's appeal_submission_enabled - the
+     * Built for Global Teezer Control's appeal_submission_enabled - the
      * appeal_status/appeal_note/appealed_at columns already existed on
      * CreatorStrike (an admin could resolve/dismiss an appeal via
      * AdminUser360Controller), but nothing let a user actually submit one.

@@ -20,7 +20,7 @@ import { api } from "@/services/api";
 import { StudioSidebarWrapper } from "./studio-sidebar-wrapper";
 import { StudioTopbarShared } from "./studio-topbar-shared";
 import { useHlsSource } from "@/hooks/use-hls-source";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 
 /* ── Types ─────────────────────────────────────────────────────────────── */
 type SortOption      = "newest" | "oldest" | "most_viewed" | "most_liked";
@@ -33,7 +33,7 @@ interface ContentMeta {
   total: number; from: number | null; to: number | null;
   counts: { total: number; published: number; draft: number; scheduled: number; private: number };
 }
-interface ContentResponse { success: boolean; data: ReelsooVideo[]; meta: ContentMeta }
+interface ContentResponse { success: boolean; data: TeezerVideo[]; meta: ContentMeta }
 
 /* ── Helpers ────────────────────────────────────────────────────────────── */
 function fmt(n?: number | null) { return formatCompact(n ?? 0); }
@@ -187,7 +187,7 @@ function BulkDeleteModal({ count, onConfirm, onCancel, loading }: {
 }
 
 /* ── Preview modal ──────────────────────────────────────────────────────── */
-function PreviewModal({ video, onClose }: { video: ReelsooVideo; onClose: () => void }) {
+function PreviewModal({ video, onClose }: { video: TeezerVideo; onClose: () => void }) {
   const mt      = video.media_type ?? (video.mime_type?.startsWith("image/") ? "image" : "video");
   const isVideo = mt === "video";
   const carouselItems = video.media_items?.length ? video.media_items : null;
@@ -237,7 +237,7 @@ function PreviewModal({ video, onClose }: { video: ReelsooVideo; onClose: () => 
 
 /* ── Reschedule modal ───────────────────────────────────────────────────── */
 function RescheduleModal({ video, onSave, onCancel, loading }: {
-  video: ReelsooVideo; onSave: (iso: string) => void; onCancel: () => void; loading: boolean;
+  video: TeezerVideo; onSave: (iso: string) => void; onCancel: () => void; loading: boolean;
 }) {
   const tomorrow = new Date(Date.now() + 86400000);
   const [date, setDate] = useState(tomorrow.toISOString().slice(0, 10));
@@ -347,13 +347,13 @@ function TableHeader({ allSelected, someSelected, onSelectAll }: {
 
 /* ── Content row ────────────────────────────────────────────────────────── */
 interface ContentRowProps {
-  video: ReelsooVideo;
+  video: TeezerVideo;
   selected: boolean;
   onSelect: (id: number) => void;
-  onDelete: (v: ReelsooVideo) => void;
-  onPreview: (v: ReelsooVideo) => void;
-  onDuplicate: (v: ReelsooVideo) => void;
-  onReschedule: (v: ReelsooVideo) => void;
+  onDelete: (v: TeezerVideo) => void;
+  onPreview: (v: TeezerVideo) => void;
+  onDuplicate: (v: TeezerVideo) => void;
+  onReschedule: (v: TeezerVideo) => void;
   onStatusChange: (id: number, status: VideoStatus) => void;
   duplicating: boolean;
 }
@@ -688,9 +688,9 @@ export function StudioContentPage() {
   const [selectedIds, setSelectedIds]       = useState<Set<number>>(new Set());
 
   /* ── Modals ── */
-  const [deleteTarget, setDeleteTarget]     = useState<ReelsooVideo | null>(null);
-  const [previewTarget, setPreviewTarget]   = useState<ReelsooVideo | null>(null);
-  const [rescheduleTarget, setRescheduleTarget] = useState<ReelsooVideo | null>(null);
+  const [deleteTarget, setDeleteTarget]     = useState<TeezerVideo | null>(null);
+  const [previewTarget, setPreviewTarget]   = useState<TeezerVideo | null>(null);
+  const [rescheduleTarget, setRescheduleTarget] = useState<TeezerVideo | null>(null);
   const [bulkDeleteOpen, setBulkDeleteOpen] = useState(false);
 
   const dSearch   = useDebounce(search, 400);

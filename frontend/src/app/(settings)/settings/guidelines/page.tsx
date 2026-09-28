@@ -9,7 +9,7 @@ import {
 import { PageHeader, SettingsCard, CardHeader } from "@/features/settings/settings-ui";
 
 /* ────────────────────────────────────────────────────────────────
-   The complete Reelsoo policy directory - same set the mobile app
+   The complete Teezer policy directory - same set the mobile app
    lists under Guidelines & Policies. Every row links to the live
    policy page (or the exact section anchor inside it).
 ──────────────────────────────────────────────────────────────── */

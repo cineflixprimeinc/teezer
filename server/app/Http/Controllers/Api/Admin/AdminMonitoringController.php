@@ -164,7 +164,7 @@ class AdminMonitoringController extends Controller
     public function realtime(): JsonResponse
     {
         $data = ['online_users' => $this->onlineUserCount(), 'chat_server' => $this->chatServerHealth()];
-        $data['note'] = 'Online users are derived from chat-server presence keys (rsoo:online:*). Per-socket counts require a stats endpoint on the chat-server.';
+        $data['note'] = 'Online users are derived from chat-server presence keys (teezer:online:*). Per-socket counts require a stats endpoint on the chat-server.';
         return response()->json(['success' => true, 'data' => $data]);
     }
 
@@ -262,7 +262,7 @@ class AdminMonitoringController extends Controller
         ];
     }
 
-    /** Count chat-server presence keys (rsoo:online:*), bypassing Laravel's key prefix. */
+    /** Count chat-server presence keys (teezer:online:*), bypassing Laravel's key prefix. */
     private function onlineUserCount(): ?int
     {
         try {
@@ -274,7 +274,7 @@ class AdminMonitoringController extends Controller
 
             $count = 0; $it = null;
             do {
-                $keys = $client->scan($it, 'rsoo:online:*', 2000);
+                $keys = $client->scan($it, 'teezer:online:*', 2000);
                 if ($keys !== false) $count += count($keys);
             } while ($it > 0);
 

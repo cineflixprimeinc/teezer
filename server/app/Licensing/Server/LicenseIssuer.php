@@ -34,7 +34,7 @@ class LicenseIssuer
     ) {}
 
     /**
-     * Step 1 of the customer journey: reelsoo.com/activate-license.
+     * Step 1 of the customer journey: teezer.live/activate-license.
      *
      * Takes a purchase code, a domain and an owner username; returns a freshly
      * minted licence key IN PLAINTEXT, exactly once. We never store it, so this

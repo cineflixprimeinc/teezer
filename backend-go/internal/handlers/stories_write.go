@@ -44,9 +44,9 @@ import (
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgtype"
 
-	"reelsoo/backend-go/internal/auth"
-	"reelsoo/backend-go/internal/events"
-	"reelsoo/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/auth"
+	"teezer/backend-go/internal/events"
+	"teezer/backend-go/internal/sqlc"
 )
 
 // validReactions mirrors Laravel's `in:heart,fire,wow,haha,sad` rule exactly.

@@ -11,7 +11,7 @@ import type { RootStackParamList } from "@/navigation/types";
 
 /**
  * Reached only from ScanScreen.tsx's Scan tab, after it decodes a QR-login
- * URL (qrLoginUrl() in ProfileActionsSheet.tsx) - "Log in to Reelsoo on the
+ * URL (qrLoginUrl() in ProfileActionsSheet.tsx) - "Log in to Teezer on the
  * web?" with Confirm/Deny, the phone-side half of the website's "Use QR
  * code" login. See QrLoginController.php's own docblock for the full flow.
  *

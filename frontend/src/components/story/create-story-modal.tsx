@@ -494,7 +494,7 @@ export function CreateStoryModal({ open, onClose, onStorySaved, username = "you"
       try {
         const res = await fetch(
           `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=6&addressdetails=0`,
-          { headers: { "Accept-Language": "en", "User-Agent": "ReelsooApp/1.0" } }
+          { headers: { "Accept-Language": "en", "User-Agent": "TeezerApp/1.0" } }
         );
         const data = await res.json() as { place_id: number; display_name: string }[];
         setLocationResults(data.slice(0, 6));

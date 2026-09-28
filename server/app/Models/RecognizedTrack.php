@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
  * of the same song links to the row the first one created.
  *
  * This is an IDENTIFICATION, not a rights record. That a recording was matched
- * says nothing about who owns it or whether Reelsoo may use it, so nothing here
+ * says nothing about who owns it or whether Teezer may use it, so nothing here
  * is phrased as ownership and no code should treat it as clearance.
  */
 class RecognizedTrack extends Model

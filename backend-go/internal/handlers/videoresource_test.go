@@ -11,7 +11,7 @@ import (
 
 	"github.com/jackc/pgx/v5/pgtype"
 
-	"reelsoo/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/sqlc"
 )
 
 func TestSignedCdnURL(t *testing.T) {

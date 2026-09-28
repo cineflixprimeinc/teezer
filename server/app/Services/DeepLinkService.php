@@ -5,7 +5,7 @@ namespace App\Services;
 use Illuminate\Support\Facades\DB;
 
 /**
- * The canonical Reelsoo link grammar - one authority, three consumers.
+ * The canonical Teezer link grammar - one authority, three consumers.
  *
  * Every notification carries a `deep_link` built here, and the web app, the
  * mobile app and any future surface all route from that single string instead
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\DB;
  * handled story entities; neither used `comment_id` at all). Mobile carried a
  * third, degenerate copy that sent every notification to the actor's profile.
  *
- * Paths are ROOT-RELATIVE and identical on web and mobile. https://reelsoo.com
+ * Paths are ROOT-RELATIVE and identical on web and mobile. https://teezer.live
  * serves them as pages; the app claims the same URLs via App Links / Universal
  * Links, so one string works whether or not the app is installed.
  *
@@ -39,7 +39,7 @@ class DeepLinkService
         'profile_view',
     ];
 
-    /** Types that are Reelsoo talking to the user; they open the notice itself. */
+    /** Types that are Teezer talking to the user; they open the notice itself. */
     private const SYSTEM_TYPES = [
         'system',
         'verification',

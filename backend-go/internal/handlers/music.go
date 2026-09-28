@@ -30,8 +30,8 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/jackc/pgx/v5/pgtype"
 
-	"reelsoo/backend-go/internal/auth"
-	"reelsoo/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/auth"
+	"teezer/backend-go/internal/sqlc"
 )
 
 type MusicHandler struct {
@@ -117,7 +117,7 @@ func (h *MusicHandler) Library(c *fiber.Ctx) error {
 
 	category := strings.TrimSpace(c.Query("category", "all"))
 	genreExact, moodExact := "", ""
-	onlyFeatured, onlyRecommended, onlyReelsoo, onlyArtist := false, false, false, false
+	onlyFeatured, onlyRecommended, onlyTeezer, onlyArtist := false, false, false, false
 	orderByPlays := false
 
 	switch {
@@ -127,8 +127,8 @@ func (h *MusicHandler) Library(c *fiber.Ctx) error {
 		onlyFeatured = true
 	case category == "recommended":
 		onlyRecommended = true
-	case category == "reelsoo_originals":
-		onlyReelsoo = true
+	case category == "teezer_originals":
+		onlyTeezer = true
 	case category == "artist_originals":
 		onlyArtist = true
 	case genreForCategory[category] != "":
@@ -149,7 +149,7 @@ func (h *MusicHandler) Library(c *fiber.Ctx) error {
 		DurationBucket:  c.Query("duration"),
 		OnlyFeatured:    onlyFeatured,
 		OnlyRecommended: onlyRecommended,
-		OnlyReelsoo:     onlyReelsoo,
+		OnlyTeezer:      onlyTeezer,
 		OnlyArtist:      onlyArtist,
 		GenreExact:      genreExact,
 		MoodExact:       moodExact,
@@ -165,7 +165,7 @@ func (h *MusicHandler) Library(c *fiber.Ctx) error {
 		Search: args.Search, Mood: args.Mood, Genre: args.Genre, Language: args.Language,
 		UsageRights: args.UsageRights, DurationBucket: args.DurationBucket,
 		OnlyFeatured: onlyFeatured, OnlyRecommended: onlyRecommended,
-		OnlyReelsoo: onlyReelsoo, OnlyArtist: onlyArtist,
+		OnlyTeezer: onlyTeezer, OnlyArtist: onlyArtist,
 		GenreExact: genreExact, MoodExact: moodExact,
 	})
 	if err != nil {

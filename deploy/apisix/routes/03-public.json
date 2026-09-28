@@ -22,7 +22,7 @@
         "^https://([a-z0-9-]+\\.)?teezer\\.live$"
       ],
       "allow_methods": "GET,OPTIONS",
-      "allow_headers": "Accept,Accept-Encoding,Accept-Language,Content-Language,Content-Type,Authorization,X-Requested-With,X-CSRF-TOKEN,X-XSRF-TOKEN,X-Socket-Id,X-Turnstile-Token,X-Request-Id,X-Reelsoo-SSO-CSRF,X-Playout-Limit,X-Restrict,X-Request-URL,X-Device-Fingerprint,X-Device-Id,X-Device-Type,X-Fingerprint,X-App-Version,X-Platform,X-Timezone,X-Client,X-Locale,X-Session-Id,Cache-Control,Pragma,If-Modified-Since,If-None-Match,Range,DNT",
+      "allow_headers": "Accept,Accept-Encoding,Accept-Language,Content-Language,Content-Type,Authorization,X-Requested-With,X-CSRF-TOKEN,X-XSRF-TOKEN,X-Socket-Id,X-Turnstile-Token,X-Request-Id,X-Teezer-SSO-CSRF,X-Playout-Limit,X-Restrict,X-Request-URL,X-Device-Fingerprint,X-Device-Id,X-Device-Type,X-Fingerprint,X-App-Version,X-Platform,X-Timezone,X-Client,X-Locale,X-Session-Id,Cache-Control,Pragma,If-Modified-Since,If-None-Match,Range,DNT",
       "expose_headers": "X-RateLimit-Limit,X-RateLimit-Remaining,X-Request-Id,Retry-After,Content-Length,Content-Range",
       "allow_credential": true,
       "max_age": 86400

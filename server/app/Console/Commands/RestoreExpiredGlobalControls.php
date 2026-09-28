@@ -6,7 +6,7 @@ use App\Services\GlobalControls\GlobalControlService;
 use Illuminate\Console\Command;
 
 /**
- * Restores every Global Reelsoo Control whose temporary-restriction window
+ * Restores every Global Teezer Control whose temporary-restriction window
  * (spec §28) has passed - sets `enabled` back to whatever it was before the
  * restriction, clears expires_at/restore_value, and logs the auto-restore.
  * Scheduled every five minutes in routes/console.php, alongside the sibling

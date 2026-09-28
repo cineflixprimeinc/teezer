@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 /**
- * "REELSOO COUNTRY AVAILABILITY" admin page's backend. Gated by
+ * "TEEZER COUNTRY AVAILABILITY" admin page's backend. Gated by
  * permission:manage_country_availability (stacked on top of the standard
  * api.admin group every other admin route already sits behind - see
  * routes/api.php).

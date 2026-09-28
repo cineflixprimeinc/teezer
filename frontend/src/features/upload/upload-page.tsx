@@ -1187,9 +1187,9 @@ export function UploadPage() {
   // Pre-select music when arriving from a Sound page via "Use this sound"
   useEffect(() => {
     try {
-      const stored = localStorage.getItem("reelsoo_pending_sound");
+      const stored = localStorage.getItem("teezer_pending_sound");
       if (stored) {
-        localStorage.removeItem("reelsoo_pending_sound");
+        localStorage.removeItem("teezer_pending_sound");
         const track = JSON.parse(stored) as AudioTrack;
         if (track?.id && track?.title) setSelectedMusic(track);
       }
@@ -1635,7 +1635,7 @@ export function UploadPage() {
       uploadCompletedRef.current = true; // prevent unmount cleanup from deleting the registered file
       toast.success(intent==="draft"?"Draft saved.":mediaType==="image_carousel"?"Carousel published.":mediaType==="image"?"Image published.":"Video published.");
       useFeedStore.getState().reset();
-      if (intent!=="draft"&&typeof window!=="undefined") window.localStorage.setItem("reelsoo_latest_upload_id",String(media.id));
+      if (intent!=="draft"&&typeof window!=="undefined") window.localStorage.setItem("teezer_latest_upload_id",String(media.id));
       router.push(intent==="draft"?"/profile/me":`/videos/${media.id}`);
     } catch (e:unknown) {
       const aborted=(e as {code?:string})?.code==="ERR_CANCELED"||(e as {name?:string})?.name==="CanceledError";

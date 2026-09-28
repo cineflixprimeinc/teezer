@@ -57,7 +57,7 @@ export function GifPicker({
 
   /** Stable per viewer - Klipy uses it to de-duplicate, so it must not be
    *  regenerated per call. Guests share one bucket, which is fine. */
-  const customerId = useMemo(() => (me?.id ? `reelsoo-${me.id}` : "reelsoo-guest"), [me?.id]);
+  const customerId = useMemo(() => (me?.id ? `teezer-${me.id}` : "teezer-guest"), [me?.id]);
 
   useEffect(() => {
     const t = setTimeout(() => setQ(raw.trim()), 300);

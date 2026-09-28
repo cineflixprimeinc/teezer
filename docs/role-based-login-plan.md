@@ -1,4 +1,4 @@
-# Reelsoo - Role-Based Login Plan
+# Teezer - Role-Based Login Plan
 
 > This document covers the entire authentication and role-routing system for the web dashboard and website.  
 > The Flutter API uses Sanctum tokens - that is covered in `api-plan.md`.  
@@ -45,7 +45,7 @@ A user can be promoted to `creator` or `admin` by an existing admin through the 
 ## Login Flow
 
 ```
-User visits reelsoo.com/login
+User visits teezer.live/login
         │
         ▼
 [LoginController@showLogin]  →  Returns Blade login view

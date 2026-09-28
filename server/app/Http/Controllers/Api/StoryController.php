@@ -74,7 +74,7 @@ class StoryController extends Controller
             return response()->json(['success' => false, 'message' => $settingsError], 422);
         }
 
-        // Global Reelsoo Control - checked before Story::create() so a
+        // Global Teezer Control - checked before Story::create() so a
         // rejection never leaves an orphan story row with no media. GIF is
         // not a distinct type anywhere else in the app (the main video/photo
         // post endpoint doesn't even accept the mimetype) - this is the one

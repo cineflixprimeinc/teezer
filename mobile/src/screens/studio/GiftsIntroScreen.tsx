@@ -18,14 +18,14 @@ import { font, radius, spacing } from "@/constants/theme";
 const SETUP_SEEN_KEY = "gifts.setup-seen";
 
 /**
- * Reelsoo Studio -> Monetization -> Gifts. Replaces the generic requirements-
+ * Teezer Studio -> Monetization -> Gifts. Replaces the generic requirements-
  * checklist template (StudioProgrammeScreen) for this one programme, same
- * reasoning and same pattern as "Sell on Reelsoo" opening SellerApplication-
+ * reasoning and same pattern as "Sell on Teezer" opening SellerApplication-
  * Screen instead of it - see StudioMonetizationSection.tsx's onPress.
  *
  * Gifts needs no application: it is admin-controlled (mode) and unlocks the
  * instant every requirement is met (MonetizationEligibilityService's own
- * design principle - see its docblock), so unlike Sell on Reelsoo this screen
+ * design principle - see its docblock), so unlike Sell on Teezer this screen
  * has no wizard/status branching - just the pitch, a live requirements
  * checklist (admin panel -> Monetization Control Center -> Gifts & Coins),
  * and a "Get Started" CTA that only opens up once every requirement is met.
@@ -52,7 +52,7 @@ const FEATURES = [
 
 /** Shown only until the real (admin-configured, live-computed) requirements
  *  load - see the `!baseline` filter below, same convention as the Sell on
- *  Reelsoo intro screen's FALLBACK_REQUIREMENTS. */
+ *  Teezer intro screen's FALLBACK_REQUIREMENTS. */
 const FALLBACK_REQUIREMENTS = ["Verify your email or phone", "Account at least 7 days old", "3 public videos posted"];
 
 const requirementIsOwnToProgram = (r: { baseline: boolean }) => !r.baseline;
@@ -66,7 +66,7 @@ export function GiftsIntroScreen() {
   useEffect(() => { void useOnboardingStore.getState().hydrate(); }, []);
 
   /* Brief spinner-in-button before the CTA actually navigates, rather than
-   * an instant jump - same pattern requested for Sell on Reelsoo's CTA. */
+   * an instant jump - same pattern requested for Sell on Teezer's CTA. */
   const [starting, setStarting] = useState(false);
   const startTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => () => { if (startTimer.current) clearTimeout(startTimer.current); }, []);
@@ -151,7 +151,7 @@ export function GiftsIntroScreen() {
         /* Reached only the FIRST time this creator is found active - the
          * `skipToLedger` branch above takes every later visit straight to
          * the real ledger instead. Same "already done" landing pattern as
-         * Sell on Reelsoo's approved state (SellerApplicationScreen). */
+         * Sell on Teezer's approved state (SellerApplicationScreen). */
         <View style={s.center}>
           <View style={s.successCircle}><PartyPopper size={40} color={colors.white} strokeWidth={2.2} /></View>
           <Text style={s.title}>You&apos;re Set Up!</Text>

@@ -29,7 +29,7 @@ class CreatorEarning extends Model
             'subscription'=> 'Subscriptions',
             'brand_collab'=> 'Brand Collabs',
             'series'      => 'Series Earnings',
-            // Matches the "Sell on Reelsoo" programme's own label (see the
+            // Matches the "Sell on Teezer" programme's own label (see the
             // 2026_08_19_000006 migration) - same name everywhere an earning
             // from this programme is shown, per the programme-list convention.
             'shop'        => 'Sell on Teezer',

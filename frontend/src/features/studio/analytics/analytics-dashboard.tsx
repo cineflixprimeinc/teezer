@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Reelsoo Studio - Analytics.
+ * Teezer Studio - Analytics.
  *
  * Composition only: fetch once, hand each section its slice. Every number rendered
  * here comes from the ClickHouse-backed /studio/analytics/dashboard endpoint.

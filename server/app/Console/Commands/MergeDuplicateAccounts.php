@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * One-time reconciliation for accounts that were split BEFORE the social
- * account-linking fix. Two Reelsoo users are the same person when their
+ * account-linking fix. Two Teezer users are the same person when their
  * social_accounts rows share the same (provider, provider_id) - e.g. the same
  * Google/Apple identity signed in twice and, because matching was email-only,
  * created a second account (common with Apple Hide-My-Email relay).
@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\DB;
  */
 class MergeDuplicateAccounts extends Command
 {
-    protected $signature = 'reelsoo:merge-duplicate-accounts
+    protected $signature = 'teezer:merge-duplicate-accounts
         {--apply : Perform the merge (default is a dry run)}
         {--provider= : Limit to one provider (google|apple|facebook|tiktok)}';
 
@@ -34,7 +34,7 @@ class MergeDuplicateAccounts extends Command
     /** Tables handled explicitly; excluded from the generic re-point pass. */
     private const SPECIAL = ['users', 'wallets', 'profiles', 'social_accounts'];
 
-    private const PLACEHOLDER_EMAIL = '%@social.reelsoo.invalid';
+    private const PLACEHOLDER_EMAIL = '%@social.teezer.invalid';
 
     public function handle(): int
     {
@@ -122,12 +122,12 @@ class MergeDuplicateAccounts extends Command
     private function isRealVerified(User $u): bool
     {
         return $u->email_verified_at !== null
-            && ! str_ends_with((string) $u->email, '@social.reelsoo.invalid');
+            && ! str_ends_with((string) $u->email, '@social.teezer.invalid');
     }
 
     private function emailLabel(User $u): string
     {
-        return str_ends_with((string) $u->email, '@social.reelsoo.invalid')
+        return str_ends_with((string) $u->email, '@social.teezer.invalid')
             ? '(no email)'
             : ((string) $u->email . ($u->email_verified_at ? ' ✓' : ''));
     }
@@ -198,7 +198,7 @@ class MergeDuplicateAccounts extends Command
             // 5) Free the loser's unique fields and retire the account. Raw
             //    update bypasses the model's privileged-field guard.
             DB::table('users')->where('id', $loserId)->update([
-                'email'      => 'merged+' . $loserId . '@social.reelsoo.invalid',
+                'email'      => 'merged+' . $loserId . '@social.teezer.invalid',
                 'username'   => 'merged_' . $loserId,
                 'is_active'  => false,
                 'deleted_at' => now(),

@@ -18,7 +18,7 @@ const SCOPE_LABEL: Record<string, string> = {
 
 /** Per-client logo shown in the list (served from the app's public assets). */
 const CLIENT_LOGO: Record<string, string> = {
-  ads: "https://ads.teezer.live/reelsooadslogilogos.png",
+  ads: "https://ads.teezer.live/favicon.png",
 };
 
 function formatDate(iso?: string | null): string | null {

@@ -1,4 +1,4 @@
-// Package events is Reelsoo's internal event bus: the Go API publishes a
+// Package events is Teezer's internal event bus: the Go API publishes a
 // typed Event to NATS JetStream (fire-and-forget, async, never blocks the
 // HTTP request), and a durable consumer (see consumer.go) bridges it to
 // Centrifugo so every connected client - mobile and web - sees the same

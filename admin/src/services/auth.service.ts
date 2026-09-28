@@ -1,8 +1,8 @@
 import { api } from "./api";
 import type { ApiResponse } from "@/types/api";
-import type { ReelsooUser } from "@/types/user";
+import type { TeezerUser } from "@/types/user";
 
-type AuthPayload = { token: string; token_type: string; user: ReelsooUser };
+type AuthPayload = { token: string; token_type: string; user: TeezerUser };
 
 /** Either a normal login payload or a "2FA required" challenge. */
 type LoginRaw =
@@ -28,7 +28,7 @@ export const authService = {
   },
 
   async me() {
-    const { data } = await api.get<ApiResponse<ReelsooUser>>("/auth/me");
+    const { data } = await api.get<ApiResponse<TeezerUser>>("/auth/me");
     return data.data;
   },
 

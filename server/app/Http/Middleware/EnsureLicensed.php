@@ -12,13 +12,13 @@ use Symfony\Component\HttpFoundation\Response;
  * Local licence gate for a customer installation.
  *
  * WHAT THIS MIDDLEWARE DOES NOT DO, and must never be changed to do:
- * it does not make an HTTP request. Not to reelsoo.com, not to
- * license.reelsoo.com, not to anything. It asks LicenseVerifier, which reads a
+ * it does not make an HTTP request. Not to teezer.live, not to
+ * license.teezer.live, not to anything. It asks LicenseVerifier, which reads a
  * local file and does one RSA verify. A customer's homepage, login, feed and
  * API therefore keep working with our infrastructure entirely offline, which is
  * the explicit requirement in sections 8, 13 and 14 of the specification.
  *
- * On reelsoo.com itself this is completely inert: licensing.client.enabled is
+ * On teezer.live itself this is completely inert: licensing.client.enabled is
  * false there, LicenseVerifier returns DISABLED, and this returns $next()
  * immediately. Production can never be blocked by its own licence check.
  *
@@ -34,7 +34,7 @@ use Symfony\Component\HttpFoundation\Response;
  *                         'block' returns 503.
  *
  * Nothing here deletes data, drops a database, disables an account or redirects
- * anyone to reelsoo.com. A licence problem is a 403 with an explanation.
+ * anyone to teezer.live. A licence problem is a 403 with an explanation.
  *
  * CLIENT-SIDE - ships in the marketplace package.
  */
@@ -92,7 +92,7 @@ class EnsureLicensed
         // way to notice. A header rather than a body mutation, so no existing
         // response shape changes.
         if (in_array($state->status, [LicenseState::STATUS_GRACE, LicenseState::STATUS_STALE], true)) {
-            $response->headers->set('X-Reelsoo-License', $state->status);
+            $response->headers->set('X-Teezer-License', $state->status);
         }
 
         return $response;

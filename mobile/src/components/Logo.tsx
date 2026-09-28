@@ -1,7 +1,7 @@
 import { Image } from "react-native";
 
 /**
- * The real Reelsoo site logo (src/assets/logo.png = public/reelsoo-logo.png).
+ * The real Teezer site logo (src/assets/logo.png = public/teezer-logo.png).
  * Rendered small + centered per the auth designs. Swap the asset to change it.
  */
 export function Logo({ height = 34 }: { height?: number }) {

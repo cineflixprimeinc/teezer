@@ -16,7 +16,7 @@ export interface DownloadPrefs {
 }
 
 const DEFAULTS: DownloadPrefs = { wifi_only: true, quality: "720", smart_downloads: false };
-const CACHE_KEY = "reelsoo:download-prefs";
+const CACHE_KEY = "teezer:download-prefs";
 
 interface DownloadsState {
   prefs: DownloadPrefs;

@@ -1,4 +1,4 @@
-# Reelsoo - Design Plan
+# Teezer - Design Plan
 
 > Covers two design contexts: (1) Flutter mobile app, (2) Web dashboard + website (Blade + Tailwind CSS).
 
@@ -8,7 +8,7 @@
 
 | Property | Value |
 |---|---|
-| Primary Color | `#fe2c55` - Reelsoo Red |
+| Primary Color | `#fe2c55` - Teezer Red |
 | Primary Dark | `#c4003d` - hover/pressed state |
 | Background | `#FFFFFF` - white |
 | Surface | `#F8F8F8` - light grey cards |
@@ -63,14 +63,14 @@
 
 ### 1. Splash Screen
 - Full white background with soft pink blob gradients (top-left + bottom-right corners)
-- Centered: Reelsoo stylized "R" logo in `#fe2c55` + wordmark "Reelsoo" in `#0D0D0D`
+- Centered: Teezer stylized "R" logo in `#fe2c55` + wordmark "Teezer" in `#0D0D0D`
 - Below logo: 3 dot indicators (middle dot active in `#fe2c55`, others in `#E5E5E5`)
 - Animated: logo fades in + scales up; active dot cycles left-to-right
 - Full immersive (hides status bar)
 
 ### 2. Login Screen
 - Same gradient blob background
-- Top: Reelsoo "R" icon + "reelsoo" wordmark (lowercase, bold)
+- Top: Teezer "R" icon + "teezer" wordmark (lowercase, bold)
 - "Welcome Back" - Heading Large, bold, dark
 - Subtitle - Body Large, grey
 - Input fields (rounded 12px, white card, subtle border, left icon):
@@ -86,7 +86,7 @@
 - Same background
 - Logo at top
 - "Create Account" - Heading Large
-- "Join Reelsoo and start connecting." - Body Large, grey
+- "Join Teezer and start connecting." - Body Large, grey
 - Input fields: Full Name | Email | Username | Password (eye toggle) | Date of Birth | Country (dropdown)
 - Checkbox - "I agree to the **Terms of Service** and **Privacy Policy**"
 - "Sign up" button - full width, `#fe2c55` gradient, pill
@@ -154,13 +154,13 @@
 - Section groups:
   - **ACCOUNT:** Edit Profile / Login & Security / Privacy & Safety / Notifications / Language & Translation / Content Preferences / Social Links
   - **MANAGE:** Wallet & Balance / Premium / Subscription
-  - **TOOLS:** Reelsoo Studio / Ads Manager
+  - **TOOLS:** Teezer Studio / Ads Manager
   - **SUPPORT:** Help & Support / About & Legal
 - Each row: left icon | title (Body Large dark) | subtitle (Body Small grey) | right chevron
 
-### 8. Reelsoo Studio Dashboard
+### 8. Teezer Studio Dashboard
 - White background
-- "Reelsoo Studio" title + back arrow top-left + avatar top-right
+- "Teezer Studio" title + back arrow top-left + avatar top-right
 - Top profile card (rounded, light surface):
   - Avatar (red ring) + name + tick + @handle
   - "Rising Star • Level 6" + gear icon
@@ -209,9 +209,9 @@ Home  Explore  Audio  [+]  Friends  Inbox  Profile
 
 | Component | Description |
 |---|---|
-| `ReelsooButton` | Primary red pill, outlined variant, disabled state |
-| `ReelsooTextField` | Rounded input, prefix icon, suffix toggle |
-| `ReelsooAvatar` | Circular, optional red ring, optional badge overlay |
+| `TeezerButton` | Primary red pill, outlined variant, disabled state |
+| `TeezerTextField` | Rounded input, prefix icon, suffix toggle |
+| `TeezerAvatar` | Circular, optional red ring, optional badge overlay |
 | `VideoThumbnailCard` | Grid tile - thumbnail + duration chip + stats overlay |
 | `FeedVideoCard` | Full-screen video item with right action column |
 | `VideoActionColumn` | Right-side like/comment/save/share/music column |
@@ -259,7 +259,7 @@ The web dashboard is accessed by browser at `yourdomain.com`. It uses Laravel Bl
 
 ### Shared Login Page (`/login`)
 - Centered card on white/light grey page background
-- Reelsoo logo at top of card
+- Teezer logo at top of card
 - Email + password inputs (Tailwind `input` style with focus ring in `#fe2c55`)
 - "Remember me" checkbox
 - "Login" button - full width, `bg-[#fe2c55]` Tailwind bg
@@ -269,7 +269,7 @@ The web dashboard is accessed by browser at `yourdomain.com`. It uses Laravel Bl
 
 ### Admin Dashboard Layout
 - Left sidebar (fixed, dark - `#111827` or similar)
-  - Reelsoo logo at top
+  - Teezer logo at top
   - Navigation items: Dashboard / Users / Videos / Reports / Verification / Analytics / Settings
   - Active item: `#fe2c55` left border + light red background
   - Bottom: avatar + name + "Admin" badge + logout button
@@ -279,7 +279,7 @@ The web dashboard is accessed by browser at `yourdomain.com`. It uses Laravel Bl
 
 ### Creator Studio Layout
 - Left sidebar (white, light border)
-  - Reelsoo logo
+  - Teezer logo
   - Nav: Dashboard / Content / Analytics / Monetization / Verification / Settings
   - Creator profile card at top (avatar, name, level badge)
 - Top bar: studio title + quick action buttons
@@ -331,7 +331,7 @@ The web dashboard is accessed by browser at `yourdomain.com`. It uses Laravel Bl
 
 - Clean marketing site - white background, large hero, feature sections, app download CTA
 - Typography: Inter (via Google Fonts or Bunny Fonts CDN)
-- Hero: full-width section, Reelsoo logo large, tagline, app download buttons (Android / iOS)
+- Hero: full-width section, Teezer logo large, tagline, app download buttons (Android / iOS)
 - Feature cards: icon + heading + description, 3-column grid
 - Download section: phone mockup image + store badges
 - Footer: logo + links (Privacy, Terms, Contact, About) + copyright

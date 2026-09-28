@@ -1,9 +1,9 @@
 import axios from "axios";
 import { api } from "./api";
-import type { ReelsooUser } from "@/types/user";
+import type { TeezerUser } from "@/types/user";
 
 /**
- * Internal Reelsoo SSO client. Uses a DEDICATED axios instance with
+ * Internal Teezer SSO client. Uses a DEDICATED axios instance with
  * `withCredentials: true` so the shared `.teezer.live` cookie rides along - and
  * WITHOUT the main client's 401 interceptor, so an "authenticated:false" (HTTP
  * 200) or a 403 never wipes the local session. No Bearer header is sent; these
@@ -54,14 +54,14 @@ export type SsoAuthPayload = {
   token: string;
   token_type: string;
   expires_at?: string;
-  user: ReelsooUser;
+  user: TeezerUser;
 };
 
 export type SsoConsentClient = { name: string; display_name: string; scopes: SsoScope[] };
 export type GrantStatus = { granted: boolean; user: SsoUserBasic; client: SsoConsentClient };
 
 export const ssoService = {
-  /** Read-only: is there a shared Reelsoo session, and is this client granted? */
+  /** Read-only: is there a shared Teezer session, and is this client granted? */
   session: (client = "ads"): Promise<SsoSessionResult> =>
     ssoApi
       .get("/auth/sso/session", { params: { client } })
@@ -70,13 +70,13 @@ export const ssoService = {
   /** Record consent (idempotent) + mint this origin's Bearer token. */
   authorize: (client: string, csrf: string, scopes?: string[]): Promise<SsoAuthPayload> =>
     ssoApi
-      .post("/auth/sso/authorize", { client, scopes }, { headers: { "X-Reelsoo-SSO-CSRF": csrf } })
+      .post("/auth/sso/authorize", { client, scopes }, { headers: { "X-Teezer-SSO-CSRF": csrf } })
       .then((r) => r.data.data as SsoAuthPayload),
 
   /** Mint this origin's Bearer token WITHOUT recording consent (login only). */
   login: (csrf: string): Promise<SsoAuthPayload> =>
     ssoApi
-      .post("/auth/sso/login", { client: "ads" }, { headers: { "X-Reelsoo-SSO-CSRF": csrf } })
+      .post("/auth/sso/login", { client: "ads" }, { headers: { "X-Teezer-SSO-CSRF": csrf } })
       .then((r) => r.data.data as SsoAuthPayload),
 
   /** Bearer-authed: has the current user authorized the client yet? */

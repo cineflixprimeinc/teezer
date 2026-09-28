@@ -7,14 +7,14 @@
  * SCOPE rather than the filter (trending / featured / recommended / originals).
  */
 
-export type MusicTab = "all" | "reelsoo_originals" | "artist_originals";
+export type MusicTab = "all" | "teezer_originals" | "artist_originals";
 
 /** The website calls the third tab "My Original Sound" but sends
- *  `artist_originals`, which server-side means ANY non-Reelsoo upload, not the
+ *  `artist_originals`, which server-side means ANY non-Teezer upload, not the
  *  current user's sounds. We use the honest label for what the API returns. */
 export const MUSIC_TABS: { key: MusicTab; label: string }[] = [
   { key: "all", label: "All tracks" },
-  { key: "reelsoo_originals", label: "Teezer Originals" },
+  { key: "teezer_originals", label: "Teezer Originals" },
   { key: "artist_originals", label: "Artist uploads" },
 ];
 

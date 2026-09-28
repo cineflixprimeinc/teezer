@@ -17,7 +17,7 @@ package clickhouse
 
 import "time"
 
-// Event is one row of reelsoo.events. Field order and types mirror the DDL in
+// Event is one row of teezer.events. Field order and types mirror the DDL in
 // deploy/clickhouse/schema/01-events.sql - the batch append below is positional,
 // so the two must be kept in step.
 type Event struct {

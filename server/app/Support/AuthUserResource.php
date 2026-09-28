@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 /**
  * The canonical authenticated-user payload returned by login / register / SSO.
  * Single source of truth so every token-issuing path returns the identical shape
- * the frontend `ReelsooUser` type expects.
+ * the frontend `TeezerUser` type expects.
  */
 class AuthUserResource
 {

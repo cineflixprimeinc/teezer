@@ -520,7 +520,7 @@ class AdminRbacController extends Controller
     /**
      * POST /admin/rbac/administrators
      *
-     * Promotes an EXISTING Reelsoo user. No second identity and no second
+     * Promotes an EXISTING Teezer user. No second identity and no second
      * password: an administrator signs in with the account they already have,
      * so there is one credential to protect and one session system to revoke.
      */

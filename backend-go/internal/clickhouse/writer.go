@@ -187,7 +187,7 @@ func (w *Writer) flush(events []Event) {
 	// Column list and the Append below are POSITIONAL - they must stay in step with
 	// each other and with the DDL in deploy/clickhouse/schema/01-events.sql.
 	batch, err := w.conn.PrepareBatch(ctx, `
-		INSERT INTO reelsoo.events (
+		INSERT INTO teezer.events (
 			event_time, event_type, video_id, creator_id, user_id, session_id,
 			delta, watch_seconds, completion_pct,
 			source, country, city, device_type, platform, ip_hash, payload,

@@ -82,7 +82,7 @@ class LicenseReleasePublish extends Command
 
         $disk   = (string) config('licensing.server.release_disk');
         $prefix = trim((string) config('licensing.server.release_prefix'), '/');
-        $key    = $prefix . '/' . $channel . '/reelsoo-' . $version . '.tar.gz';
+        $key    = $prefix . '/' . $channel . '/teezer-' . $version . '.tar.gz';
 
         $this->info('Uploading to ' . $disk . ':' . $key . ' ...');
 
@@ -137,8 +137,8 @@ class LicenseReleasePublish extends Command
      * Refuse to upload unless releases have their own private bucket.
      *
      * The failure this prevents: LICENSE_RELEASE_DISK defaulting to the media
-     * disk and a 66MB package landing in the bucket that cdn.reelsoo.com proxies
-     * straight through (deploy/nginx/reelsoo-media.conf does
+     * disk and a 66MB package landing in the bucket that cdn.teezer.live proxies
+     * straight through (deploy/nginx/teezer-media.conf does
      * `proxy_pass https://b2_origin/file/$b2_bucket$uri`). The product source
      * would then be downloadable at a guessable URL with no licence check at
      * all - and nothing would look broken, which is why this is checked here

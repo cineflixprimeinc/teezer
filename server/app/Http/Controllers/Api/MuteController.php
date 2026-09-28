@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
  *
  * mute_users_enabled (EnsureGlobalControlEnabled, route api.v1.users.mute)
  * only gates NEW mutes; FeedService respects every existing mute
- * unconditionally, per Global Reelsoo Control's rule that disabling a
+ * unconditionally, per Global Teezer Control's rule that disabling a
  * capability never touches data already created.
  */
 class MuteController extends Controller

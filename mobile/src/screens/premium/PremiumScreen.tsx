@@ -49,7 +49,7 @@ import { purchaseSubscription, iapAvailable, iapUnavailableReason } from "@/api/
 import { apiErrorMessage } from "@/api/client";
 
 /**
- * Reelsoo Premium - reached from the crown on your own profile.
+ * Teezer Premium - reached from the crown on your own profile.
  *
  * Every word, price and row on this page comes from GET /premium, so the plans,
  * the feature grid, the comparison matrix and the questions are all edited in

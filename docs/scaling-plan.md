@@ -1,4 +1,4 @@
-# Reelsoo - Scaling Plan
+# Teezer - Scaling Plan
 
 > This document defines when and how to scale each layer of the stack as the platform grows.  
 > Scaling is triggered by measurable thresholds - not by assumption.
@@ -8,7 +8,7 @@
 ## Current Architecture (Launch)
 
 ```
-VPS 217.217.249.50 (Ubuntu 22.04)
+VPS <SOURCE_HOST5_IP> (Ubuntu 22.04)
 ├── Nginx (reverse proxy)
 ├── PHP 8.2-FPM (application)
 ├── MySQL 8 (database)
@@ -56,13 +56,13 @@ R2 is already integrated and active. No migration needed.
 - All uploads go through `StorageService` → `Storage::disk('r2')->putFileAs(...)`
 - MySQL stores the R2 object **key** (e.g. `videos/2026/05/uuid.mp4`)
 - API responses expand keys to CDN URLs via `Storage::disk('r2')->url($key)`
-- Custom domain `media.reelsoo.com` → R2 bucket
+- Custom domain `media.teezer.live` → R2 bucket
 
 URL pattern:
 ```
-https://media.reelsoo.com/videos/2026/05/{uuid}.mp4
-https://media.reelsoo.com/images/2026/05/{uuid}.jpg
-https://media.reelsoo.com/documents/2026/05/{uuid}.pdf
+https://media.teezer.live/videos/2026/05/{uuid}.mp4
+https://media.teezer.live/images/2026/05/{uuid}.jpg
+https://media.teezer.live/documents/2026/05/{uuid}.pdf
 ```
 
 ### Benefits Already Realized
@@ -193,7 +193,7 @@ Laravel config (`config/database.php`):
 ```php
 'mysql' => [
     'read' => [
-        'host' => ['replica.internal.reelsoo.com'],
+        'host' => ['replica.internal.teezer.live'],
     ],
     'write' => [
         'host' => ['127.0.0.1'],
@@ -215,12 +215,12 @@ All `INSERT`/`UPDATE`/`DELETE` route to primary.
 
 ### Cloudflare CDN (Already Active via Cloudflare DNS)
 
-Cloudflare proxies all traffic to `reelsoo.com` and `api.reelsoo.com`. Static assets (CSS, JS, images from `public/`) are cached at the edge automatically.
+Cloudflare proxies all traffic to `teezer.live` and `api.teezer.live`. Static assets (CSS, JS, images from `public/`) are cached at the edge automatically.
 
 Configure Cloudflare **Cache Rules**:
 - `*.css`, `*.js` → Cache Everything, Edge TTL 30 days
 - `*.woff2`, `*.woff` → Cache Everything, 365 days
-- `*.mp4`, `*.webm` → (served from R2 `media.reelsoo.com` - separate domain)
+- `*.mp4`, `*.webm` → (served from R2 `media.teezer.live` - separate domain)
 
 **Laravel `public/build/` assets** (Vite output):
 - Vite generates content-hashed filenames: `app.abc123.js`

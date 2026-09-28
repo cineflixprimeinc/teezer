@@ -3,14 +3,14 @@
 > **Teezer note - historical reference only.** This page and `migrate.sh`
 > document the original platform's one-time R2 → B2 move. They are kept for
 > reference; Teezer does not run them. Bucket names, bucket ids and key ids have
-> been replaced by placeholders. Hostnames below are the original platform's.
+> been replaced by placeholders. Hostnames below are placeholders for the original platform's.
 >
 > To seed Teezer's own B2 bucket from the source platform's bucket, use
-> **`copy-reelsoo-to-teezer.sh`** in this directory (read-only source,
+> **`copy-media.sh`** in this directory (read-only source,
 > `rclone copy` only, dry-run by default). See DEPLOYMENT.md at the repo root.
 
 All media moves from Cloudflare R2 to Backblaze B2. Cloudflare stays as the CDN:
-`media.reelsoo.com` still points at the `reelsoo-media` Worker, which now fetches
+`media.<source-domain>` still points at the `<source-media-worker>` Worker, which now fetches
 from B2 over HTTPS with a SigV4 signature instead of through an R2 binding.
 
 ## The one thing that will break the site
@@ -34,11 +34,11 @@ back catalogue.
 
 | | |
 |---|---|
-| B2 bucket | `<BUCKET>` (id `<REELSOO_BUCKET_ID>`) |
+| B2 bucket | `<BUCKET>` (id `<SOURCE_BUCKET_ID>`) |
 | B2 endpoint | `https://s3.us-east-005.backblazeb2.com` |
 | B2 region | `us-east-005` |
 | Bucket type | `allPrivate` — keep it that way |
-| Worker | `reelsoo-media`, route `media.reelsoo.com/*` |
+| Worker | `<source-media-worker>`, route `media.<source-domain>/*` |
 
 Two things about the credentials, both of which cost an hour if you meet them
 the hard way:
@@ -60,7 +60,7 @@ the hard way:
 On VPS-1, in tmux (this runs for hours on a large library):
 
 ```bash
-cd /var/www/reelsoo/deploy/b2-migration
+cd /var/www/<source>/deploy/b2-migration
 
 # R2 side - read these out of the CURRENT production server/.env
 export R2_ACCESS_KEY_ID=...          # CLOUDFLARE_R2_ACCESS_KEY_ID
@@ -114,7 +114,7 @@ B2_APPLICATION_KEY=...
 B2_BUCKET=<BUCKET>
 B2_ENDPOINT=https://s3.us-east-005.backblazeb2.com
 B2_REGION=us-east-005
-MEDIA_URL=https://media.reelsoo.com
+MEDIA_URL=https://media.<source-domain>
 MEDIA_SIGNING_SECRET=...                     # unchanged
 
 # delete these - they are dead config now
@@ -124,11 +124,11 @@ MEDIA_SIGNING_SECRET=...                     # unchanged
 ```bash
 php artisan config:cache
 php artisan media:cors      # bucket CORS for browser direct uploads
-sudo systemctl restart php8.3-fpm reelsoo-queue
+sudo systemctl restart php8.3-fpm <source>-queue
 ```
 
 `media:cors` is required and easy to forget. Downloads go through
-`media.reelsoo.com`, where the Worker sets its own CORS headers — so a missing
+`media.<source-domain>`, where the Worker sets its own CORS headers — so a missing
 bucket CORS rule breaks *uploads only*, while playback keeps working. It looks
 like an upload bug, not a config one. Run `php artisan media:cors --dry-run`
 first to see the rules.
@@ -137,13 +137,13 @@ first to see the rules.
 
 ```bash
 # unsigned public asset - expect 200
-curl -sI https://media.reelsoo.com/<some-avatar-key> | head -3
+curl -sI https://media.<source-domain>/<some-avatar-key> | head -3
 
 # protected prefix without a token - expect 401
-curl -sI https://media.reelsoo.com/videos/original/<key> | head -1
+curl -sI https://media.<source-domain>/videos/original/<key> | head -1
 
 # range request - expect 206 + Content-Range
-curl -sI -H 'Range: bytes=0-1023' 'https://media.reelsoo.com/videos/...?expires=..&token=..' | head -5
+curl -sI -H 'Range: bytes=0-1023' 'https://media.<source-domain>/videos/...?expires=..&token=..' | head -5
 ```
 
 Then in the app: upload a video, confirm it plays, scrub it (range requests),
@@ -168,7 +168,7 @@ using, and deleting it converts a five-minute rollback into a data-loss event.
 ## What went away with R2
 
 - `[[r2_buckets]]` binding in `wrangler.toml`
-- The `reelsoo-transcoding` Cloudflare Queue and the Worker's `queue()` consumer.
+- The `<source>-transcoding` Cloudflare Queue and the Worker's `queue()` consumer.
   R2 published an upload event that triggered transcoding; B2 cannot publish to
   a Cloudflare Queue. Nothing broke, because it was never the primary trigger:
   `completeUpload` → `VideoService::createFromUpload` → `ProcessAudioMix` →

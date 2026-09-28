@@ -221,13 +221,13 @@ return new class extends Migration
             ['immortal-rose', 'Immortal Rose', 233000, 1800.00, null, false, 197],
             ['infinity-heart', 'Infinity Heart', 240000, 1850.00, null, false, 198],
             ['king-crown', "King's Crown", 247000, 1900.00, null, false, 199],
-            ['reelsoo-throne', 'Reelsoo Throne', 260000, 2000.00, null, false, 200],
+            ['teezer-throne', 'Teezer Throne', 260000, 2000.00, null, false, 200],
     ];
 
     public function up(): void
     {
         // Already applied? (idempotent - this migration carries data, not schema)
-        if (DB::table('coin_packages')->where('icon', 'reelsoo-throne')->exists()) {
+        if (DB::table('coin_packages')->where('icon', 'teezer-throne')->exists()) {
             return;
         }
 

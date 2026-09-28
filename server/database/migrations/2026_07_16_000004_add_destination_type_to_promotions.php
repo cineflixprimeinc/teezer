@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * "Website Traffic" campaigns send people to an external website or a Reelsoo
+ * "Website Traffic" campaigns send people to an external website or a Teezer
  * Instant Page. `destination_type` records which; the URL (when a website) reuses
  * the existing destination_url column.
  */

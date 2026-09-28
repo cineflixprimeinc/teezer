@@ -35,7 +35,7 @@ return new class extends Migration
             $table->unsignedBigInteger('conversation_id');
             $table->unsignedBigInteger('admin_id')->nullable();
             $table->string('action', 60);          // message_deleted, user_warned, dm_restricted, flagged, etc.
-            $table->string('actor_label', 100)->nullable(); // "Reelsoo Admin" or username
+            $table->string('actor_label', 100)->nullable(); // "Teezer Admin" or username
             $table->json('metadata')->nullable();
             $table->timestamp('created_at')->useCurrent();
 

@@ -14,9 +14,9 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 /**
- * The "Reelsoo Shop" admin section - platform-wide product categories (the
+ * The "Teezer Shop" admin section - platform-wide product categories (the
  * storefront's [All] [Fashion] [Beauty]... carousel), a read-only view of
- * every shop on the platform, and (below) the "Sell on Reelsoo" seller
+ * every shop on the platform, and (below) the "Sell on Teezer" seller
  * application review queue + the configurable per-country requirement rules
  * SellerApplicationController resolves against. Sellers still own their own
  * products/collections/reviews - there is no admin CRUD over those, only
@@ -129,7 +129,7 @@ class AdminShopController extends Controller
         ]);
     }
 
-    /* ── Seller applications ("Sell on Reelsoo" review queue) ───────────────
+    /* ── Seller applications ("Sell on Teezer" review queue) ───────────────
      *
      * Every mutation below is the ONLY place shops.status can move to/from
      * APPROVED anywhere in the codebase - SellerApplicationController (the

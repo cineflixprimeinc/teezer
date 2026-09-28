@@ -18,13 +18,13 @@ use Illuminate\Http\Request;
  *
  *   POST /license/install  - once, during installation
  *   POST /license/verify   - on a schedule (default daily), never per request
- *   POST /license/release  - only when the operator runs `reelsoo update`
+ *   POST /license/release  - only when the operator runs `teezer update`
  *
  * Nothing on a page load. Nothing on a login. Nothing on an API call. If a
  * future change makes a normal request path reach this controller, that change
  * is wrong - the whole architecture in sections 8 and 13 depends on it.
  *
- * Unauthenticated by Sanctum, because a customer VPS has no Reelsoo user. The
+ * Unauthenticated by Sanctum, because a customer VPS has no Teezer user. The
  * credential is the licence key, checked by hash on every call.
  *
  * LICENSOR-SIDE ONLY - excluded from the marketplace package.

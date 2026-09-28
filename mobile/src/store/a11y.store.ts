@@ -14,7 +14,7 @@ import { AccessibilityPreferences, prefsApi } from "@/api/prefs.api";
  * animations) and autoplay_videos (tap-to-play feed).
  */
 
-const CACHE_KEY = "reelsoo:a11y-prefs";
+const CACHE_KEY = "teezer:a11y-prefs";
 
 /** Mirrors ProfileController::accessibilityDefaults. */
 export const A11Y_DEFAULTS: AccessibilityPreferences = {

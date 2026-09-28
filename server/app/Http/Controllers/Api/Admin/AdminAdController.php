@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * Reelsoo Ads — admin management (Ads Management panel). Behind api.admin
+ * Teezer Ads — admin management (Ads Management panel). Behind api.admin
  * (admin role + mandatory 2FA). Moderation, advertisers, fraud, placements, settings.
  */
 class AdminAdController extends Controller

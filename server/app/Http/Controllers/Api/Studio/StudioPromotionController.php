@@ -300,7 +300,7 @@ class StudioPromotionController extends Controller
             'start_date'      => ['nullable', 'date'],
             'end_date'        => ['nullable', 'date', 'after_or_equal:start_date'],
             'duration_days'   => ['nullable', 'integer', 'min:1', 'max:365'],
-            'payment_method'  => ['nullable', 'in:reelsoo_balance,credit_card,e_wallet,bank_transfer'],
+            'payment_method'  => ['nullable', 'in:teezer_balance,credit_card,e_wallet,bank_transfer'],
             'est_impressions_min'     => ['nullable', 'integer'],
             'est_impressions_max'     => ['nullable', 'integer'],
             'est_views_min'           => ['nullable', 'integer'],
@@ -507,7 +507,7 @@ class StudioPromotionController extends Controller
             'start_date'     => ['nullable', 'date'],
             'end_date'       => ['nullable', 'date'],
             'duration_days'  => ['nullable', 'integer', 'min:1'],
-            'payment_method' => ['nullable', 'in:reelsoo_balance,credit_card,e_wallet,bank_transfer'],
+            'payment_method' => ['nullable', 'in:teezer_balance,credit_card,e_wallet,bank_transfer'],
             'status'         => ['nullable', 'in:draft,pending_review'],
         ]);
 

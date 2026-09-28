@@ -9,7 +9,7 @@ import { font, radius, spacing } from "@/constants/theme";
  * Shop Settings > Support > Shop Support. Reuses the app's existing help
  * system entirely, not a new shop-specific one. "Help Centre" opens
  * ShopHelpScreen - already a shop-topic-scoped help browser (search +
- * Applying/Selling/Payments articles, opened today from the Sell on Reelsoo
+ * Applying/Selling/Payments articles, opened today from the Sell on Teezer
  * intro screen's "?") and already has its own "Contact Support" action
  * built in, so it's the closer reuse than the platform-wide HelpCenter here.
  * "Contact Support" and "Report a Shop Problem" both open ReportProblemScreen

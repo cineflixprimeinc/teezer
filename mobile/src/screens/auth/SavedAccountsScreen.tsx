@@ -16,7 +16,7 @@ import type { SavedAccount } from "@/utils/secure-store";
 import { confirmWithBiometrics } from "@/utils/biometric-gate";
 
 /**
- * Reelsoo Saved Accounts - the "Welcome back" landing shown (instead of the plain
+ * Teezer Saved Accounts - the "Welcome back" landing shown (instead of the plain
  * login screen) whenever the device has one or more saved accounts. One tap on a
  * card resumes that account's saved session; no password unless it expired.
  *

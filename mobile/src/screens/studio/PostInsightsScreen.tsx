@@ -121,7 +121,7 @@ function Bar({ source, pct }: { source: string; pct: number }) {
 }
 
 /**
- * Reelsoo Studio → Post insights - one video's own performance, opened from
+ * Teezer Studio → Post insights - one video's own performance, opened from
  * the Content tab's "Insight" button. Every figure here comes from
  * GET /studio/content/{id}/insights - the same endpoint the website's own
  * Post Insights page (studio-insights-page.tsx) already calls. Sections the

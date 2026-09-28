@@ -1,7 +1,7 @@
 import axios from "axios";
 import { api } from "./api";
 import type { ApiResponse } from "@/types/api";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 
 /* ─── Types ────────────────────────────────────────────────────────────────── */
 export type AllowedVideoMime =
@@ -108,7 +108,7 @@ type MultipartResumeManifest = {
   part_size:    number;
 };
 
-const RESUME_KEY_PREFIX = 'reelsoo_multipart_upload_';
+const RESUME_KEY_PREFIX = 'teezer_multipart_upload_';
 
 /**
  * name+size+lastModified, not a content hash - cheap (no reading the file)
@@ -251,8 +251,8 @@ export const uploadService = {
     );
   },
 
-  async completeUpload(payload: CompleteUploadPayload): Promise<ReelsooVideo> {
-    const { data } = await api.post<ApiResponse<ReelsooVideo>>("/videos/complete-upload", payload);
+  async completeUpload(payload: CompleteUploadPayload): Promise<TeezerVideo> {
+    const { data } = await api.post<ApiResponse<TeezerVideo>>("/videos/complete-upload", payload);
     return data.data;
   },
 
@@ -416,7 +416,7 @@ export const uploadService = {
     thumbnailFile?: File | null;
     onProgress?:    (p: UploadProgress) => void;
     signal?:        AbortSignal;
-  }): Promise<ReelsooVideo> {
+  }): Promise<TeezerVideo> {
     const { file, meta, thumbnailFile, onProgress, signal } = args;
     const isVideo = file.type.startsWith("video/");
 
@@ -468,7 +468,7 @@ export const uploadService = {
     meta:         Omit<CompleteUploadPayload, "object_key" | "media_items" | "mime_type" | "file_size">;
     onProgress?:  (p: UploadProgress) => void;
     signal?:      AbortSignal;
-  }): Promise<ReelsooVideo> {
+  }): Promise<TeezerVideo> {
     const { files, meta, onProgress, signal } = args;
     const totalBytes    = files.reduce((s, f) => s + f.size, 0);
     const loadedArr     = new Array<number>(files.length).fill(0);
@@ -505,7 +505,7 @@ export const uploadService = {
     thumbnailFile?: File | null;
     onProgress?:    (p: UploadProgress) => void;
     signal?:        AbortSignal;
-  }): Promise<ReelsooVideo> {
+  }): Promise<TeezerVideo> {
     return uploadService.uploadMedia(args);
   },
 };

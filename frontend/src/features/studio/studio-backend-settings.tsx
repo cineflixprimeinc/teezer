@@ -114,15 +114,6 @@ export function StudioBackendSettings() {
       {/* Quick Links */}
       <div className="grid grid-cols-2 gap-4">
         <a
-          href="https://github.com/cineflixprime/reelsoo"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col rounded-lg border border-[#f0f0f0] bg-white p-4 transition hover:border-[#fd4605] hover:shadow-sm"
-        >
-          <p className="text-[13px] font-semibold text-[#111827]">View Backend Code</p>
-          <p className="mt-1 text-[11px] text-[#9ca3af]">GitHub repository →</p>
-        </a>
-        <a
           href="https://laravel.com/docs"
           target="_blank"
           rel="noopener noreferrer"

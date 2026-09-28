@@ -111,8 +111,8 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     fetchMe().catch(() => undefined);
-    window.addEventListener("reelsoo:unauthorized", expireSession);
-    return () => window.removeEventListener("reelsoo:unauthorized", expireSession);
+    window.addEventListener("teezer:unauthorized", expireSession);
+    return () => window.removeEventListener("teezer:unauthorized", expireSession);
   }, [fetchMe, expireSession]);
 
   return (
@@ -140,14 +140,14 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
         toastOptions={{
           duration: 4000,
           classNames: {
-            toast:       "reelsoo-toast",
-            title:       "reelsoo-toast-title",
-            description: "reelsoo-toast-description",
-            closeButton: "reelsoo-toast-close",
-            icon:        "reelsoo-toast-icon",
+            toast:       "teezer-toast",
+            title:       "teezer-toast-title",
+            description: "teezer-toast-description",
+            closeButton: "teezer-toast-close",
+            icon:        "teezer-toast-icon",
           },
         }}
-        className="reelsoo-toaster"
+        className="teezer-toaster"
       />
       <AuthModal />
     </QueryClientProvider>

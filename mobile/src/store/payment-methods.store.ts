@@ -29,7 +29,7 @@ import { payoutMethodsApi, type PayoutMethodPayload, type PayoutMethodRow } from
  * let a creator's payout methods appear under another account. Kept only so the
  * signed-in user's existing cache can be adopted once, then removed.
  */
-const LEGACY_CACHE_KEY = "reelsoo:payment-methods";
+const LEGACY_CACHE_KEY = "teezer:payment-methods";
 
 /**
  * Cache key, per account.
@@ -43,7 +43,7 @@ const LEGACY_CACHE_KEY = "reelsoo:payment-methods";
  *
  * Signed out (id 0) gets its own bucket rather than sharing the last account's.
  */
-const cacheKeyFor = (userId: number) => `reelsoo:payment-methods:${userId}`;
+const cacheKeyFor = (userId: number) => `teezer:payment-methods:${userId}`;
 
 function currentUserId(): number {
   return useAuthStore.getState().user?.id ?? 0;

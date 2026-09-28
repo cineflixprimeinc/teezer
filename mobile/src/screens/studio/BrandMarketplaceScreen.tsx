@@ -11,7 +11,7 @@ import { colors } from "@/constants/colors";
 import { font, radius, spacing } from "@/constants/theme";
 
 /**
- * Reelsoo Studio -> Monetization -> Brand Marketplace. Replaces the generic
+ * Teezer Studio -> Monetization -> Brand Marketplace. Replaces the generic
  * requirements-checklist template (StudioProgrammeScreen) for this one
  * programme, same reasoning/template as Gifts & Coins/Creator Rewards/
  * Subscriptions - see StudioMonetizationSection.tsx's onPress. This is now

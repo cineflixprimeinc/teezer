@@ -10,7 +10,7 @@ import { colors } from "@/constants/colors";
 import { font, radius, spacing } from "@/constants/theme";
 
 /**
- * Shop Help - opened from the "?" on the Sell on Reelsoo intro screen
+ * Shop Help - opened from the "?" on the Sell on Teezer intro screen
  * (SellerApplicationScreen). Same structure as the general HelpCenterScreen
  * (search, grouped articles, an article reader BottomSheet, a "still need
  * help" card) but scoped to one topic, so it skips that screen's full

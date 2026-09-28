@@ -174,7 +174,7 @@ half4 main(float2 xy) {
  *
  * Marked as a worklet (in addition to being an ordinary function - the
  * directive doesn't change how it runs from plain JS) so the camera's live
- * frame processor (features/camera/ReelsooLiveCamera.tsx) can call it
+ * frame processor (features/camera/TeezerLiveCamera.tsx) can call it
  * directly on the frame-processor thread with each frame's real dimensions,
  * same as EditorCanvas.tsx calls it on the JS thread with a photo/video's.
  */
@@ -220,7 +220,7 @@ export function buildUniforms(
 /**
  * Compiled once per process and shared by every consumer of this shader -
  * the post-capture editor (EditorCanvas.tsx) and the camera screen's live
- * GPU preview (features/camera/ReelsooLiveCamera.tsx) both call this rather
+ * GPU preview (features/camera/TeezerLiveCamera.tsx) both call this rather
  * than each compiling (and caching) their own copy. One shader, reused, per
  * the "no duplicate filter engine" rule.
  *

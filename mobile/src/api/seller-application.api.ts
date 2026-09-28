@@ -1,7 +1,7 @@
 import { api } from "./client";
 
 /**
- * The "Sell on Reelsoo" application - Settings -> Sell on Reelsoo, NOT the
+ * The "Sell on Teezer" application - Settings -> Sell on Teezer, NOT the
  * public Shop screen (shop.api.ts). Server-backed on shops + seller_profiles
  * + seller_documents (server/app/Http/Controllers/Api/SellerApplicationController.php).
  *
@@ -64,7 +64,7 @@ export interface AgreementAcceptance {
 /**
  * One row of the eligibility checklist shown on the intro screen - admin-
  * configured (Admin Panel -> Monetization Control Center -> Sell on
- * Reelsoo) and computed live against the account, not a hardcoded list.
+ * Teezer) and computed live against the account, not a hardcoded list.
  * `all_met` gates the intro screen's Apply Now/Get Started button
  * (SellerApplicationScreen) - see SellerApplicationController::show()'s own
  * comment for what this does and doesn't gate.
@@ -86,7 +86,7 @@ export interface EligibilityRequirement {
   counted: boolean;
   /** true for the platform-wide checks every programme carries (age, two-
    *  factor, etc. - MonetizationProgram::BASELINE); false for the ones
-   *  configured specifically on the Sell on Reelsoo programme itself in
+   *  configured specifically on the Sell on Teezer programme itself in
    *  the admin panel's Requirements tab. The intro screen shows only the
    *  latter, so whatever an admin adds/removes/retargets there is exactly
    *  and only what shows here - see SellerApplicationScreen.tsx. */
@@ -100,7 +100,7 @@ export interface Eligibility {
   total_count: number;
   all_met: boolean;
   /** Admin override for the CTA button text (Admin Panel -> Monetization
-   *  Control Center -> Sell on Reelsoo -> Overview -> Button Text). Null
+   *  Control Center -> Sell on Teezer -> Overview -> Button Text). Null
    *  means "use Apply Now / Get Started, this screen's own defaults". */
   cta_label: string | null;
   /** Admin overrides for the intro screen's headline/paragraph/bullets

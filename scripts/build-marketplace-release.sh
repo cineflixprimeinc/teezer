@@ -21,7 +21,7 @@ set -euo pipefail
 
 readonly VERSION="${1:-}"
 readonly REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-readonly OUT_DIR="${REELSOO_BUILD_DIR:-$REPO_ROOT/build}"
+readonly OUT_DIR="${TEEZER_BUILD_DIR:-$REPO_ROOT/build}"
 readonly EXCLUDE_FILE="$REPO_ROOT/.marketplace-exclude"
 
 if [[ -t 1 ]]; then
@@ -134,10 +134,10 @@ printf '%s\n' "$VERSION" > "$STAGING/VERSION"
 ok "VERSION"
 
 mkdir -p "$STAGING/bin"
-if [[ -f "$REPO_ROOT/bin/reelsoo" ]]; then
-    cp "$REPO_ROOT/bin/reelsoo" "$STAGING/bin/reelsoo"
-    chmod +x "$STAGING/bin/reelsoo"
-    ok "bin/reelsoo"
+if [[ -f "$REPO_ROOT/bin/teezer" ]]; then
+    cp "$REPO_ROOT/bin/teezer" "$STAGING/bin/teezer"
+    chmod +x "$STAGING/bin/teezer"
+    ok "bin/teezer"
 fi
 
 # Laravel needs these directories to exist; git does not track empty ones.
@@ -181,10 +181,10 @@ administrator account and configure the site.
 ## Managing your installation
 
 \`\`\`bash
-reelsoo status     # licence and service status
-reelsoo update     # check for and apply updates
-reelsoo verify     # re-verify your licence now
-reelsoo rollback   # restore the previous version
+teezer status     # licence and service status
+teezer update     # check for and apply updates
+teezer verify     # re-verify your licence now
+teezer rollback   # restore the previous version
 \`\`\`
 
 ## About your licence
@@ -211,7 +211,7 @@ ok "INSTALL.md"
 step "Building the archive"
 
 mkdir -p "$OUT_DIR"
-PACKAGE="$OUT_DIR/reelsoo-$VERSION.tar.gz"
+PACKAGE="$OUT_DIR/teezer-$VERSION.tar.gz"
 
 # --sort=name and a fixed mtime make the build reproducible: the same commit
 # produces the same checksum, which is what makes the checksum meaningful.
@@ -220,7 +220,7 @@ tar --sort=name \
     --owner=0 --group=0 --numeric-owner \
     -czf "$PACKAGE" \
     -C "$(dirname "$STAGING")" \
-    --transform "s|^$(basename "$STAGING")|reelsoo-$VERSION|" \
+    --transform "s|^$(basename "$STAGING")|teezer-$VERSION|" \
     "$(basename "$STAGING")"
 
 CHECKSUM=$(sha256sum "$PACKAGE" | awk '{print $1}')

@@ -1,6 +1,6 @@
-# Reelsoo - Admin Panel Plan
+# Teezer - Admin Panel Plan
 
-> **URL:** reelsoo.com/dashboard/admin  
+> **URL:** teezer.live/dashboard/admin  
 > **Access:** Role = `admin` only  
 > **Stack:** Laravel Blade + Tailwind CSS 3 + Alpine.js  
 > **Design references:** `assets/design-reference/admin-panel/`

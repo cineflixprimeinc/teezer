@@ -1,4 +1,4 @@
-# Reelsoo Development Rules
+# Teezer Development Rules
 
 These rules are permanent and apply to **every** task in this repository — mobile,
 frontend, server, backend-go, admin, and deploy alike.

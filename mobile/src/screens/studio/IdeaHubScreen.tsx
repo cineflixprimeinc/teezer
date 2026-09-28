@@ -23,7 +23,7 @@ import { font, radius, spacing } from "@/constants/theme";
 import { formatCompact } from "@/utils/format";
 
 /* ────────────────────────────────────────────────────────────────────────────
- * Idea Hub - Reelsoo Studio's community feedback board.
+ * Idea Hub - Teezer Studio's community feedback board.
  *
  * Reached from the bottom of Creator Tools and the Studio Dashboard. Everything
  * here runs on in-memory state (upvotes, submissions, comments, filters) so the

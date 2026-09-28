@@ -65,8 +65,8 @@ export default function CookiePolicyPage() {
         headers={["Name", "Type", "Purpose", "Duration"]}
         rows={[
           ["Authentication token", "Secure storage", "Keeps you signed in to your account", "Until you sign out or the session is revoked"],
-          ["reelsoo:theme", "Local storage", "Remembers your light/dark theme choice", "Persistent until cleared"],
-          ["reelsoo:a11y", "Local storage", "Restores your saved Accessibility Settings instantly on load", "Persistent until cleared"],
+          ["teezer:theme", "Local storage", "Remembers your light/dark theme choice", "Persistent until cleared"],
+          ["teezer:a11y", "Local storage", "Restores your saved Accessibility Settings instantly on load", "Persistent until cleared"],
           ["Recent searches", "Local storage", "Shows your recent search chips on the search page", "Persistent until you clear them in-app"],
           ["__cf_bm and related", "Cookie (Cloudflare)", "Bot management and edge security for the site and media delivery", "Typically under 30 minutes"],
           ["Turnstile verification", "Cookie (Cloudflare)", "Confirms you are human during login without a CAPTCHA puzzle", "Session"],

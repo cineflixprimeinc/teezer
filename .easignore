@@ -7,7 +7,7 @@
 # This exists because build 12's first attempt failed outright: the archive
 # reached 1.3 GB and EAS rejected the upload with a 400. Only mobile/ is needed
 # to build the app, but the archive was carrying the Laravel API, both Next.js
-# apps, the Go service, and above all the stray nested reelsoo/ checkout - a
+# apps, the Go service, and above all the stray nested teezer/ checkout - a
 # second complete copy of this repository, its own node_modules included.
 #
 # mobile/ is self-contained (its own package.json and lockfile, no root
@@ -23,7 +23,7 @@ chat-server/
 # ── The stray nested duplicate checkout. Not a submodule (there is no
 #    .gitmodules), just a second copy of the repo that was never removed - and
 #    the single biggest contributor to that 1.3 GB.
-reelsoo/
+teezer/
 
 # ── Local-only artefacts ───────────────────────────────────────────────────
 crashlogs/

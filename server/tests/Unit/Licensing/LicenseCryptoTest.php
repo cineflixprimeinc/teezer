@@ -55,7 +55,7 @@ class LicenseCryptoTest extends TestCase
     private function makeToken(array $overrides = []): array
     {
         $payload = array_merge([
-            'product'          => 'reelsoo',
+            'product'          => 'teezer',
             'license_id'       => 'lic_9f3a1c77b2e40d5a8c11',
             'domain'           => 'customer.com',
             'username'         => 'customer01',
@@ -160,7 +160,7 @@ class LicenseCryptoTest extends TestCase
         $attacker = @openssl_pkey_new(['private_key_bits' => 2048, 'private_key_type' => OPENSSL_KEYTYPE_RSA]);
         openssl_pkey_export($attacker, $attackerPem);
 
-        $payload = ['product' => 'reelsoo', 'domain' => 'evil.com', 'status' => 'active'];
+        $payload = ['product' => 'teezer', 'domain' => 'evil.com', 'status' => 'active'];
         $json = json_encode($payload, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         $signature = '';
         openssl_sign($json, $signature, openssl_pkey_get_private($attackerPem), OPENSSL_ALGO_SHA256);

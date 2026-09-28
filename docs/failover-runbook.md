@@ -1,22 +1,22 @@
-# Reelsoo - Database Failover Runbook
+# Teezer - Database Failover Runbook
 
 _Keep private. Describes DB topology and the manual failover procedure._
 
 ## Topology
 
 ```
-VPS-1 (167.233.204.183, Hostinger)            VPS-2 (75.119.156.93, Contabo)
+VPS-1 (<SOURCE_VPS1_IP>, Hostinger)            VPS-2 (<SOURCE_VPS2_IP>, Contabo)
   - App (web/admin/api) + Redis               - Workers (transcoding/moderation/queue)
   - MySQL PRIMARY  (server_id=1)  ──binlog──▶  - MySQL REPLICA (server_id=2, read-only)
         ▲                                            connects via SSH tunnel 127.0.0.1:3307
-        └──────── reelsoo-db-tunnel (SSH -L 3307:127.0.0.1:3306) ────────┘
+        └──────── teezer-db-tunnel (SSH -L 3307:127.0.0.1:3306) ────────┘
 ```
 
 - **Primary**: VPS-1 MySQL on `127.0.0.1:3306`. All writes happen here.
 - **Replica**: VPS-2 MySQL on `127.0.0.1:3306` (`server_id=2`, `super_read_only=ON`). It pulls
   the primary's binlog through the existing SSH tunnel (`127.0.0.1:3307`) using the `repl` user.
 - Classic binlog-position replication (no GTID). `binlog_format=ROW`, 30-day binlog retention on primary.
-- Both `mysql` and `reelsoo-db-tunnel` are enabled on boot; replication auto-resumes after a restart.
+- Both `mysql` and `teezer-db-tunnel` are enabled on boot; replication auto-resumes after a restart.
 
 ## Health checks
 
@@ -29,7 +29,7 @@ Healthy = both `Running: Yes`, `Seconds_Behind_Source: 0`, empty errors.
 
 Quick consistency spot-check (run on each box, compare):
 ```bash
-mysql --defaults-file=/etc/mysql/debian.cnf -N -e "SELECT COUNT(*) FROM reelsoo.users;"
+mysql --defaults-file=/etc/mysql/debian.cnf -N -e "SELECT COUNT(*) FROM teezer.users;"
 ```
 
 ## Automatic failover (watchdog + boot guard)
@@ -37,27 +37,27 @@ mysql --defaults-file=/etc/mysql/debian.cnf -N -e "SELECT COUNT(*) FROM reelsoo.
 Failover is now **automatic**. Two units, installed by `deploy/scripts/install-failover.sh`
 (picks the right one by `@@server_id`):
 
-- **`reelsoo-watchdog.service` on VPS-2** (`deploy/scripts/vps1-watchdog.sh`) - checks VPS-1
+- **`teezer-watchdog.service` on VPS-2** (`deploy/scripts/vps1-watchdog.sh`) - checks VPS-1
   every 15 s. A check fails only when BOTH the MySQL tunnel (`127.0.0.1:3307`) and a direct host
-  ping to `167.233.204.183` fail. If just the tunnel is down it restarts `reelsoo-db-tunnel` instead.
+  ping to `<SOURCE_VPS1_IP>` fail. If just the tunnel is down it restarts `teezer-db-tunnel` instead.
   After **6 consecutive real failures (~90 s)** it runs `promote-vps2.sh` and exits. A
   `mysqladmin ping` that returns *"Access denied"* still counts as UP (the server answered).
-- **`reelsoo-boot-guard.service` on VPS-1** (`deploy/scripts/vps1-boot-guard.sh`) - runs once at
+- **`teezer-boot-guard.service` on VPS-1** (`deploy/scripts/vps1-boot-guard.sh`) - runs once at
   boot. It SSHes to VPS-2 (`/root/.ssh/cert_push`) and reads VPS-2's role. If VPS-2 is the live
-  primary (`server_id=2, read_only=0`) it demotes VPS-1 to read-only and stops `reelsoo-web`/`-admin`
+  primary (`server_id=2, read_only=0`) it demotes VPS-1 to read-only and stops `teezer-web`/`-admin`
   so the LB keeps routing to VPS-2. Otherwise VPS-1 stays primary. If VPS-2 is unreachable it
   **fails open** (stays primary) to avoid a self-inflicted outage on a benign reboot.
 
 Test the verdicts safely anytime (no side effects):
 ```bash
 # on VPS-2
-/var/www/reelsoo/deploy/scripts/vps1-watchdog.sh --check    # expect: PRIMARY UP
+/var/www/teezer/deploy/scripts/vps1-watchdog.sh --check    # expect: PRIMARY UP
 # on VPS-1
-/var/www/reelsoo/deploy/scripts/vps1-boot-guard.sh --check  # expect: no action (VPS-2 is a replica)
+/var/www/teezer/deploy/scripts/vps1-boot-guard.sh --check  # expect: no action (VPS-2 is a replica)
 ```
 
-Watchdog flag (`/var/lib/reelsoo-failover.done`) and demotion marker
-(`/var/lib/reelsoo-demoted.flag`) are left behind after a failover; remove them once VPS-1 has
+Watchdog flag (`/var/lib/teezer-failover.done`) and demotion marker
+(`/var/lib/teezer-demoted.flag`) are left behind after a failover; remove them once VPS-1 has
 been rebuilt as a replica and the cluster is healthy again.
 
 **Residual risk (2-node limit):** a true bidirectional network partition (each box alive but unable
@@ -68,11 +68,11 @@ VPS-1 keeps serving. Eliminating this entirely needs a 3rd arbiter node for quor
 
 If you ever need to do it by hand, run the promote script **on VPS-2**:
 ```bash
-bash /var/www/reelsoo/deploy/scripts/promote-vps2.sh
+bash /var/www/teezer/deploy/scripts/promote-vps2.sh
 ```
 It makes the replica writable, repoints the VPS-2 app at its local DB (`DB_PORT 3307 → 3306`),
 re-caches config, and restarts processes. Then send traffic to VPS-2 (Cloudflare LB does this
-automatically if configured; otherwise update the DNS A record to `75.119.156.93`).
+automatically if configured; otherwise update the DNS A record to `<SOURCE_VPS2_IP>`).
 
 What it does, manually:
 ```sql
@@ -83,8 +83,8 @@ SET GLOBAL read_only      = OFF;
 ```
 ```bash
 # point the app at the local (now-primary) DB and reload
-sed -i 's/^DB_PORT=.*/DB_PORT=3306/' /var/www/reelsoo/server/.env
-cd /var/www/reelsoo/server && php artisan config:cache && pm2 restart all
+sed -i 's/^DB_PORT=.*/DB_PORT=3306/' /var/www/teezer/server/.env
+cd /var/www/teezer/server && php artisan config:cache && pm2 restart all
 ```
 
 ## ⚠️ When VPS-1 comes back

@@ -1,4 +1,4 @@
-import type { ReelsooUser } from "@/types/user";
+import type { TeezerUser } from "@/types/user";
 
 const nameToCode: Record<string, string> = {
   nepal: "NP",
@@ -8,7 +8,7 @@ const nameToCode: Record<string, string> = {
   india: "IN",
 };
 
-export function detectUserCountry(user: ReelsooUser | null) {
+export function detectUserCountry(user: TeezerUser | null) {
   if (!user) return { code: null, name: null };
 
   const selectedCode = user.selected_country_code || null;

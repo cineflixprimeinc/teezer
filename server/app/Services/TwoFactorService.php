@@ -27,7 +27,7 @@ class TwoFactorService
 
     /**
      * otpauth:// URI the authenticator app encodes as a QR code.
-     * label = issuer:account so the app shows "Reelsoo (email)".
+     * label = issuer:account so the app shows "Teezer (email)".
      */
     public function otpauthUri(User $user, string $secret): string
     {

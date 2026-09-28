@@ -42,10 +42,10 @@ export interface SocialAccountItem {
   linked_at: string | null;
 }
 
-/** GET /account/authorized-apps - internal Reelsoo apps you've authorized. */
+/** GET /account/authorized-apps - internal Teezer apps you've authorized. */
 export interface AuthorizedApp {
   client: string;               // 'ads'
-  display_name: string;         // 'Reelsoo Ads'
+  display_name: string;         // 'Teezer Ads'
   scopes?: string[];            // ['profile','email','business','ads.manage']
   granted_at?: string | null;
 }

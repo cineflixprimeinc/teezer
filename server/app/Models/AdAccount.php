@@ -26,7 +26,7 @@ class AdAccount extends Model
      * Derived deterministically from the immutable primary key, so it is stable
      * and permanent for the account (same value on every login / device) and is
      * IDENTICAL in the admin console and the advertiser's own Ads Manager
-     * (ads.reelsoo.com). There is no separate stored column - the account row
+     * (ads.teezer.live). There is no separate stored column - the account row
      * (one per user) IS the identity; this is its human-facing rendering.
      */
     public function accountNumber(): string

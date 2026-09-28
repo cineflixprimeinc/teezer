@@ -3,8 +3,8 @@
 /**
  * teezer.live identity-provider handoff for internal SSO.
  *
- * A Reelsoo subdomain (e.g. ads.teezer.live) redirects here when a signed-out
- * user chooses "Continue with Reelsoo". We authenticate them on teezer.live (the
+ * A Teezer subdomain (e.g. ads.teezer.live) redirects here when a signed-out
+ * user chooses "Continue with Teezer". We authenticate them on teezer.live (the
  * IdP) - which establishes the shared `.teezer.live` SSO cookie - then bounce back
  * to the `return` URL, where that subdomain's bootstrap finishes with consent.
  *
@@ -47,7 +47,7 @@ function ConnectInner() {
     if (!authReady || !isAuthenticated || handed.current) return;
     handed.current = true;
     setRedirecting(true);
-    const token = typeof window !== "undefined" ? window.localStorage.getItem("reelsoo_token") : null;
+    const token = typeof window !== "undefined" ? window.localStorage.getItem("teezer_token") : null;
     const ensure = token ? ssoService.promote(token).catch(() => undefined) : Promise.resolve();
     ensure.finally(() => window.location.assign(returnUrl));
   }, [authReady, isAuthenticated, returnUrl]);

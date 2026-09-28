@@ -22,7 +22,7 @@ import (
 	"strings"
 	"time"
 
-	"reelsoo/backend-go/internal/breaker"
+	"teezer/backend-go/internal/breaker"
 )
 
 // UserAgent identifies Teezer to Wikimedia. Their User-Agent policy asks for

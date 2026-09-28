@@ -2,7 +2,7 @@
 
 import { create } from "zustand";
 import { authService } from "@/services/auth.service";
-import type { ReelsooUser, UserRole } from "@/types/user";
+import type { TeezerUser, UserRole } from "@/types/user";
 
 export type AuthModalMode = "login" | "signup";
 
@@ -18,7 +18,7 @@ interface SavedAccount {
 }
 
 type AuthState = {
-  user: ReelsooUser | null;
+  user: TeezerUser | null;
   token: string | null;
   isAuthenticated: boolean;
   isLoading: boolean;
@@ -34,13 +34,13 @@ type AuthState = {
   /* ── Auth actions ── */
   login: (payload: { login: string; password: string; turnstile_token?: string }) => Promise<{ twoFactorRequired: boolean; challenge?: string }>;
   /** Adopt a token minted by the SSO flow (same shape as a normal login). */
-  applySsoAuth: (auth: { token: string; expires_at?: string; user: ReelsooUser }) => void;
+  applySsoAuth: (auth: { token: string; expires_at?: string; user: TeezerUser }) => void;
   completeTwoFactor: (payload: { challenge: string; code?: string; recovery_code?: string }) => Promise<void>;
   register: (payload: Record<string, string | boolean>) => Promise<void>;
   logout: () => Promise<void>;
   expireSession: () => void;
   fetchMe: () => Promise<void>;
-  setUser: (partial: Partial<ReelsooUser>) => void;
+  setUser: (partial: Partial<TeezerUser>) => void;
   hasRole: (roles: UserRole[]) => boolean;
   isCreator: () => boolean;
   isAdmin: () => boolean;
@@ -66,18 +66,18 @@ function isSavedAccountExpired(account: SavedAccount) {
 
 function setToken(token: string | null) {
   if (typeof window === "undefined") return;
-  if (token) window.localStorage.setItem("reelsoo_token", token);
-  else window.localStorage.removeItem("reelsoo_token");
+  if (token) window.localStorage.setItem("teezer_token", token);
+  else window.localStorage.removeItem("teezer_token");
 }
 
 function hasStoredToken(): boolean {
-  return typeof window !== "undefined" && Boolean(window.localStorage.getItem("reelsoo_token"));
+  return typeof window !== "undefined" && Boolean(window.localStorage.getItem("teezer_token"));
 }
 
 function getSavedAccounts(): SavedAccount[] {
   if (typeof window === "undefined") return [];
   try {
-    const stored = window.localStorage.getItem("reelsoo_saved_accounts");
+    const stored = window.localStorage.getItem("teezer_saved_accounts");
     const accounts = stored ? JSON.parse(stored) : [];
     return Array.isArray(accounts) ? accounts : [];
   } catch {
@@ -88,7 +88,7 @@ function getSavedAccounts(): SavedAccount[] {
 function setSavedAccounts(accounts: SavedAccount[]) {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem("reelsoo_saved_accounts", JSON.stringify(accounts));
+    window.localStorage.setItem("teezer_saved_accounts", JSON.stringify(accounts));
   } catch {
     // quota exceeded
   }
@@ -120,7 +120,7 @@ function markSavedAccountExpired(accountId: number) {
  *  by the direct login path and the post-2FA challenge path. */
 function finalizeAuthSession(
   set: (partial: Partial<AuthState>) => void,
-  auth: { token: string; expires_at?: string; user: ReelsooUser },
+  auth: { token: string; expires_at?: string; user: TeezerUser },
 ) {
   setToken(auth.token);
   const updated = upsertSavedAccount({
@@ -145,7 +145,7 @@ function finalizeAuthSession(
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
-  token: typeof window !== "undefined" ? window.localStorage.getItem("reelsoo_token") : null,
+  token: typeof window !== "undefined" ? window.localStorage.getItem("teezer_token") : null,
   isAuthenticated: false,
   isLoading: hasStoredToken(),
   authReady: !hasStoredToken(),
@@ -255,7 +255,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   async fetchMe() {
     const token =
       typeof window !== "undefined"
-        ? window.localStorage.getItem("reelsoo_token")
+        ? window.localStorage.getItem("teezer_token")
         : get().token;
     if (!token) {
       set({ authReady: true, isLoading: false, isAuthenticated: false, user: null });
@@ -274,10 +274,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       // against a fresh login was logging people out seconds after logging
       // in - the fresh session was already in place when this old call's
       // 401 arrived and unconditionally wiped it.
-      if (typeof window !== "undefined" && window.localStorage.getItem("reelsoo_token") !== token) return;
+      if (typeof window !== "undefined" && window.localStorage.getItem("teezer_token") !== token) return;
       set({ user, token, isAuthenticated: true, authReady: true });
     } catch {
-      if (typeof window !== "undefined" && window.localStorage.getItem("reelsoo_token") !== token) return;
+      if (typeof window !== "undefined" && window.localStorage.getItem("teezer_token") !== token) return;
       get().expireSession();
     } finally {
       set({ isLoading: false });

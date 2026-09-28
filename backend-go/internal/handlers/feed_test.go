@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"reelsoo/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/sqlc"
 )
 
 func TestComputeFeedScore(t *testing.T) {

@@ -62,7 +62,7 @@ return [
             'group'   => 'music',
             'docs'    => 'https://developer.spotify.com/documentation/web-api',
             // Enrichment only. Spotify audio is never streamed or stored - see
-            // the music system's primary rule: the Reelsoo catalog is the source
+            // the music system's primary rule: the Teezer catalog is the source
             // of truth and Spotify may only decorate it.
             'notes'   => 'Artist images, album art, genres, popularity, external links. Never used for playback.',
             'auth'    => 'oauth_client_credentials',

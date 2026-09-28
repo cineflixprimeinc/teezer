@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Schema;
  * The "affiliate" monetization programme (label "Affiliate Shop": "Earn
  * commissions by promoting products", unlocks "Product Tagging, Affiliate
  * Commission, Sales Analytics") was seeded as a coming_soon placeholder for
- * exactly the idea Reelsoo Shop later became - and then Shop was built as
+ * exactly the idea Teezer Shop later became - and then Shop was built as
  * its own real feature (shops/products/seller_applications tables, its own
  * admin section under /shop) without this placeholder ever being touched or
  * removed. Repurposing it rather than adding a 6th row: the `key` stays
@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Schema;
  *
  * This is purely a config/display change - see
  * SellerApplicationController::show() for where it's read, and note it does
- * NOT gate application submission. Reelsoo Shop's application review stays
+ * NOT gate application submission. Teezer Shop's application review stays
  * exactly what it already is: a human reviewing each application in
  * /shop/applications, same as before this migration.
  */
@@ -44,7 +44,7 @@ return new class extends Migration
         }
 
         DB::table('monetization_programs')->where('key', 'affiliate')->update([
-            'label'        => 'Sell on Reelsoo',
+            'label'        => 'Sell on Teezer',
             'description'  => 'List and sell your own products directly to your audience - a marketplace built into the app.',
             'mode'         => 'enabled',
             'sort_order'   => 2,
@@ -52,7 +52,7 @@ return new class extends Migration
                 ['key' => 'followers',  'label' => 'Followers',            'target' => 1000],
                 ['key' => 'guidelines', 'label' => 'No active violations', 'target' => null],
             ]),
-            'unlocks'    => json_encode(['Reelsoo Shop', 'Product Listings', 'Shop Analytics']),
+            'unlocks'    => json_encode(['Teezer Shop', 'Product Listings', 'Shop Analytics']),
             'updated_at' => now(),
         ]);
 

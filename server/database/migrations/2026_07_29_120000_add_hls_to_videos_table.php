@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Schema;
  * hls/{videoId}/master.m3u8 - a key, not a URL, exactly like video_url and
  * thumbnail_url. Keeping keys in the database means the CDN hostname can change
  * without rewriting every row, and it is why nothing here has to move when
- * media.reelsoo.com becomes cdn.reelsoo.com.
+ * media.teezer.live becomes cdn.teezer.live.
  *
  * hls_status tracks the transcode so the app can tell "still processing" apart
  * from "this video will never have HLS" - a distinction that decides whether

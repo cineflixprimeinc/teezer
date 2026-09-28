@@ -1,11 +1,11 @@
 import { api } from "./api";
 import type { ApiResponse, Paginated } from "@/types/api";
-import type { ReelsooUser } from "@/types/user";
+import type { TeezerUser } from "@/types/user";
 
 export const friendService = {
   /** People who follow {username}. Each item includes `is_following` (does the auth user follow them back). */
   async followers(username: string, page = 1, perPage = 30) {
-    const { data } = await api.get<Paginated<ReelsooUser>>(
+    const { data } = await api.get<Paginated<TeezerUser>>(
       `/users/${username}/followers`,
       { params: { page, per_page: perPage } },
     );
@@ -14,7 +14,7 @@ export const friendService = {
 
   /** People {username} follows. */
   async following(username: string, page = 1, perPage = 30) {
-    const { data } = await api.get<Paginated<ReelsooUser>>(
+    const { data } = await api.get<Paginated<TeezerUser>>(
       `/users/${username}/following`,
       { params: { page, per_page: perPage } },
     );
@@ -23,13 +23,13 @@ export const friendService = {
 
   /** Suggested users to follow (auth required). */
   async suggestions() {
-    const { data } = await api.get<ApiResponse<ReelsooUser[]>>("/users/suggestions");
+    const { data } = await api.get<ApiResponse<TeezerUser[]>>("/users/suggestions");
     return data.data ?? [];
   },
 
   /** Blocked users list for the auth user. */
   async blocked(page = 1) {
-    const { data } = await api.get<Paginated<ReelsooUser>>("/users/blocked", {
+    const { data } = await api.get<Paginated<TeezerUser>>("/users/blocked", {
       params: { page },
     });
     return data;
@@ -38,7 +38,7 @@ export const friendService = {
   /** Search users by name/username. */
   async search(q: string) {
     if (!q.trim()) return [];
-    const { data } = await api.get<ApiResponse<ReelsooUser[]>>("/users/search", {
+    const { data } = await api.get<ApiResponse<TeezerUser[]>>("/users/search", {
       params: { q: q.trim() },
     });
     return data.data ?? [];

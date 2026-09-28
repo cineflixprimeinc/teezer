@@ -11,12 +11,12 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ads.teezer.live/">
 <meta property="og:site_name" content="Teezer Ads">
-<meta property="og:image" content="https://ads.teezer.live/reelsoostudioadslogo.png">
+<meta property="og:image" content="https://ads.teezer.live/teezer-logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Teezer - Grow Your Business with Teezer Ads.">
 <meta name="twitter:description" content="Reach millions of engaged users across the Teezer App and Web with powerful AI-powered advertising. Create campaigns, target the right audience, optimize performance, and turn every scroll into measurable business growth.">
-<meta name="twitter:image" content="https://ads.teezer.live/reelsoostudioadslogo.png">
-<link rel="icon" type="image/png" href="/reelsooadslogo.png">
+<meta name="twitter:image" content="https://ads.teezer.live/teezer-logo.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -92,7 +92,7 @@
 <!-- NAV -->
 <nav style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 15px 44px; background: rgba(253,252,251,0.82); backdrop-filter: blur(16px); border-bottom: 1px solid #f0eeeb;">
   <div style="display: flex; align-items: center; flex-shrink: 0;">
-    <a href="/" style="display: flex; align-items: center;"><img src="/reelsoostudioadslogo.png" alt="Teezer Ads" style="height: 32px; width: auto; display: block;"></a>
+    <a href="/" style="display: flex; align-items: center;"><img src="/teezer-logo.png" alt="Teezer Ads" style="height: 32px; width: auto; display: block;"></a>
   </div>
   <div style="display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 600; color: #5b5f6b; white-space: nowrap;">
     <a href="#top" style="color: var(--pink, #f31e5e); font-weight: 700;">Overview</a>
@@ -511,8 +511,8 @@
 </script>
 
 <!-- ── Auth popup ──────────────────────────────────────────────────────────
-     Log in / Get Started open the SAME Reelsoo login/signup modal used on
-     reelsoo.com, loaded in a transparent same-origin iframe (/ads-login).
+     Log in / Get Started open the SAME Teezer login/signup modal used on
+     teezer.live, loaded in a transparent same-origin iframe (/ads-login).
      Progressive enhancement: if JS is off the anchors still open /ads-manager. -->
 <div id="rs-auth-overlay" style="position:fixed; inset:0; z-index:2147483000;">
   <!-- Dark backdrop under the (transparent) iframe; clicking it closes. -->
@@ -583,8 +583,8 @@
   window.addEventListener('message', function(e){
     if (e.origin !== window.location.origin) return;
     var t = e.data && e.data.type;
-    if (t === 'reelsoo-auth-success'){ closeAuth(); window.location.assign('/ads-manager'); }
-    else if (t === 'reelsoo-auth-close'){ closeAuth(); }
+    if (t === 'teezer-auth-success'){ closeAuth(); window.location.assign('/ads-manager'); }
+    else if (t === 'teezer-auth-close'){ closeAuth(); }
   });
 
   document.addEventListener('keydown', function(e){

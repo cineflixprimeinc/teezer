@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Per-country signup/login access control - the "REELSOO COUNTRY
+ * Per-country signup/login access control - the "TEEZER COUNTRY
  * AVAILABILITY" admin page's backing table. See
  * App\Services\CountryAvailabilityService for the policy engine that reads
  * this; App\Http\Controllers\Api\Admin\AdminCountryAvailabilityController

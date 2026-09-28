@@ -54,7 +54,7 @@ to, guarded by a subscription token - noted, not default.
 - `POST /presence` `{user_ids}` → `{online:number[]}` (replaces `presence:get`).
   Source of truth = **Centrifugo presence** (query the `user:<id>` channel presence API)
   + the **privacy filter** (`activity_status` + mutual-follow) ported from the
-  chat-server. Removes the `rsoo:online:*` Redis bookkeeping.
+  chat-server. Removes the `teezer:online:*` Redis bookkeeping.
 - Live `presence:update`: use Centrifugo's **connect proxy** → `POST /realtime/connected`
   in Laravel, which publishes `presence:update` to the connecting user's allowed DM
   partners (privacy-filtered). Offline handled by Centrifugo presence expiry + the

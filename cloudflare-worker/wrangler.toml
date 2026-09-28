@@ -14,7 +14,7 @@ routes = [
 # No storage binding. Objects live in Backblaze B2, which has no Workers
 # binding, so the Worker signs an HTTPS request per object instead (SigV4, see
 # src/index.js). The former [[r2_buckets]] binding and the [[queues.consumers]]
-# block for reelsoo-transcoding are both gone with R2:
+# block for teezer-transcoding are both gone with R2:
 #
 #   • the R2 bucket binding has no B2 equivalent
 #   • the queue was fed exclusively by R2 upload events, so it can never receive

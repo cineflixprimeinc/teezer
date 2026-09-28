@@ -23,7 +23,7 @@ services:
     container_name: teezer-clickhouse
     restart: unless-stopped
     environment:
-      CLICKHOUSE_DB: ${CLICKHOUSE_DB:-reelsoo}
+      CLICKHOUSE_DB: ${CLICKHOUSE_DB:-teezer}
       CLICKHOUSE_USER: ${CLICKHOUSE_USER:-teezer}
       CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:?set CLICKHOUSE_PASSWORD in .env}
       # Make the app user a plain user, not an admin - it only ever needs to

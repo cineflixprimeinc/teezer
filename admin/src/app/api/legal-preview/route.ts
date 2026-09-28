@@ -27,7 +27,7 @@ export async function GET(req: NextRequest) {
 
   try {
     const res = await fetch(`${FRONTEND_URL}${path}`, {
-      headers: { "User-Agent": "Reelsoo-Admin-Preview" },
+      headers: { "User-Agent": "Teezer-Admin-Preview" },
       // Short cache - this is a reference preview, not the live page itself.
       next: { revalidate: 120 },
     });

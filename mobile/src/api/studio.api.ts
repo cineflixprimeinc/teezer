@@ -125,7 +125,7 @@ export type PayoutInfo = {
   pending_balance: number;
   lifetime_earnings: number;
   minimum_withdraw: number;
-  /** Reelsoo's cut, applied at WITHDRAWAL - gifts credit in full. Optional so
+  /** Teezer's cut, applied at WITHDRAWAL - gifts credit in full. Optional so
    *  the app still renders against a server that predates the field. */
   commission_rate?: number;
   /** Coins per USD, set by the admin. Optional for the same reason. */
@@ -273,7 +273,7 @@ export const studioApi = {
     hashtags?: string[]; status?: ContentStatus; scheduled_at?: string;
     allow_comments?: boolean; allow_duet?: boolean; allow_stitch?: boolean; allow_download?: boolean;
     is_ai_generated?: boolean; tagged_user_ids?: number[]; collab_user_ids?: number[];
-    /** "Add link" -> Reelsoo Product - same omitted-means-unchanged contract
+    /** "Add link" -> Teezer Product - same omitted-means-unchanged contract
      *  as every other field here; send [] to clear an existing selection. */
     product_ids?: number[];
   }) =>
@@ -297,7 +297,7 @@ export const studioApi = {
   /**
    * GET /studio/ad-account - the server ad account. We use it for the PERMANENT,
    * cross-surface Ad Account number (ACCT-…): the same id the website
-   * (ads.reelsoo.com) and the admin console show, so the app no longer displays a
+   * (ads.teezer.live) and the admin console show, so the app no longer displays a
    * device-local id that differs everywhere else.
    */
   adAccount: () =>

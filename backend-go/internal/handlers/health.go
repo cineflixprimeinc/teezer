@@ -8,8 +8,8 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/jackc/pgx/v5/pgxpool"
 
-	"reelsoo/backend-go/internal/breaker"
-	"reelsoo/backend-go/internal/clickhouse"
+	"teezer/backend-go/internal/breaker"
+	"teezer/backend-go/internal/clickhouse"
 )
 
 // Health reports process liveness plus analytics ingestion counters.
@@ -49,7 +49,7 @@ func Health(pool *pgxpool.Pool, events *clickhouse.Writer, breakers ...Breakers)
 		// `status`. An open circuit on an optional dependency means the
 		// knowledge card is quietly absent or the bot check is being skipped -
 		// this process is healthy and must keep taking traffic. Reporting
-		// otherwise would have a Wikimedia outage pull Reelsoo's own API out
+		// otherwise would have a Wikimedia outage pull Teezer's own API out
 		// of the load balancer, which is the cascading failure the breakers
 		// exist to prevent.
 		circuits := make([]breaker.Stats, 0, len(breakers))

@@ -4,7 +4,7 @@ const baseURL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1
 
 // withCredentials, not a manually-attached Authorization header from
 // localStorage: the session lives in an httpOnly cookie the API sets on
-// login (reelsoo_admin_session), which JS can never read - a fix for the
+// login (teezer_admin_session), which JS can never read - a fix for the
 // admin token previously being readable by anything running on the page
 // (any XSS bug anywhere in this app -> full admin-token theft, no barrier
 // at all). The browser attaches the cookie to every request to this API
@@ -16,7 +16,7 @@ export const api = axios.create({
   // (ApiAuthController::isAdminClient). Purely a UX switch: the actual
   // guarantee is on the token, which only a cleared challenge marks as
   // 2FA-verified, so forging this header elsewhere buys nothing.
-  headers: { Accept: "application/json", "X-Client": "reelsoo-admin" },
+  headers: { Accept: "application/json", "X-Client": "teezer-admin" },
   withCredentials: true,
 });
 
@@ -52,7 +52,7 @@ api.interceptors.response.use(
       ) {
         // The account has 2FA, but THIS session never cleared a challenge -
         // e.g. signed in on the website, where 2FA is not asked for, and the
-        // shared .reelsoo.com cookie carried that token here. Only a fresh
+        // shared .teezer.live cookie carried that token here. Only a fresh
         // sign-in through this panel produces a 2FA-verified token, so send
         // them to log in rather than to /security, which would wrongly offer to
         // set up 2FA they already have.

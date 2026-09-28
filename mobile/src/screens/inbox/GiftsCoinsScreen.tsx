@@ -314,7 +314,7 @@ function amountOf(t: WalletTransaction): { text: string; tone: "up" | "down" | "
  *   Sent      - the same, the other way round.
  *
  * Payouts is NOT a tab: it lives in a different system (creator_wallets), it is
- * a schedule rather than a list of coin movements, and it is where Reelsoo's
+ * a schedule rather than a list of coin movements, and it is where Teezer's
  * commission is now applied - so it belongs on the withdrawal screen behind the
  * Withdraw button, not as a filter over this ledger.
  */

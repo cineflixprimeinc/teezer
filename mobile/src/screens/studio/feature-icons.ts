@@ -9,7 +9,7 @@ import {
 /**
  * Mirrors the server's curated icon set (MonetizationProgram::FEATURE_ICONS)
  * exactly, name for name - an admin's `features[].icon` string is looked up
- * here to render a programme's bullet icons (Gifts & Coins, Sell on Reelsoo,
+ * here to render a programme's bullet icons (Gifts & Coins, Sell on Teezer,
  * Creator Rewards). An unrecognised name (the server should never send one,
  * but a stale client or a future icon added only server-side could) falls
  * back to Star rather than rendering nothing.

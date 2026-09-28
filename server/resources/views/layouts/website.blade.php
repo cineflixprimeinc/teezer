@@ -4,7 +4,7 @@
     {{-- Website Navigation --}}
     <nav class="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 py-3 bg-black/80 backdrop-blur-sm border-b border-white/10">
         <a href="{{ route('home') }}" class="flex items-center gap-2">
-            <img src="{{ asset('reelsoo-mark.svg') }}" alt="Teezer" class="h-8 w-auto">
+            <img src="{{ asset('teezer-mark.svg') }}" alt="Teezer" class="h-8 w-auto">
         </a>
         <div class="flex items-center gap-4">
             @auth

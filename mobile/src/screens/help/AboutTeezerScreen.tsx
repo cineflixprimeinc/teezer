@@ -54,10 +54,10 @@ const SOCIALS: Social[] = [
 ];
 
 /**
- * About Reelsoo - opened from the three-dot menu › About Reelsoo. Info cards
+ * About Teezer - opened from the three-dot menu › About Teezer. Info cards
  * open a detail popup; social icons and legal links are wired.
  */
-export function AboutReelsooScreen() {
+export function AboutTeezerScreen() {
   const navigation = useNavigation<any>();
   const [openFeature, setOpenFeature] = useState<Feature | null>(null);
   const version = (Constants.expoConfig as { version?: string } | null)?.version ?? "1.0.0";

@@ -23,7 +23,7 @@ const (
 )
 
 // ProcessingWriter batches ProcessingEvents and flushes them to
-// reelsoo.video_processing_events from a single background goroutine - the
+// teezer.video_processing_events from a single background goroutine - the
 // exact same shape as Writer (writer.go), duplicated rather than
 // generalized because the two event types and tables are genuinely
 // different, not because the batching logic itself differs. A nil
@@ -161,7 +161,7 @@ func (w *ProcessingWriter) flush(events []ProcessingEvent) {
 	// with both each other and the DDL in
 	// deploy/clickhouse/schema/03-video-processing-events.sql.
 	batch, err := w.conn.PrepareBatch(ctx, `
-		INSERT INTO reelsoo.video_processing_events (
+		INSERT INTO teezer.video_processing_events (
 			event_time, event_type, video_id, user_id,
 			provider, attempt, duration_ms, error_code, payload
 		)`)

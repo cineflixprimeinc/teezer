@@ -225,7 +225,7 @@ return new class extends Migration
             ['immortal-rose', 'Immortal Rose', 89999, 899.99, '/gifts/197-immortal-rose.svg', 197],
             ['infinity-heart', 'Infinity Heart', 89999, 899.99, '/gifts/198-infinity-heart.svg', 198],
             ['king-crown', "King's Crown", 159999, 1599.99, '/gifts/199-king-crown.svg', 199],
-            ['reelsoo-throne', 'Reelsoo Throne', 200000, 2000.00, '/gifts/200-reelsoo-throne.svg', 200],
+            ['teezer-throne', 'Teezer Throne', 200000, 2000.00, '/gifts/200-teezer-throne.svg', 200],
     ];
 
     public function up(): void

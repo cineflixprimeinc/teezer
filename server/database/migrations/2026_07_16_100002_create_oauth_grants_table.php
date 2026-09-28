@@ -5,8 +5,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Per-user consent grant for an internal Reelsoo client (e.g. "ads"). Records the
- * one-time "Reelsoo Ads wants to access your Reelsoo Account" authorization so the
+ * Per-user consent grant for an internal Teezer client (e.g. "ads"). Records the
+ * one-time "Teezer Ads wants to access your Teezer Account" authorization so the
  * consent screen is shown only once. Modeled on social_accounts' idempotency.
  */
 return new class extends Migration

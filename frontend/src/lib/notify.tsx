@@ -33,7 +33,7 @@ function TitleWithTime({ children }: { children: ReactNode }) {
   return (
     <span className="flex w-full items-center justify-between gap-3">
       <span>{children}</span>
-      <span className="reelsoo-toast-time">Just now</span>
+      <span className="teezer-toast-time">Just now</span>
     </span>
   );
 }
@@ -55,7 +55,7 @@ function show(kind: keyof typeof CATEGORY, title: string, opts?: { description?:
   sonnerToast(<TitleWithTime>{title}</TitleWithTime>, {
     description: opts?.description,
     icon: <NotifyIconChip Icon={c.Icon} bg={c.color} />,
-    style: { "--reelsoo-toast-accent": c.color } as CSSProperties,
+    style: { "--teezer-toast-accent": c.color } as CSSProperties,
   });
 }
 

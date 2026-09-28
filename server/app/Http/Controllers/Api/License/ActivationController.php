@@ -8,11 +8,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 /**
- * Public endpoint behind reelsoo.com/activate-license.
+ * Public endpoint behind teezer.live/activate-license.
  *
  * Unauthenticated on purpose: the purchase code IS the credential, and the
- * person redeeming it has no Reelsoo account and must not need one. Section 23
- * of the spec is explicit that the licence system stays independent of Reelsoo
+ * person redeeming it has no Teezer account and must not need one. Section 23
+ * of the spec is explicit that the licence system stays independent of Teezer
  * user auth - a buyer's licence username is an ownership label, not a social
  * account, and redeeming a code must never create one.
  *

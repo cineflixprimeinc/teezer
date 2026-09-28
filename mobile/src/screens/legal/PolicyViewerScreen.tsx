@@ -13,7 +13,7 @@ import { font, spacing } from "@/constants/theme";
  * Guidelines). Registered as a native-stack MODAL screen so it stacks
  * correctly on top of the login/signup modals - a plain RN <Modal> cannot
  * present over an already-presented native modal on iOS (it fails silently),
- * which is exactly where these links live. Renders the live reelsoo.com page
+ * which is exactly where these links live. Renders the live teezer.live page
  * in a WebView so the app never ships a stale copy.
  */
 export function PolicyViewerScreen() {
@@ -25,8 +25,8 @@ export function PolicyViewerScreen() {
   const preset = POLICIES[key] ?? POLICIES.privacy;
   const rawUrl: string = route.params?.url ?? preset.url;
   const title: string = route.params?.title ?? preset.title;
-  // Tells the website's own page header to drop its "Back to Reelsoo" link -
-  // it would navigate this WebView to reelsoo.com/, not close the app's own
+  // Tells the website's own page header to drop its "Back to Teezer" link -
+  // it would navigate this WebView to teezer.live/, not close the app's own
   // modal (the X above already does that), and it doesn't make sense inside
   // an in-app popup either way. The live website, opened normally in a real
   // browser, is unaffected - it never sends this param.

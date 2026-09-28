@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::table('videos', function (Blueprint $table) {
             // Stores which sound type is the clickable main sound for this video.
-            // library_music = user selected a track from the Reelsoo library.
+            // library_music = user selected a track from the Teezer library.
             // original_audio = video's own embedded audio becomes the sound page.
             $table->enum('audio_type', ['library_music', 'original_audio'])
                 ->nullable()

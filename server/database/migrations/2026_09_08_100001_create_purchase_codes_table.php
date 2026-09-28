@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 /**
  * Marketplace purchase codes - the thing a buyer receives from the marketplace
- * and redeems at reelsoo.com/activate-license.
+ * and redeems at teezer.live/activate-license.
  *
  * The spec's minimum table set (licenses / license_activations /
  * license_audit_logs / license_releases) has no home for "which codes are

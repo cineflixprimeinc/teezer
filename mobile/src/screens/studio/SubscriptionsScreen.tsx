@@ -11,7 +11,7 @@ import { colors } from "@/constants/colors";
 import { font, radius, spacing } from "@/constants/theme";
 
 /**
- * Reelsoo Studio -> Monetization -> Subscriptions. Replaces the generic
+ * Teezer Studio -> Monetization -> Subscriptions. Replaces the generic
  * requirements-checklist template (StudioProgrammeScreen) for this one
  * programme, same reasoning and same pattern as Gifts & Coins/Creator
  * Rewards opening their own dedicated screens instead of it - see

@@ -56,13 +56,13 @@ class MusicLibraryController extends Controller
             $q->where('featured', true)->latest();
         } elseif ($category === 'recommended') {
             $q->where('recommended', true)->latest();
-        } elseif ($category === 'reelsoo_originals') {
+        } elseif ($category === 'teezer_originals') {
             $q->where(fn ($sq) =>
-                $sq->where('artist_name', 'ilike', '%reelsoo%')
+                $sq->where('artist_name', 'ilike', '%teezer%')
                    ->orWhereNotNull('created_by_admin_id')
             )->latest();
         } elseif ($category === 'artist_originals') {
-            $q->where('artist_name', 'not ilike', '%reelsoo%')
+            $q->where('artist_name', 'not ilike', '%teezer%')
               ->whereNull('created_by_admin_id')
               ->latest();
         } elseif (in_array($category, ['hip_hop','electronic','rock','jazz','rnb','classical','indie','nepali','pop'], true)) {

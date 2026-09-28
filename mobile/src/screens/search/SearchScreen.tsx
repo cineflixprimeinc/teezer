@@ -40,7 +40,7 @@ import { KnowledgeCard } from "@/components/KnowledgeCard";
  * typed into a search box is not something to invent silently.
  */
 
-const RECENTS_KEY = "reelsoo:search:recents";
+const RECENTS_KEY = "teezer:search:recents";
 const MAX_RECENTS = 8;
 const HAIRLINE = "#EFECF1";
 const FILL = "#F1EFF3";
@@ -444,12 +444,12 @@ export function SearchScreen() {
             contentContainerStyle={styles.pad}
           >
             {/*
-              Wikipedia context, above the Reelsoo results as specified.
+              Wikipedia context, above the Teezer results as specified.
               Deliberately outside the loading/error/empty branches below: it
               fetches on its own clock and renders nothing when the query is
-              not a real-world topic, so it must neither wait on Reelsoo's
+              not a real-world topic, so it must neither wait on Teezer's
               search nor disappear while that is loading. It also still shows
-              when Reelsoo has no results, which is exactly when a user most
+              when Teezer has no results, which is exactly when a user most
               wants some context for what they typed.
             */}
             {!tooShort && (

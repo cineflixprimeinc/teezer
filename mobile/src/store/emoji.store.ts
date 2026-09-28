@@ -21,7 +21,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
  * table on the JS thread while the picker is animating.
  */
 
-const KEY = "reelsoo.emoji.usage.v1";
+const KEY = "teezer.emoji.usage.v1";
 const MAX_RECENT = 40;
 /** Cap the table so it cannot grow without bound on a heavy account. */
 const MAX_TRACKED = 250;

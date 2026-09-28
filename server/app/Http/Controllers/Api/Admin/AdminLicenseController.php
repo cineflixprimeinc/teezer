@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 /**
- * Backend for the "Reelsoo Code Purchase / License Management" admin section.
+ * Backend for the "Teezer Code Purchase / License Management" admin section.
  *
  * Access is enforced SERVER-SIDE in three stacked layers, none of which a
  * browser can influence:
@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\DB;
  *   3. permission:manage_licenses - the per-admin grant added to
  *      App\Support\AdminPermissions
  *
- * An ordinary Reelsoo user therefore cannot reach any of this, and neither can
+ * An ordinary Teezer user therefore cannot reach any of this, and neither can
  * an admin who has not been granted the licence permission. The frontend guard
  * is convenience only; this is the boundary.
  *

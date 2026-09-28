@@ -331,7 +331,7 @@ class PremiumController extends Controller
          * pill's sentence is about the count beside them, and the count is
          * governed separately by premium_social_proof_count. If that reading
          * ever feels too loose, the honest fix is to reword the sentence -
-         * "Join creators on Reelsoo Premium" - not to invent subscribers.
+         * "Join creators on Teezer Premium" - not to invent subscribers.
          */
         $ids = $subscribers;
         if (count($ids) < 4) {

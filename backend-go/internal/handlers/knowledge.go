@@ -12,8 +12,8 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 
-	"reelsoo/backend-go/internal/knowledge"
-	"reelsoo/backend-go/internal/ratelimit"
+	"teezer/backend-go/internal/knowledge"
+	"teezer/backend-go/internal/ratelimit"
 )
 
 type KnowledgeHandler struct {

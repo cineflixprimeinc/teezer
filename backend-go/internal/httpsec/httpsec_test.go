@@ -60,7 +60,7 @@ func TestHeadersOnAllResponseKinds(t *testing.T) {
 func TestErrorHandlerHidesInternalDetail(t *testing.T) {
 	app := newApp()
 	app.Get("/boom", func(c *fiber.Ctx) error {
-		return errors.New("pq: password authentication failed for user \"reelsoo\"")
+		return errors.New("pq: password authentication failed for user \"teezer\"")
 	})
 
 	resp, err := app.Test(httptest.NewRequest("GET", "/boom", nil))
@@ -76,7 +76,7 @@ func TestErrorHandlerHidesInternalDetail(t *testing.T) {
 	raw, _ := io.ReadAll(resp.Body)
 	body := string(raw)
 
-	for _, leak := range []string{"password", "reelsoo", "pq:"} {
+	for _, leak := range []string{"password", "teezer", "pq:"} {
 		if strings.Contains(strings.ToLower(body), leak) {
 			t.Errorf("response leaks %q: %s", leak, body)
 		}

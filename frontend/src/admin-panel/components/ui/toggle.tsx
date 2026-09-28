@@ -5,7 +5,7 @@ import { cn } from "@/admin-panel/lib/utils";
 /**
  * Same switch markup every admin settings page already hand-rolls inline
  * (see settings/page.tsx, settings/integrations/page.tsx) - factored out
- * here only because Global Reelsoo Control needs ~35 of them on one page,
+ * here only because Global Teezer Control needs ~35 of them on one page,
  * not to change how it looks anywhere else.
  */
 export function Toggle({

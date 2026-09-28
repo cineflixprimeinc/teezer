@@ -187,7 +187,7 @@ export function FindFriendsScreen() {
     if (key === "nearby") comingSoon("Nearby friends");
     else if (key === "contacts") setTab("contacts");
     else if (key === "facebook") setTab("facebook");
-    // Reelsoo suggestions → dedicated page listing every account the
+    // Teezer suggestions → dedicated page listing every account the
     // recommendation engine picked.
     else navigation.navigate("SuggestedAccounts");
   };

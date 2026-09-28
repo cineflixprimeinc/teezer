@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Backend enforcement for Global Reelsoo Control (Admin > Settings > Global
- * Reelsoo Control). Registered globally on the `api` middleware group in
+ * Backend enforcement for Global Teezer Control (Admin > Settings > Global
+ * Teezer Control). Registered globally on the `api` middleware group in
  * bootstrap/app.php, so it sees every API request regardless of client or
  * app version - the spec's "old app compatibility" and "cannot be bypassed
  * by a direct API call" requirements are satisfied by running here, not by

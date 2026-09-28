@@ -21,7 +21,7 @@ const ConsumerDurableName = "centrifugo-bridge"
 // outlast MaxDeliver retries comfortably - 10 minutes is generous.
 const dedupeTTL = 10 * time.Minute
 
-// Consumer pulls Phase-1 events off the REELSOO_EVENTS stream and bridges
+// Consumer pulls Phase-1 events off the TEEZER_EVENTS stream and bridges
 // each to Centrifugo. Idempotent: every event id is checked against a dedupe
 // store before broadcasting, so an at-least-once redelivery (a crash between
 // broadcast and Ack, for instance) never double-fires a client-visible event.
@@ -51,7 +51,7 @@ func (c *Consumer) Run(ctx context.Context) {
 
 	cons, err := c.js.CreateOrUpdateConsumer(ctx, StreamName, jetstream.ConsumerConfig{
 		Durable:       ConsumerDurableName,
-		Description:   "Bridges Reelsoo interaction events to Centrifugo for live client fan-out.",
+		Description:   "Bridges Teezer interaction events to Centrifugo for live client fan-out.",
 		FilterSubject: SubjectPrefix + ">",
 		AckPolicy:     jetstream.AckExplicitPolicy,
 		AckWait:       30 * time.Second,

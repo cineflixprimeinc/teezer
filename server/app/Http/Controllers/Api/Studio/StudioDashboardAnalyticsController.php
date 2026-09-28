@@ -15,7 +15,7 @@ use App\Services\StorageService;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * The Reelsoo Studio analytics dashboard (web).
+ * The Teezer Studio analytics dashboard (web).
  *
  * This is a SEPARATE endpoint from StudioAnalyticsController::overview, which the
  * mobile app still consumes. Changing that response shape underneath a shipped

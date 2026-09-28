@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ─────────────────────────────────────────────────────────────────────────────
-# Reelsoo VPS Security Hardening Script
+# Teezer VPS Security Hardening Script
 # Run as root on Ubuntu/Debian: bash vps-security-setup.sh
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
@@ -163,4 +163,4 @@ echo "  4. Security → DDoS → HTTP DDoS Attack Protection → High"
 echo "  5. SSL/TLS → Mode → Full (Strict)"
 echo "  6. SSL/TLS → Edge Certificates → Always Use HTTPS → ON"
 echo "  7. Speed → Optimization → HTTP/2 → ON"
-echo "  8. Workers → deploy cloudflare-security-worker.js → route: *.reelsoo.com/*"
+echo "  8. Workers → deploy cloudflare-security-worker.js → route: *.teezer.live/*"

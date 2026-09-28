@@ -35,7 +35,7 @@ class SignedFilesystemAdapter extends AwsS3V3Adapter
     {
         // Some older rows store a full absolute URL rather than an object key -
         // music cover_url is the main offender. Prefixing the CDN host onto one
-        // of those produced "cdn.reelsoo.com/https://media.reelsoo.com/...",
+        // of those produced "cdn.<host>/https://media.<host>/...",
         // which is a 404, and passing it through unchanged is a 403 because the
         // host it names now requires a token. Recovering the key and signing it
         // repairs both without a data migration.
@@ -71,7 +71,7 @@ class SignedFilesystemAdapter extends AwsS3V3Adapter
         if ($bucket !== '' && str_starts_with($key, "file/{$bucket}/")) {
             $key = substr($key, strlen("file/{$bucket}/"));
         } elseif ($this->isLegacyMediaHost((string) parse_url($path, PHP_URL_HOST))) {
-            // Rows restored from the legacy (reelsoo.com) database may carry
+            // Rows restored from the legacy (source platform) database may carry
             // B2's /file/{bucket}/ prefix for a bucket name that is not ours.
             // Strip whichever bucket name is there so the key resolves in the
             // current bucket and is re-served through our own MEDIA_URL.
@@ -82,15 +82,21 @@ class SignedFilesystemAdapter extends AwsS3V3Adapter
     }
 
     /**
-     * Hosts that absolute URLs in legacy rows can name: the old reelsoo.com
-     * media hosts (cdn./media.) and B2's own download hosts.
+     * Hosts that absolute URLs in legacy rows can name: the source platform's
+     * media hosts (services.media.legacy_domains, apex + any subdomain such as
+     * cdn./media.) and B2's own download hosts.
      */
     private function isLegacyMediaHost(string $host): bool
     {
         $host = strtolower($host);
 
-        return $host === 'reelsoo.com'
-            || str_ends_with($host, '.reelsoo.com')
-            || str_ends_with($host, '.backblazeb2.com');
+        foreach ((array) config('services.media.legacy_domains', []) as $domain) {
+            $domain = strtolower((string) $domain);
+            if ($domain !== '' && ($host === $domain || str_ends_with($host, '.' . $domain))) {
+                return true;
+            }
+        }
+
+        return str_ends_with($host, '.backblazeb2.com');
     }
 }

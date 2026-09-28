@@ -3,8 +3,8 @@
 Teezer is an **independent** deployment. It has its own servers, its own
 PostgreSQL database (seeded once from a dump of the source platform), its own
 Backblaze B2 buckets, Redis, Centrifugo, LiveKit and Cloudflare zone. After the
-one-time data copy described below, **nothing in Teezer talks to Reelsoo
-infrastructure** - no SSH, no database link, no licence/update server, no shared
+one-time data copy described below, **nothing in Teezer talks to the source
+platform's infrastructure** - no SSH, no database link, no licence/update server, no shared
 bucket, no shared API keys.
 
 Security rules for the whole runbook:
@@ -12,8 +12,8 @@ Security rules for the whole runbook:
 - Never paste passwords, keys or `.env` contents into chat, commits, tickets or screenshots.
 - Real `.env` files live only on the servers. Only `.env.example` files (and the
   public-only `frontend/.env.production`, `admin/.env.production`) are committed.
-- Nothing in this repository may hold Reelsoo credentials or connect to Reelsoo
-  hosts. The Reelsoo-only ops scripts are parked, disabled, in `deploy/reelsoo-legacy/`.
+- Nothing in this repository may hold source-platform credentials or connect to
+  source-platform hosts.
 
 | | |
 |---|---|
@@ -67,8 +67,8 @@ Config files, all in `deploy/`:
 | LiveKit | `deploy/livekit/` + `deploy/nginx/teezer-livekit.conf` |
 | ClickHouse | `deploy/clickhouse/` (optional) |
 | pm2 | `deploy/pm2/ecosystem.config.js` (VPS1), `ecosystem.worker.config.js` (VPS2) |
-| DB restore | `deploy/db/restore-reelsoo-dump.sh`, `deploy/db/post-restore-teezer.sql` |
-| Media copy | `deploy/b2-migration/copy-reelsoo-to-teezer.sh` |
+| DB restore | `deploy/db/restore-db-dump.sh`, `deploy/db/post-restore-teezer.sql`, `deploy/db/rename-brand-values.sql` |
+| Media copy | `deploy/b2-migration/copy-media.sh` |
 | Redeploy | `deploy/vps-deploy.sh` (on VPS1), `deploy_photo.py` (from an operator PC) |
 
 Internal ports are kept identical to the source platform's; confirm each is free
@@ -156,7 +156,7 @@ curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && apt install -y node
 Clone the Teezer repository to `/var/www/teezer` on both boxes.
 
 **Outbound block of the source platform (recommended, both boxes)** - makes it
-physically impossible for anything on Teezer to reach Reelsoo hosts:
+physically impossible for anything on Teezer to reach the source platform servers:
 
 ```bash
 nft add table inet teezer_guard
@@ -175,18 +175,18 @@ for the source platform and never connect to it.
 
 1. **On the source server (operator, read-only):**
    ```bash
-   pg_dump -Fc --no-owner --no-acl -d <source_db> -f /root/reelsoo.dump
-   sha256sum /root/reelsoo.dump
+   pg_dump -Fc --no-owner --no-acl -d <source_db> -f /root/source.dump
+   sha256sum /root/source.dump
    ```
    `pg_dump` reads a consistent snapshot and does not block writers.
 2. **Transfer:** the operator downloads the file to their own machine, then
-   uploads it to Teezer VPS1 (`scp reelsoo.dump root@77.237.242.249:/root/`),
+   uploads it to Teezer VPS1 (`scp source.dump root@77.237.242.249:/root/`),
    and checks the sha256 matches. Delete intermediate copies afterwards - the
    dump contains user data.
 3. **Restore on VPS1:**
    ```bash
    cd /var/www/teezer
-   sudo bash deploy/db/restore-reelsoo-dump.sh /root/reelsoo.dump
+   sudo bash deploy/db/restore-db-dump.sh /root/source.dump
    sudo -u postgres psql -c '\password teezer'
    ```
    The script creates role and database `teezer`, refuses to touch an existing
@@ -197,7 +197,9 @@ for the source platform and never connect to it.
    clear the licensing tables, revoke all `personal_access_tokens` and sessions,
    wipe `integration_settings` credentials, mail/social-login secrets in
    `app_settings`, payment secrets in `admin_coin_settings`, and - after the
-   media copy - rewrite absolute `reelsoo.com` media URLs to `cdn.teezer.live`.
+   media copy - rewrite absolute source-platform media URLs to `cdn.teezer.live`.
+   Then run `deploy/db/rename-brand-values.sql` (idempotent) to convert
+   brand-named values the code compares against.
 5. **Migrations:** check only - `cd server && php artisan migrate:status`.
    Running `php artisan migrate` is a deliberate operator decision taken after a
    backup (`deploy/vps-deploy.sh --migrate`). Never run `db:seed` on this database.
@@ -313,7 +315,7 @@ WantedBy=multi-user.target
   `deploy/nginx/teezer-livekit.conf`. On VPS1 install
   `deploy/livekit/teezer-livekit-tunnel.service`.
 - ClickHouse (optional): `deploy/clickhouse/`. The ClickHouse database name
-  stays `reelsoo` (hardcoded in backend-go); the user is `teezer`.
+  is `teezer` (hardcoded in backend-go); the user is `teezer`.
 
 ---
 
@@ -322,16 +324,16 @@ WantedBy=multi-user.target
 1. Create Teezer's **own** B2 buckets (media + private documents), both
    **Private**, and Teezer application keys scoped to them.
 2. Copy existing media from the source bucket, read-only, with
-   `deploy/b2-migration/copy-reelsoo-to-teezer.sh`. On the operator machine,
-   configure rclone remotes `reelsoo-ro` (a **read-only** key issued by the
+   `deploy/b2-migration/copy-media.sh`. On the operator machine,
+   configure rclone remotes `source-ro` (a **read-only** key issued by the
    source owner) and `teezer-b2` (Teezer key). Then:
    ```bash
-   SRC_BUCKET=<source> DST_BUCKET=<teezer> ./copy-reelsoo-to-teezer.sh          # dry run
-   SRC_BUCKET=<source> DST_BUCKET=<teezer> ./copy-reelsoo-to-teezer.sh --run
-   SRC_BUCKET=<source> DST_BUCKET=<teezer> ./copy-reelsoo-to-teezer.sh --check
+   SRC_BUCKET=<source> DST_BUCKET=<teezer> ./copy-media.sh          # dry run
+   SRC_BUCKET=<source> DST_BUCKET=<teezer> ./copy-media.sh --run
+   SRC_BUCKET=<source> DST_BUCKET=<teezer> ./copy-media.sh --check
    ```
    Repeat for the private bucket. The script only ever uses `rclone copy`.
-   Once done, delete the `reelsoo-ro` remote from the operator machine.
+   Once done, delete the `source-ro` remote from the operator machine.
 3. **Bucket CORS** (browser uploads go straight to B2): allow origins
    `https://teezer.live`, `https://www.teezer.live`, `https://backend.teezer.live`,
    methods `GET, HEAD, PUT`, headers `*`, expose `ETag`. Easiest:
@@ -347,9 +349,9 @@ WantedBy=multi-user.target
 
 - Licensing is **disabled**: `LICENSE_SERVER_ENABLED=false`,
   `LICENSING_CLIENT_ENABLED=false`, `LICENSE_SERVER_URL=` (empty).
-- **Never install `bin/reelsoo`** (the marketplace updater) or run
+- **Never install `bin/teezer`** (the marketplace updater) or run
   `install/install.sh` on Teezer servers. Both are inherited marketplace tools;
-  they now refuse to run without an explicit non-Reelsoo `LICENSE_SERVER_URL`,
+  they now refuse to run without an explicit `LICENSE_SERVER_URL`,
   and they must never be pointed at the source platform's licence/update server.
 
 ---
@@ -359,7 +361,7 @@ WantedBy=multi-user.target
 - On VPS1: `bash deploy/vps-deploy.sh` (pull, build, reload). Migrations only
   with `--migrate`, after a backup.
 - From an operator PC: `python deploy_photo.py [app|workers]` - SSH key
-  `~/.ssh/teezer_deploy`, targets only the two Teezer IPs, refuses Reelsoo IPs,
+  `~/.ssh/teezer_deploy`, targets only the two Teezer IPs, refuses the source platform server IPs,
   never runs migrations.
 
 ---
@@ -382,17 +384,16 @@ WantedBy=multi-user.target
 
 ## 10. Independence guarantees
 
-- No committed file contains a Reelsoo IP as a connection target;
-  `deploy_photo.py` hard-refuses them and `deploy/reelsoo-legacy/` scripts exit
-  immediately. The nftables rule in section 3 blocks them at the network level.
-- No Reelsoo credentials anywhere: B2 bucket ids/key ids in docs are placeholders;
-  the only access to Reelsoo data is the operator-run read-only dump and the
+- No committed file contains a source platform server IP as a connection
+  target; `deploy_photo.py` hard-refuses them. The nftables rule in section 3 blocks them at the network level.
+- No source-platform credentials anywhere: B2 bucket ids/key ids in docs are placeholders;
+  the only access to source-platform data is the operator-run read-only dump and the
   read-only rclone remote, both removed after the copy.
-- Licensing is off; installer/updater have no default server and refuse Reelsoo.
+- Licensing is off; installer/updater have no default server.
 - All Sanctum tokens and sessions from the source are revoked; all third-party
   credentials re-entered with Teezer's accounts; all non-DB secrets are new.
 - Database, Redis, Centrifugo, NATS, LiveKit, ClickHouse and B2 are Teezer-owned
   instances on Teezer hosts. No script runs `migrate` or `db:seed` implicitly.
 - Search the repo before each release:
-  `git grep -nE '167\.233\.204\.183|75\.119\.156\.93|185\.193\.19\.86|217\.217\.251\.44|217\.217\.249\.50|api\.reelsoo\.com|install\.reelsoo\.com'`
-  (expected hits: the denylists in `deploy_photo.py`, this file, `deploy/reelsoo-legacy/README.md`).
+  `git grep -nE '167\.233\.204\.183|75\.119\.156\.93|185\.193\.19\.86|217\.217\.251\.44|217\.217\.249\.50'`
+  (expected hits: the denylists in `deploy_photo.py` and this file).

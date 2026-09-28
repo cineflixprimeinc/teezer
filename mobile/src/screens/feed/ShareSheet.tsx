@@ -49,7 +49,7 @@ import type { Video } from "@/types";
  * ready rather than failing silently. Wire each one here as its endpoint lands.
  */
 
-/** Where a shared reel points. `reelsoo.com` is already claimed as a deep-link
+/** Where a shared reel points. `teezer.live` is already claimed as a deep-link
  *  prefix in RootNavigator, so this opens the app when the recipient has it. */
 const shareUrl = (id: number) => `https://teezer.live/video/${id}`;
 const embedCode = (id: number) =>
@@ -185,7 +185,7 @@ function RedditGlyph() {
 }
 
 /**
- * The Reelsoo R, drawn rather than bitmapped.
+ * The Teezer R, drawn rather than bitmapped.
  *
  * `src/assets/logo-mark.png` is the brand mark but it is colour-type 2 - RGB
  * with NO alpha channel - so it always paints its own square background and can
@@ -193,7 +193,7 @@ function RedditGlyph() {
  * get the R alone, and it stays crisp at any size. Swap this path if the mark
  * is ever exported with transparency.
  */
-function ReelsooGlyph() {
+function TeezerGlyph() {
   return (
     <Svg width={26} height={26} viewBox="0 0 24 24" fill="none">
       <Path
@@ -389,10 +389,10 @@ export function ShareSheet({ video, open, onClose }: ShareSheetProps) {
               act: () => soon("Sharing to your story"),
             },
             {
-              key: "reelsoo",
+              key: "teezer",
               label: "Teezer",
               bg: "#FDE3EA",
-              node: <ReelsooGlyph />,
+              node: <TeezerGlyph />,
               // The in-app route is the picker above, so point at it rather
               // than opening a second way to do the same thing.
               act: () => setNotice("Pick someone above to send this inside Teezer."),

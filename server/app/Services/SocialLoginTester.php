@@ -79,7 +79,7 @@ class SocialLoginTester
 
         $response = Http::timeout(self::TIMEOUT)->asForm()->post('https://oauth2.googleapis.com/token', [
             'grant_type'    => 'authorization_code',
-            'code'          => 'reelsoo-test-connection-invalid-code',
+            'code'          => 'teezer-test-connection-invalid-code',
             'client_id'     => $clientId,
             'client_secret' => $secret,
             'redirect_uri'  => 'https://teezer.live',

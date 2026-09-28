@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useHlsSource } from "@/hooks/use-hls-source";
 
 /* Only the fields this standalone player actually reads out of the raw
-   /videos/{id} JSON (VideoResource's shape) - not the full ReelsooVideo type,
+   /videos/{id} JSON (VideoResource's shape) - not the full TeezerVideo type,
    since that carries required fields this plain-fetch payload doesn't promise. */
 type EmbedVideo = {
   id: number;
@@ -25,7 +25,7 @@ const API_BASE =
 /* ─────────────────────────────────────────────────────────────────────────
    EmbedPlayer - standalone, no auth, no shared axios instance.
    Uses plain fetch() so zero dependency on auth interceptors /
-   query-provider / reelsoo:unauthorized events.
+   query-provider / teezer:unauthorized events.
 ───────────────────────────────────────────────────────────────────────── */
 export function EmbedPlayer({
   videoId,
@@ -193,7 +193,7 @@ export function EmbedPlayer({
                   </svg>}
             </button>
 
-            {/* Watch on Reelsoo */}
+            {/* Watch on Teezer */}
             <Link
               href={watchUrl}
               target="_blank"
@@ -211,7 +211,7 @@ export function EmbedPlayer({
         </div>
       </div>
 
-      {/* ── Reelsoo watermark ── */}
+      {/* ── Teezer watermark ── */}
       <div className="absolute right-3 top-3 rounded-full bg-black/50 px-2.5 py-1 backdrop-blur-sm">
         <span className="text-[10px] font-black tracking-wide text-white">Teezer</span>
       </div>

@@ -1,4 +1,4 @@
-# PostgreSQL 17 Migration - Report & Plan (Reelsoo `server/`)
+# PostgreSQL 17 Migration - Report & Plan (Teezer `server/`)
 
 **Scope:** Laravel API in `server/`. 157 migrations in `server/database/migrations/`.
 **Safety:** This document is analysis only. **No production MySQL DB or live VPS is touched.** All work below is for a local/staging Postgres instance.
@@ -141,7 +141,7 @@ Replaying all 157 migrations on Postgres forces you to make ~15 hand-written-SQL
 - Either path: apply the app-layer fixes from §3 (these are required regardless - they run at request time, not migrate time).
 
 ### Stage (b) - Stand up Postgres 17 locally
-- Run Postgres 17 in Docker locally (e.g. `postgres:17`), a throwaway dev DB. Create DB `reelsoo`, role, `search_path=public`.
+- Run Postgres 17 in Docker locally (e.g. `postgres:17`), a throwaway dev DB. Create DB `teezer`, role, `search_path=public`.
 - Add the `pgsql` connection (§4). Point a **local/staging `.env`** at the container. Confirm `php artisan db:show --database=pgsql` connects.
 
 ### Stage (c) - Run converted migrations on empty Postgres, fix errors

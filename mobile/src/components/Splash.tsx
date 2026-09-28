@@ -4,7 +4,7 @@ import * as SplashScreen from "expo-splash-screen";
 import Svg, { Defs, RadialGradient, Rect, Stop } from "react-native-svg";
 import { colors } from "@/constants/colors";
 
-// The real website logo (R mark + "Reelsoo" wordmark) - not the favicon mark.
+// The real website logo (R mark + "Teezer" wordmark) - not the favicon mark.
 const LOGO = require("../assets/logo.png");
 const { width: W, height: H } = Dimensions.get("window");
 

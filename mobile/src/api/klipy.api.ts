@@ -10,7 +10,7 @@ import { config } from "@/constants/config";
  * Expo Go at all. This is ~40 lines against an endpoint that is already
  * verified working, with no native code and nothing new to trust.
  *
- * Its own axios instance, NOT the app client: that one attaches the Reelsoo
+ * Its own axios instance, NOT the app client: that one attaches the Teezer
  * bearer token and base URL to every request, and neither belongs on a call to
  * a third party.
  *

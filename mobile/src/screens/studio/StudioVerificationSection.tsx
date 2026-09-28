@@ -28,7 +28,7 @@ import { font, spacing, TAB_BAR_HEIGHT } from "@/constants/theme";
 import { usd } from "@/utils/money";
 
 /**
- * Reelsoo Studio → Verification, drawn to the Claude Design prototype's
+ * Teezer Studio → Verification, drawn to the Claude Design prototype's
  * `studioIsVerification` panel - the LIGHT revision: a soft blue hero instead of
  * the old blue-black one, plans as full-width rows, and a numbered checklist
  * with a progress bar.

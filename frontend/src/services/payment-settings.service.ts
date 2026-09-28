@@ -9,7 +9,7 @@ const api = axios.create({
 
 api.interceptors.request.use((config) => {
   const token =
-    typeof window !== 'undefined' ? localStorage.getItem('reelsoo_token') : null;
+    typeof window !== 'undefined' ? localStorage.getItem('teezer_token') : null;
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });

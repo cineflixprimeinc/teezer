@@ -105,7 +105,7 @@ function verificationSteps(v: VerificationStatus, isVerified: boolean): Step[] {
   ];
 }
 
-/** Reelsoo Studio → Dashboard section (the header + chip row live in StudioScreen).
+/** Teezer Studio → Dashboard section (the header + chip row live in StudioScreen).
  *  `onViewContent` switches the parent to the Content tab - where a video can
  *  actually be opened in the player, which the dashboard's summary rows can't do.
  *  `onOpenTools` switches to Creator Tools, which is where every tile in the

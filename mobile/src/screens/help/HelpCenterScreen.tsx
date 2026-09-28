@@ -121,7 +121,7 @@ function CategoryDisc({ c, active, onPress }: { c: Category; active: boolean; on
  * Help Center - opened from the three-dot menu › Help Center. Search filters
  * the help articles only; a browse-by-category accordion groups every
  * tutorial under a main menu; each article opens with real content; and a
- * bottom card links to the full help.reelsoo.com site + support.
+ * bottom card links to the full help.teezer.live site + support.
  */
 export function HelpCenterScreen() {
   const navigation = useNavigation<any>();
@@ -298,7 +298,7 @@ export function HelpCenterScreen() {
               <Ionicons name="chevron-forward" size={13} color={colors.brand} />
             </View>
           </Pressable>
-          <Pressable style={[styles.resourceCard, { backgroundColor: "#f4f0ff" }]} onPress={() => navigation.navigate("AboutReelsoo")}>
+          <Pressable style={[styles.resourceCard, { backgroundColor: "#f4f0ff" }]} onPress={() => navigation.navigate("AboutTeezer")}>
             <View style={[styles.resourceIcon, { backgroundColor: "#7c3aed" }]}>
               <Ionicons name="information" size={18} color={colors.white} />
             </View>

@@ -63,7 +63,7 @@ class NotificationService
      */
     public function notify(User $recipient, string $type, array $payload = []): void
     {
-        // Global Reelsoo Control - the one place every in-app notification
+        // Global Teezer Control - the one place every in-app notification
         // (aggregated or standalone) is created. Push has its own separate
         // gate inside PushService::fanOut(), which this method still calls
         // below when in-app notifications are allowed but push might not be -

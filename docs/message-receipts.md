@@ -1,7 +1,7 @@
 # DM Delivery & Read Receipts (WhatsApp-style ticks)
 
 Implemented 2026-07-03 on the **live Laravel DM pipeline** (`direct_messages`), using the
-existing realtime bus (Laravel → Redis `reelsoo:rt` → chat-server → Socket.IO user rooms).
+existing realtime bus (Laravel → Redis `teezer:rt` → chat-server → Socket.IO user rooms).
 The dormant `chat_*` tables in chat-server are untouched.
 
 ## Status model

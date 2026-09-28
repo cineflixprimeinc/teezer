@@ -11,13 +11,13 @@ import { colors } from "@/constants/colors";
 import { font, radius, spacing } from "@/constants/theme";
 
 /**
- * Reelsoo Studio -> Monetization -> Creator Rewards. Replaces the generic
+ * Teezer Studio -> Monetization -> Creator Rewards. Replaces the generic
  * requirements-checklist template (StudioProgrammeScreen) for this one
- * programme, same reasoning as Gifts & Coins and Sell on Reelsoo opening
+ * programme, same reasoning as Gifts & Coins and Sell on Teezer opening
  * their own dedicated screens instead of it - see
  * StudioMonetizationSection.tsx's onPress.
  *
- * Unlike Gifts (auto-unlocks) and Sell on Reelsoo (an application a human
+ * Unlike Gifts (auto-unlocks) and Sell on Teezer (an application a human
  * reviews), Creator Rewards is admin-set to coming_soon - it cannot become
  * `active` until an admin actually launches it, no matter how many
  * requirements a creator meets. So the CTA here is the same real waitlist

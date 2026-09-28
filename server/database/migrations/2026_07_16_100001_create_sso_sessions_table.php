@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Revocable server-side session backing the shared `.reelsoo.com` SSO cookie.
+ * Revocable server-side session backing the shared `.teezer.live` SSO cookie.
  * The cookie carries only an opaque random secret; we store its sha256 here so a
  * DB leak never yields a usable cookie. One row per browser/login.
  */

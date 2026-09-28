@@ -16,7 +16,7 @@ export const metadata = {
  * This used to render a small dark header with four links, because the route
  * group only held four pages. The full panel - 70+ pages, grouped sidebar,
  * search, profile menu - now lives here, migrated from the separate
- * reelsoo-admin app, and its chrome comes from AdminShell.
+ * teezer-admin app, and its chrome comes from AdminShell.
  *
  * AdminShell is applied PER PAGE, not here, and that is not an oversight: it
  * takes a `title` prop that names the current section in the header, which a

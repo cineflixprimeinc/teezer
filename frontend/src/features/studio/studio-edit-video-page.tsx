@@ -25,7 +25,7 @@ import { searchService, type SearchUser } from "@/services/search.service";
 import { StudioSidebarWrapper } from "./studio-sidebar-wrapper";
 import { StudioTopbarShared } from "./studio-topbar-shared";
 import { useHlsSource } from "@/hooks/use-hls-source";
-import type { ReelsooVideo, TaggedUser } from "@/types/video";
+import type { TeezerVideo, TaggedUser } from "@/types/video";
 
 /* ── Tag People field ─────────────────────────────────────────────────────── */
 function TagPeopleField({
@@ -656,7 +656,7 @@ export function StudioEditVideoPage({ videoId }: { videoId: number }) {
   /* ── Load video ── */
   const videoQ = useQuery({
     queryKey: ["edit-video", videoId],
-    queryFn:  () => api.get<{ success: boolean; data: ReelsooVideo }>(`/videos/${videoId}`)
+    queryFn:  () => api.get<{ success: boolean; data: TeezerVideo }>(`/videos/${videoId}`)
                        .then(r => r.data.data),
     enabled:  isAuthenticated && !!videoId,
     staleTime: 60_000,

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { AppState } from "react-native";
-import type { ReelsooPlayer } from "@/playback/types";
+import type { TeezerPlayer } from "@/playback/types";
 import { api } from "@/api/client";
 import { getDeviceFingerprint } from "@/utils/fingerprint";
 import { trackVideoEvent, trackWatchSession, SESSION_ID } from "@/services/analytics";
@@ -11,7 +11,7 @@ import { trackVideoEvent, trackWatchSession, SESSION_ID } from "@/services/analy
  * The website's equivalent (frontend/src/hooks/useWatchTracker.ts) counts a
  * second at a time off a 1s interval, guarding it with `!paused && !ended &&
  * readyState >= 3 && tabActive` - four proxies for "is this actually playing
- * right now". React Native has a better answer available: the ReelsooPlayer
+ * right now". React Native has a better answer available: the TeezerPlayer
  * abstraction's `progress` event only advances `currentTime` while the player
  * is genuinely playing, so accumulating the DELTA between consecutive
  * readings measures watched time directly instead of inferring it.
@@ -38,7 +38,7 @@ import { trackVideoEvent, trackWatchSession, SESSION_ID } from "@/services/analy
 export interface UseWatchTrackerOpts {
   videoId: number;
   /** Live player, or null before FeedVideoPlayer has handed one back. */
-  player: ReelsooPlayer | null;
+  player: TeezerPlayer | null;
   /** This post is the current row AND the feed is on screen. */
   isActive: boolean;
   /** Post duration in seconds; 0 = unknown. */

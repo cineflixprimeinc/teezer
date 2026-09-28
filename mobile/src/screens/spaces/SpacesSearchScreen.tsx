@@ -34,7 +34,7 @@ import { COVER_TINTS, SPACE_LIGHT, topicIcon } from "./space-style";
  * rather than an empty grey box.
  */
 
-const RECENTS_KEY = "reelsoo:spaces:recents";
+const RECENTS_KEY = "teezer:spaces:recents";
 const MAX_RECENTS = 8;
 /** The endpoint trims and matches server-side; below this a query is noise. */
 const MIN_QUERY = 2;

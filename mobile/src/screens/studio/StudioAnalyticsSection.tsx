@@ -23,8 +23,8 @@ import { sd, sr } from "./studio-design";
 import { font, spacing, TAB_BAR_HEIGHT } from "@/constants/theme";
 
 /**
- * Reelsoo Studio → Analytics, drawn to the Claude Design prototype
- * "ReelSoo App.dc.html" (the `studioIsAnalytics` panel), in its order:
+ * Teezer Studio → Analytics, drawn to the Claude Design prototype
+ * "Teezer App.dc.html" (the `studioIsAnalytics` panel), in its order:
  *
  *   dark hero (range control + headline + chart + series tabs) → what we
  *   noticed → snapshot → audience retention → best time to post → engagement →

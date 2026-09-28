@@ -51,28 +51,28 @@ export const AI_DEFAULTS: AiPreferences = {
 };
 
 export const useAppearanceStore = createPrefStore({
-  cacheKey: "reelsoo:appearance",
+  cacheKey: "teezer:appearance",
   defaults: APPEARANCE_DEFAULTS,
   fetch: prefsApi.appearance,
   patch: prefsApi.updateAppearance,
 });
 
 export const useMessagesPrefStore = createPrefStore({
-  cacheKey: "reelsoo:messages-prefs",
+  cacheKey: "teezer:messages-prefs",
   defaults: MESSAGES_DEFAULTS,
   fetch: prefsApi.messages,
   patch: prefsApi.updateMessages,
 });
 
 export const useWellbeingStore = createPrefStore({
-  cacheKey: "reelsoo:wellbeing",
+  cacheKey: "teezer:wellbeing",
   defaults: WELLBEING_DEFAULTS,
   fetch: prefsApi.wellbeing,
   patch: prefsApi.updateWellbeing,
 });
 
 export const useAiStore = createPrefStore({
-  cacheKey: "reelsoo:ai-prefs",
+  cacheKey: "teezer:ai-prefs",
   defaults: AI_DEFAULTS,
   fetch: prefsApi.ai,
   patch: prefsApi.updateAi,
@@ -96,7 +96,7 @@ export const FAMILY_DEFAULTS: FamilyPreferences = {
 };
 
 export const useFamilyStore = createPrefStore({
-  cacheKey: "reelsoo:family",
+  cacheKey: "teezer:family",
   defaults: FAMILY_DEFAULTS,
   fetch: prefsApi.family,
   patch: prefsApi.updateFamily,

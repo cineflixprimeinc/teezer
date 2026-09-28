@@ -40,14 +40,14 @@ import (
 	"github.com/jackc/pgx/v5/pgtype"
 	"golang.org/x/crypto/bcrypt"
 
-	"reelsoo/backend-go/internal/auth"
-	"reelsoo/backend-go/internal/laravelcrypt"
-	"reelsoo/backend-go/internal/ratelimit"
-	"reelsoo/backend-go/internal/securitylimit"
-	"reelsoo/backend-go/internal/sqlc"
-	"reelsoo/backend-go/internal/tokens"
-	"reelsoo/backend-go/internal/totp"
-	"reelsoo/backend-go/internal/turnstile"
+	"teezer/backend-go/internal/auth"
+	"teezer/backend-go/internal/laravelcrypt"
+	"teezer/backend-go/internal/ratelimit"
+	"teezer/backend-go/internal/securitylimit"
+	"teezer/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/tokens"
+	"teezer/backend-go/internal/totp"
+	"teezer/backend-go/internal/turnstile"
 )
 
 const twoFactorChallengeTTL = 5 * time.Minute
@@ -316,7 +316,7 @@ func (h *AuthHandler) issueLoginToken(ctx context.Context, c *fiber.Ctx, user us
 }
 
 func isMobileClient(c *fiber.Ctx) bool {
-	return strings.EqualFold(c.Get("X-Client"), "reelsoo-mobile")
+	return strings.EqualFold(c.Get("X-Client"), "teezer-mobile")
 }
 
 func normalizeAccount(s string) string {

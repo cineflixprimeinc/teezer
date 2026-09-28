@@ -15,7 +15,7 @@ import {
 } from "react-native";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-import type { ReelsooPlayer } from "@/playback/types";
+import type { TeezerPlayer } from "@/playback/types";
 import Svg, { Circle, Path, Rect } from "react-native-svg";
 import { MapPin } from "lucide-react-native";
 import { ds } from "@/theme/design";
@@ -40,7 +40,7 @@ import { PlaybackManager } from "@/services/playback-manager";
 import { useWatchTracker } from "@/hooks/useWatchTracker";
 import { useSpeedBoost } from "@/store/speed-boost.store";
 import { openPolicy } from "@/store/policy.store";
-import { BAR_H } from "@/components/nav/ReelsooTabBar";
+import { BAR_H } from "@/components/nav/TeezerTabBar";
 import { ContentLinkBar } from "@/components/feed/ContentLinkBar";
 import type { Video } from "@/types";
 
@@ -266,7 +266,7 @@ function hasAudio(v: Video): boolean {
  *  aspect_ratio first, then derived from width/height, falling back to
  *  9:16 when neither is known yet (metadata not loaded) - the same
  *  fallback the website uses, and the safer default here since the large
- *  majority of Reelsoo posts genuinely are 9:16. */
+ *  majority of Teezer posts genuinely are 9:16. */
 const NINE_SIXTEEN = 9 / 16;
 function resolveAspectRatio(v: Video): number {
   if (v.aspect_ratio && v.aspect_ratio > 0) return v.aspect_ratio;
@@ -504,7 +504,7 @@ export const FeedVideoItem = memo(function FeedVideoItem({
    * 2x-speed-hold gesture below both need it during THIS component's own
    * render, and a ref written by a child does not trigger the re-render that
    * would require. */
-  const [player, setPlayer] = useState<ReelsooPlayer | null>(null);
+  const [player, setPlayer] = useState<TeezerPlayer | null>(null);
 
   /* ── playback telemetry ──────────────────────────────────────────────────
    * Watch sessions, progress beats and completion milestones for Studio

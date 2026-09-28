@@ -4,7 +4,7 @@
  * Same-origin popup surface embedded by the marketing landing's Log in / Sign up
  * buttons. Renamed from /ads-login → /auth-popup because ad blockers / Brave
  * Shields commonly block any iframe whose path contains "ads-", which left the
- * overlay blank and un-closeable. Renders the unified Reelsoo Ads auth flow.
+ * overlay blank and un-closeable. Renders the unified Teezer Ads auth flow.
  */
 
 import { useCallback, useEffect } from "react";
@@ -25,12 +25,12 @@ function AuthPopupInner() {
   return (
     <div
       className="fixed inset-0 grid place-items-center overflow-y-auto p-4"
-      onClick={(e) => { if (e.target === e.currentTarget) notifyParent("reelsoo-auth-close"); }}
+      onClick={(e) => { if (e.target === e.currentTarget) notifyParent("teezer-auth-close"); }}
     >
       <AdsAuthFlow
         autoDetect={false}
-        onDone={() => notifyParent("reelsoo-auth-success")}
-        onCancel={() => notifyParent("reelsoo-auth-close")}
+        onDone={() => notifyParent("teezer-auth-success")}
+        onCancel={() => notifyParent("teezer-auth-close")}
       />
     </div>
   );

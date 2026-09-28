@@ -17,7 +17,7 @@ import { font, radius, spacing } from "@/constants/theme";
 import type { RootStackParamList } from "@/navigation/types";
 
 /**
- * Settings -> Sell on Reelsoo -> Shop -> Edit Shop (ShopScreen.tsx's owner-
+ * Settings -> Sell on Teezer -> Shop -> Edit Shop (ShopScreen.tsx's owner-
  * only "Edit Shop" button). Editing an ALREADY-APPROVED shop's storefront -
  * server-backed on shop-settings.api.ts (ShopSettingsController.php), NOT
  * seller-application.api.ts/SellerApplicationWizardScreen, which is

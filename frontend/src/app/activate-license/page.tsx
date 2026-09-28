@@ -9,9 +9,9 @@ import ActivateLicenseForm from './activate-license-form';
  *
  * Being at the app root rather than in (main) or (auth) means it inherits none
  * of their shells - no feed chrome, no sign-in prompt, no session requirement.
- * That is the point: the person using this page has bought a copy of Reelsoo on
+ * That is the point: the person using this page has bought a copy of Teezer on
  * a marketplace and has no account here, and the licence system is explicitly
- * independent of Reelsoo user auth.
+ * independent of Teezer user auth.
  *
  * SCROLLING: globals.css sets `overflow: hidden` on html/body so the feed can
  * own the viewport, which means any full-page route has to provide its own

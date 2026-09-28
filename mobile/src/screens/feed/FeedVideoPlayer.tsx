@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { useVideoPlayer, VideoView, type BufferOptions } from "expo-video";
 import { PlaybackManager } from "@/services/playback-manager";
 import { createExpoPlayer } from "@/playback/expo-player";
-import type { ReelsooPlayer } from "@/playback/types";
+import type { TeezerPlayer } from "@/playback/types";
 
 /**
  * Tuned for short-form vertical video, not expo-video's general-purpose
@@ -40,7 +40,7 @@ const BUFFER_OPTIONS: BufferOptions = {
  * FeedProgressBar and the 2x-speed-hold gesture both need it during
  * FeedVideoItem's own render (as a prop / in a useCallback's deps), and a ref
  * mutated by a child does not trigger the parent re-render that would need.
- * The value handed back is a ReelsooPlayer, never the raw engine player -
+ * The value handed back is a TeezerPlayer, never the raw engine player -
  * this file is the boundary, and everything above it survives an engine
  * change untouched.
  *
@@ -88,10 +88,10 @@ export type FeedVideoPlayerProps = {
   /** Reports the live player up to FeedVideoItem, and null on unmount - see the
    *  module comment for why this is a callback into state rather than a ref.
    *
-   *  What goes out is a ReelsooPlayer, never the raw engine player: this file is
+   *  What goes out is a TeezerPlayer, never the raw engine player: this file is
    *  the boundary, and everything above it should be able to survive an engine
    *  change untouched. */
-  onPlayerChange: (player: ReelsooPlayer | null) => void;
+  onPlayerChange: (player: TeezerPlayer | null) => void;
 };
 
 export function FeedVideoPlayer({
@@ -127,13 +127,13 @@ export function FeedVideoPlayer({
    * would change identity constantly and re-run every effect downstream that
    * depends on the player - including FeedProgressBar's progress subscription,
    * which would tear down and re-attach on every frame. */
-  const reelsooPlayer = useMemo(() => createExpoPlayer(player), [player]);
+  const teezerPlayer = useMemo(() => createExpoPlayer(player), [player]);
 
   useEffect(() => {
-    onPlayerChange(reelsooPlayer);
+    onPlayerChange(teezerPlayer);
     return () => onPlayerChange(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [reelsooPlayer]);
+  }, [teezerPlayer]);
 
   useEffect(() => {
     player.muted = muted;

@@ -19,7 +19,7 @@ export default function GlobalError({
     const isChunk = /ChunkLoadError|Loading chunk|Failed to load chunk|dynamically imported module|not executable|Importing a module script failed/i.test(msg);
     if (isChunk) {
       try {
-        const K = "reelsoo_chunk_reloaded";
+        const K = "teezer_chunk_reloaded";
         if (!sessionStorage.getItem(K)) {
           sessionStorage.setItem(K, "1");
           window.location.reload();

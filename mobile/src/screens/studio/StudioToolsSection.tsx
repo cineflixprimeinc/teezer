@@ -80,7 +80,7 @@ function LevelHex({ level, size = 62 }: { level: number; size?: number }) {
   );
 }
 
-/** Reelsoo Studio → Creator Tools.
+/** Teezer Studio → Creator Tools.
  *
  *  The hub for everything the website groups under Creator Tools: your level and
  *  score, the requirements for the next level, what each level unlocks, the rule

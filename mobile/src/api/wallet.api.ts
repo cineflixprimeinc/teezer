@@ -124,7 +124,7 @@ export interface PayoutInfo {
   pending_balance: number;
   lifetime_earnings: number;
   minimum_withdraw: number;
-  /** Reelsoo's cut, taken at withdrawal - gifts credit in full. Percent. */
+  /** Teezer's cut, taken at withdrawal - gifts credit in full. Percent. */
   commission_rate?: number;
   /** Coins per USD, from the admin panel. Used to show a coin balance and its
    *  cash value with the same arithmetic the website uses. */
@@ -223,7 +223,7 @@ export const walletApi = {
   /**
    * Request a withdrawal.
    *
-   * `amount` is the GROSS taken off the balance; Reelsoo's commission is
+   * `amount` is the GROSS taken off the balance; Teezer's commission is
    * applied server-side and the response carries what will actually be paid.
    * The idempotency key is what stops a double-tap or a retry-after-timeout
    * becoming two payouts, so it is required here rather than optional.

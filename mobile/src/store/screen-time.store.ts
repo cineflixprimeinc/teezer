@@ -13,9 +13,9 @@ import {
  * by the root ScreenTimeGate to show the limit page / break popup.
  */
 
-const DAY_KEY = "reelsoo:screentime:day";
-const HIST_KEY = "reelsoo:screentime:history";
-const LIMITS_KEY = "reelsoo:screentime:limits";
+const DAY_KEY = "teezer:screentime:day";
+const HIST_KEY = "teezer:screentime:history";
+const LIMITS_KEY = "teezer:screentime:limits";
 
 export function localDate(d: Date = new Date()): string {
   const y = d.getFullYear();

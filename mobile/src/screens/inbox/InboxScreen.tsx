@@ -212,7 +212,7 @@ function BoltGlyph() {
   );
 }
 
-/** Lucide `megaphone` - the "System notifications" row. Reelsoo announcing,
+/** Lucide `megaphone` - the "System notifications" row. Teezer announcing,
  *  which is a better read on that row than the padlock it replaces. */
 function MegaphoneGlyph() {
   return (
@@ -618,7 +618,7 @@ export function InboxScreen() {
    * every other system type the backend sends - announcement, maintenance,
    * security, account_warning, payment, verification, report_actioned and
    * anything raised from the admin panel ("admin") - fell through to Activity.
-   * Those are messages FROM Reelsoo, not engagement, and the System row is where
+   * Those are messages FROM Teezer, not engagement, and the System row is where
    * they belong.
    *
    * The gift types are listed for the same reason: the wallet writes gift_sent /
@@ -933,7 +933,7 @@ export function InboxScreen() {
           tint="#1A1A22"
           glyph={<MegaphoneGlyph />}
           onPress={() => navigation.navigate("Notifications", { scope: "system" })}
-          // Reelsoo talking to you - there is no one behind it, so no faces.
+          // Teezer talking to you - there is no one behind it, so no faces.
           right={<CountBadge n={systemCount} />}
         />
         <Row

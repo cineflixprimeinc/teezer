@@ -2,12 +2,12 @@ import { attachMediaSource } from "./attach-source";
 import type {
   PlaybackEvent,
   PlaybackEventMap,
-  ReelsooPlayer,
+  TeezerPlayer,
   Unsubscribe,
 } from "./types";
 
 /**
- * ReelsooPlayer over a plain <video> element plus hls.js.
+ * TeezerPlayer over a plain <video> element plus hls.js.
  *
  * There is no Video.js, Plyr or vidstack here on purpose. Everything a player
  * library would provide - adaptive HLS, bounded error recovery, a progressive
@@ -19,7 +19,7 @@ import type {
  * The element is owned by React; this wrapper never creates or destroys one.
  * `release()` detaches the source, it does not remove the node.
  */
-export function createHtml5Player(video: HTMLVideoElement): ReelsooPlayer {
+export function createHtml5Player(video: HTMLVideoElement): TeezerPlayer {
   /** Teardown for the current source, from attachMediaSource. */
   let detachSource: (() => void) | null = null;
 

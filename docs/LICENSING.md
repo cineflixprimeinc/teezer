@@ -1,13 +1,13 @@
-# Reelsoo Marketplace Licensing
+# Teezer Marketplace Licensing
 
-How a copy of Reelsoo is sold, activated, installed, verified and updated —
+How a copy of Teezer is sold, activated, installed, verified and updated —
 and, just as importantly, what it deliberately does **not** do.
 
 ---
 
 ## The one property everything else follows from
 
-> A customer's installed Reelsoo never contacts reelsoo.com to serve traffic.
+> A customer's installed Teezer never contacts teezer.live to serve traffic.
 
 Not on a page load, a login, a signup, a feed request, an API call, a media
 request or an admin action. Their site runs on their server, their database,
@@ -16,7 +16,7 @@ their storage, their domain.
 This is achieved with an **asymmetric** licence, not a phone-home check:
 
 ```
-LICENCE SERVER (reelsoo.com)          CUSTOMER VPS (customer.com)
+LICENCE SERVER (teezer.live)          CUSTOMER VPS (customer.com)
 ┌────────────────────────┐            ┌────────────────────────────┐
 │  RSA PRIVATE KEY       │            │  RSA PUBLIC KEY            │
 │  never leaves this box │  ───────▶  │  ships in the package      │
@@ -37,7 +37,7 @@ We are contacted exactly three times, ever:
 | Activation | Redeem a purchase code for a licence key | Once |
 | Installation | Register the install, receive the signed token | Once |
 | Heartbeat | Renew the token, learn about revocation | Once a day, scheduled |
-| Update | Authorise a download | Only when the operator runs `reelsoo update` |
+| Update | Authorise a download | Only when the operator runs `teezer update` |
 
 ---
 
@@ -47,14 +47,14 @@ We are contacted exactly three times, ever:
   MARKETPLACE
       │  buyer receives a purchase code
       ▼
-  reelsoo.com/activate-license
+  teezer.live/activate-license
       │  purchase code + domain + username
       ▼
   LICENCE SERVER  ──▶  licence key (shown ONCE, stored only as a hash)
       │
       ▼
   CUSTOMER VPS
-      │  curl -fsSL https://install.reelsoo.com/install.sh | bash
+      │  curl -fsSL https://install.teezer.live/install.sh | bash
       │  installer asks for: purchase code, licence key, domain
       ▼
   POST /license/release   ──▶  licence validated, presigned B2 URL returned
@@ -82,7 +82,7 @@ We are contacted exactly three times, ever:
 
 ```json
 {
-  "product": "reelsoo",
+  "product": "teezer",
   "license_id": "lic_9f3a1c77b2e40d5a8c11",
   "domain": "customer.com",
   "username": "customer01",
@@ -151,7 +151,7 @@ the licence by sending the licensed hostname.
 
 | State | Meaning | Effect |
 |---|---|---|
-| `disabled` | Enforcement off — this is reelsoo.com | Serves normally |
+| `disabled` | Enforcement off — this is teezer.live | Serves normally |
 | `valid` | Everything checks out | Serves normally |
 | `grace` | Past `expires_at`, within 30 days | **Serves normally** + warning header |
 | `stale` | Past grace | **Serves** (`warn`, default) or 503 (`block`) |
@@ -167,7 +167,7 @@ stale token means *we* could not be reached; punishing a paying customer for
 that is wrong, so the default `stale_policy` is `warn`.
 
 **Nothing is ever destroyed.** No licence state deletes data, drops a database,
-disables accounts or redirects anyone to reelsoo.com. The worst case is a 403
+disables accounts or redirects anyone to teezer.live. The worst case is a 403
 with an explanation, and it reverses the moment the licence is valid again.
 
 ---
@@ -176,7 +176,7 @@ with an explanation, and it reverses the moment the licence is valid again.
 
 | Secret | Where it lives | Recoverable? |
 |---|---|---|
-| RSA private key | `/etc/reelsoo/license-signing-key.pem`, mode 0600, **outside the repo** | Backed up offline only |
+| RSA private key | `/etc/teezer/license-signing-key.pem`, mode 0600, **outside the repo** | Backed up offline only |
 | RSA public key | `server/resources/licensing/public.pem`, ships to customers | Yes, it is not secret |
 | Purchase code | SHA-256 hash + last 4 characters | **No** — reissue instead |
 | Licence key | SHA-256 hash + 5-char prefix | **No** — reissue instead |
@@ -220,7 +220,7 @@ cd server && php artisan license:release-publish <package> 1.0.0 --publish
 
 ## Operator commands
 
-**Licensor (reelsoo.com):**
+**Licensor (teezer.live):**
 
 ```bash
 php artisan license:keygen                 # ONCE, by hand. Never in a deploy script.
@@ -231,18 +231,18 @@ php artisan license:release-publish <file> <version> --publish
 confirmation, because regenerating it invalidates **every licence ever issued**.
 
 Purchase codes are generated from the admin panel:
-`reelsoo.com/admin/licenses` → Purchase codes → Generate.
+`teezer.live/admin/licenses` → Purchase codes → Generate.
 
 **Customer:**
 
 ```bash
-reelsoo status     # licence and service status (local, no network)
-reelsoo update     # authorise, download, back up, apply, health check
-reelsoo verify     # heartbeat now
-reelsoo rollback   # restore the previous version + database
+teezer status     # licence and service status (local, no network)
+teezer update     # authorise, download, back up, apply, health check
+teezer verify     # heartbeat now
+teezer rollback   # restore the previous version + database
 ```
 
-`reelsoo update` takes a **file and database backup before touching anything**,
+`teezer update` takes a **file and database backup before touching anything**,
 and aborts the whole update if either backup fails.
 
 ---
@@ -252,11 +252,11 @@ and aborts the whole update if either backup fails.
 Both halves default to **off**.
 
 ```env
-LICENSE_SERVER_ENABLED=false      # true ONLY on reelsoo.com
+LICENSE_SERVER_ENABLED=false      # true ONLY on teezer.live
 LICENSING_CLIENT_ENABLED=false    # true ONLY in a customer package
 ```
 
-`LICENSING_CLIENT_ENABLED=false` is why production reelsoo.com can never be
+`LICENSING_CLIENT_ENABLED=false` is why production teezer.live can never be
 blocked by its own licence check: `EnsureLicensed` returns on its first line and
 the `/license/*` routes are not even registered.
 

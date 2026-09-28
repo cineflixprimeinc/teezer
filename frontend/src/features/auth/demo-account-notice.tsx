@@ -52,8 +52,8 @@ export function DemoAccountNotice() {
       });
     }
 
-    window.addEventListener("reelsoo:demo-blocked", onBlocked);
-    return () => window.removeEventListener("reelsoo:demo-blocked", onBlocked);
+    window.addEventListener("teezer:demo-blocked", onBlocked);
+    return () => window.removeEventListener("teezer:demo-blocked", onBlocked);
   }, [isDemo]);
 
   return null;

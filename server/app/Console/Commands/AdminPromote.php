@@ -20,9 +20,9 @@ use Illuminate\Console\Command;
  * argument-validated instead.
  *
  * Usage:
- *   php artisan admin:promote support@reelsoo.com --super-admin
- *   php artisan admin:promote support@reelsoo.com --permission=manage_country_availability
- *   php artisan admin:promote support@reelsoo.com --super-admin --permission=manage_country_availability
+ *   php artisan admin:promote support@teezer.live --super-admin
+ *   php artisan admin:promote support@teezer.live --permission=manage_country_availability
+ *   php artisan admin:promote support@teezer.live --super-admin --permission=manage_country_availability
  */
 class AdminPromote extends Command
 {

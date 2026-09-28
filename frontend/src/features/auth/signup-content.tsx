@@ -346,7 +346,7 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
   /** From the same detect() call below - UX signal only, the backend
    *  re-checks independently at submit time (see country.service.ts). */
   const [signupRestriction, setSignupRestriction] = useState<{ country: string; reason: string } | null>(null);
-  /* Global Reelsoo Control - admin-side kill switch, distinct from the
+  /* Global Teezer Control - admin-side kill switch, distinct from the
    * country restriction above. Both freeze the button; only this one can
    * carry an expected return time. */
   const [globalRestriction, setGlobalRestriction] = useState<{ message: string; expiresAt: string | null } | null>(null);
@@ -431,7 +431,7 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
   useEffect(() => {
     if (view !== "emailSignup") return;
     try {
-      const raw = sessionStorage.getItem("reelsoo_signup_draft");
+      const raw = sessionStorage.getItem("teezer_signup_draft");
       if (!raw) return;
       const draft = JSON.parse(raw);
       if (draft.draftToken) setDraftToken(draft.draftToken);
@@ -442,7 +442,7 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
       if (draft.country)    setCountry(draft.country);
       if (draft.countryCode) setCountryCode(draft.countryCode);
       if (draft.emailVerified) { setEmailVerified(true); setOtpSent(true); }
-      sessionStorage.removeItem("reelsoo_signup_draft");
+      sessionStorage.removeItem("teezer_signup_draft");
     } catch {}
   }, [view]);
 
@@ -537,7 +537,7 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
       });
       setDraftToken(res.draft_token);
       /* persist draft_token in sessionStorage so page refresh doesn't lose it */
-      sessionStorage.setItem("reelsoo_draft_token", res.draft_token);
+      sessionStorage.setItem("teezer_draft_token", res.draft_token);
       setOtpSent(true);
       setOtp("");
       setErrors((e) => ({ ...e, email: undefined, otp: undefined }));
@@ -609,7 +609,7 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
         draft_token:           draftToken,
         ...(countryCode ? { country_code: countryCode } : {}),
       });
-      sessionStorage.removeItem("reelsoo_draft_token");
+      sessionStorage.removeItem("teezer_draft_token");
       toast.success("Account created! Welcome to Teezer 🎉");
     } catch (err) {
       const limited = rateLimitInfo(err);
@@ -980,7 +980,7 @@ export function SignupContent({ startView = "options", embedded = false }: { sta
         </div>
       )}
 
-      {/* Global Reelsoo Control banner - unlike the country restriction above,
+      {/* Global Teezer Control banner - unlike the country restriction above,
           this comes from a failed attempt (send-otp/verify/register can each
           hit it) rather than a proactive check, and an admin can flip it back
           on at any moment - so it's informational only and never disables the

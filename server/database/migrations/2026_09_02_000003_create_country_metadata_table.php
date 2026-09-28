@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Schema;
  * countries.dev-sourced country metadata (name, flag, currency, calling
  * code, region, etc.) - refreshed by the countries:sync command, never
  * written to on the request path. Deliberately separate from
- * country_availability (Reelsoo-owned signup/login POLICY - see
+ * country_availability (Teezer-owned signup/login POLICY - see
  * CountryAvailabilityService's docblock) - this table is only ever DATA,
  * disposable and re-derivable from the provider at any time, never the
  * enforcement boundary. Named country_metadata rather than "countries" so

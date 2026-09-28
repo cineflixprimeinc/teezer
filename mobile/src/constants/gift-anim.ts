@@ -211,7 +211,7 @@ export const GIFT_ANIM: Record<string, GiftAnim> = {
   "immortal-rose": "glow",
   "infinity-heart": "pulse",
   "king-crown": "glow",
-  "reelsoo-throne": "glow",
+  "teezer-throne": "glow",
 };
 
 /** Gifts not in the map (or a slug we do not know) just breathe. */

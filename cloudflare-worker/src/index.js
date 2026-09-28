@@ -172,7 +172,7 @@ export default {
   },
 
   // ── Transcoding ───────────────────────────────────────────────────────────
-  // There used to be a `queue()` consumer here, bound to the reelsoo-transcoding
+  // There used to be a `queue()` consumer here, bound to the teezer-transcoding
   // Cloudflare Queue. R2 published an event on every upload; the Worker turned
   // that event into a POST to the VPS, which kicked off ProcessVideoQualities.
   //

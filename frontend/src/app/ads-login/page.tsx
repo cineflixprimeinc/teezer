@@ -2,7 +2,7 @@
 
 /**
  * Legacy alias for the popup surface (kept for any cached landing that still
- * points at /ads-login). Prefer /auth-popup. Login-only Reelsoo Ads auth flow.
+ * points at /ads-login). Prefer /auth-popup. Login-only Teezer Ads auth flow.
  */
 
 import { useCallback, useEffect } from "react";
@@ -24,12 +24,12 @@ function AdsLoginInner() {
     <div
       className="fixed inset-0 grid place-items-center p-4"
       style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(6px)" }}
-      onClick={(e) => { if (e.target === e.currentTarget) notifyParent("reelsoo-auth-close"); }}
+      onClick={(e) => { if (e.target === e.currentTarget) notifyParent("teezer-auth-close"); }}
     >
       <AdsAuthFlow
         autoDetect={false}
-        onDone={() => notifyParent("reelsoo-auth-success")}
-        onCancel={() => notifyParent("reelsoo-auth-close")}
+        onDone={() => notifyParent("teezer-auth-success")}
+        onCancel={() => notifyParent("teezer-auth-close")}
       />
     </div>
   );

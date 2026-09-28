@@ -29,7 +29,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 class ApiAuthController extends Controller
 {
     /** See adminSessionCookie()'s docblock for what this carries and why. */
-    public const ADMIN_SESSION_COOKIE = 'reelsoo_admin_session';
+    public const ADMIN_SESSION_COOKIE = 'teezer_admin_session';
 
     public function __construct(
         private ?CountryService $countries = null,
@@ -49,7 +49,7 @@ class ApiAuthController extends Controller
     }
 
     /**
-     * Global Reelsoo Control's standard denial body (spec §32) - routed
+     * Global Teezer Control's standard denial body (spec §32) - routed
      * through the real registry key so the response carries the same
      * message and expiresAt every other gated endpoint returns, rather
      * than a hand-typed pair that can drift from it.
@@ -454,7 +454,7 @@ class ApiAuthController extends Controller
                 ], 422);
             }
 
-            // Global Reelsoo Control - this branch is where social login
+            // Global Teezer Control - this branch is where social login
             // CREATES a new account, and no route-level split exists between
             // that and the login branch below (both share /auth/social/*),
             // so the gate has to live here rather than as route middleware.
@@ -589,7 +589,7 @@ class ApiAuthController extends Controller
     private function placeholderEmail(string $provider, string $sub): string
     {
         $hash = substr(hash('sha256', $provider . '|' . $sub), 0, 32);
-        return "{$provider}_{$hash}@social.reelsoo.invalid";
+        return "{$provider}_{$hash}@social.teezer.invalid";
     }
 
     private function generateUniqueUsername(string $email): string
@@ -607,7 +607,7 @@ class ApiAuthController extends Controller
 
     private function isMobileClient(Request $request): bool
     {
-        return strtolower((string) $request->header('X-Client')) === 'reelsoo-mobile';
+        return strtolower((string) $request->header('X-Client')) === 'teezer-mobile';
     }
 
     /**
@@ -625,7 +625,7 @@ class ApiAuthController extends Controller
      */
     private function isAdminClient(Request $request): bool
     {
-        return strtolower((string) $request->header('X-Client')) === 'reelsoo-admin';
+        return strtolower((string) $request->header('X-Client')) === 'teezer-admin';
     }
 
     /**
@@ -662,7 +662,7 @@ class ApiAuthController extends Controller
      * The SAME Sanctum token issued above, also carried as an httpOnly,
      * Secure, SameSite=Lax cookie - never read by anything client-side.
      *
-     * Only the Reelsoo Admin Panel (reelsooadmin6784.reelsoo.com) actually
+     * Only the Teezer Admin Panel (backend.teezer.live) actually
      * relies on this: it used to store the plaintext bearer token in
      * localStorage and manually attach it as an Authorization header, which
      * meant a single XSS bug anywhere in that app could hand over full admin
@@ -674,7 +674,7 @@ class ApiAuthController extends Controller
      * half: how a request carrying only this cookie (no Authorization header)
      * still authenticates against the unchanged Sanctum guard.
      *
-     * Domain reuses SSO_COOKIE_DOMAIN (already `.reelsoo.com` in production,
+     * Domain reuses SSO_COOKIE_DOMAIN (already `.teezer.live` in production,
      * which is what makes the cookie visible to the admin subdomain when it's
      * set from this API's own subdomain) rather than introducing a second env
      * var for the same fact. SameSite=Lax - not a separate CSRF token scheme -

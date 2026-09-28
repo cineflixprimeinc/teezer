@@ -1,8 +1,8 @@
 import { api } from "./api";
 import type { ApiResponse } from "@/types/api";
-import type { ReelsooUser } from "@/types/user";
+import type { TeezerUser } from "@/types/user";
 
-type AuthPayload = { token: string; token_type: string; expires_at?: string; user: ReelsooUser };
+type AuthPayload = { token: string; token_type: string; expires_at?: string; user: TeezerUser };
 
 type LoginRaw =
   | { success: boolean; two_factor_required?: false; data: AuthPayload }
@@ -87,7 +87,7 @@ export const authService = {
     return data.data;
   },
   async me() {
-    const { data } = await api.get<ApiResponse<ReelsooUser>>("/auth/me");
+    const { data } = await api.get<ApiResponse<TeezerUser>>("/auth/me");
     return data.data;
   },
   async logout() {
@@ -166,7 +166,7 @@ export const authService = {
       token?: string;
       token_type?: string;
       expires_at?: string;
-      user?: ReelsooUser;
+      user?: TeezerUser;
     }>>(`/auth/qr/status/${ticket}`);
     return data.data;
   },

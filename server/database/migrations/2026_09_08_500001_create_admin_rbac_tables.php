@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Schema;
  * second logging system.
  *
  * Deliberately NOT built: a separate admin identity with its own password.
- * An administrator is an existing Reelsoo user who has been given a role, so
+ * An administrator is an existing Teezer user who has been given a role, so
  * there is one login, one session system and one password to protect.
  */
 return new class extends Migration
@@ -63,7 +63,7 @@ return new class extends Migration
                 ->constrained('admin_roles')->nullOnDelete();
 
             /* Separate from users.is_active on purpose. Disabling someone's
-               administrative access must leave their ordinary Reelsoo account
+               administrative access must leave their ordinary Teezer account
                working - they stop being staff, they do not lose their account. */
             $table->string('admin_status', 20)->nullable()->after('admin_role_id');
             $table->timestamp('admin_since')->nullable()->after('admin_status');

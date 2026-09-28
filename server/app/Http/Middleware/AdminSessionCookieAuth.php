@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Lets the Reelsoo Admin Panel authenticate via its httpOnly session cookie
+ * Lets the Teezer Admin Panel authenticate via its httpOnly session cookie
  * instead of an Authorization header, with ZERO changes to how Sanctum itself
  * resolves a request - this only runs BEFORE the `auth:sanctum` guard and, if
  * the request has no Authorization header but does carry the admin cookie,

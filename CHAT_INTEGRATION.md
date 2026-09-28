@@ -1,4 +1,4 @@
-# Chat Integration Guide - Reelsoo Real-Time Messaging
+# Chat Integration Guide - Teezer Real-Time Messaging
 
 ## Overview
 
@@ -44,7 +44,7 @@ npm install socket.io-client
 In `frontend/.env.local`:
 
 ```env
-NEXT_PUBLIC_CHAT_SERVER_URL=https://api.reelsoo.com
+NEXT_PUBLIC_CHAT_SERVER_URL=https://api.teezer.live
 NEXT_PUBLIC_FIREBASE_CONFIG={"apiKey":"...","authDomain":"...","projectId":"..."}
 ```
 
@@ -261,9 +261,9 @@ export function WebRTCCall({ callId, remoteUserId, type, onEnd }: WebRTCCallProp
   async function initializeWebRTC() {
     const config = {
       iceServers: [
-        { urls: ['stun:reelsoo.com:3478'] },
+        { urls: ['stun:teezer.live:3478'] },
         {
-          urls: ['turn:reelsoo.com:3478'],
+          urls: ['turn:teezer.live:3478'],
           username: 'admin',
           credential: 'password'
         }

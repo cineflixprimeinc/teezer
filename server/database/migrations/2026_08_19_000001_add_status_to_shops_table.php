@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * The Shop lifecycle status the "Sell on Reelsoo" seller-onboarding system
+ * The Shop lifecycle status the "Sell on Teezer" seller-onboarding system
  * needs and the original shops table (2026_08_18_000001) never had - today a
  * Shop row existing at all is treated as "this is a real, public storefront",
  * which is exactly the zero-friction behaviour the seller-onboarding feature

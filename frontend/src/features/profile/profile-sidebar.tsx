@@ -9,7 +9,7 @@ import { formatCompact } from "@/lib/utils";
 import { VerifiedBadge } from "@/components/ui/verified-badge";
 import { userService } from "@/services/user.service";
 import { suggestionService, type SuggestedProfile } from "@/services/suggestion.service";
-import type { ReelsooUser } from "@/types/user";
+import type { TeezerUser } from "@/types/user";
 
 /* ══════════════════════════════════════════════════════════════════════
    SmartIcon - tries to load a user-supplied image from /public; if it
@@ -124,7 +124,7 @@ function SocialBrandIcon({ keyName, bg }: { keyName: keyof typeof BRAND_ICONS; b
   );
 }
 
-function SocialLinksCard({ user }: { user: ReelsooUser }) {
+function SocialLinksCard({ user }: { user: TeezerUser }) {
   return (
     <div className="rounded-2xl border border-[#eeeeee] bg-white p-4 shadow-sm">
       <p className="mb-3 text-[13px] font-bold text-[#111827]">Social Links</p>
@@ -299,7 +299,7 @@ function SuggestedCreatorsCard() {
 /* ══════════════════════════════════════════════════════════════════════
    Recent Activity Card
    ══════════════════════════════════════════════════════════════════════ */
-function RecentActivityCard({ user }: { user: ReelsooUser }) {
+function RecentActivityCard({ user }: { user: TeezerUser }) {
   const name    = user.name || "Ananya Rai";
   const avatar  = user.avatar ?? null;
   const initial = (name?.[0] ?? "A").toUpperCase();
@@ -357,7 +357,7 @@ function RecentActivityCard({ user }: { user: ReelsooUser }) {
 /* ══════════════════════════════════════════════════════════════════════
    Main export
    ══════════════════════════════════════════════════════════════════════ */
-export function ProfileSidebar({ user }: { user: ReelsooUser }) {
+export function ProfileSidebar({ user }: { user: TeezerUser }) {
   return (
     <div className="space-y-3 pb-6">
       <SocialLinksCard user={user} />

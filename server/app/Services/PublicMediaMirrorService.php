@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 /**
  * Maintains a parallel, UNSIGNED copy of a video's public-facing media under a
  * "public/" B2 prefix, so a currently public+published video can be served by
- * nginx's /public/ location (deploy/nginx/reelsoo-media.conf) with no
+ * nginx's /public/ location (deploy/nginx/teezer-media.conf) with no
  * secure_link token at all - see deploy/nginx/README.md for the full
  * reasoning.
  *
@@ -107,7 +107,7 @@ class PublicMediaMirrorService
      * start handing out the tokenless URL. Checks BOTH video_url's AND
      * thumbnail_url's mirror (whichever are present - every post type,
      * video or image, stores its primary file under video_url, but not
-     * every post has a thumbnail yet) via the same cdn.reelsoo.com/public/...
+     * every post has a thumbnail yet) via the same cdn.teezer.live/public/...
      * URL a real client would use, retrying with backoff to ride out the
      * propagation window observed in production rather than treating one
      * lucky/unlucky connection as final.

@@ -7,7 +7,7 @@ import {
 } from "react-native-gesture-handler";
 
 /**
- * Horizontal swipe between tabs, with the ReelSoo design's own physics.
+ * Horizontal swipe between tabs, with the Teezer design's own physics.
  *
  * A single pane that slides out, swaps its contents while invisible, and slides
  * back in - not a multi-pane pager. Same reasoning as the feed's version: a

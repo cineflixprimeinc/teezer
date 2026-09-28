@@ -1,6 +1,6 @@
-# Reelsoo - Two-VPS Setup Plan (Single Website, Load Balanced)
+# Teezer - Two-VPS Setup Plan (Single Website, Load Balanced)
 
-**Goal:** Run one website (reelsoo.com) across two VPS - load split across both, with auto-failover, one shared database, and a private secure link between the servers.
+**Goal:** Run one website (teezer.live) across two VPS - load split across both, with auto-failover, one shared database, and a private secure link between the servers.
 
 **Generated:** 2026-06-23
 
@@ -10,8 +10,8 @@
 
 | | |
 |---|---|
-| **VPS-1** | `167.233.204.183` (Hostinger) - has MySQL, DNS points here, gets all traffic |
-| **VPS-2** | `75.119.156.93` (Contabo) - runs the app, connects to the shared DB, **currently gets no traffic** |
+| **VPS-1** | `<SOURCE_VPS1_IP>` (Hostinger) - has MySQL, DNS points here, gets all traffic |
+| **VPS-2** | `<SOURCE_VPS2_IP>` (Contabo) - runs the app, connects to the shared DB, **currently gets no traffic** |
 | **Media** | Cloudflare R2 (external, already shared ✅) |
 | **DNS / CDN** | Cloudflare |
 
@@ -29,7 +29,7 @@
                     +----------+-----------+
                   +------------+------------+
                   v                         v
-        VPS-1 (167.233.204.183)      VPS-2 (75.119.156.93)
+        VPS-1 (<SOURCE_VPS1_IP>)      VPS-2 (<SOURCE_VPS2_IP>)
         - App (web/admin/api)      - App (web/admin/api)
         - MySQL  <----------------- DB_HOST = 10.0.0.1
         - Redis (optional) <------- REDIS_HOST = 10.0.0.1
@@ -88,7 +88,7 @@ ListenPort = 51820
 [Peer]
 PublicKey = <VPS-2 publickey>
 AllowedIPs = 10.0.0.2/32
-Endpoint = 75.119.156.93:51820
+Endpoint = <SOURCE_VPS2_IP>:51820
 PersistentKeepalive = 25
 ```
 
@@ -102,14 +102,14 @@ ListenPort = 51820
 [Peer]
 PublicKey = <VPS-1 publickey>
 AllowedIPs = 10.0.0.1/32
-Endpoint = 167.233.204.183:51820
+Endpoint = <SOURCE_VPS1_IP>:51820
 PersistentKeepalive = 25
 ```
 
 **On BOTH** - allow the WG port to each other, then start:
 ```bash
-# VPS-1:  ufw allow from 75.119.156.93 to any port 51820 proto udp
-# VPS-2:  ufw allow from 167.233.204.183 to any port 51820 proto udp
+# VPS-1:  ufw allow from <SOURCE_VPS2_IP> to any port 51820 proto udp
+# VPS-2:  ufw allow from <SOURCE_VPS1_IP> to any port 51820 proto udp
 systemctl enable --now wg-quick@wg0
 ping -c2 10.0.0.1   # run from VPS-2 - should reply
 ```
@@ -124,8 +124,8 @@ ping -c2 10.0.0.1   # run from VPS-2 - should reply
 systemctl restart mysql
 
 # Allow the app user to connect from VPS-2 over the tunnel:
-mysql -u root -e "CREATE USER IF NOT EXISTS 'reelsoo'@'10.0.0.2' IDENTIFIED BY 'STRONG_DB_PASSWORD'; \
-GRANT ALL PRIVILEGES ON reelsoo.* TO 'reelsoo'@'10.0.0.2'; FLUSH PRIVILEGES;"
+mysql -u root -e "CREATE USER IF NOT EXISTS 'teezer'@'10.0.0.2' IDENTIFIED BY 'STRONG_DB_PASSWORD'; \
+GRANT ALL PRIVILEGES ON teezer.* TO 'teezer'@'10.0.0.2'; FLUSH PRIVILEGES;"
 
 # Firewall: allow ONLY VPS-2 over the tunnel; public 3306 stays closed
 ufw allow from 10.0.0.2 to any port 3306
@@ -136,10 +136,10 @@ ufw status | grep 3306   # must NOT show 'Anywhere'
 
 ## Step 3 - Point VPS-2's app at the tunnel
 
-In **VPS-2's** `/var/www/reelsoo/server/.env`:
+In **VPS-2's** `/var/www/teezer/server/.env`:
 ```
 DB_HOST=10.0.0.1
-DB_USERNAME=reelsoo
+DB_USERNAME=teezer
 DB_PASSWORD=STRONG_DB_PASSWORD
 ```
 
@@ -157,10 +157,10 @@ Sessions/cache/queue stay on `database` - no change needed.
 
 Cloudflare dashboard -> **Traffic -> Load Balancing**:
 
-1. **Create an origin pool** with two origins: `167.233.204.183` and `75.119.156.93`.
+1. **Create an origin pool** with two origins: `<SOURCE_VPS1_IP>` and `<SOURCE_VPS2_IP>`.
 2. **Health check (monitor):** Type `HTTPS`, Path `/api/v1/health`, expected code `200`, interval 60s. Cloudflare auto-removes a server that fails.
 3. **Session affinity:** ON (cookie) - keeps each visitor on one server.
-4. **Attach the LB** to `reelsoo.com`, `www`, and `api` hostnames. The LB replaces the single A record.
+4. **Attach the LB** to `teezer.live`, `www`, and `api` hostnames. The LB replaces the single A record.
 
 Ensure **both** servers' Nginx serves all hostnames (web, admin, api) and has the origin TLS cert, since traffic can now land on either.
 
@@ -172,7 +172,7 @@ The app has 4 scheduled jobs (token purge, analytics aggregation, sanctum prune,
 
 ```bash
 # VPS-1 - KEEP this cron entry:
-* * * * * cd /var/www/reelsoo/server && php artisan schedule:run >> /dev/null 2>&1
+* * * * * cd /var/www/teezer/server && php artisan schedule:run >> /dev/null 2>&1
 
 # VPS-2 - REMOVE that cron line entirely (crontab -e).
 # Queue workers may run on both servers safely.
@@ -185,11 +185,11 @@ The app has 4 scheduled jobs (token purge, analytics aggregation, sanctum prune,
 Every future deploy must hit both. Save as `deploy.sh`:
 
 ```bash
-for H in 167.233.204.183 75.119.156.93; do
-  ssh root@$H 'cd /var/www/reelsoo && git pull && \
+for H in <SOURCE_VPS1_IP> <SOURCE_VPS2_IP>; do
+  ssh root@$H 'cd /var/www/teezer && git pull && \
     cd server && composer install --no-dev -o && php artisan migrate --force && php artisan config:cache && \
-    cd ../frontend && npm ci && npm run build && pm2 reload reelsoo-web && \
-    cd ../admin && npm ci && npm run build && pm2 reload reelsoo-admin'
+    cd ../frontend && npm ci && npm run build && pm2 reload teezer-web && \
+    cd ../admin && npm ci && npm run build && pm2 reload teezer-admin'
 done
 ```
 
@@ -227,8 +227,8 @@ done
   primary, replicating its binlog through the SSH tunnel. Verified `Seconds_Behind_Source: 0`.
 - **Redis** - ✅ DONE. Each server has its OWN local Redis for cache/sessions (LB cookie affinity pins a
   user to one box, so per-server sessions are fine; API is token-based).
-- **Automated failover for the DB** - ✅ DONE (2026-06-24). `reelsoo-watchdog.service` on VPS-2 promotes
-  the replica if VPS-1 is unreachable for ~90s; `reelsoo-boot-guard.service` on VPS-1 self-demotes on
+- **Automated failover for the DB** - ✅ DONE (2026-06-24). `teezer-watchdog.service` on VPS-2 promotes
+  the replica if VPS-1 is unreachable for ~90s; `teezer-boot-guard.service` on VPS-1 self-demotes on
   return to prevent split-brain. Installed by `deploy/scripts/install-failover.sh`. See
   `docs/failover-runbook.md`. NOTE: the watchdog's host check is **TCP to :22**, not ICMP - VPS-1's
   firewall drops pings from VPS-2.
@@ -254,4 +254,4 @@ onto the larger box (VPS-2, 6-core/12 GB) or upgrade VPS-1.
 
 ---
 
-*Reelsoo infrastructure plan. Keep this document private - it describes server topology.*
+*Teezer infrastructure plan. Keep this document private - it describes server topology.*

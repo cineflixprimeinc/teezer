@@ -50,8 +50,8 @@ export function DemoNotice() {
       });
     }
 
-    window.addEventListener("reelsoo:demo-blocked", onBlocked);
-    return () => window.removeEventListener("reelsoo:demo-blocked", onBlocked);
+    window.addEventListener("teezer:demo-blocked", onBlocked);
+    return () => window.removeEventListener("teezer:demo-blocked", onBlocked);
   }, [isDemo]);
 
   // Referenced so the state is not flagged unused; the value itself is only

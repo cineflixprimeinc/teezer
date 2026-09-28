@@ -14,7 +14,7 @@ import { create } from "zustand";
  * a second device legitimately has its own answer.
  */
 
-const KEY = "reelsoo:profile-views-seen-at";
+const KEY = "teezer:profile-views-seen-at";
 
 interface ProfileViewsState {
   /** ISO stamp of the last time the views screen was opened. Null = never. */

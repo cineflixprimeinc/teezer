@@ -1,5 +1,5 @@
 /**
- * The Reelsoo playback interface.
+ * The Teezer playback interface.
  *
  * One shape, several possible engines. The feed, Stories, the story/post
  * editor and Inbox all run expo-video today, wrapped to look like this, so a
@@ -53,7 +53,7 @@ export type PlaybackEventMap = {
 
 export type PlaybackEvent = keyof PlaybackEventMap;
 
-export interface ReelsooPlayer {
+export interface TeezerPlayer {
   play(): void;
   pause(): void;
 

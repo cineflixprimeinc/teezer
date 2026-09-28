@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 /**
- * Per-user creator tax forms for Reelsoo Studio. Each creator sees and manages
+ * Per-user creator tax forms for Teezer Studio. Each creator sees and manages
  * only their own forms. Uploaded identity/address proofs are stored under the
  * signature-gated documents prefix via StorageService (same path verification
  * documents use), and their keys are never returned to the client.

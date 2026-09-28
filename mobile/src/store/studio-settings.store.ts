@@ -2,7 +2,7 @@ import { create } from "zustand";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 /**
- * Reelsoo Studio settings store.
+ * Teezer Studio settings store.
  *
  * Studio-only creator/business/monetization preferences. There is no
  * `/studio/settings` endpoint yet, so this persists locally (AsyncStorage
@@ -12,7 +12,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
  * Settings menu into a category sub-page and back.
  */
 
-const CACHE_KEY = "reelsoo:studio-settings";
+const CACHE_KEY = "teezer:studio-settings";
 
 /** Device timezone (IANA, e.g. "Asia/Kathmandu"), following the user's region. */
 function detectTimezone(): string {

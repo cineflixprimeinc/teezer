@@ -36,7 +36,7 @@ class AppAttestVerificationTest extends TestCase
         config([
             'appattest.enabled'      => true,
             'appattest.team_id'      => 'J7JQWZM8H4',
-            'appattest.bundle_id'    => 'com.reelsoo.app',
+            'appattest.bundle_id'    => 'com.teezer.app',
             'appattest.environments' => ['production', 'development'],
             'appattest.root_ca'      => resource_path('certs/Apple_App_Attestation_Root_CA.pem'),
         ]);
@@ -111,7 +111,7 @@ class AppAttestVerificationTest extends TestCase
 
         $this->verifier()->verify(
             base64_encode($keyId),
-            $this->attestationCbor($der, $this->authData('J7JQWZM8H4.com.reelsoo.app', $keyId)),
+            $this->attestationCbor($der, $this->authData('J7JQWZM8H4.com.teezer.app', $keyId)),
             'challenge-value',
         );
     }

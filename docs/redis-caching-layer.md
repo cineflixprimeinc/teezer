@@ -1,11 +1,11 @@
-# Redis Caching Layer - Reelsoo
+# Redis Caching Layer - Teezer
 
 Branch: `feat/redis-caching-layer`. Non-destructive: additive code + one config change. Reads keep using the existing `*_count` columns, so nothing in the read path is rewritten.
 
 ## 0. What was already in place (verified on prod, not assumed)
 - **Cache + sessions already on Redis.** Live `server/.env`: `CACHE_STORE=redis`, `SESSION_DRIVER=redis`, `REDIS_CLIENT=phpredis` (ext loaded), ~1,123 cache keys live. The "file/database" was only the `.env.example` default.
 - **Feed + explore already cached** in `FeedService` (`feed:foryou:*` 5 min, `explore:trending` 15 min) and many configs (app settings, moderation lists, suggestions, OTP, dedupe).
-- **Media already on the Cloudflare R2 CDN.** `FILESYSTEM_DISK=r2`, files under `media.reelsoo.com`; the DB stores **only keys** (`videos/original/…mp4`, `avatars/…png`); `VideoResource` emits HMAC-signed CDN URLs. The app never streams media. ✅ No change needed.
+- **Media already on the Cloudflare R2 CDN.** `FILESYSTEM_DISK=r2`, files under `media.teezer.live`; the DB stores **only keys** (`videos/original/…mp4`, `avatars/…png`); `VideoResource` emits HMAC-signed CDN URLs. The app never streams media. ✅ No change needed.
 
 So this branch adds the **two genuinely missing** pieces: a profile read cache, and Redis counter buffering. Plus the queue driver flip.
 
@@ -56,13 +56,13 @@ Change (env only, no code): `QUEUE_CONNECTION=database` → `redis`. Moves job e
 **Deploy steps (not yet applied - needs a worker restart):**
 1. `sed -i 's/^QUEUE_CONNECTION=.*/QUEUE_CONNECTION=redis/' server/.env` on both boxes.
 2. `php artisan config:clear` (or re-cache).
-3. Restart workers: `pm2 restart reelsoo-queue reelsoo-moderation reelsoo-transcoding` (VPS-2) - they must reload to read the new connection. In-flight DB-queued jobs should drain first (stop enqueueing, let the queue empty, then flip).
+3. Restart workers: `pm2 restart teezer-queue teezer-moderation teezer-transcoding` (VPS-2) - they must reload to read the new connection. In-flight DB-queued jobs should drain first (stop enqueueing, let the queue empty, then flip).
 4. Verify: `php artisan queue:work redis --once` picks up a test job; watch `pm2 logs`.
 
 ## 5. Deploy & verify this branch (when ready - nothing here is deployed yet)
 ```bash
 # on each box
-cd /var/www/reelsoo && git fetch origin feat/redis-caching-layer && git checkout feat/redis-caching-layer && git reset --hard origin/feat/redis-caching-layer
+cd /var/www/teezer && git fetch origin feat/redis-caching-layer && git checkout feat/redis-caching-layer && git reset --hard origin/feat/redis-caching-layer
 cd server && composer dump-autoload -o && php artisan config:clear
 # register the schedule (cron must run `php artisan schedule:run` every minute - confirm it does)
 php artisan schedule:list | grep counters:flush

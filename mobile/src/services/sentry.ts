@@ -54,7 +54,7 @@ function load(): SentryModule | null {
  * stack trace stays minified in the dashboard - the whole point of the upload.
  * The Sentry convention is `<bundle id>@<version>+<build>`, and `dist` is the
  * build number on its own; the Expo plugin tags uploaded maps the same way, so
- * TestFlight build 12 lands against release com.reelsoo.app@1.0+12.
+ * TestFlight build 12 lands against release com.teezer.app@1.0+12.
  */
 function releaseTag(): { release: string; dist: string } {
   const version = Application.nativeApplicationVersion ?? "0.0.0";

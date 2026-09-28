@@ -33,7 +33,7 @@ export type MusicTrack = {
   allow_reels: boolean;
   allow_stories: boolean;
   explicit_content: boolean;
-  /** Set when a Reelsoo admin uploaded it - one half of the "Reelsoo Original" test. */
+  /** Set when a Teezer admin uploaded it - one half of the "Teezer Original" test. */
   created_by_admin_id: number | null;
   source_type: "library" | "original";
   created_at: string;
@@ -107,9 +107,9 @@ export const musicApi = {
     api.post<{ success: boolean }>(`/music/${id}/use`, opts).then((r) => r.data),
 };
 
-/** True when the track is Reelsoo's own, by the website's exact test. */
-export const isReelsooOriginal = (t: MusicTrack): boolean =>
-  !!t.created_by_admin_id || (t.artist_name?.toLowerCase().includes("reelsoo") ?? false);
+/** True when the track is Teezer's own, by the website's exact test. */
+export const isTeezerOriginal = (t: MusicTrack): boolean =>
+  !!t.created_by_admin_id || (t.artist_name?.toLowerCase().includes("teezer") ?? false);
 
 /** "3:07". Null duration reads as "--:--" rather than "0:00", which would be a lie. */
 export function fmtTrackTime(seconds: number | null | undefined): string {

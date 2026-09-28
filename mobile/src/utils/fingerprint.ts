@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const KEY = "reelsoo_device_id";
+const KEY = "teezer_device_id";
 
 /**
  * Stable per-install device id, sent as X-Device-Fingerprint so the backend's

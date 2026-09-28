@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ChevronRight, ExternalLink, ShoppingBag } from "lucide-react";
 import { linkPreviewService } from "@/services/link-preview.service";
 import { cn } from "@/lib/utils";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 
 /**
  * Universal content-attached link/product bar - shown above the creator's
@@ -62,7 +62,7 @@ function LinkSlideContent({ url }: { url: string }) {
   );
 }
 
-export function ContentLinkBar({ video, variant }: { video: ReelsooVideo; variant: "overlay" | "panel" }) {
+export function ContentLinkBar({ video, variant }: { video: TeezerVideo; variant: "overlay" | "panel" }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const touchStart = useRef({ x: 0, y: 0 });

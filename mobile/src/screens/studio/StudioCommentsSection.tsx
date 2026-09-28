@@ -79,8 +79,8 @@ function responseLabel(hours: number | null | undefined): string {
 }
 
 /**
- * Reelsoo Studio › Comments, drawn to the Claude Design prototype
- * ("ReelSoo App.dc.html", the `studioIsComments` panel).
+ * Teezer Studio › Comments, drawn to the Claude Design prototype
+ * ("Teezer App.dc.html", the `studioIsComments` panel).
  *
  * Two modes, exactly as the prototype has them: `cmtListMode` groups the inbox
  * by post, and `cmtThreadMode` opens one post's comments. Grouping by post is

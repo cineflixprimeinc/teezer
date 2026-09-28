@@ -1296,7 +1296,7 @@ export function ChatScreen() {
     // Media types the API declares. Anything unknown still renders its body, so
     // a new server-side type degrades to text rather than an empty bubble.
     if (m.message_type === "shared_video" || m.message_type === "video") {
-      // shared_video references a real Reelsoo reel (video_id set) - tapping
+      // shared_video references a real Teezer reel (video_id set) - tapping
       // opens the actual reel viewer. Plain "video" is an uploaded chat
       // attachment, no video_id - opens in the same full-screen viewer
       // pictures use (drag-down or the ✕ to close), now that it plays video too.

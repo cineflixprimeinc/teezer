@@ -29,8 +29,8 @@ import { useAuthStore } from "@/store/auth.store";
 import { friendService } from "@/services/friend.service";
 import { videoService } from "@/services/video.service";
 import { cn } from "@/lib/utils";
-import type { ReelsooUser } from "@/types/user";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerUser } from "@/types/user";
+import type { TeezerVideo } from "@/types/video";
 
 /* ─── Types ─────────────────────────────────────────────────────── */
 type FilterType = "all" | "creators" | "friends" | "verified" | "recent";
@@ -38,7 +38,7 @@ type ViewMode   = "grid" | "list";
 type RouterState = "checking" | "discovery" | "feed";
 
 interface FollowingCard {
-  user:            ReelsooUser;
+  user:            TeezerUser;
   thumbnail:       string | null;
   latestVideoId:   number | null;
   latestVideoTime: string | null;
@@ -444,13 +444,13 @@ function DiscoveryGrid({ onFollowSuccess }: DiscoveryGridProps) {
     if (dataLoaded) return;
     setFetching(true);
     try {
-      // 1. Suggestions - returns full ReelsooUser with follower/like counts
-      const suggestItems: ReelsooUser[] = await friendService.suggestions().catch(() => []);
+      // 1. Suggestions - returns full TeezerUser with follower/like counts
+      const suggestItems: TeezerUser[] = await friendService.suggestions().catch(() => []);
 
       // 2. Drain trending + general feed pages in parallel to collect as many
       //    unique creators as possible (up to ~300-500 depending on API data).
       //    Each video carries thumbnail_url and its author (VideoUser).
-      const empty: ReelsooVideo[] = [];
+      const empty: TeezerVideo[] = [];
       const trendingFetches = Array.from({ length: 15 }, (_, i) =>
         videoService.trending(i + 1).then((r) => r.data ?? empty).catch(() => empty),
       );
@@ -458,13 +458,13 @@ function DiscoveryGrid({ onFollowSuccess }: DiscoveryGridProps) {
         videoService.feed({ page: i + 1, perPage: 30 }).then((r) => r.data ?? empty).catch(() => empty),
       );
 
-      const allVideos: ReelsooVideo[] = (
+      const allVideos: TeezerVideo[] = (
         await Promise.all([...trendingFetches, ...feedFetches])
       ).flat();
 
       // Build thumbnail + video-user maps (first seen per username wins)
       const thumbMap: Record<string, { url: string; time: string }> = {};
-      const videoUserMap = new Map<string, NonNullable<ReelsooVideo["user"]>>();
+      const videoUserMap = new Map<string, NonNullable<TeezerVideo["user"]>>();
 
       for (const v of allVideos) {
         const un = v.user?.username;
@@ -499,7 +499,7 @@ function DiscoveryGrid({ onFollowSuccess }: DiscoveryGridProps) {
         if (seen.has(un)) continue;
         seen.add(un);
         const t = thumbMap[un];
-        const user: ReelsooUser = {
+        const user: TeezerUser = {
           id:              vu.id,
           name:            vu.name,
           username:        vu.username,
@@ -535,7 +535,7 @@ function DiscoveryGrid({ onFollowSuccess }: DiscoveryGridProps) {
   }, [loadData]);
 
   /* ── Follow / unfollow ── */
-  const handleFollow = useCallback(async (u: ReelsooUser) => {
+  const handleFollow = useCallback(async (u: TeezerUser) => {
     if (!isAuthenticated) { openAuthModal("login"); return; }
     const cur = u.username in followMap ? followMap[u.username] : (u.is_following ?? false);
     setLoadingMap((m) => ({ ...m, [u.username]: true }));
@@ -555,7 +555,7 @@ function DiscoveryGrid({ onFollowSuccess }: DiscoveryGridProps) {
     }
   }, [isAuthenticated, openAuthModal, followMap, onFollowSuccess]);
 
-  const getFollowing = (u: ReelsooUser) =>
+  const getFollowing = (u: TeezerUser) =>
     u.username in followMap ? followMap[u.username] : (u.is_following ?? false);
 
   /* ── Filter + search ── */

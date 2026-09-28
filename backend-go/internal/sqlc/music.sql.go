@@ -32,9 +32,9 @@ WHERE source_type = 'library'
   AND (NOT $7::bool OR featured = TRUE)
   AND (NOT $8::bool OR recommended = TRUE)
   AND (NOT $9::bool
-       OR artist_name ILIKE '%reelsoo%' OR created_by_admin_id IS NOT NULL)
+       OR artist_name ILIKE '%teezer%' OR created_by_admin_id IS NOT NULL)
   AND (NOT $10::bool
-       OR (artist_name NOT ILIKE '%reelsoo%' AND created_by_admin_id IS NULL))
+       OR (artist_name NOT ILIKE '%teezer%' AND created_by_admin_id IS NULL))
   AND (NULLIF($11::text, '') IS NULL OR genre ILIKE '%' || $11::text || '%')
   AND (NULLIF($12::text, '') IS NULL OR mood ILIKE '%' || $12::text || '%')
 `
@@ -48,7 +48,7 @@ type CountMusicLibraryParams struct {
 	DurationBucket  string `json:"duration_bucket"`
 	OnlyFeatured    bool   `json:"only_featured"`
 	OnlyRecommended bool   `json:"only_recommended"`
-	OnlyReelsoo     bool   `json:"only_reelsoo"`
+	OnlyTeezer      bool   `json:"only_teezer"`
 	OnlyArtist      bool   `json:"only_artist"`
 	GenreExact      string `json:"genre_exact"`
 	MoodExact       string `json:"mood_exact"`
@@ -64,7 +64,7 @@ func (q *Queries) CountMusicLibrary(ctx context.Context, arg CountMusicLibraryPa
 		arg.DurationBucket,
 		arg.OnlyFeatured,
 		arg.OnlyRecommended,
-		arg.OnlyReelsoo,
+		arg.OnlyTeezer,
 		arg.OnlyArtist,
 		arg.GenreExact,
 		arg.MoodExact,
@@ -191,9 +191,9 @@ WHERE source_type = 'library'
   AND (NOT $9::bool OR featured = TRUE)
   AND (NOT $10::bool OR recommended = TRUE)
   AND (NOT $11::bool
-       OR artist_name ILIKE '%reelsoo%' OR created_by_admin_id IS NOT NULL)
+       OR artist_name ILIKE '%teezer%' OR created_by_admin_id IS NOT NULL)
   AND (NOT $12::bool
-       OR (artist_name NOT ILIKE '%reelsoo%' AND created_by_admin_id IS NULL))
+       OR (artist_name NOT ILIKE '%teezer%' AND created_by_admin_id IS NULL))
   AND (NULLIF($13::text, '') IS NULL OR genre ILIKE '%' || $13::text || '%')
   AND (NULLIF($14::text, '') IS NULL OR mood ILIKE '%' || $14::text || '%')
 ORDER BY
@@ -213,7 +213,7 @@ type ListMusicLibraryParams struct {
 	DurationBucket  string `json:"duration_bucket"`
 	OnlyFeatured    bool   `json:"only_featured"`
 	OnlyRecommended bool   `json:"only_recommended"`
-	OnlyReelsoo     bool   `json:"only_reelsoo"`
+	OnlyTeezer      bool   `json:"only_teezer"`
 	OnlyArtist      bool   `json:"only_artist"`
 	GenreExact      string `json:"genre_exact"`
 	MoodExact       string `json:"mood_exact"`
@@ -262,7 +262,7 @@ func (q *Queries) ListMusicLibrary(ctx context.Context, arg ListMusicLibraryPara
 		arg.DurationBucket,
 		arg.OnlyFeatured,
 		arg.OnlyRecommended,
-		arg.OnlyReelsoo,
+		arg.OnlyTeezer,
 		arg.OnlyArtist,
 		arg.GenreExact,
 		arg.MoodExact,

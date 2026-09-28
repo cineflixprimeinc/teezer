@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Sharing a Reelsoo profile or a Shop product through DM, same pattern as
+ * Sharing a Teezer profile or a Shop product through DM, same pattern as
  * shared_video (2026_07_27_100001): no new upload, just a reference column
  * plus a message_type the client renders as a card.
  *

@@ -144,7 +144,7 @@ export function AppShell({ children, feedMode = false, backTitle, onBack, transp
 
   /* Badge follows the stream with no request of its own.
    *
-   * Reelsoo's unread semantics are one unread GROUP = one card, so a brand new
+   * Teezer's unread semantics are one unread GROUP = one card, so a brand new
    * group is +1 and a withdrawn one is -1, while an `update` (another person
    * liking the same video) leaves the count alone because that group is already
    * counted. An update that arrives for a group the server had already marked

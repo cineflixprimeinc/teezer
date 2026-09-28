@@ -36,7 +36,7 @@ class AdminUserSeeder extends Seeder
         if ($existing !== null) {
             $existing->fill([
                 'name'              => 'Teezer Admin',
-                'username'          => 'reelsoo_admin',
+                'username'          => 'teezer_admin',
                 'role'              => 'admin',
                 'is_verified'       => true,
                 'email_verified_at' => $existing->email_verified_at ?? now(),
@@ -50,7 +50,7 @@ class AdminUserSeeder extends Seeder
         $user = User::create([
             'email'             => $email,
             'name'              => 'Teezer Admin',
-            'username'          => 'reelsoo_admin',
+            'username'          => 'teezer_admin',
             'password'          => Hash::make($password ?? 'ChangeMe@2025!'),
             'role'              => 'admin',
             'is_verified'       => true,

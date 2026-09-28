@@ -132,10 +132,10 @@ async function revokeToken(token: string): Promise<void> {
 // search terms into the next, since only signOut used to clear them.
 registerSessionReset(() => {
   void AsyncStorage.multiRemove([
-    "reelsoo:search:recents",   // feed search
-    "reelsoo:inbox:recents",    // inbox search
-    "reelsoo:spaces:recents",   // spaces search
-    "reelsoo:recent-searches",  // shared util (Content Preferences' "clear")
+    "teezer:search:recents",   // feed search
+    "teezer:inbox:recents",    // inbox search
+    "teezer:spaces:recents",   // spaces search
+    "teezer:recent-searches",  // shared util (Content Preferences' "clear")
   ]).catch(() => { /* ignore */ });
 });
 

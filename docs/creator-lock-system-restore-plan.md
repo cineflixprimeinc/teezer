@@ -198,5 +198,5 @@ Scale: **0.0 – 5.0**
 
 4. **Deploy:**
    ```
-   cd /var/www/reelsoo && git pull origin main && cd server && php artisan config:cache && php artisan route:cache && cd ../frontend && npm run build && pm2 restart reelsoo-web
+   cd /var/www/teezer && git pull origin main && cd server && php artisan config:cache && php artisan route:cache && cd ../frontend && npm run build && pm2 restart teezer-web
    ```

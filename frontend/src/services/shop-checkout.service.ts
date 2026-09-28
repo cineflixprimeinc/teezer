@@ -2,7 +2,7 @@ import { api } from "./api";
 import type { ApiResponse } from "@/types/api";
 
 /**
- * Reelsoo Shop checkout - the web page mobile hands off to for card/UPI
+ * Teezer Shop checkout - the web page mobile hands off to for card/UPI
  * payment (no Stripe/Razorpay SDK exists in the mobile app; this mirrors the
  * exact hand-off pattern coins already use for the same reason - see
  * StudioWalletsSection.tsx's Linking.openURL(WEB_COINS_URL)).

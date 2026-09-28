@@ -2,7 +2,7 @@ package clickhouse
 
 import "time"
 
-// ProcessingEvent is one row of reelsoo.video_processing_events - see
+// ProcessingEvent is one row of teezer.video_processing_events - see
 // deploy/clickhouse/schema/03-video-processing-events.sql for the DDL this
 // must stay in step with (the batch append in processing_writer.go is
 // positional). A deliberately separate shape from Event (event.go): that

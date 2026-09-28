@@ -3,12 +3,12 @@
 /**
  * The ads.teezer.live LOGIN popup (login only - no ads sign-up, and consent is a
  * separate full page). It just gets the user a token on the ads origin:
- *   - Silent SSO (gate): a shared Reelsoo session → mint a token, no prompt.
- *   - No session → the two-option popup (Continue with Reelsoo / Email).
- * "Continue with Reelsoo" (logged out) hands off to teezer.live to sign in.
- * "Continue with Email" reuses the existing Reelsoo login.
+ *   - Silent SSO (gate): a shared Teezer session → mint a token, no prompt.
+ *   - No session → the two-option popup (Continue with Teezer / Email).
+ * "Continue with Teezer" (logged out) hands off to teezer.live to sign in.
+ * "Continue with Email" reuses the existing Teezer login.
  * After login, /ads-manager shows the full-page authorization screen until the
- * user grants Reelsoo Ads access (see ads-authorize-page.tsx).
+ * user grants Teezer Ads access (see ads-authorize-page.tsx).
  */
 
 import Image from "next/image";
@@ -102,7 +102,7 @@ export function AdsAuthFlow({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const continueWithReelsoo = useCallback(async () => {
+  const continueWithTeezer = useCallback(async () => {
     setBusy(true);
     try {
       const s = await ssoService.session("ads");
@@ -131,7 +131,7 @@ export function AdsAuthFlow({
     );
   }
 
-  /* ── Email login (existing Reelsoo login, jumped into the email view) ──── */
+  /* ── Email login (existing Teezer login, jumped into the email view) ──── */
   if (phase === "email") {
     return (
       <Card>
@@ -173,7 +173,7 @@ export function AdsAuthFlow({
       <div className="mt-5 flex flex-col gap-3">
         <button
           type="button"
-          onClick={continueWithReelsoo}
+          onClick={continueWithTeezer}
           disabled={busy}
           className="flex h-12 w-full items-center justify-center gap-2.5 rounded-full border border-[#e5e7eb] bg-white text-[14px] font-bold text-[#111827] transition hover:border-[#fd4605] hover:bg-[#fff8fa] disabled:opacity-60"
         >

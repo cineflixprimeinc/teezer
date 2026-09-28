@@ -16,11 +16,11 @@ import (
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgtype"
 
-	"reelsoo/backend-go/internal/auth"
-	"reelsoo/backend-go/internal/clickhouse"
-	"reelsoo/backend-go/internal/ratelimit"
-	"reelsoo/backend-go/internal/scoring"
-	"reelsoo/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/auth"
+	"teezer/backend-go/internal/clickhouse"
+	"teezer/backend-go/internal/ratelimit"
+	"teezer/backend-go/internal/scoring"
+	"teezer/backend-go/internal/sqlc"
 )
 
 var validEventTypes = map[string]bool{

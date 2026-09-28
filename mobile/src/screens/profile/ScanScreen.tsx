@@ -20,8 +20,8 @@ type Mode = "scan" | "code";
  *
  * Both encode/expect the exact same URL shape ProfileActionsSheet's Share
  * profile/Copy link already use (profileUrl(username) -
- * https://reelsoo.com/profile/{username}) - a code made by "My Code" is
- * exactly what "Scan" (here, or on any other Reelsoo device) expects to
+ * https://teezer.live/profile/{username}) - a code made by "My Code" is
+ * exactly what "Scan" (here, or on any other Teezer device) expects to
  * read, and it is also just the shop/video share links' own pattern applied
  * to a profile.
  *

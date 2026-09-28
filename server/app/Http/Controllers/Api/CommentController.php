@@ -241,7 +241,7 @@ class CommentController extends Controller
             }
         }
 
-        // Process @mentions in the comment body. Global Reelsoo Control's
+        // Process @mentions in the comment body. Global Teezer Control's
         // mentions_enabled only stops the mention notification - the comment
         // itself already posted above, matching the spec's own wording for
         // this toggle ("mention notifications", not "comments").

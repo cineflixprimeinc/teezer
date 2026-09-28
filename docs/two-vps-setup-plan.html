@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Reelsoo - Two-VPS Setup Plan</title>
+<title>Teezer - Two-VPS Setup Plan</title>
 <style>
   @page { size: A4; margin: 16mm 14mm; }
   * { box-sizing: border-box; }
@@ -44,15 +44,15 @@
 </head>
 <body>
 
-<h1>Reelsoo - Two-VPS Setup Plan</h1>
+<h1>Teezer - Two-VPS Setup Plan</h1>
 <p class="sub">Single website, load balanced across two servers - with auto-failover, one shared database, and a private secure link.</p>
 <p class="meta">Generated 2026-06-23 &nbsp;·&nbsp; Keep this document private - it describes server topology.</p>
 
 <h2>Current situation</h2>
 <table>
   <tr><th style="width:22%">Component</th><th>Detail</th></tr>
-  <tr><td><b>VPS-1</b></td><td><code>167.233.204.183</code> (Hostinger) - has MySQL, DNS points here, gets all traffic</td></tr>
-  <tr><td><b>VPS-2</b></td><td><code>75.119.156.93</code> (Contabo) - runs the app, connects to shared DB, <b>currently gets no traffic</b></td></tr>
+  <tr><td><b>VPS-1</b></td><td><code>&lt;SOURCE_VPS1_IP&gt;</code> (Hostinger) - has MySQL, DNS points here, gets all traffic</td></tr>
+  <tr><td><b>VPS-2</b></td><td><code>&lt;SOURCE_VPS2_IP&gt;</code> (Contabo) - runs the app, connects to shared DB, <b>currently gets no traffic</b></td></tr>
   <tr><td><b>Media</b></td><td>Cloudflare R2 (external, already shared)</td></tr>
   <tr><td><b>DNS / CDN</b></td><td>Cloudflare</td></tr>
 </table>
@@ -68,7 +68,7 @@
                     +----------+-----------+
                   +------------+------------+
                   v                         v
-        VPS-1 (167.233.204.183)      VPS-2 (75.119.156.93)
+        VPS-1 (&lt;SOURCE_VPS1_IP&gt;)      VPS-2 (&lt;SOURCE_VPS2_IP&gt;)
         - App (web/admin/api)      - App (web/admin/api)
         - MySQL  &lt;----------------- DB_HOST = 10.0.0.1
         - Redis (optional) &lt;------- REDIS_HOST = 10.0.0.1
@@ -110,7 +110,7 @@ ListenPort = 51820
 [Peer]
 PublicKey = &lt;VPS-2 publickey&gt;
 AllowedIPs = 10.0.0.2/32
-Endpoint = 75.119.156.93:51820
+Endpoint = &lt;SOURCE_VPS2_IP&gt;:51820
 PersistentKeepalive = 25</code></pre>
 <h3>On VPS-2 - /etc/wireguard/wg0.conf (uses VPS-1's public key)</h3>
 <pre><code>[Interface]
@@ -121,11 +121,11 @@ ListenPort = 51820
 [Peer]
 PublicKey = &lt;VPS-1 publickey&gt;
 AllowedIPs = 10.0.0.1/32
-Endpoint = 167.233.204.183:51820
+Endpoint = &lt;SOURCE_VPS1_IP&gt;:51820
 PersistentKeepalive = 25</code></pre>
 <h3>On BOTH - allow the WG port to each other, then start</h3>
-<pre><code># VPS-1:  ufw allow from 75.119.156.93 to any port 51820 proto udp
-# VPS-2:  ufw allow from 167.233.204.183 to any port 51820 proto udp
+<pre><code># VPS-1:  ufw allow from &lt;SOURCE_VPS2_IP&gt; to any port 51820 proto udp
+# VPS-2:  ufw allow from &lt;SOURCE_VPS1_IP&gt; to any port 51820 proto udp
 systemctl enable --now wg-quick@wg0
 ping -c2 10.0.0.1   # run from VPS-2 - should reply</code></pre>
 
@@ -135,17 +135,17 @@ ping -c2 10.0.0.1   # run from VPS-2 - should reply</code></pre>
 systemctl restart mysql
 
 # Allow the app user to connect from VPS-2 over the tunnel:
-mysql -u root -e "CREATE USER IF NOT EXISTS 'reelsoo'@'10.0.0.2' IDENTIFIED BY 'STRONG_DB_PASSWORD'; \
-GRANT ALL PRIVILEGES ON reelsoo.* TO 'reelsoo'@'10.0.0.2'; FLUSH PRIVILEGES;"
+mysql -u root -e "CREATE USER IF NOT EXISTS 'teezer'@'10.0.0.2' IDENTIFIED BY 'STRONG_DB_PASSWORD'; \
+GRANT ALL PRIVILEGES ON teezer.* TO 'teezer'@'10.0.0.2'; FLUSH PRIVILEGES;"
 
 # Firewall: allow ONLY VPS-2 over the tunnel; public 3306 stays closed
 ufw allow from 10.0.0.2 to any port 3306
 ufw status | grep 3306   # must NOT show 'Anywhere'</code></pre>
 
 <h2>Step 3 - Point VPS-2's app at the tunnel</h2>
-<p>In <b>VPS-2's</b> <code>/var/www/reelsoo/server/.env</code>:</p>
+<p>In <b>VPS-2's</b> <code>/var/www/teezer/server/.env</code>:</p>
 <pre><code>DB_HOST=10.0.0.1
-DB_USERNAME=reelsoo
+DB_USERNAME=teezer
 DB_PASSWORD=STRONG_DB_PASSWORD</code></pre>
 <p>Then on VPS-2:</p>
 <pre><code>php artisan config:cache
@@ -155,28 +155,28 @@ php artisan migrate:status   # confirms it reads the shared DB</code></pre>
 <h2>Step 4 - Cloudflare Load Balancer</h2>
 <p>Cloudflare dashboard → <b>Traffic → Load Balancing</b>:</p>
 <ol>
-  <li><b>Create an origin pool</b> with two origins: <code>167.233.204.183</code> and <code>75.119.156.93</code>.</li>
+  <li><b>Create an origin pool</b> with two origins: <code>&lt;SOURCE_VPS1_IP&gt;</code> and <code>&lt;SOURCE_VPS2_IP&gt;</code>.</li>
   <li><b>Health check (monitor):</b> Type <code>HTTPS</code>, Path <code>/api/v1/health</code>, expected code <code>200</code>, interval 60s. Cloudflare auto-removes a server that fails.</li>
   <li><b>Session affinity:</b> ON (cookie) - keeps each visitor on one server.</li>
-  <li><b>Attach the LB</b> to <code>reelsoo.com</code>, <code>www</code>, and <code>api</code> hostnames. The LB replaces the single A record.</li>
+  <li><b>Attach the LB</b> to <code>teezer.live</code>, <code>www</code>, and <code>api</code> hostnames. The LB replaces the single A record.</li>
 </ol>
 <p>Ensure <b>both</b> servers' Nginx serves all hostnames (web, admin, api) and has the origin TLS cert, since traffic can now land on either.</p>
 
 <h2>Step 5 - Scheduler on ONE server only</h2>
 <p>The app has 4 scheduled jobs (token purge, analytics aggregation, sanctum prune, restrictions:expire). If both servers run them, they fire twice.</p>
 <pre><code># VPS-1 - KEEP this cron entry:
-* * * * * cd /var/www/reelsoo/server &amp;&amp; php artisan schedule:run &gt;&gt; /dev/null 2&gt;&amp;1
+* * * * * cd /var/www/teezer/server &amp;&amp; php artisan schedule:run &gt;&gt; /dev/null 2&gt;&amp;1
 
 # VPS-2 - REMOVE that cron line entirely (crontab -e).
 # Queue workers may run on both servers safely.</code></pre>
 
 <h2>Step 6 - Deploy to BOTH servers from now on</h2>
 <p>Every future deploy must hit both. Save as <code>deploy.sh</code>:</p>
-<pre><code>for H in 167.233.204.183 75.119.156.93; do
-  ssh root@$H 'cd /var/www/reelsoo &amp;&amp; git pull &amp;&amp; \
+<pre><code>for H in &lt;SOURCE_VPS1_IP&gt; &lt;SOURCE_VPS2_IP&gt;; do
+  ssh root@$H 'cd /var/www/teezer &amp;&amp; git pull &amp;&amp; \
     cd server &amp;&amp; composer install --no-dev -o &amp;&amp; php artisan migrate --force &amp;&amp; php artisan config:cache &amp;&amp; \
-    cd ../frontend &amp;&amp; npm ci &amp;&amp; npm run build &amp;&amp; pm2 reload reelsoo-web &amp;&amp; \
-    cd ../admin &amp;&amp; npm ci &amp;&amp; npm run build &amp;&amp; pm2 reload reelsoo-admin'
+    cd ../frontend &amp;&amp; npm ci &amp;&amp; npm run build &amp;&amp; pm2 reload teezer-web &amp;&amp; \
+    cd ../admin &amp;&amp; npm ci &amp;&amp; npm run build &amp;&amp; pm2 reload teezer-admin'
 done</code></pre>
 <p><code>migrate</code> is idempotent - the second run simply reports nothing to migrate.</p>
 
@@ -209,7 +209,7 @@ done</code></pre>
   <li><b>Automated DB failover</b> - promote the replica if VPS-1's MySQL dies.</li>
 </ul>
 
-<p class="footer">Reelsoo infrastructure plan · Generated 2026-06-23 · Keep private.</p>
+<p class="footer">Teezer infrastructure plan · Generated 2026-06-23 · Keep private.</p>
 
 </body>
 </html>

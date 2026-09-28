@@ -13,7 +13,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
  * today without a deploy.)
  */
 
-const CACHE_KEY = "reelsoo:onboarding-seen";
+const CACHE_KEY = "teezer:onboarding-seen";
 
 interface OnboardingState {
   seen: Record<string, boolean>;

@@ -1,13 +1,13 @@
 import * as SecureStore from "expo-secure-store";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const TOKEN_KEY = "reelsoo_token";
-const ACCOUNTS_KEY = "reelsoo_accounts";
+const TOKEN_KEY = "teezer_token";
+const ACCOUNTS_KEY = "teezer_accounts";
 
 /**
  * Maximum number of accounts that can be SAVED for quick login on a single
  * device. This caps only the local quick-login list - it never limits how many
- * Reelsoo accounts a person owns or can be signed into over time. Enforced in
+ * Teezer accounts a person owns or can be signed into over time. Enforced in
  * the business logic (auth.store `saveAccount`) AND surfaced in the UI.
  */
 export const MAX_SAVED_ACCOUNTS = 5;
@@ -62,8 +62,8 @@ export interface SavedAccount {
  * Per-account token items are a few dozen bytes each, so the ceiling is no
  * longer reachable however many accounts are saved.
  */
-const ACCOUNTS_META_KEY = "reelsoo_accounts_meta";
-const accountTokenKey = (id: number) => `reelsoo_acct_token_${id}`;
+const ACCOUNTS_META_KEY = "teezer_accounts_meta";
+const accountTokenKey = (id: number) => `teezer_acct_token_${id}`;
 
 /** The profile half - everything except the token. */
 type AccountMeta = Omit<SavedAccount, "token">;

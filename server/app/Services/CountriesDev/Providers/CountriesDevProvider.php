@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Log;
  *   GET /ip/{address}   - resolves an EXPLICIT ip (verified /ip/8.8.8.8 -> US)
  *   GET /ip (bare)      - resolves the CALLER's own IP only - NEVER use this
  *                         to look up an end user's IP from the backend, it
- *                         would silently return Reelsoo's own server's
+ *                         would silently return Teezer's own server's
  *                         country instead. A ?ip= query param does NOT
  *                         override it either (tested) - the path-segment
  *                         form above is the only correct one.

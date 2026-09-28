@@ -17,7 +17,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 
-	"reelsoo/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/sqlc"
 )
 
 const (

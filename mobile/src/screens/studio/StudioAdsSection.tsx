@@ -82,7 +82,7 @@ const compact = (n: number) => n >= 1_000_000 ? (n / 1_000_000).toFixed(1).repla
 /** Grouped whole number, for the hero where the currency sits in its own slot. */
 const groupInt = (n: number) => Math.round(n || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-/** Reelsoo Studio -> Reelsoo Ads.
+/** Teezer Studio -> Teezer Ads.
  *
  *  Campaigns are `promotions` server-side. The table records an objective,
  *  targeting, budgets, dates and a status - and nothing about delivery. There is

@@ -7,7 +7,7 @@ import { colors } from "@/constants/colors";
 import { font, radius, spacing } from "@/constants/theme";
 
 /* ────────────────────────────────────────────────────────────────────────────
- * Reelsoo Ads - shared UI kit for the four Advertising pages (Ad Account,
+ * Teezer Ads - shared UI kit for the four Advertising pages (Ad Account,
  * Billing, Payment History, Promotional Credits). Matches the approved
  * screenshots: a centred back+help header, soft light-pink gradient hero cards,
  * elevated white cards, key/value + icon rows, stat tiles and status badges.

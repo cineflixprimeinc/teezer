@@ -10,7 +10,7 @@ import { Table, Thead, Th, Tbody, Tr, Td, Pagination, TableEmpty, TableLoading }
 import { api } from "@/services/api";
 
 /**
- * Reelsoo Shop → Shops.
+ * Teezer Shop → Shops.
  *
  * Read-only visibility over every storefront on the platform - sellers own
  * their own products/collections/reviews, this is a moderation view, not a

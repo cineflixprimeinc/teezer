@@ -1,7 +1,7 @@
 /*
  * Styles for the migrated admin panel, scoped to `.admin-panel-root`.
  *
- * These rules came from the standalone reelsoo-admin app's globals.css, where
+ * These rules came from the standalone teezer-admin app's globals.css, where
  * they applied to `body`, `:root` and bare element selectors - correct there,
  * because that app rendered nothing else. Inside the main site the identical
  * rules would restyle every page: a light `#f4f5f7` background on the video

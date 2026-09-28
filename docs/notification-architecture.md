@@ -1,4 +1,4 @@
-# Reelsoo Notifications — Software Architecture Document
+# Teezer Notifications — Software Architecture Document
 
 **Part 1 of 4: The Event Registry and Rule Engine**
 Status: draft · Written against the codebase at `8a59811b`
@@ -102,7 +102,7 @@ for.
 | `mergeable` | Whether many collapse into one. See Part 2. |
 | `merge_window` | How long an existing group stays open to newcomers |
 | `merge_key` | What makes two events "the same notification" |
-| `deep_link` | Template: `reelsoo://video/{subject_id}` |
+| `deep_link` | Template: `teezer://video/{subject_id}` |
 | `preference_key` | Which user switch governs it |
 | `priority` | Ordering and push urgency |
 | `ttl` | When it expires out of the inbox |

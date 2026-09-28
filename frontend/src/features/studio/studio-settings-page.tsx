@@ -50,7 +50,7 @@ export function StudioSettingsPageFull() {
     setTesting(true);
     setResult(null);
     try {
-      const token = localStorage.getItem("reelsoo_token");
+      const token = localStorage.getItem("teezer_token");
       const res = await fetch(
         apiUrl("/studio/settings/test/connection"),
         { headers: { Authorization: `Bearer ${token}` } }
@@ -69,7 +69,7 @@ export function StudioSettingsPageFull() {
     setClearing(true);
     setCacheResult(null);
     try {
-      const token = localStorage.getItem("reelsoo_token");
+      const token = localStorage.getItem("teezer_token");
       const res = await fetch(
         apiUrl("/studio/settings/cache/clear"),
         {

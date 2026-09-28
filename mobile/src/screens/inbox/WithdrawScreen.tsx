@@ -24,7 +24,7 @@ import { coins, plainUsd, pct as fmtPct, usd } from "@/utils/money";
  *     `payout.tax.message` and not from a local string.
  *   - A payout method is required - there is nowhere to send money without one.
  *   - The amount must clear `minimum_withdraw` and cannot exceed the balance.
- *   - Reelsoo's commission is taken HERE, not when each gift arrived, so the
+ *   - Teezer's commission is taken HERE, not when each gift arrived, so the
  *     "you receive" figure is the gross minus that fee. Gifts credit in full.
  *
  * The fee is previewed with the rate the server sends; the server recomputes it
@@ -144,7 +144,7 @@ export function WithdrawScreen() {
   /* The fee and the coin rate are the admin panel's, and `null` means "not
      known yet" rather than a guess. They used to default to 0 and 100: a
      missing fee rendered as "you receive $50" on a withdrawal that would pay
-     $35, and a missing rate quoted a conversion Reelsoo might not offer. The
+     $35, and a missing rate quoted a conversion Teezer might not offer. The
      blocker below keeps the button off while either is unknown. */
   const rate = payout?.commission_rate ?? null;
   const coinRate = payout?.coin_usd_rate ?? null;

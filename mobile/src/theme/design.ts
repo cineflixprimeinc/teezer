@@ -1,6 +1,6 @@
 /**
  * Design tokens for the app rebuild, taken verbatim from the Claude Design
- * prototype "ReelSoo App.dc.html" (iPhone 393x852).
+ * prototype "Teezer App.dc.html" (iPhone 393x852).
  *
  * Deliberately SEPARATE from `@/constants/colors`: that palette is on #fe2c55 and
  * the existing auth / settings / legal screens are built against it. The design

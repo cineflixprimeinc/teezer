@@ -197,7 +197,7 @@ class LicenseMigrationsTest extends TestCase
         $row = [
             'version'         => '1.0.0',
             'channel'         => 'stable',
-            'object_key'      => 'releases/stable/reelsoo-1.0.0.tar.gz',
+            'object_key'      => 'releases/stable/teezer-1.0.0.tar.gz',
             'checksum_sha256' => str_repeat('b', 64),
             'created_at'      => now(),
             'updated_at'      => now(),

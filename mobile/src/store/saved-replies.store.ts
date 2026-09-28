@@ -12,7 +12,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
  * endpoint lands; nothing outside this file knows where they are stored.
  */
 
-const CACHE_KEY = "reelsoo:saved-replies";
+const CACHE_KEY = "teezer:saved-replies";
 
 export interface SavedReply {
   id: string;

@@ -9,7 +9,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
  * the set on-device. Marking spam keeps the request pending server-side; it
  * just moves it out of Pending into Spam here.
  */
-const KEY = "reelsoo:spam-conversations";
+const KEY = "teezer:spam-conversations";
 
 interface SpamState {
   ids: Set<number>;

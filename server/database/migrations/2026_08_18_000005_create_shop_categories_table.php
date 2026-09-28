@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 /**
  * Platform-wide product categories (Fashion, Beauty, Electronics...),
- * admin-managed from the "Reelsoo Shop" admin section - NOT per-shop. Every
+ * admin-managed from the "Teezer Shop" admin section - NOT per-shop. Every
  * shop's product grid filters against this same list, the way the storefront
  * carousel's [All] [Fashion] [Beauty]... pills work.
  *

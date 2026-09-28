@@ -237,7 +237,7 @@ export type CreatePromotion = {
   duration_days?: number;
   start_date?: string;
   end_date?: string;
-  payment_method?: "reelsoo_balance" | "credit_card" | "e_wallet" | "bank_transfer";
+  payment_method?: "teezer_balance" | "credit_card" | "e_wallet" | "bank_transfer";
   status?: "draft" | "pending_review";
 };
 

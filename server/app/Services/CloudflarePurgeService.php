@@ -31,7 +31,7 @@ class CloudflarePurgeService
     private const BATCH_SIZE = 30;
 
     /**
-     * @param list<string> $urls Absolute URLs, e.g. https://cdn.reelsoo.com/public/hls/42/master.m3u8
+     * @param list<string> $urls Absolute URLs, e.g. https://cdn.teezer.live/public/hls/42/master.m3u8
      */
     public function purgeUrls(array $urls): void
     {

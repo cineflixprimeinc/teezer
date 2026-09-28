@@ -37,7 +37,7 @@ class ProcessingEventStream
 
             // Same 'analytics' connection EventStream uses - it has the
             // EMPTY key prefix the Go consumer (not a Laravel app, knows
-            // nothing about Laravel's default 'reelsoo_database_' prefix)
+            // nothing about Laravel's default 'teezer_database_' prefix)
             // needs to actually find the stream.
             $client = Redis::connection('analytics')->client();
 

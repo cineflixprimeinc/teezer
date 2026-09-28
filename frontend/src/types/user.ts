@@ -15,7 +15,7 @@ export type SocialLink = {
   url: string;
 };
 
-export type ReelsooHighlight = {
+export type TeezerHighlight = {
   id: number;
   title: string;
   cover_url?: string | null;
@@ -23,7 +23,7 @@ export type ReelsooHighlight = {
   sort_order?: number;
 };
 
-export type ReelsooUser = {
+export type TeezerUser = {
   id: number;
   name: string;
   username: string;
@@ -58,7 +58,7 @@ export type ReelsooUser = {
   creatorStatus?: string;
   profile?: UserProfileStats | null;
   social_links?: SocialLink[];
-  highlights?: ReelsooHighlight[];
+  highlights?: TeezerHighlight[];
   creator_progress?: { xp?: number; level?: string | null } | null;
   followers_count?: number;
   following_count?: number;

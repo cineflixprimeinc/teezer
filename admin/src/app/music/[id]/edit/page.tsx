@@ -44,7 +44,7 @@ const KEY_OPTIONS = [
 ];
 
 const LICENSE_OPTIONS = [
-  { value: "reelsoo_licensed",  label: "Teezer Licensed",   desc: "Licensed exclusively for Teezer platform" },
+  { value: "teezer_licensed",  label: "Teezer Licensed",   desc: "Licensed exclusively for Teezer platform" },
   { value: "royalty_free",      label: "Royalty Free",        desc: "Free to use without ongoing royalties" },
   { value: "creative_commons",  label: "Creative Commons",    desc: "Open licensing with attribution" },
   { value: "public_domain",     label: "Public Domain",       desc: "No copyright restrictions" },

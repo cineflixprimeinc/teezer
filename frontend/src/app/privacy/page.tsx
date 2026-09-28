@@ -41,7 +41,7 @@ export default function PrivacyPolicyPage() {
       <LegalShell eyebrow="Legal · Privacy" title="Privacy Policy" lastUpdated={LAST_UPDATED} toc={TOC} related={RELATED}>
       <P>
         Welcome to Teezer (&quot;Teezer&quot;, the &quot;Platform&quot;, &quot;we&quot;, &quot;us&quot; or
-        &quot;our&quot;), a short-video platform operated by CineflixPrime. This Privacy Policy explains what
+        &quot;our&quot;), a short-video platform operated by Teezer. This Privacy Policy explains what
         information we collect when you use our website at teezer.live, our mobile applications, and the related
         services we offer (together, the &quot;Platform&quot;), how we use and share that information, and the rights
         and controls you have over it. This Policy should be read together with our{" "}

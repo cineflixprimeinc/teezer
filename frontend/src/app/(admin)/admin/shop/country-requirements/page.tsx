@@ -12,9 +12,9 @@ import { Table, Thead, Th, Tbody, Tr, Td, TableEmpty, TableLoading } from "@/adm
 import { api, apiMessage } from "@/admin-panel/services/api";
 
 /**
- * Reelsoo Shop → Country Requirements.
+ * Teezer Shop → Country Requirements.
  *
- * What "Sell on Reelsoo" asks a seller to fill in/upload, resolved server-side
+ * What "Sell on Teezer" asks a seller to fill in/upload, resolved server-side
  * by (country_code, seller_type) - SellerApplicationController reads this
  * table, the mobile wizard never hard-codes a form per country. '*' is the
  * fallback row used for any country without its own explicit row.

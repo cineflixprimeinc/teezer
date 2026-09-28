@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 /**
  * Daily performance rollup, aggregated from ClickHouse into Postgres for advertiser/admin
- * reports. Raw per-event data lives in ClickHouse (reelsoo.events), never here. Foreign keys
+ * reports. Raw per-event data lives in ClickHouse (teezer.events), never here. Foreign keys
  * are intentionally omitted (indexed ids only) so history survives campaign deletion and the
  * high-volume upsert path stays cheap. Nullable grouping columns use 0 / '' defaults so the
  * unique key works with Postgres ON CONFLICT upserts.

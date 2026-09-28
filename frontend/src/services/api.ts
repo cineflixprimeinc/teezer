@@ -17,12 +17,12 @@ api.interceptors.request.use((config) => {
     delete config.headers["Content-Type"];
   }
   if (typeof window !== "undefined") {
-    const token = window.localStorage.getItem("reelsoo_token");
+    const token = window.localStorage.getItem("teezer_token");
     if (token) config.headers.Authorization = `Bearer ${token}`;
-    let deviceId = window.localStorage.getItem("reelsoo_device_fingerprint");
+    let deviceId = window.localStorage.getItem("teezer_device_fingerprint");
     if (!deviceId) {
       deviceId = crypto.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-      window.localStorage.setItem("reelsoo_device_fingerprint", deviceId);
+      window.localStorage.setItem("teezer_device_fingerprint", deviceId);
     }
     config.headers["X-Device-Fingerprint"] = deviceId;
   }
@@ -33,7 +33,7 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401 && typeof window !== "undefined") {
-      window.dispatchEvent(new Event("reelsoo:unauthorized"));
+      window.dispatchEvent(new Event("teezer:unauthorized"));
     }
 
     // A demo account attempting a write. Surfaced as its own event rather than
@@ -48,7 +48,7 @@ api.interceptors.response.use(
       typeof window !== "undefined"
     ) {
       window.dispatchEvent(
-        new CustomEvent("reelsoo:demo-blocked", {
+        new CustomEvent("teezer:demo-blocked", {
           detail: {
             message: error.response?.data?.message as string | undefined,
             // READONLY comes from the admin panel, NO_UPLOAD from the public
@@ -70,7 +70,7 @@ export function apiMessage(error: unknown) {
     const fieldError = Object.values(data?.errors || {})?.flat()?.[0] as string | undefined;
     if (fieldError) return fieldError;
     if (data?.message && data.message !== "Validation failed.") return data.message;
-    // Global Reelsoo Control's error shape nests the message under
+    // Global Teezer Control's error shape nests the message under
     // `error.message`, not the top-level `message` every other endpoint
     // uses - without this a disabled-feature response silently fell
     // through to axios's generic "Request failed with status code 403"
@@ -95,7 +95,7 @@ export function rateLimitInfo(error: unknown): { message: string; retryAfter: nu
 }
 
 /**
- * Extracts Global Reelsoo Control's denial shape - `{ feature, message,
+ * Extracts Global Teezer Control's denial shape - `{ feature, message,
  * expiresAt }` - or null if this error isn't one. `expiresAt` is null when
  * the restriction has no scheduled end (off until an admin re-enables it
  * by hand); a real timestamp means it's temporary, so callers can show

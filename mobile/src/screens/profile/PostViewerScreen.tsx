@@ -18,7 +18,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useQuery } from "@tanstack/react-query";
 import Svg, { Circle, Path } from "react-native-svg";
 import { ds } from "@/theme/design";
-import { BAR_H } from "@/components/nav/ReelsooTabBar";
+import { BAR_H } from "@/components/nav/TeezerTabBar";
 import { profileApi, profileGridQuery, type ProfileGridTab } from "@/api/profile.api";
 import { videoApi } from "@/api/video.api";
 import { useAuthStore } from "@/store/auth.store";

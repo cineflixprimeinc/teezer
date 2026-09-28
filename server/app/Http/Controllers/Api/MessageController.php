@@ -26,7 +26,7 @@ class MessageController extends Controller
         private readonly \App\Services\GlobalControls\GlobalControlService $globalControls,
     ) {}
 
-    /** Global Reelsoo Control's standard denial body for voice messages. */
+    /** Global Teezer Control's standard denial body for voice messages. */
     private function voiceDisabledResponse(): JsonResponse
     {
         return response()->json($this->globalControls->deniedResponse('voice_messages_enabled'), 403);
@@ -406,7 +406,7 @@ class MessageController extends Controller
 
         $mediaType = $request->input('media_type');
 
-        // Global Reelsoo Control - voice is a distinct, client-declared
+        // Global Teezer Control - voice is a distinct, client-declared
         // media_type value here (not mime-sniffed), so it can be gated
         // separately from the coarser message_attachments_enabled that
         // already covers this whole route via EnsureGlobalControlEnabled.

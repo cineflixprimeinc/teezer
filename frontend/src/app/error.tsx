@@ -48,7 +48,7 @@ export default function Error({
     };
 
     try {
-      const K = "reelsoo_chunk_reloaded";
+      const K = "teezer_chunk_reloaded";
       if (!sessionStorage.getItem(K)) {
         sessionStorage.setItem(K, "1");
         hardReload();

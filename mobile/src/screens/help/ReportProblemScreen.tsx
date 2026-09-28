@@ -32,7 +32,7 @@ const ISSUES: Issue[] = [
  * Report a Problem - opened from the three-dot menu › Report a Problem.
  * Pick an issue category, describe it (500-char limit), attach up to four
  * screenshots, and submit. Submitting composes a support email to
- * support@reelsoo.com with the category, description, device/app info and
+ * support@teezer.live with the category, description, device/app info and
  * the screenshots attached (falls back to a mailto link if no mail app).
  */
 export function ReportProblemScreen() {

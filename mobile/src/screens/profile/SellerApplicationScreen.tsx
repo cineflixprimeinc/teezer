@@ -13,7 +13,7 @@ import { colors } from "@/constants/colors";
 import { font, radius, spacing } from "@/constants/theme";
 
 /**
- * Settings -> Sell on Reelsoo. Not the public Shop screen (ShopScreen.tsx) -
+ * Settings -> Sell on Teezer. Not the public Shop screen (ShopScreen.tsx) -
  * this is the application/status landing page in front of the wizard
  * (SellerApplicationWizardScreen). One GET decides everything shown here;
  * there is no local draft to fall out of sync with the server.
@@ -33,7 +33,7 @@ const FALLBACK_REQUIREMENTS = ["Meet our Community Guidelines", "Be at least 18 
 /**
  * Which of the full eligibility checklist to surface on this intro/pitch
  * screen: exactly the ones an admin configured specifically for Sell on
- * Reelsoo (Admin Panel -> Monetization Control Center -> Sell on Reelsoo
+ * Teezer (Admin Panel -> Monetization Control Center -> Sell on Teezer
  * -> Requirements), i.e. `!baseline`. The platform-wide checks every
  * programme carries (age, two-factor, one-account-per-person, no active
  * strikes...) are real too, but they're not this programme's own
@@ -92,7 +92,7 @@ export function SellerApplicationScreen() {
     startTimer.current = setTimeout(goWizard, 3000);
   };
   /* Every one of the programme's own requirements (admin panel ->
-   * Monetization Control Center -> Sell on Reelsoo -> Requirements), live-
+   * Monetization Control Center -> Sell on Teezer -> Requirements), live-
    * computed - see MonetizationEligibilityService. Gates Apply Now/Get
    * Started, matching every other programme's CTA (Gifts & Coins, the
    * waitlist programmes) now that eligibility is required before enrolling

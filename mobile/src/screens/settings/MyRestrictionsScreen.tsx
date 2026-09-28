@@ -37,7 +37,7 @@ function useCountdown(expiresAt: string | null) {
   return remaining;
 }
 
-/* ── Single restriction card - website rules, light Reelsoo styling ── */
+/* ── Single restriction card - website rules, light Teezer styling ── */
 function RestrictionCard({ r }: { r: ActiveRestriction }) {
   const countdown = useCountdown(r.is_permanent ? null : r.expires_at);
   const isMessaging = r.category === "messaging";
@@ -122,7 +122,7 @@ function RestrictionCard({ r }: { r: ActiveRestriction }) {
 }
 
 /**
- * "My Restrictions" - active restrictions Reelsoo has applied to YOUR account.
+ * "My Restrictions" - active restrictions Teezer has applied to YOUR account.
  * Mirrors the website's /settings/restrictions rules (same
  * GET /account/restrictions data, permanent/temporary handling, reason, live
  * countdown, appeal paths) in the app's light settings design.

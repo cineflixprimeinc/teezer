@@ -28,7 +28,7 @@ import { apiMessage } from "@/services/api";
 import { useWatchTracker } from "@/hooks/useWatchTracker";
 import { useHlsSource } from "@/hooks/use-hls-source";
 import { KnowledgeCard } from "@/components/knowledge/knowledge-card";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 
 /* ── Types ─────────────────────────────────────────────────────────────── */
 type RightTab = "comments" | "creator-videos";
@@ -361,7 +361,7 @@ function EmbedModal({ videoId, onClose }: { videoId: number; onClose: () => void
 }
 
 /* ── Privacy modal ──────────────────────────────────────────────────────── */
-function PrivacyModal({ video, onClose, onSaved }: { video: ReelsooVideo; onClose: () => void; onSaved: () => void }) {
+function PrivacyModal({ video, onClose, onSaved }: { video: TeezerVideo; onClose: () => void; onSaved: () => void }) {
   const [visibility,     setVisibility]     = useState(video.status === "private" || video.status === "draft" ? "private" : video.status === "unlisted" ? "unlisted" : "public");
   const [allowComments,  setAllowComments]  = useState(video.allow_comments  ?? true);
   const [allowDuet,      setAllowDuet]      = useState(video.allow_duet      ?? true);

@@ -33,7 +33,7 @@ import { useUiStore } from "@/store/ui.store";
 import { formatCompact, cn, locationSlug } from "@/lib/utils";
 import { syncLike, syncSave } from "@/lib/like-sync";
 import { VerifiedBadge } from "@/components/ui/verified-badge";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 import { DoubleTapLike } from "./double-tap-like";
 import type { HeartItem } from "./double-tap-like";
 
@@ -57,7 +57,7 @@ const TOPBAR_H = 64; // matches --topbar-h in globals.css
 
 /* ─── Fixed portrait media shell ─────────────────────────────────────────────
    Every post - portrait, landscape, square or any ratio - is shown inside ONE
-   consistent portrait (9:16) player shell, like the old Reelsoo feed. The media
+   consistent portrait (9:16) player shell, like the old Teezer feed. The media
    is fit inside with object-fit: contain, so landscape / square clips are
    letterboxed (black background + optional blurred backdrop) without ever
    changing the outer player shape. No orientation-based outer layouts. ─────── */
@@ -69,7 +69,7 @@ function orientationOf(ar: number): FeedOrientation {
 }
 
 /** Resolve the best-known aspect ratio for a post (measured > stored > default). */
-function resolveAspectRatio(video: ReelsooVideo, measured?: number): number {
+function resolveAspectRatio(video: TeezerVideo, measured?: number): number {
   if (measured && measured > 0) return measured;
   if (video.aspect_ratio && video.aspect_ratio > 0) return video.aspect_ratio;
   if (video.width && video.height) return video.width / video.height;
@@ -77,7 +77,7 @@ function resolveAspectRatio(video: ReelsooVideo, measured?: number): number {
 }
 
 /** Fixed portrait (9:16) outer shell for every post, regardless of media ratio.
-    Height drives the size (tall, centered, old Reelsoo feel); width follows the
+    Height drives the size (tall, centered, old Teezer feel); width follows the
     9:16 ratio and is capped so the player never becomes landscape or square.
     The returned `orientation` is the MEDIA's orientation - used only to decide
     whether to paint the blurred backdrop behind letterboxed media, NOT to size
@@ -649,13 +649,13 @@ function FeedEmpty({ mode, onEmpty }: { mode: "home" | "following" | "explore"; 
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   VideoSlide - wraps a ReelsooVideo with player + bottom caption block +
+   VideoSlide - wraps a TeezerVideo with player + bottom caption block +
    volume (top-left) + 3-dot menu (top-right).
 ──────────────────────────────────────────────────────────────────────────── */
 const VideoSlide = memo(function VideoSlide({
   video, orientation, isActive, isNearActive, onEnded, onNotInterested, onReport, onAspectRatio, feedIds, source,
 }: {
-  video: ReelsooVideo;
+  video: TeezerVideo;
   orientation?: FeedOrientation;
   isActive: boolean;
   isNearActive: boolean;
@@ -1888,7 +1888,7 @@ const VideoSlide = memo(function VideoSlide({
 function VideoActions({
   video, onOpenComments,
 }: {
-  video: ReelsooVideo;
+  video: TeezerVideo;
   onOpenComments: () => void;
 }) {
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);

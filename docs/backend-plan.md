@@ -1,8 +1,8 @@
-# Reelsoo - Backend Architecture Plan
+# Teezer - Backend Architecture Plan
 
-> **Domain:** reelsoo.com  
-> **API:** api.reelsoo.com  
-> **VPS:** 217.217.249.50 (Ubuntu 22.04)  
+> **Domain:** teezer.live  
+> **API:** api.teezer.live  
+> **VPS:** <SOURCE_HOST5_IP> (Ubuntu 22.04)  
 > **Stack:** Laravel 11 · MySQL 8 · Sanctum · Tailwind CSS · Nginx · Supervisor
 
 ---
@@ -13,9 +13,9 @@ The backend serves **three consumer systems** from a single Laravel application:
 
 | Consumer | Entry Point | Auth Method |
 |----------|-------------|-------------|
-| Flutter mobile app | `api.reelsoo.com/api/v1/*` | Sanctum Bearer token |
-| Admin panel | `reelsoo.com/dashboard/admin/*` | Session (web guard) |
-| Creator studio | `reelsoo.com/dashboard/creator/*` | Session (web guard) |
+| Flutter mobile app | `api.teezer.live/api/v1/*` | Sanctum Bearer token |
+| Admin panel | `teezer.live/dashboard/admin/*` | Session (web guard) |
+| Creator studio | `teezer.live/dashboard/creator/*` | Session (web guard) |
 
 One codebase, one database, one deployment.
 
@@ -277,8 +277,8 @@ All jobs use the `database` queue driver at launch. Migrating to Redis in Phase 
 
 **Supervisor config** (2 workers):
 ```ini
-[program:reelsoo-worker]
-command=php /var/www/reelsoo/server/artisan queue:work database --sleep=3 --tries=3 --max-time=3600
+[program:teezer-worker]
+command=php /var/www/teezer/server/artisan queue:work database --sleep=3 --tries=3 --max-time=3600
 numprocs=2
 ```
 
@@ -295,7 +295,7 @@ storage/app/public/
 └── avatars/        {uuid}.jpg
 ```
 
-Public URL: `https://reelsoo.com/storage/videos/{uuid}.mp4`
+Public URL: `https://teezer.live/storage/videos/{uuid}.mp4`
 
 All uploaded filenames are UUID-replaced server-side. Original filenames are never stored.
 
@@ -303,7 +303,7 @@ All uploaded filenames are UUID-replaced server-side. Original filenames are nev
 
 ```dotenv
 FILESYSTEM_DISK=s3
-AWS_BUCKET=reelsoo-media
+AWS_BUCKET=teezer-media
 AWS_ENDPOINT=https://<account-id>.r2.cloudflarestorage.com
 AWS_ACCESS_KEY_ID=...
 AWS_SECRET_ACCESS_KEY=...

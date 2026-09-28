@@ -13,7 +13,7 @@ export interface UseWatchTrackerOpts {
 
 function getDeviceId(): string {
   if (typeof window === "undefined") return "";
-  const KEY = "reelsoo_device_id";
+  const KEY = "teezer_device_id";
   let id = localStorage.getItem(KEY);
   if (!id) {
     id =

@@ -13,14 +13,14 @@ use Illuminate\Support\Facades\Log;
 use Throwable;
 
 /**
- * The one place the rest of Reelsoo talks to for provider-orchestrated
+ * The one place the rest of Teezer talks to for provider-orchestrated
  * transcoding - nothing outside app/Services/Video and app/Jobs/Video should
  * import ApiVideoProvider or TranscodingProvider directly. Swapping
  * providers later means adding a new class in Providers/ and changing the
  * container binding (see AppServiceProvider) - this class, the jobs, and the
  * webhook controller do not change.
  *
- * All five HLS renditions Reelsoo already produces locally (240/360/540/720/
+ * All five HLS renditions Teezer already produces locally (240/360/540/720/
  * 1080p) are requested from api.video too - it generates its own ladder
  * automatically, filtered to the source's real resolution (confirmed: no
  * upscaling), so requestedOutputs here is informational bookkeeping for

@@ -60,7 +60,7 @@ const NO_LIKED_VIDEOS = require("../../assets/no-liked-videos.png");
 const LIKED_PRIVATE = NO_LIKED_VIDEOS;
 const EMPTY_PLAYLIST = require("../../assets/empty-playlist.png");
 const EMPTY_TAGGED = require("../../assets/empty-tagged.png");
-const STUDIO_MARK = require("../../assets/reelsoo-studio-mark.png");
+const STUDIO_MARK = require("../../assets/teezer-studio-mark.png");
 
 /** The website, for the surfaces the app links out to rather than rebuilds. */
 const WEB = "https://teezer.live";
@@ -1463,7 +1463,7 @@ export function ProfileTabScreen({ username: forUser, presentation = "tab" }: Pr
                   <Text style={styles.secondaryBtnText}>Message</Text>
                 </Pressable>
               )}
-              {/* Reelsoo Studio, between Edit profile and Share. Your own
+              {/* Teezer Studio, between Edit profile and Share. Your own
                   profile only - the Studio is your creator dashboard, so it has
                   no meaning pointed at someone else's page. The app has no
                   Studio screens, so it opens the website's, the same
@@ -1484,7 +1484,7 @@ export function ProfileTabScreen({ username: forUser, presentation = "tab" }: Pr
                   authoritative: has_approved_shop, see ShopController::
                   approvedShop() / UserResource.php). No Share fallback here
                   anymore - the slot is simply absent otherwise, on both your
-                  own profile (beside Reelsoo Studio) and anyone else's
+                  own profile (beside Teezer Studio) and anyone else's
                   (beside Message). */}
               {!!p?.has_approved_shop && (
                 <Pressable

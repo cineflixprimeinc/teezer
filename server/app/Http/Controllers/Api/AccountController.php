@@ -601,7 +601,7 @@ class AccountController extends Controller
     }
 
     /* ── GET /account/authorized-apps ─────────────────────────────────────── */
-    /** Internal Reelsoo apps (e.g. Reelsoo Ads) the user has authorized via the
+    /** Internal Teezer apps (e.g. Teezer Ads) the user has authorized via the
      *  SSO consent screen. Backed by the `oauth_grants` table. */
     public function authorizedApps(Request $request): JsonResponse
     {

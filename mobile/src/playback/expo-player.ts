@@ -2,12 +2,12 @@ import type { VideoPlayer } from "expo-video";
 import type {
   PlaybackEvent,
   PlaybackEventMap,
-  ReelsooPlayer,
+  TeezerPlayer,
   Unsubscribe,
 } from "./types";
 
 /**
- * ReelsooPlayer over expo-video - the engine Stories, the story editor and the
+ * TeezerPlayer over expo-video - the engine Stories, the story editor and the
  * Inbox media viewer use, and the one the feed can fall back to.
  *
  * Every difference from the react-native-video adapter is a real API
@@ -88,7 +88,7 @@ function cleanupNativePlayer(fn: () => void): void {
   }
 }
 
-export function createExpoPlayer(player: VideoPlayer): ReelsooPlayer {
+export function createExpoPlayer(player: VideoPlayer): TeezerPlayer {
   return {
     play: () => player.play(),
     pause: () => player.pause(),

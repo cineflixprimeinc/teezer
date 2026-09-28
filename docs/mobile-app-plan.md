@@ -1,10 +1,10 @@
-# Reelsoo Mobile App - Build Plan (Living Document)
+# Teezer Mobile App - Build Plan (Living Document)
 
 > **Status:** Phase 1 (project setup) complete - scaffold in `mobile/`. Next: Phase 2 (auth).
 > **Last updated:** 2026-06-25
 > Keep this file updated as phases complete. Tick the checkboxes and add notes per phase.
 
-Reelsoo brand: name **Reelsoo**, slogan **"Create your trend"**, primary **#fe2c55**, **light theme first**, consistent icon set, custom bottom nav with a highlighted center **Create +** button.
+Teezer brand: name **Teezer**, slogan **"Create your trend"**, primary **#fe2c55**, **light theme first**, consistent icon set, custom bottom nav with a highlighted center **Create +** button.
 
 ---
 
@@ -14,8 +14,8 @@ Reelsoo brand: name **Reelsoo**, slogan **"Create your trend"**, primary **#fe2c
 |---|---|
 | Backend | **Laravel 12**, PHP 8.2, served by **nginx + php-fpm** on two VPS behind a Cloudflare load balancer |
 | Auth | **Laravel Sanctum** personal access tokens (Bearer), 30-day expiry, no refresh token |
-| API base | `https://api.reelsoo.com/api/v1` (all endpoints under `/api/v1`) |
-| Media | **Cloudflare R2** (`media.reelsoo.com`), direct **presigned PUT** uploads from client; signed CDN read URLs (24h public / 2h private) |
+| API base | `https://api.teezer.live/api/v1` (all endpoints under `/api/v1`) |
+| Media | **Cloudflare R2** (`media.teezer.live`), direct **presigned PUT** uploads from client; signed CDN read URLs (24h public / 2h private) |
 | Search | Meilisearch (proxied via `/search`) |
 | Web frontend | Next.js 16 (React 19) - **reference for UX parity, not reused in mobile** |
 | Realtime | **None** (DM is polling; no WebSocket/Pusher) |
@@ -89,7 +89,7 @@ Legend: ✅ ready (reuse) · ⚠️ partial · ❌ missing (build)
 
 **P0 - needed for a usable v1**
 1. **Social login** (`POST /auth/social/google`, `POST /auth/social/apple`): verify the provider ID token server-side (Google: tokeninfo/JWKS; Apple: Apple JWKS), find-or-create the user, issue a Sanctum token (same shape as login). **Apple Sign-In is mandatory by App Store review if Google login is offered.** TikTok deferred.
-2. **Turnstile mobile path** (decision **D3**): either gate Turnstile to web only, or accept the Cloudflare RN Turnstile token. Lowest-effort: skip Turnstile when the request comes from the app client (app sends `X-Client: reelsoo-mobile`) and rely on the existing rate-limiter + device fingerprint.
+2. **Turnstile mobile path** (decision **D3**): either gate Turnstile to web only, or accept the Cloudflare RN Turnstile token. Lowest-effort: skip Turnstile when the request comes from the app client (app sends `X-Client: teezer-mobile`) and rely on the existing rate-limiter + device fingerprint.
 
 **P1 - needed before public launch**
 3. **Push delivery**: implement `SendPushNotification` with **Expo Push API** (simplest for an Expo app - one HTTP call, handles both APNs+FCM) OR Firebase Admin. Device tokens already stored via `POST /devices`.
@@ -137,9 +137,9 @@ Via `app.config.ts` `extra` (read with `expo-constants`), one file per environme
 
 | Key | dev | staging | production |
 |---|---|---|---|
-| `API_BASE_URL` | `http://<LAN-IP>:8000/api/v1` or staging | `https://api-staging.reelsoo.com/api/v1` | `https://api.reelsoo.com/api/v1` |
-| `MEDIA_BASE_URL` | `https://media.reelsoo.com` | same | `https://media.reelsoo.com` |
-| `APP_NAME` | Reelsoo (Dev) | Reelsoo (Staging) | Reelsoo |
+| `API_BASE_URL` | `http://<LAN-IP>:8000/api/v1` or staging | `https://api-staging.teezer.live/api/v1` | `https://api.teezer.live/api/v1` |
+| `MEDIA_BASE_URL` | `https://media.teezer.live` | same | `https://media.teezer.live` |
+| `APP_NAME` | Teezer (Dev) | Teezer (Staging) | Teezer |
 | `APP_ENV` | development | staging | production |
 | `GOOGLE_WEB_CLIENT_ID` / `GOOGLE_IOS_CLIENT_ID` | … | … | … |
 | `SENTRY_DSN` (optional) | … | … | … |
@@ -151,7 +151,7 @@ EAS profiles in `eas.json`: `development` (dev client, internal), `preview` (APK
 ## 7. Auth strategy for mobile
 
 1. **Token storage:** `expo-secure-store` (Keychain/Keystore). Never AsyncStorage for tokens.
-2. **axios client:** request interceptor adds `Authorization: Bearer <token>`, `X-Device-Fingerprint: <stable-uuid-hash>`, `X-Client: reelsoo-mobile`, and a descriptive `User-Agent`. Response interceptor: on 401 → clear token + route to Auth stack.
+2. **axios client:** request interceptor adds `Authorization: Bearer <token>`, `X-Device-Fingerprint: <stable-uuid-hash>`, `X-Client: teezer-mobile`, and a descriptive `User-Agent`. Response interceptor: on 401 → clear token + route to Auth stack.
 3. **Auto-login:** on boot, if a token exists call `GET /auth/me`; success → Main, failure/401 → Auth.
 4. **Signup:** screen drives the OTP flow (`send-otp` → enter code → `verify-otp` → collect name/username/password/**DOB**/country → `register` with `draft_token`).
 5. **Turnstile:** per **D3**.
@@ -183,7 +183,7 @@ EAS profiles in `eas.json`: `development` (dev client, internal), `preview` (APK
 
 ## 9. First implementation step (Phase 1, concrete)
 
-1. `cd mobile` → scaffold Expo (TypeScript) app, set `name=Reelsoo`, slug, scheme `reelsoo`.
+1. `cd mobile` → scaffold Expo (TypeScript) app, set `name=Teezer`, slug, scheme `teezer`.
 2. Install: navigation (native, native-stack, bottom-tabs, screens, safe-area), `@tanstack/react-query`, `zustand`, `axios`, `expo-secure-store`, `expo-constants`, `expo-video`, `expo-image`, `expo-image-picker`, `expo-camera`, `expo-notifications`, `expo-apple-authentication`, `@react-native-google-signin/google-signin`, `expo-haptics`.
 3. Create the `src/` folder tree (section 5) with `constants/colors.ts` (#fe2c55 + light theme), `api/client.ts` (axios + interceptors + secure-store token), `store/auth.store.ts`, and a minimal `navigation/RootNavigator` switching Auth/Main on auth state.
 4. Add `app.config.ts` + `eas.json` + env files (section 6); wire `API_BASE_URL`.
@@ -195,7 +195,7 @@ EAS profiles in `eas.json`: `development` (dev client, internal), `preview` (APK
 
 - **D1 - Framework:** ✅ **Expo (RN) + Dev Client + EAS**.
 - **D2 - Text posts:** ✅ **Skipped in v1.** Create = **video + photo only** (matches current backend). Revisit later.
-- **D3 - Turnstile on mobile:** ✅ **Skip for the mobile client.** App sends `X-Client: reelsoo-mobile`; backend bypasses Turnstile for it (still fail-open + rate-limited + device fingerprint). → small backend change at Phase 2.
+- **D3 - Turnstile on mobile:** ✅ **Skip for the mobile client.** App sends `X-Client: teezer-mobile`; backend bypasses Turnstile for it (still fail-open + rate-limited + device fingerprint). → small backend change at Phase 2.
 - **D4 - Push:** **Expo Push API** (handles APNs+FCM) via the existing stub job. *(Phase 11/13.)*
 - **D5 - Social login (v1):** ✅ **Google + Apple now** (Apple required for iOS review), **TikTok later**. Build `/auth/social/google` + `/auth/social/apple`. *(Phase 2/13.)*
 - **D6 - Monorepo:** ✅ new **`mobile/`** dir in this repo.

@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Cookie;
 
 /**
- * Manages the shared `.reelsoo.com` SSO session cookie.
+ * Manages the shared `.teezer.live` SSO session cookie.
  *
  * The cookie value is an opaque random secret; only its sha256 is persisted, so a
  * DB leak can't be replayed as a cookie. Cookies are attached to responses via
@@ -20,7 +20,7 @@ class SsoSessionService
 {
     public function cookieName(): string
     {
-        return (string) config('sso.cookie_name', 'reelsoo_sso');
+        return (string) config('sso.cookie_name', 'teezer_sso');
     }
 
     /** Create a fresh SSO session for the user; returns the Set-Cookie to attach. */

@@ -14,7 +14,7 @@ use Illuminate\Console\Command;
  * that reason.
  *
  * The private key is written outside the repository (default
- * /etc/reelsoo/license-signing-key.pem) with mode 0600. The public key is
+ * /etc/teezer/license-signing-key.pem) with mode 0600. The public key is
  * written into the repo at resources/licensing/public.pem, because that one is
  * MEANT to ship: it can verify a signature and cannot create one.
  *

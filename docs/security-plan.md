@@ -1,6 +1,6 @@
-# Reelsoo - Security Plan
+# Teezer - Security Plan
 
-> **Domain:** reelsoo.com | **API:** api.reelsoo.com | **VPS:** 217.217.249.50
+> **Domain:** teezer.live | **API:** api.teezer.live | **VPS:** <SOURCE_HOST5_IP>
 
 ---
 
@@ -147,7 +147,7 @@ Route::middleware(['auth', 'role:user,creator,admin']) // Any authenticated
 | MIME type validation | Server-side: `$request->validate(['video' => 'mimes:mp4,mov,webm'])` |
 | Max file size | Nginx: `client_max_body_size 500M`; Laravel: `max:512000` (KB) in validation |
 | Storage location | **Cloudflare R2** - no user files written to VPS disk |
-| Public access | Via `media.reelsoo.com` custom domain only - no public bucket listing policy |
+| Public access | Via `media.teezer.live` custom domain only - no public bucket listing policy |
 | Verification documents | Stored in R2; served via presigned/temporary URLs only - never publicly listable |
 | Virus scanning | Phase 9: integrate ClamAV scan before storing |
 
@@ -247,8 +247,8 @@ location ~ /\.(?!well-known).* { deny all; }
 
 | Control | Implementation |
 |---------|---------------|
-| Dedicated DB user | `reelsoo_user@localhost` - no root, no remote access |
-| Scoped privileges | `GRANT ALL ON reelsoo.*` - only this database |
+| Dedicated DB user | `teezer_user@localhost` - no root, no remote access |
+| Scoped privileges | `GRANT ALL ON teezer.*` - only this database |
 | No external access | MySQL bound to `127.0.0.1` |
 | Strong root password | Set during `mysql_secure_installation` |
 | Anonymous users removed | Done via `mysql_secure_installation` |
@@ -259,7 +259,7 @@ location ~ /\.(?!well-known).* { deny all; }
 
 ## 9. SSL / HTTPS
 
-- Let's Encrypt certificates via Certbot for `reelsoo.com`, `www.reelsoo.com`, `api.reelsoo.com`
+- Let's Encrypt certificates via Certbot for `teezer.live`, `www.teezer.live`, `api.teezer.live`
 - HTTP → HTTPS redirect configured by Certbot automatically
 - HSTS header with 1-year max-age
 - Auto-renewal via `certbot.timer` systemd service
@@ -271,12 +271,12 @@ location ~ /\.(?!well-known).* { deny all; }
 
 Daily MySQL backup via cron:
 ```cron
-0 2 * * * mysqldump -u reelsoo_user -p'${DB_PASSWORD}' reelsoo | gzip > /var/backups/reelsoo_$(date +%Y%m%d).sql.gz
-0 3 * * * find /var/backups -name "reelsoo_*.sql.gz" -mtime +14 -delete
+0 2 * * * mysqldump -u teezer_user -p'${DB_PASSWORD}' teezer | gzip > /var/backups/teezer_$(date +%Y%m%d).sql.gz
+0 3 * * * find /var/backups -name "teezer_*.sql.gz" -mtime +14 -delete
 ```
 
 - Backup files stored on VPS only (not committed to Git)
-- Access restricted: `chmod 600 /var/backups/reelsoo_*.sql.gz`
+- Access restricted: `chmod 600 /var/backups/teezer_*.sql.gz`
 - Phase 9: Offsite backup to Cloudflare R2 or S3
 
 ---
@@ -302,14 +302,14 @@ Daily MySQL backup via cron:
 - [ ] File uploads use UUID filenames
 
 ### SSL/HTTPS
-- [ ] HTTPS active on `reelsoo.com`, `www.reelsoo.com`, `api.reelsoo.com`
+- [ ] HTTPS active on `teezer.live`, `www.teezer.live`, `api.teezer.live`
 - [ ] HTTP redirects to HTTPS
 - [ ] HSTS header active
 - [ ] Auto-renewal timer running
 
 ### Database
 - [ ] `mysql_secure_installation` completed
-- [ ] Dedicated `reelsoo_user` with scoped grants only
+- [ ] Dedicated `teezer_user` with scoped grants only
 - [ ] Daily backup cron active
 
 ### Monitoring

@@ -11,13 +11,13 @@ import (
 )
 
 // StreamName / SubjectPrefix - one JetStream stream carries every Phase-1
-// event, partitioned by subject (reelsoo.events.video.liked, …) so the
+// event, partitioned by subject (teezer.events.video.liked, …) so the
 // bridge consumer can filter with a wildcard while future consumers (e.g. an
 // audit log) could subscribe to a narrower subject without touching the
 // publisher.
 const (
-	StreamName    = "REELSOO_EVENTS"
-	SubjectPrefix = "reelsoo.events."
+	StreamName    = "TEEZER_EVENTS"
+	SubjectPrefix = "teezer.events."
 )
 
 func subject(t Type) string { return SubjectPrefix + string(t) }
@@ -43,7 +43,7 @@ func NewPublisher(ctx context.Context, natsURL string) (*Publisher, error) {
 	}
 
 	nc, err := nats.Connect(natsURL,
-		nats.Name("reelsoo-go-api"),
+		nats.Name("teezer-go-api"),
 		nats.MaxReconnects(-1), // retry forever - a NATS restart must never require redeploying the API
 		nats.ReconnectWait(2*time.Second),
 		nats.DisconnectErrHandler(func(_ *nats.Conn, err error) {
@@ -73,7 +73,7 @@ func NewPublisher(ctx context.Context, natsURL string) (*Publisher, error) {
 	// with no manual `nats stream` step.
 	_, err = js.CreateOrUpdateStream(ctx, jetstream.StreamConfig{
 		Name:        StreamName,
-		Description: "Reelsoo interaction events (likes, comments, follows, shares) - internal bus feeding the Centrifugo realtime bridge.",
+		Description: "Teezer interaction events (likes, comments, follows, shares) - internal bus feeding the Centrifugo realtime bridge.",
 		Subjects:    []string{SubjectPrefix + ">"},
 		Storage:     jetstream.FileStorage,
 		Retention:   jetstream.LimitsPolicy,

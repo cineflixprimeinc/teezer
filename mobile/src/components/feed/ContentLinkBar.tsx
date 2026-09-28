@@ -25,7 +25,7 @@ import type { Video } from "@/types";
 
 // Build marker - logs once per bundle load so it's possible to tell from
 // Metro's output whether a device is actually running current code.
-console.log("[REELSOO_BUILD] product-bar v5 (pinned height + in-card pagination)");
+console.log("[TEEZER_BUILD] product-bar v5 (pinned height + in-card pagination)");
 
 const COVER = 34;
 const GAP = 9;

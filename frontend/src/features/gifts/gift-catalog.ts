@@ -1,5 +1,5 @@
 /**
- * Reelsoo virtual gift catalog - 200 animated icons.
+ * Teezer virtual gift catalog - 200 animated icons.
  *
  * This file is the source of truth for icon/tier/animation; the DB `gifts` table is the
  * source of truth for money. The two are seeded from the same list (migration
@@ -239,7 +239,7 @@ const RAW: [number, string, string, GiftTier, GiftAnim][] = [
   [197, "immortal-rose", "Immortal Rose", "legendary", "glow"],
   [198, "infinity-heart", "Infinity Heart", "legendary", "pulse"],
   [199, "king-crown", "King's Crown", "legendary", "glow"],
-  [200, "reelsoo-throne", "Teezer Throne", "legendary", "glow"],
+  [200, "teezer-throne", "Teezer Throne", "legendary", "glow"],
 ];
 
 /**

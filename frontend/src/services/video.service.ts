@@ -1,6 +1,6 @@
 import { api } from "./api";
 import type { Paginated, ApiResponse } from "@/types/api";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 
 export type SharePlatform = "whatsapp" | "instagram" | "telegram" | "twitter" | "facebook" | "copy_link" | "native" | "other";
 export type ReportReason  = "spam" | "nudity" | "hate" | "misinformation" | "violence" | "copyright" | "harassment" | "other";
@@ -14,7 +14,7 @@ export const videoService = {
     if (opts.excludeIds?.length) {
       params["exclude_ids[]"] = opts.excludeIds;
     }
-    const { data } = await api.get<Paginated<ReelsooVideo>>("/videos/feed", { params });
+    const { data } = await api.get<Paginated<TeezerVideo>>("/videos/feed", { params });
     return data;
   },
 
@@ -27,19 +27,19 @@ export const videoService = {
     if (opts.excludeIds?.length) {
       params["exclude_ids[]"] = opts.excludeIds;
     }
-    const { data } = await api.get<Paginated<ReelsooVideo>>("/feed/for-you", { params });
+    const { data } = await api.get<Paginated<TeezerVideo>>("/feed/for-you", { params });
     return data;
   },
   async getById(id: number) {
-    const { data } = await api.get<ApiResponse<ReelsooVideo>>(`/videos/${id}`);
+    const { data } = await api.get<ApiResponse<TeezerVideo>>(`/videos/${id}`);
     return data.data;
   },
   async trending(page = 1) {
-    const { data } = await api.get<Paginated<ReelsooVideo>>("/explore/trending", { params: { page } });
+    const { data } = await api.get<Paginated<TeezerVideo>>("/explore/trending", { params: { page } });
     return data;
   },
   async following(page = 1) {
-    const { data } = await api.get<Paginated<ReelsooVideo>>("/videos/following", { params: { page } });
+    const { data } = await api.get<Paginated<TeezerVideo>>("/videos/following", { params: { page } });
     return data;
   },
   async like(id: number) {
@@ -88,7 +88,7 @@ export const videoService = {
     return data;
   },
   async upload(formData: FormData) {
-    const { data } = await api.post<ApiResponse<ReelsooVideo>>("/videos", formData, {
+    const { data } = await api.post<ApiResponse<TeezerVideo>>("/videos", formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     return data;
@@ -106,7 +106,7 @@ export const videoService = {
     return data;
   },
   async updatePrivacy(id: number, payload: { visibility?: string; allow_comments?: boolean; allow_duet?: boolean; allow_stitch?: boolean }) {
-    const { data } = await api.patch<ApiResponse<ReelsooVideo>>(`/videos/${id}/privacy`, payload);
+    const { data } = await api.patch<ApiResponse<TeezerVideo>>(`/videos/${id}/privacy`, payload);
     return data;
   },
 };

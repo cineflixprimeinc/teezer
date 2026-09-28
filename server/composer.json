@@ -1,8 +1,8 @@
 {
-    "name": "reelsoo/server",
+    "name": "teezer/server",
     "type": "project",
-    "description": "Reelsoo backend API, website, and role-based dashboard.",
-    "keywords": ["reelsoo", "laravel", "api"],
+    "description": "Teezer backend API, website, and role-based dashboard.",
+    "keywords": ["teezer", "laravel", "api"],
     "license": "MIT",
     "require": {
         "php": "^8.2",

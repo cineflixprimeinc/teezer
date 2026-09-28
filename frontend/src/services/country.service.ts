@@ -150,15 +150,15 @@ export const countryService = {
  */
 export async function maybeSendHeartbeat(): Promise<void> {
   if (typeof window === "undefined") return;
-  if (!window.localStorage.getItem("reelsoo_token")) return;
+  if (!window.localStorage.getItem("teezer_token")) return;
 
   const today = new Date().toISOString().slice(0, 10);
-  const sent  = window.localStorage.getItem("reelsoo_country_heartbeat");
+  const sent  = window.localStorage.getItem("teezer_country_heartbeat");
   if (sent === today) return;
 
   try {
     await countryService.heartbeat();
-    window.localStorage.setItem("reelsoo_country_heartbeat", today);
+    window.localStorage.setItem("teezer_country_heartbeat", today);
   } catch {
     // Never block the UI on a heartbeat failure.
   }

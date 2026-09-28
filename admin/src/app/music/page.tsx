@@ -40,7 +40,7 @@ type Stats = {
   total_plays: number;
   artists: number;
   new_this_week: number;
-  reelsoo_count: number;
+  teezer_count: number;
   artist_count: number;
 };
 
@@ -268,9 +268,9 @@ function RowMenu({ track, onDelete, onStatusChange, onRefresh }: {
 // ─── Source badge ─────────────────────────────────────────────────────────────
 
 function SourceBadge({ track }: { track: MusicTrack }) {
-  const isReelsoo = !!track.created_by_admin_id ||
-    (track.artist_name?.toLowerCase().includes("reelsoo") ?? false);
-  return isReelsoo ? (
+  const isTeezer = !!track.created_by_admin_id ||
+    (track.artist_name?.toLowerCase().includes("teezer") ?? false);
+  return isTeezer ? (
     <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#fff3ec] text-[#fd4605] border border-[#ffdccc] whitespace-nowrap">
       <Music className="h-2.5 w-2.5 shrink-0" />
       Teezer
@@ -287,7 +287,7 @@ function SourceBadge({ track }: { track: MusicTrack }) {
 
 export default function MusicLibraryPage() {
   const [paginator, setPaginator]   = useState<Paginator<MusicTrack> | null>(null);
-  const [stats, setStats]           = useState<Stats>({ total: 0, published: 0, total_plays: 0, artists: 0, new_this_week: 0, reelsoo_count: 0, artist_count: 0 });
+  const [stats, setStats]           = useState<Stats>({ total: 0, published: 0, total_plays: 0, artists: 0, new_this_week: 0, teezer_count: 0, artist_count: 0 });
   const [loading, setLoading]       = useState(true);
   const [search, setSearch]         = useState("");
   const [debouncedQ, setDebounced]  = useState("");
@@ -480,7 +480,7 @@ export default function MusicLibraryPage() {
           <div className="flex items-center gap-2 px-4 py-3 border-b border-[#f4f5f7]">
             {([
               { id: "",        label: "All Tracks",        count: stats.total },
-              { id: "reelsoo", label: "Teezer Originals", count: stats.reelsoo_count },
+              { id: "teezer", label: "Teezer Originals", count: stats.teezer_count },
               { id: "artist",  label: "Artist Uploads",    count: stats.artist_count },
             ] as const).map(tab => (
               <button key={tab.id}
@@ -488,15 +488,15 @@ export default function MusicLibraryPage() {
                 className={cn(
                   "flex items-center gap-2 h-8 px-4 rounded-xl text-[12px] font-semibold transition-all whitespace-nowrap",
                   sourceFilter === tab.id
-                    ? tab.id === "reelsoo"
+                    ? tab.id === "teezer"
                       ? "bg-[#fd4605] text-white shadow-sm shadow-[#fd4605]/25"
                       : tab.id === "artist"
                         ? "bg-[#3b82f6] text-white shadow-sm shadow-[#3b82f6]/25"
                         : "bg-[#111827] text-white shadow-sm"
                     : "text-[#6b7280] hover:bg-[#f4f5f7] hover:text-[#374151]",
                 )}>
-                {tab.id === "reelsoo" && (
-                  <Music className={cn("h-3 w-3 shrink-0", sourceFilter === "reelsoo" ? "text-white" : "text-[#fd4605]")} />
+                {tab.id === "teezer" && (
+                  <Music className={cn("h-3 w-3 shrink-0", sourceFilter === "teezer" ? "text-white" : "text-[#fd4605]")} />
                 )}
                 {tab.id === "artist" && (
                   <Users2 className={cn("h-3 w-3 shrink-0", sourceFilter === "artist" ? "text-white" : "text-[#3b82f6]")} />

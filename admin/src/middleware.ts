@@ -17,7 +17,7 @@ import type { NextRequest } from "next/server";
  * still does the real validity check (expired/revoked token, role, 2FA
  * enrollment) exactly as it already did. Two layers, not a replacement.
  */
-const SESSION_COOKIE = "reelsoo_admin_session";
+const SESSION_COOKIE = "teezer_admin_session";
 
 export function middleware(request: NextRequest) {
   if (!request.cookies.has(SESSION_COOKIE)) {

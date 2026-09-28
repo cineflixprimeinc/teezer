@@ -65,7 +65,7 @@ import { renderMentionText, activeMentionToken, completeMention } from "@/utils/
 import { EditorCanvas } from "@/features/editor/EditorCanvas";
 import { BUILT_IN_FILTERS, DEFAULT_FILTER_KEY, findFilter, orderedFilters } from "@/features/editor/filters";
 import { composeParams, neutralAdjustments } from "@/features/editor/adjustments";
-import { ReelsooLiveCamera, type ReelsooLiveCameraHandle } from "@/features/camera/ReelsooLiveCamera";
+import { TeezerLiveCamera, type TeezerLiveCameraHandle } from "@/features/camera/TeezerLiveCamera";
 import { FilterCarousel } from "@/features/camera/FilterCarousel";
 import { FILTER_CATEGORY_COLOR } from "@/features/camera/filterSwatchColors";
 import type { Video } from "@/types";
@@ -92,7 +92,7 @@ import type { Video } from "@/types";
  *
  * This file is the real implementation - PostCameraScreen.tsx (same folder)
  * just re-exports it under the name RootNavigator.tsx imports. It uses
- * expo-camera (directly, and via ReelsooLiveCamera), which ships inside Expo
+ * expo-camera (directly, and via TeezerLiveCamera), which ships inside Expo
  * Go, so there is no availability gate to carry the way there used to be.
  */
 
@@ -295,7 +295,7 @@ const CATEGORY_ICONS: Record<(typeof CATEGORY_OPTIONS)[number], LucideIcon> = {
 };
 
 /**
- * "Add link" -> Reelsoo Product's "Recommended for this post" sort - maps
+ * "Add link" -> Teezer Product's "Recommended for this post" sort - maps
  * this post's own video category to the closest of the platform's 20
  * admin-managed Shop categories (`shop_categories`, a separate taxonomy -
  * see ShopController::categories). A hint only: a category with no entry
@@ -348,7 +348,7 @@ const LINK_SUGGESTIONS: Partial<Record<(typeof CATEGORY_OPTIONS)[number], string
  * (src/features/editor/). Picking a filter here is picking a real,
  * GPU-rendered look - rendered starting at the edit-phase preview below,
  * through the exact same shader the editor itself uses. The live camera feed
- * (features/camera/ReelsooLiveCamera.tsx) shows it unfiltered: that used to
+ * (features/camera/TeezerLiveCamera.tsx) shows it unfiltered: that used to
  * run through a Skia frame processor when the camera engine was
  * react-native-vision-camera, but expo-camera has no raw-frame access to
  * hook a live filter into.
@@ -1117,7 +1117,7 @@ const PRIVACY_OPTIONS: {
  *  attestation (server's rights_confirmed/rights_confirmed_at), the same
  *  "I own this or have the rights to post it" gate YouTube/TikTok/
  *  Instagram all require before a video goes live, and the actual legal
- *  protection a checkbox here can offer Reelsoo - an unconfirmed checkbox
+ *  protection a checkbox here can offer Teezer - an unconfirmed checkbox
  *  gives none. consent is the same idea for showing identifiable people,
  *  but stays a toggle (not every post has a person in it) rather than a
  *  hard gate. autoCaption/hq are real, user-togglable LOCAL state
@@ -1221,14 +1221,14 @@ function trackFromEditVideo(v?: Video): MusicTrack | null {
   };
 }
 
-/** "Add link" -> Reelsoo Product's selection shape - the display fields
+/** "Add link" -> Teezer Product's selection shape - the display fields
  *  only (name/price/currency/image), same trio the server itself returns
  *  both from shopInventoryApi.list (picking) and Video.featured_products
  *  (edit-mode restore) - never anything the client would need to re-derive. */
 type FeaturedProductRef = { id: number; name: string; price: number; currency: string; image_url: string | null };
 
 /**
- * "Add link" -> Reelsoo Product picker - a dedicated full page (opened as
+ * "Add link" -> Teezer Product picker - a dedicated full page (opened as
  * its own `phase`, same pattern as Category/Location/Tag people), not a
  * bottom sheet: a 3-per-row product grid mirroring the Shop page's own
  * card language (ShopScreen.tsx's ProductCard - rounded square cover,
@@ -1432,18 +1432,18 @@ function PostCameraCompose({ onClose, editVideo }: { onClose: () => void; editVi
   const [link, setLink] = useState(editVideo?.link_url ?? "");
   const [linkSheetOpen, setLinkSheetOpen] = useState(false);
   /** "Add link" popup's own two-choice navigation - "choose" is the
-   *  External link / Reelsoo product picker; the other two are that
+   *  External link / Teezer product picker; the other two are that
    *  choice's own form. Reset to "choose" whenever the sheet is closed so
    *  it never reopens mid-form. */
   const [linkStage, setLinkStage] = useState<"choose" | "external">("choose");
-  /** "Add link" -> Reelsoo Product - up to 3 of the creator's own Shop
+  /** "Add link" -> Teezer Product - up to 3 of the creator's own Shop
    *  products featured on this post. See FeaturedProductRef's own comment
    *  for why only these display fields are kept client-side. */
   const [selectedProducts, setSelectedProducts] = useState<FeaturedProductRef[]>(() =>
     (editVideo?.featured_products ?? []).map((p) => ({ id: p.id, name: p.name, price: p.price, currency: p.currency, image_url: p.image_url })),
   );
   const selectedProductIds = useMemo(() => new Set(selectedProducts.map((p) => p.id)), [selectedProducts]);
-  /** Sell-on-Reelsoo eligibility for the "Reelsoo product" option - reuses
+  /** Sell-on-Teezer eligibility for the "Teezer product" option - reuses
    *  the server-authoritative flag GET /profile already exposes (see
    *  UserResource::has_approved_shop's own doc comment) rather than a new
    *  endpoint; only fetched once the dedicated product page is open. */
@@ -1894,7 +1894,7 @@ function PostCameraCompose({ onClose, editVideo }: { onClose: () => void; editVi
   }, [footTab, selectFootTab]);
 
   /* ── Camera ────────────────────────────────────────────────────────────── */
-  const cameraRef = useRef<ReelsooLiveCameraHandle>(null);
+  const cameraRef = useRef<TeezerLiveCameraHandle>(null);
   const [camPermission, requestCamPermission] = useCameraPermissions();
   const [micPermission, requestMicPermission] = useMicrophonePermissions();
   const [facing, setFacing] = useState<CameraType>("back");
@@ -3082,7 +3082,7 @@ function PostCameraCompose({ onClose, editVideo }: { onClose: () => void; editVi
       </BottomSheet>
 
       {/* Add link - a professional two-choice popup: an external URL (the
-          original single-field feature, unchanged in behavior) or a Reelsoo
+          original single-field feature, unchanged in behavior) or a Teezer
           product from the creator's own Shop. Same lightweight bottom-sheet
           shape as Default upload setting above rather than a full phase
           page. Bound straight to `link`/`selectedProducts` (no separate
@@ -3493,7 +3493,7 @@ function PostCameraCompose({ onClose, editVideo }: { onClose: () => void; editVi
     );
   }
 
-  /* ── "Add link" -> Reelsoo Product - a dedicated full page (not a sheet),
+  /* ── "Add link" -> Teezer Product - a dedicated full page (not a sheet),
      same pattern as Category/Location above: header + back, then either the
      not-eligible blocked state or the 3-per-row product grid with a fixed
      "N of 3 selected / Done" footer. ── */
@@ -4066,7 +4066,7 @@ function PostCameraCompose({ onClose, editVideo }: { onClose: () => void; editVi
           corners on black, where they read - and leaves the card tall enough
           for the shutter to sit inside it rather than under it. */}
       <View style={[styles.cameraClip, { top: insets.top, bottom: footH }]}>
-        <ReelsooLiveCamera
+        <TeezerLiveCamera
           ref={cameraRef}
           style={StyleSheet.absoluteFill}
           facing={facing}
@@ -4928,11 +4928,11 @@ const composeStyles = StyleSheet.create({
   linkDoneBtn: { height: 44, paddingHorizontal: 22, borderRadius: 999, backgroundColor: ds.accent, alignItems: "center", justifyContent: "center" },
   linkDoneText: { fontSize: 13.5, fontWeight: "800", color: ds.onDark },
 
-  /* "Add link" chooser popup - External link / Reelsoo product. */
+  /* "Add link" chooser popup - External link / Teezer product. */
   linkChooserRow: { flexDirection: "row", alignItems: "flex-start", gap: 12, paddingVertical: 12 },
   rowValue2: { fontSize: 11.5, fontWeight: "700", color: ds.accent, marginTop: 2 },
 
-  /* "Add link" -> Reelsoo Product picker - a 3-per-row grid, same card
+  /* "Add link" -> Teezer Product picker - a 3-per-row grid, same card
      language as ShopScreen's own ProductCard (rounded square cover, name,
      price) at a smaller, picker-appropriate size. */
   gridImgWrap: { borderRadius: 10, overflow: "hidden", backgroundColor: "#EAE7EC" },
@@ -4957,7 +4957,7 @@ const composeStyles = StyleSheet.create({
   },
   productCountFooterText: { fontSize: 12.5, fontWeight: "700", color: MUTED },
 
-  /* "Add link" -> Reelsoo Product's not-eligible blocked state. */
+  /* "Add link" -> Teezer Product's not-eligible blocked state. */
   eligibilityBlock: { alignItems: "center", gap: 8, paddingVertical: 18, paddingHorizontal: 6 },
   eligibilityIconWrap: {
     width: 52, height: 52, borderRadius: 26, backgroundColor: CHIP,

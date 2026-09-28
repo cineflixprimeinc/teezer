@@ -26,13 +26,13 @@ import { CameraView, type CameraMode, type CameraType } from "expo-camera";
  * visible to the person shooting it.
  */
 
-export interface ReelsooLiveCameraHandle {
+export interface TeezerLiveCameraHandle {
   takePictureAsync(): Promise<{ uri: string } | null>;
   recordAsync(options?: { maxDuration?: number }): Promise<{ uri: string } | null>;
   stopRecording(): void;
 }
 
-interface ReelsooLiveCameraProps {
+interface TeezerLiveCameraProps {
   facing: CameraType;
   /** A plain on/off toggle, same as the screen's existing `flash` state -
    *  drives the torch for the live feed/video and the flash for photos. */
@@ -46,8 +46,8 @@ interface ReelsooLiveCameraProps {
   style?: StyleProp<ViewStyle>;
 }
 
-export const ReelsooLiveCamera = forwardRef<ReelsooLiveCameraHandle, ReelsooLiveCameraProps>(
-  function ReelsooLiveCamera({ facing, flash, isActive, mode, onCameraReady, style }, ref) {
+export const TeezerLiveCamera = forwardRef<TeezerLiveCameraHandle, TeezerLiveCameraProps>(
+  function TeezerLiveCamera({ facing, flash, isActive, mode, onCameraReady, style }, ref) {
     const cameraRef = useRef<CameraView>(null);
 
     useImperativeHandle(

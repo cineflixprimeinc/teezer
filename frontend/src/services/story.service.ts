@@ -171,7 +171,7 @@ function detectPlatform(): "web" | "mobile_web" | "desktop_web" {
  */
 function sessionId(): string {
   if (typeof window === "undefined") return "";
-  const KEY = "reelsoo:story:session";
+  const KEY = "teezer:story:session";
   try {
     let id = window.sessionStorage.getItem(KEY);
     if (!id) {

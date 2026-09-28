@@ -312,7 +312,7 @@ export async function purchaseCoins(productId: string, quantity = 1): Promise<Co
 }
 
 /* ── Ad account funds ─────────────────────────────────────────────────────
-   Money added to a Reelsoo Ads balance is digital content spent inside the app,
+   Money added to a Teezer Ads balance is digital content spent inside the app,
    so on a phone it MUST go through In-App Purchase (Apple Review 3.1.1) - the
    same rule as coins. There is no "just add $50" button: funds are sold as fixed
    store products (a card form or web link would be a rejection), the receipt is

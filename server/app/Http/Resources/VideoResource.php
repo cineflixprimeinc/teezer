@@ -13,7 +13,7 @@ class VideoResource extends JsonResource
 {
     /**
      * Generate a CDN URL signed with HMAC-SHA256 so the Cloudflare Worker
-     * at media.reelsoo.com can validate it without a backend round-trip.
+     * at media.teezer.live can validate it without a backend round-trip.
      * TTL: 24h for public content, 2h for private/draft.
      */
     /**
@@ -374,7 +374,7 @@ class VideoResource extends JsonResource
                     'verified'     => (bool) $u->is_verified,
                 ])->values()),
 
-            // "Add link" → Reelsoo Product - see Video::featuredProducts().
+            // "Add link" → Teezer Product - see Video::featuredProducts().
             // Read live from `products` every time (never copied onto this
             // row), so an edited price or image always shows correctly here.
             'featured_products' => $this->whenLoaded('featuredProducts', fn () =>

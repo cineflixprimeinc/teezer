@@ -5,7 +5,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
  * de-duplicated case-insensitively, capped at MAX entries. All operations are
  * fail-safe - storage errors never throw into the UI.
  */
-const KEY = "reelsoo:recent-searches";
+const KEY = "teezer:recent-searches";
 const MAX = 10;
 
 export async function getRecentSearches(): Promise<string[]> {

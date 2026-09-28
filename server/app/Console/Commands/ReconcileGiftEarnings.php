@@ -32,12 +32,12 @@ use Illuminate\Support\Facades\DB;
  * alone, because this command's job is to release money that is owed, not to
  * adjudicate balances someone else set deliberately.
  *
- *   php artisan reelsoo:reconcile-gift-earnings --dry-run
- *   php artisan reelsoo:reconcile-gift-earnings
+ *   php artisan teezer:reconcile-gift-earnings --dry-run
+ *   php artisan teezer:reconcile-gift-earnings
  */
 class ReconcileGiftEarnings extends Command
 {
-    protected $signature = 'reelsoo:reconcile-gift-earnings
+    protected $signature = 'teezer:reconcile-gift-earnings
                             {--dry-run : Report what would change without writing}
                             {--user= : Restrict to one user id}';
 

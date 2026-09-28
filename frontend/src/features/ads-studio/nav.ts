@@ -12,7 +12,7 @@ export type AdsNavItem = {
   group?: boolean;
 };
 
-/** The Reelsoo Studio · Ads Manager sidebar - every destination is a real page. */
+/** The Teezer Studio · Ads Manager sidebar - every destination is a real page. */
 export const adsNav: AdsNavItem[] = [
   { label: "Overview",         href: "/ads-manager",                  icon: LayoutDashboard },
   { label: "Campaigns",        href: "/ads-manager/campaigns",        icon: Megaphone, group: true },

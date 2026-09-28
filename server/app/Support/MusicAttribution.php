@@ -22,7 +22,7 @@ use App\Models\Video;
  *
  * Neither says "owned by", and neither may be changed to. A catalog match
  * identifies a recording; it does not establish who holds the copyright, and it
- * says nothing about whether Reelsoo is licensed to carry it. "Original Sound"
+ * says nothing about whether Teezer is licensed to carry it. "Original Sound"
  * is likewise a statement about provenance - this audio came from this account -
  * and not a claim that the uploader wrote it.
  */

@@ -4,7 +4,7 @@ import type { AuthTokenResponse } from "@/types";
 /**
  * Social sign-in. The app obtains a provider token natively
  * (Google: @react-native-google-signin, Apple: expo-apple-authentication)
- * and exchanges it here for a Reelsoo Sanctum token.
+ * and exchanges it here for a Teezer Sanctum token.
  */
 export const socialApi = {
   google: (idToken: string) =>

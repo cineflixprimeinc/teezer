@@ -33,7 +33,7 @@ return new class extends Migration
 
             // Payment
             $table->string('payment_method', 60)->nullable();
-            // reelsoo_balance | credit_card | e_wallet | bank_transfer
+            // teezer_balance | credit_card | e_wallet | bank_transfer
 
             // Estimated reach (stored at creation time)
             $table->unsignedInteger('est_impressions_min')->nullable();

@@ -43,7 +43,7 @@ export type ProgramRequirement = {
    *  specifically on THIS programme in the admin panel's Requirements tab.
    *  Screens that show "this programme's own requirements" (e.g.
    *  GiftsIntroScreen) filter on this, the same way SellerApplicationScreen
-   *  does for Sell on Reelsoo - see that screen's own comment on why a fixed
+   *  does for Sell on Teezer - see that screen's own comment on why a fixed
    *  key list was the actual bug. */
   baseline: boolean;
 };

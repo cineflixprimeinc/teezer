@@ -63,7 +63,7 @@ import {
 } from "@/services/message.service";
 import { apiMessage } from "@/services/api";
 import { cn } from "@/lib/utils";
-import type { ReelsooUser } from "@/types/user";
+import type { TeezerUser } from "@/types/user";
 
 /* ═══════════════════════════════════════════════════════════════════
    TYPES
@@ -117,8 +117,8 @@ interface Convo {
    LOCAL PREFS (pin / mute / privacy - these are UI-only, per device)
 ═══════════════════════════════════════════════════════════════════ */
 const sk = {
-  privacy:  (uid: number) => `rsoo_mp_${uid}`,
-  prefs:    (uid: number) => `rsoo_prefs_${uid}`,
+  privacy:  (uid: number) => `teezer_mp_${uid}`,
+  prefs:    (uid: number) => `teezer_prefs_${uid}`,
 };
 type ConvoPrefs = Record<number, { pinned?: boolean; muted?: boolean; notifOn?: boolean }>;
 
@@ -570,7 +570,7 @@ export function MessagesPage() {
   const [showPrivacy,   setShowPrivacy]   = useState(false);
   const [showNewChat,   setShowNewChat]   = useState(false);
   const [newChatSearch, setNewChatSearch] = useState("");
-  const [allUsers,      setAllUsers]      = useState<ReelsooUser[]>([]);
+  const [allUsers,      setAllUsers]      = useState<TeezerUser[]>([]);
   const [sending,       setSending]       = useState(false);
   const [uploading,     setUploading]     = useState(false);
   const [recording,     setRecording]     = useState(false);
@@ -676,8 +676,8 @@ export function MessagesPage() {
         });
         setConvos(built);
 
-        const following: ReelsooUser[] = followingRes.data ?? [];
-        const followers: ReelsooUser[] = followersRes.data ?? [];
+        const following: TeezerUser[] = followingRes.data ?? [];
+        const followers: TeezerUser[] = followersRes.data ?? [];
         setAllUsers([...following, ...followers.filter(f => !following.some(fo => fo.id === f.id))]);
 
         // Auto-open only when "Message Now" passes ?userId= - not on plain /messages load
@@ -686,7 +686,7 @@ export function MessagesPage() {
         if (rawUserId) {
           const targetId = String(parseInt(rawUserId, 10));
           if (!built.find(c => c.convId === targetId)) {
-            let targetUser: ReelsooUser | undefined = [...following, ...followers].find(u => String(u.id) === targetId);
+            let targetUser: TeezerUser | undefined = [...following, ...followers].find(u => String(u.id) === targetId);
             // If the target isn't in our following/followers (e.g. a public account we don't follow),
             // fetch their profile so we can create the temporary conversation entry.
             if (!targetUser && rawUsername) {
@@ -1019,7 +1019,7 @@ export function MessagesPage() {
   }, [activeId, showPrivacy, showNewChat, handleCloseConversation]);
 
   /* ── Start new conversation from search ── */
-  const startNewChat = useCallback((u: ReelsooUser) => {
+  const startNewChat = useCallback((u: TeezerUser) => {
     const cid = String(u.id);
     if (!convos.find(c => c.convId === cid)) {
       const prefs = prefsRef.current;

@@ -7,12 +7,12 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 
 /**
- * `reelsoo update` - the ONLY normal situation in which a customer installation
+ * `teezer update` - the ONLY normal situation in which a customer installation
  * deliberately talks to our infrastructure.
  *
  * This command does the licence half of the flow: it authorises the download
  * and verifies the package. The file-level work (backup, extract, migrate,
- * health check) is done by the shell wrapper bin/reelsoo, because unpacking a
+ * health check) is done by the shell wrapper bin/teezer, because unpacking a
  * new copy of the application over the top of the PHP process that is currently
  * executing is not something to attempt from inside that process - the class
  * files change underneath it mid-run.
@@ -22,14 +22,14 @@ use Illuminate\Support\Facades\Http;
  *
  * CLIENT-SIDE - ships in the marketplace package.
  */
-class ReelsooUpdate extends Command
+class TeezerUpdate extends Command
 {
-    protected $signature = 'reelsoo:update
+    protected $signature = 'teezer:update
                             {--check : Only report whether an update is available}
                             {--version= : Request a specific version instead of the latest}
                             {--channel=stable : Release channel}
                             {--download-to= : Directory to download the package into}
-                            {--json : Machine-readable output, for the bin/reelsoo wrapper}';
+                            {--json : Machine-readable output, for the bin/teezer wrapper}';
 
     protected $description = 'Check for, authorise and download a Teezer update';
 
@@ -120,7 +120,7 @@ class ReelsooUpdate extends Command
             return $this->bail('Could not create ' . $directory);
         }
 
-        $target = rtrim($directory, '/\\') . '/reelsoo-' . $data['version'] . '.tar.gz';
+        $target = rtrim($directory, '/\\') . '/teezer-' . $data['version'] . '.tar.gz';
 
         if (! $this->option('json')) {
             $this->info('Downloading ' . $data['version'] . '...');
@@ -168,7 +168,7 @@ class ReelsooUpdate extends Command
         if (! $this->option('json')) {
             $this->line('');
             $this->info('Downloaded and verified: ' . $target);
-            $this->line('Run `reelsoo update` (the wrapper) to back up, apply and migrate.');
+            $this->line('Run `teezer update` (the wrapper) to back up, apply and migrate.');
         }
 
         return self::SUCCESS;

@@ -151,7 +151,7 @@ export function KnowledgeCard({ query, variant = "default", subtitle, dark, styl
             style={[styles.thumb, compact && styles.thumbCompact]}
             // Wikimedia already serves these pre-sized from their CDN, so the
             // app fetches the thumbnail directly and nothing passes through
-            // Reelsoo's own bandwidth.
+            // Teezer's own bandwidth.
             resizeMode="cover"
           />
         </Pressable>

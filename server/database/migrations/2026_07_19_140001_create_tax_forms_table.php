@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Creator tax forms (W-8BEN / W-9 / W-8BEN-E / Other) submitted from Reelsoo
+ * Creator tax forms (W-8BEN / W-9 / W-8BEN-E / Other) submitted from Teezer
  * Studio → Settings → Tax Information → Tax Forms. Replaces the app's local
  * demo store with real, per-user persistence. TIN values are stored encrypted
  * (see the App\Models\TaxForm casts), so their columns are text to hold ciphertext.

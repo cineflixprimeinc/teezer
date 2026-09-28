@@ -7,7 +7,7 @@ use App\Services\Moderation\ModerationVerdict;
 /**
  * One content-safety provider.
  *
- * Reelsoo already has a working moderation pipeline - ModerationService ->
+ * Teezer already has a working moderation pipeline - ModerationService ->
  * ScanImageJob / ScanVideoJob -> the self-hosted Python scanner - and this does
  * NOT replace it. The scanner is simply the first implementation behind this
  * interface, joined by Sightengine, Rekognition and Vision, so the pipeline can

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
  * This has to be the SAME number the Inbox tab draws, or the badge and the tab
  * disagree the moment a push lands: the app's own badge is
  * notifications + unread DMs + pending message requests
- * (mobile/src/components/nav/ReelsooTabBar.tsx, `computedBadge`), not just
+ * (mobile/src/components/nav/TeezerTabBar.tsx, `computedBadge`), not just
  * notifications - so a push carrying only the notification count would make the
  * icon read lower than the tab it opens.
  *

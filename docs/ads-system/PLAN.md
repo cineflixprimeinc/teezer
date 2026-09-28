@@ -1,14 +1,14 @@
-# Reelsoo Ads System — Implementation Plan
+# Teezer Ads System — Implementation Plan
 
 > Production-grade advertising platform (TikTok/Reels/Shorts-class) layered onto the existing
-> Reelsoo stack **without modifying the recommendation algorithm or any existing feature**.
+> Teezer stack **without modifying the recommendation algorithm or any existing feature**.
 > Status: **approved** (2026-07-15). Build in progress.
 
 ## Architectural decisions (locked)
 
 | Decision | Choice | Rationale |
 |---|---|---|
-| Backend | **Laravel** (`server/`) | Go is not live; `api.reelsoo.com` → Laravel; production feed is `FeedService`. |
+| Backend | **Laravel** (`server/`) | Go is not live; `api.teezer.live` → Laravel; production feed is `FeedService`. |
 | Database | **PostgreSQL** | Live `.env` is `pgsql` (cutover 2026-06-28). Use `jsonb`, `NOW()`, `EXTRACT(EPOCH…)`. |
 | Feed insertion | **`FeedService` post-hydration slot merge** | Recommender output is never modified; ads merge on top. |
 | Tracking | **Existing `EventStream → Redis Stream → ClickHouse`** | Reuse verbatim with new `ad_*` event types. |
@@ -71,4 +71,4 @@ Isolation: `FeedService` produces the organic list first; the Ad Server fills re
 5. First surfaces: in-feed + profile-top (render specs from screenshots); others disabled.
 6. Build P0–P3 fully; enable feed ads (P4) only after staging validation.
 
-_Full rendered plan: the published artifact (Reelsoo Ads System — Implementation Plan)._
+_Full rendered plan: the published artifact (Teezer Ads System — Implementation Plan)._

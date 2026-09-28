@@ -14,7 +14,7 @@ export function useSocialAuth() {
   const inExpoGo = Constants.appOwnership === "expo";
 
   async function apple() {
-    // Apple's token is bound to the app's real bundle id (com.reelsoo.app),
+    // Apple's token is bound to the app's real bundle id (com.teezer.app),
     // which Expo Go can't provide - so guide the user to the installed build.
     if (inExpoGo) {
       Alert.alert("Sign in with Apple", "This works in the installed Teezer app build (not Expo Go).");

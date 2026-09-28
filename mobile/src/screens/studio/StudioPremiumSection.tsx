@@ -52,7 +52,7 @@ const PERKS = [
 const fmtDate = (iso: string | null) =>
   iso ? new Date(iso).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" }) : "-";
 
-/** Reelsoo Studio -> Premium.
+/** Teezer Studio -> Premium.
  *
  *  Premium is digital content, so in the app it is sold ONLY through StoreKit /
  *  Play Billing. There is deliberately no card form and no link to the web

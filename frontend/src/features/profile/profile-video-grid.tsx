@@ -13,7 +13,7 @@ import {
   Tag,
 } from "lucide-react";
 import { formatCompact } from "@/lib/utils";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 import type { ProfileTab } from "./profile-tabs";
 
 /* ── Colorful gradients - used for missing thumbnails & dummy cards ─── */
@@ -386,7 +386,7 @@ function SavedEmptyIcon() {
 
 /* ── Props ──────────────────────────────────────────────────────────── */
 type Props = {
-  items: ReelsooVideo[];
+  items: TeezerVideo[];
   loading: boolean;
   tab: ProfileTab;
   isOwnProfile: boolean;
@@ -587,8 +587,8 @@ function DummyVideoCard({ card }: { card: DummyCard }) {
 
 /* Resolve a thumbnail URL from a video record, tolerating several field
    name variants the backend or future endpoints might use. */
-function resolveThumbUrl(video: ReelsooVideo): string | null {
-  const v = video as ReelsooVideo & {
+function resolveThumbUrl(video: TeezerVideo): string | null {
+  const v = video as TeezerVideo & {
     cover_url?: string | null;
     poster_url?: string | null;
     thumbnail?: string | null;
@@ -606,7 +606,7 @@ function resolveThumbUrl(video: ReelsooVideo): string | null {
 function RealVideoCard({
   video, pinned, index, ids, username,
 }: {
-  video: ReelsooVideo; pinned: boolean; index: number; ids?: string; username?: string;
+  video: TeezerVideo; pinned: boolean; index: number; ids?: string; username?: string;
 }) {
   const isImage      = video.media_type === "image";
   const isCarousel   = video.media_type === "image_carousel";

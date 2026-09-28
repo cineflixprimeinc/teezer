@@ -17,7 +17,7 @@ use CBOR\StringStream;
  * read the fields, trust them - are precisely what an attacker would forge.
  *
  * What this establishes, and its limits: a passing attestation says the request
- * came from an unmodified build of com.reelsoo.app on genuine Apple hardware.
+ * came from an unmodified build of com.teezer.app on genuine Apple hardware.
  * It says nothing about WHO is using it. Identity remains Sanctum's job; this
  * is an integrity signal layered underneath, never a replacement for
  * authentication or authorization.

@@ -187,7 +187,7 @@ class StorageService
 
     /**
      * Return the full public URL for a stored key.
-     * On B2: https://media.reelsoo.com/videos/2025/05/uuid.mp4 - the CDN host,
+     * On B2: https://media.teezer.live/videos/2025/05/uuid.mp4 - the CDN host,
      * never the bucket's own endpoint, which is private and unreachable.
      * On local/public: http://localhost/storage/videos/2025/05/uuid.mp4
      */

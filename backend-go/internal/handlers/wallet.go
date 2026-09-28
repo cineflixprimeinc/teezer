@@ -31,8 +31,8 @@ import (
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgtype"
 
-	"reelsoo/backend-go/internal/auth"
-	"reelsoo/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/auth"
+	"teezer/backend-go/internal/sqlc"
 )
 
 type WalletHandler struct {

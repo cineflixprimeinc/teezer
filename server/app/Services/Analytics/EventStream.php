@@ -57,7 +57,7 @@ class EventStream
             $json = json_encode($event, JSON_UNESCAPED_UNICODE);
 
             // The 'analytics' connection has an EMPTY key prefix (see config/database.php).
-            // The default connection prefixes everything with 'reelsoo_database_', which
+            // The default connection prefixes everything with 'teezer_database_', which
             // the Go consumer - not being a Laravel app - knows nothing about. Using the
             // default here writes to a key Go never reads, and phpredis reports success
             // the whole time: a pipeline that looks healthy from both ends and moves

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 /**
  * Lets an admin write the actual pitch content shown on a programme's intro
- * screen (Gifts & Coins, Sell on Reelsoo, Creator Rewards today) - Admin
+ * screen (Gifts & Coins, Sell on Teezer, Creator Rewards today) - Admin
  * Panel -> Monetization Control Center -> [programme] -> Overview.
  *
  * Deliberately separate from `label`/`description`: those already exist and

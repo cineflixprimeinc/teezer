@@ -7,7 +7,7 @@ import type { AccessibilityPrefs } from "@/services/accessibility.service";
  * restore the user's setup instantly on load, before the API answers.
  */
 
-const CACHE_KEY = "reelsoo:a11y";
+const CACHE_KEY = "teezer:a11y";
 
 /* Effective page zoom per text size; "Larger Text" adds one extra bump. */
 const TEXT_ZOOM: Record<string, number> = { small: 0.95, medium: 1, large: 1.08, xlarge: 1.16 };

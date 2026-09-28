@@ -9,7 +9,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 /**
- * Settings -> Sell on Reelsoo -> Shop -> Edit Shop. The editor for an
+ * Settings -> Sell on Teezer -> Shop -> Edit Shop. The editor for an
  * ALREADY-APPROVED shop's public storefront fields - the "Shop Settings"
  * SellerApplicationController::update() has pointed to (but never actually
  * been) since the wizard was built. That controller is onboarding-only and

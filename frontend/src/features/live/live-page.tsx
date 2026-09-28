@@ -7,7 +7,7 @@ import { liveService, type HappeningSpace } from "@/services/live.service";
 import { AppShell } from "@/components/layout/app-shell";
 
 /* ────────────────────────────────────────────────────────────────────────────
- * Live - built to the Claude Design prototype "ReelSoo Web Live Page.dc.html"
+ * Live - built to the Claude Design prototype "Teezer Web Live Page.dc.html"
  * (the `isBrowse` panel).
  *
  * This file used to say the sidebar and top bar "belong to the (main) layout".
@@ -15,7 +15,7 @@ import { AppShell } from "@/components/layout/app-shell";
  * chrome itself by wrapping in <AppShell>, and because this one did not, /live
  * rendered with no sidebar at all.
  *
- * Fed by GET /spaces. Reelsoo has no live-video backend - no streams table, no
+ * Fed by GET /spaces. Teezer has no live-video backend - no streams table, no
  * stream routes, no playback URL - so the grid lists live AUDIO rooms, which
  * are real. The prototype anticipates this: its third panel (`isRoom`) is a
  * "LIVE AUDIO" room, and that is where a card leads.

@@ -1,4 +1,4 @@
-# Reelsoo - PostgreSQL Scaling Architecture (staged to 100M)
+# Teezer - PostgreSQL Scaling Architecture (staged to 100M)
 
 > Principal-engineer honest framing: the live DB today holds **9 users / 7 videos / ~10k rows**. Most "redesign for 100M" moves (splitting tables, partitioning, BRIN, sharding) give **zero measurable benefit now** and are **risk on a live system**. So this is a *staged* plan: do the cheap, high-leverage things now; pre-build the seams so the heavy changes are drop-in later; execute each heavy change at the milestone where it actually pays off. Nothing here requires a future "redesign" - only additive migrations.
 

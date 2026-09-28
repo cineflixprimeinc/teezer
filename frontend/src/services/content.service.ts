@@ -42,7 +42,7 @@ export const hiddenWordsService = {
 };
 
 /* Recent searches are stored client-side by the search drawer (same key). */
-const RECENT_SEARCHES_KEY = "reelsoo_recent_searches";
+const RECENT_SEARCHES_KEY = "teezer_recent_searches";
 export const recentSearches = {
   list(): string[] {
     if (typeof window === "undefined") return [];

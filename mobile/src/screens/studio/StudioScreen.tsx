@@ -70,7 +70,7 @@ const NAV_ITEMS: {
    Verification was briefly removed and has been rebuilt to the design's LIGHT
    revision, so its chip routes to a section again like the rest. */
 
-/** Reelsoo Studio - reachable from the profile three-dot menu › Reelsoo Studio.
+/** Teezer Studio - reachable from the profile three-dot menu › Teezer Studio.
  *  A single screen: the top pill menu switches which section renders below
  *  it, in place - nothing here is a separate navigated page. */
 export function StudioScreen() {
@@ -113,17 +113,17 @@ export function StudioScreen() {
 
   return (
     <Screen edges={["top"]} bg={sd.page}>
-      {/* Header - the prototype's lockup: a circular back control, the Reelsoo
-          mark + "Reelsoo | Studio", then the account controls. */}
+      {/* Header - the prototype's lockup: a circular back control, the Teezer
+          mark + "Teezer | Studio", then the account controls. */}
       <View style={styles.header}>
         <Pressable hitSlop={8} style={styles.circleBtn} onPress={() => navigation.goBack()}>
           <ChevronLeft size={18} color={sd.text} strokeWidth={2.2} />
         </Pressable>
 
-        {/* Studio's own wordmark, as it has always been - not a Reelsoo mark
+        {/* Studio's own wordmark, as it has always been - not a Teezer mark
             with "Studio" set beside it. */}
         <View style={styles.lockup}>
-          <Image source={require("../../assets/reelsoo-studio-wordmark.png")} style={styles.wordmarkImg} />
+          <Image source={require("../../assets/teezer-studio-wordmark.png")} style={styles.wordmarkImg} />
         </View>
 
         <Pressable hitSlop={8} onPress={() => navigation.navigate("Main", { screen: "Profile" })}>

@@ -133,7 +133,7 @@ class StudioMonetizationProgramController extends Controller
      */
     public function joinWaitlist(Request $request, string $key): JsonResponse
     {
-        // Global Reelsoo Control - keyed on the specific programme, not the
+        // Global Teezer Control - keyed on the specific programme, not the
         // whole waitlist route (other programmes' waitlists must stay
         // unaffected), so this can't be a route-name middleware entry.
         $globalControls = app(\App\Services\GlobalControls\GlobalControlService::class);

@@ -43,7 +43,7 @@ export const MULTIPART_THRESHOLD_BYTES = 25 * 1024 * 1024;
 
 const MULTIPART_CONCURRENCY = 3;
 const PART_MAX_ATTEMPTS = 4;
-const RESUME_KEY_PREFIX = "reelsoo_multipart_upload_";
+const RESUME_KEY_PREFIX = "teezer_multipart_upload_";
 
 type MultipartResumeManifest = {
   object_key: string;
@@ -130,7 +130,7 @@ export interface CompleteUploadPayload {
   location?: string | null;
   /** "Add link" on the Details card - a single external URL. */
   link_url?: string | null;
-  /** "Add link" -> Reelsoo Product - up to 3 of the caller's OWN active
+  /** "Add link" -> Teezer Product - up to 3 of the caller's OWN active
    *  Shop products (ownership + the cap are re-verified server-side, see
    *  VideoService::syncFeaturedProducts - never trust this array alone). */
   product_ids?: number[];

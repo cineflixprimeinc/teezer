@@ -501,7 +501,7 @@ function DateFilterSheet({ visible, onClose, startDate, endDate, onApply }: {
   );
 }
 
-/** Reelsoo Studio → Content - the creator's library: total views, search,
+/** Teezer Studio → Content - the creator's library: total views, search,
  *  status filter, sort, date filter, and per-video actions. Every figure
  *  comes from the API (`GET /studio/content`'s `meta.counts`, the 7-day
  *  overview for the hero strip, and /studio/creator-level-page's lifetime

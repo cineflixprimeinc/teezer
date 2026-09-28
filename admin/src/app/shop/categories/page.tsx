@@ -12,7 +12,7 @@ import { Table, Thead, Th, Tbody, Tr, Td, TableEmpty, TableLoading } from "@/com
 import { api, apiMessage } from "@/services/api";
 
 /**
- * Reelsoo Shop → Categories.
+ * Teezer Shop → Categories.
  *
  * The platform-wide taxonomy every shop's product grid filters against - the
  * storefront's [All] [Fashion] [Beauty]... carousel. Not per-shop: sellers

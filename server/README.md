@@ -1,6 +1,6 @@
-# Reelsoo – Laravel Backend
+# Teezer – Laravel Backend
 
-Laravel 11 backend powering the Reelsoo platform: REST API for the Flutter mobile app, plus the role-based web dashboard and public website.
+Laravel 11 backend powering the Teezer platform: REST API for the Flutter mobile app, plus the role-based web dashboard and public website.
 
 ---
 

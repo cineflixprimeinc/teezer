@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * The first real order/payment system for Reelsoo Shop products. Before this,
+ * The first real order/payment system for Teezer Shop products. Before this,
  * `Product.sold_count`/`Shop.sold_count` were columns nobody ever wrote to and
  * no `orders`/`cart` table existed anywhere - see both models' docblocks.
  *
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Schema;
  * RazorpayService, so a reviewer who knows one table already knows this one.
  *
  * A Shop purchase pays with real currency directly (the product's own price/
- * currency), never with Reelsoo Coins - so this is a parallel system to
+ * currency), never with Teezer Coins - so this is a parallel system to
  * coin_orders, not built on top of it.
  */
 return new class extends Migration

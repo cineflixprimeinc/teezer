@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * The seller-onboarding fields the "Sell on Reelsoo" application collects
+ * The seller-onboarding fields the "Sell on Teezer" application collects
  * about the SHOP itself (as opposed to the seller's private legal identity,
  * which lives on seller_profiles - see that migration's docblock for why
  * they're split).

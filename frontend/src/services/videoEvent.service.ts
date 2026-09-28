@@ -21,7 +21,7 @@ export interface VideoEventPayload {
 // Lazy-generated browser session ID (persists for the tab's lifetime)
 function getSessionId(): string {
   if (typeof window === "undefined") return "";
-  const key = "reelsoo_session_id";
+  const key = "teezer_session_id";
   let id = window.sessionStorage.getItem(key);
   if (!id) {
     id = Math.random().toString(36).slice(2) + Date.now().toString(36);
@@ -41,7 +41,7 @@ export function trackVideoEvent(
 ): void {
   // Only fire when a token is present (user is authenticated)
   const token = typeof window !== "undefined"
-    ? window.localStorage.getItem("reelsoo_token")
+    ? window.localStorage.getItem("teezer_token")
     : null;
 
   if (!token) return; // recommendation events require auth

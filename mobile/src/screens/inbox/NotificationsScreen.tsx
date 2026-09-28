@@ -49,12 +49,12 @@ import { formatWeekdayShort, formatMonthDay } from "@/utils/date-format";
  *
  *   activity - actor avatars with a kind badge, kind chips, inline Follow,
  *              and suggested accounts at the tail.
- *   system   - Reelsoo speaking: neutral tiles, category chips, date sections,
+ *   system   - Teezer speaking: neutral tiles, category chips, date sections,
  *              NEW pills, and a standing anti-phishing notice.
  *   gifts    - the same dressing as system, gift-marked.
  *
  * A colour circle reads as "a person did this"; a neutral tile reads as "this is
- * from Reelsoo". That distinction is the reason both dressings exist.
+ * from Teezer". That distinction is the reason both dressings exist.
  */
 
 export type NotifScope = "activity" | "gifts" | "system";
@@ -172,7 +172,7 @@ const SCOPES: Record<NotifScope, ScopeCfg> = {
     chips: ["All", "Updates", "Security", "Events", "Policy"],
     tiles: true,
     sections: true,
-    // Everything Reelsoo itself raises - announcements, security, payments,
+    // Everything Teezer itself raises - announcements, security, payments,
     // verification, and anything sent from the admin panel - not just the bare
     // "system" type, which is what left admin notices sitting in Activity.
     keep: (t) => SYSTEM_NOTIF_TYPES.has(t),
@@ -1247,7 +1247,7 @@ const styles = StyleSheet.create({
   suggestName: { fontSize: font.md, fontWeight: font.weightBold, color: ds.text, flexShrink: 1 },
   suggestMeta: { fontSize: font.sm, color: ds.textMuted, marginTop: 2 },
   dismissX: { fontSize: 20, color: ds.textMuted, lineHeight: 22 },
-  /** Neutral and squared-off: this came from Reelsoo, not from a person. */
+  /** Neutral and squared-off: this came from Teezer, not from a person. */
   tile: {
     width: 44,
     height: 44,

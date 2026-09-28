@@ -34,7 +34,7 @@ import { videoService } from "@/services/video.service";
 import { trendingService } from "@/services/trending.service";
 import { detectUserCountry } from "@/lib/country";
 import { cn } from "@/lib/utils";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 import type { TrendingHashtag } from "@/services/trending.service";
 
 /* ─── Categories - emoji icons per tab ─────────────────────────── */
@@ -290,7 +290,7 @@ export function ExplorePage() {
   /* ── Fetch all data on mount ── */
   useEffect(() => {
     let cancelled = false;
-    const empty: ReelsooVideo[] = [];
+    const empty: TeezerVideo[] = [];
 
     async function run() {
       setLoading(true);
@@ -316,9 +316,9 @@ export function ExplorePage() {
         type WeeklyTrack = Awaited<ReturnType<typeof audioService.getWeeklyPopular>>[number];
         const suggestions = suggestionsRaw as SuggProfile[];
         const weeklyAudio = weeklyAudioRaw as WeeklyTrack[];
-        const rawVideos: ReelsooVideo[] = (pageResults as ReelsooVideo[][]).flat();
+        const rawVideos: TeezerVideo[] = (pageResults as TeezerVideo[][]).flat();
 
-        const toCardVideo = (v: ReelsooVideo): CardVideo => ({
+        const toCardVideo = (v: TeezerVideo): CardVideo => ({
           id:              v.id,
           title:           v.caption ?? v.title ?? "Untitled",
           creator:         v.user?.username ?? "unknown",
@@ -363,7 +363,7 @@ export function ExplorePage() {
         }
 
         /* Trending Creators - users with most videos */
-        const userCnt = new Map<string, { count: number; u: NonNullable<ReelsooVideo["user"]> }>();
+        const userCnt = new Map<string, { count: number; u: NonNullable<TeezerVideo["user"]> }>();
         for (const v of rawVideos) {
           if (!v.user?.username) continue;
           const e = userCnt.get(v.user.username);

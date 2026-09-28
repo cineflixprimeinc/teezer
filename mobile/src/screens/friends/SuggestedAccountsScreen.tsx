@@ -66,7 +66,7 @@ function Avatar({
 /**
  * Full-page list of accounts picked by the recommendation engine - the same
  * GET /suggestions/profiles ranking the website uses. Opened from the
- * "Reelsoo suggestions" card on Find Friends.
+ * "Teezer suggestions" card on Find Friends.
  */
 export function SuggestedAccountsScreen() {
   const navigation = useNavigation<any>();

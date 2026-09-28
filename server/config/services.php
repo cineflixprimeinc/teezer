@@ -47,6 +47,12 @@ return [
         // whether the media is actually protected. Private media is unaffected
         // - it is presigned against a private bucket either way.
         'signed_urls' => env('MEDIA_SIGNED_URLS', true),
+
+        // Apex domains of the SOURCE platform whose absolute media URLs may still
+        // sit in rows restored from its database (comma-separated, e.g. set to
+        // the source apex domain). Such URLs are reduced to an object key and
+        // re-served through our own MEDIA_URL. Empty = no legacy host.
+        'legacy_domains' => array_values(array_filter(array_map('trim', explode(',', strtolower((string) env('MEDIA_LEGACY_DOMAINS', '')))))),
     ],
 
     /*
@@ -87,7 +93,7 @@ return [
          | the admin panel's user_agent field for the provider did nothing.
          |
          | Null here rather than a literal default: LocationService keeps
-         | building the same 'Reelsoo/1.0 (app.url)' value when this is unset,
+         | building the same 'Teezer/1.0 (app.url)' value when this is unset,
          | so nothing changes until someone deliberately overrides it.
          */
         'user_agent' => env('NOMINATIM_USER_AGENT'),
@@ -223,7 +229,7 @@ return [
     | ClickHouse - analytics / event store
     |--------------------------------------------------------------------------
     | Runs on VPS-2, bound to loopback. VPS-1 reaches it through an SSH tunnel
-    | (reelsoo-clickhouse-tunnel.service), because port 22 is the only port open
+    | (teezer-clickhouse-tunnel.service), because port 22 is the only port open
     | between the two boxes - hence the 127.0.0.1 default: the tunnel terminates
     | locally. Never point this at VPS-2's public IP; there is nothing listening.
     |
@@ -232,9 +238,9 @@ return [
     */
     'clickhouse' => [
         'url'      => env('CLICKHOUSE_URL', 'http://127.0.0.1:8123'),
-        'username' => env('CLICKHOUSE_USER', 'reelsoo'),
+        'username' => env('CLICKHOUSE_USER', 'teezer'),
         'password' => env('CLICKHOUSE_PASSWORD', ''),
-        'database' => env('CLICKHOUSE_DATABASE', 'reelsoo'),
+        'database' => env('CLICKHOUSE_DATABASE', 'teezer'),
         'timeout'  => (int) env('CLICKHOUSE_TIMEOUT', 15),
     ],
 

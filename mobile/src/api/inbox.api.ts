@@ -106,7 +106,7 @@ export interface DirectMessage {
    *  Instagram-style story preview (StoryContextPreview). */
   story_id?: number | null;
   story_thumbnail_url?: string | null;
-  /** Set on `shared_video` messages - the Reelsoo video that was shared from the
+  /** Set on `shared_video` messages - the Teezer video that was shared from the
    *  feed's Share sheet. `thumbnail_url`/`duration`/`body` above double as this
    *  video's thumbnail/length/caption (reused, not duplicated). */
   video_id?: number | null;
@@ -287,7 +287,7 @@ export const inboxApi = {
     api.post<{ success: boolean; data: DirectMessage; conversation_status?: ConversationStatus }>(`/messages/conversations/${userId}`, payload)
       .then((r) => ({ message: r.data.data, status: r.data.conversation_status ?? "approved" })),
 
-  // Share sheet "Send to friends" - references an EXISTING Reelsoo video (no
+  // Share sheet "Send to friends" - references an EXISTING Teezer video (no
   // upload/r2_key involved). thumbnail_url/duration/caption ride along so the
   // recipient's bubble renders instantly, without a round trip.
   shareVideo: (userId: number, video: { id: number; caption?: string | null; thumbnail_url?: string | null; duration?: number | null }) =>
@@ -310,7 +310,7 @@ export const inboxApi = {
       thumbnail_url: story.thumbnail_url ?? undefined,
     }).then((r) => ({ message: r.data.data, status: r.data.conversation_status ?? "approved" })),
 
-  // Share sheet "Send to friends" for a Reelsoo profile - references an
+  // Share sheet "Send to friends" for a Teezer profile - references an
   // EXISTING user by id, same "no upload, no r2_key" shape as shareVideo.
   shareProfile: (conversationUserId: number, sharedUserId: number) =>
     api.post<{ success: boolean; data: DirectMessage; conversation_status?: ConversationStatus }>(`/messages/conversations/${conversationUserId}`, {

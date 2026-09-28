@@ -16,7 +16,7 @@ Schedule::command('sanctum:prune-expired --hours=24')->weekly();
 // Expire time-limited admin content restrictions every 5 minutes
 Schedule::command('restrictions:expire')->everyFiveMinutes();
 
-// Restore Global Reelsoo Control toggles whose temporary restriction (spec §28) has expired.
+// Restore Global Teezer Control toggles whose temporary restriction (spec §28) has expired.
 Schedule::command('global-controls:restore-expired')->everyFiveMinutes()->withoutOverlapping();
 
 // Flush Redis-buffered engagement counters (views, …) into Postgres every
@@ -142,7 +142,7 @@ Schedule::command('monetization:notify-waitlists')
 | Licence heartbeat - CLIENT SIDE, and the ONLY scheduled call a customer
 | installation makes to our infrastructure.
 |
-| Inert on reelsoo.com: LicenseHeartbeat returns immediately when
+| Inert on teezer.live: LicenseHeartbeat returns immediately when
 | licensing.client.enabled is false, so the licensor never phones itself.
 |
 | --quiet-fail so a revoked or unreachable licence does not fill the scheduler

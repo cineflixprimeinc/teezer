@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Log;
 use RuntimeException;
 
 /**
- * The ONLY class in Reelsoo that knows api.video's actual API shapes. Every
+ * The ONLY class in Teezer that knows api.video's actual API shapes. Every
  * field/endpoint used here was verified against api.video's live API and
  * OpenAPI spec directly (not assumed from memory) - see the plan/report for
  * the exact verification calls made. VideoProcessingService is the only

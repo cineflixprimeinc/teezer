@@ -135,7 +135,7 @@ export interface PremiumConfig {
     avatars?: { name?: string | null; avatar?: string | null }[];
   } | null;
   /**
-   * Where Reelsoo sells, from the same country table the admin panel toggles -
+   * Where Teezer sells, from the same country table the admin panel toggles -
    * so switching a market off removes it here with no app release.
    */
   availability?: PremiumAvailability;

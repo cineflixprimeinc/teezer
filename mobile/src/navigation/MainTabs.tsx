@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import type { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { useNavigation } from "@react-navigation/native";
 import { ds } from "@/theme/design";
-import { ReelsooTabBar } from "@/components/nav/ReelsooTabBar";
+import { TeezerTabBar } from "@/components/nav/TeezerTabBar";
 import { SpaceMiniBar } from "@/components/spaces/SpaceMiniBar";
 import { TAB_BAR_HEIGHT } from "@/constants/theme";
 import { useRequireAuth } from "@/hooks/useRequireAuth";
@@ -49,7 +49,7 @@ export function MainTabs() {
       tabBar={(props: BottomTabBarProps) => (
         <>
           <SpaceMiniBarDock />
-          <ReelsooTabBar
+          <TeezerTabBar
             {...props}
             onCreate={() => requireAuth(() => navigation.navigate("PostCamera"))}
           />

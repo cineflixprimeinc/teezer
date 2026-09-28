@@ -53,7 +53,7 @@ import { ActiveSessionsScreen } from "@/screens/settings/connected/SessionScreen
 import { PoliciesScreen } from "@/screens/legal/PoliciesScreen";
 import { HelpCenterScreen } from "@/screens/help/HelpCenterScreen";
 import { ReportProblemScreen } from "@/screens/help/ReportProblemScreen";
-import { AboutReelsooScreen } from "@/screens/help/AboutReelsooScreen";
+import { AboutTeezerScreen } from "@/screens/help/AboutTeezerScreen";
 
 /**
  * The Profile tab is a stack so its sub-pages (Settings, Profile actions) render
@@ -112,7 +112,7 @@ export type ProfileStackParamList = {
   Policies: undefined;
   HelpCenter: undefined;
   ReportProblem: undefined;
-  AboutReelsoo: undefined;
+  AboutTeezer: undefined;
 };
 
 const Stack = createNativeStackNavigator<ProfileStackParamList>();
@@ -185,7 +185,7 @@ export function ProfileStack() {
       <Stack.Screen name="Policies" component={PoliciesScreen} />
       <Stack.Screen name="HelpCenter" component={HelpCenterScreen} />
       <Stack.Screen name="ReportProblem" component={ReportProblemScreen} />
-      <Stack.Screen name="AboutReelsoo" component={AboutReelsooScreen} />
+      <Stack.Screen name="AboutTeezer" component={AboutTeezerScreen} />
     </Stack.Navigator>
   );
 }

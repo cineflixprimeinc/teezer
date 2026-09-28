@@ -38,7 +38,7 @@ export type RootStackParamList = {
    * create a runtime cycle back into the navigator.
    */
   SettingsShell: NavigatorScreenParams<ProfileStackParamList> | undefined;
-  StudioRoot: undefined;  // Reelsoo Studio - standalone full-screen experience over the tabs
+  StudioRoot: undefined;  // Teezer Studio - standalone full-screen experience over the tabs
   // The full-screen post viewer is deliberately NOT a route. It has to paint
   // above CreatorProfileLayer, which is mounted after </Stack.Navigator>, and
   // no stack screen can. It lives in post-viewer.store + PostViewerLayer.
@@ -54,7 +54,7 @@ export type RootStackParamList = {
   ChatDetails: { userId: number; username: string; name?: string | null; avatar?: string | null }; // the ... sheet from a DM thread
   MessageRequests: undefined; // pending message-request inbox
   GiftsCoins: undefined; // coin balance, payout schedule and the gift ledger, from the Inbox
-  CoinTopUp: undefined;  // buy Reelsoo Coins through the store's own billing
+  CoinTopUp: undefined;  // buy Teezer Coins through the store's own billing
   WalletHistory: undefined; // the full coin ledger, filterable by type
   Withdraw: undefined;      // cash out earnings - tax form + payout method gated
   Messages: { shareVideo?: PendingShareVideo } | undefined; // full conversations list, opened via Inbox "See all" (or the Share sheet's "More" friends flow)
@@ -91,7 +91,7 @@ export type RootStackParamList = {
   Subscriptions: undefined;             // Studio -> Monetization -> Subscriptions: pitch + live requirements + waitlist
   BrandMarketplace: undefined;          // Studio -> Monetization -> Brand Marketplace: pitch + live requirements + waitlist
   GiftsCoinsHelp: undefined;            // "?" on the Gifts & Coins intro - FAQ on sending, earning and getting paid
-  SellerApplication: undefined;        // Settings -> Sell on Reelsoo (application/status, not the storefront)
+  SellerApplication: undefined;        // Settings -> Sell on Teezer (application/status, not the storefront)
   SellerApplicationWizard: undefined;  // the multi-step application form itself
   // Shop screen's owner-only "Edit Shop" - an APPROVED shop's settings, not
   // onboarding. picked* params are ShopCategoryPicker's return value - see
@@ -128,9 +128,9 @@ export type RootStackParamList = {
   AddVariationTypePicker: { selectedId: number | null };
   Scan: undefined;                      // Profile (top-left) -> Scan a profile code / show your own
   AuthorizeLogin: { ticket: string };   // Scan -> a QR-login code was read - confirm/deny the website login
-  ShopHelp: undefined;                 // "?" on the Sell on Reelsoo intro - FAQ on applying, selling and payouts
+  ShopHelp: undefined;                 // "?" on the Sell on Teezer intro - FAQ on applying, selling and payouts
 
-  // Shop Settings - the "Reelsoo Seller Center" hub, opened from ShopScreen's
+  // Shop Settings - the "Teezer Seller Center" hub, opened from ShopScreen's
   // owner-only gear button. Shop IDENTITY (name/description/logo/category)
   // stays on EditShop above - these are operations/selling/products/
   // customer-experience/policies/support.
@@ -147,7 +147,7 @@ export type RootStackParamList = {
   ShopSupport: undefined;
   FollowList: { username: string; type: "followers" | "following" | "suggested"; userId?: number }; // followers/following/suggested lists
   ProfileViews: undefined; // "who viewed your profile" list (own profile)
-  Premium: undefined;      // Reelsoo Premium - plans, features, FAQ (crown on own profile)
+  Premium: undefined;      // Teezer Premium - plans, features, FAQ (crown on own profile)
   SpaceRoom: { id: string };      // inside a live audio room (Spaces)
   SpacePeople: { id: string; tab?: "all" | "speakers" | "listeners" | "chat" }; // participant list / chat
   SpaceListeners: { id: string }; // Listeners + the host's request queue
@@ -166,10 +166,10 @@ export type RootStackParamList = {
   StoryViewer: { username: string; storyId?: number }; // Watch one author's live stories, in order; storyId jumps to one specific story (e.g. from a chat's story-context bubble)
   SavedAccounts: undefined; // "Welcome back" saved-accounts picker (shown when the device has saved accounts)
   ManageSavedAccounts: undefined; // remove / reorder / rename saved accounts
-  Login: undefined;       // "Log in to Reelsoo" options
+  Login: undefined;       // "Log in to Teezer" options
   LoginForm: { prefillLogin?: string; expired?: boolean } | undefined; // email/username + password form
   ForgotPassword: { prefillEmail?: string } | undefined; // email-only form that emails a reset link
-  Signup: undefined;      // "Create your Reelsoo account" options
+  Signup: undefined;      // "Create your Teezer account" options
   EmailSignup: undefined; // 3-step email OTP signup flow
   PolicyViewer: { policy?: "privacy" | "terms" | "guidelines"; url?: string; title?: string }; // in-app legal page popup (modal WebView)
 };

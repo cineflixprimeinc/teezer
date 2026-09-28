@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 /**
- * Reelsoo Ads — advertiser campaign API (canonical Campaign -> Ad Group -> Creative).
+ * Teezer Ads — advertiser campaign API (canonical Campaign -> Ad Group -> Creative).
  * All resources are scoped to the caller's ad account. Additive: the legacy
  * studio/promotions endpoints keep working; this is the richer path.
  */

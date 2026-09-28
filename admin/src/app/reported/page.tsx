@@ -340,7 +340,7 @@ function ContentCell({ type, r, size = "sm" }: { type: ReportType; r: ReportRow;
 }
 
 /** The public site, same env var + fallback every other admin page already
- *  uses for a "view on reelsoo.com" link (see users/page.tsx, users/[id]/page.tsx). */
+ *  uses for a "view on teezer.live" link (see users/page.tsx, users/[id]/page.tsx). */
 const FRONTEND_URL = process.env.NEXT_PUBLIC_FRONTEND_URL ?? "https://teezer.live";
 
 /**

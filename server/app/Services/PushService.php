@@ -183,7 +183,7 @@ class PushService
         ?string $collapseId = null,
         ?string $threadId = null,
     ): void {
-        // Global Reelsoo Control - the single choke point every push (both
+        // Global Teezer Control - the single choke point every push (both
         // send() and sendDirectMessage()) passes through. Sits alongside the
         // existing config('push.enabled') check at the top of each of those
         // two methods rather than replacing it - this one is admin-toggleable

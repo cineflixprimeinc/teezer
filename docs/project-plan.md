@@ -1,21 +1,20 @@
-# Reelsoo - Project Plan
+# Teezer - Project Plan
 
 > **Version:** 2.0 - Production development start  
-> **Repository:** https://github.com/cineflixprime/reelsoo  
 > **Brand Color:** `#fe2c55`
 
 ---
 
-## What Is Reelsoo
+## What Is Teezer
 
-Reelsoo is a short-form video sharing platform. Users upload and discover vertical videos, interact through likes, comments, saves, and follows. Creators manage their content and analytics through a studio dashboard. Admins moderate the platform through an admin dashboard. All three roles share one login page.
+Teezer is a short-form video sharing platform. Users upload and discover vertical videos, interact through likes, comments, saves, and follows. Creators manage their content and analytics through a studio dashboard. Admins moderate the platform through an admin dashboard. All three roles share one login page.
 
 ---
 
 ## Repository Structure
 
 ```
-reelsoo/                          ← GitHub repo root
+teezer/                          ← GitHub repo root
 ├── mobile-app/                   ← Flutter app (source only, never deployed to VPS)
 ├── server/                       ← Laravel app (deployed to VPS)
 │   ├── app/
@@ -64,7 +63,7 @@ reelsoo/                          ← GitHub repo root
 | Component | Where |
 |---|---|
 | Flutter app source code | GitHub only (`mobile-app/`) |
-| Laravel app (API + Dashboard + Website) | VPS - `/var/www/reelsoo/server` |
+| Laravel app (API + Dashboard + Website) | VPS - `/var/www/teezer/server` |
 | MySQL database | VPS - same machine |
 | Uploaded videos, thumbnails, avatars | VPS - `server/storage/app/public/` |
 | APK / AAB / IPA build files | Never on VPS, never in GitHub |
@@ -184,7 +183,7 @@ mobile-app/lib/
 11. UserProfileScreen
 12. ProfileActionsScreen
 13. SettingsScreen
-14. ReelsooStudioDashboardScreen
+14. TeezerStudioDashboardScreen
 15. StudioContentScreen
 16. StudioAnalyticsScreen
 
@@ -320,7 +319,7 @@ Build the Laravel Blade public website at `yourdomain.com`.
 
 **Pages:**
 - `/` - Landing page (hero, features, app download CTA, screenshots)
-- `/about` - About Reelsoo
+- `/about` - About Teezer
 - `/download` - App download (Android APK / Play Store / App Store links)
 - `/privacy` - Privacy Policy
 - `/terms` - Terms & Conditions
@@ -363,7 +362,7 @@ Execute the production deployment documented in `docs/deployment-plan.md`.
 | UserProfileScreen | `/profile/:username` | Public profile with video grid |
 | ProfileActionsScreen | `/profile/actions` | Share, library, safety shortcuts |
 | SettingsScreen | `/settings` | Full settings page |
-| ReelsooStudioDashboardScreen | `/studio` | Creator Studio main dashboard |
+| TeezerStudioDashboardScreen | `/studio` | Creator Studio main dashboard |
 | StudioContentScreen | `/studio/content` | Video content management |
 | StudioAnalyticsScreen | `/studio/analytics` | Analytics charts |
 

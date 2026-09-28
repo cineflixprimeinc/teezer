@@ -3,7 +3,7 @@
 -- =============================================================================
 --
 -- Checklist of SQL to run BY HAND against the freshly restored `teezer`
--- database (see deploy/db/restore-reelsoo-dump.sh and DEPLOYMENT.md).
+-- database (see deploy/db/restore-db-dump.sh and DEPLOYMENT.md).
 --
 -- Every statement below is commented out on purpose. Read each block, decide,
 -- then copy the statement into an interactive session and run it yourself:
@@ -139,16 +139,16 @@
 -- -----------------------------------------------------------------------------
 -- Most media columns store object KEYS (e.g. "avatars/abc.jpg") and are turned
 -- into URLs at request time from MEDIA_URL - those need nothing. Some rows may
--- hold absolute URLs to the source CDN (cdn.reelsoo.com / media.reelsoo.com).
+-- hold absolute URLs to the source CDN (cdn.<source-domain> / media.<source-domain>).
 -- Only rewrite them AFTER the media has been copied to Teezer's bucket
--- (deploy/b2-migration/copy-reelsoo-to-teezer.sh --run and --check).
+-- (deploy/b2-migration/copy-media.sh --run and --check).
 --
 -- Step A - find affected columns (read-only; generates statements, runs nothing).
 -- Each output row is an UPDATE for you to review; it counts rows first.
 --
 --   SELECT format(
 --     'SELECT %L AS col, count(*) FROM %I.%I WHERE %I LIKE %L;',
---     table_name || '.' || column_name, table_schema, table_name, column_name, '%reelsoo.com%')
+--     table_name || '.' || column_name, table_schema, table_name, column_name, '%<source-domain>%')
 --   FROM information_schema.columns
 --   WHERE table_schema = 'public'
 --     AND data_type IN ('text', 'character varying')
@@ -159,29 +159,31 @@
 -- for users.avatar (adjust table/column; run inside BEGIN/COMMIT):
 --   UPDATE users
 --      SET avatar = replace(replace(avatar,
---            'https://cdn.reelsoo.com/',   'https://cdn.teezer.live/'),
---            'https://media.reelsoo.com/', 'https://cdn.teezer.live/')
---    WHERE avatar LIKE 'https://cdn.reelsoo.com/%'
---       OR avatar LIKE 'https://media.reelsoo.com/%';
+--            'https://cdn.<source-domain>/',   'https://cdn.teezer.live/'),
+--            'https://media.<source-domain>/', 'https://cdn.teezer.live/')
+--    WHERE avatar LIKE 'https://cdn.<source-domain>/%'
+--       OR avatar LIKE 'https://media.<source-domain>/%';
 --
 -- json / jsonb columns (settings, payload, metadata ...) need a text round-trip;
 -- find them the same way with data_type IN ('json','jsonb') and, per column:
 --   UPDATE <table> SET <col> = replace(replace(<col>::text,
---            'https://cdn.reelsoo.com/',   'https://cdn.teezer.live/'),
---            'https://media.reelsoo.com/', 'https://cdn.teezer.live/')::jsonb
---    WHERE <col>::text LIKE '%reelsoo.com/%';
+--            'https://cdn.<source-domain>/',   'https://cdn.teezer.live/'),
+--            'https://media.<source-domain>/', 'https://cdn.teezer.live/')::jsonb
+--    WHERE <col>::text LIKE '%<source-domain>/%';
 --
 -- Signed URLs (?expires=&token=) stored anywhere are dead after the move -
 -- the signature was made with the source MEDIA_SIGNING_SECRET for a different
 -- host. Prefer rewriting them to plain keys, or leave them to be regenerated.
 --
--- Non-media links to reelsoo.com (e.g. in posts, bios, page content) are user
+-- Non-media links to <source-domain> (e.g. in posts, bios, page content) are user
 -- content: review rather than rewrite them wholesale.
 
 
 -- -----------------------------------------------------------------------------
 -- 7. Afterwards
 -- -----------------------------------------------------------------------------
+--   Run deploy/db/rename-brand-values.sql (converts brand-named values the code
+--   compares against - see that file). It is idempotent.
 --   ANALYZE;
 --   cd /var/www/teezer/server && php artisan cache:clear && php artisan config:cache
 -- (Settings are cached in Redis for ~5 minutes; clearing the cache makes the

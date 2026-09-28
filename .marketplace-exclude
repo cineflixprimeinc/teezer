@@ -15,7 +15,7 @@
 #      which never leaves our server, but there is no reason to ship it.
 #
 #   2. OUR INFRASTRUCTURE - deploy configs, runbooks and internal docs that
-#      describe reelsoo.com's own servers. Not secret in themselves, but a
+#      describe teezer.live's own servers. Not secret in themselves, but a
 #      free map of our production estate.
 #
 #   3. NOISE - development-only files that make the package larger and
@@ -63,7 +63,7 @@ crashlogs/
 # The whole docs/ tree, not just docs/internal/.
 #
 # These are OUR runbooks - deployment-plan.md, scaling-plan.md,
-# two-vps-setup-plan.md/html - and they describe the reelsoo.com production
+# two-vps-setup-plan.md/html - and they describe the teezer.live production
 # estate: host roles, the two-VPS split, tunnel layout, which services run
 # where. That is a map of our infrastructure, and it is category 2 above.
 #

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * A platform-wide product category (Fashion, Beauty...), managed from the
- * admin panel's "Reelsoo Shop" section - see Admin\ShopCategoryController.
+ * admin panel's "Teezer Shop" section - see Admin\ShopCategoryController.
  * Every shop's product grid filters against this same global list.
  *
  * `parent_id` null = a top-level category (shown in the Add Product form's

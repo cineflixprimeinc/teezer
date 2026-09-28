@@ -555,7 +555,7 @@ class ShopController extends Controller
             'variations.*.options.*' => ['string', 'max:40'],
             'images'            => ['nullable', 'array', 'max:8'],
             // 20MB/photo (20480 KB - Laravel's file `max` is always KB). Also
-            // needs nginx's client_max_body_size on reelsoo-api.conf raised
+            // needs nginx's client_max_body_size on teezer-api.conf raised
             // to cover 8 photos near the cap in one request - see deploy notes.
             'images.*'          => ['file', 'image', 'max:20480'],
         ]);
@@ -622,7 +622,7 @@ class ShopController extends Controller
     {
         $shop = Shop::where('user_id', $request->user()->id)->firstOrFail();
 
-        // "Add link" -> Reelsoo Product picker (see PostCameraScreenImpl)
+        // "Add link" -> Teezer Product picker (see PostCameraScreenImpl)
         // reuses this same endpoint and needs to search by name, know each
         // product's category for its "Recommended for this post" sorting,
         // and see ONLY products that can actually be attached to a post -

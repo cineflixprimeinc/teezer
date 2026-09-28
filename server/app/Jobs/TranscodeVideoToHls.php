@@ -469,7 +469,7 @@ class TranscodeVideoToHls implements ShouldQueue, ShouldBeUnique
             }
             $lines[] = "#EXT-X-STREAM-INF:{$attrs}";
             // Relative, so the playlist is portable across hostnames - it keeps
-            // working the day media.reelsoo.com becomes cdn.reelsoo.com, with
+            // working the day media.teezer.live becomes cdn.teezer.live, with
             // no rewrite of objects already in the bucket.
             $lines[] = "{$v['name']}/index.m3u8";
         }

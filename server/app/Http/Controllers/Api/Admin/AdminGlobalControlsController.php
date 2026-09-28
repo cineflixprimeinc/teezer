@@ -119,7 +119,7 @@ class AdminGlobalControlsController extends Controller
         ]);
     }
 
-    /** Recent Global Reelsoo Control activity, for the "View Activity" panel. */
+    /** Recent Global Teezer Control activity, for the "View Activity" panel. */
     public function activity(Request $request): JsonResponse
     {
         $entries = AdminActionLog::where('category', 'global_controls')

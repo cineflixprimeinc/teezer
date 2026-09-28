@@ -46,7 +46,7 @@ function smoothPath(points: { x: number; y: number }[]): string {
 }
 
 /**
- * Reelsoo Studio's "Content Performance" chart - Views (filled, primary axis)
+ * Teezer Studio's "Content Performance" chart - Views (filled, primary axis)
  * against Watch Time (a light trend line, no axis of its own). Two full
  * numeric axes side by side made the plot area feel cramped and busy on a
  * phone, so only Views gets labeled ticks; Watch Time is still normalized

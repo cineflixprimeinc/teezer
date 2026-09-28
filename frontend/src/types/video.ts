@@ -1,6 +1,6 @@
-import type { ReelsooUser } from "./user";
+import type { TeezerUser } from "./user";
 
-export type VideoUser = Pick<ReelsooUser, "id" | "username" | "name" | "avatar" | "is_verified" | "is_following" | "followers_count" | "likes_count">;
+export type VideoUser = Pick<TeezerUser, "id" | "username" | "name" | "avatar" | "is_verified" | "is_following" | "followers_count" | "likes_count">;
 
 export type MediaItem = {
   object_key: string;
@@ -18,7 +18,7 @@ export type TaggedUser = {
   verified: boolean;
 };
 
-export type ReelsooVideo = {
+export type TeezerVideo = {
   id: number;
   title?: string | null;
   caption?: string | null;
@@ -48,7 +48,7 @@ export type ReelsooVideo = {
   /** "Add link" on the upload/edit Details card - a single external URL the
    *  creator attached to this post, stored verbatim. */
   link_url?: string | null;
-  /** "Add link" -> Reelsoo Product - up to 3 of the creator's own Shop
+  /** "Add link" -> Teezer Product - up to 3 of the creator's own Shop
    *  products featured on this post. Read live from `products` server-side
    *  (VideoResource::featured_products), so price/image here always reflect
    *  the current listing. Present only when the relation was eager-loaded. */

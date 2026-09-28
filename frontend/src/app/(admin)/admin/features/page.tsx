@@ -23,7 +23,7 @@ type FeatureMeta = {
 type GroupKey = "Core" | "Creator" | "Monetization" | "Content" | "Discovery" | "Security";
 
 /* Icons carry meaning through shape, not colour: the palette here is the
-   panel's neutral greys plus the one Reelsoo accent, used only to mark what is
+   panel's neutral greys plus the one Teezer accent, used only to mark what is
    selected or on. */
 const GROUPS: { key: GroupKey; label: string; icon: React.ElementType; blurb: string }[] = [
   { key: "Core",         label: "Core Platform", icon: Zap,         blurb: "The surfaces the app is built around." },

@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Inline "why is this blocked" banner for a Global Reelsoo Control denial.
+ * Inline "why is this blocked" banner for a Global Teezer Control denial.
  * Feed it the object `globalFeatureError()` (in services/api.ts) extracts
  * from a 403 GLOBAL_FEATURE_DISABLED response - never hand-build one, so
  * every surface shows the same real backend message, not a guessed one.

@@ -33,7 +33,7 @@ export default function LawEnforcementPage() {
       <LegalShell eyebrow="Legal · Law Enforcement" title="Law Enforcement Guidelines" lastUpdated={LAST_UPDATED} toc={TOC} related={RELATED}>
       <P>
         These operational guidelines explain how law enforcement authorities can request user information from
-        Teezer, operated by CineflixPrime. They implement Section 4 (How We Share Your Information - Law enforcement
+        Teezer. They implement Section 4 (How We Share Your Information - Law enforcement
         / legal) of our <DocLink href="/privacy">Privacy Policy</DocLink>. We disclose user information only in
         accordance with our policies and applicable law, and we review every request individually.
       </P>

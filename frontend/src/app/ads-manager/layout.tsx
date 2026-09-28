@@ -8,7 +8,7 @@ const DESCRIPTION =
 const LOGO = "https://ads.teezer.live/teezer-logo.png";
 
 export const metadata: Metadata = {
-  // `absolute` bypasses the root layout's "%s | Reelsoo" template so the browser
+  // `absolute` bypasses the root layout's "%s | Teezer" template so the browser
   // title is exactly the branded string with no "|" separator.
   title: { absolute: TITLE },
   description: DESCRIPTION,

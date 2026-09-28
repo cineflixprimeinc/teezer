@@ -6,7 +6,7 @@ import { registerSessionReset } from "./session";
 import { studioApi } from "@/api/studio.api";
 
 /**
- * Reelsoo Ads - Ad Account store (Studio → Settings → Advertising).
+ * Teezer Ads - Ad Account store (Studio → Settings → Advertising).
  *
  * Models a creator's advertising account the way Facebook/TikTok Ads Manager do:
  * a brand-new creator has NO ad account. The account - and its unique, permanent
@@ -22,7 +22,7 @@ import { studioApi } from "@/api/studio.api";
  * never leak across a device's saved logins.
  */
 
-const CACHE_KEY = "reelsoo:ad-account";
+const CACHE_KEY = "teezer:ad-account";
 
 export type AdAccountStatus = "none" | "active";
 export type AdTxnKind = "campaign_spend" | "funds_added" | "credit_applied" | "refund";
@@ -124,7 +124,7 @@ const DEFAULTS: AdAccount = {
  * these server-side. Codes are single-use per account (tracked in `appliedPromoCodes`).
  */
 const PROMO_CODES: Record<string, number> = {
-  REELSOO25: 25,
+  TEEZER25: 25,
   WELCOME10: 10,
   CREATOR50: 50,
   ADS100: 100,

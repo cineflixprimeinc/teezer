@@ -72,8 +72,8 @@ CENTRIFUGO_API_KEY=<same value as Laravel's CENTRIFUGO_API_KEY>
 
 Then `systemctl restart teezer-go`. On boot the API logs either:
 ```
-events: connected to NATS JetStream (nats://127.0.0.1:4222), stream "REELSOO_EVENTS" ready
-events: consumer "centrifugo-bridge" attached to REELSOO_EVENTS, bridging to Centrifugo
+events: connected to NATS JetStream (nats://127.0.0.1:4222), stream "TEEZER_EVENTS" ready
+events: consumer "centrifugo-bridge" attached to TEEZER_EVENTS, bridging to Centrifugo
 ```
 or, if `NATS_URL` is unset/unreachable:
 ```
@@ -84,7 +84,7 @@ never load-bearing for correctness (Postgres writes still happen regardless).
 
 ## 3. Event model (Phase 1)
 
-One stream, `REELSOO_EVENTS`, subjects `reelsoo.events.<event-name>`. The
+One stream, `TEEZER_EVENTS`, subjects `teezer.events.<event-name>`. The
 bridge consumer is a **durable** JetStream pull consumer (`centrifugo-bridge`)
 - survives a restart at the same position, at-least-once delivery, explicit
 ack, idempotent via an event-id dedupe (Redis-backed across replicas, in-
@@ -107,8 +107,8 @@ the existing `RealtimeBus`/`CentrifugoClient` path - untouched.
 ```bash
 # 1. Confirm the stream + consumer exist (needs the nats CLI: go install
 #    github.com/nats-io/natscli/nats@latest, or brew/apt install nats-cli):
-nats stream info REELSOO_EVENTS --server nats://127.0.0.1:4222
-nats consumer info REELSOO_EVENTS centrifugo-bridge --server nats://127.0.0.1:4222
+nats stream info TEEZER_EVENTS --server nats://127.0.0.1:4222
+nats consumer info TEEZER_EVENTS centrifugo-bridge --server nats://127.0.0.1:4222
 
 # 2. Trigger a real like via the Go API, then watch teezer-go's log for:
 journalctl -u teezer-go -f | grep events:

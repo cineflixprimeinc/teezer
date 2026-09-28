@@ -241,7 +241,7 @@ class VideoService
     }
 
     /**
-     * "Add link" → Reelsoo Product - the complete desired set, same
+     * "Add link" → Teezer Product - the complete desired set, same
      * full-resync shape as MentionService::syncTaggedUsers (the list is
      * capped at 3, so a delete-then-reinsert is simpler and just as correct
      * as a diff, and it naturally handles reordering too - a plain diff
@@ -310,7 +310,7 @@ class VideoService
         $country = $this->countryForHashtagPivot($video->user);
         $now = now();
 
-        // Global Reelsoo Control - hashtag_creation_enabled only stops a NEW
+        // Global Teezer Control - hashtag_creation_enabled only stops a NEW
         // hashtag from being minted; an already-existing one still attaches
         // normally either way, and the post itself is never rejected over
         // this (see the registry's own description for why: rejecting the

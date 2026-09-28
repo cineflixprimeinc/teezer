@@ -29,11 +29,11 @@ type UiState = {
   setPlaybackSpeed:   (v: PlaybackSpeed) => void;
 };
 
-const LS_AUTO_SCROLL = "reelsoo:autoScroll";
-const LS_THEME       = "reelsoo:theme";
-const LS_LANG        = "reelsoo:language";
-const LS_MUTED       = "reelsoo_video_muted";
-const LS_VOLUME      = "reelsoo_video_volume";
+const LS_AUTO_SCROLL = "teezer:autoScroll";
+const LS_THEME       = "teezer:theme";
+const LS_LANG        = "teezer:language";
+const LS_MUTED       = "teezer_video_muted";
+const LS_VOLUME      = "teezer_video_volume";
 
 function readAutoScroll(): boolean {
   if (typeof window === "undefined") return false;

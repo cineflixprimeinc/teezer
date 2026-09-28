@@ -1,5 +1,5 @@
 /**
- * The Reelsoo playback interface - web.
+ * The Teezer playback interface - web.
  *
  * A deliberate mirror of mobile/src/playback/types.ts. Same method names, same
  * semantics, different engines underneath: a <video> element plus hls.js here,
@@ -40,7 +40,7 @@ export type PlaybackEventMap = {
 
 export type PlaybackEvent = keyof PlaybackEventMap;
 
-export interface ReelsooPlayer {
+export interface TeezerPlayer {
   play(): void;
   pause(): void;
 

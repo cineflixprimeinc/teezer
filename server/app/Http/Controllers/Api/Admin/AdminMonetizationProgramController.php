@@ -118,7 +118,7 @@ class AdminMonetizationProgramController extends Controller
             // clears the override.
             'cta_label'              => ['sometimes', 'nullable', 'string', 'max:40'],
 
-            // ── App intro pitch (Gifts & Coins / Sell on Reelsoo / Creator
+            // ── App intro pitch (Gifts & Coins / Sell on Teezer / Creator
             //    Rewards' dedicated screens) ──────────────────────────────
             'hero_title'             => ['sometimes', 'nullable', 'string', 'max:120'],
             'hero_description'       => ['sometimes', 'nullable', 'string', 'max:400'],

@@ -13,7 +13,7 @@ import { BottomSheet } from "@/components/BottomSheet";
 import { Skeleton } from "@/components/Skeleton";
 import { MenuRow, MenuDivider } from "@/components/sheet/MenuRow";
 import {
-  musicApi, fmtTrackTime, isReelsooOriginal, type MusicTrack, type MusicQuery,
+  musicApi, fmtTrackTime, isTeezerOriginal, type MusicTrack, type MusicQuery,
 } from "@/api/music.api";
 import {
   COPYRIGHT_RULES, MOOD_COLOR, MUSIC_CATEGORIES, MUSIC_DURATIONS,
@@ -23,7 +23,7 @@ import { colors } from "@/constants/colors";
 import { font, radius, spacing, TAB_BAR_HEIGHT } from "@/constants/theme";
 import { formatCompact } from "@/utils/format";
 
-/** Reelsoo Studio -> Music Library.
+/** Teezer Studio -> Music Library.
  *
  *  The website's /studio/music, as a phone screen: the same category strip, the
  *  same tabs, the same mood/genre/duration filters, and the same licensing rules
@@ -52,7 +52,7 @@ export function StudioMusicSection() {
 
   /* The tab overrides the category, exactly as the web page resolves it. */
   const resolvedCategory =
-    tab === "reelsoo_originals" ? "reelsoo_originals"
+    tab === "teezer_originals" ? "teezer_originals"
     : tab === "artist_originals" ? "artist_originals"
     : category;
 
@@ -214,7 +214,7 @@ export function StudioMusicSection() {
         <View style={s.section}>
           <View style={s.listHead}>
             <Text style={s.sectionTitle}>
-              {tab === "reelsoo_originals" ? "Teezer Originals"
+              {tab === "teezer_originals" ? "Teezer Originals"
                 : tab === "artist_originals" ? "Artist uploads"
                 : MUSIC_CATEGORIES.find((c) => c.key === category)?.label ?? "All tracks"}
             </Text>
@@ -465,7 +465,7 @@ function TrackRow({
       <View style={{ flex: 1 }}>
         <View style={s.rowTitleLine}>
           <Text style={s.rowTitle} numberOfLines={1}>{t.title ?? "Untitled"}</Text>
-          {isReelsooOriginal(t) && <BadgeCheck size={12} color={colors.brand} strokeWidth={2.6} />}
+          {isTeezerOriginal(t) && <BadgeCheck size={12} color={colors.brand} strokeWidth={2.6} />}
           {isNew && (
             <View style={s.newChip}>
               <Text style={s.newChipText}>NEW</Text>
@@ -503,7 +503,7 @@ function TrackDetailSheet({
   onPlay: () => void;
 }) {
   if (!track) return null;
-  const reelsoo = isReelsooOriginal(track);
+  const teezer = isTeezerOriginal(track);
   const lic = licenseLabel(track.license_type);
 
   const facts: [string, string | null][] = [
@@ -523,9 +523,9 @@ function TrackDetailSheet({
         <View style={s.detailHero}>
           <Cover uri={track.cover_url} size={92} radius={16} />
           <View style={{ flex: 1, gap: 4 }}>
-            <View style={[s.originChip, reelsoo ? s.originBrand : s.originBlue]}>
-              <Text style={[s.originText, { color: reelsoo ? colors.brand : colors.info }]}>
-                {reelsoo ? "Teezer Original" : "Artist upload"}
+            <View style={[s.originChip, teezer ? s.originBrand : s.originBlue]}>
+              <Text style={[s.originText, { color: teezer ? colors.brand : colors.info }]}>
+                {teezer ? "Teezer Original" : "Artist upload"}
               </Text>
             </View>
             <Text style={s.detailTitle} numberOfLines={2}>{track.title ?? "Untitled"}</Text>

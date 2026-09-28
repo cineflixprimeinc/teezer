@@ -18,7 +18,7 @@ type LoginView = "options" | "email" | "forgot" | "twofa" | "qr";
 /** Matches mobile/src/components/profile/ProfileActionsSheet.tsx's own
  *  profileUrl() convention - a plain https URL, not a custom scheme, so the
  *  QR code still opens something sensible (a 404-ish "open in app" page) if
- *  scanned by an ordinary camera app instead of Reelsoo's own Scan screen. */
+ *  scanned by an ordinary camera app instead of Teezer's own Scan screen. */
 const QR_LOGIN_WEB = "https://teezer.live";
 const qrLoginUrl = (ticket: string) => `${QR_LOGIN_WEB}/qr-login/${ticket}`;
 
@@ -133,7 +133,7 @@ export function LoginContent({ startView = "options", embedded = false }: { star
    *  only, ApiAuthController::login() re-checks independently at submit
    *  time (see CountryAvailabilityService's docblock). */
   const [loginRestriction, setLoginRestriction] = useState<{ country: string; reason: string } | null>(null);
-  /* Global Reelsoo Control - admin-side kill switch, distinct from the
+  /* Global Teezer Control - admin-side kill switch, distinct from the
    * country restriction above. Informational only, never disables the
    * form - an admin can flip login_enabled back on at any moment. */
   const [globalRestriction, setGlobalRestriction] = useState<{ message: string; expiresAt: string | null } | null>(null);
@@ -381,16 +381,16 @@ export function LoginContent({ startView = "options", embedded = false }: { star
   /* Prefill email - from verify-email page (sessionStorage) or Remember Me (localStorage) */
   useEffect(() => {
     try {
-      const raw = sessionStorage.getItem("reelsoo_login_prefill");
+      const raw = sessionStorage.getItem("teezer_login_prefill");
       if (raw) {
         const { email: prefillEmail } = JSON.parse(raw);
         if (prefillEmail) { setLoginVal(prefillEmail); switchView("email"); }
-        sessionStorage.removeItem("reelsoo_login_prefill");
+        sessionStorage.removeItem("teezer_login_prefill");
         return;
       }
     } catch {}
     try {
-      const saved = localStorage.getItem("reelsoo_remember_email");
+      const saved = localStorage.getItem("teezer_remember_email");
       if (saved) { setLoginVal(saved); setRememberMe(true); }
     } catch {}
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -429,9 +429,9 @@ export function LoginContent({ startView = "options", embedded = false }: { star
     try {
       const result = await login({ login: loginVal.trim(), password, turnstile_token: tsToken ?? undefined });
       if (rememberMe) {
-        localStorage.setItem("reelsoo_remember_email", loginVal.trim());
+        localStorage.setItem("teezer_remember_email", loginVal.trim());
       } else {
-        localStorage.removeItem("reelsoo_remember_email");
+        localStorage.removeItem("teezer_remember_email");
       }
       if (result.twoFactorRequired && result.challenge) {
         setChallenge(result.challenge);
@@ -759,7 +759,7 @@ export function LoginContent({ startView = "options", embedded = false }: { star
   /* ── Email / password view ── */
   return (
     <div key={viewKey} style={{ animation: "auth-content-in 250ms ease forwards" }}>
-      {/* In the ads flow the parent provides the single Back (to Reelsoo/Email). */}
+      {/* In the ads flow the parent provides the single Back (to Teezer/Email). */}
       {!embedded && <BackBtn to="options" />}
 
       <form onSubmit={handleLogin} style={{ display: "flex", flexDirection: "column", gap: 10 }}>

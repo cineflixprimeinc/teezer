@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Global Reelsoo Control - read/write layer over `global_controls`.
+ * Global Teezer Control - read/write layer over `global_controls`.
  *
  * Every value is read through one cached map (cache key below), so a request
  * that needs to check three controls costs one cache read, not three - the

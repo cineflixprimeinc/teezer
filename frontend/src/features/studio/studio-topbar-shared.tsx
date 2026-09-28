@@ -153,7 +153,7 @@ export function StudioTopbarShared({
   /* Ensure current user is in saved accounts when avatar opens */
   useEffect(() => {
     if (!avatarOpen || !user) return;
-    const token = typeof window !== "undefined" ? window.localStorage.getItem("reelsoo_token") : null;
+    const token = typeof window !== "undefined" ? window.localStorage.getItem("teezer_token") : null;
     if (token) {
       addAccountToSaved({ id: user.id as number, name: user.name ?? "", username: user.username ?? "", avatar: (user as any).avatar ?? null, token, lastUsed: Date.now() });
     }

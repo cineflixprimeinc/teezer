@@ -18,7 +18,7 @@ import { cn, formatCompact } from "@/lib/utils";
 import { useAuthStore } from "@/store/auth.store";
 import { userService } from "@/services/user.service";
 import { studioService, type AnalyticsMetric } from "@/services/studio.service";
-import type { ReelsooVideo } from "@/types/video";
+import type { TeezerVideo } from "@/types/video";
 import { StudioLineChart, type ChartPoint } from "./studio-chart";
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -169,7 +169,7 @@ export function StudioSidebar({
         })}
       </nav>
 
-      {/* Reelsoo Pro card */}
+      {/* Teezer Pro card */}
       {!collapsed && (
         <div className="mx-3 mb-2 overflow-hidden rounded-xl bg-gradient-to-br from-[#fd4605] to-[#b83203] px-3 py-2">
           <div className="flex items-center justify-between">
@@ -184,7 +184,7 @@ export function StudioSidebar({
         </div>
       )}
 
-      {/* Back to Reelsoo */}
+      {/* Back to Teezer */}
       <div className={cn("px-3 pb-4", collapsed && "px-1")}>
         <Link
           href="/"
@@ -680,7 +680,7 @@ function QuickAction({ icon, iconBg, label, badge, href }: { icon: React.ReactNo
 /* ═══════════════════════════════════════════════════════════════════════════
    RECENT CONTENT ROW
 ═══════════════════════════════════════════════════════════════════════════ */
-function ContentRow({ video }: { video: ReelsooVideo }) {
+function ContentRow({ video }: { video: TeezerVideo }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const isVideo = video.media_type !== "image" && video.media_type !== "image_carousel";
   return (
@@ -794,7 +794,7 @@ export function StudioPage() {
   /* Websocket for real-time notifications */
   useEffect(() => {
     if (!isAuthenticated) return;
-    const token = localStorage.getItem("reelsoo_token");
+    const token = localStorage.getItem("teezer_token");
     if (!token) return;
 
     const socket: RealtimeSocket = new CentrifugoWebSocket(user?.id ?? 0);

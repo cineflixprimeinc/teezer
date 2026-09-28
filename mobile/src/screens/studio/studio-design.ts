@@ -1,6 +1,6 @@
 /**
- * Reelsoo Studio's design tokens, taken verbatim from the Claude Design
- * prototype "ReelSoo App.dc.html" (the `studioOpen` panel).
+ * Teezer Studio's design tokens, taken verbatim from the Claude Design
+ * prototype "Teezer App.dc.html" (the `studioOpen` panel).
  *
  * Studio is the one surface in the app drawn on WHITE with hairline #EFECF1
  * cards and a near-black #141318 hero - it does not share the main app's

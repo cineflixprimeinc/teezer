@@ -371,7 +371,7 @@ class MediaPresignService
      * + ttl`), so the query string - and therefore the token - was different
      * every single time, even a second later for the identical object. That
      * is invisible to nginx's own local cache (proxy_cache_key is "$uri",
-     * token excluded on purpose - see deploy/nginx/reelsoo-media.conf), but
+     * token excluded on purpose - see deploy/nginx/teezer-media.conf), but
      * Cloudflare's edge cache key is the full URL including the query
      * string: confirmed live that a re-signed URL for a still-cached object
      * comes back cf-cache-status: MISS, forcing a fresh round trip to the
@@ -405,7 +405,7 @@ class MediaPresignService
      * Grid size for windowedExpiry(). 15 minutes: coarse enough that two
      * feed/playlist requests seconds (or several minutes) apart collapse
      * onto the same signed URL, matching the HLS playlist's own 5-minute
-     * edge Cache-Control (deploy/nginx/reelsoo-media.conf's `.m3u8` branch)
+     * edge Cache-Control (deploy/nginx/teezer-media.conf's `.m3u8` branch)
      * so segment tokens stay stable for at least one playlist cache cycle;
      * fine-grained enough that the shortest TTL in use (120 min, private/
      * draft) is never meaningfully over-extended (worst case +15 min, ~12%).

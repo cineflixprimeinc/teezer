@@ -31,9 +31,9 @@ ch() { clickhouse-client --host "$CH_HOST" --port "$CH_PORT" --user "$CH_USER" -
 pg() { sudo -u postgres psql -d "$PG_DB" -tA -F$'\t' --no-align "$@"; }
 
 echo "── clearing any prior backfill (keeps re-runs idempotent)"
-ch --query "TRUNCATE TABLE IF EXISTS reelsoo.events"
+ch --query "TRUNCATE TABLE IF EXISTS teezer.events"
 for t in video_daily creator_daily creator_audience_daily creator_hourly; do
-  ch --query "TRUNCATE TABLE IF EXISTS reelsoo.$t"
+  ch --query "TRUNCATE TABLE IF EXISTS teezer.$t"
 done
 
 COLS="event_time, event_type, video_id, creator_id, user_id, session_id, delta,
@@ -61,7 +61,7 @@ SELECT
     COALESCE(ve.payload::text, '')
 FROM video_events ve
 JOIN videos v ON v.id = ve.video_id
-" | ch --query "INSERT INTO reelsoo.events ($COLS) FORMAT TabSeparated"
+" | ch --query "INSERT INTO teezer.events ($COLS) FORMAT TabSeparated"
 
 # video_views is where the audience context actually lives - source, country,
 # city and device_type. It is the only source for the Studio audience cards.
@@ -111,7 +111,7 @@ SELECT
     ''
 FROM video_views vv
 JOIN videos v ON v.id = vv.video_id
-" | ch --query "INSERT INTO reelsoo.events ($COLS) FORMAT TabSeparated"
+" | ch --query "INSERT INTO teezer.events ($COLS) FORMAT TabSeparated"
 
 # ── Engagement ───────────────────────────────────────────────────────────────
 # video_likes / video_comments / video_shares / video_saves are the AUTHORITATIVE
@@ -157,7 +157,7 @@ for pair in "video_likes:like" "video_comments:comment" "video_shares:share" "vi
     continue
   fi
 
-  printf '%s\n' "$rows" | ch --query "INSERT INTO reelsoo.events ($COLS) FORMAT TabSeparated"
+  printf '%s\n' "$rows" | ch --query "INSERT INTO teezer.events ($COLS) FORMAT TabSeparated"
 done
 
 # The materialized views only fire on INSERT, so rows loaded above populated them
@@ -166,41 +166,41 @@ done
 echo "── rebuilding rollups from the raw log"
 METRIC="transform(event_type,['unlike','unsave','uncomment','unfollow_from_video'],['like','save','comment','follow_from_video'],event_type)"
 
-ch --query "TRUNCATE TABLE reelsoo.video_daily"
-ch --query "INSERT INTO reelsoo.video_daily
+ch --query "TRUNCATE TABLE teezer.video_daily"
+ch --query "INSERT INTO teezer.video_daily
 SELECT video_id, creator_id, event_date, $METRIC AS metric,
        countState(), sumState(delta), sumState(watch_seconds),
        avgState(completion_pct),
        quantilesState(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0)(completion_pct),
        uniqState(user_id)
-FROM reelsoo.events WHERE video_id != 0
+FROM teezer.events WHERE video_id != 0
 GROUP BY video_id, creator_id, event_date, metric"
 
-ch --query "TRUNCATE TABLE reelsoo.creator_daily"
-ch --query "INSERT INTO reelsoo.creator_daily
+ch --query "TRUNCATE TABLE teezer.creator_daily"
+ch --query "INSERT INTO teezer.creator_daily
 SELECT creator_id, event_date, $METRIC AS metric,
        countState(), sumState(delta), sumState(watch_seconds),
        avgState(completion_pct), uniqState(user_id)
-FROM reelsoo.events WHERE creator_id != 0
+FROM teezer.events WHERE creator_id != 0
 GROUP BY creator_id, event_date, metric"
 
-ch --query "TRUNCATE TABLE reelsoo.creator_audience_daily"
-ch --query "INSERT INTO reelsoo.creator_audience_daily
+ch --query "TRUNCATE TABLE teezer.creator_audience_daily"
+ch --query "INSERT INTO teezer.creator_audience_daily
 SELECT creator_id, event_date, source, country, city, device_type, platform,
        countState(), uniqState(user_id)
-FROM reelsoo.events WHERE creator_id != 0 AND event_type = 'view'
+FROM teezer.events WHERE creator_id != 0 AND event_type = 'view'
 GROUP BY creator_id, event_date, source, country, city, device_type, platform"
 
-ch --query "TRUNCATE TABLE reelsoo.creator_hourly"
-ch --query "INSERT INTO reelsoo.creator_hourly
+ch --query "TRUNCATE TABLE teezer.creator_hourly"
+ch --query "INSERT INTO teezer.creator_hourly
 SELECT creator_id, event_date, toHour(event_time) AS hour,
        countStateIf(event_type = 'view'),
        sumStateIf(delta, event_type IN ('like','unlike','comment','uncomment','save','unsave','share'))
-FROM reelsoo.events WHERE creator_id != 0
+FROM teezer.events WHERE creator_id != 0
 GROUP BY creator_id, event_date, hour"
 
 echo
 echo "── result"
 ch --query "SELECT event_type, count() AS rows, min(event_time) AS first, max(event_time) AS last
-            FROM reelsoo.events GROUP BY event_type ORDER BY rows DESC FORMAT PrettyCompactMonoBlock"
+            FROM teezer.events GROUP BY event_type ORDER BY rows DESC FORMAT PrettyCompactMonoBlock"
 echo "✅ backfill complete"

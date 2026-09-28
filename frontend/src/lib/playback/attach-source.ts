@@ -3,7 +3,7 @@ import type Hls from "hls.js";
 /**
  * Imperative source wiring for a <video> element, HLS-aware.
  *
- * Extracted verbatim from useHlsSource so the React hook and the ReelsooPlayer
+ * Extracted verbatim from useHlsSource so the React hook and the TeezerPlayer
  * adapter share ONE implementation. Every hard-won detail below was learned from
  * a real failure; duplicating it into the adapter would mean fixing the next one
  * twice, and the two copies would diverge exactly where it matters least

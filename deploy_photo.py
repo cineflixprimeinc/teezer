@@ -6,7 +6,7 @@ import paramiko, sys, time, os
 # VPS2 = workers (Laravel queue workers / FFmpeg transcoding) + LiveKit.
 #
 # This script ONLY ever talks to the two Teezer hosts below. It refuses to run if
-# a host is (or is overridden to) any Reelsoo address.
+# a host is (or is overridden to) any source platform server address.
 #
 # Auth uses an SSH key (no passwords in this repo). Set it up once:
 #   ssh-keygen -t ed25519 -f ~/.ssh/teezer_deploy -N ""
@@ -23,7 +23,7 @@ KEY_PATH = os.environ.get("TEEZER_DEPLOY_KEY", os.path.expanduser("~/.ssh/teezer
 VPS1 = {"name": "VPS1 / app",     "host": os.environ.get("TEEZER_VPS1", "77.237.242.249")}
 VPS2 = {"name": "VPS2 / workers", "host": os.environ.get("TEEZER_VPS2", "77.237.243.122")}
 
-# Reelsoo infrastructure. This repository must never connect to any of these.
+# Source platform servers. This repository must never connect to any of these.
 FORBIDDEN_HOSTS = {
     "167.233.204.183", "75.119.156.93", "185.193.19.86",
     "217.217.251.44", "217.217.249.50", "139.99.89.181", "139.99.89.10",
@@ -69,7 +69,7 @@ def run(ssh, cmd, timeout=600):
 
 def deploy(target, steps):
     if target["host"] in FORBIDDEN_HOSTS:
-        sys.exit(f"[REFUSED] {target['host']} is Reelsoo infrastructure. This repo never deploys there.")
+        sys.exit(f"[REFUSED] {target['host']} is a source platform server. This repo never deploys there.")
     print(f"\n========== Deploying {target['name']} ({target['host']}) ==========")
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -94,7 +94,7 @@ def deploy(target, steps):
 if __name__ == "__main__":
     for t in (VPS1, VPS2):
         if t["host"] in FORBIDDEN_HOSTS:
-            sys.exit(f"[REFUSED] {t['name']} is set to {t['host']}, a Reelsoo address. Aborting.")
+            sys.exit(f"[REFUSED] {t['name']} is set to {t['host']}, a source platform server address. Aborting.")
     if not os.path.exists(KEY_PATH):
         sys.exit(
             f"Deploy SSH key not found at {KEY_PATH}.\n"

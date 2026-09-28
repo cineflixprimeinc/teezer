@@ -1,7 +1,7 @@
 import { api } from "./client";
 
 /**
- * Reelsoo Ads delivery metrics - GET /studio/ad-insights/dashboard.
+ * Teezer Ads delivery metrics - GET /studio/ad-insights/dashboard.
  *
  * This is the one place real ad delivery lives: `ad_stats_daily` rolled up
  * against the caller's promotions. The `promotions` table itself records only

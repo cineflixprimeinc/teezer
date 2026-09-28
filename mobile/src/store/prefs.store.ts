@@ -14,7 +14,7 @@ import { ContentPreferences, prefsApi } from "@/api/prefs.api";
  *            rolls back (state + snapshot) if the request fails.
  */
 
-const CACHE_KEY = "reelsoo:player-prefs";
+const CACHE_KEY = "teezer:player-prefs";
 
 /** Mirrors ProfileController::contentPrefDefaults - used before first sync. */
 export const PREFS_DEFAULTS: ContentPreferences = {

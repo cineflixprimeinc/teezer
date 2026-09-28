@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Schema;
  * abuse investigation - it is deliberately NOT an authorization input, because
  * one handset legitimately serves up to five saved accounts here and a key that
  * belonged to whoever attested first would break every switch. Authorization
- * stays with Sanctum; this table only answers "is this a genuine Reelsoo build
+ * stays with Sanctum; this table only answers "is this a genuine Teezer build
  * on genuine Apple hardware".
  *
  * The counter is the replay defence and is the one column with real

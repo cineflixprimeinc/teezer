@@ -3,7 +3,7 @@
 @section('body')
     <div class="min-h-screen flex flex-col items-center justify-center bg-black px-4">
         <a href="{{ route('home') }}" class="mb-8">
-            <img src="{{ asset('reelsoo-mark.svg') }}" alt="Teezer" class="h-10 w-auto">
+            <img src="{{ asset('teezer-mark.svg') }}" alt="Teezer" class="h-10 w-auto">
         </a>
 
         <div class="w-full max-w-sm bg-[#111] border border-white/10 rounded-2xl p-8 shadow-2xl">

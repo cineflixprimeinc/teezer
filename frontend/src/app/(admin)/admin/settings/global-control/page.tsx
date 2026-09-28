@@ -74,7 +74,7 @@ type PendingAction =
   | { kind: "category"; category: string; categoryLabel: string; enabled: boolean }
   | { kind: "stop-live" };
 
-export default function GlobalReelsooControlPage() {
+export default function GlobalTeezerControlPage() {
   const qc = useQueryClient();
   const [activeTab, setActiveTab] = useState<string>("all");
   const [query, setQuery] = useState("");

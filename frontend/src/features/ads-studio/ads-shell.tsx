@@ -59,7 +59,7 @@ function Avatar({ src, name, size = 34 }: { src?: string | null; name?: string; 
   );
 }
 
-/* ── Logged-out gate: unified Reelsoo SSO + two-option auth on the ads domain ── */
+/* ── Logged-out gate: unified Teezer SSO + two-option auth on the ads domain ── */
 function LoginGate() {
   return (
     <main className="min-h-screen bg-[#f8f9fb] px-4 py-10">

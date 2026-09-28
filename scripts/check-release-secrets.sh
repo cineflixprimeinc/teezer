@@ -60,8 +60,8 @@ if [[ -f "$TARGET" ]]; then
     tar -xzf "$TARGET" -C "$workdir"
     ROOT="$workdir"
 
-    # The release archive wraps everything in a single reelsoo-<version>/
-    # directory, so after extraction the tree is $workdir/reelsoo-1.0.0/server/...
+    # The release archive wraps everything in a single teezer-<version>/
+    # directory, so after extraction the tree is $workdir/teezer-1.0.0/server/...
     # and NOT $workdir/server/... . Descend into it.
     #
     # This is not cosmetic. Every `[[ -e "$ROOT/<path>" ]]` check below - which
@@ -207,7 +207,7 @@ for path in \
     'server/app/Licensing/Support/DomainNormalizer.php' \
     'server/resources/licensing/public.pem' \
     'server/.env.example' \
-    'bin/reelsoo'
+    'bin/teezer'
 do
     if [[ -e "$ROOT/$path" ]]; then
         pass "$path"

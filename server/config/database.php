@@ -119,12 +119,12 @@ return [
         |--------------------------------------------------------------------------
         | analytics - the ClickHouse event stream, UNPREFIXED
         |--------------------------------------------------------------------------
-        | Laravel prefixes every Redis key with 'reelsoo_database_'. That is fine for
+        | Laravel prefixes every Redis key with 'teezer_database_'. That is fine for
         | keys only Laravel reads, but this stream is written by PHP and consumed by
         | the GO backend (backend-go/internal/clickhouse/drain.go), which is not a
         | Laravel app and knows nothing about the prefix.
         |
-        | Without this connection, PHP writes 'reelsoo_database_analytics:events' and
+        | Without this connection, PHP writes 'teezer_database_analytics:events' and
         | Go reads 'analytics:events' - two different keys. Nothing errors: phpredis
         | happily XADDs to the prefixed key and reports success, Go sits on an empty
         | stream, and the events simply pile up in Redis until MAXLEN trims them away.

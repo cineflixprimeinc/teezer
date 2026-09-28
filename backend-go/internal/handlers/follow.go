@@ -25,10 +25,10 @@ import (
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 
-	"reelsoo/backend-go/internal/auth"
-	"reelsoo/backend-go/internal/events"
-	"reelsoo/backend-go/internal/ratelimit"
-	"reelsoo/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/auth"
+	"teezer/backend-go/internal/events"
+	"teezer/backend-go/internal/ratelimit"
+	"teezer/backend-go/internal/sqlc"
 )
 
 // Matches Laravel's throttle:follow-action (AppServiceProvider.php:

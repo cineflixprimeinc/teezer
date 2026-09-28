@@ -1,4 +1,4 @@
-// Package knowledge serves cached Wikipedia summaries for Reelsoo surfaces
+// Package knowledge serves cached Wikipedia summaries for Teezer surfaces
 // (search, hashtag, location, video "learn more").
 //
 // The whole design exists to answer one constraint: Wikimedia must be called
@@ -26,10 +26,10 @@ import (
 	"github.com/jackc/pgx/v5/pgtype"
 	"golang.org/x/sync/singleflight"
 
-	"reelsoo/backend-go/internal/breaker"
-	"reelsoo/backend-go/internal/ratelimit"
-	"reelsoo/backend-go/internal/sqlc"
-	"reelsoo/backend-go/internal/wikipedia"
+	"teezer/backend-go/internal/breaker"
+	"teezer/backend-go/internal/ratelimit"
+	"teezer/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/wikipedia"
 )
 
 const (

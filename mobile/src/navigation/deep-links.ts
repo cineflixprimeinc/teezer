@@ -6,7 +6,7 @@ import type { RootStackParamList } from "./types";
 /**
  * The one place a URL becomes a destination.
  *
- * Every way a link can arrive - a shared https://reelsoo.com/... link, a tapped
+ * Every way a link can arrive - a shared https://teezer.live/... link, a tapped
  * push notification, a row in the in-app notification list - goes through this
  * module. No screen parses a URL, and no caller decides where a notification
  * leads; they hand over a path and get back a target.
@@ -165,7 +165,7 @@ const RULES: Rule[] = [
 
 /**
  * Reduce a full URL to its path. Accepts every shape a link can arrive in:
- * https://reelsoo.com/x, reelsoo://x, exp://192.168.1.2:8081/--/x, or /x.
+ * https://teezer.live/x, teezer://x, exp://192.168.1.2:8081/--/x, or /x.
  */
 export function pathFromUrl(input: string): string {
   if (!input) return "/";

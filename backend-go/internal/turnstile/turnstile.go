@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"reelsoo/backend-go/internal/breaker"
+	"teezer/backend-go/internal/breaker"
 )
 
 const verifyURL = "https://challenges.cloudflare.com/turnstile/v0/siteverify"

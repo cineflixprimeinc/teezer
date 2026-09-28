@@ -12,7 +12,7 @@ import { Table, Thead, Th, Tbody, Tr, Td, TableEmpty, TableLoading } from "@/com
 import { api, apiMessage } from "@/services/api";
 
 /**
- * Reelsoo Shop → Promo Banners.
+ * Teezer Shop → Promo Banners.
  *
  * The Shop marketplace home's promo carousel. A banner can be pure
  * gradient + copy (image optional) - see ShopPromoBanner's own doc comment.

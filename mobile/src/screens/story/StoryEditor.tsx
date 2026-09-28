@@ -285,7 +285,7 @@ export function StoryEditor({
   });
 
   /* "Sticker" is this rail's label for the real emoji-overlay tool - not a
-     separate, still-unbuilt sticker system. Reelsoo doesn't have a distinct
+     separate, still-unbuilt sticker system. Teezer doesn't have a distinct
      sticker asset set, and emoji already are the sticker-like thing this app
      can actually place and persist, so the working tool takes the slot
      rather than sitting beside a second, fake one. Effects/Filters are

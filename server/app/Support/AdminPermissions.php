@@ -165,7 +165,7 @@ class AdminPermissions
                 self::MANAGE_LICENSES             => ['label' => 'Manage marketplace licences', 'sensitive' => true],
             ]],
 
-            // Global Reelsoo Control: platform-wide capability kill switches.
+            // Global Teezer Control: platform-wide capability kill switches.
             // '.edit' is the coarse gate every editor needs; the per-category
             // keys below it are checked additionally by
             // AdminGlobalControlsController for the matching control category,

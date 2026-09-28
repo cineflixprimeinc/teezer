@@ -22,8 +22,8 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/jackc/pgx/v5/pgtype"
 
-	"reelsoo/backend-go/internal/auth"
-	"reelsoo/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/auth"
+	"teezer/backend-go/internal/sqlc"
 )
 
 type NotificationsHandler struct {
@@ -184,7 +184,7 @@ var profileLinkTypes = map[string]bool{
 	"profile_view":            true,
 }
 
-// systemLinkTypes are Reelsoo talking to the user; they open the notice itself.
+// systemLinkTypes are Teezer talking to the user; they open the notice itself.
 // Mirrors DeepLinkService::SYSTEM_TYPES.
 var systemLinkTypes = map[string]bool{
 	"system":                    true,

@@ -29,7 +29,7 @@ return new class extends Migration
                 ['slug' => 'terms',       'title' => 'Terms of Service',       'content' => '', 'is_published' => true,  'locale' => 'en', 'created_at' => now(), 'updated_at' => now()],
                 ['slug' => 'privacy',     'title' => 'Privacy Policy',         'content' => '', 'is_published' => true,  'locale' => 'en', 'created_at' => now(), 'updated_at' => now()],
                 ['slug' => 'guidelines',  'title' => 'Community Guidelines',   'content' => '', 'is_published' => true,  'locale' => 'en', 'created_at' => now(), 'updated_at' => now()],
-                ['slug' => 'about',       'title' => 'About Reelsoo',          'content' => '', 'is_published' => true,  'locale' => 'en', 'created_at' => now(), 'updated_at' => now()],
+                ['slug' => 'about',       'title' => 'About Teezer',          'content' => '', 'is_published' => true,  'locale' => 'en', 'created_at' => now(), 'updated_at' => now()],
                 ['slug' => 'help',        'title' => 'Help Center',            'content' => '', 'is_published' => false, 'locale' => 'en', 'created_at' => now(), 'updated_at' => now()],
             ]);
         }

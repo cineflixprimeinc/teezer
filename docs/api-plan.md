@@ -1,4 +1,4 @@
-# Reelsoo - API Plan
+# Teezer - API Plan
 
 > **Scope:** This document covers only the REST API consumed by the Flutter mobile app.  
 > The web dashboard uses standard Laravel web routes with session auth - those are documented in `role-based-login-plan.md`.
@@ -10,7 +10,7 @@
 | Environment | Base URL |
 |---|---|
 | Local development | `http://192.168.x.x:8000/api/v1` |
-| Production (VPS) | `https://api.reelsoo.com/api/v1` |
+| Production (VPS) | `https://api.teezer.live/api/v1` |
 
 ---
 
@@ -47,7 +47,7 @@ X-App-Version: 1.0.0
         "request_verification",
         "view_monetization"
       ],
-      "avatar": "https://media.reelsoo.com/images/2026/05/uuid.jpg",
+      "avatar": "https://media.teezer.live/images/2026/05/uuid.jpg",
       "is_verified": true,
       "email_verified_at": "2025-05-24T10:30:00+00:00",
       "profile": {
@@ -90,7 +90,7 @@ The Flutter app stores this token in `SharedPreferences` and sends it with every
     "per_page": 15,
     "total": 128,
     "last_page": 9,
-    "next_page_url": "https://api.reelsoo.com/api/v1/videos/feed?page=2"
+    "next_page_url": "https://api.teezer.live/api/v1/videos/feed?page=2"
   }
 }
 ```
@@ -228,7 +228,7 @@ On success: revokes all existing tokens and returns a new token. Requires `curre
 }
 ```
 
-**POST `/profile/avatar`** - `multipart/form-data`, field: `avatar` (image file, max 5MB). Stored in R2 under `images/YYYY/MM/uuid.ext`. Response includes the full CDN URL (`https://media.reelsoo.com/...`).
+**POST `/profile/avatar`** - `multipart/form-data`, field: `avatar` (image file, max 5MB). Stored in R2 under `images/YYYY/MM/uuid.ext`. Response includes the full CDN URL (`https://media.teezer.live/...`).
 
 ---
 
@@ -273,7 +273,7 @@ On success: revokes all existing tokens and returns a new token. Requires `curre
 video             [file]         Required. mp4/mov/webm, max 500MB. Uploaded to Cloudflare R2.
 thumbnail         [file]         Optional. jpg/png, max 5MB. Uploaded to Cloudflare R2.
 caption           string         Max 2200 chars
-hashtags[]        string array   e.g. ["goodvibes","reelsoo"]
+hashtags[]        string array   e.g. ["goodvibes","teezer"]
 audio_track_id    integer        Optional
 custom_audio_name string         Optional (if no audio_track_id)
 status            string         'published'|'draft'|'private'
@@ -283,13 +283,13 @@ allow_stitch      boolean        Default true
 scheduled_at      datetime       Optional ISO 8601, for scheduled posts
 ```
 
-> MySQL stores the R2 object key (e.g. `videos/2026/05/uuid.mp4`). The API response expands keys to full CDN URLs (`https://media.reelsoo.com/...`). Response also includes `mime_type` and `file_size`.
+> MySQL stores the R2 object key (e.g. `videos/2026/05/uuid.mp4`). The API response expands keys to full CDN URLs (`https://media.teezer.live/...`). Response also includes `mime_type` and `file_size`.
 
 **PUT `/videos/{id}` body:**
 ```json
 {
   "caption": "Updated caption ✨",
-  "hashtags": ["updated","reelsoo"],
+  "hashtags": ["updated","teezer"],
   "status": "published",
   "allow_comments": true
 }

@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"reelsoo/backend-go/internal/breaker"
+	"teezer/backend-go/internal/breaker"
 	"time"
 )
 
@@ -44,7 +44,7 @@ type Config struct {
 	TurnstileBreaker breaker.Tuning
 
 	// ClickHouseDSN points at the analytics event store, e.g.
-	// clickhouse://reelsoo:pass@127.0.0.1:9000/reelsoo.
+	// clickhouse://teezer:pass@127.0.0.1:9000/teezer.
 	//
 	// Empty => analytics ingestion is DISABLED and the backend behaves exactly as
 	// it did before ClickHouse existed (Postgres-only). This is the kill switch:

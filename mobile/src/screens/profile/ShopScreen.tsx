@@ -68,7 +68,7 @@ import type { RootStackParamList } from "@/navigation/types";
  *  the previous static noproducts.svg at this one call site. */
 const NO_PRODUCTS_ANIMATION = require("../../assets/NOPRODUCTSYET.json");
 
-/** One icon per category slug, for the carousel - a Reelsoo Shop currently
+/** One icon per category slug, for the carousel - a Teezer Shop currently
  *  ships ~20 platform categories (see the shop_categories seed migrations);
  *  Tag is the fallback for any future one added without a matching icon. */
 const CATEGORY_ICONS: Record<string, LucideIcon> = {

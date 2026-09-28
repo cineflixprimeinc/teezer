@@ -1,6 +1,6 @@
 # Admin Panel Design Reference Catalog
 
-This folder holds all UI design reference screenshots and mockups for the Reelsoo admin panel.
+This folder holds all UI design reference screenshots and mockups for the Teezer admin panel.
 Place your design files here and update the catalog below.
 
 ## Folder Structure

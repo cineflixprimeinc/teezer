@@ -36,7 +36,7 @@ export type SellerProductPage = Paginated<SellerProduct> & { meta: { low_stock_c
 
 export const shopInventoryApi = {
   // `search`/`activeOnly` are additive - also used by the "Add link" ->
-  // Reelsoo Product picker (PostCameraScreenImpl) to search the same
+  // Teezer Product picker (PostCameraScreenImpl) to search the same
   // seller's own products and show only ones that can actually be
   // attached to a post (see myProducts's own comment for why - omitted,
   // both default to the original unfiltered/unsearched behavior Shop

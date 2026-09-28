@@ -18,7 +18,7 @@ interface PolicyRow {
   url: string;
 }
 
-/* Every Reelsoo policy, line by line. Each row opens its own dedicated live
+/* Every Teezer policy, line by line. Each row opens its own dedicated live
    policy page in the in-app viewer, so nothing here can go stale. */
 const SECTIONS: { title: string; rows: PolicyRow[] }[] = [
   {
@@ -60,7 +60,7 @@ const SECTIONS: { title: string; rows: PolicyRow[] }[] = [
 ];
 
 /**
- * All Reelsoo policies in one place - opened from the three-dot menu's
+ * All Teezer policies in one place - opened from the three-dot menu's
  * Community Guidelines row. Every row opens the live website page (or the
  * exact policy section) in the in-app viewer, so nothing here can go stale.
  */

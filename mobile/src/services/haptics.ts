@@ -1,7 +1,7 @@
 import { Platform } from "react-native";
 
 /**
- * Reelsoo's haptics.
+ * Teezer's haptics.
  *
  * One place that touches the native module, so the rest of the app asks for a
  * MEANING - "this was a selection", "that failed" - and never for a waveform.

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * One purchase against a Shop, paid in the product's own currency (never
- * Reelsoo Coins) - see the 2026_08_19_000007 migration's own docblock for why
+ * Teezer Coins) - see the 2026_08_19_000007 migration's own docblock for why
  * this is a parallel system to CoinOrder rather than built on it.
  */
 class ShopOrder extends Model

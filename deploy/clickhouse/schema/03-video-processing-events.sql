@@ -1,5 +1,5 @@
 -- Teezer ClickHouse - video processing pipeline events (api.video primary /
--- ffmpeg fallback). A SEPARATE table from reelsoo.events (01-events.sql) on
+-- ffmpeg fallback). A SEPARATE table from teezer.events (01-events.sql) on
 -- purpose: that table's schema is fixed to ENGAGEMENT analytics
 -- (watch_seconds, completion_pct, delta, country, device_type, ...) - real
 -- columns for a real, different concern. Operational pipeline events
@@ -7,15 +7,15 @@
 -- without either bending it or leaving most of it empty on every row, so
 -- this is a small table of its own instead.
 --
--- Transport mirrors reelsoo.events exactly: Laravel pushes to a Redis stream
+-- Transport mirrors teezer.events exactly: Laravel pushes to a Redis stream
 -- (ProcessingEventStream::push -> "video_processing:events"), a Go Drainer
 -- reads it into this table's own batching Writer. See
 -- backend-go/internal/clickhouse/processing_*.go. PHP never opens an INSERT
 -- against ClickHouse, same rule as the engagement pipeline.
 
-CREATE DATABASE IF NOT EXISTS reelsoo;
+CREATE DATABASE IF NOT EXISTS teezer;
 
-CREATE TABLE IF NOT EXISTS reelsoo.video_processing_events
+CREATE TABLE IF NOT EXISTS teezer.video_processing_events
 (
     event_time      DateTime64(3, 'UTC'),
     event_date      Date MATERIALIZED toDate(event_time),
@@ -47,6 +47,6 @@ ORDER BY (video_id, event_type, event_time)
 -- 90 days: this data answers "why did this video's processing behave the way
 -- it did" and feeds the FFMPEG_FALLBACK_RATE / success-rate monitoring - an
 -- operational/debugging horizon, not the 13-month engagement-analytics
--- retention reelsoo.events uses for year-over-year comparisons.
+-- retention teezer.events uses for year-over-year comparisons.
 TTL toDateTime(event_time) + INTERVAL 90 DAY DELETE
 SETTINGS index_granularity = 8192;

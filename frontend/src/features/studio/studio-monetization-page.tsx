@@ -148,7 +148,7 @@ function RevenueChart({ daily }: { daily: Array<{ date: string; amount: number }
 }
 
 const SRC_COLORS = ["#fd4605", "#1d8cff", "#8b5cf6", "#22c55e", "#f97316", "#a855f7"];
-// "Sell on Reelsoo" matches the programme's own label (studio-programmes.ts /
+// "Sell on Teezer" matches the programme's own label (studio-programmes.ts /
 // CreatorEarning::sourceLabelMap()), so a Shop sale is named identically
 // everywhere it shows up.
 const SRC_LABELS = ["Short Video Ads", "Live Gifts", "Subscriptions", "Brand Collabs", "Series Earnings", "Sell on Teezer"];

@@ -16,7 +16,7 @@ import type { RootStackParamList } from "@/navigation/types";
  * A single product's page - opened from a shop's product grid
  * (ShopScreen.tsx's ProductCard, previously undecorated/unpressable).
  *
- * "Buy Now" hands off to the web checkout (reelsoo.com/shop/checkout/{id}),
+ * "Buy Now" hands off to the web checkout (teezer.live/shop/checkout/{id}),
  * same reasoning and same pattern as coins' web hand-off in
  * StudioWalletsSection.tsx: no Stripe/Razorpay SDK exists in this app, and
  * Shop products are physical/digital goods, not "digital content" under

@@ -6,7 +6,7 @@ import {
   type PanGestureHandlerGestureEvent,
   type PanGestureHandlerStateChangeEvent,
 } from "react-native-gesture-handler";
-import type { ReelsooPlayer } from "@/playback/types";
+import type { TeezerPlayer } from "@/playback/types";
 import { ds } from "@/theme/design";
 
 /**
@@ -63,7 +63,7 @@ export const FeedProgressBar = forwardRef<
     /** Null before FeedVideoPlayer reports one back (or in Expo Go, or on a
      *  device where the native module failed to load) - the bar simply has
      *  nothing to scrub against yet, so every effect/handler below no-ops. */
-    player: ReelsooPlayer | null;
+    player: TeezerPlayer | null;
     active: boolean;
     bottomInset?: number;
     onScrubbingChange?: (scrubbing: boolean) => void;

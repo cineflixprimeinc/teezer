@@ -116,7 +116,7 @@ function SendGlyph() {
 /** The one heart path this app already uses for "like/love" everywhere else
  *  (ChatScreen's own double-tap-heart burst) - reused here rather than a
  *  second heart drawn from scratch, so the standalone like action beside the
- *  reply bar reads as the same glyph as the rest of Reelsoo. Always outline,
+ *  reply bar reads as the same glyph as the rest of Teezer. Always outline,
  *  never a persistent "filled" state - a story reaction has no per-viewer
  *  "you already liked this" field to reflect (react() is a fire-and-forget
  *  event, same as every quick-reaction emoji below), so the tap feedback is

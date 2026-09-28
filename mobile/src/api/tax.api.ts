@@ -3,7 +3,7 @@ import type { TaxForm, TaxFormType } from "@/store/tax-forms.store";
 
 /**
  * Creator tax forms API - the real, production endpoints backing
- * Reelsoo Studio → Settings → Tax Information → Tax Forms.
+ * Teezer Studio → Settings → Tax Information → Tax Forms.
  * Forms are per-user; the server only ever returns the caller's own forms.
  */
 

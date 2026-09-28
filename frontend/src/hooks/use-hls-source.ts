@@ -17,7 +17,7 @@ export { preloadHls };
  * ladder cannot be played at all.
  *
  * The implementation now lives in lib/playback/attach-source.ts, shared with the
- * ReelsooPlayer web adapter. This hook's signature and behaviour are unchanged -
+ * TeezerPlayer web adapter. This hook's signature and behaviour are unchanged -
  * it is the React-lifecycle wrapper, nothing more.
  */
 export function useHlsSource(

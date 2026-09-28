@@ -1,4 +1,4 @@
-# Reelsoo - Database Plan
+# Teezer - Database Plan
 
 > **Engine:** MySQL 8.0  
 > **Charset:** `utf8mb4`  
@@ -375,7 +375,7 @@ UNIQUE(user_id, device_token)
 id                BIGINT UNSIGNED   PK AUTO_INCREMENT
 user_id           BIGINT UNSIGNED   NOT NULL  FK → users.id (cascade delete)
 category          VARCHAR(100)      NULL      -- 'creator', 'public_figure', 'business', 'organization'
-document_url      VARCHAR(500)      NULL      -- full CDN URL (https://media.reelsoo.com/...)
+document_url      VARCHAR(500)      NULL      -- full CDN URL (https://media.teezer.live/...)
 document_key      VARCHAR(500)      NULL      -- R2 object key for deletion / presigned access
 reason            TEXT              NULL
 status            ENUM('pending','approved','rejected')  DEFAULT 'pending'

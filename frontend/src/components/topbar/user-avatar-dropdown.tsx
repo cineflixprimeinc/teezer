@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useAuthStore } from "@/store/auth.store";
 import { useHydrated } from "@/hooks/use-hydrated";
-import type { ReelsooUser } from "@/types/user";
+import type { TeezerUser } from "@/types/user";
 
 type SavedAccount = {
   id: number;
@@ -22,7 +22,7 @@ type SavedAccount = {
   lastUsed: number;
 };
 
-function UserAvatar({ user, size }: { user: ReelsooUser | null; size: number }) {
+function UserAvatar({ user, size }: { user: TeezerUser | null; size: number }) {
   const src     = user?.avatar ?? null;
   const initial = (user?.name?.[0] ?? user?.username?.[0] ?? "U").toUpperCase();
   const fontSize = Math.round(size * 0.38);
@@ -70,7 +70,7 @@ export function UserAvatarDropdown() {
   /* Seed current account into saved list when dropdown opens */
   useEffect(() => {
     if (!open || !isAuthenticated || !user) return;
-    const token = typeof window !== "undefined" ? window.localStorage.getItem("reelsoo_token") : null;
+    const token = typeof window !== "undefined" ? window.localStorage.getItem("teezer_token") : null;
     if (token) {
       addAccountToSaved({
         id: user.id as number,

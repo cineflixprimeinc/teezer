@@ -193,7 +193,7 @@ function BoostHint() {
 const INBOX_SLICE = 3;
 const SLICES = 5;
 
-export function ReelsooTabBar({ state, navigation, onCreate, inboxBadge }: BottomTabBarProps & {
+export function TeezerTabBar({ state, navigation, onCreate, inboxBadge }: BottomTabBarProps & {
   onCreate?: () => void;
   /** Override for the computed count. Normally omitted - the bar reads it. */
   inboxBadge?: number;

@@ -17,8 +17,8 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 
-	"reelsoo/backend-go/internal/auth"
-	"reelsoo/backend-go/internal/sqlc"
+	"teezer/backend-go/internal/auth"
+	"teezer/backend-go/internal/sqlc"
 )
 
 type AccountHandler struct {
