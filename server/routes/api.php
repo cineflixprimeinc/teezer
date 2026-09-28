@@ -647,7 +647,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
             Route::post('/logout',              [ApiAuthController::class, 'logout'])->name('logout');
             Route::post('/logout-all',          [ApiAuthController::class, 'logoutAll'])->name('logout-all');
             // Tight limit: the current password is being checked, so cap guesses.
-            Route::post('/change-password',     [ApiAuthController::class, 'changePassword'])->middleware('throttle:6,1')->name('change-password');
+            Route::post('/change-password',     [ApiAuthController::class, 'changePassword'])->middleware('throttle:change-password')->name('change-password');
             Route::post('/resend-verification', [ApiAuthController::class, 'resendVerification'])->name('resend-verification');
             // Establish the shared SSO cookie for a pre-existing Bearer session.
             Route::post('/sso/promote',         [\App\Http\Controllers\Api\Auth\SsoController::class, 'promote'])->middleware('throttle:20,1')->name('sso.promote');

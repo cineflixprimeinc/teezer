@@ -487,6 +487,16 @@ class AppServiceProvider extends ServiceProvider
 
     private function configureRateLimiters(): void
     {
+        // Change password: caps guesses at the CURRENT password. A named limiter
+        // with its own key - a plain `throttle:N,1` keys on the user id alone and
+        // shares that bucket with every other throttled route, so ordinary
+        // browsing would use it up and block legitimate password changes.
+        RateLimiter::for('change-password', function (Request $request) {
+            return Limit::perMinute(6)->by('pwchange:' . ($request->user()?->id ?? $request->ip()))->response(fn () =>
+                response()->json(['success' => false, 'message' => 'Too many attempts. Please wait a minute and try again.'], 429)
+            );
+        });
+
         // Login: 5 attempts per minute per account, 10 per minute per IP
         //
         // SECURITY/BUG: this read $request->input('email', '') - but
