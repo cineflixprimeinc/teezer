@@ -111,10 +111,9 @@ function LoginContent() {
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="mb-8 flex flex-col items-center text-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fd4605] text-white text-2xl font-black shadow-lg shadow-[#fd4605]/30">
-            R
-          </div>
-          <h1 className="mt-5 text-2xl font-bold text-white">Admin Panel</h1>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/icon.png" alt="Teezer" className="h-14 w-14 rounded-2xl shadow-lg shadow-[#fd4605]/30" />
+          <h1 className="mt-5 text-2xl font-bold text-white">Teezer Admin</h1>
           <p className="mt-1.5 text-sm text-slate-400">Restricted access - admins only</p>
         </div>
 
